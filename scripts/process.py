@@ -229,7 +229,7 @@ def download_slot_files(slots: list[tuple[str, str]], tmpdir: Path) -> list[tupl
     return out
 
 
-def call_claude(prompt: str, cwd: str | None = None, timeout: int = 180) -> str:
+def call_claude(prompt: str, cwd: str | None = None, timeout: int = 300) -> str:
     r = subprocess.run(["claude", "-p", prompt],
                        capture_output=True, text=True, cwd=cwd, timeout=timeout)
     if r.returncode != 0:

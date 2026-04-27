@@ -2,17 +2,32 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="사회조사분석사·공인중개사·정보처리기사 기출문제를 모바일에서 풀이하고 AI 보강 해설로 학습하는 무료 PWA. 회차별 진도, 즐겨찾기, 오답노트 지원.">
+<meta name="keywords" content="기출문제,사회조사분석사,공인중개사,정보처리기사,자격증,CBT,학습앱,PWA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="기출 CBT · 자격증 학습">
+<meta property="og:description" content="기출문제를 모바일에서 풀이하고 AI 보강 해설로 학습하는 무료 PWA. 광고 외에는 로그인·서버·트래킹 없음.">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="기출 CBT · 자격증 학습">
+<meta name="twitter:description" content="기출문제 모바일 학습 PWA">
 <meta name="theme-color" content="#f5ebd9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151210" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="조분2급">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon.svg">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>사회조사분석사 2급 · 기출</title>
+<meta name="apple-mobile-web-app-title" content="기출CBT">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<title>기출 CBT · 자격증 학습</title>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +101,9 @@
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-html { background: var(--paper); }
+html { background: var(--paper); --read-scale: 1; }
+html[data-fs="sm"] { --read-scale: 0.92; }
+html[data-fs="lg"] { --read-scale: 1.18; }
 body {
   background: var(--paper);
   color: var(--ink);
@@ -342,11 +359,13 @@ a { color: inherit; text-decoration: none; }
   background: var(--paper-chip);
   border-radius: 14px;
   display: grid; place-items: center;
-  font-family: var(--serif);
-  font-size: 26px;
+  font-family: var(--sans);
+  font-size: 12px;
   font-weight: 700;
   color: var(--vermilion);
-  letter-spacing: 0;
+  letter-spacing: -.02em;
+  text-align: center;
+  line-height: 1.05;
 }
 .row.exam-row { min-height: 72px; grid-template-columns: 64px 1fr auto; }
 .row.exam-row .row-title { font-size: 17px; }
@@ -386,6 +405,36 @@ a { color: inherit; text-decoration: none; }
 }
 .pill.done { background: color-mix(in srgb, var(--jade) 22%, var(--paper-chip)); color: var(--jade); }
 .pill.active { background: color-mix(in srgb, var(--vermilion) 20%, var(--paper-chip)); color: var(--vermilion); }
+.pill.warn { background: color-mix(in srgb, var(--seal) 25%, var(--paper-chip)); color: var(--seal); }
+.subj-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 4px 12px; border-bottom: 1px solid var(--paper-edge); margin-bottom: 12px; }
+.subj-chips .chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--paper-chip);
+  font-size: 12px;
+  color: var(--ink);
+}
+.subj-chips .chip:active { transform: scale(.96); }
+
+.search-bar {
+  display: flex; align-items: center; gap: 8px;
+  margin: 8px 16px 12px;
+}
+.search-bar input[type="search"] {
+  flex: 1; min-width: 0;
+  padding: 10px 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-md);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  -webkit-appearance: none; appearance: none;
+}
+.search-bar input[type="search"]::placeholder { color: var(--ink-faint); }
+.search-bar .seg button { font-size: 11px; padding: 6px 10px; }
+.empty { padding: 32px 16px; text-align: center; color: var(--ink-mute); font-size: 13px; }
 .chev {
   width: 14px; height: 14px;
   color: var(--ink-faint);
@@ -477,6 +526,24 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+.nav-actions { display: flex; align-items: center; gap: 0; justify-content: flex-end; }
+.nav-actions .icon-btn { width: 40px; height: 40px; }
+.nav-actions .icon-btn svg { width: 20px; height: 20px; }
+#quizNav { grid-template-columns: 56px 1fr auto; padding-right: 8px; }
+.quiz-timer {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--vermilion);
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--vermilion) 12%, transparent);
+  margin-right: 4px;
+  min-width: 48px;
+  text-align: center;
+}
+.quiz-timer.warn { animation: timer-pulse 0.8s var(--ease) infinite; }
+@keyframes timer-pulse { 50% { opacity: .55; } }
 
 .mode-switch {
   display: inline-flex;
@@ -569,13 +636,16 @@ a { color: inherit; text-decoration: none; }
 }
 .qbody {
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: calc(20px * var(--read-scale));
   line-height: 1.55;
   color: var(--ink);
   word-break: keep-all;
   margin-bottom: 18px;
   white-space: pre-wrap;
 }
+.choice .body { font-size: calc(15px * var(--read-scale)); }
+.explain-detailed, .explain-basic { font-size: calc(14px * var(--read-scale)); }
+.extra { font-size: calc(14px * var(--read-scale)); }
 .qimg {
   margin: 6px 0 18px;
   padding: 14px;
@@ -1027,6 +1097,29 @@ pre.code {
 }
 .toast.show { opacity: 1; }
 
+.toast-action {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 96px);
+  left: 50%; transform: translate(-50%, 12px);
+  padding: 10px 8px 10px 18px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); font-size: 14px;
+  border-radius: 999px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s var(--spring);
+  z-index: 90;
+  max-width: calc(100vw - 32px);
+}
+.toast-action.show { opacity: 1; transform: translate(-50%, 0); }
+.toast-action button {
+  background: var(--vermilion); color: var(--paper);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+}
+
 /* Completion card */
 .complete {
   margin: 24px 16px;
@@ -1041,6 +1134,37 @@ pre.code {
 .complete h2 { font-family: var(--serif); margin: 12px 0 6px; font-size: 24px; }
 .complete .score { font-family: var(--mono); font-size: 40px; font-weight: 700; color: var(--ink); }
 .complete .rate  { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: .14em; margin-top: 6px; }
+
+/* Completion sheet */
+.completion { padding: 8px 4px 24px; text-align: center; }
+.completion .comp-pct { font-family: var(--serif); font-size: 64px; font-weight: 700; color: var(--vermilion); line-height: 1; }
+.completion .comp-pct small { font-size: 28px; opacity: .7; margin-left: 4px; }
+.completion .comp-line { font-family: var(--sans); color: var(--ink-soft); margin: 8px 0 20px; }
+.completion .r-primary {
+  display: block; width: 100%;
+  padding: 14px;
+  background: var(--vermilion); color: var(--paper);
+  border-radius: var(--r-md);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.completion .comp-actions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.completion .r-soft {
+  padding: 12px 8px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-md);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+/* Ad slots */
+.ad-slot { text-align: center; padding: 8px 0; min-height: 50px; }
+.ad-slot-banner { margin: 8px 16px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 11px; font-family: var(--mono); letter-spacing: .08em; min-height: 90px; }
+.ad-slot-interstitial { position: fixed; inset: 0; z-index: 100; background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+.ad-slot-interstitial .ad-label { color: var(--ink-faint); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
+.ad-slot-interstitial .ad-container { width: 320px; min-height: 250px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 12px; }
+.ad-slot-interstitial .ad-close { margin-top: 12px; font-family: var(--sans); font-size: 14px; color: var(--vermilion); background: none; border: none; cursor: pointer; }
 
 /* Wider screens */
 @media (min-width: 720px) {
@@ -1063,8 +1187,36 @@ pre.code {
 /* ===================================================================
    기출 학습 앱 · 멀티 자격증 지원
    ================================================================== */
-const DATA = '../data/';
+const DATA = '/data/';
 const STORE = 'cbt.v2.';
+
+// AdSense — fill in after AdSense approval. Empty client disables ads entirely.
+const ADSENSE = {
+  client: '',                            // e.g. 'ca-pub-1234567890123456'
+  slots: { homeBanner: '', interstitial: '' },
+};
+let _adsLoaded = false;
+function loadAdSense(){
+  if (_adsLoaded || !ADSENSE.client) return;
+  _adsLoaded = true;
+  const s = document.createElement('script');
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE.client}`;
+  document.head.appendChild(s);
+}
+function adInsHTML(slot, opts={}){
+  if (!ADSENSE.client || !slot) return '';
+  const fmt = opts.format || 'auto';
+  const fullWidth = opts.fullWidth !== false;
+  return `<ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE.client}" data-ad-slot="${slot}" data-ad-format="${fmt}"${fullWidth?' data-full-width-responsive="true"':''}></ins>`;
+}
+function pushAd(rootEl){
+  if (!ADSENSE.client || !window.adsbygoogle) return;
+  const ins = rootEl?.querySelector('.adsbygoogle:not([data-adsbygoogle-status])');
+  if (!ins) return;
+  try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {}
+}
 
 const state = {
   exams: [],                  // [{code, name, sessions, questions, ...}]
@@ -1087,7 +1239,7 @@ function progressKey(examCode, sessionCode) { return `progress:${examCode}:${ses
 function progressFor(examCode, sessionCode) {
   return store.get(progressKey(examCode, sessionCode)) || { answers:{}, stars:[], wrongs:[], mode:'practice', last:0 };
 }
-function saveProgress(examCode, sessionCode, p) { store.set(progressKey(examCode, sessionCode), p); }
+function saveProgress(examCode, sessionCode, p) { store.set(progressKey(examCode, sessionCode), p); maybeAutoBackup(); }
 
 /* ---- theme ---- */
 (function(){
@@ -1101,6 +1253,28 @@ function setTheme(t){
 }
 function currentTheme(){
   return document.documentElement.getAttribute('data-theme') || 'system';
+}
+
+/* ---- font size ---- */
+(function(){
+  const fs = store.get('fontSize');
+  if (fs) document.documentElement.setAttribute('data-fs', fs);
+})();
+function setFontSize(fs){
+  if (fs === 'md') { document.documentElement.removeAttribute('data-fs'); store.del('fontSize'); }
+  else { document.documentElement.setAttribute('data-fs', fs); store.set('fontSize', fs); }
+}
+function currentFontSize(){
+  return document.documentElement.getAttribute('data-fs') || 'md';
+}
+
+/* ---- auto-backup (every 5min on writes) ---- */
+let _lastAutoBackup = 0;
+function maybeAutoBackup(){
+  const now = Date.now();
+  if (now - _lastAutoBackup < 5 * 60 * 1000) return;
+  _lastAutoBackup = now;
+  try { backupCurrent(); } catch {}
 }
 
 /* ---- data ---- */
@@ -1238,6 +1412,11 @@ const icons = {
   redo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>`,
   grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
   chev: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="chev"><path d="M9 18l6-6-6-6"/></svg>`,
+  share: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>`,
+  timer: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><polyline points="12 9 12 13 15 16"/><line x1="9" y1="2" x2="15" y2="2"/></svg>`,
+  search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  filter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`,
+  send: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
 };
 
 async function bootUI(){
@@ -1290,6 +1469,9 @@ async function renderHome(root){
         <h1>기출<br><em>연습장</em></h1>
       </div>
       <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
+      ${ADSENSE.client && ADSENSE.slots.homeBanner
+        ? `<div class="ad-slot ad-slot-banner" id="homeAd">${adInsHTML(ADSENSE.slots.homeBanner)}</div>`
+        : ''}
     </div>
   `;
   attachScrollShadow('homeScroll','nav');
@@ -1302,10 +1484,11 @@ async function renderHome(root){
     document.getElementById('examList').innerHTML = emptyCard('목록을 불러오지 못했어요',
       'data/exams.json을 확인해 주세요');
   }
+  pushAd(root);
 }
 
 function fillExamPicker(root, exams){
-  const examMark = { s2:'調', g1:'仲', g2:'仲', iz:'技' };
+  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기' };
   // per-exam answered count from localStorage
   const answeredFor = (code) => {
     let n = 0;
@@ -1347,6 +1530,7 @@ function fillExamPicker(root, exams){
    =================================================================== */
 async function openSessionList(examCode){
   state.currentExam = examCode;
+  if (!_navInternal) pushRoute({ type:'session', exam:examCode });
   const stack = document.getElementById('stack');
   const screen = document.createElement('section');
   screen.className = 'screen enter-right';
@@ -1443,6 +1627,7 @@ async function renderStars(root){
         <div class="kicker">BOOKMARKS</div>
         <h1>다시 볼<br>문제</h1>
       </div>
+      <div class="search-bar"><input type="search" id="starsSearch" placeholder="문제 키워드 검색" inputmode="search" autocomplete="off"></div>
       <div id="starsBody"></div>
     </div>
   `;
@@ -1457,7 +1642,16 @@ async function renderStars(root){
       $body.innerHTML = emptyCard('아직 저장된 문제가 없어요', '퀴즈 화면의 <b>☆ 북마크</b>로 문제를 추가하세요.');
       return;
     }
-    renderCollected($body, groups, '북마크');
+    const renderFiltered = (q) => {
+      const filtered = filterGroupsByQuery(groups, q);
+      if (!filtered.length) {
+        $body.innerHTML = emptyCard('검색 결과 없음', '');
+        return;
+      }
+      renderCollected($body, filtered, '북마크');
+    };
+    renderFiltered('');
+    bindSearch(root.querySelector('#starsSearch'), renderFiltered);
   } catch {}
 }
 
@@ -1476,6 +1670,13 @@ async function renderWrongs(root){
         <div class="kicker">WRONG ANSWERS</div>
         <h1>틀렸던<br>문제</h1>
       </div>
+      <div class="search-bar">
+        <input type="search" id="wrongsSearch" placeholder="문제 키워드 검색" inputmode="search" autocomplete="off">
+        <span class="seg" id="wrongsSort">
+          <button data-s="due" class="on">복습 우선</button>
+          <button data-s="recent">최근</button>
+        </span>
+      </div>
       <div id="wrongsBody"></div>
     </div>
   `;
@@ -1490,7 +1691,20 @@ async function renderWrongs(root){
       $body.innerHTML = emptyCard('오답이 없어요', '문제를 풀면 여기에 틀린 문항이 모입니다.');
       return;
     }
-    renderCollected($body, groups, '오답');
+    let sort = 'due', query = '';
+    const re = () => {
+      const filtered = filterGroupsByQuery(groups, query);
+      const sorted = sort === 'due' ? sortByForgettingCurve(filtered) : filtered;
+      renderCollected($body, sorted, '오답', { showDue: sort === 'due' });
+    };
+    re();
+    bindSearch(root.querySelector('#wrongsSearch'), q => { query = q; re(); });
+    root.querySelector('#wrongsSort').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      sort = b.dataset.s;
+      root.querySelectorAll('#wrongsSort button').forEach(x => x.classList.toggle('on', x.dataset.s === sort));
+      re();
+    });
   } catch {}
 }
 
@@ -1505,7 +1719,8 @@ function collectAcross(kind){
       groups.push({
         examCode: e.code, examName: e.name,
         code: s.code, date: s.date,
-        nums: list.slice().sort((a,b)=>a-b)
+        nums: list.slice().sort((a,b)=>a-b),
+        seenAt: p.seenAt || {},
       });
     }
   }
@@ -1513,26 +1728,93 @@ function collectAcross(kind){
   return groups.sort((a,b) => (a.examCode + a.code) < (b.examCode + b.code) ? 1 : -1);
 }
 
-function renderCollected($root, groups, kindLabel){
+function renderCollected($root, groups, kindLabel, opts = {}){
+  const showDue = opts.showDue;
   $root.innerHTML = groups.map(g => `
     <div class="section-head">
       <h3>${escapeHtml(g.examName)} · ${g.date}</h3>
       <span class="meta">${g.nums.length} ${kindLabel}</span>
     </div>
     <div class="group">
-      ${g.nums.map(n => `<button class="row" data-exam="${g.examCode}" data-code="${g.code}" data-num="${n}">
-        <span class="row-lead">${String(n).padStart(3,'0')}</span>
-        <span class="row-body">
-          <span class="row-title">${g.date.slice(2).replace(/-/g,'.')} · ${n}번</span>
-          <span class="row-sub">탭하여 바로 이동</span>
-        </span>
-        <span class="row-trail">${icons.chev}</span>
-      </button>`).join('')}
+      ${g.nums.map(n => {
+        const ts = g.seenAt?.[n];
+        const due = showDue ? dueLabel(ts) : '탭하여 바로 이동';
+        return `<button class="row" data-exam="${g.examCode}" data-code="${g.code}" data-num="${n}">
+          <span class="row-lead">${String(n).padStart(3,'0')}</span>
+          <span class="row-body">
+            <span class="row-title">${g.date.slice(2).replace(/-/g,'.')} · ${n}번</span>
+            <span class="row-sub">${escapeHtml(due)}</span>
+          </span>
+          <span class="row-trail">${icons.chev}</span>
+        </button>`;
+      }).join('')}
     </div>
   `).join('');
   $root.querySelectorAll('.row[data-exam]').forEach(el => {
     el.addEventListener('click', () => openQuiz(el.dataset.exam, el.dataset.code, +el.dataset.num - 1));
   });
+}
+
+function dueLabel(ts){
+  if (!ts) return '복습할 시간';
+  const days = (Date.now() - ts) / 86400000;
+  if (days < 1) return '오늘 풀이';
+  if (days < 2) return '어제 풀이';
+  if (days < 7) return `${Math.floor(days)}일 전`;
+  if (days < 30) return `${Math.floor(days/7)}주 전 — 복습 추천`;
+  return `${Math.floor(days/30)}개월 전 — 다시 복습`;
+}
+
+function bindSearch(input, onChange){
+  if (!input) return;
+  let t;
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => onChange(input.value.trim().toLowerCase()), 180);
+  });
+}
+
+function filterGroupsByQuery(groups, query){
+  if (!query) return groups;
+  // Lazy-search through cached session data only — no extra fetches for speed
+  const out = [];
+  for (const g of groups) {
+    const data = state.dataCache.get(`${g.examCode}:${g.code}`);
+    if (!data) {
+      // Not loaded — keep group but don't filter (acceptable trade-off)
+      out.push(g); continue;
+    }
+    const matchedNums = g.nums.filter(n => {
+      const q = data.questions.find(qq => qq.number === n);
+      if (!q) return false;
+      const text = ((q.question || '') + ' ' + (q.subject || '') +
+                    ' ' + (q.choices||[]).map(c => c.text || '').join(' ')).toLowerCase();
+      return text.includes(query);
+    });
+    if (matchedNums.length) out.push({ ...g, nums: matchedNums });
+  }
+  return out;
+}
+
+function sortByForgettingCurve(groups){
+  // Flatten, sort by oldest seenAt, regroup
+  const items = [];
+  for (const g of groups) {
+    for (const n of g.nums) {
+      items.push({ ...g, n, ts: g.seenAt?.[n] || 0 });
+    }
+  }
+  items.sort((a, b) => a.ts - b.ts);
+  const merged = new Map();
+  for (const it of items) {
+    const key = `${it.examCode}:${it.code}`;
+    if (!merged.has(key)) merged.set(key, { ...it, nums: [it.n] });
+    else merged.get(key).nums.push(it.n);
+  }
+  return [...merged.values()].map(g => ({
+    examCode: g.examCode, examName: g.examName, code: g.code, date: g.date,
+    nums: g.nums, seenAt: g.seenAt,
+  }));
 }
 
 /* ===================================================================
@@ -1564,6 +1846,26 @@ function renderSettings(root){
             </span>
           </span>
         </div>
+        <div class="row">
+          <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 7V5h16v2"/><path d="M9 5v14"/><path d="M15 5v14"/><path d="M7 19h4M13 19h4"/></svg></span>
+          <span class="row-body"><span class="row-title">글자 크기</span><span class="row-sub">읽기 편한 크기로</span></span>
+          <span class="row-trail">
+            <span class="seg" id="fontSeg">
+              <button data-fs="sm">작게</button>
+              <button data-fs="md">보통</button>
+              <button data-fs="lg">크게</button>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="section-head"><h3>학습</h3><span class="meta">STATS</span></div>
+      <div class="group">
+        <button class="row" id="statsBtn">
+          <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 3 5-7"/></svg></span>
+          <span class="row-body"><span class="row-title">학습 현황</span><span class="row-sub" id="statsSub">자격증·과목별 진도</span></span>
+          <span class="row-trail">${icons.chev}</span>
+        </button>
       </div>
 
       <div class="section-head"><h3>기기 간 동기화</h3><span class="meta">SYNC</span></div>
@@ -1604,6 +1906,15 @@ function renderSettings(root){
         </button>
       </div>
 
+      <div class="section-head"><h3>피드백</h3><span class="meta">FEEDBACK</span></div>
+      <div class="group">
+        <a class="row" id="feedbackBtn" href="mailto:lenon461@gmail.com?subject=%5B%EA%B8%B0%EC%B6%9CCBT%5D%20%EC%9D%98%EA%B2%AC%2F%EC%A0%9C%EB%B3%B4&body=%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0%2F%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%3A%20%0A%ED%95%B4%EB%8B%B9%20%EB%AC%B8%ED%95%AD%20URL%3A%20%0A%0A%5B%EB%82%B4%EC%9A%A9%5D%0A">
+          <span class="row-lead icon">${icons.send}</span>
+          <span class="row-body"><span class="row-title">의견 보내기</span><span class="row-sub">오류 신고 · 기능 제안</span></span>
+          <span class="row-trail">${icons.chev}</span>
+        </a>
+      </div>
+
       <div class="section-head"><h3>정보</h3><span class="meta">ABOUT</span></div>
       <div class="group">
         <div class="row">
@@ -1627,6 +1938,23 @@ function renderSettings(root){
     const b = e.target.closest('button'); if (!b) return;
     setTheme(b.dataset.t); markSeg();
   });
+
+  // wire font size segmented control
+  const fseg = root.querySelector('#fontSeg');
+  const markFs = () => fseg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.fs===currentFontSize()));
+  markFs();
+  fseg.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    setFontSize(b.dataset.fs); markFs();
+  });
+
+  // stats button
+  root.querySelector('#statsBtn').onclick = openStats;
+  const $statsSub = root.querySelector('#statsSub');
+  const stStats = computeLearnStats();
+  if ($statsSub && stStats.totalAnswered > 0) {
+    $statsSub.textContent = `정답률 ${stStats.accuracy}% · ${stStats.totalAnswered}문항 풀이`;
+  }
   // --- update export sub with stat preview
   const stats = computeStats();
   const $sub = root.querySelector('#exportSub');
@@ -1753,6 +2081,129 @@ function backupCurrent(){
   store.set('_backup', snap);
 }
 
+/* ---- learning stats (per-exam, per-subject) ---- */
+function computeLearnStats(){
+  const perExam = {};   // code → { answered, correct, wrong, sessions:Set }
+  const perSubject = {}; // examCode → subject → { answered, correct }
+  let totalAnswered = 0, totalCorrect = 0;
+  for (let i = 0; i < localStorage.length; i++){
+    const k = localStorage.key(i);
+    if (!k.startsWith(STORE + 'progress:')) continue;
+    const m = k.slice(STORE.length).match(/^progress:([^:]+):(.+)$/);
+    if (!m) continue;
+    const [, examCode, sessionCode] = m;
+    let v; try { v = JSON.parse(localStorage.getItem(k)); } catch { continue; }
+    perExam[examCode] = perExam[examCode] || { answered: 0, correct: 0, wrong: 0, sessionCodes: new Set() };
+    const ans = v.answers || {};
+    const wrongSet = new Set(v.wrongs || []);
+    for (const qNum of Object.keys(ans)) {
+      perExam[examCode].answered++;
+      const wrong = wrongSet.has(+qNum) || wrongSet.has(qNum);
+      if (wrong) perExam[examCode].wrong++; else perExam[examCode].correct++;
+      totalAnswered++;
+      if (!wrong) totalCorrect++;
+    }
+    perExam[examCode].sessionCodes.add(sessionCode);
+    // subject breakdown — needs the loaded session data; skip if not cached
+    const dataKey = `${examCode}:${sessionCode}`;
+    const data = state.dataCache.get(dataKey);
+    if (data) {
+      perSubject[examCode] = perSubject[examCode] || {};
+      for (const q of data.questions) {
+        const a = ans[q.number];
+        if (a == null) continue;
+        const subj = (q.subject || '기타').replace(/^\d+과목\s*:\s*/, '').trim() || '기타';
+        const s = perSubject[examCode][subj] = perSubject[examCode][subj] || { answered: 0, correct: 0 };
+        s.answered++;
+        if (a === q.answer) s.correct++;
+      }
+    }
+  }
+  const accuracy = totalAnswered ? Math.round(totalCorrect * 100 / totalAnswered) : 0;
+  return { perExam, perSubject, totalAnswered, totalCorrect, accuracy };
+}
+
+async function openStats(){
+  // Load all sessions of exams with progress to enable subject breakdown
+  const codes = Object.keys((function(){
+    const seen = {};
+    for (let i = 0; i < localStorage.length; i++){
+      const k = localStorage.key(i);
+      const m = k && k.startsWith(STORE + 'progress:') && k.slice(STORE.length).match(/^progress:([^:]+):(.+)$/);
+      if (m) seen[m[1]] = (seen[m[1]] || new Set()).add(m[2]);
+    }
+    return seen;
+  })());
+  await loadExams().catch(()=>{});
+  for (const code of codes) {
+    const sessSet = (function(){
+      const out = new Set();
+      for (let i = 0; i < localStorage.length; i++){
+        const k = localStorage.key(i);
+        const m = k && k.startsWith(STORE + 'progress:' + code + ':');
+        if (m) out.add(k.slice(STORE.length + ('progress:' + code + ':').length));
+      }
+      return out;
+    })();
+    for (const sc of sessSet) {
+      try { await loadSession(code, sc); } catch {}
+    }
+  }
+
+  const stack = document.getElementById('stack');
+  const screen = document.createElement('section');
+  screen.className = 'screen enter-right';
+  const st = computeLearnStats();
+  const examRows = state.exams.map(e => {
+    const x = st.perExam[e.code]; if (!x) return '';
+    const acc = x.answered ? Math.round(x.correct * 100 / x.answered) : 0;
+    return `<div class="row">
+      <span class="row-lead exam-mark">${({s2:'사조분',g1:'공인1',g2:'공인2',iz:'정처기'})[e.code] || '◐'}</span>
+      <span class="row-body"><span class="row-title">${escapeHtml(e.name)}</span>
+        <span class="row-sub">${x.sessionCodes.size}회차 · ${x.answered}문항 · 정답률 ${acc}%</span></span>
+      <span class="row-trail"><span class="pill ${acc>=70?'active':''}">${acc}%</span></span>
+    </div>`;
+  }).join('') || '<div class="empty">아직 풀이한 문항이 없어요</div>';
+
+  const subjectRows = Object.entries(st.perSubject).flatMap(([examCode, subs]) =>
+    Object.entries(subs).map(([subj, s]) => {
+      const acc = s.answered ? Math.round(s.correct * 100 / s.answered) : 0;
+      return `<div class="row">
+        <span class="row-lead">${({s2:'사조',g1:'공1',g2:'공2',iz:'정처'})[examCode] || ''}</span>
+        <span class="row-body"><span class="row-title" style="font-size:14px">${escapeHtml(subj)}</span>
+          <span class="row-sub">${s.answered}문항 · 정답 ${s.correct}</span></span>
+        <span class="row-trail"><span class="pill ${acc>=70?'active':acc<50?'warn':''}">${acc}%</span></span>
+      </div>`;
+    })
+  ).sort((a,b) => {
+    const m = (s) => +(s.match(/(\d+)%<\/span/)?.[1] || 100);
+    return m(a) - m(b);
+  }).join('');
+
+  screen.innerHTML = `
+    <header class="nav has-title" id="statsNav">
+      <button class="icon-btn" id="statsBack" aria-label="뒤로">${icons.back}</button>
+      <div class="nav-title">학습 현황</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="statsScroll">
+      <div class="large-title">
+        <div class="kicker">PERFORMANCE</div>
+        <h1>${st.accuracy}<small style="font-size:36px;opacity:.7">%</small></h1>
+        <div class="row-sub" style="text-align:center;margin-top:-12px">총 ${st.totalAnswered}문항 · 정답 ${st.totalCorrect}</div>
+      </div>
+      <div class="section-head"><h3>자격증별</h3></div>
+      <div class="group">${examRows}</div>
+      ${subjectRows ? `<div class="section-head"><h3>약점 과목 (정답률 낮은 순)</h3></div><div class="group">${subjectRows}</div>` : ''}
+    </div>
+  `;
+  stack.appendChild(screen);
+  attachScrollShadow('statsScroll', 'statsNav');
+  screen.querySelector('#statsBack').onclick = popScreen;
+  addEdgeBack(screen);
+  history.pushState({ type:'stats', depth: (history.state?.depth || 0)+1 }, '', '/stats');
+}
+
 function applyDump(dump, { mode }){
   // Returns stats of what changed.
   if (mode === 'replace'){
@@ -1835,6 +2286,7 @@ function openImportSheet(dump){
    QUIZ screen — push onto stack
    =================================================================== */
 async function openQuiz(examCode, sessionCode, startIdx){
+  if (!_navInternal) pushRoute({ type:'quiz', exam:examCode, session:sessionCode });
   document.getElementById('shell').classList.add('hide-tabs');
   const stack = document.getElementById('stack');
   const screen = document.createElement('section');
@@ -1848,7 +2300,11 @@ async function openQuiz(examCode, sessionCode, startIdx){
         <span class="d">${sessionCode.slice(0,4)}.${sessionCode.slice(4,6)}.${sessionCode.slice(6,8)}</span>
         <span class="s" id="quizSub">불러오는 중</span>
       </div>
-      <button class="icon-btn" id="quizModeBtn" aria-label="모드">${icons.more}</button>
+      <div class="nav-actions">
+        <span class="quiz-timer" id="quizTimer" hidden></span>
+        <button class="icon-btn" id="quizShareBtn" aria-label="공유">${icons.share}</button>
+        <button class="icon-btn" id="quizModeBtn" aria-label="모드">${icons.more}</button>
+      </div>
     </header>
     <div class="progress"><div class="progress-fill" id="pFill"></div></div>
     <div class="pages" id="pages">
@@ -1863,6 +2319,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
 
   screen.querySelector('#quizBack').onclick = popScreen;
   screen.querySelector('#quizModeBtn').onclick = openModeSheet;
+  screen.querySelector('#quizShareBtn').onclick = shareCurrent;
   screen.querySelector('#redoBtn').onclick = confirmRedo;
   screen.querySelector('#starBtn').onclick = toggleStar;
   screen.querySelector('#jumpBtn').onclick = openJumpSheet;
@@ -1874,6 +2331,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       examCode, code: sessionCode, data,
       idx: startIdx != null ? startIdx : (p.last || 0),
       mode: p.mode || 'practice',
+      examMin: p.examMin || 90,
       screen,
     };
 
@@ -1881,6 +2339,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
     $pages.innerHTML = data.questions.map((q,i) => renderQuestionHTML(q, i, data.questions.length)).join('');
 
     applyAnswers();
+    if (state.current.mode === 'exam') startExamTimer();
     requestAnimationFrame(() => {
       $pages.scrollTo({ left: state.current.idx * $pages.clientWidth, behavior: 'instant' });
       updatePositionIndicators();
@@ -1910,6 +2369,17 @@ async function openQuiz(examCode, sessionCode, startIdx){
 }
 
 function popScreen(){
+  // User-initiated back (button/edge swipe/Esc): drive via history so URL stays in sync.
+  // popstate handler will then call doPopScreen.
+  if ((history.state?.depth || 0) > 0) {
+    history.back();
+  } else {
+    doPopScreen();
+  }
+}
+
+function doPopScreen(){
+  stopExamTimer();
   const stack = document.getElementById('stack');
   const last = stack.lastElementChild;
   if (stack.children.length <= 1) return;
@@ -1917,14 +2387,11 @@ function popScreen(){
   last.classList.add('exit-right');
   last.addEventListener('animationend', () => {
     last.remove();
-    // Refresh whatever is now on top so progress counters are up-to-date
     const top = stack.lastElementChild;
     if (top) {
       if (top.dataset.tab) {
-        // it's a tab root: re-render that tab
         showTab(top.dataset.tab);
       } else if (state.currentExam) {
-        // it's the session-list pushed screen: re-fill
         loadSessions(state.currentExam).then(s => fillSessionList(top, state.currentExam, s)).catch(()=>{});
       }
     }
@@ -1932,25 +2399,43 @@ function popScreen(){
   document.getElementById('shell').classList.remove('hide-tabs');
   document.removeEventListener('keydown', onKey);
   state.current = null;
+  if (stack.children.length <= 1) showInterstitialAd();
+}
+
+/* Ad management */
+let _adCooldown = 0;
+function showInterstitialAd(){
+  if (!ADSENSE.client || !ADSENSE.slots.interstitial) return;
+  const now = Date.now();
+  if (now - _adCooldown < 120000) return;
+  _adCooldown = now;
+  const el = document.createElement('div');
+  el.className = 'ad-slot-interstitial';
+  el.innerHTML = `<span class="ad-label">ADVERTISEMENT</span>
+    <div class="ad-container">${adInsHTML(ADSENSE.slots.interstitial, { format:'rectangle', fullWidth:false })}</div>
+    <button class="ad-close">닫기</button>`;
+  el.querySelector('.ad-close').onclick = () => el.remove();
+  document.body.appendChild(el);
+  pushAd(el);
 }
 
 function renderExtras(arr){
   if (!arr || !arr.length) return '';
   return `<div class="extras">${arr.map(e => renderExtra(e)).join('')}</div>`;
 }
-function renderImagesFallback(arr){
-  // Legacy fallback when extras aren't available yet
+function renderImagesFallback(arr, label){
   if (!arr || !arr.length) return '';
-  return arr.map(src => `<div class="qimg"><img src="${src}" loading="lazy" alt=""></div>`).join('');
+  const lbl = label || '문항 이미지';
+  return arr.map((src, i) => `<div class="qimg"><img src="${src}" loading="lazy" alt="${escapeHtml(lbl)} ${i+1}"></div>`).join('');
 }
 
 function renderQuestionHTML(q, i, total){
   const subj = escapeHtml(q.subject || '');
-  const qExtras = renderExtras(q.question_extras) || renderImagesFallback(q.question_images);
+  const qExtras = renderExtras(q.question_extras) || renderImagesFallback(q.question_images, `문제 ${q.number} 이미지`);
   const choicesHtml = (q.choices || []).map((c, ci) => {
     const num = ['①','②','③','④'][ci] || (ci+1);
     const extras = renderExtras(c.extras) ||
-                   (c.images || []).map(s => `<img src="${s}" loading="lazy" alt="">`).join('');
+                   (c.images || []).map((s, ii) => `<img src="${s}" loading="lazy" alt="보기 ${num} 이미지${(c.images.length>1)?' '+(ii+1):''}">`).join('');
     return `
       <button class="choice" data-qi="${i}" data-ci="${ci+1}">
         <span class="num">${num}</span>
@@ -2029,7 +2514,7 @@ function renderExplain(page, q, force){
   const hasBasic = !!(q.explanation || hasExtras || (q.explanation_images||[]).length);
   if (!force && !hasDetailed && !hasBasic) { slot.innerHTML=''; return; }
   const imgs = hasExtras ? renderExtras(q.explanation_extras)
-               : (q.explanation_images || []).map(s => `<img src="${s}" loading="lazy" alt="">`).join('');
+               : (q.explanation_images || []).map((s, i) => `<img src="${s}" loading="lazy" alt="해설 이미지 ${i+1}">`).join('');
   const cleaned = cleanExplanation(q.explanation);
   const basicText = escapeHtml(cleaned || '').trim();
   const detailedHtml = formatDetailed(q.explanation_detailed || '');
@@ -2075,17 +2560,18 @@ function onChoiceClick(e){
   p.answers[q.number] = ci;
   p.last = qi;
   p.wrongs = p.wrongs || [];
+  p.seenAt = p.seenAt || {};
+  p.seenAt[q.number] = Date.now();
   if (ci !== q.answer && !p.wrongs.includes(q.number)) p.wrongs.push(q.number);
   saveProgress(c.examCode, c.code, p);
   const page = b.closest('.page');
   markChoices(page, q, ci);
   renderExplain(page, q, false);
   updatePositionIndicators();
-  haptic();
+  haptic(ci === q.answer ? 'correct' : 'wrong');
   toast(ci === q.answer ? '정답' : `오답 · 정답 ${q.answer}`);
+  maybeShowCompletion(c, p);
 }
-
-function haptic(){ if ('vibrate' in navigator) navigator.vibrate(8); }
 
 function toggleStar(){
   const c = state.current; if (!c) return;
@@ -2160,7 +2646,31 @@ function openJumpSheet(){
   const c = state.current; if (!c) return;
   const p = progressFor(c.examCode, c.code);
   const total = c.data.questions.length;
+  // Build subject chips
+  const subjMap = new Map();
+  c.data.questions.forEach((q, idx) => {
+    const subj = (q.subject || '').replace(/^\d+과목\s*:\s*/, '').trim();
+    if (!subj) return;
+    if (!subjMap.has(subj)) subjMap.set(subj, idx);
+  });
   showSheet('문제 바로가기', () => {
+    const wrap = document.createElement('div');
+    if (subjMap.size > 1) {
+      const chips = document.createElement('div');
+      chips.className = 'subj-chips';
+      for (const [subj, firstIdx] of subjMap) {
+        const c2 = document.createElement('button');
+        c2.className = 'chip';
+        c2.textContent = subj;
+        c2.onclick = () => {
+          closeSheet();
+          const pages = state.current.screen.querySelector('#pages');
+          pages.scrollTo({ left: firstIdx * pages.clientWidth, behavior: 'smooth' });
+        };
+        chips.appendChild(c2);
+      }
+      wrap.appendChild(chips);
+    }
     const body = document.createElement('div');
     body.className = 'numpad';
     for (let i=1; i<=total; i++){
@@ -2183,7 +2693,8 @@ function openJumpSheet(){
       };
       body.appendChild(b);
     }
-    return body;
+    wrap.appendChild(body);
+    return wrap;
   });
 }
 
@@ -2197,6 +2708,15 @@ function openModeSheet(){
         <span class="seg" id="m">
           <button data-m="practice">풀이</button>
           <button data-m="review">해설</button>
+          <button data-m="exam">모의시험</button>
+        </span>
+      </div>
+      <div class="sheet-row exam-mins" hidden>
+        <span class="l">시간</span>
+        <span class="seg" id="mins">
+          <button data-min="60">60분</button>
+          <button data-min="90">90분</button>
+          <button data-min="150">150분</button>
         </span>
       </div>
       <div class="sheet-row">
@@ -2204,18 +2724,129 @@ function openModeSheet(){
         <button class="r" id="sheetRedo">답안 초기화</button>
       </div>
     `;
-    const mark = () => div.querySelectorAll('#m button').forEach(b => b.classList.toggle('on', b.dataset.m === state.current.mode));
-    mark();
+    const minsRow = div.querySelector('.exam-mins');
+    const mark = () => {
+      div.querySelectorAll('#m button').forEach(b => b.classList.toggle('on', b.dataset.m === state.current.mode));
+      minsRow.hidden = state.current.mode !== 'exam';
+    };
+    const markMins = () => div.querySelectorAll('#mins button').forEach(b => b.classList.toggle('on', +b.dataset.min === (state.current.examMin || 90)));
+    mark(); markMins();
     div.querySelector('#m').addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
       state.current.mode = b.dataset.m;
       const p = progressFor(state.current.examCode, state.current.code); p.mode = b.dataset.m;
       saveProgress(state.current.examCode, state.current.code, p);
+      if (b.dataset.m === 'exam') {
+        state.current.examMin = state.current.examMin || 90;
+        startExamTimer();
+      } else {
+        stopExamTimer();
+      }
       mark(); applyAnswers();
+    });
+    div.querySelector('#mins').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      state.current.examMin = +b.dataset.min;
+      const p = progressFor(state.current.examCode, state.current.code);
+      p.examMin = state.current.examMin;
+      saveProgress(state.current.examCode, state.current.code, p);
+      markMins();
+      startExamTimer();
     });
     div.querySelector('#sheetRedo').onclick = () => { closeSheet(); confirmRedo(); };
     return div;
   });
+}
+
+/* ---- share / completion / exam timer ---- */
+async function shareCurrent(){
+  const c = state.current; if (!c) { toast('퀴즈에서 공유하세요'); return; }
+  const exam = state.examByCode.get(c.examCode);
+  const url = `${location.origin}/exam/${c.examCode}/${c.code}`;
+  const text = `${exam?.name || ''} ${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)} 기출`;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: '기출 CBT', text, url });
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast('링크 복사됨');
+    }
+  } catch { /* user cancel */ }
+}
+
+function maybeShowCompletion(c, p){
+  const total = c.data.questions.length;
+  const answered = Object.keys(p.answers || {}).length;
+  if (answered < total) return;
+  if (c._completionShown) return;
+  c._completionShown = true;
+  showCompletion(c, p);
+}
+
+function showCompletion(c, p){
+  const total = c.data.questions.length;
+  const wrongs = (p.wrongs || []).length;
+  const correct = total - wrongs;
+  const pct = Math.round(correct * 100 / total);
+  stopExamTimer();
+  showSheet(c.mode === 'exam' ? '모의시험 결과' : '풀이 완료', () => {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div class="completion">
+        <div class="comp-pct">${pct}<small>%</small></div>
+        <div class="comp-line">${correct} / ${total} 정답${wrongs ? ` · 오답 ${wrongs}` : ''}</div>
+        ${wrongs ? `<button class="r-primary" id="compReview">틀린 문제 다시 보기</button>` : ''}
+        <div class="comp-actions">
+          <button class="r-soft" id="compRedo">다시 풀기</button>
+          <button class="r-soft" id="compShare">공유</button>
+          <button class="r-soft" id="compExit">목록으로</button>
+        </div>
+      </div>
+    `;
+    div.querySelector('#compReview')?.addEventListener('click', () => {
+      closeSheet();
+      const wrongIdx = c.data.questions.findIndex(q => (p.wrongs||[]).includes(q.number));
+      if (wrongIdx >= 0) {
+        const $pages = c.screen.querySelector('#pages');
+        $pages.scrollTo({ left: wrongIdx * $pages.clientWidth, behavior: 'smooth' });
+      }
+    });
+    div.querySelector('#compRedo').onclick = () => { closeSheet(); confirmRedo(); };
+    div.querySelector('#compShare').onclick = () => { closeSheet(); shareCurrent(); };
+    div.querySelector('#compExit').onclick = () => { closeSheet(); popScreen(); };
+    return div;
+  });
+}
+
+let _examTimerId = null;
+function startExamTimer(){
+  stopExamTimer();
+  const c = state.current; if (!c) return;
+  const min = c.examMin || 90;
+  c.examEndAt = Date.now() + min * 60 * 1000;
+  const el = c.screen.querySelector('#quizTimer');
+  if (!el) return;
+  el.hidden = false;
+  const tick = () => {
+    const left = Math.max(0, c.examEndAt - Date.now());
+    const m = Math.floor(left / 60000);
+    const s = Math.floor((left % 60000) / 1000);
+    el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    el.classList.toggle('warn', left > 0 && left < 5 * 60000);
+    if (left <= 0) {
+      stopExamTimer();
+      const p = progressFor(c.examCode, c.code);
+      maybeShowCompletion(c, p);
+    }
+  };
+  tick();
+  _examTimerId = setInterval(tick, 1000);
+}
+function stopExamTimer(){
+  if (_examTimerId) { clearInterval(_examTimerId); _examTimerId = null; }
+  const c = state.current;
+  const el = c?.screen?.querySelector('#quizTimer');
+  if (el) { el.hidden = true; el.classList.remove('warn'); }
 }
 
 function openThemeSheet(){
@@ -2284,6 +2915,23 @@ function toast(msg){
   t.textContent = msg; t.classList.add('show');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 1300);
 }
+function toastAction(msg, btnLabel, onClick){
+  // Sticky toast with action button (for SW updates etc)
+  let t = document.getElementById('toast-action');
+  if (t) t.remove();
+  t = document.createElement('div');
+  t.id = 'toast-action'; t.className = 'toast-action';
+  t.innerHTML = `<span>${escapeHtml(msg)}</span><button>${escapeHtml(btnLabel)}</button>`;
+  t.querySelector('button').onclick = () => { try { onClick(); } finally { t.remove(); } };
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+}
+function haptic(kind){
+  if (!navigator.vibrate) return;
+  if (kind === 'correct') navigator.vibrate(10);
+  else if (kind === 'wrong') navigator.vibrate([20, 30, 20]);
+  else if (kind === 'tap') navigator.vibrate(8);
+}
 function attachScrollShadow(scrollId, navId){
   const s = document.getElementById(scrollId);
   const n = document.getElementById(navId);
@@ -2291,13 +2939,92 @@ function attachScrollShadow(scrollId, navId){
   s.addEventListener('scroll', () => n.classList.toggle('is-scrolled', s.scrollTop > 4), { passive: true });
 }
 
+/* ===================================================================
+   Router — path-based, syncs with screen stack
+   =================================================================== */
+let _navInternal = false;
+
+function pathForState(s) {
+  if (!s) return '/';
+  if (s.type === 'session') return `/exam/${s.exam}`;
+  if (s.type === 'quiz')    return `/exam/${s.exam}/${s.session}`;
+  return '/';
+}
+
+function pushRoute(state) {
+  const path = pathForState(state);
+  if (location.pathname === path) return;
+  const depth = (history.state?.depth || 0) + 1;
+  history.pushState({ ...state, depth }, '', path);
+}
+
+window.addEventListener('popstate', () => {
+  // Browser back/forward — pop visible screens to match URL depth
+  const targetDepth = history.state?.depth || 0;
+  const stack = document.getElementById('stack');
+  _navInternal = true;
+  while (stack.children.length - 1 > targetDepth) {
+    doPopScreen();
+  }
+  _navInternal = false;
+  // If user navigated forward to a deeper URL we don't have on stack,
+  // we don't auto-rebuild here (rare edge case).
+});
+
+async function initRoute() {
+  const segs = location.pathname.split('/').filter(Boolean);
+  history.replaceState({ type: 'home', depth: 0 }, '', '/');
+  if (segs[0] !== 'exam' || !segs[1]) return;
+  await loadExams().catch(()=>{});
+  if (!state.examByCode.has(segs[1])) return;
+  await openSessionList(segs[1]);
+  if (segs[2]) {
+    try {
+      await loadSessions(segs[1]);
+      if (state.sessionMap.get(segs[1])?.has(segs[2])) {
+        await openQuiz(segs[1], segs[2]);
+      }
+    } catch {}
+  }
+}
+
 /* ---- boot (at end so all const bindings are live) ---- */
+loadAdSense();
 await bootUI();
 bindTabs();
 showTab('home');
+await initRoute();
 
 // expose select helpers for debugging / external automation
 window.__cbt = { openImportSheet, applyDump, buildDump, computeStats, backupCurrent };
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('/sw.js');
+      const promptUpdate = (sw) => {
+        toastAction('새 버전이 있어요', '새로고침', () => {
+          sw.postMessage('SKIP_WAITING');
+        });
+      };
+      if (reg.waiting) promptUpdate(reg.waiting);
+      reg.addEventListener('updatefound', () => {
+        const sw = reg.installing;
+        if (!sw) return;
+        sw.addEventListener('statechange', () => {
+          if (sw.state === 'installed' && navigator.serviceWorker.controller) {
+            promptUpdate(sw);
+          }
+        });
+      });
+      let reloaded = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (reloaded) return; reloaded = true;
+        location.reload();
+      });
+    } catch {}
+  });
+}
 </script>
 </body>
 </html>

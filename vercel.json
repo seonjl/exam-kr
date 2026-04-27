@@ -1,0 +1,39 @@
+{
+  "rewrites": [
+    { "source": "/sw.js", "destination": "/webapp/sw.js" },
+    { "source": "/manifest.webmanifest", "destination": "/webapp/manifest.webmanifest" },
+    { "source": "/icon.svg", "destination": "/webapp/icon.svg" },
+    { "source": "/icon-192.png", "destination": "/webapp/icon-192.png" },
+    { "source": "/icon-512.png", "destination": "/webapp/icon-512.png" },
+    { "source": "/apple-touch-icon.png", "destination": "/webapp/apple-touch-icon.png" },
+    { "source": "/og-image.png", "destination": "/webapp/og-image.png" },
+    { "source": "/robots.txt", "destination": "/webapp/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/webapp/sitemap.xml" },
+    { "source": "/exam/:path*", "destination": "/webapp/index.html" },
+    { "source": "/stats", "destination": "/webapp/index.html" },
+    { "source": "/search", "destination": "/webapp/index.html" },
+    { "source": "/", "destination": "/webapp/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/webapp/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
