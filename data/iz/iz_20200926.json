@@ -1,0 +1,2863 @@
+{
+  "exam": "정보처리기사",
+  "dbname": "iz",
+  "date": "20200926",
+  "label": "2020년09월26일",
+  "count": 100,
+  "questions": [
+    {
+      "number": 1,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "XP(eXtreme Programming)의 기본원리로 볼 수 없는 것은?",
+      "question_images": [],
+      "pass_rate": 72,
+      "choices": [
+        {
+          "text": "Linear Sequential Method",
+          "images": []
+        },
+        {
+          "text": "Pair Programming",
+          "images": []
+        },
+        {
+          "text": "Collective Ownership",
+          "images": []
+        },
+        {
+          "text": "Continuous Integration",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "1-2 개발자 공동 2명작업 PP\n1-3 공동소유 CO\n1-4 지속적통합 CI\n그외 계발계획수립PG, 짧은배포주기SR,문장형시스템아키텍쳐meta, 단순설계SD,테스트,\n중복제거 Refactoring, 고객상주,코드표준의사소통\n4대원칙:의사소통, 단순성, 피드백, 용기\n\n▶애자일 방법론은 소프트웨어 개발 방법에 있어서 아무런 계획이 없는 개발 방법과 계획이 지나치게 많은 개발 방법들 사이에서 타협점을 찾고자 하는 방법론/적은 규모의 개발 프로젝트에 적용하기 좋다(그중에서도 XP와 SCRUM이 제일 많이 통용)\n▶XP (Extreme Programming) 의 5원칙:단순성, 소통, 피드백, 용기, 존중\n ▷소통(Communication)-고객과 개발자와의 의사소통을 중요시\n ▷단순성(Simplicity)-사용되지 않는 구조와 알고리즘 배제, 가장 효율적인 디자인이나 코딩을 하는 것.\n ▷피드백(Feedback)-즉각적 피드백 통해 빠른 의사결정\n ▷용기(Courage)-개발자들이 자신감있게 변화를 수용하며 고객요구사항에 능동적 대처 용기\n\n1.Linear Sequential Method(x) 순차적 방법\n2.Pair Programming=모든 프로그래밍은 하나의 컴퓨터에 2명의 프로그래머가 같이 공동작업 진행\n3.Collective Ownership=Collective Code Ownership=소스코드에 대한 팀의 공통책임이자 코드는 누구든지 수정가능함\n4.Continuous Integration=컴포넌트 또는 모듈 단위로 나누어서 개발된 소스코드들은 하나의 작업이 끝날 때 마다 지속적으로 통합되고 동시에 테스트함\n\nPlanning Game\n\nXP의 핵심 가치는 5가지임\n- 용기, Courage\n- 단순성, Simplicity\n- 의사소통, Communication\n- 피드백, Feedback\n- 존중, Respect",
+      "explanation_images": []
+    },
+    {
+      "number": 2,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "럼바우(Rumbaugh) 객체지향 분석 기법에서 동적 모델링에 활용되는 다이어그램은?",
+      "question_images": [],
+      "pass_rate": 62,
+      "choices": [
+        {
+          "text": "객체 다이어그램(Object Diagram)",
+          "images": []
+        },
+        {
+          "text": "패키지 다이어그램(Package Diagram)",
+          "images": []
+        },
+        {
+          "text": "상태 다이어그램(State Diagram)",
+          "images": []
+        },
+        {
+          "text": "자료 흐름도(Data Flow Diagram)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "동적 모델링(Dynamic Modeling)은 상태 다이어그램(상태도)를 이용해 시간 흐름에 따른 객체들 간의 제어 흐름, 상호 작용, 동작 순서 등의 동적인 행위를 표현하는 모델링을 말한다.\n\n*럼바우(Rumbaugh) : 소프트웨어 구성요소를 그래픽 표기법으로 이용한 모델링\n* \" 분석: 객체 모델링, 동적 모델링, 기능 모델링\n 객체모델링:객체 다이어그램으로 표시, 가장 중요시 선행\n 동적모델링:상태 다이어그램(상태도), 동적인 흐름 행위\n 기능모델링:자료의 흐름을 이용하여 프로세스간의 자료 흐름을 처리",
+      "explanation_images": []
+    },
+    {
+      "number": 3,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "CASE(Computer Aided Software Engineering)의 주요 기능으로 옳지 않은 것은?",
+      "question_images": [],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "S/W 라이프 사이클 전 단계의 연결",
+          "images": []
+        },
+        {
+          "text": "그래픽 지원",
+          "images": []
+        },
+        {
+          "text": "다양한 소프트웨어 개발 모형 지원",
+          "images": []
+        },
+        {
+          "text": "언어 번역",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "컴퓨터 지원 소프트웨어 공학(computer-aided software engineering: CASE)= 컴퓨터 지원 시스템 공학\n- 시스템 개발 방법론들의 자동화를 지원하는 소프트웨어 도구를 제공해 개발자의 반복적인 작업량을 줄이도록 하는 것\n- CASE 도구들은 차트와 다이어그램을 자동으로 생성하는 그래픽 기능, 화면과 리포트 생성기, 데이터사전, 분석과 검사 도구, 코드 생성기, 문서 생성기 등을 제공\n- 기능: 1. 소프트웨어 생명주기(Software Lifecycle) 전 단계의 연결\n        2. 그래픽 지원\n        3. 다양한 소프트웨어 개발 모형 지원\n# 20년 3회 19번 # 20년 3회 17번",
+      "explanation_images": []
+    },
+    {
+      "number": 4,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "객체지향 기법의 캡슐화(Encapsulation)에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 89,
+      "choices": [
+        {
+          "text": "인터페이스가 단순화 된다.",
+          "images": []
+        },
+        {
+          "text": "소프트웨어 재사용성이 높아진다.",
+          "images": []
+        },
+        {
+          "text": "변경 발생 시 오류의 파급효과가 적다.",
+          "images": []
+        },
+        {
+          "text": "상위 클래스의 모든 속성과 연산을 하위 클래스가 물려받는 것을 의미한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "캡슐화는 필요한 속성(Attribute)와 행위(Method)를 하나로 묶고 그중 일부를 외부에서 사용하지 못하도록\n은닉하는 것을 의미한다.\n\n보기 4번의 설명은 상속에 대한 설명이다.\n\n캡슐화(Encapsulation) = 은닉화\n- 서로 관련성이 많은 데이터와 이와 관련된 함수들을 한 묶음으로 처리하는 기법\n- 결합도가 낮아지고 재사용이 용이\n- 인터페이스가 단순화 됨\n- 정보은닉과 관계가 깊음\n- 변경 발생 시 오류의 파급효과가 적음",
+      "explanation_images": []
+    },
+    {
+      "number": 5,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "다음 내용이 설명하는 객체지향 설계 원칙은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m5.gif?1605251112"
+      ],
+      "pass_rate": 82,
+      "choices": [
+        {
+          "text": "인터페이스 분리 원칙",
+          "images": []
+        },
+        {
+          "text": "단일 책임 원칙",
+          "images": []
+        },
+        {
+          "text": "개방 폐쇄의 원칙",
+          "images": []
+        },
+        {
+          "text": "리스코프 교체의 원칙",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "*객체지향 설계 원칙(SOLID)\n- 단일 책임 원칙(SRP, Single Responsibility Principle):모든 클래스는 하나의 책임만 가지며, 클래스는 그 책임을 완전히 캡슐화해야 함\n- 개방 폐쇄의 원칙(OCP, Open-Closed Principle):소프트웨어 개체(클래스, 모듈, 함수 등등)는 확장에 대해 열려 있어야 하고, 수정에 대해서는 닫혀 있어야 한다\n- 리스코프 교체(치환)의 원칙(LSP, Liskov Substitution Principle):컴퓨터 프로그램에서 자료형 {\\displaystyle S}S가 자료형 {\\displaystyle T}T의 하위형이라면 필요한 프로그램의 속성(정확성, 수행하는 업무 등)의 변경 없이 자료형 {\\displaystyle T}T의 객체를 자료형 {\\displaystyle S}S의 객체로 교체(치환)할 수 있어야 한다는 원칙\n-인터페이스 분리 원칙(ISP, Interface Segregation Principle):클라이언트가 자신이 이용하지 않는 메서드에 의존하지 않아야 한다는 원칙\n-의존성 역전 원칙(DIP, Dependency Inversion Principle):의존 관계를 맺을 때 변화하기 쉬운 것 보다 변화하기 어려운 것에 의존하라는 원칙을 의미한다.\n========================\n#20년 3회 17번",
+      "explanation_images": []
+    },
+    {
+      "number": 6,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "파이프 필터 형태의 소프트웨어 아키텍처에 대한 설명으로 옳은 것은?",
+      "question_images": [],
+      "pass_rate": 76,
+      "choices": [
+        {
+          "text": "노드와 간선으로 구성된다.",
+          "images": []
+        },
+        {
+          "text": "서브시스템이 입력데이터를 받아 처리하고 결과를 다음 서브시스템으로 넘겨주는 과정을 반복한다.",
+          "images": []
+        },
+        {
+          "text": "계층 모델이라고도 한다.",
+          "images": []
+        },
+        {
+          "text": "3개의 서브시스템(모델, 뷰, 제어)으로 구성되어 있다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "아키텍처(architecture)란 영어 뜻으로는 구조, 건축물, 건축학 등의 뜻\n소프트웨어 아키텍처:소프트웨어 구조\n1. 레이어 패턴 (Layers Pattern): 시스템을 계층으로 구분하여 구성,ex)OSI 참조 모델\n2. 클라이언트-서버 패턴 (Client-Server Pattern):하나의 서버 컴포넌트와 다수의 클라이언트 컴포넌트로 구성되는 패턴\n3. 파이프-필터 패턴 (Pipe-Filter Pattern):데이터 스트림 절차의 각 단계를 필터 컴포넌트로 캡슐화하여 파이프를 통해 데이터를 전송하는 패턴 ex)UNIX의 쉘\n4. 모델-뷰-컨트롤러 패턴 (Model-View-Controller Pattern):서브시스템을 3개의 부분으로 구조화하는 패턴\n\n5. 마스터-슬레이브 패턴    6. 브로커 패턴   7. 피어-투-피어 패턴   8. 이벤트-버스 패턴  9. 블랙보드 패턴  10. 인터프리터 패턴\n=======================",
+      "explanation_images": []
+    },
+    {
+      "number": 7,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "코드화 대상 항목의 중량, 면적, 용량 등의 물리적 수치를 이용하여 만든 코드는?",
+      "question_images": [],
+      "pass_rate": 71,
+      "choices": [
+        {
+          "text": "순차 코드",
+          "images": []
+        },
+        {
+          "text": "10진 코드",
+          "images": []
+        },
+        {
+          "text": "표의 숫자 코드",
+          "images": []
+        },
+        {
+          "text": "블록 코드",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "*코드 정의:\n데이터를 사용 목적에 따라 식별, 분류, 배열하기 위하여 사용되는 숫자, 문자 또는 기호로 컴퓨터 처리에 효율적인 것을 선정\n*코드 종류\n1) 순차 코드(Sequence Code)-자료의 발생순, 크기순, 가나다순 등 일정 순서대로 코드\n2) 블록 코드(Block Code : 구분 코드)- 코드화 대상을 미리 파악하여 블록으로 구분한 후 그 안에서 순서대로 코드를 부여\n3) 그룹 분류 코드(Group Classification Code)-구분 코드를 세분화한 형태로 대분류, 중분류, 소분류 등 각 분류별로 자릿수를 구성\n4) 표의 숫자 코드(Significant Digit Code)-표현하려는 대상의 의미는 제외하고 수치만을 모아 만든 것으로 대상이 되는 물체의 중량, 면적, 크기    등을 직접 코드에 적용\n5) 십진 분류 코드(Decimal Classification Code)-코드화 대상물을 일정한 소속으로 구분하여 십진수 한 자리씩 구분하여 대분류하고, 같은 방법으로 중    분류, 소분류한 코드\n6) 연상 코드(Mnemonic Code)-숫자나 문자를 조합해서 나타내는 것으로 어떤 내용을 기억할 수 있도록 표시한 기호 코드\n7) 약자 코드(Letter Code)-일반적으로 사용해온 단위의 약자를 코드로 사용\n8) 끝자리 분류 코드(Final Digit Code)-다른 종류의 코드와 조합해서 사용하며, 코드의 끝에 붙여서 그 의미를 표현\n=============\n#20년 2회 2번(일련번호-순차코드)",
+      "explanation_images": []
+    },
+    {
+      "number": 8,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "디자인 패턴 사용의 장٠단점에 대한 설명으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 85,
+      "choices": [
+        {
+          "text": "소프트웨어 구조 파악이 용이하다.",
+          "images": []
+        },
+        {
+          "text": "객체지향 설계 및 구현의 생산성을 높이는데 적합하다.",
+          "images": []
+        },
+        {
+          "text": "재사용을 위한 개발 시간이 단축된다.",
+          "images": []
+        },
+        {
+          "text": "절차형 언어와 함께 이용될 때 효율이 극대화된다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "객체지향 설계/구현 위주 : 디자인 패턴은 객체지향 설계/구현에 많이 사용된다.\nC 언어를 주로 사용하는 구조적 설계/구현에서도 사용할 수 있지만 너무 복잡해서 큰 도움이 되지 않는다.\n출처 : 네이버 지식백과 디자인 패턴의 이해",
+      "explanation_images": []
+    },
+    {
+      "number": 9,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "DFD(data flow diagram)에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 65,
+      "choices": [
+        {
+          "text": "자료 흐름 그래프 또는 버블(bubble) 차트라고도 한다.",
+          "images": []
+        },
+        {
+          "text": "구조적 분석 기법에 이용된다.",
+          "images": []
+        },
+        {
+          "text": "시간 흐름을 명확하게 표현할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "DFD의 요소는 화살표, 원, 사각형, 직선(단선/이중선)으로 표시한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "DFD는 시간 흐름을 명확하게 표현할 수 없다\n자료에 대한 흐름을 표현하며 구조적 분석기법에 이용된다.\n요소는 화살표, 원 , 직선으로 표시한다.",
+      "explanation_images": []
+    },
+    {
+      "number": 10,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "그래픽 표기법을 이용하여 소프트웨어 구성 요소를 모델링하는 럼바우 분석 기법에 포함되지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 95,
+      "choices": [
+        {
+          "text": "객체 모델링",
+          "images": []
+        },
+        {
+          "text": "기능 모델링",
+          "images": []
+        },
+        {
+          "text": "동적 모델링",
+          "images": []
+        },
+        {
+          "text": "블랙박스 분석 모델링",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "럼바우하면 객동기를 떠올리세요",
+      "explanation_images": []
+    },
+    {
+      "number": 11,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "UML의 기본 구성요소가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 68,
+      "choices": [
+        {
+          "text": "Things",
+          "images": []
+        },
+        {
+          "text": "Terminal",
+          "images": []
+        },
+        {
+          "text": "Relationship",
+          "images": []
+        },
+        {
+          "text": "Diagram",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "UML의 구성요소로는 사물, 관계, 다이어그램 3가지로 이루어져있으며,\nThings은 사물, Relationship은 관계, Diagram은 다이어그램입니다.\n\nUML은 띵다리~로 외우세요\n\nUML은 뒷다리로 쏙~♬외우세요 팔딱팔딱 개구리 됐네~~\n뒷(Thing)\n다(Diagram)\n리 Relationship)\n\nUML은 사관도로 외우세요 thinh(사물), relationship(관계), diagram(도식)",
+      "explanation_images": []
+    },
+    {
+      "number": 12,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "소프트웨어의 상위설계에 속하지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 48,
+      "choices": [
+        {
+          "text": "아키텍처 설계",
+          "images": []
+        },
+        {
+          "text": "모듈 설계",
+          "images": []
+        },
+        {
+          "text": "인터페이스 정의",
+          "images": []
+        },
+        {
+          "text": "사용자 인터페이스 설계",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "상위 설계 : 아키텍처 설계, 데이터 설계, 시스템 분할, 인터페이스 정의, 사용자 인터페이스 설계(UI 설계)\n\n하위 설계 : 모듈 설계, 인터페이스 작성",
+      "explanation_images": []
+    },
+    {
+      "number": 13,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "다음 중 자료사전(Data Dictionary)에서 선택의 의미를 나타내는 것은?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "[ ]",
+          "images": []
+        },
+        {
+          "text": "{ }",
+          "images": []
+        },
+        {
+          "text": "＋",
+          "images": []
+        },
+        {
+          "text": "＝",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "= 정의\n+ 구성\n[] 택일\n{} 반복\n() 생략가능\n** 설명\n\n= : 자료의 정의(~로 구성되어 있다)\n+ : 자료의 연결(그리고)\n() : 자료의 생략(생략 가능한 자료)\n[] : 자료의 선택(또는) ex) [ A | B | C ]\n{} : 자료의 반복\n* * : 자료의 설명(주석)",
+      "explanation_images": []
+    },
+    {
+      "number": 14,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "소프트웨어의 사용자 인터페이스개발시스템(User Interface Development System)이 가져야 할 기능이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 82,
+      "choices": [
+        {
+          "text": "사용자 입력의 검증",
+          "images": []
+        },
+        {
+          "text": "에러 처리와 에러 메시지 처리",
+          "images": []
+        },
+        {
+          "text": "도움과 프롬프트(prompt) 제공",
+          "images": []
+        },
+        {
+          "text": "소스 코드 분석 및 오류 복구",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "소스코드분석 및 오류복구는 보통 back-end에서 컴파일러가 하는 역할로 User Interface Development System의 기능과는 거리가 멀다고 볼 수 있다.",
+      "explanation_images": []
+    },
+    {
+      "number": 15,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "요구 사항 명세기법에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 67,
+      "choices": [
+        {
+          "text": "비정형 명세기법은 사용자의 요구를 표현할 때 자연어를 기반으로 서술한다.",
+          "images": []
+        },
+        {
+          "text": "비정형 명세기법은 사용자의 요구를 표현할 때 Z 비정형 명세기법을 사용한다.",
+          "images": []
+        },
+        {
+          "text": "정형 명세기법은 사용자의 요구를 표현할 때 수학적인 원리와 표기법을 이용한다.",
+          "images": []
+        },
+        {
+          "text": "정형 명세기법은 비정형 명세기법에 비해 표현이 간결하다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "정형 명세법\n - 수학적 기반/모델링 기반\n - Z, VDM, Petri-Net(모형기반)\n - CSP, CCS, LOTOS(대수적방법)\n - 시스템 요구특성이 정확하고 명세가 간결하다. 명세와 구현이 일치.\n - 그러나 이해도가 낮으며 이해관계자의 작성 부담 가중.\n\n비정형명세\n - 상태, 기능, 객체 중심 명세법\n - FSM(Finite state machine)\n - Decision Table, ER모델링\n - State chart(SADT)\n - UseCase : 사용자기반모델링\n - 명세 작성이 간편하고 의사전달 방법이 다양하다.\n - 불충분한 명세가능성, 모호성.\n\n요구사항 명세 기법은 정형 명세와 비정형 명세로 나뉜다.\n정형 명세기법의 특징\n1. 수학적 기호, 정형화된 표기법으로 작성\n2. 정확하고 간결하게 표현할 수 있지만 표기법이 어려워 사용자가 이해하기 어렵다.\n3. 일관성이 있다.\n\n비정형 명세기법의 특징\n1. 일반 명사, 동사 등의 자연어를 기반으로 작성한다.\n2. 이해가 쉽다.\n3. 일관성이 떨어진다.",
+      "explanation_images": []
+    },
+    {
+      "number": 16,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "소프트웨어 개발 단계에서 요구 분석 과정에 대한 설명으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "분석 결과의 문서화를 통해 향후 유지보수에 유용하게 활용 할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "개발 비용이 가장 많이 소요되는 단계이다.",
+          "images": []
+        },
+        {
+          "text": "자료흐름도, 자료 사전 등이 효과적으로 이용될 수 있다.",
+          "images": []
+        },
+        {
+          "text": "보다 구체적인 명세를 위해 소단위 명세서(Mini-Spec)가 활용될 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "개발비용이 가장 많이 소요되는 단계는 유지보수 단계이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 17,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "애자일 방법론에 해당하지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 68,
+      "choices": [
+        {
+          "text": "기능중심 개발",
+          "images": []
+        },
+        {
+          "text": "스크럼",
+          "images": []
+        },
+        {
+          "text": "익스트림 프로그래밍",
+          "images": []
+        },
+        {
+          "text": "모듈중심 개발",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "애자일 방법론에는 익스트림 프로그래밍(Extreme Programing, XP), 스크럼(Scrum), 익스트림 모델링, 크리스털 패밀리 , 기능 중심 개발(FDD, Feature-Driven Development) 이 있다.",
+      "explanation_images": []
+    },
+    {
+      "number": 18,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "클라이언트와 서버 간의 통신을 담당하는 시스템 소프트웨어를 무엇이라고 하는가?",
+      "question_images": [],
+      "pass_rate": 93,
+      "choices": [
+        {
+          "text": "웨어러블",
+          "images": []
+        },
+        {
+          "text": "하이웨어",
+          "images": []
+        },
+        {
+          "text": "미들웨어",
+          "images": []
+        },
+        {
+          "text": "응용 소프트웨어",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "미들웨어 솔루션 : 미들웨어 솔루션은 컴퓨터와 컴퓨터간의 연결을 쉽고 안전하게\n할 수 있도록 해주고 이에 대한 관리는 도와주는 소프트웨어\n\n미들웨어 솔루션 유형\n- DB 미들웨어\n- 원격 프로시저 호출(RPC)\n- 메시지 지향 미들웨어(MOM)\n- 트랜잭션 처리(TP) 모니터\n- 레거시웨어(Legacyware)\n- 객체 기반(ORB)미들웨어\n- WAS(Web Application Server)",
+      "explanation_images": []
+    },
+    {
+      "number": 19,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "GoF(Gangs of Four) 디자인 패턴 분류에 해당하지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 83,
+      "choices": [
+        {
+          "text": "생성 패턴",
+          "images": []
+        },
+        {
+          "text": "구조 패턴",
+          "images": []
+        },
+        {
+          "text": "행위 패턴",
+          "images": []
+        },
+        {
+          "text": "추상 패턴",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "GoF(Gangs of Four) 디자인 패턴 분류\n1. 생성 패턴\n2. 구조 패턴\n3. 행위 패턴\n\n- 추상 패턴은 없고, 생성 패턴으로 추상 팩토리가 있다. (헷갈리지 말기)",
+      "explanation_images": []
+    },
+    {
+      "number": 20,
+      "subject": "1과목 : 소프트웨어 설계",
+      "question": "바람직한 소프트웨어 설계 지침이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 94,
+      "choices": [
+        {
+          "text": "적당한 모듈의 크기를 유지한다.",
+          "images": []
+        },
+        {
+          "text": "모듈 간의 접속 관계를 분석하여 복잡도와 중복을 줄인다.",
+          "images": []
+        },
+        {
+          "text": "모듈 간의 결합도는 강할수록 바람직하다.",
+          "images": []
+        },
+        {
+          "text": "모듈 간의 효과적인 제어를 위해 설계에서 계층적 자료 조직이 제시되어야 한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "모듈 간의 결합도가 약할 수록 좋다.\n* 반대로 응집도는 강할 수록 좋다.",
+      "explanation_images": []
+    },
+    {
+      "number": 21,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "소프트웨어 패키징 도구 활용 시 고려 사항으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 92,
+      "choices": [
+        {
+          "text": "반드시 내부 콘텐츠에 대한 암호화 및 보안을 고려한다.",
+          "images": []
+        },
+        {
+          "text": "보안을 위하여 이기종 연동을 고려하지 않아도 된다.",
+          "images": []
+        },
+        {
+          "text": "사용자 편의성을 위한 복잡성 및 비효율성 문제를 고려한다.",
+          "images": []
+        },
+        {
+          "text": "제품 소프트웨어 종류에 적합한 암호화 알고리즘을 적용한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "보안을 위하여 이기종 연동을 고려해야한다.\n\n패키징 시 사용자에게 배포되는 소프트웨어임을 감안하여 반드시 내부 콘텐츠에 대 한 암호화 및 보안을 고려\n패키징 도구를 활용하여 여러 가지 이기종 콘텐츠 및 단말기 간 DRM 연동을 고려\n패키징 도구를 고려하면 사용자의 입장에서 불편해질 수 있는 문제를 고려하여, 최대 한 효율적으로 적용될 수 있도록 고려\n제품 소프트웨어의 종류에 맞는 알고리 즘을 선택하여 배포 시 범용성에 지장이 없도록 고려\n\n이기종 연동은 보안과 관계 없이 고려해야 될 사항이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 22,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "EAI(Enterprise Application Integration) 구축유형 중 Hybrid에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 75,
+      "choices": [
+        {
+          "text": "Hub & Spoke와 Message Bus의 혼합방식이다.",
+          "images": []
+        },
+        {
+          "text": "필요한 경우 한 가지 방식으로 EAI구현이 가능하다.",
+          "images": []
+        },
+        {
+          "text": "데이터 병목현상을 최소화할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "중간에 미들웨어를 두지 않고 각 애플리케이션을 point to point로 연결한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "EAI(Enterprise Application Integration) -> 모듈연계의 한 방식\nEAI Hybrid = hub&spoke && messageBus\n\nhub&spoke = 그룹내의 담당 허브가 고장나면 전체에 영향\nmessageBus = 그룹 담당\n\nHybrid 는 중간에 미들웨어를 둔다",
+      "explanation_images": []
+    },
+    {
+      "number": 23,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "소스코드 품질분석 도구 중 정적분석 도구가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 69,
+      "choices": [
+        {
+          "text": "pmd",
+          "images": []
+        },
+        {
+          "text": "checkstyle",
+          "images": []
+        },
+        {
+          "text": "valance",
+          "images": []
+        },
+        {
+          "text": "cppcheck",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "정적 분석 도구 - pmd, cppcheck, SonarQube, ccm등이 있다.\nvalance는 동적 분석 도구중 하나 이다.\n\npmd - 코드 결함 분석\ncheckstyle - java코드 표준 준수 검사\ncppcheck   - c/c++ 오버플로우 검사\n\n동적 분석 도구 - valance, Avalanche, Valgrind",
+      "explanation_images": []
+    },
+    {
+      "number": 24,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음 Postfix 연산식에 대한 연산결과로 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m24.gif?1605251112"
+      ],
+      "pass_rate": 87,
+      "choices": [
+        {
+          "text": "35",
+          "images": []
+        },
+        {
+          "text": "42",
+          "images": []
+        },
+        {
+          "text": "77",
+          "images": []
+        },
+        {
+          "text": "360",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "후위표기식은 연산 바로 앞의 두자리를 계산하고, 연산자를 빼줍니다.\nPostfix 후위 표기식에 따라 정리하면 위의 식은 다음과 같습니다.\n3*4+5*6\n따라서 이 결과를 계산하면 12+30=42\n\n피연산자 : left, right\n연산자 : root\n\n전위표기식(Prefix)\nroot → left → right\n\n중위표기식(Infix)\nleft → root → right\n\n후위표기식(Postfix)\nleft → right → root\n\n후위표기식 (처음에는 크게, 갈수록 작게 구분하면 연산자,피연산자 구분하기 쉬워요)\n→ (3 4 *) (5 6 *) (+)\n→ (3 4 *) (+) (5 6 *)\n→ (3 * 4) (+) (5 * 6)\n→ (12) (+) (30)\n→ 12 + 30 = 42\n\n전위표기식 Prefix   + 3 4\n중위표기식 Infix    3 + 4\n후위표기식 Postfix  3 4 +\n\n연산자의 위치가 전, 중, 후 중에서\n어디에 있는지 생각해보면 쉽습니다!",
+      "explanation_images": []
+    },
+    {
+      "number": 25,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "인터페이스 보안을 위해 네트워크 영역에 적용될 수 있는 것으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 79,
+      "choices": [
+        {
+          "text": "IPSec",
+          "images": []
+        },
+        {
+          "text": "SSL",
+          "images": []
+        },
+        {
+          "text": "SMTP",
+          "images": []
+        },
+        {
+          "text": "S-HTTP",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "인터페이스 보안 기능은 일반적으로 네트워크, 애플리케이션, 데이터베이스 영역에 적용한다.\n\n네트워크 영역 - 인터페이스 송/수신 간 스니핑 등을 이용한 데이터 탈취 및 변조 위협을 방지하기 위해\n네트워크 트래픽에 대한 암호화를 설정한다.\n암호화는 인터페이스 아키텍처에 따라 IPSec, SSL, S-HTTP 등의 다양한 방식으로 적용한다.\n\nSMTP(Simple Mail Transfer Protocol): 메일 전송에 사용되는 프로토콜이다.\n\nIPSec : IP계층에서 무결성과 인증을 보장하는 인증헤더와 암호화를 이용해 보안서비스 제공\nSSL : 상호 인증 및 전송 시 데이터 무결성을 보장\nS-HTTP : 웹상에서 클라이언트와 서버간의 메세지를 암호화 하여 전송",
+      "explanation_images": []
+    },
+    {
+      "number": 26,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "검증(Validation) 검사 기법 중 개발자의 장소에서 사용자가 개발자 앞에서 행해지며, 오류와 사용상의 문제점을 사용자와 개발자가 함께 확인하면서 검사하는 기법은?",
+      "question_images": [],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "디버깅 검사",
+          "images": []
+        },
+        {
+          "text": "형상 검사",
+          "images": []
+        },
+        {
+          "text": "자료구조 검사",
+          "images": []
+        },
+        {
+          "text": "알파 검사",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "형상검사: 구성요소 목록 유지보수 모든 사항이 표현 되었나 검사\n알파검사: 사용자가 개발자 앞에서 행하는 검사\n\n디버깅: 프로그램 개발 단계 중에 발생하는 시스템의 논리적인 오류나 비정상적 연산(버그)을 찾아내고 그 원인을 밝히고 수정하는 작업 과정\n자료구조 검사: 자료형태, 변수 초기화, 자료 형태의 일관성을 테스트",
+      "explanation_images": []
+    },
+    {
+      "number": 27,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음 초기 자료에 대하여 삽입 정렬(Insertion Sort)을 이용하여 오름차순 정렬할 경우 1회전 후의 결과는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m27.gif?1605251112"
+      ],
+      "pass_rate": 75,
+      "choices": [
+        {
+          "text": "3, 4, 8, 7, 9",
+          "images": []
+        },
+        {
+          "text": "3, 4, 9, 7, 8",
+          "images": []
+        },
+        {
+          "text": "7, 8, 3, 4, 9",
+          "images": []
+        },
+        {
+          "text": "3, 8, 4, 9, 7",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "삽입정렬(Insertion Sort)은 최소값을 찾지 않고 자리에 따라 비교하고 오름차순 적용하여 바꾸는 걸로 알고 있습니다.\n[2번째 원소부터 시작하여 그 앞(왼쪽)의 원소들과 비교하여 삽입할 위치를 지정한 후, 원소를 뒤로 옮기고 지정된 자리에 자료를 삽입]\n\n초기자료 8 3 4 9 7\n\n1회전 3 8 4 9 7 (두번째 자리 3과 첫번째 자리 8을 비교 했을 때 3이 작으니 바꿔줍니다.)\n\n2회전 3 4 8 9 7 (3 8 | 4 9 7 세번째 자리인 4를 앞에 바꿨던 3과 8을 비교 하였을 때\n                 3보다는 크고 8보다는 작으니 3과 8사이에 삽입 합니다.)\n\n3회전 3 4 8 9 7 (3 4 8 | 9 7 네번째 자리인 9를 앞에 바꾼 3 4 8과 비교 하였을 때\n                 9 자신이 제일 크기 때문에 이동이 없습니다)\n\n4회전 3 4 7 8 9 (3 4 8 9 | 7 다섯번째 자리인 7을 앞에 3 4 8 9와 비교 하였을 때\n                 3 4 보다는 크고 8 9보다는 작으니 3 4 와 8 9 사이에 삽입합니다.)",
+      "explanation_images": []
+    },
+    {
+      "number": 28,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "소프트웨어 설치 매뉴얼에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 92,
+      "choices": [
+        {
+          "text": "설치과정에서 표시될 수 있는 예외상황에 관련 내용을 별도로 구분하여 설명한다.",
+          "images": []
+        },
+        {
+          "text": "설치 시작부터 완료할 때까지의 전 과정을 빠짐없이 순서대로 설명한다.",
+          "images": []
+        },
+        {
+          "text": "설치 매뉴얼은 개발자 기준으로 작성한다.",
+          "images": []
+        },
+        {
+          "text": "설치 매뉴얼에는 목차, 개요, 기본사항 등이 기본적으로 포함되어야 한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "메뉴얼을 사용자(개인)가 이해할 수 있도록 작성해야겠지요.\n개발자 기준으로 작성하면 사용자가 이해하기 힘들 수 있습니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 29,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "인터페이스 구현 검증 도구가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 63,
+      "choices": [
+        {
+          "text": "ESB",
+          "images": []
+        },
+        {
+          "text": "xUnit",
+          "images": []
+        },
+        {
+          "text": "STAF",
+          "images": []
+        },
+        {
+          "text": "NTAF",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "인터페이스 구현 검증 도구에는\nxUnit, STAF, FitNesse, NTAF, Selenium, Watir 이 있다.\n\nESB (Enterprise Service Bus)는 기업에 여러 서비스들을 논리적으로 서로 연결하여 상호 조합, 연계, 운용하는 인프라 시스템이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 30,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "소프트웨어 형상 관리에서 관리 항목에 포함되지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 85,
+      "choices": [
+        {
+          "text": "프로젝트 요구 분석서",
+          "images": []
+        },
+        {
+          "text": "소스 코드",
+          "images": []
+        },
+        {
+          "text": "운영 및 설치 지침서",
+          "images": []
+        },
+        {
+          "text": "프로젝트 개발 비용",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "형상관리에 개발비용은 포함되지 않음\n\n형상 관리 항목 (프로젝트 요구 분석서, 소스코드, 운영및설치지침서)",
+      "explanation_images": []
+    },
+    {
+      "number": 31,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음 설명에 해당하는 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m31.gif?1605251112"
+      ],
+      "pass_rate": 71,
+      "choices": [
+        {
+          "text": "외부 스키마",
+          "images": []
+        },
+        {
+          "text": "내부 스키마",
+          "images": []
+        },
+        {
+          "text": "개념 스키마",
+          "images": []
+        },
+        {
+          "text": "슈퍼 스키마",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "외부 스키마 : 개인 또는 응용 개발자 입장에서 보는 데이터베이스\n개념 스키마 : 모든 응용 프로그램 또는 사용자들이 필요로 하는 조직 전체 데이터베이스로 단 하나만 존재한다.\n\n외부스키마 : 사용자 뷰, 사용자나 개발자 관점\n개념스키마 : 전체적인 논리적 구조\n내부스키마 : 물리적 저장장치",
+      "explanation_images": []
+    },
+    {
+      "number": 32,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음 트리에 대한 INORDER 운행 결과는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m32.gif?1605251112"
+      ],
+      "pass_rate": 73,
+      "choices": [
+        {
+          "text": "D B A E C F",
+          "images": []
+        },
+        {
+          "text": "A B D C E F",
+          "images": []
+        },
+        {
+          "text": "D B E C F A",
+          "images": []
+        },
+        {
+          "text": "A B C D E F",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "중위(Inorder) : D - B - A - E - C - F\n전위(Preorder) : A - B - D - C - E - F\n후위(Postorder) : D - B - E - F - C - A",
+      "explanation_images": []
+    },
+    {
+      "number": 33,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "n 개의 노드로 구성된 무방향 그래프의 최대 간선수는?",
+      "question_images": [],
+      "pass_rate": 80,
+      "choices": [
+        {
+          "text": "n－1",
+          "images": []
+        },
+        {
+          "text": "n／2",
+          "images": []
+        },
+        {
+          "text": "n(n－1)／2",
+          "images": []
+        },
+        {
+          "text": "n(n＋1)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "n개의 노드를 각각 1 .. n이라 이름붙이면\n1번 노드에서 모든 노드에 간선을 내면 n-1개\n2번 노드는 1번노드에서 낸 것을 제외하고 n-2개\n3번 노드는 1, 2번 노드에서 낸 것을 제외하고 n-3개\n...\n따라서 구하는 답은 1 + 2 + ... + (n-2) + (n-1) = (n-1) * n / 2\n\n정점이 n개인 무방향 그래프에서 최대의 간선수는 n(n-1)/2개\n정점이 n개인 그래프에서 최대 간선수는 n(n-1)개",
+      "explanation_images": []
+    },
+    {
+      "number": 34,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음이 설명하는 테스트 용어는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m34.gif?1605251112"
+      ],
+      "pass_rate": 65,
+      "choices": [
+        {
+          "text": "테스트 케이스",
+          "images": []
+        },
+        {
+          "text": "테스트 시나리오",
+          "images": []
+        },
+        {
+          "text": "테스트 오라클",
+          "images": []
+        },
+        {
+          "text": "테스트 데이터",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "테스트 케이스 : 구현된 소프트웨어가 사용자의 요구사항을 정확하게 준수했는지를 확인하기 위해 설계된 입력 값, 실행 조건, 기대 결과 등으로 구성된 테스트 항목에 대한 명세서\n\n테스트 시나리오 : 테스트 케이스를 적용하는 순서에 따라 여러 개의 테스트 케이스들을 묶은 집합\n\n테스트 오라클 : 문제 참조",
+      "explanation_images": []
+    },
+    {
+      "number": 35,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "빌드 자동화 도구에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 63,
+      "choices": [
+        {
+          "text": "Gradle은 실행할 처리 명령들을 모아 태스크로 만든 후 태스크 단위로 실행한다.",
+          "images": []
+        },
+        {
+          "text": "빌드 자동화 도구는 지속적인 통합개발환경 에 서 유용하게 활용된다.",
+          "images": []
+        },
+        {
+          "text": "빌드 자동화 도구에는 Ant, Gradle, Jenkins등이 있다.",
+          "images": []
+        },
+        {
+          "text": "Jenkins는 Groovy 기반으로 한 오픈소스로 안드로이드 앱 개발 환경에서 사용된다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "빌드 자동화 도구\n- 빌드를 포함하여 테스트 및 배포를 자동화하는 도구\n- Ant, Make, Maven, Gradle, Jenkins 등이 있음\n\nJenkins\n- JAVA 기반의 오픈소스 형태\n- 서블릿 컨테이너에서 실행되는 서버 기반 도구\n- 친숙한 Web GUI 제공\n- 분산 빌드나 테스트 가능\n\nGradle\n- Groovy를 기반으로 한 오픈 소스 형태\n- 안드로이드 앱 개발 환경에서 사용\n- 행할 처리 명령들을 모아 태스크(Task)로 만든 후 태스크 단위로 실행",
+      "explanation_images": []
+    },
+    {
+      "number": 36,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "저작권 관리 구성 요소에 대한 설명이 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 69,
+      "choices": [
+        {
+          "text": "콘텐츠 제공자(Contents Provider) : 콘텐츠를 제공하는 저작권자",
+          "images": []
+        },
+        {
+          "text": "콘텐츠 분배자(Contents Distributor) : 콘텐츠를 메타 데이터와 함께 배포 가능한 단위로 묶는 기능",
+          "images": []
+        },
+        {
+          "text": "클리어링 하우스(Clearing House) : 키 관리 및 라이선스 발급 관리",
+          "images": []
+        },
+        {
+          "text": "DRM 컨트롤러 : 배포된 콘텐츠의 이용 권한을 통제",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "콘텐츠 분배자 - 암호화된 콘텐츠를 유통하는 곳 또는 사람\n패키저 - 콘텐츠를 메타 데이터와 함께 배포 가능한 형태로 묶어 암호화\n\n콘텐츠 제공자(Contents Provider)\n- 콘텐츠를 제공하는 저작권자\n\n콘텐츠 분배자(Contents Distributor)\n- 암호화된 콘텐츠를 유통하는 곳이나 사람 (플레이 스토어, 앱스토어 생각하면 될 듯)\n\n클리어링 하우스(Clearing House)\n- 저작권에 대한 사용 권한, 라이센스 발급, 암호화된 키 관리, 사용량에 따른 결제 관리 등을 수행\n\nDRM 컨트롤러(DRM Controller)\n- 배포된 콘텐츠의 이용권한을 통제하는 프로그램\n\n패키저(Packager)\n- 콘텐츠를 메타 데이터와 함계 배포 가능한 형태로 묶어 암호화하는 프로그램",
+      "explanation_images": []
+    },
+    {
+      "number": 37,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "블랙박스 테스트 기법으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "기초 경로 검사",
+          "images": []
+        },
+        {
+          "text": "동치 클래스 분해",
+          "images": []
+        },
+        {
+          "text": "경계값 분석",
+          "images": []
+        },
+        {
+          "text": "원인 결과 그래프",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "기초 경로 검사는 화이트박스 테스트 기법 중 하나이다.\n\n<블랙박스 테스트의 종류>\n- 동치(동등) 분할검사 : 입력조건에 유효한 값과 무효한 값을 균등하게 하여 테스트 케이스를 설계하는 방법\n- 경계값 분석 : 입력 조건의 경계에서 오류가 발생할 확률이 높기 때문에, 입력 조건의 경계값을 테스트 케이스로 설계하는 방법\n- 원인-효과 그래프 검사 : 입력 데이터 간의 관계와 출력에 미치는 영향을 분석해서 효용성이 높은 테스트 케이스를 설계하는 방법\n- 오류-예측 검사 : 과거의 경험이나 확인자의 감각에 의존하는 테스트 케이스 설계 방법\n- 비교검사 : 여러 버전의 프로그램에 동일한 자료를 제공해서 테스트 하는 방법\n]",
+      "explanation_images": []
+    },
+    {
+      "number": 38,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "해싱함수 중 레코드 키를 여러 부분으로 나누고, 나눈 부분의 각 숫자를 더하거나 XOR한 값을 홈 주소로 사용하는 방식은?",
+      "question_images": [],
+      "pass_rate": 59,
+      "choices": [
+        {
+          "text": "제산법",
+          "images": []
+        },
+        {
+          "text": "폴딩법",
+          "images": []
+        },
+        {
+          "text": "기수변환법",
+          "images": []
+        },
+        {
+          "text": "숫자분석법",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "폴딩법 - 해싱함수  중 레코드 키를 여러부분으로 나누고 나눈 부분의 각 숫자를 더하거나 XOR한 값을 홈 주소로 사용\n\n제산법 - 레코드키를 해시표로 나눈 나머지를 홈 주소로 사용\n기수변환법 - 키 숫자의 진수를 다른 진수로 변환시켜 주소 크기를 초과한 높은 자릿수 절단, 다시 주소 범위에 맞게 조정\n숫자분석법 - 키 값을 이루는 숫자의 분포를 분석하여 비교적 고른 자리를 필요한 만큼 선택",
+      "explanation_images": []
+    },
+    {
+      "number": 39,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "다음에서 설명하는 클린 코드 작성 원칙은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m39.gif?1605251112"
+      ],
+      "pass_rate": 84,
+      "choices": [
+        {
+          "text": "다형성",
+          "images": []
+        },
+        {
+          "text": "단순성",
+          "images": []
+        },
+        {
+          "text": "추상화",
+          "images": []
+        },
+        {
+          "text": "의존성",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "클린 코드(Clean Code) : 누구나 쉽게 이해하고 수정 및 추가할 수 있는 단순, 명료한 코드, 즉 잘 작성된 코드\n\n나쁜 코드(Bad Code) : 프로그램 로직(Logic)이 복잡하고 이해하기 어려운 코드로, 코드의 로직이 서로 얽혀 있는 \"스파게티 코드\", 동일한 처리 로직이 중복되게 작성된 코드 등이 여기에 해당\n\n#클린 코드 작성 원칙\n-가독성 : 누구든지 코드를 쉽게 읽을 수 있도록 작성, 코드 작성 시 이해하기 쉬운 용어를 사용하거나 들여쓰기 기능 등을 사용\n-단순성 : 코드를 간단하게 작성, 한 번에 한 가지를 처리하도록 코드를 작성하고 클래스/메소드/함수 등을 최소 단위로 분리\n-의존성 배제 : 코드가 다른 모듈에 미치는 영향을 최소화, 코드 변경 시 다른 부분에 영향이 없도록 작성\n-중복성 최소화 : 코드의 중복을 최소화, 중복된 코드는 삭제하고 공통된 코드를 사용\n-추상화 : 상위(부모,슈퍼) 클래스/메소드/함수에서는 간략하게 애플리케이션의 특성을 나타내고, 상세 내용은 하위(자식,서브) 클래스/메소드/함수에서 구현",
+      "explanation_images": []
+    },
+    {
+      "number": 40,
+      "subject": "2과목 : 소프트웨어 개발",
+      "question": "디지털 저작권 관리(DRM) 기술과 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 80,
+      "choices": [
+        {
+          "text": "콘텐츠 암호화 및 키 관리",
+          "images": []
+        },
+        {
+          "text": "콘텐츠 식별체계 표현",
+          "images": []
+        },
+        {
+          "text": "콘텐츠 오류 감지 및 복구",
+          "images": []
+        },
+        {
+          "text": "라이선스 발급 및 관리",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "디지털 저작권 관리는 오류를 복구해주지 않는다.\n\nDRM (Digital Rights Management): 디지털 컨텐츠에 대한 권리정보를 지정하고 암호화 기술을 이용하여 허가된 사용자의 허가된 권한 범위 내에서 컨텐츠의 이용이 가능하도록 통제하는 기술\n기술요소: 1) 암호화 2) 키 관리 3) 식별기술 4) 저작권표현 5) 암호화 파일 생성 6) 정책관리 7) 크랙방지 8) 인증",
+      "explanation_images": []
+    },
+    {
+      "number": 41,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "다음 설명과 관련 있는 트랜잭션의 특징은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m41.gif?1605251112"
+      ],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "Durability",
+          "images": []
+        },
+        {
+          "text": "Isolation",
+          "images": []
+        },
+        {
+          "text": "Consistency",
+          "images": []
+        },
+        {
+          "text": "Atomicity",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "1. Durability(영속성, 지속성)\n - 성공적으로 완료된 트랜잭션의 결과는 시스템이 고장나더라도 영구적으로 반영되어야 한다.\n2. Isolation(독립성, 격리성)\n - 둘 이상의 트랜잭션이 동시에 병행 실행되는 경우 어느 하나의 트랜잭션 실행중에 다른 트랜잭션의 연산이 끼어들 수 없다.\n3. Consistency(일관성)\n - 시스템이 가지고 있는 고정요소는 트랜잭션 수행 전과 트랜잭션 수행 완료 후의 상태가 같아야 한다.\n\n원자성(Atomicity)\na. 데이터베이스에 반영되도록 완전히 완료 아니면 전혀 반영되지 않도록 복구되어야 함",
+      "explanation_images": []
+    },
+    {
+      "number": 42,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "데이터베이스에 영향을 주는 생성, 읽기, 갱신, 삭제 연산으로 프로세스와 테이블 간에 매트릭스를 만들어서 트랜잭션을 분석하는 것은?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "CASE 분석",
+          "images": []
+        },
+        {
+          "text": "일치 분석",
+          "images": []
+        },
+        {
+          "text": "CRUD 분석",
+          "images": []
+        },
+        {
+          "text": "연관성 분석",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "-CRUD 분석은 생성(Create), 읽기(Read), 갱신(Update), 삭제(Delete)의 영어 앞글자를 모아 만든 용어이며, CRUD 분석은 데이터베이스 테이블에 변화를 주는 트랜잭션의 CRUD 연산에 대해 CRUD 매트릭스를 작성하여 분석하는 것이다.\n\n출처: https://lipcoder.tistory.com/entry/3-2-3장-트랜잭션-분석-CRUD-분석 [기록공간]",
+      "explanation_images": []
+    },
+    {
+      "number": 43,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "정규화된 엔티티, 속성, 관계를 시스템의 성능 향상과 개발 운영의 단순화를 위해 중복, 통합, 분리 등을 수행하는 데이터 모델링 기법은?",
+      "question_images": [],
+      "pass_rate": 71,
+      "choices": [
+        {
+          "text": "인덱스정규화",
+          "images": []
+        },
+        {
+          "text": "반정규화",
+          "images": []
+        },
+        {
+          "text": "집단화",
+          "images": []
+        },
+        {
+          "text": "머징",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "1. 인덱스 정규화 : 인덱스는 키 값으로 행 데이터의 위치를 식별하는데 사용하는 기능(인덱스 정규화는 인덱스를 효과적으로 사용하려면 정규화가 되어 있어야 하는 것을 말하는 듯)\n\n2. 반정규화 : 정규화된 엔티티, 속성, 관계를 시스템의 성능 향상과 개발 운영의 단순화를 위해 중복, 통합, 분리 등을 수행하는 데이터 모델링 기법\n\n3. 집단화 : 속성(유형, Type)들의 세트로 구성되는 새로운 속성(유형, Type)을 정의하는데 사용되는 개념\n\n4. 머징 : 둘 이상의 데이터 세트를 단일 데이터 세트로 결합 또는 공통된 컬럼명 또는 행 이름에 따라 데이터 프레임을 병합",
+      "explanation_images": []
+    },
+    {
+      "number": 44,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "학생 테이블을 생성한 후, 성별 필드가 누락되어 이를 추가하려고 한다. 이에 적합한 SQL 명령어는?",
+      "question_images": [],
+      "pass_rate": 74,
+      "choices": [
+        {
+          "text": "INSERT",
+          "images": []
+        },
+        {
+          "text": "ALTER",
+          "images": []
+        },
+        {
+          "text": "DROP",
+          "images": []
+        },
+        {
+          "text": "MODIFY",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "- INSERT는 테이블에 데이터를 입력할 때 사용 된다.\n- DROP는 테이블에서 컬럼을 삭제할 수 있으며, 데이터도 함께 삭제 된다. 한번에 하나의 컬럼만 삭제 가능하다.\n- MODIFY는 테이블에 존재하는 컬럼의 데이터 유형, 기본값(default), NOT NULL 제약조건에 대해 변경할 때 사용한다.\n\nALTER - 테이블의 컬럼을 추가, 삭제, 수정, 이름변경 등이 가능하게 해주는 기능을 하는 명령어",
+      "explanation_images": []
+    },
+    {
+      "number": 45,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "정규화의 필요성으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 87,
+      "choices": [
+        {
+          "text": "데이터 구조의 안정성 최대화",
+          "images": []
+        },
+        {
+          "text": "중복 데이터의 활성화",
+          "images": []
+        },
+        {
+          "text": "수정, 삭제 시 이상현상의 최소화",
+          "images": []
+        },
+        {
+          "text": "테이블 불일치 위험의 최소화",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "중복 데이터를 최소화하거나 없애는 것인데 활성화하는 건 말이 되지 않습니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 46,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "개체-관계 모델의 E-R 다이어그램에서 사용되는 기호와 그 의미의 연결이 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "사각형 - 개체 타입",
+          "images": []
+        },
+        {
+          "text": "삼각형 - 속성",
+          "images": []
+        },
+        {
+          "text": "선 - 개체타입과 속성을 연결",
+          "images": []
+        },
+        {
+          "text": "마름모 - 관계 타입",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "- 역삼각형으로 주로 사용되며 ISA 관계(상하 관계를 가지는 관계)를 표현한다.\n- 관계 실선으로 연결하여 표현한다.\n- 상위 개체 타입: 슈퍼 클래스, 역삼각형의 위에 위치\n- 하위 개체 타입: 서브 클래스, 역삼각형의 아래에 위치\n\n속성 - 타원형",
+      "explanation_images": []
+    },
+    {
+      "number": 47,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "다음 SQL문에서 빈칸에 들어갈 내용으로 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m47.gif?1605251112"
+      ],
+      "pass_rate": 79,
+      "choices": [
+        {
+          "text": "FROM",
+          "images": []
+        },
+        {
+          "text": "SET",
+          "images": []
+        },
+        {
+          "text": "INTO",
+          "images": []
+        },
+        {
+          "text": "TO",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "UPDATE의 기본형식은 \" UPDATE [테이블명] SET [열] = '변경할 값' WHERE [조건] 이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 48,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "릴레이션에 있는 모든 튜플에 대해 유일성은 만족시키지만 최소성은 만족시키지 못하는 키는?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "후보키",
+          "images": []
+        },
+        {
+          "text": "기본키",
+          "images": []
+        },
+        {
+          "text": "슈퍼키",
+          "images": []
+        },
+        {
+          "text": "외래키",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "- 후보키(Candidate Key) : 릴레이션을 구성하는 속성 중 튜플을 유일하게 식별하기 위한 기본키로 사용할 수 있는 속성들을 뜻한다.\n\n- 기본키(Primary Key) : 후보키 중에서 선택된 주키(Main Key)이다.\n\n- 슈퍼키(Super Key) : 한 릴레이션 내에 있는 속성들의 집합으로 구성된 키이다. 슈퍼키는 릴레이션에 있는 튜플에 대해 유일성을 만족시키지만, 최소성은 만족 시키지 못한다.\n\n- 외래키(Foregin Key): 관계를 맺고 있는 릴레이션 R1, R2에서 릴레이션 R1이 참조하고 있는 릴레이션 R2의 기본키와 같은 R1릴레이션의 속성 말한다.",
+      "explanation_images": []
+    },
+    {
+      "number": 49,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "DBA가 사용자 PARK에게 테이블 [STUDENT]의 데이터를 갱신할 수 있는 시스템 권한을 부여하고자 하는 SQL문을 작성하고자 한다. 다음에 주어진 SQL문의 빈칸을 알맞게 채운 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m49.gif?1605251112"
+      ],
+      "pass_rate": 72,
+      "choices": [
+        {
+          "text": "㉠ INSERT, ㉡ INTO",
+          "images": []
+        },
+        {
+          "text": "㉠ ALTER, ㉡ TO",
+          "images": []
+        },
+        {
+          "text": "㉠ UPDATE, ㉡ ON",
+          "images": []
+        },
+        {
+          "text": "㉠ REPLACE, ㉡ IN",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "문제에서 특정 컬럼을 지정하지 않았기 때문에 update컬럼 지정(update (컬럼1, 컬럼2, 컬럼3)은 생략 가능하다.\n- grant update(컬럼1, 컬럼2, 컬럼3) on 테이블명 to 사용자명;",
+      "explanation_images": []
+    },
+    {
+      "number": 50,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "관계대수에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 80,
+      "choices": [
+        {
+          "text": "주어진 릴레이션 조작을 위한 연산의 집합이다.",
+          "images": []
+        },
+        {
+          "text": "일반 집합 연산과 순수 관계 연산으로 구분된다.",
+          "images": []
+        },
+        {
+          "text": "질의에 대한 해를 구하기 위해 수행해야 할 연산의 순서를 명시한다.",
+          "images": []
+        },
+        {
+          "text": "원하는 정보와 그 정보를 어떻게 유도하는가를 기술하는 비절차적방법이다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "1. 관계대수는 관계형 데이터베이스에서 원하는 정보와 그 정보를 검색하기 위해서 어떻게 유도하는가를 기술하는 절차적인 언어이다.\n2. 관계대수는 릴레이션을 처리하기 위해 연산자와 연산규칙을 제공하는 언어로 피연산자가 릴레이션이고 결과도 릴레이션이다.\n3. 질의에 대한 해를 구하기 위해 수행해야 할 연산의 순서를 명시한다.\n4. 대표적으로 순수 관계 연산자와 일반 집합 연산자가 있다.\n\n관계해석이란?\n1. 관계 데이터 모델의 제안자인 코드가 수학에 가까운 기반을 두고 관계 데이터베이스를 위해 제안하여 탄생하였다.\n2. 관계해석은 관계 데이터의 연산을 표현하는 방법으로, 원하는 정보를 정의할 때는 계산 수식을 사용한다.\n3. 관계해석은 원하는 정보가 무엇이라는 것만 정의하는 비절차적 특성을 지닌다.\n4. 튜플 관계해석과 도메인 관계해석이 있다.\n5. 기본적으로 관계해석과 관계대수는 관계 데이터베이스를 처리하는 기능과 능력면에서 동등하며 관계대수로 표현한 식은 관계해석으로 표현할 수 있다.\n6. 질의어로 표현한다.",
+      "explanation_images": []
+    },
+    {
+      "number": 51,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "다음 SQL문의 실행 결과는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m51.gif?1617572055"
+      ],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "",
+          "images": [
+            "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m51b1.gif?1605251112"
+          ]
+        },
+        {
+          "text": "",
+          "images": [
+            "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m51b2.gif?1605251112"
+          ]
+        },
+        {
+          "text": "",
+          "images": [
+            "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m51b3.gif?1605251112"
+          ]
+        },
+        {
+          "text": "",
+          "images": [
+            "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m51b4.gif?1605251112"
+          ]
+        }
+      ],
+      "answer": 3,
+      "explanation": "- 먼저 첫번째 select 과목이름 From 성적 where exists 구문을 살펴 보면, 성적 테이블에서 과목이름을 찾으라고 되어 있고, exists는 in과 비슷한 역할을 한다.\n  두번째 Select ~학생.주소 구문을 살펴 보면, 학생 테이블의 학번과 성적 테이블의 학번은 서로 동일하고, 학생 테이블에서 학과는 전기 또는 전산이고 주소가 경기인 학생을 찾는 구문이다.\n\n여기에 해당되는 정보는 학번 2000, 4000 학생으로 성적 테이블에서 학번을 찾아보면 여기에 해당되는 과목은 \"DB, DB, 운영체제\" 이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 52,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "로킹(Locking) 기법에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 81,
+      "choices": [
+        {
+          "text": "로킹의 대상이 되는 객체의 크기를 로킹 단위라고 한다.",
+          "images": []
+        },
+        {
+          "text": "로킹 단위가 작아지면 병행성 수준이 낮아진다.",
+          "images": []
+        },
+        {
+          "text": "데이터베이스도 로킹 단위가 될 수 있다.",
+          "images": []
+        },
+        {
+          "text": "로킹 단위가 커지면 로크 수가 작아 로킹 오버헤드가 감소한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "로킹 단위가 작으면, 로크의 수가 많아지고 제어 기법이 까다로워지며, 병행성 높아진다.\n\n로킹 단위 작아지면 로크 수, 병행제어, 오버헤드, 병행성 수준, DB 공유도 전부 크거나 복잡해지거나 증가.\n반대로 커지면 전부 작아지거나 단순 혹은 감소함.",
+      "explanation_images": []
+    },
+    {
+      "number": 53,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "사용자 X1에게 department 테이블에 대한 검색 연산을 회수하는 명령은?",
+      "question_images": [],
+      "pass_rate": 87,
+      "choices": [
+        {
+          "text": "delete select on department to X1;",
+          "images": []
+        },
+        {
+          "text": "remove select on department from X1;",
+          "images": []
+        },
+        {
+          "text": "revoke select on department from X1;",
+          "images": []
+        },
+        {
+          "text": "grant select on department from X1;",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "grant\n- 권한 허가\nrevoke\n- 권한 회수",
+      "explanation_images": []
+    },
+    {
+      "number": 54,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "뷰(VIEW)에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 67,
+      "choices": [
+        {
+          "text": "뷰 위에 또 다른 뷰를 정의할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "뷰에 대한 조작에서 삽입, 갱신, 삭제 연산은 제약이 따른다.",
+          "images": []
+        },
+        {
+          "text": "뷰의 정의는 기본 테이블과 같이 ALTER문을 이용하여 변경한다.",
+          "images": []
+        },
+        {
+          "text": "뷰가 정의된 기본 테이블이 제거되면 뷰도 자동적으로 제거된다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "뷰의 정의를 변경하려면 뷰를 삭제하고 재생성 해야된다.",
+      "explanation_images": []
+    },
+    {
+      "number": 55,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "데이터 모델에 표시해야 할 요소로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 48,
+      "choices": [
+        {
+          "text": "논리적 데이터 구조",
+          "images": []
+        },
+        {
+          "text": "출력 구조",
+          "images": []
+        },
+        {
+          "text": "연산",
+          "images": []
+        },
+        {
+          "text": "제약조건",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "데이터 모델 개념: 현실 세계의 정보를 컴퓨터가 이해할 수 있도록 추상화하여 표현한 모델\n데이터 모델 구성요소: 논리적 데이터 구조, 연산, 제약 조건\n데이터 모델 절차: 개념적 데이터 모델>논리적 데이터 모델>물리적 데이터 모델",
+      "explanation_images": []
+    },
+    {
+      "number": 56,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "제 3정규형에서 보이스코드 정규형(BCNF)으로 정규화하기 위한 작업은?",
+      "question_images": [],
+      "pass_rate": 81,
+      "choices": [
+        {
+          "text": "원자 값이 아닌 도메인을 분해",
+          "images": []
+        },
+        {
+          "text": "부분 함수 종속 제거",
+          "images": []
+        },
+        {
+          "text": "이행 함수 종속 제거",
+          "images": []
+        },
+        {
+          "text": "결정자가 후보키가 아닌 함수 종속 제거",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "비정규릴레이션\n1NF            → 도메인이 원자값\n2NF            → 부분적 함수 종속 제거\n3NF            → 이행적 함수 종속 제거\nBCNF           → 결정자이면서 후보키가 아닌 것 제거 ★\n4NF            → 다치 종속\n5NF            → 조인 종속성 이용\n\n정규화\n1     2     3    bcnf    4    5\n도 → 부 → 이 → 결 → 다 → 조\n도부이결다조 로 외우면 편합니다",
+      "explanation_images": []
+    },
+    {
+      "number": 57,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "A1, A2, A3 3개 속성을 갖는 한 릴레이션에서 A1의 도메인은 3개 값, A2의 도메인은 2개 값, A3의 도메인은 4개 값을 갖는다. 이 릴레이션에 존재할 수 있는 가능한 튜플(Tuple)의 최대 수는?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "24",
+          "images": []
+        },
+        {
+          "text": "12",
+          "images": []
+        },
+        {
+          "text": "8",
+          "images": []
+        },
+        {
+          "text": "9",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "3*2*4=24\n\n릴레이션에서 최소 1개의 속성은 튜플을 구분할 수 있는 기본키여야 함.\n기본키가 A1 1개일 경우 : 기본키의 도메인 3개 값이므로 3개가 최대\n기본키가 A2 1개일 경우 : 도메인 2개 값이므로 2개가 최대\n:\n기본키가 A1, A2 2개일 경우 : 도메인이 각 3개 2개이므로 최대 조합은 3*2 6개\n:\n:\n기본키가 A1, A2, A3 3개일 경우 : 3 * 2 * 4 = 24개\n따라서 모든 속성이 기본키로 사용될 때가 최대 갯수",
+      "explanation_images": []
+    },
+    {
+      "number": 58,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "데이터베이스 설계 시 물리적 설계 단계에서 수행하는 사항이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 69,
+      "choices": [
+        {
+          "text": "저장 레코드 양식 설계",
+          "images": []
+        },
+        {
+          "text": "레코드 집중의 분석 및 설계",
+          "images": []
+        },
+        {
+          "text": "접근 경로 설계",
+          "images": []
+        },
+        {
+          "text": "목표 DBMS에 맞는 스키마 설계",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "\"목표 DBMS에 맞는 스키마 설계\"는 데이터베이스 설계 단계 중 논리적 설계 단계에 속한다.",
+      "explanation_images": []
+    },
+    {
+      "number": 59,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "한 릴레이션 스키마가 4개 속성, 2개 후보키 그리고 그 스키마의 대응 릴레이션 인스턴스가 7개 튜플을 갖는다면 그 릴레이션의 차수(degree)는?",
+      "question_images": [],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "1",
+          "images": []
+        },
+        {
+          "text": "2",
+          "images": []
+        },
+        {
+          "text": "4",
+          "images": []
+        },
+        {
+          "text": "7",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "릴레이션에서 차수(degree)는 속성의 수를 말합니다.\n\n스키마 : 속성(attribute)의 집합 = 열\n인스턴스 : 튜플의 집합 = 행,레코드\n속성의 개수 = 차수\n튜플의 개수 = 카디날리티(cardinality)",
+      "explanation_images": []
+    },
+    {
+      "number": 60,
+      "subject": "3과목 : 데이터베이스 구축",
+      "question": "데이터웨어하우스의 기본적인 OLAP(on-line analytical processing) 연산이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 58,
+      "choices": [
+        {
+          "text": "translate",
+          "images": []
+        },
+        {
+          "text": "roll-up",
+          "images": []
+        },
+        {
+          "text": "dicing",
+          "images": []
+        },
+        {
+          "text": "drill-down",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "데이터웨어하우스의 기본적인 OLAP(on-line analytical processing) 연산은 roll-up, slicing & dicing, drill-up & down, pivot, drill-through 등이 있습니다.\n\n·데이터 웨어하우스 (Data Warehouse):\n급증하는 다량의 데이터를 효과적으로 분석하여 정보화하고 이를\n여러 계층의 사용자들이 효율적으로 사용할 수 있도록 한 데이터베이스.\n\n·OLAP (Online Analytical Processing)\n다차원으로 이루어진 데이터로부터 통계적인 요약 정보를 분석하여 의사 결정에 활용하는 방식.",
+      "explanation_images": []
+    },
+    {
+      "number": 61,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "UNIX SHELL 환경 변수를 출력하는 명령어가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 46,
+      "choices": [
+        {
+          "text": "configenv",
+          "images": []
+        },
+        {
+          "text": "printenv",
+          "images": []
+        },
+        {
+          "text": "env",
+          "images": []
+        },
+        {
+          "text": "setenv",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "1. configenv : 파이썬에서 사용, json 등.. 활용\n2. printenv : 환경 변수의 값을 출력하는 명령어\n3. env : 환경 변수 보기 및 변경\n4. setenv : 환경 변수 추가 또는 업데이트\n\n4-93 33번 문제에 답: setenv // 해설 : setenv는 csh와 관련된 쉘에서 쓰인다.라고 나와있습니다",
+      "explanation_images": []
+    },
+    {
+      "number": 62,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "Java 프로그래밍 언어의 정수 데이터 타입 중 'long'의 크기는?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "1byte",
+          "images": []
+        },
+        {
+          "text": "2byte",
+          "images": []
+        },
+        {
+          "text": "4byte",
+          "images": []
+        },
+        {
+          "text": "8byte",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "byte = 1 Byte\nshort = 2 Byte\nint = 4 Byte\nlong = 8 Byte\n\n자바 실수형 데이터 타입의 경우\nfloat = 4 Byte\ndouble = 8 Byte",
+      "explanation_images": []
+    },
+    {
+      "number": 63,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "Java에서 사용되는 출력 함수가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "System.out.print( )",
+          "images": []
+        },
+        {
+          "text": "System.out.println( )",
+          "images": []
+        },
+        {
+          "text": "System.out.printing( )",
+          "images": []
+        },
+        {
+          "text": "System.out.printf( )",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "-Java의 출력 함수는 \"println, print, printf\" 이다.\n\n- println은 printline의 뜻으로 출력 후 다음 줄로 내려가 출력된다.\n\n- printf는 지시자를 통해 변수의 값을 여러 가지 형식으로 출력하고자 할 때 사용한다.\n  ex.> System.out.printf(\"출력 서식\", 출력할 내용);\n\n- print는 콘솔창에 문자열을 단순 출력하는 동작을 수행한다.",
+      "explanation_images": []
+    },
+    {
+      "number": 64,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "운영체제에서 커널의 기능이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "프로세스 생성, 종료",
+          "images": []
+        },
+        {
+          "text": "사용자 인터페이스",
+          "images": []
+        },
+        {
+          "text": "기억 장치 할당, 회수",
+          "images": []
+        },
+        {
+          "text": "파일 시스템 관리",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "커널(kernel) : 프로세스(CPU스케줄링)관리, 기억장치 관리, 파일관리, 입출력 관리, 프로세스간 통신, 데이터 전송 및 변환 등 여러가지 가능 수행\n\n쉘(shell) : 시스템과 사용자간의 인터페이스 담당, 명령어 해석기",
+      "explanation_images": []
+    },
+    {
+      "number": 65,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "OSI 7계층에서 단말기 사이에 오류 수정과 흐름제어를 수행하여 신뢰성 있고 명확한 데이터를 전달하는 계층은?",
+      "question_images": [],
+      "pass_rate": 84,
+      "choices": [
+        {
+          "text": "전송 계층",
+          "images": []
+        },
+        {
+          "text": "응용 계층",
+          "images": []
+        },
+        {
+          "text": "세션 계층",
+          "images": []
+        },
+        {
+          "text": "표현 계층",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "*응용 계층: 최종 사용자가 실제로 상호 작용하는 계층. 네트워크 리소스에 대한 액세스를 허용.\n\n*세션 계층: 컴퓨터 간의 세션을 설정, 관리 및 종료하여 적절한 통신을 유지하는 역할을 수행.\n\n*표현 계층: 데이터로 작동하는 계층. 주요 기능은 \"데이터 변환, 암호화 및 압축\", 기본적으로 사용하는\n            응용 계층과 상호 작용하여 데이터를 표현 계층으로 보낸다.\n\n참고> https://velog.io/@bisu8018/ OSI-7-%EA%B3%84%EC%B8%B5- %EC%9D%B4%EB%9E%80",
+      "explanation_images": []
+    },
+    {
+      "number": 66,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "다음 쉘 스크립트의 의미로 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m66.gif?1605251112"
+      ],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "wow 사용자가 로그인한 경우에만 반복문을 수행한다.",
+          "images": []
+        },
+        {
+          "text": "wow 사용자가 로그인할 때까지 반복문을 수행한다.",
+          "images": []
+        },
+        {
+          "text": "wow 문자열을 복사한다.",
+          "images": []
+        },
+        {
+          "text": "wow 사용자에 대한 정보를 무한 반복하여 출력한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "who 명령어는 현재 시스템에 로그인한 유저의 목록을 보여 준다.\n|(파이프)는 앞의 who 명령어의 출력 결과를 뒤의 grep 명령어로 전달한다.\ngrep 명령어는 who 명령문의 결과 중 wow 유저가 로그인하면 그 결과를 필터링하여 출력한다.\nsleep 명렁문 뒤의 숫자(초)만큼 잠시 수행을 대기한다.\n\nuntil....do : 조건문이 참이 될 때까지 실행",
+      "explanation_images": []
+    },
+    {
+      "number": 67,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "다음 자바 코드를 실행한 결과는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m67.gif?1605251112"
+      ],
+      "pass_rate": 63,
+      "choices": [
+        {
+          "text": "x＝7 y＝0",
+          "images": []
+        },
+        {
+          "text": "x＝6 y＝-1",
+          "images": []
+        },
+        {
+          "text": "x＝7 y＝-1",
+          "images": []
+        },
+        {
+          "text": "Unresolved compilation problem 오류 발생",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "자바에서 while 문은 조건 식의 결과 값이 Boolean 이어야 한다. y--는 int이므로 오류가 발생한다.\n\n여기서 Boolean은 True / False를 뜻함",
+      "explanation_images": []
+    },
+    {
+      "number": 68,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "다음 파이썬으로 구현된 프로그램의 실행 결과로 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m68.gif?1605251113"
+      ],
+      "pass_rate": 73,
+      "choices": [
+        {
+          "text": "[20, 60]",
+          "images": []
+        },
+        {
+          "text": "[60, 20]",
+          "images": []
+        },
+        {
+          "text": "[0, 20, 40, 60]",
+          "images": []
+        },
+        {
+          "text": "[10, 30, 50, 70]",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "a[시작점 : 끝점 : 넘어가는 수] 이렇게 생각하시면 됩니다.\na[:7:2]이면, a[0]~a[6]까지의 값 [0,10,20,30,40,50,60]이고,\n이를 2칸씩 넘어가라 했으니 a[0]부터 시작해서 [0,20,40,60]이 나오게 됩니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 69,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "공통모듈의 재사용 범위에 따른 분류가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 70,
+      "choices": [
+        {
+          "text": "컴포넌트 재사용",
+          "images": []
+        },
+        {
+          "text": "더미코드 재사용",
+          "images": []
+        },
+        {
+          "text": "함수와 객체 재사용",
+          "images": []
+        },
+        {
+          "text": "애플리케이션 재사용",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "더미코드\n- 호출 시 로직 없이 응답만 수행하는 모듈\n- 단위 테스트 시 아직 미개발 된 모듈을 대체하기 위해 사용",
+      "explanation_images": []
+    },
+    {
+      "number": 70,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "다음과 같은 프로세스가 차례로 큐에 도착하였을 때, SJF(Shortest Job First) 정책을 사용할 경우 가장 먼저 처리되는 작업은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m70.gif?1605251113"
+      ],
+      "pass_rate": 86,
+      "choices": [
+        {
+          "text": "P1",
+          "images": []
+        },
+        {
+          "text": "P2",
+          "images": []
+        },
+        {
+          "text": "P3",
+          "images": []
+        },
+        {
+          "text": "P4",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "SJF : 작업이 끝나기까지의 실행 시간 추정치가 가장 작은 작업을 먼저 실행시키는 방식\n\n도착시간이 명시되지 않은 경우, \"차례로 도착했다\"고 기재되어 있더라도 동시간대에 도착한 것으로 간주",
+      "explanation_images": []
+    },
+    {
+      "number": 71,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "4개의 페이지를 수용할 수 있는 주기억장치가 있으며, 초기에는 모두 비어 있다고 가정한다. 다음의 순서로 페이지 참조가 발생할 때, FIFO 페이지 교체 알고리즘을 사용할 경우 페이지 결함의 발생 횟수는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m71.gif?1605251113"
+      ],
+      "pass_rate": 73,
+      "choices": [
+        {
+          "text": "6회",
+          "images": []
+        },
+        {
+          "text": "7회",
+          "images": []
+        },
+        {
+          "text": "8회",
+          "images": []
+        },
+        {
+          "text": "9회",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "1\n1 2\n1 2 3\n/ (1)\n/ (2)\n1 2 3 4\n5 2 3 4\n5 1 3 4\n\n총 6회\n\n1\n1 2\n1 2 3\n중복(1) 페이지 결함 X\n중복(2) 페이지 결함 X\n1 2 3 4\n2 3 4 5\n3 4 5 1\n\nFIFO(First In First Out) 알고리즘 : 가장 먼저 메모리에 올라온 페이지를 가장 먼저 내보내는 알고리즘",
+      "explanation_images": []
+    },
+    {
+      "number": 72,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "TCP 흐름제어기법 중 프레임이 손실되었을 때, 손실된 프레임 1개를 전송하고 수신자의 응답을 기다리는 방식으로 한 번에 프레임 1개만 전송할 수 있는 기법은?",
+      "question_images": [],
+      "pass_rate": 84,
+      "choices": [
+        {
+          "text": "Slow Start",
+          "images": []
+        },
+        {
+          "text": "Sliding Window",
+          "images": []
+        },
+        {
+          "text": "Stop and Wait",
+          "images": []
+        },
+        {
+          "text": "Congestion Avoidance",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "Stop and Wait(정지 및 대기) 기법에 대한 설명이다.\n\n① Slow start: 패킷이 문제없이 도착하면 혼잡 윈도우 크기를 패킷마다 1씩 증가시켜 한 주기가 지나면 혼잡 윈도우 크기가 2배로 되지만, 혼잡 현상 발생시 혼잡 윈도우 크기를 1로 줄여버리는 방식이다.\n\n② Slding WIndow: 한 번에 여러 패킷(프레임)을 전송할 수 있어 전송 효율이 좋은 기법\n\n- 수신 측으로부터 이전에 송신한 패킷에 대한 긍정 수신 응답(ACK)이 전달된 경우 윈도우 크기는 증가하고, 수신측으로부터 이전에 송신한 패킷에 대한 부정 수신 응답(NAK)이 전달된 경우 윈도우 크기는 감소한다.\n\n④ Congestion Avoidance(혼잡 방지, Congestion Control): 네트워크 내에서 패킷의 지연이 너무 높아지게 되어 트래픽이 붕괴되지 않도록 패킷의 흐름을 제어하는 트래픽 제어(종류: AMID, Slow Start)",
+      "explanation_images": []
+    },
+    {
+      "number": 73,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "결합도(Coupling)에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 52,
+      "choices": [
+        {
+          "text": "데이터 결합도(Data Coupling)는 두 모듈이 매개변수로 자료를 전달할 때, 자료구조 형태로 전달되어 이용될 때 데이터가 결합되어 있다고 한다.",
+          "images": []
+        },
+        {
+          "text": "내용 결합도(Content Coupling)는 하나의 모듈이 직접적으로 다른 모듈의 내용을 참조할 때 두 모듈은 내용적으로 결합되어 있다고 한다.",
+          "images": []
+        },
+        {
+          "text": "공통 결합도(Common Coupling)는 두 모듈이 동일한 전역 데이터를 접근한다면 공통결합 되어 있다고 한다.",
+          "images": []
+        },
+        {
+          "text": "결합도(Coupling)는 두 모듈간의 상호작용, 또는 의존도 정도를 나타내는 것이다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "스탬프 결합도\n - 두 모듈이 매개변수로 자료를 전달할 때, 자료구조 형태로 전달되어 이용될 때 데이터가 결합되어 있다고 한다.\n - 두 모듈이 동일한 자료 구조를 조회함\n\n자료 결합도(data coupling)\n어떤 모듈이 다른 모듈을 호출하면서 매게변수나 인수를 넘겨주고, 호출 받은 모듈은 받은 데이터에 대한 처리결과를 다시 돌려주는 방식",
+      "explanation_images": []
+    },
+    {
+      "number": 74,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "응집도의 종류 중 서로 간에 어떠한 의미 있는 연관관계도 지니지 않은 기능 요소로 구성되는 경우이며, 서로 다른 상위 모듈에 의해 호출되어 처리상의 연관성이 없는 서로 다른 기능을 수행하는 경우의 응집도는?",
+      "question_images": [],
+      "pass_rate": 66,
+      "choices": [
+        {
+          "text": "Functional Cohesion",
+          "images": []
+        },
+        {
+          "text": "Sequential Cohesion",
+          "images": []
+        },
+        {
+          "text": "Logical Cohesion",
+          "images": []
+        },
+        {
+          "text": "Coincidental Cohesion",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "응집도 : 하나의 모듈이 하나의 기능을 수행하는 요소들간의 연관성 척도, 독립적인 모듈이 되기 위해서는 응집도가 강해야 한다.(결합도는 약해야 한다.)\n\n응집도 순서(강함 -> 약함)\n1. 기능적 응집도(Functional Cohesion) : 모듈 내 모든 요소들이 단일 기능을 수행\n2. 순차적 응집도(Sequential Cohesion) : 모듈 내의 한 요소의 출력 자료가 다음 요소의 입력 자료로 사용\n3. 교환적 응집도(Communication Cohesion) : 모듈 내의 요소들이 동일한 입출력 자료로 서로 다른 기능을 수행\n4. 절차적 응집도(Procedural Cohesion) : 모듈 수행 요소들이 반드시 특정 순서대로 수행\n5. 시간적 응집도(Temporal Cohesion) : 특정 시간에 실행되는 기능들을 모아 작성된 모듈\n6. 논리적 응집도(Logical Cohesion) : 논리적으로 유사한 기능을 수행 하지만 서로의 관계는 밀접하지 않음\n7. 우연적 응집도(Coincidental Cohesion) : 모듈 내 요소들이 뚜렷한 관계가 없이 존재, 어떠한 의미 있는 연관관계도 지니지 않은 기능 요소로 구성되고 서로 다른 상위 모듈에 의해 호출되어 처리상의 연관성이 없는 서로 다른 기능을 수행하는 경우",
+      "explanation_images": []
+    },
+    {
+      "number": 75,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "자바에서 사용하는 접근제어자의 종류가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 77,
+      "choices": [
+        {
+          "text": "internal",
+          "images": []
+        },
+        {
+          "text": "private",
+          "images": []
+        },
+        {
+          "text": "default",
+          "images": []
+        },
+        {
+          "text": "public",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "자바에서 사용하는 접근제어자의 종류\n\npublic : 모든 접근을 허용\n\nprotected : 같은 패키지(폴더)에 있는 객체와 상속관계의 객체들만 허용\n\ndefault : 같은 패키지(폴더)에 있는 객체들만 허용\n\nprivate : 현재 객체 내에서만 허용",
+      "explanation_images": []
+    },
+    {
+      "number": 76,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "UDP 특성에 해당되는 것은?",
+      "question_images": [],
+      "pass_rate": 72,
+      "choices": [
+        {
+          "text": "데이터 전송 후, ACK를 받는다.",
+          "images": []
+        },
+        {
+          "text": "송신 중에 링크를 유지 관리하므로 신뢰성이 높다.",
+          "images": []
+        },
+        {
+          "text": "흐름제어나 순서제어가 없어 전송속도가 빠르다.",
+          "images": []
+        },
+        {
+          "text": "제어를 위한 오버헤드가 크다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "UDP (User Datagram Protocol) - TCP/IP의 전송계층 프로토콜\n- 비연결성 서비스 제공\n- 단순한 헤더구조로 오버헤드 적음\n- 사용하는 경우 : 빠른속도로 전송 요구시, 동시에 여러 사용자에게 데이터 전달시 , 반복적 전송\n- 실시간 전송에 유리 , 신뢰성보다는 속도가 중요시 되는 네트워크에 사용\n\n2. 송신 중에 링크 유지 관리로 신뢰성이 높다는 내용은 TCP에 관한 설명임\n\n1. 데이터 전송 후 ACK를 받는다 - TCP에 관한 설명",
+      "explanation_images": []
+    },
+    {
+      "number": 77,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "다음과 같은 세그먼트 테이블을 가지는 시스템에서 논리 주소(2, 176)에 대한 물리 주소는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m77.gif?1605251113"
+      ],
+      "pass_rate": 68,
+      "choices": [
+        {
+          "text": "398",
+          "images": []
+        },
+        {
+          "text": "400",
+          "images": []
+        },
+        {
+          "text": "1928",
+          "images": []
+        },
+        {
+          "text": "1930",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "논리주소= (세그먼트번호, 변위값)\n물리주소= '세그먼트 시작주소+ 변위값'\n\n논리주소(2,176)에서\n세그먼트번호: 2\n변위값: 176\n\n표에서\n세그먼트번호  시작주소  길이\n    2       222    198\n\n물리주소=세그먼트 시작주소+변위값\n      =222  +  176\n      =398",
+      "explanation_images": []
+    },
+    {
+      "number": 78,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "TCP/IP에서 사용되는 논리주소를 물리주소로 변환시켜 주는 프로토콜은?",
+      "question_images": [],
+      "pass_rate": 75,
+      "choices": [
+        {
+          "text": "TCP",
+          "images": []
+        },
+        {
+          "text": "ARP",
+          "images": []
+        },
+        {
+          "text": "FTP",
+          "images": []
+        },
+        {
+          "text": "IP",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "인터넷 계층의 프로토콜\n- IP : 데이터 주소를 지정하고 경로 설정\n- ICMP : IP와 조합하여 통신중의 오류처리와 전송 경로 변경등을 위한 제어 메세지 관리\n- IGMP : 멀티캐스트를 지원하는 호스트나 라우터 사이에서 멀티캐스트 그룹유지를 위해 사용\n- ARP : 호스트의 IP주소를 네트워크 접속 장치의 물리적 주소로 변환 ★\n- RARP : ARP 반대 (물리적 주소를 IP 주소로 변환)\n\nTCP 는 전송계층 프로토콜\nFTP 는 응용계층 프로토콜",
+      "explanation_images": []
+    },
+    {
+      "number": 79,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "C언어에서 구조체를 사용하여 데이터를 처리할 때 사용하는 것은?",
+      "question_images": [],
+      "pass_rate": 81,
+      "choices": [
+        {
+          "text": "for",
+          "images": []
+        },
+        {
+          "text": "scanf",
+          "images": []
+        },
+        {
+          "text": "struct",
+          "images": []
+        },
+        {
+          "text": "abstract",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "for: 반복문\nscanf: 값을 입력받음\nstruct: 구조체\nabstract: 자식 클래스가 추상 메소드를 무조건 구현하도록 함",
+      "explanation_images": []
+    },
+    {
+      "number": 80,
+      "subject": "4과목 : 프로그래밍 언어 활용",
+      "question": "PHP에서 사용 가능한 연산자가 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 49,
+      "choices": [
+        {
+          "text": "@",
+          "images": []
+        },
+        {
+          "text": "#",
+          "images": []
+        },
+        {
+          "text": "＜＞",
+          "images": []
+        },
+        {
+          "text": "===",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "@ : 에러 제어 연산자\n< > : 관계 연산자\n=== : 관계 연산자\n\n# : PHP에서 한줄 주석을 생성할 때 사용",
+      "explanation_images": []
+    },
+    {
+      "number": 81,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "이용자가 인터넷과 같은 공중망에 사설망을 구축하여 마치 전용망을 사용하는 효과를 가지는 보안 솔루션은?",
+      "question_images": [],
+      "pass_rate": 85,
+      "choices": [
+        {
+          "text": "ZIGBEE",
+          "images": []
+        },
+        {
+          "text": "KDD",
+          "images": []
+        },
+        {
+          "text": "IDS",
+          "images": []
+        },
+        {
+          "text": "VPN",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "4장 보안 솔루션-방화벽종류\n\n1.IDS : 침입 탐지 시스템\n2.VPN : 가상 사설 통신망 (네트워크 암호화)\n\nKDD는 한국에 무슨 협회\nZIGBEE는 저전력 라디오를 이용한 개인 통신망\n\n﻿KDD : 데이터베이스 속의 지식 발견, knowledge-discovery in databases",
+      "explanation_images": []
+    },
+    {
+      "number": 82,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "CMM(Capability Maturity Model) 모델의 레벨로 옳지 않은 것은?",
+      "question_images": [],
+      "pass_rate": 47,
+      "choices": [
+        {
+          "text": "최적단계",
+          "images": []
+        },
+        {
+          "text": "관리단계",
+          "images": []
+        },
+        {
+          "text": "계획단계",
+          "images": []
+        },
+        {
+          "text": "정의단계",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "CMM(Capability Maturity Model) 모델의 레벨\n- 초기 단계\n- 관리 단계\n- 정의 단계\n- 정량적 관리 단계\n- 최적화 단계\n\n능력성숙도모델 Capability Maturity Model\n- 소프트웨어 개발업체들의 업무능력평가 기준을 세우기 위한 평가모형\n- 레벨1:Initial(초기) : 표준화된 프로세스 없이 프로젝트 수행결과 예측이 곤란한 조직\n- 레벨2:Managed(관리): 기본적인 프로세스 구축에 의해 프로젝트가 관리되고 있는 조직\n- 레벨3:Defined(정의) : 세부표준 프로세스가 있어 프로젝트가 통제되는 조직\n- 레벨4:Quantitatively Manaed(잘관리된) : 프로젝트 활동이 정략적으로 관리 통제되고 성과예측이 가능한 조직\n- 레벨5:Optimizing(최적화) : 지속적인 개선활동이 정착화 되고 최적의 관리로 프로젝트가 수행되는 조직\n\n* Capability Maturity Model (CMMI : 능력성숙도통합모델) : CMM 발전모형\n\nCMMI 와 CMM의 레벨 이름이 다름.\nCMMI : Initial(초기) - Managed(관리) - Defined(정의) - Quantitatively Managed(잘관리된) - Optimizing(최적화)\nCMM : Initial(초기) - repeatable(반복) - Managed(관리) - Defined(정의) - Optimizing(최적화)\n참고 사이트 : 티스토리-ITPE Momentum\n\nCMMI : 초기 - 관리 - 정의 - 잘관리된(정량적) - 최적화\nCMM  : 초기 - 반복 - 정의 - 관리 - 최적화",
+      "explanation_images": []
+    },
+    {
+      "number": 83,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "다음 설명에 해당하는 생명주기 모형으로 가장 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m83.gif?1605251113"
+      ],
+      "pass_rate": 91,
+      "choices": [
+        {
+          "text": "패키지 모형",
+          "images": []
+        },
+        {
+          "text": "코코모 모형",
+          "images": []
+        },
+        {
+          "text": "폭포수 모형",
+          "images": []
+        },
+        {
+          "text": "관계형 모델",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "가장 오래된 , 요구사항 변경 어려움 -> 무조건 폭포수",
+      "explanation_images": []
+    },
+    {
+      "number": 84,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "서비스 지향 아키텍처 기반 애플리케이션을 구성하는 층이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 45,
+      "choices": [
+        {
+          "text": "표현층",
+          "images": []
+        },
+        {
+          "text": "프로세스층",
+          "images": []
+        },
+        {
+          "text": "제어 클래스층",
+          "images": []
+        },
+        {
+          "text": "비즈니스층",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "SOA(Service Oriented Architecture,서비스 지향 아키텍처)계층\n-표현 계층(Presentation Layer)\n-프로세스 계층(Process Layer)\n-서비스 계층(Service Layer)\n-비즈니스 계층(Business Layer)\n-영속 계층(Persistency Layer)",
+      "explanation_images": []
+    },
+    {
+      "number": 85,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "다음 내용이 설명하는 스토리지 시스템은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m85.gif?1605251113"
+      ],
+      "pass_rate": 74,
+      "choices": [
+        {
+          "text": "DAS",
+          "images": []
+        },
+        {
+          "text": "NAS",
+          "images": []
+        },
+        {
+          "text": "N-SCREEN",
+          "images": []
+        },
+        {
+          "text": "NFC",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "DAS(Direct Attached Storage)에 대한 설명입니다.\n2번 NAS(Network Attached Storage):서버와 저장장치가 네트워크로 연결된 저장장치\n3번 N-SCREEN(앤스크린):PC-TV-휴대폰 등 여러 단말기로 같은 콘텐츠로 끊김없이 이용하는 체계\n4번 NFC(Near Field Communication,근접 무선 통신): 10cm 이내의 가까운 거리에서 다양한 무선 데이터를 주고 받는 통신 기술 입니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 86,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "소프트웨어 개발 프레임워크의 적용 효과로 볼 수 없는 것은?",
+      "question_images": [],
+      "pass_rate": 89,
+      "choices": [
+        {
+          "text": "공통 컴포넌트 재사용으로 중복 예산 절감",
+          "images": []
+        },
+        {
+          "text": "기술종속으로 인한 선행사업자 의존도 증대",
+          "images": []
+        },
+        {
+          "text": "표준화된 연계모듈 활용으로 상호 운용성 향상",
+          "images": []
+        },
+        {
+          "text": "개발표준에 의한 모듈화로 유지보수 용이",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "기술종속으로 인해서 선행사업을 시작한 사람들의 의존도가 증대되지 않습니다. 오히려 재사용률이 높아지면서 더 개방적일 수 있습니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 87,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "SoftTech사에서 개발된 것으로 구조적 요구 분석을 하기 위해 블록 다이어그램을 채택한 자동화 도구는?",
+      "question_images": [],
+      "pass_rate": 50,
+      "choices": [
+        {
+          "text": "SREM",
+          "images": []
+        },
+        {
+          "text": "PSL/PSA",
+          "images": []
+        },
+        {
+          "text": "HIPO",
+          "images": []
+        },
+        {
+          "text": "SADT",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "1.SREM(Software Requirements Enginering Methdology):TRW사가 우주 국방 시스템 그룹에 의해 실시간 처리 소프트웨어 시스템에서 요구사항을 명확히 기술하도록 할 목적으로 개발한 것으로,RSL과 REVS를 사용하는 자동화 도구이다.(RSL/REVS)\n2.PSL/PSA:미시간 대학에서 개발한 것으로 PSL과 PSA를 사용하는 자동화 도구입니다.\n3.HIPO(Hieracgy Input Process Output):하향식 소프트웨어 개발을 위한 문서화 도구입니다.\n4.SADT(Structure Analysis and Design Technique): SoftTech사에서 개발된 것으로 구조적 요구 분석을 위해 블록 다이어그램을 채택한 자동화 도구입니다.\n답:4번",
+      "explanation_images": []
+    },
+    {
+      "number": 88,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "익스트림 프로그래밍 (eXtreme Programming)의 5가지 가치에 속하지 않는 것은?",
+      "question_images": [],
+      "pass_rate": 92,
+      "choices": [
+        {
+          "text": "의사소통",
+          "images": []
+        },
+        {
+          "text": "단순성",
+          "images": []
+        },
+        {
+          "text": "피드백",
+          "images": []
+        },
+        {
+          "text": "고객 배제",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "익스트림 프로그래밍 (eXtreme Programming)의 5가지 가치\n- 의사소통\n- 단순함\n- 피드백\n- 용기\n- 존중\n\nXP의 5가치\n[피]드백\n[존]중\n[의]사소통\n[용]기\n[단]순함",
+      "explanation_images": []
+    },
+    {
+      "number": 89,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "다음은 정보의 접근통제 정책에 대한 설명이다. (ㄱ)에 들어갈 내용으로 옳은 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m89.gif?1605251113"
+      ],
+      "pass_rate": 68,
+      "choices": [
+        {
+          "text": "NAC",
+          "images": []
+        },
+        {
+          "text": "MAC",
+          "images": []
+        },
+        {
+          "text": "SDAC",
+          "images": []
+        },
+        {
+          "text": "AAC",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "접근통제 기술-MAC/ DAC/ RBAC\n\n1.MAC:강제 (Mandatory) 접근통제\n-접근통제권한은 시스템이 지정\n-주체와 객체의 등급을 비교하여 권한부여\n\n2.DAC:임의 (Discretionary) 접근통제\n-접근통제권한은 데이터소유자가 지정 및 제어\n-데이터에 접근하는 사용자의 신원에 따라 권한부여\n-부여된 권한을 다른 사용자에게 허가 가능\n-관련 SQL 명령어: GRANT/ REVOKE\n\n3.RBAC:역할기반 (Role Based) 접근통제\n-접근통제권한은 중앙관리자가 지정\n-사용자의 역할에 따라 권한부여\n-임의+강제 접근통제의 단점보완\n-다중프로그래밍환경에 최적화",
+      "explanation_images": []
+    },
+    {
+      "number": 90,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "소프트웨어 개발 모델 중 나선형 모델의 4가지 주요 활동이 순서대로 나열된 것은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m90.gif?1605251113"
+      ],
+      "pass_rate": 80,
+      "choices": [
+        {
+          "text": "Ⓐ-Ⓑ-Ⓓ-Ⓒ순으로 반복",
+          "images": []
+        },
+        {
+          "text": "Ⓐ-Ⓓ-Ⓒ-Ⓑ순으로 반복",
+          "images": []
+        },
+        {
+          "text": "Ⓐ-Ⓑ-Ⓒ-Ⓓ순으로 반복",
+          "images": []
+        },
+        {
+          "text": "Ⓐ-Ⓒ-Ⓑ-Ⓓ순으로 반복",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "explanation": "계획 수립 → 위험 분석 → 개발 및 검증 → 고객 평가\n\n쉽게 외우는 법\n\n계획 '수'립 - 위험 '분'석 - 개발 및 검'증' - 고객 평'가'\n→ '수분증가'",
+      "explanation_images": []
+    },
+    {
+      "number": 91,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "소프트웨어 비용 추정모형(estimation models)이 아닌 것은?",
+      "question_images": [],
+      "pass_rate": 66,
+      "choices": [
+        {
+          "text": "COCOMO",
+          "images": []
+        },
+        {
+          "text": "Putnam",
+          "images": []
+        },
+        {
+          "text": "Function-Point",
+          "images": []
+        },
+        {
+          "text": "PERT",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "PERT는 프로젝트 일정 관리 기법입니다.",
+      "explanation_images": []
+    },
+    {
+      "number": 92,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "공개키 암호화 방식에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 61,
+      "choices": [
+        {
+          "text": "공개키로 암호화된 메시지는 반드시 공개키로 복호화 해야 한다.",
+          "images": []
+        },
+        {
+          "text": "비대칭 암호기법이라고도 한다.",
+          "images": []
+        },
+        {
+          "text": "대표적인 기법은 RSA 기법이 있다.",
+          "images": []
+        },
+        {
+          "text": "키 분배가 용이하고, 관리해야 할 키 개수가 적다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "공개키 암호화 방식은 암호화와 복호화에 사용하는 키가 서로 다른 암호화 방식이다.",
+      "explanation_images": []
+    },
+    {
+      "number": 93,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "다음이 설명하는 다중화 기술은?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m93.gif?1605251113"
+      ],
+      "pass_rate": 82,
+      "choices": [
+        {
+          "text": "Wavelength Division Multiplexing",
+          "images": []
+        },
+        {
+          "text": "Frequency Division Multiplexing",
+          "images": []
+        },
+        {
+          "text": "Code Division Multiplexing",
+          "images": []
+        },
+        {
+          "text": "Time Division Multiplexing",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "[다중화]\n: 하나의 통신 회선을 다수의 단말기가 공유할 수 있도록 하는 것, 자둥화를 위한 장치에는 다중화기, 집중화기, 공동 이용기\n\n[다중화기 종류]\n〮 TDM(Time Division Multiplexing)\n- 시분할(시간) 다중화기\n- 통신 회선의 대역폭을 일정한 시간 폭(Time slot)으로 나누어 여러 대의단말 장치가 동시에 사용할 수 있도록 한 것\n- 디지털 회선 주로 이용\n- STDM, ADTM\n\n〮 FDM(Frequency Division Multiplexing)\n- 주파수 분할 다중화기\n- 통신 회선의 주파수를 여러 개로 분할하여 여러 대의 단말장치가 동시에 사용할 수 있도록 한 것\n- 다중화기 중 주파수 대역폭을 다수의 작은 대역폭으로 분할 전송하는 방식\n- 간섭 방지 위한 보호 대역(Gurad Band)필요 -> 대역폭의 나비 초래\n- 저속의 비동기식전송, 멀티 포인트 방식, 아날로그 신호 전송 적합\n\n〮 CDM(Code Division Multiplexing)\n- 코드 분할 다중화 방식\n- 무선 통신에서 가장 널리 사용, 도청과 간섭 방지가 가능하지만 잡음을 분리해야하는 오버헤드 발생\n\n〮 WDM\n- 파장 분할 다중화 방식\n- 빛의 파장을 제외하고 FDM방식과 동일\n- 초고속 대용량 전송 가능\n- 시스템 확장성, 유연성 우수\n\nWavelength = 파장",
+      "explanation_images": []
+    },
+    {
+      "number": 94,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "웹페이지에 악의적인 스크립트를 포함시켜 사용자 측에서 실행되게 유도함으로써, 정보유출 등의 공격을 유발할 수 있는 취약점은?",
+      "question_images": [],
+      "pass_rate": 60,
+      "choices": [
+        {
+          "text": "Ransomware",
+          "images": []
+        },
+        {
+          "text": "Pharming",
+          "images": []
+        },
+        {
+          "text": "Phishing",
+          "images": []
+        },
+        {
+          "text": "XSS",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "랜섬웨어 : 임의로 시스템을 잠그거나 혹은 데이터를 암호화하여 사용할 수 없게 한 다음 이를 빌미로 돈을 요구하는 기법.\n\n파밍 : 홈페이지 주소를 바꿔 사용자가 진짜 사이트로 오인하게 하여 접속하게 한 다음 개인정보를 탈취하는 기법.\n\n피싱 : 메일 등으로 공공기관이나 금융기관에서 보낸 것처럼 위장하여 사용자에게 계좌번호, 카드번호의 비밀번호를 빼내는 기법. 대표적으로 스미싱이 있습니다.\n\nXSS(Cross-Site Scripting) : 공격자가 취약한 웹사이트에 악성 스크립트를 삽입하여, 이를 방문하는 사용자의 브라우저에서 스크립트를 실행시키는 클라이언트 측 공격입니다",
+      "explanation_images": []
+    },
+    {
+      "number": 95,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "CBD(Component Based Development) 에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 81,
+      "choices": [
+        {
+          "text": "개발 기간 단축으로 인한 생산성 향상",
+          "images": []
+        },
+        {
+          "text": "새로운 기능 추가가 쉬운 확장성",
+          "images": []
+        },
+        {
+          "text": "소프트웨어 재사용이 가능",
+          "images": []
+        },
+        {
+          "text": "1960년대까지 가장 많이 적용되었던 소프트웨어 개발 방법",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "CBD: 컴포넌트 기반 개발\n- 기존의 시스템이나 소프트웨어를 구성하는 컴포넌트를 조립하여 새로운 응용프로그램을 만드는 소프트웨어 개발 방법론\n- 기존에 있던것들을 활용하기 때문에 생산성 향상 , 확장성 용이 , 재사용 특징이있음\n\n4) 1960년대까지 많이 적용된 기법은 초기 방법인 \"구조적 개발 방법론\"이다\n그 이후 \"정보 공학 방법론\" -> \"객체 지향 방법론\" 순으로 등장하였으며\n\"CBD(컴포넌트 기반 개발 방법론)\"는 객체 지향 방법론의 단점 중 하나인 S/W 재사용성을 보완하여 등장함(1990년대)",
+      "explanation_images": []
+    },
+    {
+      "number": 96,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "소프트웨어 정의 데이터센터(SDDC : Software Defined Data Center)에 대한 설명으로 틀린 것은?",
+      "question_images": [],
+      "pass_rate": 59,
+      "choices": [
+        {
+          "text": "컴퓨팅, 네트워킹, 스토리지, 관리 등을 모두 소프트웨어로 정의한다.",
+          "images": []
+        },
+        {
+          "text": "인력 개입 없이 소프트웨어 조작만으로 자동 제어 관리한다.",
+          "images": []
+        },
+        {
+          "text": "데이터센터 내 모든 자원을 가상화하여 서비스한다.",
+          "images": []
+        },
+        {
+          "text": "특정 하드웨어 에 종속되어 특화된 업무를 서비스하기에 적합하다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "네트워크 관련 신기술\n소프트웨어 정의 데이터 센터\n-데이터 센터의 모든 자원을 가상화\n-다양한 소프트웨어 정의 기술이 사용된다.\n-유연한 제어가능/ 비용절감가능/ 운영이 편리하다.\n\n-하드웨어와 독립적이다",
+      "explanation_images": []
+    },
+    {
+      "number": 97,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "컴퓨터 운영체제의 커널에 보안 기능을 추가한 것으로 운영체제의 보안상 결함으로 인하여 발생 가능한 각종 해킹으로부터 시스템을 보호하기 위하여 사용되는 것은?",
+      "question_images": [],
+      "pass_rate": 83,
+      "choices": [
+        {
+          "text": "GPIB",
+          "images": []
+        },
+        {
+          "text": "CentOS",
+          "images": []
+        },
+        {
+          "text": "XSS",
+          "images": []
+        },
+        {
+          "text": "Secure OS",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "GPIB : EEE-488은 단거리 디지털 통신 버스이다. 1960년대 후반 전자 측정 장비에 사용되었으며 지금도 사용되고 있다. IEEE-488은 HP-IB(Hewlett-Packard Interface Bus)로서 개발되었으며, 보통 GPIB (General Purpose Interface Bus)로 불린다.\n\nCentOS : 센트OS(영어: CentOS)는 센트OS 프로젝트에서 레드햇 제휴로 개발한 컴퓨터 운영 체제이다.\n\nXSS : 웹 클라이언트가 제공하는 HTTP 쿼리 매개 변수 (예 : HTML 양식 제출)에서 적절하지 않고, 구문 분석 및 해당 사용자에 대한 결과의 페이지를 표시하는 공격 기법\n\n출처 : https://ko.wikipedia.org/",
+      "explanation_images": []
+    },
+    {
+      "number": 98,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "NS(Nassi-Schneiderman) chart에 대한 설명으로 거리가 먼 것은?",
+      "question_images": [],
+      "pass_rate": 63,
+      "choices": [
+        {
+          "text": "논리의 기술에 중점을 둔 도형식 표현 방법이다.",
+          "images": []
+        },
+        {
+          "text": "연속, 선택 및 다중 선택, 반복 등의 제어논리 구조로 표현한다.",
+          "images": []
+        },
+        {
+          "text": "주로 화살표를 사용하여 논리적인 제어구조로 흐름을 표현한다.",
+          "images": []
+        },
+        {
+          "text": "조건이 복합되어 있는 곳의 처리를 시각적으로 명확히 식별하는데 적합하다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "explanation": "직사각형을 포개어가는 것으로 나타낸다.\n\n논리의 기술에 중점을 둔 도형을 이용한 표현 방법이다.\n그리기가 어렵다.(전문성이 있어야 잘 그린다)\n순차, 선택, 반복으로 표현한다.\n임의의 제어 이동이 어렵다.\ngoto구조가 어렵다.\n그래픽 설계 도구이다.\n상자 도표라고도 한다\n프로그램으로 구현이 쉽다.\n조건이 복합되어 있는 곳의 처리를 명확히 식별하기에 적합하다.\nif문이 여러개일 때 가능",
+      "explanation_images": []
+    },
+    {
+      "number": 99,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "다음 내용에 적합한 용어는?",
+      "question_images": [
+        "https://img.comcbt.com/cbt/data/iz/iz20200926/iz20200926m99.gif?1605251113"
+      ],
+      "pass_rate": 72,
+      "choices": [
+        {
+          "text": "MapReduce",
+          "images": []
+        },
+        {
+          "text": "SQL",
+          "images": []
+        },
+        {
+          "text": "Hijacking",
+          "images": []
+        },
+        {
+          "text": "Logs",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "explanation": "Hijacking: 다른 사람의 세션 또는 터미널의 상태를 도용하는 해킹 기법",
+      "explanation_images": []
+    },
+    {
+      "number": 100,
+      "subject": "5과목 : 정보시스템 구축관리",
+      "question": "소프트웨어 프로세스에 대한 개선 및 능력 측정 기준에 대한 국제 표준은?",
+      "question_images": [],
+      "pass_rate": 65,
+      "choices": [
+        {
+          "text": "ISO 14001",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.5",
+          "images": []
+        },
+        {
+          "text": "IEEE 488",
+          "images": []
+        },
+        {
+          "text": "SPICE",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "explanation": "SPICE(소프트웨어 처리 개선 및 능력 평가 기준)\n- 소프트웨어의 품질 및 생산성 향상을 위해 소프트웨어 프로세스를 평가 및 개선하는 국제 표준이다.\n공식 명칭은 ISO/IEC 15504이다.\n\nIEEE 488 : 단거리 디지털 통신 버스\nIEEE 802.5 : 토큰링에 대한 표준\nISO 14001 : 모든 산업 분야 및 활동에 적용할 수 있는 환경경영시스템에 관한 국제규격",
+      "explanation_images": []
+    }
+  ]
+}
