@@ -1556,6 +1556,7 @@ async function openSessionList(examCode){
     </div>
   `;
   stack.appendChild(screen);
+  updateScreenInert();
   attachScrollShadow('sessScroll','sessNav');
   screen.querySelector('#sessBack').onclick = popScreen;
   addEdgeBack(screen);
@@ -2201,6 +2202,7 @@ async function openStats(){
     </div>
   `;
   stack.appendChild(screen);
+  updateScreenInert();
   attachScrollShadow('statsScroll', 'statsNav');
   screen.querySelector('#statsBack').onclick = popScreen;
   addEdgeBack(screen);
@@ -2295,6 +2297,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
   const screen = document.createElement('section');
   screen.className = 'screen enter-right';
   stack.appendChild(screen);
+  updateScreenInert();
 
   screen.innerHTML = `
     <header class="nav has-title" id="quizNav">
@@ -2371,6 +2374,20 @@ async function openQuiz(examCode, sessionCode, startIdx){
   }
 }
 
+function updateScreenInert(){
+  const screens = document.querySelectorAll('#stack > .screen');
+  const top = screens[screens.length - 1];
+  screens.forEach(s => {
+    if (s === top) {
+      s.removeAttribute('inert');
+      s.removeAttribute('aria-hidden');
+    } else {
+      s.setAttribute('inert', '');
+      s.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
 function popScreen(){
   // User-initiated back (button/edge swipe/Esc): drive via history so URL stays in sync.
   // popstate handler will then call doPopScreen.
@@ -2390,6 +2407,7 @@ function doPopScreen(){
   last.classList.add('exit-right');
   last.addEventListener('animationend', () => {
     last.remove();
+    updateScreenInert();
     const top = stack.lastElementChild;
     if (top) {
       if (top.dataset.tab) {
