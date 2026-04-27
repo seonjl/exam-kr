@@ -2767,19 +2767,33 @@ function openModeSheet(){
 }
 
 /* ---- share / completion / exam timer ---- */
+function legacyCopy(text){
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch { return false; }
+}
 async function shareCurrent(){
   const c = state.current; if (!c) { toast('퀴즈에서 공유하세요'); return; }
   const exam = state.examByCode.get(c.examCode);
   const url = `${location.origin}/exam/${c.examCode}/${c.code}`;
   const text = `${exam?.name || ''} ${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)} 기출`;
+  if (navigator.share) {
+    try { await navigator.share({ title: '기출 CBT', text, url }); }
+    catch { /* user cancel — silent */ }
+    return;
+  }
   try {
-    if (navigator.share) {
-      await navigator.share({ title: '기출 CBT', text, url });
-    } else {
-      await navigator.clipboard.writeText(url);
-      toast('링크 복사됨');
-    }
-  } catch { /* user cancel */ }
+    await navigator.clipboard.writeText(url);
+    toast('링크 복사됨');
+  } catch {
+    if (legacyCopy(url)) toast('링크 복사됨');
+    else toast('복사 실패 — 주소창에서 직접 복사해주세요');
+  }
 }
 
 function maybeShowCompletion(c, p){
