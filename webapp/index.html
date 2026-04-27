@@ -2587,13 +2587,21 @@ function toggleStar(){
 
 function confirmRedo(){
   const c = state.current; if (!c) return;
-  if (!confirm('이 회차의 답안을 초기화할까요?')) return;
   const p = progressFor(c.examCode, c.code);
+  if (Object.keys(p.answers || {}).length === 0 && (p.wrongs || []).length === 0) {
+    toast('이미 비어있어요'); return;
+  }
+  const snap = JSON.parse(JSON.stringify(p));
   p.answers = {}; p.wrongs = []; p.last = 0;
   saveProgress(c.examCode, c.code, p);
   applyAnswers();
   c.screen.querySelector('#pages').scrollTo({ left: 0, behavior: 'smooth' });
-  toast('초기화');
+  toastAction('초기화됨', '되돌리기', () => {
+    saveProgress(c.examCode, c.code, snap);
+    applyAnswers();
+    toast('복원됨');
+  });
+  setTimeout(() => document.getElementById('toast-action')?.remove(), 6000);
 }
 
 function updatePositionIndicators(){
