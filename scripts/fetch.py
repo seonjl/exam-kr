@@ -17,6 +17,7 @@ scripts/exams.py의 EXAMS 테이블을 참조하여 동작한다.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import time
@@ -30,9 +31,18 @@ sys.path.insert(0, str(Path(__file__).parent))
 from exams import EXAMS  # noqa: E402
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120"
-BASE = "https://www.comcbt.com/cbt"
+# 데이터 소스 base URL은 환경변수로만 주입한다. 하드코딩 금지.
+BASE = os.environ.get("FETCH_BASE_URL", "").rstrip("/")
 DATA_ROOT = Path(__file__).parent.parent / "data"
 DATA_ROOT.mkdir(exist_ok=True)
+
+
+def _require_base() -> None:
+    if not BASE:
+        raise SystemExit(
+            "FETCH_BASE_URL 환경변수가 필요합니다. "
+            "예: FETCH_BASE_URL='https://example.com/path' python3 fetch.py ..."
+        )
 
 
 def _req(url: str, data: bytes | None = None, referer: str | None = None,
@@ -74,6 +84,7 @@ def out_dir(code: str) -> Path:
 
 
 def list_sessions(code: str) -> list[tuple[str, str]]:
+    _require_base()
     c = cfg(code)
     body = _req(f"{BASE}/s_view2.php",
                 data=urlencode({"dbname": code, "hack_number": c["hack"]}).encode(),
@@ -89,6 +100,7 @@ def list_sessions(code: str) -> list[tuple[str, str]]:
 
 
 def _fetch_one(code: str, date: str, number: int) -> str:
+    _require_base()
     c = cfg(code)
     qs = urlencode({
         "dbname": code, "tablename": date, "tablename2": date,

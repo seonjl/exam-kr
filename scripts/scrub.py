@@ -4,7 +4,8 @@
 제거하고 공백·구분선을 깔끔히 정돈한다.
 """
 from __future__ import annotations
-import json, re, glob, sys
+import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent / "data"
@@ -31,14 +32,13 @@ BLOCK_PATTERNS = [
     re.compile(r"기출문제 복원에 많은 참여[^\n]*"),
 ]
 
-# Inline patterns
+# Inline patterns — 외부 플랫폼/원본 사이트 흔적 일반화
 INLINE_PATTERNS = [
     re.compile(r"\[해설작성자\s*:[^\]]*\]"),
     re.compile(r"\[추가\s*해설[^\]]*\]"),
     re.compile(r"밀양금성[^\n]*"),
-    re.compile(r"전자문제집\s*CBT"),
-    re.compile(r"CBT\s*서버"),
-    re.compile(r"전자문제집"),
+    # 플랫폼/사이트 워터마크류 (구체 명칭 회피)
+    re.compile(r"전자문제집[^\n]*"),
     re.compile(r"해설집보니까"),
     re.compile(r"\b해설집\b"),
     re.compile(r"오류\s*신고하신\s*분"),

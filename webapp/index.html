@@ -4,27 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="사회조사분석사·공인중개사·정보처리기사 기출문제를 모바일에서 풀이하고 AI 보강 해설로 학습하는 무료 PWA. 회차별 진도, 즐겨찾기, 오답노트 지원.">
-<meta name="keywords" content="기출문제,사회조사분석사,공인중개사,정보처리기사,자격증,CBT,학습앱,PWA">
+<meta name="keywords" content="기출문제,사회조사분석사,공인중개사,정보처리기사,자격증,학습앱,PWA">
 <meta property="og:type" content="website">
-<meta property="og:title" content="기출 CBT · 자격증 학습">
+<meta property="og:title" content="exam.kr · 자격증 기출 학습">
 <meta property="og:description" content="기출문제를 모바일에서 풀이하고 AI 보강 해설로 학습하는 무료 PWA. 광고 외에는 로그인·서버·트래킹 없음.">
 <meta property="og:image" content="/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="기출 CBT · 자격증 학습">
+<meta name="twitter:title" content="exam.kr · 자격증 기출 학습">
 <meta name="twitter:description" content="기출문제 모바일 학습 PWA">
 <meta name="theme-color" content="#f5ebd9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#151210" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="기출CBT">
+<meta name="apple-mobile-web-app-title" content="exam.kr">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
-<title>기출 CBT · 자격증 학습</title>
+<title>exam.kr · 자격증 기출 학습</title>
 
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -1211,7 +1211,30 @@ pre.code {
    기출 학습 앱 · 멀티 자격증 지원
    ================================================================== */
 const DATA = '/data/';
-const STORE = 'cbt.v2.';
+const STORE = 'examkr.v1.';
+
+// One-time migration from previous STORE prefix. Copies (not moves) so a stale
+// build can still read its own data; idempotent via a marker key.
+(function migrateLegacyStore(){
+  const OLD = 'cbt.v2.';
+  if (OLD === STORE) return;
+  if (localStorage.getItem(STORE + '_migrated') === '1') return;
+  let n = 0;
+  const oldKeys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith(OLD)) oldKeys.push(k);
+  }
+  for (const k of oldKeys) {
+    const newKey = STORE + k.slice(OLD.length);
+    if (localStorage.getItem(newKey) === null) {
+      localStorage.setItem(newKey, localStorage.getItem(k));
+      n++;
+    }
+  }
+  localStorage.setItem(STORE + '_migrated', '1');
+  if (n) console.info(`[migrate] copied ${n} keys from ${OLD} to ${STORE}`);
+})();
 
 // AdSense — fill in after AdSense approval. Empty client disables ads entirely.
 const ADSENSE = {
@@ -1978,7 +2001,7 @@ function renderSettings(root){
 
       <div class="section-head"><h2>피드백</h2><span class="meta">FEEDBACK</span></div>
       <div class="group">
-        <a class="row" id="feedbackBtn" href="mailto:lenon461@gmail.com?subject=%5B%EA%B8%B0%EC%B6%9CCBT%5D%20%EC%9D%98%EA%B2%AC%2F%EC%A0%9C%EB%B3%B4&body=%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0%2F%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%3A%20%0A%ED%95%B4%EB%8B%B9%20%EB%AC%B8%ED%95%AD%20URL%3A%20%0A%0A%5B%EB%82%B4%EC%9A%A9%5D%0A">
+        <a class="row" id="feedbackBtn" href="mailto:lenon461@gmail.com?subject=%5Bexam.kr%5D%20%EC%9D%98%EA%B2%AC%2F%EC%A0%9C%EB%B3%B4&body=%EC%82%AC%EC%9A%A9%20%EA%B8%B0%EA%B8%B0%2F%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%3A%20%0A%ED%95%B4%EB%8B%B9%20%EB%AC%B8%ED%95%AD%20URL%3A%20%0A%0A%5B%EB%82%B4%EC%9A%A9%5D%0A">
           <span class="row-lead icon">${icons.send}</span>
           <span class="row-body"><span class="row-title">의견 보내기</span><span class="row-sub">오류 신고 · 기능 제안</span></span>
           <span class="row-trail">${icons.chev}</span>
@@ -2921,7 +2944,7 @@ async function shareCurrent(){
   const url = `${location.origin}/exam/${c.examCode}/${c.code}`;
   const text = `${exam?.name || ''} ${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)} 기출`;
   if (navigator.share) {
-    try { await navigator.share({ title: '기출 CBT', text, url }); }
+    try { await navigator.share({ title: 'exam.kr', text, url }); }
     catch { /* user cancel — silent */ }
     return;
   }
@@ -3156,7 +3179,7 @@ showTab('home');
 await initRoute();
 
 // expose select helpers for debugging / external automation
-window.__cbt = { openImportSheet, applyDump, buildDump, computeStats, backupCurrent };
+window.__examkr = { openImportSheet, applyDump, buildDump, computeStats, backupCurrent };
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
