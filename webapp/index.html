@@ -1330,15 +1330,14 @@ async function loadSession(examCode, sessionCode){
 }
 
 /* ---- content renderers (extras) ---- */
-let _renderersReady = false;
-async function ensureRenderers(){
-  if (_renderersReady) return;
-  _renderersReady = true;
-  // Lazy-load KaTeX script + auto-render
-  if (!window.katex) {
+const _rendererLoaded = { katex: false, mermaid: false };
+async function ensureRenderers(needs = { katex: true, mermaid: true }){
+  if (needs.katex && !_rendererLoaded.katex && !window.katex) {
+    _rendererLoaded.katex = true;
     await import('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.mjs').then(m => { window.katex = m.default || m; }).catch(()=>{});
   }
-  if (!window.mermaid) {
+  if (needs.mermaid && !_rendererLoaded.mermaid && !window.mermaid) {
+    _rendererLoaded.mermaid = true;
     try {
       const m = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
       window.mermaid = m.default || m;
@@ -1347,8 +1346,20 @@ async function ensureRenderers(){
         securityLevel: 'loose',
         fontFamily: "'Pretendard Variable', 'Noto Sans KR', sans-serif",
       });
-    } catch {}
+    } catch { _rendererLoaded.mermaid = false; }
   }
+}
+
+function detectSessionRendererNeeds(questions){
+  const kinds = new Set();
+  for (const q of questions || []) {
+    for (const e of (q.extras || [])) if (e?.kind) kinds.add(e.kind);
+    if (typeof q.explanation_detailed === 'string') {
+      if (q.explanation_detailed.includes('$$')) kinds.add('formula');
+      if (q.explanation_detailed.includes('```mermaid')) kinds.add('diagram');
+    }
+  }
+  return { katex: kinds.has('formula'), mermaid: kinds.has('diagram') };
 }
 
 function renderExtra(extra){
@@ -1410,7 +1421,7 @@ async function renderPendingMermaid(scope){
   if (!scope) return;
   const nodes = scope.querySelectorAll('.mmd[data-src]');
   if (!nodes.length) return;
-  await ensureRenderers();
+  await ensureRenderers({ katex: false, mermaid: true });
   if (!window.mermaid) return;
   for (const n of nodes) {
     const code = decodeURIComponent(n.dataset.src);
@@ -2369,8 +2380,11 @@ async function openQuiz(examCode, sessionCode, startIdx){
     requestAnimationFrame(() => {
       $pages.scrollTo({ left: state.current.idx * $pages.clientWidth, behavior: 'instant' });
       updatePositionIndicators();
-      // Kick off lazy loading of renderers and process mermaid placeholders
-      ensureRenderers().then(() => renderPendingMermaid($pages));
+      // Kick off lazy loading of renderers — only what this session actually needs
+      const needs = detectSessionRendererNeeds(data.questions);
+      if (needs.katex || needs.mermaid) {
+        ensureRenderers(needs).then(() => { if (needs.mermaid) renderPendingMermaid($pages); });
+      }
     });
 
     let t; $pages.addEventListener('scroll', () => {
