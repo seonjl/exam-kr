@@ -1352,8 +1352,11 @@ async function ensureRenderers(needs = { katex: true, mermaid: true }){
 
 function detectSessionRendererNeeds(questions){
   const kinds = new Set();
+  const collectKinds = arr => { for (const e of (arr || [])) if (e && e.kind) kinds.add(e.kind); };
   for (const q of questions || []) {
-    for (const e of (q.extras || [])) if (e?.kind) kinds.add(e.kind);
+    collectKinds(q.question_extras);
+    collectKinds(q.explanation_extras);
+    for (const c of (q.choices || [])) collectKinds(c.extras);
     if (typeof q.explanation_detailed === 'string') {
       if (q.explanation_detailed.includes('$$')) kinds.add('formula');
       if (q.explanation_detailed.includes('```mermaid')) kinds.add('diagram');
@@ -1375,9 +1378,26 @@ function renderExtra(extra){
 function renderFormula(s){
   // Replace each $$...$$ block with katex output
   return `<div class="extra formula">${s.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
-    try { return window.katex ? window.katex.renderToString(tex.trim(), { throwOnError: false, displayMode: true }) : `<code>${escapeHtml(tex)}</code>`; }
-    catch { return `<code>${escapeHtml(tex)}</code>`; }
+    const t = tex.trim();
+    if (window.katex) {
+      try { return window.katex.renderToString(t, { throwOnError: false, displayMode: true }); }
+      catch { /* fall through to placeholder */ }
+    }
+    return `<code class="formula-pending" data-tex="${escapeHtml(t)}">${escapeHtml(t)}</code>`;
   })}</div>`;
+}
+
+function renderPendingFormulas(scope){
+  if (!scope || !window.katex) return;
+  scope.querySelectorAll('code.formula-pending').forEach(el => {
+    const tex = el.dataset.tex;
+    if (!tex) return;
+    try {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = window.katex.renderToString(tex, { throwOnError: false, displayMode: true });
+      el.replaceWith(...tmp.childNodes);
+    } catch {}
+  });
 }
 
 function renderDiagram(s){
@@ -2373,17 +2393,24 @@ async function openQuiz(examCode, sessionCode, startIdx){
     };
 
     const $pages = screen.querySelector('#pages');
-    $pages.innerHTML = data.questions.map((q,i) => renderQuestionHTML(q, i, data.questions.length)).join('');
+    _hydratedQs.clear();
+    _explainBodyCache.clear();
+    $pages.innerHTML = data.questions.map((q,i) => renderPageSkeleton(i)).join('');
+    hydrateWindow(state.current.idx);
 
-    applyAnswers();
     if (state.current.mode === 'exam') startExamTimer();
     requestAnimationFrame(() => {
       $pages.scrollTo({ left: state.current.idx * $pages.clientWidth, behavior: 'instant' });
       updatePositionIndicators();
       // Kick off lazy loading of renderers — only what this session actually needs
       const needs = detectSessionRendererNeeds(data.questions);
+      state.current._needsMermaid = needs.mermaid;
+      state.current._needsKatex = needs.katex;
       if (needs.katex || needs.mermaid) {
-        ensureRenderers(needs).then(() => { if (needs.mermaid) renderPendingMermaid($pages); });
+        ensureRenderers(needs).then(() => {
+          if (needs.katex) renderPendingFormulas($pages);
+          if (needs.mermaid) renderPendingMermaid($pages);
+        });
       }
     });
 
@@ -2394,6 +2421,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
           state.current.idx = i;
           const pr = progressFor(examCode, sessionCode); pr.last = i;
           saveProgress(examCode, sessionCode, pr);
+          hydrateWindow(i);
           updatePositionIndicators();
         }
       }, 90);
@@ -2484,7 +2512,11 @@ function renderImagesFallback(arr, label){
   return arr.map((src, i) => `<div class="qimg"><img src="${src}" loading="lazy" alt="${escapeHtml(lbl)} ${i+1}"></div>`).join('');
 }
 
-function renderQuestionHTML(q, i, total){
+function renderPageSkeleton(i){
+  return `<article class="page" data-qi="${i}"></article>`;
+}
+
+function renderQuestionInner(q, i, total){
   const subj = escapeHtml(q.subject || '');
   const qExtras = renderExtras(q.question_extras) || renderImagesFallback(q.question_images, `문제 ${q.number} 이미지`);
   const choicesHtml = (q.choices || []).map((c, ci) => {
@@ -2498,33 +2530,58 @@ function renderQuestionHTML(q, i, total){
       </button>`;
   }).join('');
   const rate = (q.pass_rate!=null) ? `<span class="passrate">정답률 <b>${q.pass_rate}%</b></span>` : '';
-  return `
-    <article class="page" data-qi="${i}">
-      <div class="subject-pill">${subj}</div>
+  return `<div class="subject-pill">${subj}</div>
       <div class="qnum">${q.number}<small>· ${i+1}/${total}</small></div>
       <div class="qbody">${escapeHtml(q.question)}</div>
       ${qExtras}
       <div class="qmeta">${rate}</div>
       <div class="choices">${choicesHtml}</div>
-      <div class="explain-slot"></div>
-    </article>`;
+      <div class="explain-slot"></div>`;
+}
+
+const HYDRATION_RADIUS = 2;
+const _hydratedQs = new Set();
+
+function hydratePage(idx){
+  if (_hydratedQs.has(idx)) return;
+  const c = state.current; if (!c) return;
+  const qs = c.data && c.data.questions; if (!qs || idx < 0 || idx >= qs.length) return;
+  const page = c.screen.querySelector(`.page[data-qi="${idx}"]`);
+  if (!page) return;
+  const q = qs[idx];
+  page.innerHTML = renderQuestionInner(q, idx, qs.length);
+  _hydratedQs.add(idx);
+  applyAnswerForPage(page, q);
+}
+
+function hydrateWindow(centerIdx){
+  for (let i = centerIdx - HYDRATION_RADIUS; i <= centerIdx + HYDRATION_RADIUS; i++) hydratePage(i);
+  const c = state.current; if (!c) return;
+  const $pages = c.screen.querySelector('#pages');
+  if (c._needsKatex && window.katex) renderPendingFormulas($pages);
+  if (c._needsMermaid && window.mermaid) renderPendingMermaid($pages);
+}
+
+function applyAnswerForPage(page, q){
+  const c = state.current; if (!c) return;
+  const p = progressFor(c.examCode, c.code);
+  const review = c.mode === 'review';
+  const picked = p.answers[q.number];
+  if (review) { markChoices(page, q, q.answer); renderExplain(page, q, true); }
+  else if (picked) { markChoices(page, q, picked); renderExplain(page, q, false); }
+  else {
+    page.querySelectorAll('.choice').forEach(b => b.classList.remove('picked','correct','wrong'));
+    const slot = page.querySelector('.explain-slot');
+    if (slot) slot.innerHTML = '';
+  }
 }
 
 function applyAnswers(){
   const c = state.current; if (!c) return;
-  const p = progressFor(c.examCode, c.code);
-  const review = c.mode === 'review';
-  c.screen.querySelectorAll('.page').forEach(page => {
-    const qi = +page.dataset.qi;
-    const q = c.data.questions[qi];
-    const picked = p.answers[q.number];
-    if (review) { markChoices(page, q, q.answer); renderExplain(page, q, true); }
-    else if (picked) { markChoices(page, q, picked); renderExplain(page, q, false); }
-    else {
-      page.querySelectorAll('.choice').forEach(b => b.classList.remove('picked','correct','wrong'));
-      page.querySelector('.explain-slot').innerHTML = '';
-    }
-  });
+  for (const idx of _hydratedQs) {
+    const page = c.screen.querySelector(`.page[data-qi="${idx}"]`);
+    if (page) applyAnswerForPage(page, c.data.questions[idx]);
+  }
   updatePositionIndicators();
 }
 
