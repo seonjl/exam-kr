@@ -2556,8 +2556,11 @@ function renderExplain(page, q, force){
     ? `<div class="explain-body detailed">${detailedHtml}${imgs}</div>`
     : `<div class="explain-body">${basicText || '(해설 없음)'}${imgs}</div>`;
 
+  const label = toggle
+    ? ''
+    : `<span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>`;
   slot.innerHTML = `<section class="explain">
-    <span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>
+    ${label}
     ${toggle}
     ${body}
   </section>`;
