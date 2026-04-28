@@ -2562,22 +2562,30 @@ function formatDetailed(raw){
   return out.join('\n');
 }
 
+const _explainBodyCache = new Map();
 function renderExplain(page, q, force){
   const slot = page.querySelector('.explain-slot');
   const hasDetailed = !!q.explanation_detailed;
   const hasExtras = !!(q.explanation_extras && q.explanation_extras.length);
   const hasBasic = !!(q.explanation || hasExtras || (q.explanation_images||[]).length);
   if (!force && !hasDetailed && !hasBasic) { slot.innerHTML=''; return; }
-  const imgs = hasExtras ? renderExtras(q.explanation_extras)
-               : (q.explanation_images || []).map((s, i) => `<img src="${s}" loading="lazy" alt="해설 이미지 ${i+1}">`).join('');
-  const cleaned = cleanExplanation(q.explanation);
-  const basicText = escapeHtml(cleaned || '').trim();
-  const detailedHtml = formatDetailed(q.explanation_detailed || '');
 
   // default: show detailed if available, toggle to basic
   const pref = store.get('expPref') || (hasDetailed ? 'detailed' : 'basic');
   const cur = pref === 'detailed' && !hasDetailed ? 'basic' :
-              pref === 'basic'    && !basicText   ? 'detailed' : pref;
+              pref === 'basic'    && !(q.explanation || '').trim() ? 'detailed' : pref;
+
+  const cacheKey = `${state.current?.code || ''}::${q.number}::${cur}`;
+  let cached = _explainBodyCache.get(cacheKey);
+  if (!cached) {
+    const imgs = hasExtras ? renderExtras(q.explanation_extras)
+                 : (q.explanation_images || []).map((s, i) => `<img src="${s}" loading="lazy" alt="해설 이미지 ${i+1}">`).join('');
+    const basicText = escapeHtml(cleanExplanation(q.explanation) || '').trim();
+    const detailedHtml = formatDetailed(q.explanation_detailed || '');
+    cached = { basicText, detailedHtml, imgs };
+    _explainBodyCache.set(cacheKey, cached);
+  }
+  const { basicText, detailedHtml, imgs } = cached;
 
   const toggle = hasDetailed && basicText ? `
     <div class="explain-switch">
