@@ -1375,16 +1375,35 @@ function renderExtra(extra){
   return renderMarkdown(raw); // text / mixed
 }
 
+function renderMathBlock(tex){
+  const t = (tex || '').trim();
+  if (window.katex) {
+    try { return window.katex.renderToString(t, { throwOnError: false, displayMode: true }); }
+    catch { /* fall through to placeholder */ }
+  }
+  return `<code class="formula-pending" data-tex="${escapeHtml(t)}">${escapeHtml(t)}</code>`;
+}
+
+// Extract $$...$$ to placeholders, escape surrounding text, then re-insert KaTeX HTML.
+// Use this anywhere mixed text + math goes through escapeHtml — the naive order
+// (escape first, then KaTeX) corrupts the LaTeX inside the dollars; the reverse
+// (KaTeX first, then escape) re-escapes the rendered <span class="katex">.
+function escapeWithMath(s){
+  if (!s) return '';
+  const parts = [];
+  const tag = `__GSTACKMATH${Date.now()}__`;
+  const escaped = s.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
+    const i = parts.length; parts.push(tex); return `${tag}${i}__`;
+  });
+  let html = escapeHtml(escaped);
+  for (let i = 0; i < parts.length; i++) {
+    html = html.split(`${tag}${i}__`).join(renderMathBlock(parts[i]));
+  }
+  return html;
+}
+
 function renderFormula(s){
-  // Replace each $$...$$ block with katex output
-  return `<div class="extra formula">${s.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
-    const t = tex.trim();
-    if (window.katex) {
-      try { return window.katex.renderToString(t, { throwOnError: false, displayMode: true }); }
-      catch { /* fall through to placeholder */ }
-    }
-    return `<code class="formula-pending" data-tex="${escapeHtml(t)}">${escapeHtml(t)}</code>`;
-  })}</div>`;
+  return `<div class="extra formula">${(s || '').replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => renderMathBlock(tex))}</div>`;
 }
 
 function renderPendingFormulas(scope){
@@ -1425,14 +1444,10 @@ function renderMarkdown(s){
     return `<table class="md"><thead><tr>${header.map(c => `<th>${escapeHtml(c)}</th>`).join('')}</tr></thead>` +
            `<tbody>${body.map(r => `<tr>${r.map(c => `<td>${escapeHtml(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
   });
-  // KaTeX inline $$...$$ within text
-  html = html.replace(/\$\$([^\$]+)\$\$/g, (_, tex) => {
-    try { return window.katex ? window.katex.renderToString(tex.trim(), { throwOnError: false, displayMode: true }) : `<code>${escapeHtml(tex)}</code>`; }
-    catch { return `<code>${escapeHtml(tex)}</code>`; }
-  });
-  // plain-ish lines that aren't in a table/code already: wrap in div with line breaks
+  // plain-ish lines that aren't in a table/code already: escape + render math + line breaks
+  // (Math handling lives inside escapeWithMath so the rendered KaTeX HTML doesn't get re-escaped.)
   if (!html.startsWith('<table') && !html.startsWith('<pre')) {
-    html = `<div class="extra md">${html.split('\n').map(l => l ? escapeHtml(l).replace(/&lt;br\s*\/?&gt;/g,'<br>') : '').join('<br>')}</div>`;
+    html = `<div class="extra md">${html.split('\n').map(l => l ? escapeWithMath(l).replace(/&lt;br\s*\/?&gt;/g,'<br>') : '').join('<br>')}</div>`;
   }
   return html;
 }
@@ -2611,7 +2626,7 @@ function formatDetailed(raw){
       out.push(`<h5>${t}</h5>`);
     } else if (t) {
       // bullets starting with ①②③④- •
-      out.push(`<p>${escapeHtml(t)}</p>`);
+      out.push(`<p>${escapeWithMath(t)}</p>`);
     } else {
       out.push('');
     }
