@@ -70,16 +70,18 @@ def collect_raw(exam_code: str) -> dict[str, list[dict]]:
 
 
 def prompt_for_subject(exam_name: str, subject: str, items: list[dict]) -> str:
+    """입력 phrase 마다 1-based 인덱스를 부여 — 출력은 인덱스 배열로만 받아 토큰 절약."""
     lines = []
-    for it in items:
+    for i, it in enumerate(items, start=1):
         sample = it["refs"][:3]
         sample_str = ", ".join(f"{r['session']}-Q{r['qnum']}" for r in sample)
         more = f" (+{len(it['refs']) - 3} 더)" if len(it["refs"]) > 3 else ""
-        lines.append(f"- ({it['count']}회) \"{it['phrase']}\" — {sample_str}{more}")
+        lines.append(f"{i}. ({it['count']}회) \"{it['phrase']}\" — {sample_str}{more}")
     lst = "\n".join(lines)
+    last_idx = len(items)
 
     return f"""당신은 {exam_name} [{subject}] 과목 전문가입니다.
-아래는 기출 문제에서 추출된 raw 개념 phrase 목록입니다 ({len(items)}개, 빈도순).
+아래는 기출 문제에서 추출된 raw 개념 phrase 목록입니다 ({len(items)}개, 빈도순, 1-based 인덱스 부여됨).
 의미적으로 같은 개념끼리 묶고, 각 묶음에 canonical 한국어 이름과 영문 slug ID 를 부여하세요.
 
 [원칙]
@@ -93,20 +95,21 @@ def prompt_for_subject(exam_name: str, subject: str, items: list[dict]) -> str:
 [입력 raw 개념]
 {lst}
 
-출력은 다른 텍스트·코드펜스 없이 **JSON 한 객체** 만:
+출력은 다른 텍스트·코드펜스 없이 **JSON 한 객체** 만. members 는 위 입력 인덱스 (정수) 배열:
 {{"concepts": [
   {{"id": "walkthrough-review",
     "name_ko": "워크 스루(Walk-through) 검토 기법",
     "name_en": "Walk-through Review",
-    "members": ["워크 스루(Walk-through)", "워크스루"]
+    "members": [1, 7, 23]
   }},
   ...
 ]}}
 
 규칙:
-- 입력의 모든 raw phrase 는 **정확히 하나의 canonical 의 members 에 포함되어야** 합니다 (누락·중복 금지).
-- members 의 문자열은 입력에 등장한 그대로 (수정 금지).
+- members 는 1 부터 {last_idx} 사이의 정수.
+- 위 1~{last_idx} 의 모든 인덱스는 정확히 하나의 canonical 의 members 에 등장해야 합니다 (누락·중복 금지).
 - id 는 canonical 간 중복 금지.
+- members 에 string 을 넣지 말 것 (반드시 정수).
 """
 
 
@@ -139,6 +142,29 @@ def call_claude(prompt: str, *, timeout: int = 1800) -> str:
     if not out:
         raise RuntimeError("claude returned empty output")
     return out
+
+
+def materialize_members(items: list[dict], result: dict) -> dict:
+    """모델이 members 를 1-based int index 로 줬으면 string phrase 로 매핑.
+    이미 string 이면 그대로 (legacy 캐시 호환)."""
+    concepts = result.get("concepts") or []
+    n = len(items)
+    for c in concepts:
+        members = c.get("members") or []
+        new_members: list[str] = []
+        for m in members:
+            if isinstance(m, bool):  # bool 은 int 의 subclass라서 따로 거른다
+                raise ValueError(f"bad member: {m!r}")
+            if isinstance(m, int):
+                if m < 1 or m > n:
+                    raise ValueError(f"member index out of range 1..{n}: {m}")
+                new_members.append(items[m - 1]["phrase"])
+            elif isinstance(m, str):
+                new_members.append(m)
+            else:
+                raise ValueError(f"member must be int or str: {m!r}")
+        c["members"] = new_members
+    return result
 
 
 def validate_subject_result(items: list[dict], result: dict) -> list[dict]:
@@ -230,6 +256,7 @@ def _call_and_validate(exam_name: str, label: str,
     text = call_claude(prompt)
     dt = time.time() - t0
     result = parse_json(text)
+    materialize_members(items, result)
     concepts = validate_subject_result(items, result)
     print(f"  ✓ [{label}] {len(items)} → {len(concepts)} canonical ({dt:.1f}s)",
           flush=True)

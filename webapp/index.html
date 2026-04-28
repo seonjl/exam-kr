@@ -581,6 +581,13 @@ a { color: inherit; text-decoration: none; }
   transition: width .3s var(--ease);
 }
 
+.pages-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
 .pages {
   flex: 1;
   overflow-x: auto;
@@ -593,6 +600,36 @@ a { color: inherit; text-decoration: none; }
   overscroll-behavior-x: contain;
 }
 .pages::-webkit-scrollbar { display: none; }
+
+/* desktop carousel arrows — only on fine pointer (mouse) and wide enough screens */
+.page-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--paper-edge);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  color: var(--ink);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--ink) 12%, transparent);
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 5;
+}
+.page-nav svg { width: 20px; height: 20px; }
+.page-nav.prev { left: 12px; }
+.page-nav.next { right: 12px; transform: translateY(-50%) rotate(180deg); }
+.page-nav:hover:not(:disabled) { background: var(--paper); }
+.page-nav:active:not(:disabled) { transform: translateY(-50%) scale(.94); }
+.page-nav.next:active:not(:disabled) { transform: translateY(-50%) rotate(180deg) scale(.94); }
+.page-nav:disabled { opacity: .25; cursor: default; }
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .page-nav { display: inline-flex; }
+}
 .page {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -815,6 +852,88 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .06em;
 }
 .explain-body img { max-width: 100%; height: auto; margin: 8px 0; }
+
+/* ---- Concept chips (해설 아래 관련 개념) ---- */
+.concept-chips {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--paper-edge);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.concept-chips-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--ink-mute);
+  margin-right: 4px;
+}
+.concept-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  color: var(--ink);
+  border: 1px solid var(--paper-edge);
+  font-size: calc(12px * var(--read-scale));
+  text-decoration: none;
+  transition: background .15s ease, transform .12s ease;
+  cursor: pointer;
+}
+.concept-chip:hover { background: var(--paper-chip); }
+.concept-chip:active { transform: scale(.96); }
+
+/* ---- Concept detail page ---- */
+.concept-en {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+.concept-meta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  letter-spacing: .02em;
+}
+.concept-body-placeholder {
+  margin: 20px 16px;
+  padding: 28px 18px;
+  background: var(--paper-deep);
+  border: 1px dashed var(--paper-edge);
+  border-radius: var(--r-md);
+  text-align: center;
+  color: var(--ink-mute);
+}
+.concept-body-placeholder .ideo {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 32px;
+  color: var(--seal);
+  margin-bottom: 8px;
+}
+.concept-body-placeholder p { margin: 0; line-height: 1.6; font-size: 13px; }
+.concept-body-placeholder small { color: var(--ink-faint); font-size: 11px; }
+.concept-actions {
+  padding: 0 16px 12px;
+}
+.concept-actions .r-primary {
+  width: 100%;
+}
+.concept-refs {
+  padding: 0 0 32px;
+}
+.concept-loading {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.concept-loading .skeleton { height: 60px; }
 
 /* ---- Extras (KaTeX / Mermaid / Markdown) ---- */
 .extras { margin: 10px 0 16px; display: flex; flex-direction: column; gap: 12px; }
@@ -1215,26 +1334,35 @@ const STORE = 'examkr.v1.';
 
 // One-time migration from previous STORE prefix. Copies (not moves) so a stale
 // build can still read its own data; idempotent via a marker key.
-(function migrateLegacyStore(){
+// Wrapped in try/catch — a quota or storage error here must not break module load.
+try {
   const OLD = 'cbt.v2.';
-  if (OLD === STORE) return;
-  if (localStorage.getItem(STORE + '_migrated') === '1') return;
-  let n = 0;
-  const oldKeys = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const k = localStorage.key(i);
-    if (k && k.startsWith(OLD)) oldKeys.push(k);
-  }
-  for (const k of oldKeys) {
-    const newKey = STORE + k.slice(OLD.length);
-    if (localStorage.getItem(newKey) === null) {
-      localStorage.setItem(newKey, localStorage.getItem(k));
-      n++;
+  if (OLD !== STORE && localStorage.getItem(STORE + '_migrated') !== '1') {
+    let n = 0;
+    const oldKeys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith(OLD)) oldKeys.push(k);
     }
+    for (const k of oldKeys) {
+      const newKey = STORE + k.slice(OLD.length);
+      if (localStorage.getItem(newKey) === null) {
+        try { localStorage.setItem(newKey, localStorage.getItem(k)); n++; }
+        catch (e) { console.warn('[migrate] quota for', newKey); break; }
+      }
+    }
+    try { localStorage.setItem(STORE + '_migrated', '1'); } catch {}
+    if (n) console.info(`[migrate] copied ${n} keys from ${OLD} to ${STORE}`);
   }
-  localStorage.setItem(STORE + '_migrated', '1');
-  if (n) console.info(`[migrate] copied ${n} keys from ${OLD} to ${STORE}`);
-})();
+} catch (e) { console.warn('[migrate] skipped:', e); }
+
+// 전역 에러 캡처 — silent crash 추적용 (console-only).
+window.addEventListener('error', (e) => {
+  console.error(`[ERR] ${e.message} @ ${e.filename}:${e.lineno}:${e.colno}`, e.error);
+});
+window.addEventListener('unhandledrejection', (e) => {
+  console.error(`[REJ]`, e.reason);
+});
 
 // AdSense — fill in after AdSense approval. Empty client disables ads entirely.
 const ADSENSE = {
@@ -1270,6 +1398,7 @@ const state = {
   sessionsCache: new Map(),   // examCode → [session meta]
   sessionMap: new Map(),      // examCode → Map(sessionCode → session meta)
   dataCache: new Map(),       // "examCode:sessionCode" → loaded session JSON
+  conceptIndex: new Map(),    // examCode → index.json (canonical id → meta)
   tab: 'home',
   currentExam: null,          // selected exam code (for session-list screen)
   current: null,              // { examCode, code, data, idx, mode, screen }
@@ -1350,6 +1479,20 @@ async function loadSession(examCode, sessionCode){
   const d = await r.json();
   state.dataCache.set(key, d);
   return d;
+}
+
+async function loadConceptIndex(examCode){
+  if (state.conceptIndex.has(examCode)) return state.conceptIndex.get(examCode);
+  try {
+    const r = await fetch(DATA + `concepts/${examCode}/index.json`, { cache: 'no-cache' });
+    if (!r.ok) throw new Error('no concept index');
+    const j = await r.json();
+    state.conceptIndex.set(examCode, j);
+    return j;
+  } catch {
+    state.conceptIndex.set(examCode, null);   // negative cache
+    return null;
+  }
 }
 
 /* ---- content renderers (extras) ---- */
@@ -2402,8 +2545,12 @@ async function openQuiz(examCode, sessionCode, startIdx){
       </div>
     </header>
     <div class="progress"><div class="progress-fill" id="pFill"></div></div>
-    <div class="pages" id="pages">
-      ${[0,1].map(()=>`<div class="page">${'<div class="skeleton"></div>'.repeat(4)}</div>`).join('')}
+    <div class="pages-wrap">
+      <div class="pages" id="pages">
+        ${[0,1].map(()=>`<div class="page">${'<div class="skeleton"></div>'.repeat(4)}</div>`).join('')}
+      </div>
+      <button class="page-nav prev" id="pagePrev" type="button" aria-label="이전 문제" hidden>${icons.back}</button>
+      <button class="page-nav next" id="pageNext" type="button" aria-label="다음 문제" hidden>${icons.back}</button>
     </div>
     <div class="quiz-foot">
       <button class="foot-btn star" id="starBtn">${icons.star}<span>북마크</span></button>
@@ -2418,6 +2565,15 @@ async function openQuiz(examCode, sessionCode, startIdx){
   screen.querySelector('#redoBtn').onclick = confirmRedo;
   screen.querySelector('#starBtn').onclick = toggleStar;
   screen.querySelector('#jumpBtn').onclick = openJumpSheet;
+  const $prev = screen.querySelector('#pagePrev');
+  const $next = screen.querySelector('#pageNext');
+  const stepPage = (dir) => {
+    const $pages = screen.querySelector('#pages');
+    if (!$pages) return;
+    $pages.scrollBy({ left: dir * $pages.clientWidth, behavior: 'smooth' });
+  };
+  $prev.onclick = () => stepPage(-1);
+  $next.onclick = () => stepPage(1);
 
   try {
     const data = await loadSession(examCode, sessionCode);
@@ -2435,6 +2591,11 @@ async function openQuiz(examCode, sessionCode, startIdx){
     _explainBodyCache.clear();
     $pages.innerHTML = data.questions.map((q,i) => renderPageSkeleton(i)).join('');
     hydrateWindow(state.current.idx);
+
+    // concept index 백그라운드 로드 — 도착하면 hydrated 페이지의 chip 라벨 갱신
+    loadConceptIndex(examCode).then(() => {
+      if (state.current && state.current.code === sessionCode) refreshConceptChips();
+    });
 
     if (state.current.mode === 'exam') startExamTimer();
     requestAnimationFrame(() => {
@@ -2474,16 +2635,164 @@ async function openQuiz(examCode, sessionCode, startIdx){
   }
 }
 
+/* ===================================================================
+   CONCEPT detail + practice
+   =================================================================== */
+async function openConcept(examCode, conceptId){
+  if (!_navInternal) pushRoute({ type:'concept', exam:examCode, id:conceptId });
+  const stack = document.getElementById('stack');
+  const screen = document.createElement('section');
+  screen.className = 'screen enter-right';
+  screen.innerHTML = `
+    <header class="nav has-title" id="conceptNav">
+      <button class="icon-btn" id="conceptBack" aria-label="뒤로">${icons.back}</button>
+      <div class="nav-title" id="conceptNavTitle">개념</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="conceptScroll">
+      <div class="concept-loading">${'<div class="skeleton"></div>'.repeat(4)}</div>
+    </div>
+  `;
+  stack.appendChild(screen);
+  updateScreenInert();
+  screen.querySelector('#conceptBack').onclick = popScreen;
+  addEdgeBack(screen);
+
+  const idx = await loadConceptIndex(examCode);
+  const meta = idx && idx[conceptId];
+  const $body = screen.querySelector('#conceptScroll');
+  if (!meta) {
+    $body.innerHTML = emptyCard('개념을 찾을 수 없어요', conceptId);
+    return;
+  }
+
+  const exam = state.examByCode.get(examCode);
+  const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기' })[examCode] || examCode;
+  screen.querySelector('#conceptNavTitle').textContent = meta.name_ko;
+
+  const subjList = (meta.subjects || []).join(' · ');
+  const refs = meta.refs || [];
+  const refsHtml = refs.map(r => `
+    <button class="row concept-ref" data-exam="${examCode}" data-sess="${r.session}" data-q="${r.qnum}">
+      <span class="row-lead exam-mark">${examShort}</span>
+      <span class="row-body">
+        <span class="row-title">${r.session.slice(0,4)}.${r.session.slice(4,6)}.${r.session.slice(6,8)} · ${r.qnum}번</span>
+        <span class="row-sub">회차 풀이로 이동</span>
+      </span>
+      <span class="row-trail">${icons.chev || '›'}</span>
+    </button>
+  `).join('');
+
+  $body.innerHTML = `
+    <div class="large-title">
+      <div class="kicker">${escapeHtml(examShort)} · CONCEPT</div>
+      <h1>${escapeHtml(meta.name_ko)}</h1>
+      ${meta.name_en ? `<div class="concept-en">${escapeHtml(meta.name_en)}</div>` : ''}
+      <div class="concept-meta">${escapeHtml(subjList)} · ${refs.length}문항 등장</div>
+    </div>
+
+    <div class="concept-body-placeholder">
+      <span class="ideo">未</span>
+      <p>개념 본문은 곧 추가됩니다.<br><small>정의·직관·핵심 공식·자주 헷갈리는 점·작은 예시</small></p>
+    </div>
+
+    <div class="section-head">
+      <h2>이 개념을 사용한 문제</h2>
+      <span class="meta">${refs.length} 문항</span>
+    </div>
+    <div class="concept-actions">
+      <button class="r-primary" id="conceptPracticeBtn" ${refs.length === 0 ? 'disabled' : ''}>
+        ${refs.length}문제 모아 풀기
+      </button>
+    </div>
+    <div class="concept-refs">${refsHtml || '<div class="empty">관련 문제 없음</div>'}</div>
+  `;
+
+  $body.querySelector('#conceptPracticeBtn')?.addEventListener('click', () => {
+    openConceptPractice(examCode, conceptId).catch(e => {
+      console.error(e); toast('연습 모드 시작 실패');
+    });
+  });
+  $body.querySelectorAll('.concept-ref').forEach(b => {
+    b.addEventListener('click', () => {
+      const ex = b.dataset.exam, sc = b.dataset.sess, qn = +b.dataset.q;
+      // 회차 풀이로 점프 — 현재 데이터로딩 후 해당 문제로 idx 설정
+      openSessionList(ex).then(() => openQuiz(ex, sc, qn - 1)).catch(()=>{});
+    });
+  });
+}
+
+async function openConceptPractice(examCode, conceptId){
+  // 가상 세션: refs 의 (session, qnum) 들에서 question 들을 모아 새 questions 배열을 만든다.
+  if (!_navInternal) pushRoute({ type:'concept-practice', exam:examCode, id:conceptId });
+  const idx = await loadConceptIndex(examCode);
+  const meta = idx && idx[conceptId];
+  if (!meta || !(meta.refs || []).length) { toast('관련 문제가 없어요'); return; }
+
+  // 필요한 회차 모두 로드
+  const sessSet = Array.from(new Set(meta.refs.map(r => r.session)));
+  const sessions = await Promise.all(sessSet.map(sc => loadSession(examCode, sc).catch(() => null)));
+  const sessionMap = new Map(sessSet.map((sc, i) => [sc, sessions[i]]));
+
+  // refs 순서대로 question 객체 모으기
+  const questions = [];
+  for (const r of meta.refs) {
+    const data = sessionMap.get(r.session);
+    if (!data) continue;
+    const q = (data.questions || []).find(qq => qq.number === r.qnum);
+    if (q) {
+      // 원본 질문 그대로 — 별도 _origin 표시
+      questions.push({ ...q, _originSession: r.session });
+    }
+  }
+  if (!questions.length) { toast('문제 데이터를 불러오지 못했어요'); return; }
+
+  // 가상 세션 데이터 구성
+  const virtData = {
+    exam: state.examByCode.get(examCode)?.name || examCode,
+    dbname: examCode,
+    date: `concept-${conceptId}`,
+    label: meta.name_ko,
+    count: questions.length,
+    questions,
+  };
+  const virtSessionCode = `c-${conceptId}`;
+  state.dataCache.set(`${examCode}:${virtSessionCode}`, virtData);
+
+  // openQuiz 가 다시 pushRoute 하지 않도록 잠시 navInternal flag 켠다
+  const wasInternal = _navInternal;
+  _navInternal = true;
+  try {
+    await openQuiz(examCode, virtSessionCode);
+  } finally {
+    _navInternal = wasInternal;
+  }
+  // quiz nav title 을 개념 모드용으로 덮어쓰기 (회차 코드가 'c-...' 라 기본 포맷이 깨짐)
+  const $title = state.current?.screen.querySelector('.quiz-nav-title');
+  if ($title) {
+    $title.querySelector('.d').textContent = meta.name_ko;
+    $title.querySelector('.s').textContent = `개념 모아 풀기 · ${meta.refs.length}문제`;
+  }
+}
+
 function updateScreenInert(){
   const screens = document.querySelectorAll('#stack > .screen');
   const top = screens[screens.length - 1];
+  // 만약 비활성 처리할 화면 안에 포커스가 남아 있으면 inert 적용 전에 blur.
+  // (aria-hidden 동시 적용은 브라우저 콘솔 경고를 유발하므로 inert 만 사용)
+  if (top && document.activeElement && top.contains(document.activeElement) === false) {
+    try { document.activeElement.blur(); } catch {}
+  }
   screens.forEach(s => {
     if (s === top) {
       s.removeAttribute('inert');
       s.removeAttribute('aria-hidden');
     } else {
+      if (s.contains(document.activeElement)) {
+        try { document.activeElement.blur(); } catch {}
+      }
       s.setAttribute('inert', '');
-      s.setAttribute('aria-hidden', 'true');
+      s.removeAttribute('aria-hidden');
     }
   });
 }
@@ -2498,14 +2807,17 @@ function popScreen(){
   }
 }
 
-function doPopScreen(){
+function doPopScreen(immediate = false){
   stopExamTimer();
   const stack = document.getElementById('stack');
-  const last = stack.lastElementChild;
   if (stack.children.length <= 1) return;
-  last.classList.remove('enter-right');
-  last.classList.add('exit-right');
-  last.addEventListener('animationend', () => {
+  const last = stack.lastElementChild;
+
+  document.getElementById('shell').classList.remove('hide-tabs');
+  document.removeEventListener('keydown', onKey);
+  state.current = null;
+
+  const finish = () => {
     last.remove();
     updateScreenInert();
     const top = stack.lastElementChild;
@@ -2516,11 +2828,21 @@ function doPopScreen(){
         loadSessions(state.currentExam).then(s => fillSessionList(top, state.currentExam, s)).catch(()=>{});
       }
     }
-  }, { once: true });
-  document.getElementById('shell').classList.remove('hide-tabs');
-  document.removeEventListener('keydown', onKey);
-  state.current = null;
-  if (stack.children.length <= 1) showInterstitialAd();
+    if (stack.children.length <= 1) showInterstitialAd();
+  };
+
+  if (immediate) {
+    finish();
+    return;
+  }
+
+  last.classList.remove('enter-right');
+  last.classList.add('exit-right');
+  // animationend 누락(브라우저별 reduced-motion·hidden 등) 대비 fallback
+  let done = false;
+  const safe = () => { if (done) return; done = true; finish(); };
+  last.addEventListener('animationend', safe, { once: true });
+  setTimeout(safe, 400);
 }
 
 /* Ad management */
@@ -2695,10 +3017,13 @@ function renderExplain(page, q, force){
   const label = toggle
     ? ''
     : `<span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>`;
+  const chips = renderConceptChips(q);
+
   slot.innerHTML = `<section class="explain">
     ${label}
     ${toggle}
     ${body}
+    ${chips}
   </section>`;
 
   const sw = slot.querySelector('.explain-switch');
@@ -2707,6 +3032,35 @@ function renderExplain(page, q, force){
     store.set('expPref', b.dataset.exp);
     renderExplain(page, q, force);
   });
+}
+
+function refreshConceptChips(){
+  // conceptIndex 가 늦게 도착했을 때, 이미 hydrated 된 chip 들의 라벨만 갱신.
+  const c = state.current; if (!c) return;
+  const idx = state.conceptIndex.get(c.examCode);
+  if (!idx) return;
+  c.screen.querySelectorAll('.concept-chip[data-cid]').forEach(el => {
+    const meta = idx[el.dataset.cid];
+    if (meta && meta.name_ko) el.textContent = meta.name_ko;
+  });
+}
+
+function renderConceptChips(q){
+  const ids = q.concept_ids || [];
+  if (!ids.length) return '';
+  const examCode = state.current?.examCode;
+  if (!examCode) return '';
+  const idx = state.conceptIndex.get(examCode);
+  // 인덱스가 아직 안 왔으면 raw concepts 기반으로 폴백 표기 (id만)
+  const items = ids.map(id => {
+    const meta = idx && idx[id];
+    const label = (meta && meta.name_ko) || id;
+    return `<a class="concept-chip" data-cid="${escapeHtml(id)}" href="/concept/${examCode}/${encodeURIComponent(id)}">${escapeHtml(label)}</a>`;
+  }).join('');
+  return `<div class="concept-chips">
+    <span class="concept-chips-label">관련 개념</span>
+    ${items}
+  </div>`;
 }
 
 function onChoiceClick(e){
@@ -2778,6 +3132,10 @@ function updatePositionIndicators(){
   const starred = (p.stars||[]).includes(q.number);
   starBtn.classList.toggle('on', starred);
   starBtn.querySelector('svg').outerHTML = starred ? icons.starFill : icons.star;
+  const $prev = c.screen.querySelector('#pagePrev');
+  const $next = c.screen.querySelector('#pageNext');
+  if ($prev) { $prev.hidden = false; $prev.disabled = i <= 0; }
+  if ($next) { $next.hidden = false; $next.disabled = i >= total - 1; }
 }
 
 function onKey(e){
@@ -3129,8 +3487,10 @@ let _navInternal = false;
 
 function pathForState(s) {
   if (!s) return '/';
-  if (s.type === 'session') return `/exam/${s.exam}`;
-  if (s.type === 'quiz')    return `/exam/${s.exam}/${s.session}`;
+  if (s.type === 'session')          return `/exam/${s.exam}`;
+  if (s.type === 'quiz')             return `/exam/${s.exam}/${s.session}`;
+  if (s.type === 'concept')          return `/concept/${s.exam}/${encodeURIComponent(s.id)}`;
+  if (s.type === 'concept-practice') return `/concept/${s.exam}/${encodeURIComponent(s.id)}/practice`;
   return '/';
 }
 
@@ -3141,33 +3501,65 @@ function pushRoute(state) {
   history.pushState({ ...state, depth }, '', path);
 }
 
+// SPA 내 링크 — concept-chip 등 a[href^="/"] 클릭은 풀 reload 없이 처리
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a.concept-chip');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  if (!href.startsWith('/')) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  e.preventDefault();
+  const m = href.match(/^\/concept\/([^/]+)\/([^/?#]+)/);
+  if (!m) return;
+  const examCode = m[1];
+  const id = decodeURIComponent(m[2]);
+  openConcept(examCode, id).catch(()=>{});
+});
+
 window.addEventListener('popstate', () => {
-  // Browser back/forward — pop visible screens to match URL depth
+  // Browser back/forward — pop visible screens to match URL depth.
+  // doPopScreen 는 기본적으로 비동기(animationend)라 children.length 가 즉시 안 줄어든다.
+  // 따라서 여러 단계를 한꺼번에 popping 할 때는 마지막만 애니메이션, 그 위는 즉시 제거.
   const targetDepth = history.state?.depth || 0;
   const stack = document.getElementById('stack');
   _navInternal = true;
-  while (stack.children.length - 1 > targetDepth) {
-    doPopScreen();
+  let excess = stack.children.length - 1 - targetDepth;
+  if (excess > 0) {
+    while (excess > 1 && stack.children.length > 1) {
+      doPopScreen(true);   // immediate: synchronous remove
+      excess--;
+    }
+    if (excess === 1 && stack.children.length > 1) {
+      doPopScreen();        // animated final pop
+    }
   }
   _navInternal = false;
-  // If user navigated forward to a deeper URL we don't have on stack,
-  // we don't auto-rebuild here (rare edge case).
 });
 
 async function initRoute() {
   const segs = location.pathname.split('/').filter(Boolean);
   history.replaceState({ type: 'home', depth: 0 }, '', '/');
-  if (segs[0] !== 'exam' || !segs[1]) return;
-  await loadExams().catch(()=>{});
-  if (!state.examByCode.has(segs[1])) return;
-  await openSessionList(segs[1]);
-  if (segs[2]) {
-    try {
-      await loadSessions(segs[1]);
-      if (state.sessionMap.get(segs[1])?.has(segs[2])) {
-        await openQuiz(segs[1], segs[2]);
-      }
-    } catch {}
+  if (segs[0] === 'exam' && segs[1]) {
+    await loadExams().catch(()=>{});
+    if (!state.examByCode.has(segs[1])) return;
+    await openSessionList(segs[1]);
+    if (segs[2]) {
+      try {
+        await loadSessions(segs[1]);
+        if (state.sessionMap.get(segs[1])?.has(segs[2])) {
+          await openQuiz(segs[1], segs[2]);
+        }
+      } catch {}
+    }
+    return;
+  }
+  if (segs[0] === 'concept' && segs[1] && segs[2]) {
+    await loadExams().catch(()=>{});
+    if (!state.examByCode.has(segs[1])) return;
+    const id = decodeURIComponent(segs[2]);
+    await openConcept(segs[1], id);
+    if (segs[3] === 'practice') await openConceptPractice(segs[1], id);
+    return;
   }
 }
 

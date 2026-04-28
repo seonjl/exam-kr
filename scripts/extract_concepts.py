@@ -44,9 +44,8 @@ ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
 
 
-def prompt_for(exam_code: str, q: dict) -> str:
-    exam = EXAMS.get(exam_code, {"name": ""})
-    name = exam.get("name", "")
+def _q_block(q: dict) -> str:
+    """단일 question 을 prompt 안에 넣을 텍스트 블록으로 직렬화."""
     choices = q.get("choices") or []
 
     def ct(i: int) -> str:
@@ -59,21 +58,34 @@ def prompt_for(exam_code: str, q: dict) -> str:
     existing = (q.get("explanation_detailed") or q.get("explanation") or "").strip() \
         or "(해설 없음)"
 
+    return (
+        f"[Q{q.get('number')}]\n"
+        f"[과목] {q.get('subject') or ''}\n"
+        f"[문제] {q.get('question') or ''}\n"
+        f"[보기]\n"
+        f"① {ct(0)}\n"
+        f"② {ct(1)}\n"
+        f"③ {ct(2)}\n"
+        f"④ {ct(3)}\n"
+        f"[정답] {q.get('answer', '?')}번\n"
+        f"[기존 해설]\n{existing}\n"
+    )
+
+
+def prompt_for_batch(exam_code: str, qs: list[dict]) -> str:
+    exam = EXAMS.get(exam_code, {"name": ""})
+    name = exam.get("name", "")
+    blocks = "\n\n".join(_q_block(q) for q in qs)
+    qnums = [q.get("number") for q in qs]
+
     return f"""당신은 {name} 전문 강사입니다.
-아래 기출문제에 대해 (1) 핵심 개념 추출, (2) 기존 해설 감사, (3) 필요 시 해설 보완을 수행합니다.
+아래 {len(qs)}개의 기출문제 각각에 대해 (1) 핵심 개념 추출, (2) 기존 해설 감사, (3) 필요 시 해설 보완을 수행합니다.
 
-[과목] {q.get('subject') or ''}
-[문제] {q.get('question') or ''}
-[보기]
-① {ct(0)}
-② {ct(1)}
-③ {ct(2)}
-④ {ct(3)}
-[정답] {q.get('answer', '?')}번
-[기존 해설]
-{existing}
+────────────────────────
+{blocks}
+────────────────────────
 
-다음 작업을 수행하세요.
+각 문제마다 다음 작업을 수행하세요.
 
 1) 이 문제가 묻는 핵심 개념을 1~3개 한국어 명사구로 뽑으세요.
    - 추상적 분야명("프로그래밍", "통계학") 금지.
@@ -97,11 +109,18 @@ def prompt_for(exam_code: str, q: dict) -> str:
    섹션 제목은 위와 정확히 동일하게.
    score 가 3 이면 improved_explanation 은 null.
 
-출력은 다른 텍스트 없이 **JSON 한 줄** 만:
-{{"concepts": ["...", "..."], "audit": {{"score": 2, "missing": "..."}}, "improved_explanation": "..." }}
+출력은 다른 텍스트·코드펜스 없이 **JSON 객체 하나** 만. results 키에 입력 순서대로 (Q번호 포함):
 
-improved_explanation 안의 줄바꿈은 반드시 \\n 으로 이스케이프하세요.
-JSON 외의 어떤 설명·주석·코드펜스도 출력하지 마세요.
+{{"results": [
+  {{"qnum": {qnums[0]}, "concepts": ["...", "..."], "audit": {{"score": 2, "missing": "..."}}, "improved_explanation": "..." }},
+  {{"qnum": ..., "concepts": [...], "audit": {{...}}, "improved_explanation": null }},
+  ...
+]}}
+
+규칙:
+- results 배열 길이는 정확히 {len(qs)} 이며, qnum 은 {qnums} 와 1:1 대응.
+- improved_explanation 안의 줄바꿈은 반드시 \\n 으로 이스케이프.
+- JSON 외 텍스트/주석/펜스 금지.
 """
 
 
@@ -160,7 +179,10 @@ def normalize_record(rec: dict) -> dict:
     }
 
 
-def call_claude(prompt: str, *, timeout: int = 180) -> str:
+BATCH_SIZE = 5   # 한 번의 claude -p 호출에 묶는 question 수
+
+
+def call_claude(prompt: str, *, timeout: int = 300) -> str:
     r = subprocess.run(
         ["claude", "-p", prompt],
         capture_output=True, text=True, timeout=timeout,
@@ -253,54 +275,90 @@ def process_session(exam_code: str, session_code: str, *,
         return {"code": session_code, "done": 0, "skip": len(d["questions"])}
 
     if dry:
-        print(prompt_for(exam_code, todo[0]))
+        print(prompt_for_batch(exam_code, todo[:BATCH_SIZE]))
         return {"code": session_code, "dry": True}
+
+    # batch 단위로 묶기
+    batches = [todo[i:i + BATCH_SIZE] for i in range(0, len(todo), BATCH_SIZE)]
 
     done = failed = improved_count = 0
     score_hist = {0: 0, 1: 0, 2: 0, 3: 0}
     lock = threading.Lock()
     breaker = breaker or CircuitBreaker()
 
-    def worker(q):
+    def apply_batch_result(qs: list[dict], results: list[dict]) -> tuple[int, int, dict]:
+        """결과를 각 q 에 매핑해 반영. (성공 수, 보완 수, score_hist)"""
+        by_qnum = {r.get("qnum"): r for r in results if isinstance(r, dict)}
+        ok = imp = 0
+        sh = {0: 0, 1: 0, 2: 0, 3: 0}
+        missed = []
+        for q in qs:
+            r = by_qnum.get(q["number"])
+            if not r:
+                missed.append(q["number"])
+                continue
+            try:
+                rec = normalize_record(r)
+                apply_record(q, rec)
+                ok += 1
+                sh[rec["audit"]["score"]] += 1
+                if q["explanation_audit"]["improved"]:
+                    imp += 1
+            except Exception as e:
+                missed.append(q["number"])
+                print(f"  Q{q['number']}  ✗  {e}", flush=True)
+        if missed:
+            print(f"  배치 missed: {missed}", flush=True)
+        return ok, imp, sh
+
+    def worker(qs: list[dict]):
         nonlocal done, failed, improved_count
         if breaker.tripped:
             return
+        qnums = [q["number"] for q in qs]
         try:
-            text = call_claude(prompt_for(exam_code, q))
-            rec = normalize_record(parse_response(text))
-            apply_record(q, rec)
-            breaker.record_success()
+            text = call_claude(prompt_for_batch(exam_code, qs))
+            j = parse_response(text)
+            results = j.get("results") if isinstance(j, dict) else None
+            if not isinstance(results, list) or not results:
+                raise ValueError(f"no results array: {text[:200]!r}")
+            ok, imp, sh = apply_batch_result(qs, results)
+            fail_in_batch = len(qs) - ok
+            if ok > 0:
+                breaker.record_success()
+            else:
+                breaker.record_failure()
             with lock:
-                done += 1
-                score_hist[rec["audit"]["score"]] += 1
-                if q["explanation_audit"]["improved"]:
-                    improved_count += 1
-            tag = "✎" if q["explanation_audit"]["improved"] else "·"
-            print(f"  Q{q['number']}  ✓ {tag}  score={rec['audit']['score']} "
-                  f"concepts={rec['concepts']}", flush=True)
+                done += ok
+                failed += fail_in_batch
+                improved_count += imp
+                for k, v in sh.items():
+                    score_hist[k] += v
+            print(f"  Q{qnums}  ✓ batch ok={ok} fail={fail_in_batch} imp={imp}",
+                  flush=True)
         except Exception as e:
             breaker.record_failure()
             with lock:
-                failed += 1
-            print(f"  Q{q['number']}  ✗  {e}", flush=True)
+                failed += len(qs)
+            print(f"  Q{qnums}  ✗ batch  {e}", flush=True)
 
     def save():
         path.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
 
     if workers <= 1:
-        for i, q in enumerate(todo, 1):
+        for i, batch in enumerate(batches, 1):
             if breaker.tripped:
                 print(f"  [circuit breaker] 연속 실패 {breaker.threshold}회, 중단",
                       flush=True)
                 break
-            worker(q)
-            if i % 5 == 0:
+            worker(batch)
+            if i % 2 == 0:
                 save()
     else:
         with cf.ThreadPoolExecutor(max_workers=workers) as ex:
-            futs = [ex.submit(worker, q) for q in todo]
+            futs = [ex.submit(worker, b) for b in batches]
             for i, _ in enumerate(cf.as_completed(futs), 1):
-                if i % 5 == 0:
+                if i % 2 == 0:
                     save()
                 if breaker.tripped:
                     for f in futs:
