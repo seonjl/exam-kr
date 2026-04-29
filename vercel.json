@@ -1,18 +1,16 @@
 {
+  "buildCommand": "python3 -m pip install --break-system-packages Pillow && python3 scripts/build_pages.py",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "regions": ["icn1"],
+  "functions": {
+    "api/feedback.js": { "maxDuration": 10 }
+  },
   "rewrites": [
-    { "source": "/sw.js", "destination": "/webapp/sw.js" },
-    { "source": "/manifest.webmanifest", "destination": "/webapp/manifest.webmanifest" },
-    { "source": "/icon.svg", "destination": "/webapp/icon.svg" },
-    { "source": "/icon-192.png", "destination": "/webapp/icon-192.png" },
-    { "source": "/icon-512.png", "destination": "/webapp/icon-512.png" },
-    { "source": "/apple-touch-icon.png", "destination": "/webapp/apple-touch-icon.png" },
-    { "source": "/og-image.png", "destination": "/webapp/og-image.png" },
-    { "source": "/robots.txt", "destination": "/webapp/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/webapp/sitemap.xml" },
-    { "source": "/exam/:path*", "destination": "/webapp/index.html" },
-    { "source": "/concept/:path*", "destination": "/webapp/index.html" },
-    { "source": "/stats", "destination": "/webapp/index.html" },
-    { "source": "/", "destination": "/webapp/index.html" }
+    { "source": "/exam/:path*", "destination": "/index.html" },
+    { "source": "/concept/:path*", "destination": "/index.html" },
+    { "source": "/stats", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -33,6 +31,18 @@
       "source": "/webapp/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/sitemap(.*).xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/((?!api/|_vercel/|webapp/|data/|sw\\.js|sitemap).*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800" }
       ]
     }
   ]
