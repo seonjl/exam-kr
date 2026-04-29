@@ -1273,6 +1273,11 @@ async function openQuiz(examCode, sessionCode, startIdx){
       </div>
       <button class="page-nav prev" id="pagePrev" type="button" aria-label="이전 문제" hidden>${icons.back}</button>
       <button class="page-nav next" id="pageNext" type="button" aria-label="다음 문제" hidden>${icons.back}</button>
+      <div class="swipe-hint" id="swipeHint" hidden aria-hidden="true">
+        <span class="sh-icon">${icons.back}</span>
+        <span class="sh-text">좌우로 쓸어서 다음 문제</span>
+        <span class="sh-icon flip">${icons.back}</span>
+      </div>
     </div>
     <div class="quiz-foot">
       <button class="foot-btn star" id="starBtn">${icons.star}<span>북마크</span></button>
@@ -1296,6 +1301,34 @@ async function openQuiz(examCode, sessionCode, startIdx){
   };
   $prev.onclick = () => stepPage(-1);
   $next.onclick = () => stepPage(1);
+
+  // First-launch swipe hint (mobile users may not realize swipe works).
+  // One-shot per user: localStorage flag stops repeats. Auto-dismiss on
+  // any first scroll/click/key, or after 5s.
+  if (!store.get('swipeHintSeen')) {
+    const $hint = screen.querySelector('#swipeHint');
+    const $pages = screen.querySelector('#pages');
+    if ($hint && $pages) {
+      $hint.hidden = false;
+      requestAnimationFrame(() => $hint.classList.add('visible'));
+      const dismiss = () => {
+        if ($hint.hidden) return;
+        $hint.classList.remove('visible');
+        $hint.classList.add('fading');
+        setTimeout(() => { $hint.hidden = true; }, 320);
+        store.set('swipeHintSeen', 1);
+        $pages.removeEventListener('scroll', dismiss, { passive: true });
+        screen.removeEventListener('touchstart', dismiss, true);
+        screen.removeEventListener('click', dismiss, true);
+        document.removeEventListener('keydown', dismiss, true);
+      };
+      $pages.addEventListener('scroll', dismiss, { passive: true });
+      screen.addEventListener('touchstart', dismiss, true);
+      screen.addEventListener('click', dismiss, true);
+      document.addEventListener('keydown', dismiss, true);
+      setTimeout(dismiss, 5000);
+    }
+  }
 
   try {
     const data = await loadSession(examCode, sessionCode);
