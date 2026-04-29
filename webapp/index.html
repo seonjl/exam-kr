@@ -26,6 +26,28 @@
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <title>exam.kr · 자격증 기출 학습</title>
 
+<!-- Sentry — loader script must run BEFORE all other scripts so it can buffer
+     errors thrown during early init. Lazily fetches the full SDK on first error
+     or before tracing/replay activate. -->
+<script src="https://js.sentry-cdn.com/c0ea7c1cc6451a4a4d50793ea12197e1.min.js" crossorigin="anonymous"></script>
+<script>
+  Sentry.onLoad(function () {
+    Sentry.init({
+      environment: 'production',
+      sendDefaultPii: true,
+      tracesSampleRate: 1.0,
+      tracePropagationTargets: ['exam-kr.vercel.app'],
+      replaysSessionSampleRate: 0.1,
+      replaysOnErrorSampleRate: 1.0,
+      ignoreErrors: [
+        'ResizeObserver loop limit exceeded',
+        'ResizeObserver loop completed with undelivered notifications',
+        'Non-Error promise rejection captured',
+      ],
+    });
+  });
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1443771548671737" crossorigin="anonymous"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>
