@@ -1944,12 +1944,7 @@ function onChoiceClick(e){
   updatePositionIndicators();
   haptic(ci === q.answer ? 'correct' : 'wrong');
   const isWrong = ci !== q.answer;
-  if (isWrong && !store.get('seen:firstWrong')) {
-    store.set('seen:firstWrong', 1);
-    toastAction('오답', '오답노트', () => showTab('wrongs'), { kind: 'wrong' });
-  } else {
-    toast(isWrong ? '오답' : '정답', isWrong ? 'wrong' : 'correct');
-  }
+  toast(isWrong ? '오답' : '정답', isWrong ? 'wrong' : 'correct');
   maybeShowCompletion(c, p);
 }
 
