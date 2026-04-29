@@ -1459,6 +1459,9 @@ async function openQuiz(examCode, sessionCode, startIdx){
 
     let t; $pages.addEventListener('scroll', () => {
       clearTimeout(t); t = setTimeout(() => {
+        // Guard against firing after the screen was popped or replaced —
+        // state.current may be null or pointing at a different session.
+        if (!state.current || state.current.code !== sessionCode) return;
         const i = Math.round($pages.scrollLeft / $pages.clientWidth);
         if (i !== state.current.idx) {
           state.current.idx = i;
