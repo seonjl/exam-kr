@@ -1316,16 +1316,18 @@ pre.code {
   z-index: 80;
 }
 .toast.show { opacity: 1; }
+.toast.wrong { background: var(--vermilion); color: var(--paper); }
+.toast.correct { background: var(--jade); color: var(--paper); }
 
 .toast-action {
   position: fixed;
   bottom: calc(env(safe-area-inset-bottom) + 96px);
   left: 50%; transform: translate(-50%, 12px);
-  padding: 10px 8px 10px 18px;
+  padding: 8px 6px 8px 16px;
   background: var(--ink); color: var(--paper);
   font-family: var(--sans); font-size: 14px;
   border-radius: 999px;
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 8px;
   box-shadow: var(--shadow-lift);
   opacity: 0;
   transition: opacity .25s ease, transform .25s var(--spring);
@@ -1333,12 +1335,31 @@ pre.code {
   max-width: calc(100vw - 32px);
 }
 .toast-action.show { opacity: 1; transform: translate(-50%, 0); }
-.toast-action button {
-  background: var(--vermilion); color: var(--paper);
+.toast-action.wrong { background: var(--vermilion); }
+.toast-action.correct { background: var(--jade); }
+.toast-action .toast-msg { font-weight: 600; }
+.toast-action .toast-act {
+  background: var(--paper); color: var(--ink);
   border-radius: 999px;
   padding: 6px 14px;
   font-weight: 600;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
 }
+.toast-action.wrong .toast-act { color: var(--vermilion); }
+.toast-action.correct .toast-act { color: var(--jade); }
+.toast-action .toast-close {
+  background: transparent;
+  color: var(--paper);
+  opacity: .55;
+  padding: 4px 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--mono);
+}
+.toast-action .toast-close:hover { opacity: 1; }
 
 /* Completion card */
 .complete {

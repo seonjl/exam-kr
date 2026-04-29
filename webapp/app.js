@@ -410,6 +410,9 @@ const tabs = {
 
 function showTab(name){
   state.tab = name;
+  // Clean any lingering toasts before tearing down the screen — otherwise they
+  // hover over the new tab and the user can't dismiss them.
+  document.getElementById('toast-action')?.remove();
   document.querySelectorAll('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.tab===name));
   const stack = document.getElementById('stack');
   stack.innerHTML = '';
@@ -1943,9 +1946,9 @@ function onChoiceClick(e){
   const isWrong = ci !== q.answer;
   if (isWrong && !store.get('seen:firstWrong')) {
     store.set('seen:firstWrong', 1);
-    toastAction(`오답 · 정답 ${q.answer}번`, '오답노트', () => showTab('wrongs'));
+    toastAction('오답', '오답노트', () => showTab('wrongs'), { kind: 'wrong' });
   } else {
-    toast(isWrong ? `오답 · 정답 ${q.answer}` : '정답');
+    toast(isWrong ? '오답' : '정답', isWrong ? 'wrong' : 'correct');
   }
   maybeShowCompletion(c, p);
 }
@@ -1987,8 +1990,7 @@ function confirmRedo(){
     saveProgress(c.examCode, c.code, snap);
     applyAnswers();
     toast('복원됨');
-  });
-  setTimeout(() => document.getElementById('toast-action')?.remove(), 6000);
+  }, { duration: 7000 });
 }
 
 function updatePositionIndicators(){
@@ -2322,20 +2324,39 @@ function emptyCard(title, sub){
   return `<div class="empty"><span class="ideo">空</span><h4>${title}</h4><p>${sub || ''}</p></div>`;
 }
 let toastTimer;
-function toast(msg){
+function toast(msg, kind){
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id='toast'; t.className='toast'; document.body.appendChild(t); }
-  t.textContent = msg; t.classList.add('show');
+  t.textContent = msg;
+  t.classList.remove('correct', 'wrong');
+  if (kind) t.classList.add(kind);
+  t.classList.add('show');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 1300);
 }
-function toastAction(msg, btnLabel, onClick){
-  // Sticky toast with action button (for SW updates etc)
+function toastAction(msg, btnLabel, onClick, opts = {}){
+  // Toast with action button. By default auto-dismisses after `duration` ms
+  // and includes a close [✕] button. Pass { persistent: true } for sticky
+  // toasts that only dismiss on action click (e.g. SW update prompt).
+  const { duration = 5000, persistent = false, kind } = opts;
   let t = document.getElementById('toast-action');
   if (t) t.remove();
   t = document.createElement('div');
-  t.id = 'toast-action'; t.className = 'toast-action';
-  t.innerHTML = `<span>${escapeHtml(msg)}</span><button>${escapeHtml(btnLabel)}</button>`;
-  t.querySelector('button').onclick = () => { try { onClick(); } finally { t.remove(); } };
+  t.id = 'toast-action';
+  t.className = 'toast-action' + (kind ? ' ' + kind : '');
+  const closeHtml = persistent ? '' : '<button class="toast-close" type="button" aria-label="닫기">✕</button>';
+  t.innerHTML = `<span class="toast-msg">${escapeHtml(msg)}</span><button class="toast-act" type="button">${escapeHtml(btnLabel)}</button>${closeHtml}`;
+  let dismissed = false;
+  const dismiss = () => {
+    if (dismissed) return;
+    dismissed = true;
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 240);
+  };
+  t.querySelector('.toast-act').onclick = () => { try { onClick(); } finally { dismiss(); } };
+  if (!persistent) {
+    t.querySelector('.toast-close')?.addEventListener('click', dismiss);
+    setTimeout(dismiss, duration);
+  }
   document.body.appendChild(t);
   requestAnimationFrame(() => t.classList.add('show'));
 }
@@ -2452,7 +2473,23 @@ await initRoute();
 document.getElementById('prerender')?.remove();
 
 // expose select helpers for debugging / external automation
-window.__examkr = { openImportSheet, applyDump, buildDump, computeStats, backupCurrent };
+window.__examkr = {
+  openImportSheet, applyDump, buildDump, computeStats, backupCurrent,
+  // Force-show the PWA install banner regardless of gates (visits, dismissed,
+  // beforeinstallprompt availability). Useful for QA/screenshots/demos.
+  // Native install action becomes a no-op alert; iOS instruction sheet works.
+  previewPwaBanner: () => {
+    store.del('pwaPromptDismissed');
+    store.set('quizVisits', 99);
+    if (!_deferredInstallPrompt) {
+      _deferredInstallPrompt = {
+        prompt: () => alert('[preview] 실제 native install 다이얼로그가 여기 열립니다.'),
+        userChoice: Promise.resolve({ outcome: 'dismissed' }),
+      };
+    }
+    try { maybeShowPwaBanner(); } catch (e) { console.error(e); }
+  },
+};
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
@@ -2461,7 +2498,7 @@ if ('serviceWorker' in navigator) {
       const promptUpdate = (sw) => {
         toastAction('새 버전이 있어요', '새로고침', () => {
           sw.postMessage('SKIP_WAITING');
-        });
+        }, { persistent: true });
       };
       if (reg.waiting) promptUpdate(reg.waiting);
       reg.addEventListener('updatefound', () => {
