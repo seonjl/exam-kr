@@ -1051,17 +1051,96 @@ pre.code {
 .jump {
   display: flex; align-items: center; justify-content: center; gap: 10px;
   height: 40px;
-  padding: 0 18px;
+  padding: 0 16px 0 12px;
   background: var(--paper-chip);
+  border: 1px solid var(--paper-edge);
   border-radius: 999px;
   font-family: var(--serif);
   font-size: 14px;
   font-weight: 700;
   color: var(--ink);
-  transition: transform .1s ease;
+  transition: transform .1s ease, background .15s ease;
 }
+.jump:hover { background: var(--paper-deep); }
 .jump:active { transform: scale(.97); }
 .jump .slash { color: var(--ink-mute); font-weight: 400; }
+.jump .jump-icon { display: inline-flex; color: var(--ink-mute); }
+.jump .jump-icon svg { width: 14px; height: 14px; }
+
+/* Mode chip in quiz nav (replaces ⋯ icon) */
+.mode-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 32px;
+  padding: 0 8px 0 12px;
+  background: var(--paper-chip);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .15s ease, transform .1s ease;
+  cursor: pointer;
+}
+.mode-chip:hover { background: var(--paper-deep); }
+.mode-chip:active { transform: scale(.96); }
+.mode-chip .mode-chev { width: 14px; height: 14px; opacity: .7; }
+
+/* Empty-state CTA */
+.empty .empty-cta {
+  margin-top: 16px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  transition: transform .1s ease, opacity .15s ease;
+}
+.empty .empty-cta:hover { opacity: .9; }
+.empty .empty-cta:active { transform: scale(.97); }
+
+/* PWA install banner — shown after 3rd quiz visit (one-shot, dismissable) */
+.pwa-banner {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0 12px 8px;
+  padding: 10px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-md);
+  font-size: 13px;
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,.35);
+}
+.pwa-banner .pwa-text { flex: 1; }
+.pwa-banner .pwa-add {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--paper);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.pwa-banner .pwa-close {
+  padding: 4px 8px;
+  font-size: 14px;
+  background: transparent;
+  color: var(--paper);
+  opacity: .7;
+  border: none;
+  cursor: pointer;
+}
+.pwa-banner .pwa-close:hover { opacity: 1; }
+
+/* iOS install instructions sheet */
+.ios-install { padding: 8px 16px 24px; font-family: var(--sans); }
+.ios-install p { margin: 8px 0 12px; color: var(--ink-soft); font-size: 14px; }
+.ios-install ol { margin: 0 0 16px; padding-left: 22px; line-height: 1.8; font-size: 14px; }
+.ios-install ol li b { color: var(--vermilion); }
+.ios-install .ios-note { font-size: 12px; color: var(--ink-mute); }
 
 /* ===================================================================
    Bottom sheet

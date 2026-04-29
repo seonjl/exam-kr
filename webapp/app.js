@@ -324,6 +324,73 @@ async function bootUI(){
   try { await loadExams(); } catch {}
 }
 
+const MODE_LABEL = { practice: '풀이', review: '해설', exam: '모의시험' };
+function updateModeLabel() {
+  const c = state.current; if (!c) return;
+  const $label = c.screen?.querySelector('#modeLabel');
+  if ($label) $label.textContent = MODE_LABEL[c.mode] || '풀이';
+}
+
+// PWA install affordance — captured here so it survives module-level reloads.
+let _deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  _deferredInstallPrompt = e;
+  try { maybeShowPwaBanner(); } catch {}
+});
+function isStandaloneApp() {
+  return window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+}
+function maybeShowPwaBanner() {
+  if (isStandaloneApp()) return;
+  if (store.get('pwaPromptDismissed')) return;
+  if ((store.get('quizVisits') || 0) < 2) return;          // ≥ 3rd quiz visit
+  const c = state.current; if (!c?.screen) return;
+  if (c.screen.querySelector('.pwa-banner')) return;
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if (!_deferredInstallPrompt && !isIOS) return;
+  const banner = document.createElement('div');
+  banner.className = 'pwa-banner';
+  banner.innerHTML = `
+    <span class="pwa-text">홈 화면에 추가하면 앱처럼 열려요</span>
+    <button class="pwa-add" type="button">추가</button>
+    <button class="pwa-close" type="button" aria-label="닫기">✕</button>
+  `;
+  banner.querySelector('.pwa-close').onclick = () => {
+    banner.remove();
+    store.set('pwaPromptDismissed', 1);
+  };
+  banner.querySelector('.pwa-add').onclick = async () => {
+    if (_deferredInstallPrompt) {
+      _deferredInstallPrompt.prompt();
+      try { await _deferredInstallPrompt.userChoice; } catch {}
+      _deferredInstallPrompt = null;
+      store.set('pwaPromptDismissed', 1);
+      banner.remove();
+    } else if (isIOS) {
+      showSheet('홈 화면에 추가', () => {
+        const d = document.createElement('div');
+        d.className = 'ios-install';
+        d.innerHTML = `
+          <p>Safari 에서:</p>
+          <ol>
+            <li>하단 <b>공유</b> 버튼을 누르세요</li>
+            <li>"<b>홈 화면에 추가</b>" 선택</li>
+            <li>"<b>추가</b>"를 누르면 끝</li>
+          </ol>
+          <p class="ios-note">완료 후 홈에서 앱처럼 전체화면으로 열립니다.</p>
+        `;
+        return d;
+      });
+      store.set('pwaPromptDismissed', 1);
+      banner.remove();
+    }
+  };
+  const nav = c.screen.querySelector('.nav');
+  nav?.after(banner);
+}
+
 /* ===================================================================
    Tab system
    =================================================================== */
@@ -541,7 +608,15 @@ async function renderStars(root){
     const groups = collectAcross('stars');
     const $body = root.querySelector('#starsBody');
     if (groups.length === 0) {
-      $body.innerHTML = emptyCard('아직 저장된 문제가 없어요', '퀴즈 화면의 <b>☆ 북마크</b>로 문제를 추가하세요.');
+      $body.innerHTML = `
+        <div class="empty">
+          <span class="ideo">空</span>
+          <h4>아직 저장된 문제가 없어요</h4>
+          <p>퀴즈 화면의 <b>☆ 북마크</b>로 문제를 추가하세요.</p>
+          <button class="r-primary empty-cta" id="starsEmptyCta">지금 풀러 가기</button>
+        </div>
+      `;
+      $body.querySelector('#starsEmptyCta').onclick = () => showTab('home');
       return;
     }
     const renderFiltered = (q) => {
@@ -590,7 +665,15 @@ async function renderWrongs(root){
     const groups = collectAcross('wrongs');
     const $body = root.querySelector('#wrongsBody');
     if (groups.length === 0) {
-      $body.innerHTML = emptyCard('오답이 없어요', '문제를 풀면 여기에 틀린 문항이 모입니다.');
+      $body.innerHTML = `
+        <div class="empty">
+          <span class="ideo">空</span>
+          <h4>오답이 없어요</h4>
+          <p>문제를 풀면 여기에 틀린 문항이 모입니다.</p>
+          <button class="r-primary empty-cta" id="wrongsEmptyCta">지금 풀러 가기</button>
+        </div>
+      `;
+      $body.querySelector('#wrongsEmptyCta').onclick = () => showTab('home');
       return;
     }
     let sort = 'due', query = '';
@@ -1263,7 +1346,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       <div class="nav-actions">
         <span class="quiz-timer" id="quizTimer" hidden></span>
         <button class="icon-btn" id="quizShareBtn" aria-label="공유">${icons.share}</button>
-        <button class="icon-btn" id="quizModeBtn" aria-label="모드">${icons.more}</button>
+        <button class="mode-chip" id="quizModeBtn" aria-label="모드 변경"><span id="modeLabel">풀이</span><svg class="mode-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
       </div>
     </header>
     <div class="progress"><div class="progress-fill" id="pFill"></div></div>
@@ -1281,7 +1364,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
     </div>
     <div class="quiz-foot">
       <button class="foot-btn star" id="starBtn">${icons.star}<span>북마크</span></button>
-      <button class="jump" id="jumpBtn"><span id="jumpNum">1</span><span class="slash">/</span><span id="jumpTot">—</span></button>
+      <button class="jump" id="jumpBtn"><span class="jump-icon">${icons.grid}</span><span id="jumpNum">1</span><span class="slash">/</span><span id="jumpTot">—</span></button>
       <button class="foot-btn" id="redoBtn">${icons.redo}<span>다시</span></button>
     </div>
   `;
@@ -1340,6 +1423,9 @@ async function openQuiz(examCode, sessionCode, startIdx){
       examMin: p.examMin || 90,
       screen,
     };
+    updateModeLabel();
+    store.set('quizVisits', (store.get('quizVisits') || 0) + 1);
+    setTimeout(() => { try { maybeShowPwaBanner(); } catch {} }, 1500);
 
     const $pages = screen.querySelector('#pages');
     _hydratedQs.clear();
@@ -1854,7 +1940,13 @@ function onChoiceClick(e){
   renderExplain(page, q, false);
   updatePositionIndicators();
   haptic(ci === q.answer ? 'correct' : 'wrong');
-  toast(ci === q.answer ? '정답' : `오답 · 정답 ${q.answer}`);
+  const isWrong = ci !== q.answer;
+  if (isWrong && !store.get('seen:firstWrong')) {
+    store.set('seen:firstWrong', 1);
+    toastAction(`오답 · 정답 ${q.answer}번`, '오답노트', () => showTab('wrongs'));
+  } else {
+    toast(isWrong ? `오답 · 정답 ${q.answer}` : '정답');
+  }
   maybeShowCompletion(c, p);
 }
 
@@ -1866,7 +1958,17 @@ function toggleStar(){
   const i = p.stars.indexOf(q.number);
   const btn = c.screen.querySelector('#starBtn');
   if (i>=0) { p.stars.splice(i,1); btn.classList.remove('on'); btn.querySelector('svg').outerHTML = icons.star; toast('북마크 해제'); }
-  else { p.stars.push(q.number); btn.classList.add('on'); btn.querySelector('svg').outerHTML = icons.starFill; toast('북마크'); }
+  else {
+    p.stars.push(q.number);
+    btn.classList.add('on');
+    btn.querySelector('svg').outerHTML = icons.starFill;
+    if (!store.get('seen:firstStar')) {
+      store.set('seen:firstStar', 1);
+      toastAction('즐겨찾기에 저장됨', '모아보기', () => showTab('stars'));
+    } else {
+      toast('북마크');
+    }
+  }
   saveProgress(c.examCode, c.code, p);
 }
 
@@ -2039,7 +2141,7 @@ function openModeSheet(){
       } else {
         stopExamTimer();
       }
-      mark(); applyAnswers();
+      mark(); applyAnswers(); updateModeLabel();
     });
     div.querySelector('#mins').addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
