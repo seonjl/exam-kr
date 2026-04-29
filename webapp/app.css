@@ -382,7 +382,6 @@ a { color: inherit; text-decoration: none; }
 .search-bar {
   display: flex; align-items: center; gap: 8px;
   margin: 8px 16px 12px;
-  max-width: 480px;
 }
 .search-bar input[type="search"] {
   flex: 1; min-width: 0;
@@ -1424,7 +1423,7 @@ pre.code {
 
 /* Wider screens */
 @media (min-width: 720px) {
-  .page, .large-title, .section-head, .stat-row, .group { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .page, .large-title, .section-head, .stat-row, .group, .search-bar { max-width: 720px; margin-left: auto; margin-right: auto; }
   /* Constrain the horizontal scroll-snap container so the next card never peeks past the active one */
   .pages { max-width: 720px; margin-left: auto; margin-right: auto; }
 }
