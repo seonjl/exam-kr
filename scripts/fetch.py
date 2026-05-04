@@ -83,11 +83,17 @@ def out_dir(code: str) -> Path:
     return d
 
 
+def _dbname(code: str) -> str:
+    """comcbt 사이트의 dbname. EXAMS 에 'dbname' 명시 없으면 exam code 그대로."""
+    return cfg(code).get("dbname", code)
+
+
 def list_sessions(code: str) -> list[tuple[str, str]]:
     _require_base()
     c = cfg(code)
     body = _req(f"{BASE}/s_view2.php",
-                data=urlencode({"dbname": code, "hack_number": c["hack"]}).encode(),
+                data=urlencode({"dbname": _dbname(code),
+                                "hack_number": c["hack"]}).encode(),
                 referer=f"{BASE}/s_view1.php")
     rows = re.findall(r"<option\s+value\s*=\s*(\d{8})\s*>([^<]+)</option>", body)
     seen, out = set(), []
@@ -102,13 +108,14 @@ def list_sessions(code: str) -> list[tuple[str, str]]:
 def _fetch_one(code: str, date: str, number: int) -> str:
     _require_base()
     c = cfg(code)
+    db = _dbname(code)
     qs = urlencode({
-        "dbname": code, "tablename": date, "tablename2": date,
+        "dbname": db, "tablename": date, "tablename2": date,
         "number": number, "mode": "mode2",
         "jd": 0, "jumsu": 0, "odabnumber": "", "jungdabnumber": "",
         "start_time": 0, "end_time": 0, "check": 0,
         "hack_number": c["hack"], "mo": 0, "gichul_number": -2,
-        "yearmoradio": "", "h_db": code,
+        "yearmoradio": "", "h_db": db,
         **c["parts"],
     })
     return _req(f"{BASE}/s_view3_in.php?{qs}",
