@@ -533,7 +533,7 @@ def main() -> None:
     # Pull-up the small assets the SPA references at root paths.
     for fname in (
         "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
-        "apple-touch-icon.png", "og-image.png", "sw.js",
+        "apple-touch-icon.png", "og-image.png", "sw.js", "ads.txt",
     ):
         src = WEBAPP / fname
         if src.exists():
