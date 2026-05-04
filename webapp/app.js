@@ -143,6 +143,10 @@ async function loadSession(examCode, sessionCode){
   const r = await fetch(DATA + `${examCode}/${examCode}_${sessionCode}.json`, { cache: 'no-cache' });
   if (!r.ok) throw new Error('회차 데이터 없음');
   const d = await r.json();
+  if (Array.isArray(d.questions)) {
+    d.questions = d.questions.filter(q => !q.hidden);
+    d.count = d.questions.length;
+  }
   state.dataCache.set(key, d);
   return d;
 }
