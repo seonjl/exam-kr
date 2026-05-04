@@ -463,7 +463,7 @@ async function renderHome(root){
 }
 
 function fillExamPicker(root, exams){
-  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기' };
+  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' };
   // per-exam answered count from localStorage
   const answeredFor = (code) => {
     let n = 0;
@@ -1151,7 +1151,7 @@ async function openStats(){
     const x = st.perExam[e.code]; if (!x) return '';
     const acc = x.answered ? Math.round(x.correct * 100 / x.answered) : 0;
     return `<div class="row">
-      <span class="row-lead exam-mark">${({s2:'사조분',g1:'공인1',g2:'공인2',iz:'정처기'})[e.code] || '◐'}</span>
+      <span class="row-lead exam-mark">${({s2:'사조분',g1:'공인1',g2:'공인2',iz:'정처기',sa:'산안기'})[e.code] || '◐'}</span>
       <span class="row-body"><span class="row-title">${escapeHtml(e.name)}</span>
         <span class="row-sub">${x.sessionCodes.size}회차 · ${x.answered}문항 · 정답률 ${acc}%</span></span>
       <span class="row-trail"><span class="pill ${acc>=70?'active':''}">${acc}%</span></span>
@@ -1518,7 +1518,7 @@ async function openConcept(examCode, conceptId){
   }
 
   const exam = state.examByCode.get(examCode);
-  const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기' })[examCode] || examCode;
+  const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' })[examCode] || examCode;
   screen.querySelector('#conceptNavTitle').textContent = meta.name_ko;
 
   const subjList = (meta.subjects || []).join(' · ');
