@@ -7,6 +7,20 @@
   "functions": {
     "api/feedback.js": { "maxDuration": 10 }
   },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "exam-kr.vercel.app" }],
+      "destination": "https://www.passcbt.kr/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "exam.kr" }],
+      "destination": "https://www.passcbt.kr/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/exam/:path*", "destination": "/index.html" },
     { "source": "/concept/:path*", "destination": "/index.html" },

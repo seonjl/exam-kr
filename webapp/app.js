@@ -2200,7 +2200,7 @@ async function shareCurrent(){
   const url = `${location.origin}/exam/${c.examCode}/${c.code}`;
   const text = `${exam?.name || ''} ${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)} 기출`;
   if (navigator.share) {
-    try { await navigator.share({ title: 'exam.kr', text, url }); }
+    try { await navigator.share({ title: 'passcbt.kr', text, url }); }
     catch { /* user cancel — silent */ }
     return;
   }

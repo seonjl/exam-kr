@@ -1,6 +1,6 @@
-# exam.kr 마케팅 플레이북
+# passcbt.kr 마케팅 플레이북
 
-`https://exam-kr.vercel.app` (장기적으로 `exam.kr`) 의 트래픽 부트스트랩 + 수익화 전략.
+`https://www.passcbt.kr` (구도메인: `exam-kr.vercel.app`) 의 트래픽 부트스트랩 + 수익화 전략.
 
 대상 자격증 우선순위:
 1. **정보처리기사 (`iz`)** — 메인. CPC 낮고 IT 광고주 단가 높아 ROI 1순위.
@@ -11,7 +11,7 @@
 
 ## 1. 측정·트래킹 — UTM 규칙
 
-Vercel Analytics는 URL 의 `utm_*` 파라미터를 자동 캡처해 **Top Sources / Top Pages** 에 분리해서 보여줍니다 (대시보드: vercel.com → project `exam-kr` → Analytics 탭). GA4 없이도 "어떤 채널에서 어디로 들어왔는지" 답이 나옵니다.
+Vercel Analytics는 URL 의 `utm_*` 파라미터를 자동 캡처해 **Top Sources / Top Pages** 에 분리해서 보여줍니다 (대시보드: vercel.com → project  → Analytics 탭). GA4 없이도 "어떤 채널에서 어디로 들어왔는지" 답이 나옵니다.
 
 ### 표준 UTM 스키마
 
@@ -28,13 +28,13 @@ Vercel Analytics는 URL 의 `utm_*` 파라미터를 자동 캡처해 **Top Sourc
 
 ```
 # 검색광고
-https://exam-kr.vercel.app/exam/iz?utm_source=naver_search&utm_medium=cpc&utm_campaign=iz_phase1&utm_term=정보처리기사_cbt
+https://www.passcbt.kr/exam/iz?utm_source=naver_search&utm_medium=cpc&utm_campaign=iz_phase1&utm_term=정보처리기사_cbt
 
 # 커뮤니티 시딩 (특정 카페)
-https://exam-kr.vercel.app/exam/iz/20240517?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz/20240517?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
 
 # 본인 GitHub README 백링크
-https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_campaign=brand
+https://www.passcbt.kr?utm_source=github_readme&utm_medium=referral&utm_campaign=brand
 ```
 
 ### 6일/2주 후 보는 것 (Vercel Analytics)
@@ -110,14 +110,14 @@ https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_camp
 ```
 제목: 정보처리기사 기출 - 폰 풀이
 설명: AI 보강 해설·핵심 개념까지. 회차별 정답·오답노트 무료. 광고 외 트래킹 없음.
-표시 URL: exam-kr.vercel.app/exam/iz
+표시 URL: www.passcbt.kr/exam/iz
 ```
 
 **공인중개사용**:
 ```
 제목: 공인중개사 1차 기출 - 모바일 풀이
 설명: 회차별 정답·해설·오답노트 무료. AI 보강 해설로 핵심 개념까지. 회원가입 없음.
-표시 URL: exam-kr.vercel.app/exam/g1
+표시 URL: www.passcbt.kr/exam/g1
 ```
 
 ### 연결 URL 매칭 규칙
@@ -173,7 +173,7 @@ https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_camp
 — 오답노트, 즐겨찾기 자동 저장 (계정 불필요)
 — 회원가입 / 트래킹 없음 (광고만 있음)
 
-링크: https://exam-kr.vercel.app/exam/iz?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
+링크: https://www.passcbt.kr/exam/iz?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
 
 오답 신고 / 개선 제안은 사이트 안에 신고 버튼 있어요. 도움 됐으면 좋겠어요.
 ```
@@ -191,7 +191,7 @@ https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_camp
 — PWA 라 폰 홈에 추가하면 앱처럼 동작
 
 원래 제가 공부하려고 시작했는데 다듬어보니 쓸만해서 공유합니다.
-링크: https://exam-kr.vercel.app/?utm_source=okky&utm_medium=community&utm_campaign=launch
+링크: https://www.passcbt.kr/?utm_source=okky&utm_medium=community&utm_campaign=launch
 
 피드백 주시면 감사하겠습니다.
 ```
@@ -199,7 +199,7 @@ https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_camp
 #### 템플릿 C — 답글용 (자연 노출)
 ```
 관련 질문 글에 댓글로:
-"폰으로 풀이할거면 https://exam-kr.vercel.app/exam/iz?utm_source=cafe_X&utm_medium=community&utm_campaign=reply
+"폰으로 풀이할거면 https://www.passcbt.kr/exam/iz?utm_source=cafe_X&utm_medium=community&utm_campaign=reply
 도 가볍습니다. 회차별 해설까지 있어요. 무료고 회원가입 없습니다."
 ```
 
@@ -309,20 +309,20 @@ https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_camp
 
 ```
 # 정보처리기사 — 검색광고 그룹 A
-https://exam-kr.vercel.app/exam/iz?utm_source=naver_search&utm_medium=cpc&utm_campaign=iz_phase1&utm_term=정보처리기사_cbt
+https://www.passcbt.kr/exam/iz?utm_source=naver_search&utm_medium=cpc&utm_campaign=iz_phase1&utm_term=정보처리기사_cbt
 
 # 정보처리기사 — 커뮤니티 (D-7 시딩, 카페별로 utm_source 만 바꿔서)
-https://exam-kr.vercel.app/exam/iz?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
-https://exam-kr.vercel.app/exam/iz?utm_source=cafe_jagyukmaster&utm_medium=community&utm_campaign=iz_2026_1_d-7
-https://exam-kr.vercel.app/exam/iz?utm_source=okky&utm_medium=community&utm_campaign=iz_2026_1_d-7
-https://exam-kr.vercel.app/exam/iz?utm_source=dcinside&utm_medium=community&utm_campaign=iz_2026_1_d-7
-https://exam-kr.vercel.app/exam/iz?utm_source=clien&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz?utm_source=cafe_dokchwisa&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz?utm_source=cafe_jagyukmaster&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz?utm_source=okky&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz?utm_source=dcinside&utm_medium=community&utm_campaign=iz_2026_1_d-7
+https://www.passcbt.kr/exam/iz?utm_source=clien&utm_medium=community&utm_campaign=iz_2026_1_d-7
 
 # 공인중개사 — 검색광고 (10월에만 ON)
-https://exam-kr.vercel.app/exam/g1?utm_source=naver_search&utm_medium=cpc&utm_campaign=g1_2026&utm_term=공인중개사_1차_cbt
-https://exam-kr.vercel.app/exam/g2?utm_source=naver_search&utm_medium=cpc&utm_campaign=g2_2026&utm_term=공인중개사_2차_cbt
+https://www.passcbt.kr/exam/g1?utm_source=naver_search&utm_medium=cpc&utm_campaign=g1_2026&utm_term=공인중개사_1차_cbt
+https://www.passcbt.kr/exam/g2?utm_source=naver_search&utm_medium=cpc&utm_campaign=g2_2026&utm_term=공인중개사_2차_cbt
 
 # 본인 GitHub README / 블로그 백링크
-https://exam-kr.vercel.app?utm_source=github_readme&utm_medium=referral&utm_campaign=brand
-https://exam-kr.vercel.app?utm_source=tistory&utm_medium=referral&utm_campaign=blog
+https://www.passcbt.kr?utm_source=github_readme&utm_medium=referral&utm_campaign=brand
+https://www.passcbt.kr?utm_source=tistory&utm_medium=referral&utm_campaign=blog
 ```

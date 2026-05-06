@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-exam.kr — static prerender builder.
+passcbt.kr — static prerender builder.
 
 Reads data/* JSON, generates a deployable dist/* tree:
 
@@ -20,7 +20,7 @@ on hydration it removes the <main id="prerender"> block and renders the SPA UI.
 
 Run:
     python3 scripts/build_pages.py
-    BASE_URL=https://exam.kr python3 scripts/build_pages.py
+    BASE_URL=https://www.passcbt.kr python3 scripts/build_pages.py
 """
 from __future__ import annotations
 
@@ -45,8 +45,8 @@ DATA = ROOT / "data"
 WEBAPP = ROOT / "webapp"
 DIST = ROOT / "dist"
 
-BASE_URL = os.environ.get("BASE_URL", "https://exam-kr.vercel.app").rstrip("/")
-SITE_NAME = "exam.kr"
+BASE_URL = os.environ.get("BASE_URL", "https://www.passcbt.kr").rstrip("/")
+SITE_NAME = "passcbt.kr"
 
 # Korean-glyph font candidates, tried in order. The first that exists is used
 # for OG image rendering. If none is found, OG generation falls back to
@@ -419,14 +419,14 @@ def render_home() -> str:
     body = (
         f'<main id="prerender" class="prerender prerender-home">'
         f'<header><h1>{SITE_NAME} · 자격증 기출 학습</h1>'
-        f'<p>사회조사분석사·공인중개사·정보처리기사 기출문제를 모바일에서 풀이하고 '
+        f'<p>사회조사분석사·공인중개사·정보처리기사·산업안전기사 기출문제를 모바일에서 풀이하고 '
         f'AI 보강 해설로 학습하는 무료 PWA. 광고 외에는 로그인·서버·트래킹이 없습니다.</p></header>'
         f'<section><h2>자격증</h2><ul class="exams">{rows}</ul></section>'
         f'</main>'
     )
-    title = f'{SITE_NAME} · 자격증 기출 학습 (사회조사분석사·공인중개사·정보처리기사)'
+    title = f'{SITE_NAME} · 자격증 기출 학습 (사회조사분석사·공인중개사·정보처리기사·산업안전기사)'
     description = (
-        "사회조사분석사·공인중개사·정보처리기사 기출 모바일 학습 무료 PWA. "
+        "사회조사분석사·공인중개사·정보처리기사·산업안전기사 기출 모바일 학습 무료 PWA. "
         "AI 보강 해설·핵심 개념 제공."
     )
     ld = {
@@ -519,7 +519,7 @@ def write_og_images(exams: list[dict]) -> dict[str, str]:
             subjects = subjects[:35] + "…"
         d.text((60, 420), subjects, font=sub, fill=_OG_SOFT)
         # footer
-        d.text((60, _OG_H - 60), "exam.kr · 무료 PWA · 광고 외 트래킹 없음",
+        d.text((60, _OG_H - 60), "passcbt.kr · 무료 PWA · 광고 외 트래킹 없음",
                font=brand, fill=_OG_INK)
 
         path = og_dir / f'{exam["code"]}.png'

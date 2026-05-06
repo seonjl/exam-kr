@@ -23,7 +23,10 @@ const safeLine = (s) =>
 // Allowed origins for cross-site abuse prevention. Anyone POSTing from
 // outside these hosts is rejected — stops naive scripted spam where the
 // attacker doesn't bother spoofing Origin/Referer.
-const ALLOWED_HOSTS = new Set(["exam-kr.vercel.app", "exam.kr"]);
+const ALLOWED_HOSTS = new Set([
+  "passcbt.kr", "www.passcbt.kr",
+  "exam-kr.vercel.app", "exam.kr",
+]);
 
 // Per-IP rate limit using shared warm-instance memory (Fluid Compute).
 // Distributed attacks across many IPs can bypass; this stops single-IP spam.
@@ -94,7 +97,7 @@ module.exports = async function handler(req, res) {
   const ctx =
     examCode && sessionCode && qnum
       ? `[${examCode}/${sessionCode} #${qnum}]`
-      : "[exam.kr]";
+      : "[passcbt.kr]";
   const summary = text.split("\n")[0].slice(0, 60);
   const title = `${ctx} ${summary}`.slice(0, 200);
 
@@ -117,7 +120,7 @@ module.exports = async function handler(req, res) {
         Authorization: `Bearer ${token}`,
         Accept: "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "exam-kr-feedback",
+        "User-Agent": "passcbt-kr-feedback",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
