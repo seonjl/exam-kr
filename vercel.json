@@ -34,6 +34,18 @@
       ]
     },
     {
+      "source": "/sitemap(.*).xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/((?!api/|_vercel/|webapp/|data/|sw\\.js|sitemap|og/|og-image|icon|apple-touch-icon).*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
       "source": "/(og-image|icon|icon-192|icon-512|apple-touch-icon)\\.(png|svg)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
@@ -43,18 +55,6 @@
       "source": "/og/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/sitemap(.*).xml",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
-      ]
-    },
-    {
-      "source": "/((?!api/|_vercel/|webapp/|data/|sw\\.js|sitemap).*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800" }
       ]
     }
   ]
