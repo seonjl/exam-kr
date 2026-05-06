@@ -35,9 +35,9 @@
     Sentry.init({
       environment: 'production',
       sendDefaultPii: true,
-      tracesSampleRate: 1.0,
+      tracesSampleRate: 0.05,
       tracePropagationTargets: ['exam-kr.vercel.app'],
-      replaysSessionSampleRate: 0.1,
+      replaysSessionSampleRate: 0.0,
       replaysOnErrorSampleRate: 1.0,
       ignoreErrors: [
         'ResizeObserver loop limit exceeded',

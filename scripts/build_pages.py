@@ -327,10 +327,17 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
     title = f'{name} — {exam["name"]} 핵심 개념'
     canonical = f'{BASE_URL}/concept/{code}/{cid}'
     refs = concept.get("refs") or []
-    description = truncate(
-        f'{exam["name"]}에서 {len(refs)}회 출제된 핵심 개념 "{name}"의 기출문제와 정리. '
-        f'관련 과목: {", ".join(concept.get("subjects") or [])}'
-    )
+    body_data = concept.get("body") or {}
+
+    # Description prefers AI-generated definition (concise, semantically rich) — falls back to generic.
+    if body_data.get("definition"):
+        description = truncate(f'{body_data["definition"]} — {exam["name"]} 핵심 개념. 출제 {len(refs)}회.')
+    else:
+        description = truncate(
+            f'{exam["name"]}에서 {len(refs)}회 출제된 핵심 개념 "{name}"의 기출문제와 정리. '
+            f'관련 과목: {", ".join(concept.get("subjects") or [])}'
+        )
+
     ref_rows = "".join(
         f'<li><a href="/exam/{code}/{r["session"]}#q{r["qnum"]}">'
         f'{fmt_date_kr(r["session"])} {r["qnum"]}번</a></li>'
@@ -338,25 +345,63 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
     )
     members = concept.get("members") or []
     members_html = ", ".join(esc(m) for m in members) if members else esc(name)
+
+    body_sections_html = ""
+    if body_data:
+        sec = lambda label, content: (
+            f'<section class="concept-body-section"><h2>{label}</h2>{content}</section>'
+            if content else ""
+        )
+        kp_html = ""
+        kps = [k for k in (body_data.get("key_points") or []) if k]
+        if kps:
+            kp_html = f'<ul class="concept-keypoints">{"".join(f"<li>{esc(k)}</li>" for k in kps)}</ul>'
+        body_sections_html = (
+            sec("정의", f"<p>{esc(body_data.get('definition') or '')}</p>")
+            + sec("직관", f"<p>{esc(body_data.get('intuition') or '')}</p>")
+            + sec("핵심 포인트", kp_html)
+            + sec("자주 헷갈리는 점", f"<p>{esc(body_data.get('pitfalls') or '')}</p>")
+            + sec("작은 예시", f"<p>{esc(body_data.get('example') or '')}</p>")
+        )
+
     body = (
         f'<main id="prerender" class="prerender prerender-concept">'
         f'<header><h1>{esc(name)}</h1>'
         f'<p>{esc(exam["name"])} · 출제 횟수 {len(refs)}회</p></header>'
-        f'<section><h2>유사 표현</h2><p>{members_html}</p></section>'
-        f'<section><h2>출제 기출문제</h2><ul class="refs">{ref_rows}</ul></section>'
-        f'</main>'
+        + body_sections_html
+        + f'<section><h2>유사 표현</h2><p>{members_html}</p></section>'
+        + f'<section><h2>출제 기출문제</h2><ul class="refs">{ref_rows}</ul></section>'
+        + f'</main>'
     )
-    ld = {
+
+    # JSON-LD: DefinedTerm with definition; add BreadcrumbList for navigation depth.
+    ld_term = {
         "@context": "https://schema.org",
         "@type": "DefinedTerm",
         "name": name,
-        "description": description,
+        "description": (body_data.get("definition") or description),
         "url": canonical,
+        "inDefinedTermSet": exam["name"],
     }
+    ld_crumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": BASE_URL},
+            {"@type": "ListItem", "position": 2, "name": exam["name"],
+             "item": f'{BASE_URL}/exam/{code}'},
+            {"@type": "ListItem", "position": 3, "name": name, "item": canonical},
+        ],
+    }
+    json_ld_combined = (
+        json.dumps(ld_term, ensure_ascii=False, separators=(",", ":"))
+        + '</script><script type="application/ld+json">'
+        + json.dumps(ld_crumb, ensure_ascii=False, separators=(",", ":"))
+    )
     return patch_shell(
         title=title, description=description, canonical=canonical,
         prerender_body=body,
-        json_ld=json.dumps(ld, ensure_ascii=False, separators=(",", ":")),
+        json_ld=json_ld_combined,
         og_image=og_image,
     )
 
@@ -512,10 +557,35 @@ def write_sitemaps(exam_to_urls: dict[str, list[tuple[str, float]]]) -> None:
     write_file(DIST / "sitemap.xml", "\n".join(idx_lines) + "\n")
 
 def write_robots() -> None:
-    write_file(
-        DIST / "robots.txt",
-        f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n",
-    )
+    # Whitelist: search engines we want to index us. They can crawl everything.
+    # Generic *: allowed to crawl HTML but not /data/ (raw JSON; content already in prerender HTML).
+    # Blocklist: SEO/marketing/data-mining bots that consume Edge Requests + bandwidth without
+    # bringing visitors. They inflate Vercel costs disproportionately.
+    blocked = [
+        "AhrefsBot", "SemrushBot", "MJ12bot", "DotBot", "BLEXBot",
+        "PetalBot", "DataForSeoBot", "SerpstatBot", "ZoominfoBot",
+        "magpie-crawler", "linkfluence", "AwarioBot", "Bytespider",
+        "GPTBot", "ClaudeBot", "PerplexityBot", "CCBot", "Amazonbot",
+        "Diffbot", "Sogou", "YandexBot",
+    ]
+    lines = []
+    # Friendly allow for major search engines.
+    for ua in ("Googlebot", "Googlebot-Image", "Bingbot", "Naverbot", "Yeti", "Daum"):
+        lines += [f"User-agent: {ua}", "Allow: /", ""]
+    # Default policy: allow but keep raw data out of the index.
+    lines += [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /data/",
+        "Disallow: /api/",
+        "Crawl-delay: 5",
+        "",
+    ]
+    # Hard block.
+    for ua in blocked:
+        lines += [f"User-agent: {ua}", "Disallow: /", ""]
+    lines.append(f"Sitemap: {BASE_URL}/sitemap.xml")
+    write_file(DIST / "robots.txt", "\n".join(lines) + "\n")
 
 # ---------------------------------------------------------------------------
 # orchestration
