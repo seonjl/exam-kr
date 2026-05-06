@@ -1542,10 +1542,7 @@ async function openConcept(examCode, conceptId){
       <div class="concept-meta">${escapeHtml(subjList)} · ${refs.length}문항 등장</div>
     </div>
 
-    <div class="concept-body-placeholder">
-      <span class="ideo">未</span>
-      <p>개념 본문은 곧 추가됩니다.<br><small>정의·직관·핵심 공식·자주 헷갈리는 점·작은 예시</small></p>
-    </div>
+    ${renderConceptBody(meta.body)}
 
     <div class="section-head">
       <h2>이 개념을 사용한 문제</h2>
@@ -1909,6 +1906,31 @@ function refreshConceptChips(){
     const meta = idx[el.dataset.cid];
     if (meta && meta.name_ko) el.textContent = meta.name_ko;
   });
+}
+
+function renderConceptBody(body){
+  if (!body || !body.definition) {
+    return `
+      <div class="concept-body-placeholder">
+        <span class="ideo">未</span>
+        <p>개념 본문은 곧 추가됩니다.<br><small>정의·직관·핵심 공식·자주 헷갈리는 점·작은 예시</small></p>
+      </div>`;
+  }
+  const kp = (body.key_points || []).filter(Boolean);
+  const sec = (label, kicker, content) => content ? `
+    <section class="concept-section">
+      <div class="concept-section-head"><span class="kicker">${kicker}</span><h3>${label}</h3></div>
+      <div class="concept-section-body">${content}</div>
+    </section>` : '';
+  const kpHtml = kp.length ? `<ul class="concept-keypoints">${kp.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul>` : '';
+  return `
+    <div class="concept-body">
+      ${sec('정의', 'DEFINITION', `<p>${escapeHtml(body.definition)}</p>`)}
+      ${sec('직관', 'INTUITION', `<p>${escapeHtml(body.intuition || '')}</p>`)}
+      ${sec('핵심 포인트', 'KEY POINTS', kpHtml)}
+      ${sec('자주 헷갈리는 점', 'PITFALLS', `<p>${escapeHtml(body.pitfalls || '')}</p>`)}
+      ${sec('작은 예시', 'EXAMPLE', `<p>${escapeHtml(body.example || '')}</p>`)}
+    </div>`;
 }
 
 function renderConceptChips(q){

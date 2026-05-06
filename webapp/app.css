@@ -928,6 +928,59 @@ a { color: inherit; text-decoration: none; }
 }
 .concept-body-placeholder p { margin: 0; line-height: 1.6; font-size: 13px; }
 .concept-body-placeholder small { color: var(--ink-faint); font-size: 11px; }
+
+.concept-body {
+  margin: 16px 16px 8px;
+  padding: 18px 18px 6px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-md);
+}
+.concept-section {
+  padding: 10px 0 14px;
+  border-bottom: 1px solid var(--paper-edge);
+}
+.concept-section:last-child { border-bottom: 0; padding-bottom: 4px; }
+.concept-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.concept-section-head .kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--seal);
+  text-transform: uppercase;
+}
+.concept-section-head h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.005em;
+}
+.concept-section-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+  word-break: keep-all;
+}
+.concept-keypoints {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.concept-keypoints li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 4px 0;
+  padding-left: 2px;
+  word-break: keep-all;
+}
 .concept-actions {
   padding: 0 16px 12px;
 }
