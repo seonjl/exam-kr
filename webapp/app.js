@@ -1661,20 +1661,31 @@ async function openConcept(examCode, conceptId){
     <header class="nav has-title" id="conceptNav">
       <button class="icon-btn" id="conceptBack" aria-label="뒤로">${icons.back}</button>
       <div class="nav-title" id="conceptNavTitle">개념</div>
-      <div class="nav-actions concept-pager-actions">
-        <button class="icon-btn" id="conceptPrev" aria-label="이전 개념" hidden>${icons.back}</button>
-        <button class="icon-btn" id="conceptNext" aria-label="다음 개념" hidden>${icons.fwd}</button>
-      </div>
+      <div></div>
     </header>
     <div class="scroll" id="conceptScroll">
       <div class="concept-loading">${'<div class="skeleton"></div>'.repeat(4)}</div>
     </div>
+    <button class="page-nav prev" id="conceptPrev" type="button" aria-label="이전 개념" hidden>${icons.back}</button>
+    <button class="page-nav next" id="conceptNext" type="button" aria-label="다음 개념" hidden>${icons.back}</button>
   `;
   stack.appendChild(screen);
   updateScreenInert();
   screen.querySelector('#conceptBack').onclick = popScreen;
   addEdgeBack(screen);
   addConceptSwipe(screen);
+
+  const $prev = screen.querySelector('#conceptPrev');
+  const $next = screen.querySelector('#conceptNext');
+  $prev.onclick = () => {
+    const id = screen.dataset.prev;
+    if (id) navigateConcept(screen, examCode, id);
+  };
+  $next.onclick = () => {
+    const id = screen.dataset.next;
+    if (id) navigateConcept(screen, examCode, id);
+  };
+
   await fillConceptScreen(screen, examCode, conceptId);
 }
 
@@ -1723,10 +1734,9 @@ async function fillConceptScreen(screen, examCode, conceptId){
   const sib = computeConceptSiblings(idx, conceptId);
   screen.dataset.prev = sib.prev?.id || '';
   screen.dataset.next = sib.next?.id || '';
-  $prev.hidden = !sib.prev;
-  $next.hidden = !sib.next;
-  $prev.onclick = () => sib.prev && navigateConcept(screen, examCode, sib.prev.id);
-  $next.onclick = () => sib.next && navigateConcept(screen, examCode, sib.next.id);
+  // quiz 와 동일 패턴: 항상 노출 + 경계에서 disabled
+  $prev.hidden = false; $prev.disabled = !sib.prev;
+  $next.hidden = false; $next.disabled = !sib.next;
 
   $title.textContent = meta.name_ko;
   const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' })[examCode] || examCode;
