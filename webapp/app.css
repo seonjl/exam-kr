@@ -999,6 +999,45 @@ a { color: inherit; text-decoration: none; }
 .concept-loading .skeleton { height: 60px; }
 
 /* ---- Concept list (탭) ---- */
+.row.concept-list-row {
+  grid-template-columns: 1fr auto;
+  align-items: flex-start;
+  padding: 14px 16px;
+  min-height: 0;
+}
+.row.concept-list-row .row-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.35;
+  font-size: 15.5px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px;
+}
+.row.concept-list-row .row-trail {
+  align-items: center;
+  flex-direction: row;
+  gap: 6px;
+  padding-top: 2px;
+}
+.concept-list-en {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: .04em;
+  margin-top: 3px;
+}
+.concept-list-snippet {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  line-height: 1.5;
+}
 .concept-subj {
   margin: 4px 0 8px;
   border-top: 1px solid var(--paper-edge);
@@ -1042,6 +1081,40 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-faint);
   font-weight: 500;
 }
+
+/* ---- Concept detail pager ---- */
+/* expand the right slot to fit two icons (default nav grid is 56px) */
+.nav:has(.concept-pager-actions) { grid-template-columns: 56px 1fr auto; }
+.concept-pager-actions { display: flex; align-items: center; gap: 0; padding-right: 4px; }
+.concept-pager-actions .icon-btn { width: 36px; height: 36px; }
+.concept-pager-actions .icon-btn svg { width: 18px; height: 18px; }
+.concept-pager-actions .icon-btn[hidden] { display: none; }
+.concept-pager-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: .06em;
+}
+.concept-pager-bar .kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  min-width: 0;
+}
+.concept-pager-bar .pos {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+.concept-pager-bar .pos span { color: var(--ink-faint); margin: 0 2px; }
 
 /* ---- Extras (KaTeX / Mermaid / Markdown) ---- */
 .extras { margin: 10px 0 16px; display: flex; flex-direction: column; gap: 12px; }

@@ -310,6 +310,7 @@ async function renderPendingMermaid(scope){
 /* ---- icons ---- */
 const icons = {
   back: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>`,
+  fwd:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>`,
   close: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>`,
   more: `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>`,
   star: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
@@ -1608,17 +1609,25 @@ async function openConceptList(examCode){
             (m.name_en && m.name_en.toLowerCase().includes(ql)))
         : list;
       if (!filtered.length) return '';
-      // collapse big subjects by default unless searching or only one subject
-      const open = !!ql || subjects.length === 1 || filtered.length <= 30;
-      const rowsHtml = filtered.map(m => `
-        <button class="row concept-list-row" data-cid="${escapeHtml(m.id)}">
+      // collapse all by default; auto-open only while searching
+      const open = !!ql;
+      const rowsHtml = filtered.map(m => {
+        const snip = m.body && m.body.definition ? firstSentence(m.body.definition) : '';
+        const enLine = m.name_en ? `<span class="concept-list-en">${escapeHtml(m.name_en)}</span>` : '';
+        const snipLine = snip ? `<span class="concept-list-snippet">${escapeHtml(snip)}</span>` : '';
+        const draftPill = m.body ? '' : ' <span class="pill subtle">초안</span>';
+        return `<button class="row concept-list-row" data-cid="${escapeHtml(m.id)}">
           <span class="row-body">
-            <span class="row-title">${escapeHtml(m.name_ko)}${m.body ? '' : ' <span class="pill subtle">초안</span>'}</span>
-            <span class="row-sub">${escapeHtml(m.name_en || '')}${m.name_en ? ' · ' : ''}${(m.refs?.length||0)}문항</span>
+            <span class="row-title">${escapeHtml(m.name_ko)}${draftPill}</span>
+            ${enLine}
+            ${snipLine}
           </span>
-          <span class="row-trail">${icons.chev}</span>
-        </button>
-      `).join('');
+          <span class="row-trail">
+            <span class="pill">${(m.refs?.length||0)}</span>
+            ${icons.chev}
+          </span>
+        </button>`;
+      }).join('');
       return `
         <details class="concept-subj" ${open ? 'open' : ''}>
           <summary>
@@ -1646,11 +1655,16 @@ async function openConcept(examCode, conceptId){
   const stack = document.getElementById('stack');
   const screen = document.createElement('section');
   screen.className = 'screen enter-right';
+  screen.dataset.kind = 'concept';
+  screen.dataset.exam = examCode;
   screen.innerHTML = `
     <header class="nav has-title" id="conceptNav">
       <button class="icon-btn" id="conceptBack" aria-label="뒤로">${icons.back}</button>
       <div class="nav-title" id="conceptNavTitle">개념</div>
-      <div></div>
+      <div class="nav-actions concept-pager-actions">
+        <button class="icon-btn" id="conceptPrev" aria-label="이전 개념" hidden>${icons.back}</button>
+        <button class="icon-btn" id="conceptNext" aria-label="다음 개념" hidden>${icons.fwd}</button>
+      </div>
     </header>
     <div class="scroll" id="conceptScroll">
       <div class="concept-loading">${'<div class="skeleton"></div>'.repeat(4)}</div>
@@ -1660,19 +1674,62 @@ async function openConcept(examCode, conceptId){
   updateScreenInert();
   screen.querySelector('#conceptBack').onclick = popScreen;
   addEdgeBack(screen);
+  addConceptSwipe(screen);
+  await fillConceptScreen(screen, examCode, conceptId);
+}
+
+function computeConceptSiblings(idx, conceptId){
+  const meta = idx[conceptId];
+  if (!meta) return { prev: null, next: null, pos: 0, total: 0, subject: '' };
+  const subject = (meta.subjects && meta.subjects[0]) || '기타';
+  const all = Object.values(idx)
+    .filter(m => ((m.subjects && m.subjects[0]) || '기타') === subject)
+    .sort((a,b) => ((b.refs?.length||0) - (a.refs?.length||0)) || (a.name_ko||'').localeCompare(b.name_ko||'', 'ko'));
+  const i = all.findIndex(m => m.id === conceptId);
+  return {
+    prev: i > 0 ? all[i-1] : null,
+    next: i >= 0 && i < all.length - 1 ? all[i+1] : null,
+    pos: i + 1,
+    total: all.length,
+    subject,
+  };
+}
+
+function navigateConcept(screen, examCode, newId){
+  history.replaceState(
+    { ...history.state, type:'concept', exam:examCode, id:newId },
+    '', `/concept/${examCode}/${encodeURIComponent(newId)}`
+  );
+  fillConceptScreen(screen, examCode, newId).catch(()=>{});
+}
+
+async function fillConceptScreen(screen, examCode, conceptId){
+  screen.dataset.cid = conceptId;
+  const $body  = screen.querySelector('#conceptScroll');
+  const $title = screen.querySelector('#conceptNavTitle');
+  const $prev  = screen.querySelector('#conceptPrev');
+  const $next  = screen.querySelector('#conceptNext');
+  $body.innerHTML = `<div class="concept-loading">${'<div class="skeleton"></div>'.repeat(4)}</div>`;
 
   const idx = await loadConceptIndex(examCode);
   const meta = idx && idx[conceptId];
-  const $body = screen.querySelector('#conceptScroll');
   if (!meta) {
     $body.innerHTML = emptyCard('개념을 찾을 수 없어요', conceptId);
+    $prev.hidden = true; $next.hidden = true;
+    screen.dataset.prev = ''; screen.dataset.next = '';
     return;
   }
 
-  const exam = state.examByCode.get(examCode);
-  const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' })[examCode] || examCode;
-  screen.querySelector('#conceptNavTitle').textContent = meta.name_ko;
+  const sib = computeConceptSiblings(idx, conceptId);
+  screen.dataset.prev = sib.prev?.id || '';
+  screen.dataset.next = sib.next?.id || '';
+  $prev.hidden = !sib.prev;
+  $next.hidden = !sib.next;
+  $prev.onclick = () => sib.prev && navigateConcept(screen, examCode, sib.prev.id);
+  $next.onclick = () => sib.next && navigateConcept(screen, examCode, sib.next.id);
 
+  $title.textContent = meta.name_ko;
+  const examShort = ({ s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' })[examCode] || examCode;
   const subjList = (meta.subjects || []).join(' · ');
   const refs = meta.refs || [];
   const refsHtml = refs.map(r => `
@@ -1686,7 +1743,15 @@ async function openConcept(examCode, conceptId){
     </button>
   `).join('');
 
+  const pagerHtml = sib.total > 1
+    ? `<div class="concept-pager-bar">
+         <span class="kicker">${escapeHtml(sib.subject)}</span>
+         <span class="pos">${sib.pos} <span>/</span> ${sib.total}</span>
+       </div>`
+    : '';
+
   $body.innerHTML = `
+    ${pagerHtml}
     <div class="large-title">
       <div class="kicker">${escapeHtml(examShort)} · CONCEPT</div>
       <h1>${escapeHtml(meta.name_ko)}</h1>
@@ -1707,6 +1772,7 @@ async function openConcept(examCode, conceptId){
     </div>
     <div class="concept-refs">${refsHtml || '<div class="empty">관련 문제 없음</div>'}</div>
   `;
+  $body.scrollTop = 0;
 
   $body.querySelector('#conceptPracticeBtn')?.addEventListener('click', () => {
     openConceptPractice(examCode, conceptId).catch(e => {
@@ -1716,11 +1782,54 @@ async function openConcept(examCode, conceptId){
   $body.querySelectorAll('.concept-ref').forEach(b => {
     b.addEventListener('click', () => {
       const ex = b.dataset.exam, sc = b.dataset.sess, qn = +b.dataset.q;
-      // 회차 풀이로 점프 — 현재 데이터로딩 후 해당 문제로 idx 설정
       openSessionList(ex).then(() => openQuiz(ex, sc, qn - 1)).catch(()=>{});
     });
   });
 }
+
+function addConceptSwipe(screen){
+  let startX = 0, startY = 0, tracking = false, decided = false, dir = null;
+  screen.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) { tracking = false; return; }
+    const t = e.touches[0];
+    if (t.clientX < 24) { tracking = false; return; }   // edge: leave to addEdgeBack
+    startX = t.clientX; startY = t.clientY;
+    tracking = true; decided = false; dir = null;
+  }, { passive: true });
+  screen.addEventListener('touchmove', e => {
+    if (!tracking || decided) return;
+    const t = e.touches[0];
+    const dx = Math.abs(t.clientX - startX);
+    const dy = Math.abs(t.clientY - startY);
+    if (dx < 8 && dy < 8) return;
+    dir = dx > dy ? 'h' : 'v';
+    decided = true;
+  }, { passive: true });
+  screen.addEventListener('touchend', e => {
+    const wasH = tracking && decided && dir === 'h';
+    tracking = false;
+    if (!wasH) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - startX;
+    if (Math.abs(dx) < 60) return;
+    const exam = screen.dataset.exam;
+    if (dx < 0 && screen.dataset.next) navigateConcept(screen, exam, screen.dataset.next);
+    else if (dx > 0 && screen.dataset.prev) navigateConcept(screen, exam, screen.dataset.prev);
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.target && e.target.matches && e.target.matches('input, textarea, select, [contenteditable]')) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const top = document.querySelector('#stack > .screen:last-child');
+  if (!top || top.dataset.kind !== 'concept') return;
+  const exam = top.dataset.exam;
+  if (e.key === 'ArrowRight' && top.dataset.next) {
+    e.preventDefault(); navigateConcept(top, exam, top.dataset.next);
+  } else if (e.key === 'ArrowLeft' && top.dataset.prev) {
+    e.preventDefault(); navigateConcept(top, exam, top.dataset.prev);
+  }
+});
 
 async function openConceptPractice(examCode, conceptId){
   // 가상 세션: refs 의 (session, qnum) 들에서 question 들을 모아 새 questions 배열을 만든다.
@@ -2495,6 +2604,13 @@ function iconTheme(t){
 }
 function escapeHtml(s){
   return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+function firstSentence(s){
+  const t = (s||'').trim();
+  if (!t) return '';
+  const m = t.match(/^[^.。!?]*[.。!?]/);
+  const out = m ? m[0] : t;
+  return out.length > 110 ? out.slice(0, 108).trim() + '…' : out;
 }
 function emptyCard(title, sub){
   return `<div class="empty"><span class="ideo">空</span><h4>${title}</h4><p>${sub || ''}</p></div>`;
