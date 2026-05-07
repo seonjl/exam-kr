@@ -407,6 +407,7 @@ function bindTabs(){
 
 const tabs = {
   home:     renderHome,
+  concepts: renderConcepts,
   stars:    renderStars,
   wrongs:   renderWrongs,
   settings: renderSettings,
@@ -1487,6 +1488,157 @@ async function openQuiz(examCode, sessionCode, startIdx){
 }
 
 /* ===================================================================
+   CONCEPTS — 자격증별 개념 목록 (탭)
+   =================================================================== */
+async function renderConcepts(root){
+  root.innerHTML = `
+    <header class="nav" id="nav">
+      <div></div>
+      <div class="nav-title">개념</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="conceptsScroll">
+      <div class="large-title">
+        <div class="kicker">STUDY · CONCEPTS</div>
+        <h1>개념<br><em>공부하기</em></h1>
+      </div>
+      <div id="conceptsExamList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
+    </div>
+  `;
+  attachScrollShadow('conceptsScroll','nav');
+
+  try {
+    const exams = await loadExams();
+    fillConceptsExamPicker(root, exams);
+  } catch (e) {
+    document.getElementById('conceptsExamList').innerHTML = emptyCard('목록을 불러오지 못했어요',
+      'data/exams.json을 확인해 주세요');
+  }
+}
+
+function fillConceptsExamPicker(root, exams){
+  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' };
+  root.querySelector('#conceptsExamList').innerHTML = `
+    <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
+    <div class="group">
+      ${exams.map(e => {
+        const mark = examMark[e.code] || '◐';
+        return `<button class="row exam-row" data-exam="${e.code}">
+          <span class="row-lead exam-mark">${mark}</span>
+          <span class="row-body">
+            <span class="row-title">${escapeHtml(e.name)}</span>
+            <span class="row-sub" id="conceptsCount-${e.code}">개념 불러오는 중…</span>
+          </span>
+          <span class="row-trail">${icons.chev}</span>
+        </button>`;
+      }).join('')}
+    </div>
+  `;
+  // lazy-fill counts (background, no blocking)
+  for (const e of exams) {
+    loadConceptIndex(e.code).then(idx => {
+      const el = root.querySelector(`#conceptsCount-${e.code}`);
+      if (!el) return;
+      if (!idx) { el.textContent = '개념 데이터 없음'; return; }
+      const total = Object.keys(idx).length;
+      const withBody = Object.values(idx).filter(m => m && m.body).length;
+      el.textContent = `${total.toLocaleString()}개 개념 · 본문 ${withBody.toLocaleString()}개`;
+    }).catch(()=>{});
+  }
+  root.querySelectorAll('.exam-row').forEach(el => {
+    el.addEventListener('click', () => openConceptList(el.dataset.exam));
+  });
+}
+
+async function openConceptList(examCode){
+  state.currentExam = examCode;
+  if (!_navInternal) pushRoute({ type:'concept-list', exam:examCode });
+  const stack = document.getElementById('stack');
+  const screen = document.createElement('section');
+  screen.className = 'screen enter-right';
+  const exam = state.examByCode.get(examCode);
+  screen.innerHTML = `
+    <header class="nav has-title" id="clNav">
+      <button class="icon-btn" id="clBack" aria-label="뒤로">${icons.back}</button>
+      <div class="nav-title">${escapeHtml(exam?.name || '개념')}</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="clScroll">
+      <div class="large-title">
+        <div class="kicker">${escapeHtml((exam?.name||'').slice(0,6).toUpperCase())} · CONCEPTS</div>
+        <h1>개념 목록</h1>
+      </div>
+      <div class="search-bar"><input type="search" id="clSearch" placeholder="개념명 검색 (한글/영문)" inputmode="search" autocomplete="off"></div>
+      <div id="clBody"><div class="skeleton" style="height:80px;margin:8px 16px"></div></div>
+    </div>
+  `;
+  stack.appendChild(screen);
+  updateScreenInert();
+  attachScrollShadow('clScroll','clNav');
+  screen.querySelector('#clBack').onclick = popScreen;
+  addEdgeBack(screen);
+
+  const idx = await loadConceptIndex(examCode);
+  const $body = screen.querySelector('#clBody');
+  if (!idx) {
+    $body.innerHTML = emptyCard('개념 데이터를 불러오지 못했어요', '');
+    return;
+  }
+  const all = Object.values(idx);
+  // group by primary subject
+  const bySubj = new Map();
+  for (const m of all) {
+    const s = (m.subjects && m.subjects[0]) || '기타';
+    if (!bySubj.has(s)) bySubj.set(s, []);
+    bySubj.get(s).push(m);
+  }
+  // sort each group by ref count desc, name asc
+  for (const list of bySubj.values()) {
+    list.sort((a,b) => ((b.refs?.length||0) - (a.refs?.length||0)) || a.name_ko.localeCompare(b.name_ko, 'ko'));
+  }
+  const subjects = Array.from(bySubj.keys()).sort((a,b) => a.localeCompare(b, 'ko'));
+
+  const renderList = (q) => {
+    const ql = (q||'').trim().toLowerCase();
+    const html = subjects.map((subj, si) => {
+      const list = bySubj.get(subj);
+      const filtered = ql
+        ? list.filter(m =>
+            (m.name_ko && m.name_ko.toLowerCase().includes(ql)) ||
+            (m.name_en && m.name_en.toLowerCase().includes(ql)))
+        : list;
+      if (!filtered.length) return '';
+      // collapse big subjects by default unless searching or only one subject
+      const open = !!ql || subjects.length === 1 || filtered.length <= 30;
+      const rowsHtml = filtered.map(m => `
+        <button class="row concept-list-row" data-cid="${escapeHtml(m.id)}">
+          <span class="row-body">
+            <span class="row-title">${escapeHtml(m.name_ko)}${m.body ? '' : ' <span class="pill subtle">초안</span>'}</span>
+            <span class="row-sub">${escapeHtml(m.name_en || '')}${m.name_en ? ' · ' : ''}${(m.refs?.length||0)}문항</span>
+          </span>
+          <span class="row-trail">${icons.chev}</span>
+        </button>
+      `).join('');
+      return `
+        <details class="concept-subj" ${open ? 'open' : ''}>
+          <summary>
+            <span class="concept-subj-name">${escapeHtml(subj)}</span>
+            <span class="concept-subj-count">${filtered.length.toLocaleString()}</span>
+          </summary>
+          <div class="group">${rowsHtml}</div>
+        </details>
+      `;
+    }).join('');
+    $body.innerHTML = html || emptyCard('검색 결과 없음', '');
+    $body.querySelectorAll('.concept-list-row').forEach(b => {
+      b.addEventListener('click', () => openConcept(examCode, b.dataset.cid).catch(()=>{}));
+    });
+  };
+  renderList('');
+  bindSearch(screen.querySelector('#clSearch'), renderList);
+}
+
+/* ===================================================================
    CONCEPT detail + practice
    =================================================================== */
 async function openConcept(examCode, conceptId){
@@ -2406,6 +2558,7 @@ function pathForState(s) {
   if (!s) return '/';
   if (s.type === 'session')          return `/exam/${s.exam}`;
   if (s.type === 'quiz')             return `/exam/${s.exam}/${s.session}`;
+  if (s.type === 'concept-list')     return `/concepts/${s.exam}`;
   if (s.type === 'concept')          return `/concept/${s.exam}/${encodeURIComponent(s.id)}`;
   if (s.type === 'concept-practice') return `/concept/${s.exam}/${encodeURIComponent(s.id)}/practice`;
   return '/';
@@ -2479,6 +2632,13 @@ async function initRoute() {
     const id = decodeURIComponent(segs[2]);
     await openConcept(segs[1], id);
     if (segs[3] === 'practice') await openConceptPractice(segs[1], id);
+    return;
+  }
+  if (segs[0] === 'concepts' && segs[1]) {
+    await loadExams().catch(()=>{});
+    if (!state.examByCode.has(segs[1])) return;
+    showTab('concepts');
+    await openConceptList(segs[1]);
     return;
   }
 }
