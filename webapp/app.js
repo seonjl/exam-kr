@@ -1942,14 +1942,21 @@ function popScreen(){
 }
 
 function doPopScreen(immediate = false){
-  stopExamTimer();
   const stack = document.getElementById('stack');
   if (stack.children.length <= 1) return;
   const last = stack.lastElementChild;
 
+  // 퀴즈 화면이 실제로 사라지는 경우에만 quiz state 를 해제한다.
+  // 퀴즈 위에 쌓인 concept 등을 pop 하면 quiz state 는 유지되어야 한다
+  // (그래야 보기 클릭/스크롤 핸들러가 계속 작동).
+  const poppingQuiz = state.current && state.current.screen === last;
+
   document.getElementById('shell').classList.remove('hide-tabs');
-  document.removeEventListener('keydown', onKey);
-  state.current = null;
+  if (poppingQuiz) {
+    stopExamTimer();
+    document.removeEventListener('keydown', onKey);
+    state.current = null;
+  }
 
   const finish = () => {
     last.remove();
