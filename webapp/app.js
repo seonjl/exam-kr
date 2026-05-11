@@ -2891,8 +2891,8 @@ window.__examkr = {
 
   function start() {
     if (timer) return;
-    ping(true);  // initial GET (read-only, 다른 사용자 활성도 즉시 확인)
-    setTimeout(() => ping(false), REFRESH_AFTER_MS);  // 본인 heartbeat 반영
+    // 첫 호출도 POST — 본인을 즉시 등록해 chip 노출 지연 제거.
+    ping(false);
     timer = setInterval(() => ping(false), HEARTBEAT_MS);
   }
   function stop() {

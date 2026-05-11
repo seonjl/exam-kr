@@ -85,21 +85,26 @@ async function getCountsCached() {
   return _cached;
 }
 
-// heartbeat — 가장 적은 명령으로 활성 + unique 갱신만. 카운트는 캐시본 반환.
+// heartbeat — 자기 자신 등록 + 즉시 fresh 카운트 반환. 한 pipeline 6 commands.
 async function heartbeat(hash) {
   if (!KV_URL) return { active: 0, today: 0, ok: false };
   const now = Date.now();
   const tk = todayKey();
-  // 2개 쓰기 명령만 — 카운트 읽기는 캐시.
-  kvPipe([
+  const results = await kvPipe([
     ["zadd", ACTIVE_KEY, now, hash],
     ["pfadd", tk, hash],
-  ]).catch(() => {}); // fire-and-forget
-  // expire 는 가끔만 (캐시 만료 시점에 함께)
-  if (!_cached || now - _cachedAt >= COUNT_CACHE_MS) {
-    kvPipe([["expire", tk, DAILY_TTL_SEC]]).catch(() => {});
-  }
-  return await getCountsCached();
+    ["expire", tk, DAILY_TTL_SEC],
+    ["zremrangebyscore", ACTIVE_KEY, 0, now - ACTIVE_TTL_MS],
+    ["zcard", ACTIVE_KEY],
+    ["pfcount", tk],
+  ]);
+  if (!results) return _cached || { active: 0, today: 0, ok: false };
+  const active = Number(results[4]) || 0;
+  const today = Number(results[5]) || 0;
+  const fresh = { active, today, ok: true };
+  _cached = fresh;
+  _cachedAt = now;
+  return fresh;
 }
 
 function checkOrigin(req) {
