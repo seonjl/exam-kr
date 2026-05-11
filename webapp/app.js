@@ -2247,6 +2247,7 @@ function renderConceptChips(q){
 function onChoiceClick(e){
   const b = e.target.closest('.choice'); if (!b) return;
   const c = state.current;
+  if (!c) return;  // quiz state 가 사라진 상태 — 방어적 가드
   if (c.mode === 'review') return;
   const qi = +b.dataset.qi;
   const ci = +b.dataset.ci;
