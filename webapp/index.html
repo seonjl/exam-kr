@@ -64,6 +64,14 @@
 <body>
 <div id="shell">
   <div id="stack"></div>
+  <button id="presence-chip" class="presence-chip" hidden aria-live="polite" aria-label="현재 학습 중인 사용자 수">
+    <span class="presence-dot" aria-hidden="true"></span>
+    <span class="presence-text"><strong id="presence-active-n">--</strong>명 학습 중</span>
+  </button>
+  <div id="presence-pop" class="presence-pop" hidden role="status">
+    <div class="presence-pop-row"><span class="presence-dot" aria-hidden="true"></span>지금 <strong id="presence-active-big">--</strong>명 함께 학습 중</div>
+    <div class="presence-pop-row presence-pop-sub">오늘 <strong id="presence-today-n">--</strong>명이 학습했어요</div>
+  </div>
   <nav class="tabbar" id="tabbar">
     <button data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l9-8 9 8v9a2 2 0 01-2 2h-5v-7h-4v7H5a2 2 0 01-2-2v-9z"/></svg><span class="label">기출</span></button>
     <button data-tab="concepts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><span class="label">개념</span></button>

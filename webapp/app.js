@@ -419,6 +419,12 @@ function showTab(name){
   // Clean any lingering toasts before tearing down the screen — otherwise they
   // hover over the new tab and the user can't dismiss them.
   document.getElementById('toast-action')?.remove();
+  // Tab 전환은 stack 을 통째로 재구성한다. 깊은 stack 에서 탭바를 누른 경우
+  // history depth > 0 이 남아있으면 이후 back 시 stack/history 가 어긋나 wedge 된다.
+  // depth 를 0 으로 anchor 한다.
+  if ((history.state?.depth || 0) !== 0) {
+    history.replaceState({ type:'home', depth:0 }, '', '/');
+  }
   document.querySelectorAll('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.tab===name));
   const stack = document.getElementById('stack');
   stack.innerHTML = '';
@@ -1747,7 +1753,7 @@ async function fillConceptScreen(screen, examCode, conceptId){
       <span class="row-lead exam-mark">${examShort}</span>
       <span class="row-body">
         <span class="row-title">${r.session.slice(0,4)}.${r.session.slice(4,6)}.${r.session.slice(6,8)} · ${r.qnum}번</span>
-        <span class="row-sub">회차 풀이로 이동</span>
+        <span class="row-sub">모아풀기에서 풀기</span>
       </span>
       <span class="row-trail">${icons.chev || '›'}</span>
     </button>
@@ -1791,8 +1797,10 @@ async function fillConceptScreen(screen, examCode, conceptId){
   });
   $body.querySelectorAll('.concept-ref').forEach(b => {
     b.addEventListener('click', () => {
-      const ex = b.dataset.exam, sc = b.dataset.sess, qn = +b.dataset.q;
-      openSessionList(ex).then(() => openQuiz(ex, sc, qn - 1)).catch(()=>{});
+      const sc = b.dataset.sess, qn = +b.dataset.q;
+      openConceptPractice(examCode, conceptId, { session: sc, qnum: qn }).catch(e => {
+        console.error(e); toast('연습 모드 시작 실패');
+      });
     });
   });
 }
@@ -1841,8 +1849,9 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-async function openConceptPractice(examCode, conceptId){
+async function openConceptPractice(examCode, conceptId, startRef){
   // 가상 세션: refs 의 (session, qnum) 들에서 question 들을 모아 새 questions 배열을 만든다.
+  // startRef = { session, qnum } 이 주어지면 해당 문제로 시작.
   if (!_navInternal) pushRoute({ type:'concept-practice', exam:examCode, id:conceptId });
   const idx = await loadConceptIndex(examCode);
   const meta = idx && idx[conceptId];
@@ -1866,6 +1875,12 @@ async function openConceptPractice(examCode, conceptId){
   }
   if (!questions.length) { toast('문제 데이터를 불러오지 못했어요'); return; }
 
+  let startIdx;
+  if (startRef && startRef.session && startRef.qnum != null) {
+    const i = questions.findIndex(q => q._originSession === startRef.session && q.number === startRef.qnum);
+    if (i >= 0) startIdx = i;
+  }
+
   // 가상 세션 데이터 구성
   const virtData = {
     exam: state.examByCode.get(examCode)?.name || examCode,
@@ -1882,7 +1897,7 @@ async function openConceptPractice(examCode, conceptId){
   const wasInternal = _navInternal;
   _navInternal = true;
   try {
-    await openQuiz(examCode, virtSessionCode);
+    await openQuiz(examCode, virtSessionCode, startIdx);
   } finally {
     _navInternal = wasInternal;
   }
@@ -2719,7 +2734,8 @@ window.addEventListener('popstate', () => {
   const targetDepth = history.state?.depth || 0;
   const stack = document.getElementById('stack');
   _navInternal = true;
-  let excess = stack.children.length - 1 - targetDepth;
+  const haveDepth = stack.children.length - 1;
+  let excess = haveDepth - targetDepth;
   if (excess > 0) {
     while (excess > 1 && stack.children.length > 1) {
       doPopScreen(true);   // immediate: synchronous remove
@@ -2728,6 +2744,11 @@ window.addEventListener('popstate', () => {
     if (excess === 1 && stack.children.length > 1) {
       doPopScreen();        // animated final pop
     }
+  } else if (excess < 0) {
+    // History 가 stack 보다 깊다 — showTab 등으로 stack 이 한 번에 갈렸을 때 발생.
+    // 현재 URL 은 유지한 채 depth 만 stack 에 맞게 re-anchor 해서 wedge 방지.
+    const cur = history.state || {};
+    history.replaceState({ ...cur, depth: haveDepth }, '', location.pathname + location.search);
   }
   _navInternal = false;
 });
@@ -2800,6 +2821,110 @@ window.__examkr = {
     try { maybeShowPwaBanner(); } catch (e) { console.error(e); }
   },
 };
+
+// ── Presence (지금 N명 학습 중) ──────────────────────────────────────────
+// /api/presence 가 KV 미연결이면 ok:false 를 반환 — 그 경우 chip 을 숨김.
+// 60초 heartbeat. 탭이 hidden 인 동안은 일시정지.
+(() => {
+  const chip = document.getElementById('presence-chip');
+  const pop = document.getElementById('presence-pop');
+  if (!chip || !pop) return;
+  const elActive = document.getElementById('presence-active-n');
+  const elActiveBig = document.getElementById('presence-active-big');
+  const elToday = document.getElementById('presence-today-n');
+
+  // 무료 티어 부담 줄이기 위해 5분 간격. 정확도는 비핵심 (체감용).
+  const HEARTBEAT_MS = 300_000;
+  // 첫 표시까지 30초 후 한 번 더 refresh — KV cold start 가 비어있는 케이스 보정
+  const REFRESH_AFTER_MS = 30_000;
+  let timer = null;
+  let lastActive = null;
+  let popTimer = null;
+  let aborted = false;
+
+  function fmt(n) {
+    return new Intl.NumberFormat('ko-KR').format(n);
+  }
+  function bump(el) {
+    if (!el) return;
+    el.classList.remove('is-bumped');
+    // reflow → restart animation
+    void el.offsetWidth;
+    el.classList.add('is-bumped');
+  }
+  function apply(data) {
+    if (!data || data.ok === false) {
+      chip.hidden = true;
+      pop.hidden = true;
+      return;
+    }
+    // 최소 표시 임계: 활성 1명 이상 (자기 자신 포함). 한산할 때 0명 표시 방지.
+    if (data.active < 1) {
+      chip.hidden = true;
+      return;
+    }
+    const changed = lastActive !== null && lastActive !== data.active;
+    elActive.textContent = fmt(data.active);
+    elActiveBig.textContent = fmt(data.active);
+    elToday.textContent = fmt(data.today);
+    if (changed) { bump(elActive); bump(elActiveBig); }
+    lastActive = data.active;
+    chip.hidden = false;
+  }
+
+  async function ping(initial = false) {
+    if (aborted || document.hidden) return;
+    try {
+      const r = await fetch('/api/presence', {
+        method: initial ? 'GET' : 'POST',
+        credentials: 'same-origin',
+        cache: 'no-store',
+      });
+      if (!r.ok) throw new Error('http ' + r.status);
+      const data = await r.json();
+      apply(data);
+    } catch (e) {
+      // Silent fail — chip stays hidden if first call failed.
+      if (lastActive === null) chip.hidden = true;
+    }
+  }
+
+  function start() {
+    if (timer) return;
+    ping(true);  // initial GET (read-only, 다른 사용자 활성도 즉시 확인)
+    setTimeout(() => ping(false), REFRESH_AFTER_MS);  // 본인 heartbeat 반영
+    timer = setInterval(() => ping(false), HEARTBEAT_MS);
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // 클릭 시 상세 카드 토글 (자동 3초 후 닫힘)
+  chip.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (popTimer) { clearTimeout(popTimer); popTimer = null; }
+    if (pop.hidden) {
+      pop.hidden = false;
+      popTimer = setTimeout(() => { pop.hidden = true; }, 3500);
+    } else {
+      pop.hidden = true;
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!pop.hidden && !pop.contains(e.target) && e.target !== chip) {
+      pop.hidden = true;
+      if (popTimer) { clearTimeout(popTimer); popTimer = null; }
+    }
+  });
+
+  // 탭 가시성에 따라 heartbeat on/off
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop(); else start();
+  });
+  window.addEventListener('pagehide', () => { aborted = true; stop(); });
+
+  start();
+})();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {

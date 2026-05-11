@@ -62,3 +62,27 @@ python3 -m http.server 8765 --bind 0.0.0.0
 - 진도·북마크·답안은 브라우저 `localStorage` 에만 저장 (서버 전송 없음).
 - 계정·로그인 없음. 앱 삭제 또는 설정 → 초기화 시 모두 사라짐.
 - 진도 내보내기로 JSON 백업 가능.
+- **Presence (지금 N명 학습 중)**: 5분 간격 익명 heartbeat. 서버는 IP+User-Agent 의
+  SHA256 해시(16자) 만 단기 보관해 활성 사용자 수와 일일 unique 카운트(HyperLogLog) 를
+  계산. 개인 식별 정보 미저장, 8분 후 자동 만료. KV 미연결 시 자동 비활성.
+
+## Presence 기능 — Vercel KV 설정 (선택)
+
+`/api/presence` 가 활성/오늘 학습자 수를 반환하려면 Vercel KV 가 필요합니다.
+
+1. Vercel 대시보드 → Storage → **Create KV Database** (또는 `vercel storage add kv`)
+2. 프로젝트에 Connect → `KV_REST_API_URL`, `KV_REST_API_TOKEN` env vars 자동 주입
+3. (선택) `PRESENCE_SALT` env var 설정 (해시 솔트)
+4. Redeploy
+
+미설정 시 API 는 `{ok:false, active:0, today:0}` 반환. UI 의 chip 은 자동으로 숨겨짐 — 배포 자체엔 영향 없음.
+
+### 무료 티어 부담 최소화 설계
+- heartbeat 당 KV 명령 2개 (zadd + pfadd), fire-and-forget
+- 카운트 조회는 warm instance 메모리 30초 캐시 → 동일 인스턴스 내 동일 요청은 KV 호출 0
+- 활성 TTL 8분 (heartbeat 5분 + 여유) → 정확도보다 커버리지 우선
+- HyperLogLog 로 일일 unique → 수만 명까지 < 1KB 메모리, 오차 ~0.8%
+
+대략적 free tier (Upstash 10K commands/day) 용량:
+- 평균 세션 15분/사용자 × 활성 시간 분산 가정: 일 **수백~수천 명 unique 학습자** 까지 무리 없음.
+- 동시 100명 사용 시 분당 ~20 commands, 일 ~30K commands 수준 (peak hour 집중되면 단기 초과 가능).

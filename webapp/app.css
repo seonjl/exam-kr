@@ -1586,6 +1586,95 @@ pre.code {
 .ad-slot-interstitial .ad-container { width: 320px; min-height: 250px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 12px; }
 .ad-slot-interstitial .ad-close { margin-top: 12px; font-family: var(--sans); font-size: 14px; color: var(--vermilion); background: none; border: none; cursor: pointer; }
 
+/* Presence chip — 우상단 floating 작은 칩 + 클릭 시 펼침 카드 */
+.presence-chip {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 8px);
+  right: 12px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  background: var(--paper-chip);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  color: var(--ink-soft);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .25s ease, transform .25s ease, background .15s ease;
+}
+.presence-chip:not([hidden]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+.presence-chip:active { background: var(--paper-edge); }
+.presence-chip .presence-text strong {
+  color: var(--ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-right: 1px;
+}
+.presence-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, .55);
+  animation: presence-pulse 2.2s ease-out infinite;
+}
+@keyframes presence-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, .55); }
+  70%  { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* 펼침 카드 */
+.presence-pop {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 48px);
+  right: 12px;
+  z-index: 31;
+  min-width: 200px;
+  padding: 10px 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-md, 8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.presence-pop:not([hidden]) { opacity: 1; transform: translateY(0); }
+.presence-pop strong { font-weight: 700; font-variant-numeric: tabular-nums; }
+.presence-pop-row { display: flex; align-items: center; gap: 6px; }
+.presence-pop-sub { margin-top: 4px; color: var(--ink-mute); font-size: 12px; }
+
+/* 숫자 변경 시 살짝 강조 (count-up 대신 brief pulse) */
+.presence-chip strong.is-bumped,
+.presence-pop strong.is-bumped {
+  animation: presence-bump .35s ease;
+}
+@keyframes presence-bump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); color: var(--vermilion); }
+  100% { transform: scale(1); }
+}
+
+/* 모바일 작은 화면에서 텍스트 줄임 */
+@media (max-width: 360px) {
+  .presence-chip { font-size: 11px; padding: 4px 8px 4px 6px; }
+}
+
 /* Wider screens */
 @media (min-width: 720px) {
   .page, .large-title, .section-head, .stat-row, .group, .search-bar { max-width: 720px; margin-left: auto; margin-right: auto; }
