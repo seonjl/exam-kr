@@ -1791,7 +1791,15 @@
       "concept_ids": [
         "measurement-scale-hierarchy",
         "ratio-scale-and-absolute-zero"
-      ]
+      ],
+      "known_defect": {
+        "kind": "missing_visual",
+        "trigger": "다음 자료",
+        "audit_category": "likely_real_missing",
+        "ai_verdict": null,
+        "source": "audit_a8",
+        "at": "2026-05-10T13:34:17+00:00"
+      }
     },
     {
       "number": 42,
@@ -3038,10 +3046,10 @@
           "images": []
         }
       ],
-      "answer": 4,
+      "answer": 2,
       "explanation": "",
       "explanation_images": [],
-      "explanation_detailed": "핵심 개념\n- 배반사상은 P(A∩B)=0인 관계이고, 독립사상은 P(A∩B)=P(A)P(B)를 만족하는 관계이며, 종속은 독립이 아닌 경우(P(A∩B)≠P(A)P(B))를 의미한다.\n정답 분석\n- A와 B가 배반사상이면 P(A∩B)=0이다. 그런데 P(A)>0, P(B)>0이므로 P(A)P(B)>0이고, 따라서 P(A∩B)=0 ≠ P(A)P(B)가 되어 독립의 조건을 만족하지 못한다. 엄밀한 정의로는 독립이 아니므로 '종속'으로 분류할 수도 있지만, 본 문제는 '동시에 발생할 수 있으면서 서로 영향을 주는' 통상적 종속 개념과 구분하여, 배반사상은 독립도 종속도 아닌 독자적 관계로 본다는 관점에서 ④를 정답으로 한다.\n오답 분석\n- ① P(A∩B)=0 ≠ P(A)P(B)>0 이므로 독립이 아니다.\n- ② 통상적 종속은 두 사상이 동시 발생 가능하면서 확률에 영향을 주는 관계인데, 배반사상은 동시 발생 자체가 불가능하다.\n- ③ P(A∩B)=0이 수학적으로 확정되어 있으므로 관계가 유동적일 수 없다.\n- ④ 정답. 배반사상은 독립과 종속 어느 쪽 정의에도 부합하지 않는 별개의 관계이다.",
+      "explanation_detailed": "핵심 개념\n두 사상 A, B가 **배반(서로소)**이라는 것은 동시에 일어날 수 없다는 뜻으로 P(A∩B)=0이다. 반면 **독립**은 한 사상의 발생이 다른 사상의 확률에 영향을 주지 않는다는 뜻으로 P(A∩B)=P(A)P(B)가 성립해야 한다. 독립이 아니면 **종속**이다.\n\n정답 분석\n문제 조건에서 P(A)>0, P(B)>0이므로 P(A)P(B)>0이다. 그런데 배반사상이므로 P(A∩B)=0이다. 따라서 P(A∩B)=0 ≠ P(A)P(B)>0이 되어 독립의 정의식이 성립하지 않는다. 즉 A가 일어났다는 사실은 B가 일어날 수 없음을 의미하므로(P(B|A)=0 ≠ P(B)) A와 B는 서로 영향을 주며, 이는 **종속**의 정의에 해당한다. 그러므로 정답은 (2)이다.\n\n오답 분석\n(1) P(A∩B)=0 ≠ P(A)P(B)이므로 독립의 정의를 만족하지 않는다.\n(3) P(A)>0, P(B)>0이 주어진 이상 독립일 가능성은 완전히 배제되므로 \"독립일 수도\"라는 표현은 틀리다.\n(4) 확률론에서 두 사상은 독립이거나 종속, 둘 중 하나로 반드시 분류되므로 \"둘 다 아니다\"는 성립할 수 없다.",
       "concepts": [
         "배반사상",
         "독립사상의 정의"
@@ -3055,7 +3063,19 @@
       "concept_ids": [
         "mutually-exclusive-vs-independent-events",
         "independent-events-definition"
-      ]
+      ],
+      "answer_original": 4,
+      "correction": {
+        "kind": "answer_field",
+        "from": 4,
+        "to": 2,
+        "reason": "배반사상(P(A∩B)=0) 이면 P(A)P(B)>0 과 동일하지 않으므로 독립이 될 수 없음 (확률론 기본)",
+        "source": "audit_regen_corrected",
+        "at": "2026-05-11T02:34:07+00:00",
+        "kind_explanation": "regenerated_full",
+        "explanation_reason": "answer 정정 후 기존 해설과 모순 → 풀 해설 재생성"
+      },
+      "explanation_detailed_pre_full_regen": "핵심 개념\n- 배반사상은 P(A∩B)=0인 관계이고, 독립사상은 P(A∩B)=P(A)P(B)를 만족하는 관계이며, 종속은 독립이 아닌 경우(P(A∩B)≠P(A)P(B))를 의미한다.\n정답 분석\n- A와 B가 배반사상이면 P(A∩B)=0이다. 그런데 P(A)>0, P(B)>0이므로 P(A)P(B)>0이고, 따라서 P(A∩B)=0 ≠ P(A)P(B)가 되어 독립의 조건을 만족하지 못한다. 엄밀한 정의로는 독립이 아니므로 '종속'으로 분류할 수도 있지만, 본 문제는 '동시에 발생할 수 있으면서 서로 영향을 주는' 통상적 종속 개념과 구분하여, 배반사상은 독립도 종속도 아닌 독자적 관계로 본다는 관점에서 ④를 정답으로 한다.\n오답 분석\n- ① P(A∩B)=0 ≠ P(A)P(B)>0 이므로 독립이 아니다.\n- ② 통상적 종속은 두 사상이 동시 발생 가능하면서 확률에 영향을 주는 관계인데, 배반사상은 동시 발생 자체가 불가능하다.\n- ③ P(A∩B)=0이 수학적으로 확정되어 있으므로 관계가 유동적일 수 없다.\n- ④ 정답. 배반사상은 독립과 종속 어느 쪽 정의에도 부합하지 않는 별개의 관계이다."
     },
     {
       "number": 70,
@@ -3400,7 +3420,15 @@
       "concept_ids": [
         "box-plot",
         "five-number-summary"
-      ]
+      ],
+      "known_defect": {
+        "kind": "missing_visual",
+        "trigger": "다음 도표",
+        "audit_category": "likely_real_missing",
+        "ai_verdict": null,
+        "source": "audit_a8",
+        "at": "2026-05-10T13:34:17+00:00"
+      }
     },
     {
       "number": 77,

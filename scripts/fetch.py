@@ -185,8 +185,13 @@ def parse_question(html: str, number: int, *, img_base: str = "https:") -> dict 
         if extra:
             stem_text = f"{stem_text}\n\n{extra}".strip()
 
+    # 5지선다 지원 — 먼저 form 존재 범위를 탐지하여 max 결정
+    max_choice = 4
+    for i in (5,):
+        if re.search(rf"name=['\"]?bigi_form_{i}['\"]", body, re.I):
+            max_choice = i
     choices = []
-    for i in range(1, 5):
+    for i in range(1, max_choice + 1):
         cm = re.search(
             rf"name=['\"]?bigi_form_{i}['\"]?.*?</form>\s*</td>\s*"
             rf"<td[^>]*align=['\"]?left['\"]?[^>]*>(.*?)</td>",
