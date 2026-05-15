@@ -1,6 +1,6 @@
 """iz_refetch_candidates.json 의 qid 들을 원본에서 다시 가져와 현재 데이터와 비교한다.
 
-FETCH_BASE_URL 환경변수 필요.
+fetch.py 의 DEFAULT_BASE (comcbt.com) 를 사용. FETCH_BASE_URL 로 override 가능.
 
 흐름:
   1. data/audit/iz_refetch_candidates.json 읽기 (또는 --qid 인자로 단건 지정)
@@ -19,7 +19,6 @@ FETCH_BASE_URL 환경변수 필요.
 from __future__ import annotations
 import argparse
 import json
-import os
 import sys
 import time
 from pathlib import Path
@@ -93,8 +92,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
-    if not os.environ.get("FETCH_BASE_URL"):
-        raise SystemExit("FETCH_BASE_URL 환경변수가 필요합니다.")
+    # fetch.py 의 DEFAULT_BASE 사용 — override 필요 시 FETCH_BASE_URL 환경변수
 
     qids = args.qid or json.loads(CAND.read_text("utf-8"))
     if args.limit:

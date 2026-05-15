@@ -31,18 +31,17 @@ sys.path.insert(0, str(Path(__file__).parent))
 from exams import EXAMS  # noqa: E402
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120"
-# 데이터 소스 base URL은 환경변수로만 주입한다. 하드코딩 금지.
-BASE = os.environ.get("FETCH_BASE_URL", "").rstrip("/")
+# 데이터 소스 base URL — comcbt.com 고정. 환경변수로 override 가능 (미러/테스트용).
+DEFAULT_BASE = "https://www.comcbt.com/cbt"
+BASE = os.environ.get("FETCH_BASE_URL", DEFAULT_BASE).rstrip("/")
 DATA_ROOT = Path(__file__).parent.parent / "data"
 DATA_ROOT.mkdir(exist_ok=True)
 
 
 def _require_base() -> None:
+    # 상수 기본값이 있어 항상 통과. 환경변수가 빈 문자열로 명시 설정된 경우만 에러.
     if not BASE:
-        raise SystemExit(
-            "FETCH_BASE_URL 환경변수가 필요합니다. "
-            "예: FETCH_BASE_URL='https://example.com/path' python3 fetch.py ..."
-        )
+        raise SystemExit("FETCH_BASE_URL 가 빈 문자열로 설정되어 있습니다.")
 
 
 def _req(url: str, data: bytes | None = None, referer: str | None = None,
