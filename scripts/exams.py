@@ -65,4 +65,50 @@ EXAMS = {
             "건설안전기술",
         ],
     },
+    "c1": {
+        "name": "컴퓨터활용능력 1급",
+        "hack": 0,
+        "parts": {"part1": 20, "part2": 20, "part3": 20,
+                  "part4": "false", "part5": "false", "part6": "false", "part7": "false"},
+        "subjects": [
+            "컴퓨터 일반",
+            "스프레드시트 일반",
+            "데이터베이스 일반",
+        ],
+    },
+    "k1": {
+        "name": "한국사능력검정시험 심화",
+        "hack": 0,
+        "parts": {"part1": 50,
+                  "part2": "false", "part3": "false", "part4": "false",
+                  "part5": "false", "part6": "false", "part7": "false"},
+        "subjects": [
+            "한국사",
+        ],
+    },
+    "kt": {
+        "name": "전기기사",
+        "hack": 0,
+        "parts": {"part1": 20, "part2": 20, "part3": 20, "part4": 20, "part5": 20,
+                  "part6": "false", "part7": "false"},
+        "subjects": [
+            "전기자기학",
+            "전력공학",
+            "전기기기",
+            "회로이론 및 제어공학",
+            "전기설비기술기준 및 판단기준",
+        ],
+    },
+    "nd": {
+        "name": "소방설비기사(기계분야)",
+        "hack": 0,
+        "parts": {"part1": 20, "part2": 20, "part3": 20, "part4": 20,
+                  "part5": "false", "part6": "false", "part7": "false"},
+        "subjects": [
+            "소방원론",
+            "소방유체역학",
+            "소방관계법규",
+            "소방기계시설의 구조 및 원리",
+        ],
+    },
 }

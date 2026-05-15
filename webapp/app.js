@@ -471,15 +471,21 @@ async function renderHome(root){
 }
 
 function fillExamPicker(root, exams){
-  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' };
-  // per-exam answered count from localStorage
-  const answeredFor = (code) => {
+  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
+                     c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기' };
+  // per-exam correct count from localStorage (맞춘 갯수)
+  const correctFor = (code) => {
     let n = 0;
     const prefix = STORE + `progress:${code}:`;
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
       if (!k.startsWith(prefix)) continue;
-      try { n += Object.keys(JSON.parse(localStorage.getItem(k)).answers || {}).length; } catch {}
+      try {
+        const p = JSON.parse(localStorage.getItem(k));
+        const a = Object.keys(p.answers || {}).length;
+        const w = (p.wrongs || []).length;
+        n += Math.max(0, a - w);
+      } catch {}
     }
     return n;
   };
@@ -487,7 +493,7 @@ function fillExamPicker(root, exams){
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
       ${exams.map(e => {
-        const answered = answeredFor(e.code);
+        const correct = correctFor(e.code);
         const mark = examMark[e.code] || '◐';
         return `<button class="row exam-row" data-exam="${e.code}">
           <span class="row-lead exam-mark">${mark}</span>
@@ -496,7 +502,7 @@ function fillExamPicker(root, exams){
             <span class="row-sub">${e.sessions}회차 · ${e.questions.toLocaleString()}문항</span>
           </span>
           <span class="row-trail">
-            ${answered ? `<span class="pill active">${answered}</span>` : '<span class="pill">—</span>'}
+            ${correct ? `<span class="pill active">${correct}</span>` : '<span class="pill">—</span>'}
             ${icons.chev}
           </span>
         </button>`;
@@ -530,7 +536,7 @@ async function openSessionList(examCode){
         <h1>${escapeHtml(exam?.name || '')}</h1>
       </div>
       <div class="stat-row" id="sessStats">
-        ${['—','—','—'].map((n,i)=>`<div class="stat"><span class="n">${n}</span><span class="l">${['회차','푼 문항','완료 회차'][i]}</span></div>`).join('')}
+        ${['—','—','—'].map((n,i)=>`<div class="stat"><span class="n">${n}</span><span class="l">${['회차','맞춘 문항','완료 회차'][i]}</span></div>`).join('')}
       </div>
       <div id="yearList">${[0,1,2].map(()=>'<div class="skeleton" style="height:140px;margin:4px 16px 20px"></div>').join('')}</div>
     </div>
@@ -550,16 +556,17 @@ async function openSessionList(examCode){
 }
 
 function fillSessionList(root, examCode, sessions){
-  let answered = 0, done = 0;
+  let correctTotal = 0, done = 0;
   for (const s of sessions){
     const p = progressFor(examCode, s.code);
     const a = Object.keys(p.answers||{}).length;
-    answered += a;
+    const w = (p.wrongs||[]).length;
+    correctTotal += Math.max(0, a - w);
     if (s.count && a === s.count) done++;
   }
   const stats = root.querySelectorAll('.stat .n');
   stats[0].textContent = sessions.length;
-  stats[1].textContent = answered.toLocaleString();
+  stats[1].textContent = correctTotal.toLocaleString();
   stats[2].textContent = done;
 
   const years = {};
@@ -575,6 +582,8 @@ function fillSessionList(root, examCode, sessions){
     <div class="group">${years[y].map(s => {
       const p = progressFor(examCode, s.code);
       const a = Object.keys(p.answers||{}).length;
+      const w = (p.wrongs||[]).length;
+      const correct = Math.max(0, a - w);
       const st = s.count && a===s.count ? 'done' : a>0 ? 'active' : '';
       const mn = monthNames[parseInt(s.date.slice(5,7), 10)];
       const day = parseInt(s.date.slice(8,10), 10);
@@ -585,7 +594,7 @@ function fillSessionList(root, examCode, sessions){
           <span class="row-sub">${ord.get(s.code)} · ${s.count? s.count+'문항':'수집 전'}</span>
         </span>
         <span class="row-trail">
-          ${s.count ? `<span class="pill ${st}">${a}/${s.count}</span>` : '<span class="pill">—</span>'}
+          ${s.count ? `<span class="pill ${st}">${correct}/${s.count}</span>` : '<span class="pill">—</span>'}
           ${icons.chev}
         </span>
       </button>`;
@@ -1524,7 +1533,8 @@ async function renderConcepts(root){
 }
 
 function fillConceptsExamPicker(root, exams){
-  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기' };
+  const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
+                     c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기' };
   root.querySelector('#conceptsExamList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">

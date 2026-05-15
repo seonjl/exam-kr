@@ -80,17 +80,25 @@ def prompt_for(exam_code: str, q: dict) -> str:
 """
 
 
-def call_claude(prompt: str, *, timeout: int = 120) -> str:
-    r = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True, text=True, timeout=timeout,
-    )
-    if r.returncode != 0:
-        raise RuntimeError(f"claude failed: {r.stderr.strip()}")
-    out = r.stdout.strip()
-    if not out:
-        raise RuntimeError("claude returned empty output")
-    return out
+def call_claude(prompt: str, *, timeout: int = 120, retries: int = 3) -> str:
+    import time as _time
+    last_err = ""
+    for attempt in range(retries):
+        if attempt:
+            _time.sleep(2 + 2 * attempt)
+        r = subprocess.run(
+            ["claude", "-p", prompt],
+            capture_output=True, text=True, timeout=timeout,
+        )
+        if r.returncode != 0:
+            last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
+            continue
+        out = r.stdout.strip()
+        if not out:
+            last_err = "empty output"
+            continue
+        return out
+    raise RuntimeError(f"claude failed after {retries}: {last_err}")
 
 
 class CircuitBreaker:

@@ -182,17 +182,25 @@ def normalize_record(rec: dict) -> dict:
 BATCH_SIZE = 5   # 한 번의 claude -p 호출에 묶는 question 수
 
 
-def call_claude(prompt: str, *, timeout: int = 300) -> str:
-    r = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True, text=True, timeout=timeout,
-    )
-    if r.returncode != 0:
-        raise RuntimeError(f"claude failed: {r.stderr.strip()}")
-    out = r.stdout.strip()
-    if not out:
-        raise RuntimeError("claude returned empty output")
-    return out
+def call_claude(prompt: str, *, timeout: int = 300, retries: int = 3) -> str:
+    import time as _time
+    last_err = ""
+    for attempt in range(retries):
+        if attempt:
+            _time.sleep(2 + 2 * attempt)
+        r = subprocess.run(
+            ["claude", "-p", prompt],
+            capture_output=True, text=True, timeout=timeout,
+        )
+        if r.returncode != 0:
+            last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
+            continue
+        out = r.stdout.strip()
+        if not out:
+            last_err = "empty output"
+            continue
+        return out
+    raise RuntimeError(f"claude failed after {retries}: {last_err}")
 
 
 class CircuitBreaker:
