@@ -64,8 +64,8 @@
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
 html { background: var(--paper); --read-scale: 1; }
-html[data-fs="sm"] { --read-scale: 0.92; }
-html[data-fs="lg"] { --read-scale: 1.18; }
+html[data-fs="sm"] { --read-scale: 0.92; zoom: 0.92; }
+html[data-fs="lg"] { --read-scale: 1.18; zoom: 1.10; }
 body {
   background: var(--paper);
   color: var(--ink);
@@ -1586,11 +1586,11 @@ pre.code {
 .ad-slot-interstitial .ad-container { width: 320px; min-height: 250px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 12px; }
 .ad-slot-interstitial .ad-close { margin-top: 12px; font-family: var(--sans); font-size: 14px; color: var(--vermilion); background: none; border: none; cursor: pointer; }
 
-/* Presence chip — 우측 세로 중앙 floating 작은 칩 + 클릭 시 펼침 카드 */
+/* Presence chip — 상단 우측 floating 작은 칩 + 클릭 시 펼침 카드 */
 .presence-chip {
   position: fixed;
-  top: 50%;
-  right: 10px;
+  top: calc(env(safe-area-inset-top, 0px) + 10px);
+  right: 12px;
   z-index: 30;
   display: inline-flex;
   align-items: center;
@@ -1607,12 +1607,12 @@ pre.code {
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,.06);
   opacity: 0;
-  transform: translateY(calc(-50% + 4px));
+  transform: translateY(-6px);
   transition: opacity .25s ease, transform .25s ease, background .15s ease;
 }
 .presence-chip:not([hidden]) {
   opacity: 1;
-  transform: translateY(-50%);
+  transform: translateY(0);
 }
 .presence-chip:active { background: var(--paper-edge); }
 .presence-chip .presence-text strong {
@@ -1635,11 +1635,11 @@ pre.code {
   100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
-/* 펼침 카드 — chip 좌측에서 펼쳐짐 (우측 화면 끝 안 가리도록) */
+/* 펼침 카드 — chip 아래에서 펼쳐짐 */
 .presence-pop {
   position: fixed;
-  top: 50%;
-  right: 58px;  /* chip 폭 + 여백 */
+  top: calc(env(safe-area-inset-top, 0px) + 48px);
+  right: 12px;
   z-index: 31;
   min-width: 200px;
   padding: 10px 14px;
@@ -1651,13 +1651,13 @@ pre.code {
   font-size: 13px;
   color: var(--ink);
   opacity: 0;
-  transform: translateY(-50%) translateX(8px);
+  transform: translateY(-6px);
   transition: opacity .2s ease, transform .2s ease;
   pointer-events: none;
 }
 .presence-pop:not([hidden]) {
   opacity: 1;
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(0);
   pointer-events: auto;
 }
 .presence-pop strong { font-weight: 700; font-variant-numeric: tabular-nums; }

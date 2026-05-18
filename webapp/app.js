@@ -1007,7 +1007,7 @@ function renderSettings(root){
   };
   root.querySelector('#copyCodeBtn').onclick = async () => {
     const dump = buildDump();
-    const code = btoa(unescape(encodeURIComponent(JSON.stringify(dump))));
+    const code = encodeShareCode(dump);
     try {
       await navigator.clipboard.writeText(code);
       toast(`복사됨 · ${Math.round(code.length/1024)}KB`);
@@ -1023,7 +1023,7 @@ function renderSettings(root){
     code = code.trim();
     if (!code) return;
     try {
-      const parsed = JSON.parse(decodeURIComponent(escape(atob(code))));
+      const parsed = decodeShareCode(code);
       openImportSheet(parsed);
     } catch { toast('올바른 코드가 아니에요'); }
   };
@@ -1042,14 +1042,36 @@ function renderSettings(root){
    Export / Import helpers
    =================================================================== */
 function buildDump(){
+  // export 도 import 와 같은 sanitize 를 거친다 — 이전 버전에서 우연히 들어간 알 수 없는
+  // key/shape 가 share code/JSON 파일로 흘러나가지 않도록 차단.
   const dump = { _meta: { version: 'v2', exportedAt: Date.now() } };
   for (let i = 0; i < localStorage.length; i++){
     const k = localStorage.key(i);
     if (!k.startsWith(STORE)) continue;
-    if (k === STORE + '_backup') continue;   // don't export the backup slot
-    dump[k.slice(STORE.length)] = safeParse(localStorage.getItem(k));
+    if (k === STORE + '_backup') continue;
+    if (k.startsWith(STORE + '_backup')) continue;  // rotated 백업 슬롯도 제외
+    const inner = k.slice(STORE.length);
+    if (inner.startsWith('_')) continue;
+    const raw = safeParse(localStorage.getItem(k));
+    const safe = sanitizeImportEntry(inner, raw);
+    if (safe === null) continue;
+    dump[inner] = safe;
   }
   return dump;
+}
+
+// UTF-8-safe base64 — deprecated escape/unescape 의 현대화.
+function encodeShareCode(obj){
+  const bytes = new TextEncoder().encode(JSON.stringify(obj));
+  let bin = '';
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+function decodeShareCode(code){
+  const bin = atob(code);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return JSON.parse(new TextDecoder().decode(bytes));
 }
 
 function safeParse(s){
@@ -1086,8 +1108,14 @@ function computeStatsFromDump(d){
 }
 
 function backupCurrent(){
+  // 3-슬롯 rotation: _backup (가장 최근) → _backup2 → _backup3.
+  // 현재 UI 는 _backup 만 복구하지만, 슬롯이 남아 있으면 추후 깊은 undo 가 가능.
   const snap = buildDump();
   snap._at = Date.now();
+  const prev1 = store.get('_backup');
+  const prev2 = store.get('_backup2');
+  if (prev2) store.set('_backup3', prev2);
+  if (prev1) store.set('_backup2', prev1);
   store.set('_backup', snap);
 }
 
@@ -1215,6 +1243,31 @@ async function openStats(){
   history.pushState({ type:'stats', depth: (history.state?.depth || 0)+1 }, '', '/stats');
 }
 
+// 알 수 없는 key / 비정상 shape 가 localStorage 에 침투해 향후 stored XSS / quota 공격으로 이어지지 않도록
+// import 경로에서 한 번 거른다. null 을 돌려주면 그 entry 는 skip.
+function sanitizeImportEntry(k, v){
+  if (!/^(theme|fontSize|swipeHintSeen|expPref|progress:[A-Za-z0-9_:-]+)$/.test(k)) return null;
+  if (k === 'theme')    return typeof v === 'string' && /^(light|dark|system)$/.test(v) ? v : null;
+  if (k === 'fontSize') return typeof v === 'string' && /^(sm|md|lg)$/.test(v) ? v : null;
+  if (k === 'swipeHintSeen') return (typeof v === 'number' || typeof v === 'string') ? v : null;
+  if (k === 'expPref')  return (typeof v === 'string' || (v && typeof v === 'object' && !Array.isArray(v))) ? v : null;
+  // progress:*
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return null;
+  const out = {};
+  if (v.answers && typeof v.answers === 'object' && !Array.isArray(v.answers)){
+    const ans = {};
+    for (const [qk, qv] of Object.entries(v.answers)){
+      if (/^\d+$/.test(qk) && typeof qv === 'number' && Number.isFinite(qv)) ans[qk] = qv;
+    }
+    out.answers = ans;
+  }
+  if (Array.isArray(v.stars))  out.stars  = v.stars.filter(n => Number.isInteger(n));
+  if (Array.isArray(v.wrongs)) out.wrongs = v.wrongs.filter(n => Number.isInteger(n));
+  if (typeof v.mode === 'string' && /^(practice|review|exam)$/.test(v.mode)) out.mode = v.mode;
+  if (typeof v.last === 'number' && Number.isFinite(v.last)) out.last = v.last;
+  return out;
+}
+
 function applyDump(dump, { mode }){
   // Returns stats of what changed.
   if (mode === 'replace'){
@@ -1222,7 +1275,9 @@ function applyDump(dump, { mode }){
     Object.keys(localStorage).filter(k => k.startsWith(STORE) && k !== STORE + '_backup').forEach(k => localStorage.removeItem(k));
     for (const [k, v] of Object.entries(dump)){
       if (k.startsWith('_')) continue;
-      localStorage.setItem(STORE + k, typeof v === 'string' ? v : JSON.stringify(v));
+      const safe = sanitizeImportEntry(k, v);
+      if (safe === null) continue;
+      localStorage.setItem(STORE + k, typeof safe === 'string' ? safe : JSON.stringify(safe));
     }
     return;
   }
@@ -1230,15 +1285,17 @@ function applyDump(dump, { mode }){
   backupCurrent();
   for (const [k, v] of Object.entries(dump)){
     if (k.startsWith('_')) continue;
+    const safe = sanitizeImportEntry(k, v);
+    if (safe === null) continue;
     const storeKey = STORE + k;
     const raw = localStorage.getItem(storeKey);
     if (!raw){
-      localStorage.setItem(storeKey, typeof v === 'string' ? v : JSON.stringify(v));
+      localStorage.setItem(storeKey, typeof safe === 'string' ? safe : JSON.stringify(safe));
       continue;
     }
     if (k.startsWith('progress:')){
       const local = safeParse(raw) || {};
-      const incoming = v || {};
+      const incoming = safe || {};
       const localN = Object.keys(local.answers || {}).length;
       const incomingN = Object.keys(incoming.answers || {}).length;
       // For answer conflicts, prefer the side with more total progress (assumed newer session).
@@ -2593,7 +2650,7 @@ function stopExamTimer(){
 }
 
 function openThemeSheet(){
-  showSheet('테마', () => {
+  showSheet('표시', () => {
     const div = document.createElement('div');
     div.innerHTML = `<div class="sheet-row">
       <span class="l">화면</span>
@@ -2602,15 +2659,31 @@ function openThemeSheet(){
         <button data-t="light">밝게</button>
         <button data-t="dark">어둡게</button>
       </span>
+    </div>
+    <div class="sheet-row">
+      <span class="l">글자 크기</span>
+      <span class="seg" id="fseg">
+        <button data-fs="sm">작게</button>
+        <button data-fs="md">보통</button>
+        <button data-fs="lg">크게</button>
+      </span>
     </div>`;
-    const mark = () => div.querySelectorAll('#tseg button').forEach(b => b.classList.toggle('on', b.dataset.t === currentTheme()));
-    mark();
+    const markT = () => div.querySelectorAll('#tseg button').forEach(b => b.classList.toggle('on', b.dataset.t === currentTheme()));
+    const markF = () => div.querySelectorAll('#fseg button').forEach(b => b.classList.toggle('on', b.dataset.fs === currentFontSize()));
+    markT(); markF();
     div.querySelector('#tseg').addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
-      setTheme(b.dataset.t); mark();
+      setTheme(b.dataset.t); markT();
       // update quick icon
       const q = document.getElementById('themeQuick');
       if (q) q.innerHTML = iconTheme(currentTheme());
+    });
+    div.querySelector('#fseg').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      setFontSize(b.dataset.fs); markF();
+      // 설정 페이지의 동일 segment 도 동기화
+      const otherSeg = document.getElementById('fontSeg');
+      if (otherSeg) otherSeg.querySelectorAll('button').forEach(b2 => b2.classList.toggle('on', b2.dataset.fs===currentFontSize()));
     });
     return div;
   });
@@ -2725,7 +2798,13 @@ function pathForState(s) {
 
 function pushRoute(state) {
   const path = pathForState(state);
-  if (location.pathname === path) return;
+  if (location.pathname === path) {
+    // 같은 path 로 화면 재구성 시 history.state 의 type/payload 가 stale 로 남아
+    // 이후 popstate 에서 depth 계산이 어긋날 수 있다 — depth 는 유지하고 state 만 보강.
+    const curDepth = history.state?.depth || 0;
+    history.replaceState({ ...state, depth: curDepth }, '', path);
+    return;
+  }
   const depth = (history.state?.depth || 0) + 1;
   history.pushState({ ...state, depth }, '', path);
 }
@@ -2745,22 +2824,27 @@ document.addEventListener('click', (e) => {
   openConcept(examCode, id).catch(()=>{});
 });
 
+// 진행 중인 animated pop 수 — animationend 까지 stack.children.length 가 즉시 줄지 않아
+// 이 사이에 들어오는 다음 popstate 가 excess 를 잘못 계산하는 race 가 발생한다.
+// 카운터로 logical depth 를 보정해 차단.
+let _popsInFlight = 0;
+
 window.addEventListener('popstate', () => {
   // Browser back/forward — pop visible screens to match URL depth.
-  // doPopScreen 는 기본적으로 비동기(animationend)라 children.length 가 즉시 안 줄어든다.
-  // 따라서 여러 단계를 한꺼번에 popping 할 때는 마지막만 애니메이션, 그 위는 즉시 제거.
   const targetDepth = history.state?.depth || 0;
   const stack = document.getElementById('stack');
   _navInternal = true;
-  const haveDepth = stack.children.length - 1;
+  const haveDepth = (stack.children.length - 1) - _popsInFlight;
   let excess = haveDepth - targetDepth;
   if (excess > 0) {
-    while (excess > 1 && stack.children.length > 1) {
+    while (excess > 1 && stack.children.length > 1 + _popsInFlight) {
       doPopScreen(true);   // immediate: synchronous remove
       excess--;
     }
-    if (excess === 1 && stack.children.length > 1) {
+    if (excess === 1 && stack.children.length > 1 + _popsInFlight) {
+      _popsInFlight++;
       doPopScreen();        // animated final pop
+      setTimeout(() => { _popsInFlight = Math.max(0, _popsInFlight - 1); }, 410);
     }
   } else if (excess < 0) {
     // History 가 stack 보다 깊다 — showTab 등으로 stack 이 한 번에 갈렸을 때 발생.
@@ -2774,38 +2858,51 @@ window.addEventListener('popstate', () => {
 async function initRoute() {
   const segs = location.pathname.split('/').filter(Boolean);
   history.replaceState({ type: 'home', depth: 0 }, '', '/');
-  if (segs[0] === 'exam' && segs[1]) {
-    await loadExams().catch(()=>{});
-    if (!state.examByCode.has(segs[1])) return;
-    await openSessionList(segs[1]);
-    if (segs[2]) {
-      try {
-        await loadSessions(segs[1]);
-        if (state.sessionMap.get(segs[1])?.has(segs[2])) {
-          // segs[3] = optional 1-based question number for deep-link prerender
-          const qn = segs[3] ? parseInt(segs[3], 10) : NaN;
-          const startIdx = Number.isFinite(qn) && qn > 0 ? qn - 1 : undefined;
-          await openQuiz(segs[1], segs[2], startIdx);
-        }
-      } catch {}
+  if (segs.length === 0) return;
+
+  // Cold-load deep link: 중간 단계 (예: home → sessionList → quiz) 는 stack 만 쌓고
+  // history entry 는 마지막 도달 단계 한 번만 push. 뒤로가기 횟수가 표준 SPA 와 일치한다.
+  _navInternal = true;
+  let final = null;
+  try {
+    if (segs[0] === 'exam' && segs[1]) {
+      await loadExams().catch(()=>{});
+      if (!state.examByCode.has(segs[1])) return;
+      await openSessionList(segs[1]);
+      final = { type:'session', exam: segs[1] };
+      if (segs[2]) {
+        try {
+          await loadSessions(segs[1]);
+          if (state.sessionMap.get(segs[1])?.has(segs[2])) {
+            // segs[3] = optional 1-based question number for deep-link prerender
+            const qn = segs[3] ? parseInt(segs[3], 10) : NaN;
+            const startIdx = Number.isFinite(qn) && qn > 0 ? qn - 1 : undefined;
+            await openQuiz(segs[1], segs[2], startIdx);
+            final = { type:'quiz', exam: segs[1], session: segs[2] };
+          }
+        } catch {}
+      }
+    } else if (segs[0] === 'concept' && segs[1] && segs[2]) {
+      await loadExams().catch(()=>{});
+      if (!state.examByCode.has(segs[1])) return;
+      const id = decodeURIComponent(segs[2]);
+      await openConcept(segs[1], id);
+      final = { type:'concept', exam: segs[1], id };
+      if (segs[3] === 'practice') {
+        await openConceptPractice(segs[1], id);
+        final = { type:'concept-practice', exam: segs[1], id };
+      }
+    } else if (segs[0] === 'concepts' && segs[1]) {
+      await loadExams().catch(()=>{});
+      if (!state.examByCode.has(segs[1])) return;
+      showTab('concepts');
+      await openConceptList(segs[1]);
+      final = { type:'concept-list', exam: segs[1] };
     }
-    return;
+  } finally {
+    _navInternal = false;
   }
-  if (segs[0] === 'concept' && segs[1] && segs[2]) {
-    await loadExams().catch(()=>{});
-    if (!state.examByCode.has(segs[1])) return;
-    const id = decodeURIComponent(segs[2]);
-    await openConcept(segs[1], id);
-    if (segs[3] === 'practice') await openConceptPractice(segs[1], id);
-    return;
-  }
-  if (segs[0] === 'concepts' && segs[1]) {
-    await loadExams().catch(()=>{});
-    if (!state.examByCode.has(segs[1])) return;
-    showTab('concepts');
-    await openConceptList(segs[1]);
-    return;
-  }
+  if (final) pushRoute(final);
 }
 
 /* ---- boot (at end so all const bindings are live) ---- */
