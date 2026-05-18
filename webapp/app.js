@@ -58,6 +58,10 @@ function pushAd(rootEl){
   try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {}
 }
 
+// 시각적 그룹 — 자격증 코드 → 그룹 라벨. picker 에서 같은 그룹은 헤더로 묶인다.
+// 라우팅/depth 영향 없음, 시각 그룹화만.
+const EXAM_GROUP = { g1: '공인중개사', g2: '공인중개사' };
+
 const state = {
   exams: [],                  // [{code, name, sessions, questions, ...}]
   examByCode: new Map(),      // examCode → exam meta
@@ -492,10 +496,13 @@ function fillExamPicker(root, exams){
   root.querySelector('#examList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
-      ${exams.map(e => {
+      ${exams.map((e, i) => {
         const correct = correctFor(e.code);
         const mark = examMark[e.code] || '◐';
-        return `<button class="row exam-row" data-exam="${e.code}">
+        const g = EXAM_GROUP[e.code];
+        const prevG = i > 0 ? EXAM_GROUP[exams[i-1].code] : null;
+        const header = g && g !== prevG ? `<div class="exam-group-header">${escapeHtml(g)}</div>` : '';
+        return `${header}<button class="row exam-row" data-exam="${e.code}">
           <span class="row-lead exam-mark">${mark}</span>
           <span class="row-body">
             <span class="row-title">${escapeHtml(e.name)}</span>
@@ -1595,9 +1602,12 @@ function fillConceptsExamPicker(root, exams){
   root.querySelector('#conceptsExamList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
-      ${exams.map(e => {
+      ${exams.map((e, i) => {
         const mark = examMark[e.code] || '◐';
-        return `<button class="row exam-row" data-exam="${e.code}">
+        const g = EXAM_GROUP[e.code];
+        const prevG = i > 0 ? EXAM_GROUP[exams[i-1].code] : null;
+        const header = g && g !== prevG ? `<div class="exam-group-header">${escapeHtml(g)}</div>` : '';
+        return `${header}<button class="row exam-row" data-exam="${e.code}">
           <span class="row-lead exam-mark">${mark}</span>
           <span class="row-body">
             <span class="row-title">${escapeHtml(e.name)}</span>
@@ -2650,7 +2660,7 @@ function stopExamTimer(){
 }
 
 function openThemeSheet(){
-  showSheet('표시', () => {
+  showSheet('테마', () => {
     const div = document.createElement('div');
     div.innerHTML = `<div class="sheet-row">
       <span class="l">화면</span>
@@ -2659,31 +2669,15 @@ function openThemeSheet(){
         <button data-t="light">밝게</button>
         <button data-t="dark">어둡게</button>
       </span>
-    </div>
-    <div class="sheet-row">
-      <span class="l">글자 크기</span>
-      <span class="seg" id="fseg">
-        <button data-fs="sm">작게</button>
-        <button data-fs="md">보통</button>
-        <button data-fs="lg">크게</button>
-      </span>
     </div>`;
-    const markT = () => div.querySelectorAll('#tseg button').forEach(b => b.classList.toggle('on', b.dataset.t === currentTheme()));
-    const markF = () => div.querySelectorAll('#fseg button').forEach(b => b.classList.toggle('on', b.dataset.fs === currentFontSize()));
-    markT(); markF();
+    const mark = () => div.querySelectorAll('#tseg button').forEach(b => b.classList.toggle('on', b.dataset.t === currentTheme()));
+    mark();
     div.querySelector('#tseg').addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
-      setTheme(b.dataset.t); markT();
+      setTheme(b.dataset.t); mark();
       // update quick icon
       const q = document.getElementById('themeQuick');
       if (q) q.innerHTML = iconTheme(currentTheme());
-    });
-    div.querySelector('#fseg').addEventListener('click', e => {
-      const b = e.target.closest('button'); if (!b) return;
-      setFontSize(b.dataset.fs); markF();
-      // 설정 페이지의 동일 segment 도 동기화
-      const otherSeg = document.getElementById('fontSeg');
-      if (otherSeg) otherSeg.querySelectorAll('button').forEach(b2 => b2.classList.toggle('on', b2.dataset.fs===currentFontSize()));
     });
     return div;
   });
