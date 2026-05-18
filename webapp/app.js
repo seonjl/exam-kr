@@ -268,7 +268,7 @@ function renderMarkdown(s){
   // Minimal markdown: tables, code blocks, preserve newlines + KaTeX $$
   let html = s;
   // code blocks
-  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, _lang, code) =>
     `<pre class="code"><code>${escapeHtml(code)}</code></pre>`);
   // tables
   html = html.replace(/(^\|.+\|\n\|[\s\-:|]+\|\n(?:\|.+\|\n?)+)/gm, (block) => {
@@ -1511,7 +1511,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
     const $pages = screen.querySelector('#pages');
     _hydratedQs.clear();
     _explainBodyCache.clear();
-    $pages.innerHTML = data.questions.map((q,i) => renderPageSkeleton(i)).join('');
+    $pages.innerHTML = data.questions.map((_, i) => renderPageSkeleton(i)).join('');
     hydrateWindow(state.current.idx);
 
     // concept index 백그라운드 로드 — 도착하면 hydrated 페이지의 chip 라벨 갱신
@@ -1674,7 +1674,7 @@ async function openConceptList(examCode){
 
   const renderList = (q) => {
     const ql = (q||'').trim().toLowerCase();
-    const html = subjects.map((subj, si) => {
+    const html = subjects.map((subj) => {
       const list = bySubj.get(subj);
       const filtered = ql
         ? list.filter(m =>
@@ -2950,8 +2950,6 @@ window.__examkr = {
 
   // 무료 티어 부담 줄이기 위해 5분 간격. 정확도는 비핵심 (체감용).
   const HEARTBEAT_MS = 300_000;
-  // 첫 표시까지 30초 후 한 번 더 refresh — KV cold start 가 비어있는 케이스 보정
-  const REFRESH_AFTER_MS = 30_000;
   let timer = null;
   let lastActive = null;
   let popTimer = null;
