@@ -1542,6 +1542,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       mode: p.mode || 'practice',
       examMin: p.examMin || 90,
       screen,
+      studyStartAt: Date.now(),
     };
     updateModeLabel();
     store.set('quizVisits', (store.get('quizVisits') || 0) + 1);
@@ -2060,6 +2061,22 @@ function doPopScreen(immediate = false){
   // (그래야 보기 클릭/스크롤 핸들러가 계속 작동).
   const poppingQuiz = state.current && state.current.screen === last;
 
+  // 학습 시간 누적 + 동기부여 토스트 — quiz 화면이 닫힐 때만.
+  // state.current 가 null 되기 전에 캡쳐.
+  let pendingStudyToast = null;
+  if (poppingQuiz && state.current.studyStartAt) {
+    const elapsed = Date.now() - state.current.studyStartAt;
+    const examCode = state.current.examCode;
+    const sessionCode = state.current.code;
+    const startIdx = state.current.idx;
+    if (elapsed >= 1000) {
+      recordStudyTime(elapsed);
+      if (elapsed >= 60_000) {
+        pendingStudyToast = () => showStudyMotivationToast(elapsed, examCode, sessionCode, startIdx);
+      }
+    }
+  }
+
   document.getElementById('shell').classList.remove('hide-tabs');
   if (poppingQuiz) {
     stopExamTimer();
@@ -2079,6 +2096,7 @@ function doPopScreen(immediate = false){
       }
     }
     if (stack.children.length <= 1) showInterstitialAd();
+    if (pendingStudyToast) setTimeout(pendingStudyToast, 400);
   };
 
   if (immediate) {
@@ -2758,6 +2776,43 @@ function emptyCard(title, sub){
   return `<div class="empty"><span class="ideo">空</span><h4>${title}</h4><p>${sub || ''}</p></div>`;
 }
 let toastTimer;
+// 학습 시간 누적 (localStorage). 주간 누적은 ISO week 기준.
+function recordStudyTime(elapsedMs) {
+  if (!elapsedMs || elapsedMs < 1000) return;
+  try {
+    const total = +(localStorage.getItem(STORE + 'studyTime:total') || 0) + elapsedMs;
+    localStorage.setItem(STORE + 'studyTime:total', String(total));
+    const weekKey = STORE + 'studyTime:week:' + isoWeek(new Date());
+    const week = +(localStorage.getItem(weekKey) || 0) + elapsedMs;
+    localStorage.setItem(weekKey, String(week));
+  } catch {}
+}
+
+function isoWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+}
+
+// 퀴즈 이탈 시 동기부여 토스트 — 자기 비교 (이번 세션 / 이번 주 누적).
+// 60초 미만 세션에는 호출되지 않는다 (caller 가 게이트).
+function showStudyMotivationToast(sessionMs, examCode, sessionCode, lastIdx) {
+  const min = Math.max(1, Math.round(sessionMs / 60_000));
+  let weekMin = 0;
+  try {
+    const w = +(localStorage.getItem(STORE + 'studyTime:week:' + isoWeek(new Date())) || 0);
+    weekMin = Math.round(w / 60_000);
+  } catch {}
+  const msg = weekMin > min
+    ? `이번 세션 ${min}분 · 이번 주 누적 ${weekMin}분. 조금만 더 힘내요!`
+    : `이번 세션 ${min}분 학습. 이대로 계속 가봐요!`;
+  toastAction(msg, '이어서 풀기', () => {
+    openQuiz(examCode, sessionCode, lastIdx);
+  }, { duration: 6000 });
+}
+
 function toast(msg, kind){
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id='toast'; t.className='toast'; document.body.appendChild(t); }
