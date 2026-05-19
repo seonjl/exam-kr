@@ -281,7 +281,8 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
     )
     return h, title, description
 
-def render_exam_page(exam: dict, sessions: list[dict], og_image: str | None = None) -> str:
+def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
+                     og_image: str | None = None) -> str:
     code = exam["code"]
     title = f'{exam["name"]} 기출문제 · 정답 · 해설 ({exam.get("sessions", 0)}회차 무료)'
     description = truncate(
@@ -297,6 +298,11 @@ def render_exam_page(exam: dict, sessions: list[dict], og_image: str | None = No
         for s in sessions
     )
     subj_rows = "".join(f"<li>{esc(sub)}</li>" for sub in (exam.get("subjects") or []))
+    cross_rows = "".join(
+        f'<li><a href="/exam/{e["code"]}">{esc(e["name"])}</a> '
+        f'<span class="muted">{e.get("sessions", 0)}회차 · {e.get("questions", 0):,}문항</span></li>'
+        for e in all_exams if e["code"] != code
+    )
     body = (
         f'<main id="prerender" class="prerender prerender-exam">'
         f'<header><h1>{esc(title)}</h1>'
@@ -304,6 +310,7 @@ def render_exam_page(exam: dict, sessions: list[dict], og_image: str | None = No
         f'각 회차별 정답과 AI 보강 해설, 핵심 개념을 함께 제공합니다.</p></header>'
         f'<section><h2>시험 과목</h2><ul class="subjects">{subj_rows}</ul></section>'
         f'<section><h2>회차별 기출</h2><ul class="sessions">{session_rows}</ul></section>'
+        f'<footer><h2>다른 자격증</h2><ul class="cross-links">{cross_rows}</ul></footer>'
         f'</main>'
     )
     ld = {
@@ -630,7 +637,7 @@ def main() -> None:
 
         # exam overview page
         write_file(DIST / "exam" / code / "index.html",
-                   render_exam_page(exam, sessions, og_image=og_image))
+                   render_exam_page(exam, sessions, exams, og_image=og_image))
 
         # session pages
         for s in sessions:

@@ -36,6 +36,32 @@ window.addEventListener('unhandledrejection', (e) => {
   console.error(`[REJ]`, e.reason);
 });
 
+// UTM/광고 트래킹 — Vercel Web Analytics custom event 한 번 발생.
+// 이벤트명에 source/campaign 을 박아 무료 플랜 대시보드에서도 광고별 카운트 분리.
+// first-touch 는 localStorage 에 저장해 향후 conversion 이벤트와 매핑 가능.
+(function trackUTM(){
+  try {
+    const params = new URLSearchParams(location.search);
+    const source = params.get('utm_source') || params.get('source');
+    if (!source) return;
+    const campaign = params.get('utm_campaign') || params.get('campaign') || '';
+    const medium = params.get('utm_medium') || '';
+    const safe = (s) => String(s).toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 32);
+    const eventName = campaign
+      ? `visit:${safe(source)}/${safe(campaign)}`
+      : `visit:${safe(source)}`;
+    // window.va 는 /_vercel/insights/script.js 가 노출. 무료 플랜에서도 event 발사 가능.
+    if (typeof window.va === 'function') {
+      window.va('event', { name: eventName });
+    }
+    if (!localStorage.getItem(STORE + 'utm_first')) {
+      localStorage.setItem(STORE + 'utm_first', JSON.stringify({
+        source, medium, campaign, ts: Date.now(),
+      }));
+    }
+  } catch {}
+})();
+
 // AdSense — Auto Ads는 HTML <head>의 adsbygoogle.js 스크립트가 자동 처리.
 // 슬롯 ID를 채우면 같은 스크립트를 사용해 수동 슬롯(<ins class="adsbygoogle">)도 함께 활성화.
 //   - postAnswer: rendered immediately under the explanation in the quiz screen
