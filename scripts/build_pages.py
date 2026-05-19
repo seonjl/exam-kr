@@ -209,8 +209,7 @@ def render_question_block(q: dict) -> str:
 
     return (
         f'<article class="q" id="q{n}">'
-        f'<header class="qh"><span class="qn">{n}.</span> '
-        f'<span class="qs">{subject}</span></header>'
+        f'<header class="qh"><h2 class="qn">{n}번 · {subject}</h2></header>'
         f'<p class="qb">{stem}</p>'
         + extras_html
         + f'<ol class="choices">{"".join(choices_html)}</ol>'
@@ -226,11 +225,11 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
     sess_code = sess_meta["code"]
     label = fmt_date_kr(sess_code)
     questions = data.get("questions") or []
-    title = f'{exam["name"]} {label} 기출문제 정답·해설'
+    title = f'{exam["name"]} {label} 기출문제 정답·해설 ({len(questions)}문항 무료)'
     first_q = (questions[0]["question"] if questions else "")
     description = truncate(
-        f'{exam["name"]} {label} 기출 {len(questions)}문항의 정답·해설·핵심 개념. '
-        f'{first_q}'
+        f'{exam["name"]} {label} 기출문제 {len(questions)}문항 무료 CBT 풀이. '
+        f'정답·AI 보강 해설·핵심 개념. {first_q}'
     )
     canonical = f'{BASE_URL}/exam/{code}/{sess_code}'
 
@@ -284,10 +283,11 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
 
 def render_exam_page(exam: dict, sessions: list[dict], og_image: str | None = None) -> str:
     code = exam["code"]
-    title = f'{exam["name"]} 기출문제 모음'
+    title = f'{exam["name"]} 기출문제 · 정답 · 해설 ({exam.get("sessions", 0)}회차 무료)'
     description = truncate(
-        f'{exam["name"]} 기출문제 {exam.get("questions", 0)}문항을 회차별로 풀이·해설과 함께 제공합니다. '
-        f'과목: {", ".join(exam.get("subjects") or [])}'
+        f'{exam["name"]} 기출문제 {exam.get("questions", 0):,}문항 · {exam.get("sessions", 0)}회차 무료 CBT 풀이. '
+        f'각 문항 정답·AI 보강 해설·핵심 개념 제공. '
+        f'과목: {", ".join(exam.get("subjects") or [])}.'
     )
     canonical = f'{BASE_URL}/exam/{code}'
 
@@ -416,18 +416,22 @@ def render_home() -> str:
         f'<span class="muted">{e.get("sessions", 0)}회차 · {e.get("questions", 0)}문항</span></li>'
         for e in exams
     )
+    exam_names = " · ".join(e["name"] for e in exams)
+    total_q = sum(e.get("questions", 0) for e in exams)
+    total_sessions = sum(e.get("sessions", 0) for e in exams)
     body = (
         f'<main id="prerender" class="prerender prerender-home">'
-        f'<header><h1>{SITE_NAME} · 자격증 기출 학습</h1>'
-        f'<p>사회조사분석사·공인중개사·정보처리기사·산업안전기사 기출문제를 모바일에서 풀이하고 '
-        f'AI 보강 해설로 학습하는 무료 PWA. 광고 외에는 로그인·서버·트래킹이 없습니다.</p></header>'
-        f'<section><h2>자격증</h2><ul class="exams">{rows}</ul></section>'
+        f'<header><h1>{SITE_NAME} · 자격증 기출문제 무료 학습 PWA</h1>'
+        f'<p>{esc(exam_names)} 기출문제 {total_q:,}문항을 회차별 정답·AI 보강 해설·핵심 개념과 함께 '
+        f'모바일에서 무료로 풀이하세요. 로그인·서버·트래킹 없는 PWA.</p></header>'
+        f'<section><h2>자격증 ({len(exams)}종)</h2><ul class="exams">{rows}</ul></section>'
         f'</main>'
     )
-    title = f'{SITE_NAME} · 자격증 기출 학습 (사회조사분석사·공인중개사·정보처리기사·산업안전기사)'
-    description = (
-        "사회조사분석사·공인중개사·정보처리기사·산업안전기사 기출 모바일 학습 무료 PWA. "
-        "AI 보강 해설·핵심 개념 제공."
+    # title 은 검색결과에서 60자 내외로 잘려서 핵심 키워드만 노출되도록 짧게.
+    title = f'{SITE_NAME} · {len(exams)}개 자격증 기출문제 무료 학습 PWA'
+    description = truncate(
+        f"{exam_names} 기출문제 {total_q:,}문항·{total_sessions}회차 무료 풀이. "
+        "정답·AI 보강 해설·핵심 개념. 모바일 PWA, 로그인·서버 없음."
     )
     ld = {
         "@context": "https://schema.org",
