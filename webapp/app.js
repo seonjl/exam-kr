@@ -2849,6 +2849,69 @@ function toastAction(msg, btnLabel, onClick, opts = {}){
   document.body.appendChild(t);
   requestAnimationFrame(() => t.classList.add('show'));
 }
+
+// Pull-to-refresh — 모든 .scroll 컨테이너에서 위로 더 못 가는 상태 + 아래로 swipe 시 활성.
+// 가로 스와이프(quiz .pages) 와의 충돌을 피하려고 .pages/.page 안에서는 무시.
+(function initPullToRefresh(){
+  const THRESHOLD = 70;
+  let scrollEl = null;
+  let startY = 0;
+  let armed = false;
+
+  const indicator = document.createElement('div');
+  indicator.className = 'ptr-indicator';
+  indicator.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path></svg>';
+  document.body.appendChild(indicator);
+
+  const reset = () => {
+    indicator.classList.remove('is-pulling', 'is-ready');
+    indicator.style.opacity = '';
+    indicator.style.transform = '';
+    scrollEl = null;
+    armed = false;
+  };
+
+  document.addEventListener('touchstart', (e) => {
+    const t = e.target;
+    const s = t?.closest?.('.scroll');
+    if (!s || s.scrollTop > 0) { scrollEl = null; return; }
+    if (t.closest('.pages, .page')) { scrollEl = null; return; }
+    scrollEl = s;
+    startY = e.touches[0].clientY;
+    armed = false;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!scrollEl) return;
+    if (scrollEl.scrollTop > 0) { reset(); return; }
+    const dy = e.touches[0].clientY - startY;
+    if (dy <= 4) return;
+    armed = true;
+    const eased = Math.min(dy * 0.55, 140);
+    indicator.classList.add('is-pulling');
+    indicator.classList.toggle('is-ready', eased >= THRESHOLD);
+    indicator.style.opacity = String(Math.min(1, eased / THRESHOLD));
+    indicator.style.transform = `translate(-50%, ${eased - 60}px) rotate(${eased * 2.4}deg)`;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (!scrollEl || !armed) { reset(); return; }
+    const ready = indicator.classList.contains('is-ready');
+    indicator.classList.remove('is-pulling');
+    if (ready) {
+      indicator.classList.add('is-refreshing');
+      indicator.style.opacity = '1';
+      indicator.style.transform = 'translate(-50%, 16px)';
+      haptic('tap');
+      setTimeout(() => location.reload(), 220);
+    } else {
+      reset();
+    }
+  });
+
+  document.addEventListener('touchcancel', reset);
+})();
+
 function haptic(kind){
   if (!navigator.vibrate) return;
   if (kind === 'correct') navigator.vibrate(10);
