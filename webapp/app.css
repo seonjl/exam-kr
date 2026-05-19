@@ -1695,8 +1695,15 @@ pre.code {
   .presence-chip { font-size: 11px; padding: 4px 8px 4px 6px; }
 }
 
-/* Wider screens */
+/* Wider screens — phone-frame on desktop so the app doesn't stretch edge-to-edge */
 @media (min-width: 720px) {
+  body { background: var(--paper-deep); }
+  #shell {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 0 40px rgba(0, 0, 0, .14);
+  }
   .page, .large-title, .section-head, .stat-row, .group, .search-bar { max-width: 720px; margin-left: auto; margin-right: auto; }
   /* Constrain the horizontal scroll-snap container so the next card never peeks past the active one */
   .pages { max-width: 720px; margin-left: auto; margin-right: auto; }
