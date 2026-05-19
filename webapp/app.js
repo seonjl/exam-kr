@@ -60,7 +60,13 @@ function pushAd(rootEl){
 
 // 시각적 그룹 — 자격증 코드 → 그룹 라벨. picker 에서 같은 그룹은 헤더로 묶인다.
 // 라우팅/depth 영향 없음, 시각 그룹화만.
-const EXAM_GROUP = { g1: '공인중개사', g2: '공인중개사' };
+const EXAM_GROUP = {
+  s2: '사회·통계',
+  g1: '부동산', g2: '부동산',
+  iz: 'IT', c1: 'IT',
+  sa: '안전·전기', kt: '안전·전기', nd: '안전·전기',
+  k1: '인문',
+};
 
 const state = {
   exams: [],                  // [{code, name, sessions, questions, ...}]

@@ -50,6 +50,17 @@ EXAMS = {
             "정보시스템 구축관리",
         ],
     },
+    "c1": {
+        "name": "컴퓨터활용능력 1급",
+        "hack": 0,
+        "parts": {"part1": 20, "part2": 20, "part3": 20,
+                  "part4": "false", "part5": "false", "part6": "false", "part7": "false"},
+        "subjects": [
+            "컴퓨터 일반",
+            "스프레드시트 일반",
+            "데이터베이스 일반",
+        ],
+    },
     "sa": {
         "name": "산업안전기사",
         "hack": 0,
@@ -63,27 +74,6 @@ EXAMS = {
             "전기위험방지기술",
             "화학설비위험방지기술",
             "건설안전기술",
-        ],
-    },
-    "c1": {
-        "name": "컴퓨터활용능력 1급",
-        "hack": 0,
-        "parts": {"part1": 20, "part2": 20, "part3": 20,
-                  "part4": "false", "part5": "false", "part6": "false", "part7": "false"},
-        "subjects": [
-            "컴퓨터 일반",
-            "스프레드시트 일반",
-            "데이터베이스 일반",
-        ],
-    },
-    "k1": {
-        "name": "한국사능력검정시험 심화",
-        "hack": 0,
-        "parts": {"part1": 50,
-                  "part2": "false", "part3": "false", "part4": "false",
-                  "part5": "false", "part6": "false", "part7": "false"},
-        "subjects": [
-            "한국사",
         ],
     },
     "kt": {
@@ -109,6 +99,16 @@ EXAMS = {
             "소방유체역학",
             "소방관계법규",
             "소방기계시설의 구조 및 원리",
+        ],
+    },
+    "k1": {
+        "name": "한국사능력검정시험 심화",
+        "hack": 0,
+        "parts": {"part1": 50,
+                  "part2": "false", "part3": "false", "part4": "false",
+                  "part5": "false", "part6": "false", "part7": "false"},
+        "subjects": [
+            "한국사",
         ],
     },
 }
