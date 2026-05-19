@@ -294,6 +294,34 @@ a { color: inherit; text-decoration: none; }
   background: var(--paper);
 }
 .exam-group-header:first-child { border-top: 0; padding-top: 4px; }
+
+/* Deep-link 유도 띠 배너 — 검색 진입자가 개념 페이지에서 사이트의 다른 기능 (회차 풀기) 으로
+   넘어가도록 nav 바로 아래에 sticky 위치. */
+.deeplink-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--paper-chip);
+  border-bottom: 1px solid var(--paper-edge);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  position: relative;
+  z-index: 5;
+  transition: background .12s ease;
+}
+.deeplink-banner:active { background: var(--paper-edge); }
+.dlb-icon { font-size: 16px; line-height: 1; }
+.dlb-text { flex: 1; line-height: 1.35; }
+.dlb-text strong { color: var(--ink); font-weight: 700; }
+.dlb-arrow {
+  color: var(--vermilion);
+  font-weight: 700;
+  font-family: var(--mono);
+  font-size: 14px;
+}
 .row {
   display: grid;
   grid-template-columns: 54px 1fr auto;

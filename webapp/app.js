@@ -1680,6 +1680,7 @@ async function openConceptList(examCode){
       <div class="nav-title">${escapeHtml(exam?.name || '개념')}</div>
       <div></div>
     </header>
+    ${renderDeepLinkBanner(examCode)}
     <div class="scroll" id="clScroll">
       <div class="large-title">
         <div class="kicker">${escapeHtml((exam?.name||'').slice(0,6).toUpperCase())} · CONCEPTS</div>
@@ -1779,6 +1780,7 @@ async function openConcept(examCode, conceptId){
       <div class="nav-title" id="conceptNavTitle">개념</div>
       <div></div>
     </header>
+    ${renderDeepLinkBanner(examCode)}
     <div class="scroll" id="conceptScroll">
       <div class="concept-loading">${'<div class="skeleton"></div>'.repeat(4)}</div>
     </div>
@@ -2966,6 +2968,26 @@ document.addEventListener('click', (e) => {
   const examCode = m[1];
   const id = decodeURIComponent(m[2]);
   openConcept(examCode, id).catch(()=>{});
+});
+
+// 검색 deep-link 진입자 유도 띠 배너 — concept/concept-list 상단에서 같은 자격증의
+// 회차 picker 로 보낸다. SEO 친화 위해 <a href> 형태 + SPA hijack.
+function renderDeepLinkBanner(examCode){
+  const exam = state.examByCode.get(examCode);
+  if (!exam) return '';
+  return `<a class="deeplink-banner" href="/exam/${examCode}" data-exam="${examCode}">
+    <span class="dlb-icon" aria-hidden="true">📘</span>
+    <span class="dlb-text"><strong>${escapeHtml(exam.name)}</strong> 전 회차 기출 풀어보기</span>
+    <span class="dlb-arrow" aria-hidden="true">→</span>
+  </a>`;
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a.deeplink-banner');
+  if (!a) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  e.preventDefault();
+  const exam = a.dataset.exam;
+  if (exam) openSessionList(exam).catch(()=>{});
 });
 
 // 진행 중인 animated pop 수 — animationend 까지 stack.children.length 가 즉시 줄지 않아
