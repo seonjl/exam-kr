@@ -40,6 +40,9 @@ ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
 
 
+_CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
+
+
 def prompt_for(exam_code: str, q: dict) -> str:
     exam = EXAMS.get(exam_code, {"name": ""})
     name = exam.get("name", "")
@@ -52,17 +55,16 @@ def prompt_for(exam_code: str, q: dict) -> str:
             t = "[이미지]"
         return t or "(비어있음)"
 
+    n = min(len(choices), len(_CIRCLED)) or 4
+    choice_lines = "".join(f"{_CIRCLED[i]} {ct(i)}\n" for i in range(n))
+
     return f"""당신은 {name} 전문 강사입니다.
 아래 기출문제의 해설을 공부하기 좋은 형태로 다시 작성해주세요.
 
 [과목] {q.get('subject') or ''}
 [문제] {q.get('question') or ''}
 [보기]
-① {ct(0)}
-② {ct(1)}
-③ {ct(2)}
-④ {ct(3)}
-[정답] {q.get('answer', '?')}번
+{choice_lines}[정답] {q.get('answer', '?')}번
 [기존 해설] {(q.get('explanation') or '(기본 해설 없음)').strip() or '(기본 해설 없음)'}
 
 다음 구조로 평문(마크다운 기호 없이)으로 작성하세요:
@@ -74,7 +76,7 @@ def prompt_for(exam_code: str, q: dict) -> str:
 - 정답이 왜 옳은지 구체적으로 (2~4줄)
 
 오답 분석
-- ① / ② / ③ / ④ 각 보기가 정답인지 오답인지, 오답이면 왜 틀렸는지 1줄씩
+- 각 보기마다 (①, ②, ③, …) 정답/오답 여부 + 오답이면 왜 틀렸는지 1줄씩. 보기 수가 5개면 ⑤까지 모두 다룬다.
 
 다른 말은 붙이지 말고 위 세 섹션만 출력하세요. 섹션 제목은 위와 정확히 동일하게 사용하세요.
 """

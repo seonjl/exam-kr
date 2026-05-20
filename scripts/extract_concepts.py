@@ -44,8 +44,14 @@ ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
 
 
+_CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
+
+
 def _q_block(q: dict) -> str:
-    """단일 question 을 prompt 안에 넣을 텍스트 블록으로 직렬화."""
+    """단일 question 을 prompt 안에 넣을 텍스트 블록으로 직렬화.
+
+    보기 수는 choices 길이에 맞춤 (4지/5지 모두 지원).
+    """
     choices = q.get("choices") or []
 
     def ct(i: int) -> str:
@@ -58,15 +64,17 @@ def _q_block(q: dict) -> str:
     existing = (q.get("explanation_detailed") or q.get("explanation") or "").strip() \
         or "(해설 없음)"
 
+    n = min(len(choices), len(_CIRCLED))
+    if n == 0:
+        n = 4   # 누락된 경우 안전한 디폴트
+    choice_lines = "".join(f"{_CIRCLED[i]} {ct(i)}\n" for i in range(n))
+
     return (
         f"[Q{q.get('number')}]\n"
         f"[과목] {q.get('subject') or ''}\n"
         f"[문제] {q.get('question') or ''}\n"
         f"[보기]\n"
-        f"① {ct(0)}\n"
-        f"② {ct(1)}\n"
-        f"③ {ct(2)}\n"
-        f"④ {ct(3)}\n"
+        f"{choice_lines}"
         f"[정답] {q.get('answer', '?')}번\n"
         f"[기존 해설]\n{existing}\n"
     )
@@ -105,7 +113,7 @@ def prompt_for_batch(exam_code: str, qs: list[dict]) -> str:
    정답 분석
    - 정답이 왜 옳은지 (2~4줄)
    오답 분석
-   - ① / ② / ③ / ④ 각 1줄
+   - 각 보기마다 (①, ②, ③, …) 1줄. 보기 수가 5개면 ⑤까지 모두 다룬다.
    섹션 제목은 위와 정확히 동일하게.
    score 가 3 이면 improved_explanation 은 null.
 
