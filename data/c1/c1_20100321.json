@@ -1575,19 +1575,26 @@
       "answer": 1,
       "explanation": ">\n\n3월을 찾는것이기 때문에 MONTH함수를 이용해야 하기 때문에 정답은 1,4번입니다.\n그런데 =MONTH(B2)=3 을 쓰면 TRUE 가 나옵니다. TRUE나 FALSE 가 나오면 열필드 이름을 지우거나 원래의 필드명을 쓰면 안됩니다. 따라서 종기라는 필드명을 쓰면 안되기 때문에 정답은 1번이 됩니다. 이해가 안되시면 실습을 통해 확인해 보세요.\n[해설작성자 : 한림중앙컴퓨터학원]\n\n고급필터에서 문제 푸는 요령\n\n1. '종기'라는 글자가 있나 없나 확인 즉, 필드의 이름이 같으면 제외\n2. 월을 구할 때는 =month 함수 사용한다는거 즉, 수식에 =month 함수가 없는거 제외\n정답은 1번\n요 두가지만 기억해두시면  될듯요.\n필드명이 달라야한다. 월구하는 함수는 =month 라는거",
       "explanation_images": [],
-      "explanation_detailed": "핵심 개념\n고급필터에서 수식(함수)을 조건으로 사용할 때는 조건 범위의 필드명을 원본 데이터의 필드명과 다르게 쓰거나 비워야 한다는 규칙을 묻는 문제입니다. 날짜에서 '월'만 추출할 때는 MONTH 함수를 사용합니다.\n\n정답 분석\n종기가 3월인 레코드를 찾으려면 날짜에서 월을 추출하는 MONTH 함수를 사용해 =MONTH(B2)=3 형태의 수식 조건을 만들어야 합니다. 이때 수식 조건의 결과는 TRUE/FALSE로 반환되므로, 조건 범위의 머리글은 원본 필드명인 '종기'와 같으면 안 되고 비워두거나 다른 이름을 써야 정상 동작합니다. 1번은 MONTH 함수를 사용했고 필드명도 '종기'와 다르게 처리되어 있어 올바른 고급필터 조건입니다.\n\n오답 분석\n① MONTH 함수를 사용하고 필드명도 '종기'와 다르게 처리되어 있어 정답입니다.\n② MONTH 함수를 사용하지 않아 3월이라는 '월' 조건을 추출할 수 없으므로 오답입니다.\n③ MONTH 함수를 사용하지 않았고 조건 형식도 맞지 않아 오답입니다.\n④ MONTH 함수는 사용했으나 조건 범위의 필드명을 원본과 동일한 '종기'로 두어 수식 조건이 정상 작동하지 않으므로 오답입니다.",
-      "needs_vision_reprocess": true,
+      "explanation_detailed": "핵심 개념\n고급필터에서 수식(함수)을 조건으로 쓸 때 조건 범위의 머리글은 원본 필드명과 달라야 하며, 날짜의 월 추출에는 MONTH 함수를 사용한다.\n\n정답 분석\n종기(B열) 날짜에서 월만 뽑아 3월을 비교해야 하므로 =MONTH(B2)=3 형태의 수식 조건이 필요하다. 또한 수식 조건은 머리글이 원본 필드명 '종기'와 같으면 정상 작동하지 않으므로 '조건'처럼 다른 이름을 써야 한다. ①은 머리글이 '조건'이고 값이 =MONTH(B2)=3 이어서 두 조건을 모두 만족한다.\n\n오답 분석\n② 머리글은 '조건'으로 바르지만 MONTH 함수를 쓰지 않아 3월만 골라낼 수 없다.\n③ 머리글이 원본과 같은 '종기'이고 단순 비교식이라 3월만 추출하지 못한다.\n④ 수식은 옳지만 머리글을 원본과 같은 '종기'로 두어 수식 조건이 정상 작동하지 않는다.",
+      "needs_vision_reprocess": false,
       "concepts": [
-        "고급 필터 수식 조건",
-        "MONTH 함수 월 추출",
-        "조건 범위 필드명 규칙"
+        "고급필터 수식 조건 머리글 규칙",
+        "MONTH 함수를 이용한 월 추출"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 580
-      }
+      },
+      "concepts_pre_vision": [
+        "고급 필터 수식 조건",
+        "MONTH 함수 월 추출",
+        "조건 범위 필드명 규칙"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\n고급필터에서 수식(함수)을 조건으로 사용할 때는 조건 범위의 필드명을 원본 데이터의 필드명과 다르게 쓰거나 비워야 한다는 규칙을 묻는 문제입니다. 날짜에서 '월'만 추출할 때는 MONTH 함수를 사용합니다.\n\n정답 분석\n종기가 3월인 레코드를 찾으려면 날짜에서 월을 추출하는 MONTH 함수를 사용해 =MONTH(B2)=3 형태의 수식 조건을 만들어야 합니다. 이때 수식 조건의 결과는 TRUE/FALSE로 반환되므로, 조건 범위의 머리글은 원본 필드명인 '종기'와 같으면 안 되고 비워두거나 다른 이름을 써야 정상 동작합니다. 1번은 MONTH 함수를 사용했고 필드명도 '종기'와 다르게 처리되어 있어 올바른 고급필터 조건입니다.\n\n오답 분석\n① MONTH 함수를 사용하고 필드명도 '종기'와 다르게 처리되어 있어 정답입니다.\n② MONTH 함수를 사용하지 않아 3월이라는 '월' 조건을 추출할 수 없으므로 오답입니다.\n③ MONTH 함수를 사용하지 않았고 조건 형식도 맞지 않아 오답입니다.\n④ MONTH 함수는 사용했으나 조건 범위의 필드명을 원본과 동일한 '종기'로 두어 수식 조건이 정상 작동하지 않으므로 오답입니다.",
+      "vision_image_summary": "문제 워크시트(img1): A열은 '일수', B열은 '종기'(종료일) 필드이며 데이터는 다음과 같다.\n\n| 행 | A(일수) | B(종기) |\n|---|---|---|\n| 2 | 13 | 2004-03-19 |\n| 3 | 20 | 2004-04-28 |\n| 4 | 12 | 2004-03-30 |\n| 5 | 10 | 2004-02-15 |\n\n보기별 고급필터 조건 범위는 다음과 같다.\n① 머리글 '조건' / 값 =MONTH(B2)=3\n② 머리글 '조건' / 값 >=2004-03-01\n③ 머리글 '종기' / 값 >=2004-03-01\n④ 머리글 '종기' / 값 =MONTH(B2)=3",
+      "vision_reprocessed_at": 1779274830
     },
     {
       "number": 40,
@@ -1747,19 +1754,27 @@
       "answer": 2,
       "explanation": ">\n\n[분류] 테이블이 아니고 [분류] 레코드입니다.\n[분류] 레코드를 사용하기 위해서는\nMe.Recordsource = \"분류\" 라고 해야 합니다.\n[해설작성자 : 한림중앙컴퓨터학원]\n※ ② 폼이 실행될 때 폼이나 보고서의 데이터 원본을 지정하여, 테이블/쿼리/SQL 구문 등의 데이터 원본을 표시하고자 할 때는 Form개체의 속성인 RecordSource 속성(Me.Recordsource = \"분류\")을 사용함.\n※ RecordSet 개체는 데이터베이스에 연결, 명령 수행 후 결과 값을 받아 올 때 사용함.\n[해설작성자 : 한방합격 도우미 정익종]",
       "explanation_images": [],
-      "explanation_detailed": "핵심 개념\nAccess 폼에서 코드로 데이터 원본을 지정할 때 사용하는 속성은 RecordSource이며, 값으로 테이블명, 쿼리명, SQL 문을 문자열로 지정한다. Recordset 개체와 혼동하지 않는 것이 핵심이다.\n\n정답 분석\n②번이 정답(틀린 설명)이다. 폼이 실행되자마자 [분류] 테이블을 데이터 원본으로 사용하려면 Form_Load 이벤트에서 Me.RecordSource = \"분류\" 와 같이 RecordSource 속성에 테이블 이름을 문자열로 대입해야 한다. Recordset은 ADO/DAO로 데이터에 접근해 결과 집합을 다룰 때 쓰는 별개의 객체로, 폼의 데이터 원본을 지정하는 용도와 다르다.\n\n오답 분석\n① 옳음 — 한 폼에 여러 레코드를 한 화면에 보여주려면 '기본 보기' 속성을 '연속 폼'으로 설정하는 것이 맞다.\n② 틀림(정답) — Recordset이 아니라 RecordSource 속성을 사용해야 하며, 값은 테이블/쿼리/SQL 문자열이어야 한다.\n③ 옳음 — 학과별 집계는 자격취득 테이블을 GROUP BY 학과명으로 묶어 COUNT 등을 구하는 SQL을 '레코드 원본'에 지정하는 방식이 정상적이다.\n④ 옳음 — 명령 단추 Click 이벤트에서 DoCmd.ApplyFilter나 Filter/FilterOn, 또는 RecordSource 변경으로 txt조회 값과 일치하는 레코드만 표시하도록 작성하는 것은 일반적인 처리 방식이다.",
-      "needs_vision_reprocess": true,
+      "explanation_detailed": "핵심 개념\n폼이 표시할 데이터 원본을 코드로 지정할 때는 RecordSource 속성에 테이블명, 쿼리명 또는 SQL 문자열을 대입해야 하며, RecordSet 객체와는 용도가 다르다.\n\n정답 분석\n②번이 틀린 설명이다. 이미지에서 코드가 'Me.RecordSet = \"분류\"'로 작성되어 있는데, 폼이 실행되자마자 [분류] 테이블을 데이터 원본으로 사용하려면 'Me.RecordSource = \"분류\"'와 같이 RecordSource 속성에 테이블명을 문자열로 대입해야 한다. RecordSet은 ADO/DAO로 만들어진 레코드 집합 개체를 가리키는 속성이므로 문자열 \"분류\"를 그대로 대입할 수 없고 데이터 원본 지정 용도로 사용하지 않는다.\n\n오답 분석\n① 여러 레코드를 한 화면에 보여주기 위해 '기본 보기'를 '연속 폼'으로 설정한 것은 옳다.\n② RecordSet이 아닌 RecordSource 속성을 사용해야 하므로 틀린 설명이다(정답).\n③ 자격취득 테이블에서 학과명으로 그룹화하여 Count(*)로 취득자수를 집계하는 SQL을 레코드 원본으로 지정한 것은 일반적이며 옳다(이미지의 'Form' 표기는 'FROM'의 인쇄상 오자로 보아 출제 의도상 정상 SQL로 본다).\n④ 클릭 이벤트에서 Me.Filter에 \"이름='\" & txt조회 & \"'\" 조건을 넣고 Me.FilterOn = True로 필터를 적용해 일치 레코드만 표시하는 처리는 옳다.",
+      "needs_vision_reprocess": false,
       "concepts": [
-        "폼의 RecordSource 속성 설정",
-        "Form_Load 이벤트 활용",
-        "RecordSource와 Recordset 차이"
+        "폼의 RecordSource와 RecordSet 속성 구분",
+        "Form_Load 이벤트에서 데이터 원본 지정",
+        "Filter/FilterOn을 이용한 레코드 필터링"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 708
-      }
+      },
+      "concepts_pre_vision": [
+        "폼의 RecordSource 속성 설정",
+        "Form_Load 이벤트 활용",
+        "RecordSource와 Recordset 차이"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\nAccess 폼에서 코드로 데이터 원본을 지정할 때 사용하는 속성은 RecordSource이며, 값으로 테이블명, 쿼리명, SQL 문을 문자열로 지정한다. Recordset 개체와 혼동하지 않는 것이 핵심이다.\n\n정답 분석\n②번이 정답(틀린 설명)이다. 폼이 실행되자마자 [분류] 테이블을 데이터 원본으로 사용하려면 Form_Load 이벤트에서 Me.RecordSource = \"분류\" 와 같이 RecordSource 속성에 테이블 이름을 문자열로 대입해야 한다. Recordset은 ADO/DAO로 데이터에 접근해 결과 집합을 다룰 때 쓰는 별개의 객체로, 폼의 데이터 원본을 지정하는 용도와 다르다.\n\n오답 분석\n① 옳음 — 한 폼에 여러 레코드를 한 화면에 보여주려면 '기본 보기' 속성을 '연속 폼'으로 설정하는 것이 맞다.\n② 틀림(정답) — Recordset이 아니라 RecordSource 속성을 사용해야 하며, 값은 테이블/쿼리/SQL 문자열이어야 한다.\n③ 옳음 — 학과별 집계는 자격취득 테이블을 GROUP BY 학과명으로 묶어 COUNT 등을 구하는 SQL을 '레코드 원본'에 지정하는 방식이 정상적이다.\n④ 옳음 — 명령 단추 Click 이벤트에서 DoCmd.ApplyFilter나 Filter/FilterOn, 또는 RecordSource 변경으로 txt조회 값과 일치하는 레코드만 표시하도록 작성하는 것은 일반적인 처리 방식이다.",
+      "vision_image_summary": "img1.gif(보기②): Form_Load 이벤트 프로시저로 'Private Sub Form_Load() / Me.RecordSet = \"분류\" / End Sub'가 작성되어 있다. 즉 폼의 RecordSet 속성에 문자열 \"분류\"를 대입하고 있다.\n\nimg2.gif(보기③): 폼의 레코드 원본으로 지정한 SQL문이 'select 학과명, Count(*) as 취득자수 Form 자격취득 Group by 학과명'으로 적혀 있다. (FROM이 아닌 'Form'으로 표기되어 있다.)\n\nimg3.gif(보기④): 'Private Sub cmb조회_Click() / Me.Filter = \"이름='\" & txt조회 & \"'\" / Me.FilterOn = True / End Sub' 형태의 클릭 이벤트 프로시저로, txt조회 컨트롤 값과 이름 필드가 일치하는 레코드를 필터로 표시한다.",
+      "vision_reprocessed_at": 1779274840
     },
     {
       "number": 44,

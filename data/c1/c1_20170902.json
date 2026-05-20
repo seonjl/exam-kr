@@ -1239,19 +1239,27 @@
       "answer": 1,
       "explanation": ">\n\na=MsgBox(\"작업을 종료합니까?“, vbYesNoCancel + vbQuestion, \"확인”)\n\nMsgBox : 대화상자에 메시지를 표시하는 명령\nvbYesNoCancel : 예, 아니오, 취소 3개의 단추를 활성화\nvbQuestion : 쿼리 경고 아이콘 (물음표 아이콘)\n\n위에 코드를 실행하면 MsgBox 창이 열리는데 ‘확인’이라는 이름의 창이 뜨고\n작업을 종료합니까 라는 메시지가 뜨고 메시지 옆에는 쿼리 경고 아이콘(물음표 아이콘)이 있고\n작업을 종료합니까 메시지 밑에는 예, 아니오, 취소 3개의 단추가 나옵니다.\n\n따라서 틀린건 1번입니다.\n1번이 정답이 될려면 메시지 박스에 쿼리 경고 아이콘(물음표 아이콘)이 표시된다.\n이렇게 되어야 합니다.\n[해설작성자: 자격증 따기]\n\n정보 아이콘(i) : vbinformation\n경고 메시지 아이콘(!) : vbexclamation\n[해설작성자 : comcbt.com 이용자]\n\n[동영상 해설 보기]",
       "explanation_images": [],
-      "explanation_detailed": "핵심 개념\nVBA의 MsgBox 함수에서 두 번째 인수로 지정되는 버튼/아이콘 상수의 의미를 구분하는 문제. vbQuestion(물음표), vbInformation(정보 i), vbExclamation(경고 !), vbCritical(중지)의 아이콘 종류를 정확히 알아야 한다.\n\n정답 분석\n두 번째 인수 vbYesNoCancel + vbQuestion 중 아이콘을 결정하는 것은 vbQuestion이며, 이는 물음표(쿼리) 아이콘을 표시한다. 정보 아이콘(i)은 vbInformation 상수일 때 표시되므로, \"정보 아이콘이 표시된다\"라고 한 ①번 설명은 옳지 않다. 따라서 옳지 않은 것은 ①번이다.\n\n오답 분석\n① 오답 설명 → 실제로는 vbQuestion에 의해 물음표 아이콘이 표시되므로 정보 아이콘이라는 설명은 틀림 (이 보기가 정답).\n② 옳음 → MsgBox 세 번째 인수 \"확인\"이 대화상자 제목 표시줄에 나타남.\n③ 옳음 → vbYesNoCancel에서 Esc 키는 Cancel(취소) 버튼과 동일하게 동작하여 작업이 취소됨.\n④ 옳음 → vbYesNoCancel 상수에 의해 예, 아니오, 취소 세 개의 버튼이 표시됨.",
-      "needs_vision_reprocess": true,
+      "explanation_detailed": "핵심 개념\nMsgBox의 두 번째 인수에서 아이콘 상수(vbQuestion, vbInformation, vbExclamation, vbCritical)의 아이콘 모양과 의미를 정확히 구분하는 문제이다.\n\n정답 분석\n두 번째 인수 vbYesNoCancel + vbQuestion 중 아이콘을 결정하는 것은 vbQuestion이며, 이는 말풍선 안 물음표(?) 아이콘을 표시한다. 그런데 보기 ①의 이미지에는 노란 삼각형 안 느낌표(!)가 그려져 있는데, 이는 vbExclamation에 해당하는 경고 아이콘이며 '정보 아이콘'도 아니고 코드에서 지정한 물음표 아이콘도 아니다. 따라서 '정보 아이콘이 표시된다'는 ①번 설명은 옳지 않으며 정답이다.\n\n오답 분석\n① 코드에는 vbQuestion이 지정되어 물음표 아이콘이 떠야 하므로 '정보 아이콘'이라는 설명과 제시된 경고(!) 이미지 모두 틀린 설명이다.\n② 세 번째 인수 \"확인\"이 대화상자 제목 표시줄에 그대로 표시되므로 옳다.\n③ vbYesNoCancel에서 Esc 키는 Cancel(취소) 버튼과 동일하게 동작하여 작업이 취소되므로 옳다.\n④ vbYesNoCancel 상수에 의해 '예', '아니오', '취소' 세 개의 버튼이 표시되므로 옳다.",
+      "needs_vision_reprocess": false,
       "concepts": [
-        "MsgBox 아이콘 상수",
-        "MsgBox 버튼 상수",
-        "MsgBox 제목 설정"
+        "vbQuestion 물음표 아이콘",
+        "vbExclamation 경고 아이콘",
+        "MsgBox 아이콘 상수 구분"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 582
-      }
+      },
+      "concepts_pre_vision": [
+        "MsgBox 아이콘 상수",
+        "MsgBox 버튼 상수",
+        "MsgBox 제목 설정"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\nVBA의 MsgBox 함수에서 두 번째 인수로 지정되는 버튼/아이콘 상수의 의미를 구분하는 문제. vbQuestion(물음표), vbInformation(정보 i), vbExclamation(경고 !), vbCritical(중지)의 아이콘 종류를 정확히 알아야 한다.\n\n정답 분석\n두 번째 인수 vbYesNoCancel + vbQuestion 중 아이콘을 결정하는 것은 vbQuestion이며, 이는 물음표(쿼리) 아이콘을 표시한다. 정보 아이콘(i)은 vbInformation 상수일 때 표시되므로, \"정보 아이콘이 표시된다\"라고 한 ①번 설명은 옳지 않다. 따라서 옳지 않은 것은 ①번이다.\n\n오답 분석\n① 오답 설명 → 실제로는 vbQuestion에 의해 물음표 아이콘이 표시되므로 정보 아이콘이라는 설명은 틀림 (이 보기가 정답).\n② 옳음 → MsgBox 세 번째 인수 \"확인\"이 대화상자 제목 표시줄에 나타남.\n③ 옳음 → vbYesNoCancel에서 Esc 키는 Cancel(취소) 버튼과 동일하게 동작하여 작업이 취소됨.\n④ 옳음 → vbYesNoCancel 상수에 의해 예, 아니오, 취소 세 개의 버튼이 표시됨.",
+      "vision_image_summary": "이미지(img1.gif)는 보기 ①에 함께 제시된 아이콘으로, 노란색 삼각형 안에 검은색 느낌표(!)가 그려진 모양이다. 이 아이콘은 VBA MsgBox 함수에서 vbExclamation 상수에 해당하는 '경고 메시지(!)' 아이콘이며, vbInformation의 정보 아이콘(파란 원 안의 i)과는 명확히 다르다. 보기 ①은 이 경고 아이콘 이미지를 '정보 아이콘'이라고 설명하고 있어, 아이콘 종류 자체부터 잘못 짝지어져 있음을 시각적으로 확인할 수 있다.",
+      "vision_reprocessed_at": 1779275236
     },
     {
       "number": 32,

@@ -2051,18 +2051,25 @@
       "answer": 2,
       "explanation": ">\n\nMid(exstring, 3, 5) = \"Excel\" 이란 exstring(\"Access 2000\") 에서 3번째부터 5글자를 \"Excel\"로 바꾸라는 말입니다. \"Access 2000\"에서 3번째부터 5글자(\"cess \"-공백포함)를 뺀후 그 자리에 \"Excel\"을 넣으면 \"AcExcel2000\" 이 됩니다.\n[해설작성자 : 한림중앙컴퓨터학원]",
       "explanation_images": [],
-      "explanation_detailed": "핵심 개념\nVBA의 Mid 문(Mid Statement)은 문자열 변수의 특정 위치부터 지정한 길이만큼을 다른 문자열로 덮어쓰는 기능이다. Mid(변수, 시작위치, 길이) = \"교체문자열\" 형태로 사용한다.\n\n정답 분석\nexstring 변수에 \"Access 2000\"이 들어 있고, Mid(exstring, 3, 5) = \"Excel\"은 3번째 글자부터 5글자를 \"Excel\"로 치환하라는 의미이다. \"Access 2000\"의 3~7번째 글자는 \"cess \"(공백 포함 5글자)이며, 이 자리에 \"Excel\"이 들어가면 결과는 \"AcExcel2000\"이 된다. 따라서 정답은 2번이다.\n\n오답 분석\n① \"AcExcel 2000\" - 공백이 그대로 남아 있어 틀림. Mid 문은 지정 길이만큼 정확히 덮어쓰므로 공백도 교체 대상이다.\n② \"AcExcel2000\" - 3번째부터 5글자(\"cess \")를 \"Excel\"로 치환한 올바른 결과로 정답이다.\n③ \"Excel 2000\" - 문자열 전체 앞부분을 치환한 형태로, 시작 위치 3을 무시한 잘못된 결과이다.\n④ \"Access Excel\" - Mid 문이 뒤쪽을 교체한다고 잘못 해석한 결과로 틀림.",
-      "needs_vision_reprocess": true,
+      "explanation_detailed": "핵심 개념\nVBA의 Mid 문은 문자열 변수의 지정 위치부터 지정 길이만큼을 새 문자열로 덮어쓴다. 형식은 Mid(변수, 시작위치, 길이) = \"교체문자열\" 이다.\n\n정답 분석\nexstring에 저장된 \"Access 2000\"의 글자 위치는 A(1) c(2) c(3) e(4) s(5) s(6) 공백(7) 2(8) 0(9) 0(10) 0(11)이다. Mid(exstring, 3, 5)는 3번째 글자부터 5글자 즉 \"cess \"(공백 포함)를 가리키며, 이 부분이 \"Excel\"로 치환되어 결과는 \"AcExcel2000\"이 된다. 메시지 박스 캡처(img3)에 'AcExcel2000'이 표시된 ②번이 정답이다.\n\n오답 분석\n① Excel — 변수 전체를 덮어쓴 것으로 잘못된 해석이다.\n② AcExcel2000 — 3번째부터 5글자(공백 포함)를 \"Excel\"로 정확히 치환한 올바른 결과이다.\n③ Excless 2000 — 시작 위치를 1로 잘못 잡아 일부만 바꾼 형태로 틀리다.\n④ Access 2000 Excel — Mid 문을 끝에 덧붙이는 것으로 오해한 결과로 틀리다.",
+      "needs_vision_reprocess": false,
       "concepts": [
-        "Mid 문 문자열 대체",
-        "시작 위치와 길이"
+        "VBA Mid 문(Mid Statement)을 이용한 문자열 부분 치환",
+        "시작 위치와 길이에 따른 공백 포함 덮어쓰기"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 586
-      }
+      },
+      "concepts_pre_vision": [
+        "Mid 문 문자열 대체",
+        "시작 위치와 길이"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\nVBA의 Mid 문(Mid Statement)은 문자열 변수의 특정 위치부터 지정한 길이만큼을 다른 문자열로 덮어쓰는 기능이다. Mid(변수, 시작위치, 길이) = \"교체문자열\" 형태로 사용한다.\n\n정답 분석\nexstring 변수에 \"Access 2000\"이 들어 있고, Mid(exstring, 3, 5) = \"Excel\"은 3번째 글자부터 5글자를 \"Excel\"로 치환하라는 의미이다. \"Access 2000\"의 3~7번째 글자는 \"cess \"(공백 포함 5글자)이며, 이 자리에 \"Excel\"이 들어가면 결과는 \"AcExcel2000\"이 된다. 따라서 정답은 2번이다.\n\n오답 분석\n① \"AcExcel 2000\" - 공백이 그대로 남아 있어 틀림. Mid 문은 지정 길이만큼 정확히 덮어쓰므로 공백도 교체 대상이다.\n② \"AcExcel2000\" - 3번째부터 5글자(\"cess \")를 \"Excel\"로 치환한 올바른 결과로 정답이다.\n③ \"Excel 2000\" - 문자열 전체 앞부분을 치환한 형태로, 시작 위치 3을 무시한 잘못된 결과이다.\n④ \"Access Excel\" - Mid 문이 뒤쪽을 교체한다고 잘못 해석한 결과로 틀림.",
+      "vision_image_summary": "문제 코드(img1):\nPrivate Sub Form_Load()\n    Dim exstring\n    exstring = \"Access 2000\"\n    Mid(exstring, 3, 5) = \"Excel\"\n    Msgbox exstring\nEnd Sub\n\n각 보기는 Microsoft Access 메시지 박스 캡처이며 표시 문자열은 다음과 같다.\n① Excel\n② AcExcel2000\n③ Excless 2000\n④ Access 2000 Excel",
+      "vision_reprocessed_at": 1779274590
     },
     {
       "number": 52,
