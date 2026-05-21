@@ -1,4 +1,4 @@
-const VERSION = 'v16';
+const VERSION = 'v17';
 const SHELL = `shell-${VERSION}`;
 const DATA  = `data-${VERSION}`;
 const RT    = `runtime-${VERSION}`;
