@@ -79,8 +79,8 @@
       "explanation_detailed": "핵심 개념\n객체 생성을 서브클래스에 위임하여 인스턴스화 결정을 캡슐화하는 생성(Creational) 디자인 패턴을 묻는 문제입니다. 별칭으로 Virtual Constructor 패턴이라 불립니다.\n\n정답 분석\nFactory Method 패턴은 객체 생성을 위한 인터페이스(또는 추상 메서드)는 상위 클래스에서 정의하지만, 실제 어떤 구체 클래스를 인스턴스화할지는 이를 구현한 서브클래스가 결정하도록 위임합니다. 이 때문에 가상 생성자(Virtual-Constructor) 패턴이라고도 불리며, 문제에서 설명하는 정의와 정확히 일치합니다.\n\n오답 분석\n① Visitor 패턴은 데이터 구조와 처리 기능을 분리해 별도 클래스를 통해 각 요소를 방문·처리하는 행위 패턴입니다.\n② Observer 패턴은 한 객체의 상태 변화가 의존 객체들에게 자동으로 통지되는 구독·발행 형태의 행위 패턴입니다.\n③ Factory Method 패턴은 객체 생성 인터페이스를 정의하고 실제 인스턴스화는 서브클래스가 결정하도록 하는 생성 패턴으로 정답입니다.\n④ Bridge 패턴은 추상층과 구현부를 분리하여 두 계층이 독립적으로 확장될 수 있게 하는 구조 패턴입니다.",
       "concepts": [
         "Factory Method 패턴",
-        "객체 생성 책임의 서브클래스 위임",
-        "Virtual Constructor"
+        "객체 생성 서브클래스 위임",
+        "생성 디자인 패턴"
       ],
       "explanation_audit": {
         "score": 3,
@@ -90,7 +90,13 @@
       },
       "concept_ids": [
         "factory-method-pattern"
-      ]
+      ],
+      "concepts_pre_fix_D10": [
+        "Factory Method 패턴",
+        "객체 생성 책임의 서브클래스 위임",
+        "Virtual Constructor"
+      ],
+      "fix_D10_at": 1779355147
     },
     {
       "number": 3,

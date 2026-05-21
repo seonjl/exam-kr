@@ -5210,8 +5210,8 @@
       "explanation_detailed": "핵심 개념\nOSI 7계층 전 구간에서 패킷의 헤더뿐 아니라 페이로드(콘텐츠)까지 들여다봐 침입·유해 트래픽을 탐지하고 제어하는 심층 패킷 분석 기술을 묻는 문제이다.\n\n정답 분석\n정답은 ④ DPI(Deep Packet Inspection)이다. DPI는 패킷의 헤더 정보만 검사하는 기존 방식과 달리 페이로드 내부 콘텐츠까지 분석하여 악성코드, 해킹 시도, 비정상 트래픽을 식별한다. 이를 기반으로 네트워크 보안, 트래픽 관리, 콘텐츠 필터링 등에 활용되며, 단어 그대로 Deep(심층) + Packet(패킷) + Inspection(검사)으로 의미를 유추할 수 있다.\n\n오답 분석\n① PLCP는 802.11 MAC 부계층과 물리계층을 연결해 물리적 특성과 무관하게 동작하도록 하는 수렴 처리 절차이다.\n② Traffic Distributor는 네트워크 트래픽을 여러 경로·장비로 분배해 부하를 조절하는 솔루션이다.\n③ Packet Tree는 표준 패킷 분석 기술 명칭이 아닌 혼동을 유도하기 위한 오답 보기이다.\n④ DPI는 패킷 내부 콘텐츠까지 분석해 침입 탐지와 트래픽 제어를 수행하는 심층 패킷 검사 기술이다.",
       "concepts": [
         "DPI(Deep Packet Inspection)",
-        "패킷 페이로드 검사",
-        "OSI 7계층 심층 분석"
+        "패킷 페이로드 심층 분석",
+        "침입 탐지 및 트래픽 제어"
       ],
       "explanation_audit": {
         "score": 3,
@@ -5222,7 +5222,13 @@
       "concept_ids": [
         "dpi",
         "dpi-packet-inspection"
-      ]
+      ],
+      "concepts_pre_fix_D10": [
+        "DPI(Deep Packet Inspection)",
+        "패킷 페이로드 검사",
+        "OSI 7계층 심층 분석"
+      ],
+      "fix_D10_at": 1779355158
     },
     {
       "number": 100,

@@ -2126,15 +2126,21 @@
       "explanation_images": [],
       "explanation_detailed": "핵심 개념\nAccess 매크로 함수 중 포커스(focus) 이동과 관련된 함수를 구분하는 문제입니다. 특히 현재 데이터시트나 폼 내부의 특정 필드·컨트롤로 포커스를 이동시키는 함수가 무엇인지 묻고 있습니다.\n\n정답 분석\nGoToControl은 현재 활성화된 데이터시트나 폼에서 지정한 필드 또는 컨트롤로 포커스를 이동시키는 매크로 함수입니다. 인수로 이동할 컨트롤의 이름을 지정하면 해당 컨트롤이 포커스를 받게 되어, 사용자가 입력하거나 편집할 수 있는 상태가 됩니다. 주로 폼의 입력 순서를 제어하거나 조건에 따라 특정 컨트롤로 커서를 옮길 때 사용합니다.\n\n오답 분석\n① GoToSheet — 오답. Access 매크로 함수로 존재하지 않습니다(Excel VBA에서 시트 이동 시 사용하는 표현이며 Access 매크로 함수가 아님).\n② GoToForm — 오답. Access 매크로 함수에 존재하지 않는 명칭입니다(폼 열기는 OpenForm 함수를 사용).\n③ GoToControl — 정답. 현재 폼/데이터시트의 지정한 필드·컨트롤로 포커스를 이동시키는 매크로 함수입니다.\n④ MoveControl — 오답. 매크로 함수가 아니며, 컨트롤의 위치를 이동시키는 별도의 명령(MoveSize 등)과도 다른 존재하지 않는 함수입니다.",
       "concepts": [
-        "포커스 이동 매크로 함수",
-        "GoToControl"
+        "GoToControl 매크로 함수",
+        "폼 컨트롤 포커스 이동",
+        "Access 매크로 함수"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 635
-      }
+      },
+      "concepts_pre_fix_D10": [
+        "포커스 이동 매크로 함수",
+        "GoToControl"
+      ],
+      "fix_D10_at": 1779355167
     },
     {
       "number": 54,
