@@ -953,19 +953,26 @@
       "answer": 3,
       "explanation": ">\n\n이상기체는 정압과정에서 시스템으로 부터 받은 열을 내부에너지(U)와 외부로 일을 하는데 쓰이고\n정적과정에서 시스템으로 부터 받은 열은 내부에너지 증가로만 쓰임.\n따라서 정압비열(Cp) ＞ 정적비열(Cv) 보다 큼.\n  h = u + Pv = u + RT    ※ 여기서 h=엔탈피,  dh=엔탈피변화량\n dh = du + R×dT          ※ 여기서 R= 기체상수, dT=온도변화\n cp×dT = cv×dT + R×dT\n cp = cv + R\n cp - cv = R\n[해설작성자 : 찰강냉이]",
       "explanation_images": [],
-      "needs_vision_reprocess": true,
-      "explanation_detailed": "핵심 개념\n- 이상기체의 정압비열(Cp)과 정적비열(Cv)의 차이는 기체상수(R)와 같다는 관계를 묻는 문제\n\n정답 분석\n- 이상기체의 엔탈피 변화(dh = du + RdT)를 이용해 Cp*dT = Cv*dT + R*dT로 유도되므로 Cp - Cv = R이 성립하여 ③번이 옳다.\n\n오답 분석\n- ①: Cp/Cv = k(비열비)를 나타낸 것이나, 문제가 요구하는 Cp와 Cv의 차이 관계가 아님\n- ②: Cp > Cv가 항상 성립하므로 Cp < Cv는 틀림\n- ③: Cp - Cv = R이 정확한 관계식이므로 정답\n- ④: (이미지) Cv > Cp를 나타낸 것으로, 이상기체에서는 항상 Cp > Cv이므로 틀림",
+      "needs_vision_reprocess": false,
+      "explanation_detailed": "핵심 개념\n- 이상기체에서 정압비열과 정적비열의 차이는 기체상수 R과 같다는 Mayer 관계식을 묻는 문제이다.\n\n정답 분석\n- 이상기체의 엔탈피 정의 h = u + Pv 에서 Pv = RT 이므로 dh = du + R dT 가 된다. 여기에 dh = Cp dT, du = Cv dT 를 대입하면 Cp dT = Cv dT + R dT 가 되어 Cp - Cv = R 이 유도된다. 또한 Cp는 압력이 일정할 때 팽창에 의한 일까지 포함하므로 항상 Cv보다 크고, 그 차이가 정확히 R이다. 따라서 ③번이 정답이다.\n\n오답 분석\n- ①: 이미지의 식은 Cp = (1/2)Cv 로, Cp가 Cv보다 작다는 잘못된 관계이며 실제로는 Cp > Cv 이므로 틀리다.\n- ②: Cp < Cv 는 이상기체에서 성립하지 않으며, 항상 Cp > Cv 이므로 틀리다.\n- ③: Cp - Cv = R 은 Mayer 관계식으로 이상기체에서 항상 성립하므로 옳다.\n- ④: 이미지의 식은 Cv/Cp = k 로, 비열비 정의(k = Cp/Cv)와 분자·분모가 뒤바뀌어 있어 틀리다.",
       "concepts": [
-        "정압비열-정적비열 관계",
-        "Mayer 관계식",
-        "기체상수"
+        "Mayer 관계식 (Cp - Cv = R)",
+        "이상기체 비열비 k = Cp/Cv"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 341
-      }
+      },
+      "concepts_pre_vision": [
+        "정압비열-정적비열 관계",
+        "Mayer 관계식",
+        "기체상수"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\n- 이상기체의 정압비열(Cp)과 정적비열(Cv)의 차이는 기체상수(R)와 같다는 관계를 묻는 문제\n\n정답 분석\n- 이상기체의 엔탈피 변화(dh = du + RdT)를 이용해 Cp*dT = Cv*dT + R*dT로 유도되므로 Cp - Cv = R이 성립하여 ③번이 옳다.\n\n오답 분석\n- ①: Cp/Cv = k(비열비)를 나타낸 것이나, 문제가 요구하는 Cp와 Cv의 차이 관계가 아님\n- ②: Cp > Cv가 항상 성립하므로 Cp < Cv는 틀림\n- ③: Cp - Cv = R이 정확한 관계식이므로 정답\n- ④: (이미지) Cv > Cp를 나타낸 것으로, 이상기체에서는 항상 Cp > Cv이므로 틀림",
+      "vision_image_summary": "보기 ①의 이미지는 수식 'C_p = (1/2) C_v'로, 정압비열이 정적비열의 절반이라는 관계식을 보여준다. 보기 ④의 이미지는 수식 'C_v / C_p = k'로, 정적비열을 정압비열로 나눈 값이 비열비 k라는 관계식을 보여준다(실제 비열비 정의 k = C_p/C_v 와 분자·분모가 뒤바뀐 형태).",
+      "vision_reprocessed_at": 1779331019
     },
     {
       "number": 25,

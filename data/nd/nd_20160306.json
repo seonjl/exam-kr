@@ -1162,19 +1162,27 @@
       "answer": 2,
       "explanation": "",
       "explanation_images": [],
-      "needs_vision_reprocess": true,
-      "explanation_detailed": "핵심 개념\n- 정지한 곡면 깃에 유체가 충돌할 때 유동 방향 변화에 따른 힘의 성분을 운동량 보존 법칙을 이용해 구하는 문제\n\n정답 분석\n- 정답은 ②번으로, |Fy|/|Fx| = cot(θ/2)이다. 유체의 x축 방향 초기 운동량 flux는 ρAV², y축은 0이다. 깃을 떠날 때 x축 방향 운동량 flux는 ρAV²cosθ, y축은 ρAV²sinθ이다. 따라서 Fx = ρAV²(1 - cosθ), Fy = ρAV²sinθ이므로 비율은 sinθ/(1 - cosθ)이며, 이는 cot(θ/2)로 표현된다.\n\n오답 분석\n- ① : tanθ로 잘못 표현되었으며, 정확한 비율이 아니다.\n- ② : 정답으로 cot(θ/2)가 맞다.\n- ③ : sinθ/cosθ(=tanθ)로 잘못 표현되었다.\n- ④ : cosθ/sinθ(=cotθ)로 잘못 표현되었다.",
+      "needs_vision_reprocess": false,
+      "explanation_detailed": "핵심 개념\n정지한 곡면 깃에 부딪힌 유체의 운동량 변화로부터 x, y 방향 반력 성분을 구하고 그 비를 삼각함수로 표현한다.\n\n정답 분석\n그림에서 입구 속도는 +x 방향 V, 출구 속도는 수평과 θ를 이루어 (Vcosθ, Vsinθ)로 빠져나간다. 단면적 A가 일정하므로 질량유량은 ρAV로 보존된다. 운동량 방정식에서 깃이 유체에 가하는 힘의 크기는 |Fx|=ρAV²(1−cosθ), |Fy|=ρAV²sinθ이고, 반작용으로 유체가 깃에 가하는 힘도 같은 크기이다. 따라서 |Fy|/|Fx|=sinθ/(1−cosθ)=cot(θ/2)이며, 이는 보기 ②와 일치한다.\n\n오답 분석\n① (1−cosθ)/sinθ는 |Fx|/|Fy|로 분자·분모가 뒤바뀐 형태이다.\n② sinθ/(1−cosθ)=cot(θ/2)로 운동량 해석과 정확히 일치한다.\n③ (1−sinθ)/cosθ는 출구 속도 성분 분해를 잘못하여 1에서 sinθ를 뺀 형태로, 운동량 변화식과 맞지 않다.\n④ cosθ/(1−sinθ) 역시 sin과 cos를 혼동한 식으로 곡면 깃 운동량 해석 결과와 다르다.",
       "concepts": [
-        "운동량 보존",
-        "유체력 성분",
-        "삼각함수 관계"
+        "곡면 깃에 대한 운동량 방정식",
+        "반각 공식 cot(θ/2)",
+        "제트 충돌 반력 성분비"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 420
-      }
+      },
+      "concepts_pre_vision": [
+        "운동량 보존",
+        "유체력 성분",
+        "삼각함수 관계"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\n- 정지한 곡면 깃에 유체가 충돌할 때 유동 방향 변화에 따른 힘의 성분을 운동량 보존 법칙을 이용해 구하는 문제\n\n정답 분석\n- 정답은 ②번으로, |Fy|/|Fx| = cot(θ/2)이다. 유체의 x축 방향 초기 운동량 flux는 ρAV², y축은 0이다. 깃을 떠날 때 x축 방향 운동량 flux는 ρAV²cosθ, y축은 ρAV²sinθ이다. 따라서 Fx = ρAV²(1 - cosθ), Fy = ρAV²sinθ이므로 비율은 sinθ/(1 - cosθ)이며, 이는 cot(θ/2)로 표현된다.\n\n오답 분석\n- ① : tanθ로 잘못 표현되었으며, 정확한 비율이 아니다.\n- ② : 정답으로 cot(θ/2)가 맞다.\n- ③ : sinθ/cosθ(=tanθ)로 잘못 표현되었다.\n- ④ : cosθ/sinθ(=cotθ)로 잘못 표현되었다.",
+      "vision_image_summary": "문제 그림(img1): 수평으로 속도 V의 유체 제트가 왼쪽에서 오른쪽으로 진입하여 곡면 깃(검은색 곡선 블레이드)에 부딪힌 뒤, 위쪽 방향으로 휘어져 나간다. 출구 속도 벡터 V는 수평선과 각도 θ를 이루며 빠져나가고, 좌표축은 오른쪽이 +x, 위쪽이 +y로 표시되어 있다. 유동 단면적은 일정하고 0°<θ<90°이다.\n\n보기 이미지:\n① $\\dfrac{1-\\cos\\theta}{\\sin\\theta}$\n② $\\dfrac{\\sin\\theta}{1-\\cos\\theta}$\n③ $\\dfrac{1-\\sin\\theta}{\\cos\\theta}$\n④ $\\dfrac{\\cos\\theta}{1-\\sin\\theta}$",
+      "vision_reprocessed_at": 1779330767
     },
     {
       "number": 30,

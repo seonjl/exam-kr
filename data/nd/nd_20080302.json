@@ -785,19 +785,26 @@
       "answer": 4,
       "explanation": "",
       "explanation_images": [],
-      "needs_vision_reprocess": true,
-      "explanation_detailed": "핵심 개념\n- 원형 파이프 내 층류 흐름의 유속 분포는 포물선 형태를 따르며, 중심에서 최대이고 벽면에서 0이 된다.\n\n정답 분석\n- 정답 4번은 U/Umax = 1 - (r/R)^2 식으로, 층류의 포물선 유속 분포를 정확히 표현한다. r=0(중심)일 때 U/Umax=1(최대속도), r=R(벽면)일 때 U/Umax=0이 된다.\n\n오답 분석\n- ① U/Umax = (r/R)^2 : 중심(r=0)에서 유속이 0이 되므로 틀렸다.\n- ② U/Umax = 2(1 - (r/R)^2) : 중심에서 유속이 최대속도의 2배가 되므로 틀렸다.\n- ③ U/Umax = 1 - r/R : 선형 분포로 층류의 포물선 분포가 아니다.\n- ④ U/Umax = 1 - (r/R)^2 : 정답이다.",
+      "needs_vision_reprocess": false,
+      "explanation_detailed": "핵심 개념\n- 원형 관내 층류(하겐-푸아죄유 흐름)의 유속은 반지름 방향으로 포물선 분포를 가지며, 중심(R=0)에서 최대, 벽면(R=Ro)에서 0이다.\n\n정답 분석\n- 이미지 ④의 식 U/Umax = 1 − (R/Ro)^2 은 포물선 분포를 정확히 표현한다.\n- R=0(중심)을 대입하면 U/Umax = 1 이 되어 최대속도와 일치하고, R=Ro(벽면)를 대입하면 U/Umax = 0 이 되어 점착(no-slip) 경계조건을 만족한다.\n- 나머지 보기는 이 두 가지 경계조건 중 하나 이상을 위배한다.\n\n오답 분석\n- ① U/Umax = (R/Ro)^2 : 중심(R=0)에서 0이 되어 최대속도 조건과 반대이므로 틀림.\n- ② U/Umax = 2(R/Ro)^2 : 중심에서 0, 벽면에서 2가 되어 두 경계조건 모두 위배.\n- ③ U/Umax = (R/Ro)^2 − 2 : 중심에서 −2, 벽면에서 −1로 물리적으로 불가능.\n- ④ U/Umax = 1 − (R/Ro)^2 : 중심 최대·벽면 0의 포물선 분포로 정답.",
       "concepts": [
-        "층류 유속 분포",
-        "원형 파이프 내 유속 비",
-        "포물선 유속 프로파일"
+        "하겐-푸아죄유 층류 포물선 유속 분포",
+        "중심 최대속도와 벽면 무유속 경계조건"
       ],
       "explanation_audit": {
         "score": 3,
         "missing": "",
         "improved": false,
         "prev_chars": 378
-      }
+      },
+      "concepts_pre_vision": [
+        "층류 유속 분포",
+        "원형 파이프 내 유속 비",
+        "포물선 유속 프로파일"
+      ],
+      "explanation_detailed_pre_vision": "핵심 개념\n- 원형 파이프 내 층류 흐름의 유속 분포는 포물선 형태를 따르며, 중심에서 최대이고 벽면에서 0이 된다.\n\n정답 분석\n- 정답 4번은 U/Umax = 1 - (r/R)^2 식으로, 층류의 포물선 유속 분포를 정확히 표현한다. r=0(중심)일 때 U/Umax=1(최대속도), r=R(벽면)일 때 U/Umax=0이 된다.\n\n오답 분석\n- ① U/Umax = (r/R)^2 : 중심(r=0)에서 유속이 0이 되므로 틀렸다.\n- ② U/Umax = 2(1 - (r/R)^2) : 중심에서 유속이 최대속도의 2배가 되므로 틀렸다.\n- ③ U/Umax = 1 - r/R : 선형 분포로 층류의 포물선 분포가 아니다.\n- ④ U/Umax = 1 - (r/R)^2 : 정답이다.",
+      "vision_image_summary": "보기는 모두 원형 파이프 층류 유속 분포식이며, 파이프 반지름을 Ro, 중심으로부터의 거리를 R이라 할 때 U/Umax 비를 나타낸다.\n- ① $\\dfrac{U}{U_{max}} = \\left(\\dfrac{R}{R_o}\\right)^2$\n- ② $\\dfrac{U}{U_{max}} = 2\\left(\\dfrac{R}{R_o}\\right)^2$\n- ③ $\\dfrac{U}{U_{max}} = \\left(\\dfrac{R}{R_o}\\right)^2 - 2$\n- ④ $\\dfrac{U}{U_{max}} = 1 - \\left(\\dfrac{R}{R_o}\\right)^2$",
+      "vision_reprocessed_at": 1779329823
     },
     {
       "number": 22,
