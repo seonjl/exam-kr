@@ -67,7 +67,7 @@ def call_claude(prompt: str, *, timeout: int = 300, retries: int = 3) -> str:
         if attempt:
             time.sleep(2 + 2 * attempt)
         r = subprocess.run(
-            ["claude", "-p", prompt],
+            ["claude", "--model", "sonnet", "--fallback-model", "haiku", "-p", prompt],
             capture_output=True, text=True, timeout=timeout,
         )
         if r.returncode != 0:

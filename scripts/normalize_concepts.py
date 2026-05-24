@@ -131,13 +131,13 @@ def parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
-def call_claude(prompt: str, *, timeout: int = 1800,
+def call_claude(prompt: str, *, timeout: int = 3600,
                 max_retries: int = 3) -> str:
     last_err: Exception | None = None
     for attempt in range(1, max_retries + 1):
         try:
             r = subprocess.run(
-                ["claude", "-p", prompt],
+                ["claude", "--model", "sonnet", "--fallback-model", "haiku", "-p", prompt],
                 capture_output=True, text=True, timeout=timeout,
             )
             if r.returncode != 0:

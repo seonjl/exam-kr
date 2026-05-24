@@ -187,17 +187,17 @@ def normalize_record(rec: dict) -> dict:
     }
 
 
-BATCH_SIZE = 5   # 한 번의 claude -p 호출에 묶는 question 수
+BATCH_SIZE = 3   # 한 번의 claude -p 호출에 묶는 question 수 (Sonnet 5분 timeout 회피)
 
 
-def call_claude(prompt: str, *, timeout: int = 300, retries: int = 3) -> str:
+def call_claude(prompt: str, *, timeout: int = 900, retries: int = 3) -> str:
     import time as _time
     last_err = ""
     for attempt in range(retries):
         if attempt:
             _time.sleep(2 + 2 * attempt)
         r = subprocess.run(
-            ["claude", "-p", prompt],
+            ["claude", "--model", "sonnet", "--fallback-model", "haiku", "-p", prompt],
             capture_output=True, text=True, timeout=timeout,
         )
         if r.returncode != 0:
