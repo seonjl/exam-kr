@@ -208,7 +208,7 @@ def normalize_body(rec: dict) -> dict:
 
 def call_claude(prompt: str, *, timeout: int = CLAUDE_TIMEOUT) -> str:
     r = subprocess.run(
-        ["claude", "-p", prompt],
+        ["claude", "--model", "haiku", "-p", prompt],
         capture_output=True, text=True, timeout=timeout,
     )
     if r.returncode != 0:
