@@ -61,7 +61,11 @@
       ],
       "vision_image_summary": "보기에 표시된 이미지들의 실제 내용은 다음과 같다.\n\n| 보기 | 전계의 크기 [V/m] | 단위벡터 |\n|---|---|---|\n| ① | $\\dfrac{36}{25}$ | $\\dfrac{1}{5}(3a_x+4a_y)$ |\n| ② | $\\dfrac{36}{125}$ | $3a_x+4a_y$ |\n| ③ | $\\dfrac{36}{25}$ | $a_x+a_y$ |\n| ④ | $\\dfrac{36}{125}$ | $\\dfrac{1}{5}(a_x+a_y)$ |\n\n즉, 보기 ①은 전계의 크기 36/25 V/m과 단위벡터 (1/5)(3a_x+4a_y)로 구성된 정답 조합이며, 나머지 보기는 크기(36/125) 또는 단위벡터 표기(정규화 누락·비율 오류)에서 오류가 있다.",
       "explanation_detailed_pre_vision": "핵심 개념  \n- 점전하에 의한 진공 중 전계 세기 및 방향 계산, 거리 벡터와 단위벡터의 관계\n\n정답 분석  \n- 전하 위치 (3,0,0)와 관측점 (6,4,0)의 상대 위치는 (3,4,0)이며, 거리는 피타고라스 정리로 √(3²+4²)=5m이다. 전계 크기는 9×10⁹×4×10⁻⁹/5²=36/25 V/m이며, 단위벡터는 거리 벡터(3aₓ+4aᵧ)를 거리 5로 나눈 (3/5)aₓ+(4/5)aᵧ이다.\n\n오답 분석  \n- ① 정답: 전계 크기 36/25 V/m, 단위벡터 (3/5)aₓ+(4/5)aᵧ  \n- ② 오답: 단위벡터가 거리 벡터 그대로(3aₓ+4aᵧ)로 표기되어 정규화 누락  \n- ③ 오답: 단위벡터가 aₓ+aᵧ로 거리 비율(3:4)을 반영하지 않음  \n- ④ 오답: 단위벡터가 완전히 생략됨",
-      "vision_reprocessed_at": 1779329085
+      "vision_reprocessed_at": 1779329085,
+      "concept_ids": [
+        "point-charge-field-potential",
+        "vector-normalization"
+      ]
     },
     {
       "number": 2,
@@ -116,7 +120,11 @@
       ],
       "vision_image_summary": "각 보기는 무손실 전송선로의 특성 임피던스 Z₀를 나타내는 수식 이미지이다.\n\n| 보기 | 수식 |\n|------|------|\n| ① | Z₀ = √(C/L) |\n| ② | Z₀ = √(L/C) |\n| ③ | Z₀ = 1/√(LC) |\n| ④ | Z₀ = √(LC) |\n\n여기서 L은 단위 길이당 인덕턴스[H/m], C는 단위 길이당 정전용량[F/m]을 의미한다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 무손실 전송회로의 특성 임피던스는 단위 길이당 인덕턴스와 정전용량의 비에 대한 제곱근으로 표현되며, 전파의 전압 대 전류 비율을 나타냄.\n\n정답 분석\n- 정답 보기 ②는 Z₀ = √(L/C)로, 무손실 선로의 기본 특성 임피던스 공식을 정확히 표현함. 이는 텔레그라퍼 방정식에서 유도되며, 반사 없는 전송을 위한 핵심 파라미터임.\n\n오답 분석\n- ①: 특성 임피던스가 √(C/L)로 표기되어 있어 L과 C의 위치가 바뀌어 틀림.\n- ②: (정답) √(L/C) 공식이 올바르게 제시됨.\n- ③: 일반 임피던스 형태 R + jωL로 표기되어 있어 무손실 조건에 맞지 않음.\n- ④: 허수부만으로 구성된 공식이어서 무손실 선로의 실수 특성 임피던스 개념에 어긋남.",
-      "vision_reprocessed_at": 1779329067
+      "vision_reprocessed_at": 1779329067,
+      "concept_ids": [
+        "lossless-transmission-line-impedance",
+        "per-unit-length-line-parameters"
+      ]
     },
     {
       "number": 3,
@@ -171,7 +179,11 @@
       ],
       "vision_image_summary": "네 보기는 결합계수를 표현한 분수 형태의 수식이다.\n\n① $\\dfrac{M}{\\sqrt{L_1 L_2}}$ — 분자는 상호인덕턴스 M, 분모는 두 자기인덕턴스의 곱의 제곱근 √(L₁L₂)\n\n② $\\dfrac{M}{L_1 L_2}$ — 분자는 M, 분모는 제곱근 없이 L₁L₂\n\n③ $\\dfrac{\\sqrt{L_1 L_2}}{M}$ — 분자가 √(L₁L₂), 분모가 M (①의 역수)\n\n④ $\\dfrac{L_1 L_2}{M}$ — 분자가 L₁L₂, 분모가 M (②의 역수, 제곱근 없음)",
       "explanation_detailed_pre_vision": "핵심 개념\n- 결합계수는 두 코일의 자기적 결합 정도를 나타내며, 상호인덕턴스와 자기인덕턴스의 관계식으로 정의된다.\n\n정답 분석\n- 정답 ①은 결합계수 공식 \\( K = \\frac{M}{\\sqrt{L_1 L_2}} \\)을 정확히 표현하였다. 이는 상호인덕턴스(M)가 두 자기인덕턴스(L1, L2)의 기하평균에 대한 비율로 정의됨을 보여주며, 코일 간 결합 정도를 수치화한 표준식이다.\n\n오답 분석\n- ①: 정답\n- ②: 분모에 L1L2의 제곱근을 누락하여 오답\n- ③: 분자와 분모가 반대로 기술되어 오답\n- ④: 상호인덕턴스(M)와 제곱근을 곱셈으로 표현하여 오답",
-      "vision_reprocessed_at": 1779329090
+      "vision_reprocessed_at": 1779329090,
+      "concept_ids": [
+        "coupling-coefficient",
+        "mutual-inductance"
+      ]
     },
     {
       "number": 4,
@@ -226,7 +238,12 @@
       ],
       "vision_image_summary": "보기 ②는 분수 P/377 (즉 P를 377로 나눈 값)이다. 보기 ③은 루트 안에 P/377이 들어간 형태로, √(P/377)이다. 보기 ④는 루트 안에 377P가 들어간 형태로, √(377P)이다. 보기 ①은 이미지 없이 텍스트로 377P이다. 따라서 네 보기를 정리하면 ① 377P, ② P/377, ③ √(P/377), ④ √(377P)이며, 자유공간 고유 임피던스 η₀ = 377 Ω을 이용한 전계 세기 계산식의 후보들이다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 태양 방사열은 전자기파이며, 전자기파의 전계 강도는 복사 강도(단위면적당 전력)와 자유공간 임피던스의 관계로부터 결정됩니다.\n\n정답 분석\n- 전자기파의 평균 포인팅 벡터 크기(전력 밀도)는 \\( P = \\frac{E^2}{\\eta_0} \\) (단, \\( \\eta_0 = 377 \\, \\Omega \\))입니다. 이를 변형하면 \\( E = \\sqrt{\\eta_0 P} = \\sqrt{377P} \\)이므로, 옵션 ④는 이 관계를 올바르게 표현한 것입니다.\n\n오답 분석\n- ① 377P: \\( E = \\eta_0 P \\)로, 차원(단위)이 맞지 않는 잘못된 관계식입니다.\n- ② [이미지]: 포인팅 벡터 기본 공식 \\( P = \\frac{E^2}{\\eta_0} \\)을 그대로 나타낸 것이므로, 전계 강도 \\( E \\)가 아닌 전력 밀도 \\( P \\)를 구하는 식입니다.\n- ③ [이미지]: \\( E = P \\eta_0 \\)로서, ①과 동일한 오류를 가집니다.\n- ④ [이미지]: \\( E = \\sqrt{\\eta_0 P} \\)로 정확한 관계식을 표현하였으므로 정답입니다.",
-      "vision_reprocessed_at": 1779329107
+      "vision_reprocessed_at": 1779329107,
+      "concept_ids": [
+        "poynting-vector",
+        "free-space-intrinsic-impedance",
+        "em-wave-energy-poynting"
+      ]
     },
     {
       "number": 5,
@@ -277,7 +294,11 @@
       ],
       "vision_image_summary": "보기 ①은 수식 y = A/x (반비례 곡선, 쌍곡선 형태)이고, 보기 ④는 수식 1/x - 1/y = A 입니다. 보기 ②는 y = Ax (원점을 지나는 직선), 보기 ③은 y = Ax² (원점을 지나는 포물선)입니다. 즉 네 보기는 모두 임의 상수 A를 포함한 곡선/직선의 방정식 형태로 제시되어 있습니다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 전위 함수로부터 전계를 구하고, 이를 이용해 전기력선 방정식을 유도하는 과정\n\n정답 분석\n- 전위 V=x²+y²에 대해 전계 E = -∇V = (-2x, -2y)로 구합니다.\n- 전기력선은 dy/dx = Ey/Ex = (-2y)/(-2x) = y/x를 만족하며, 이를 적분하면 y = Ax가 도출되어 정답입니다.\n\n오답 분석\n- ①: 이미지 참조 - 전기력선은 원점을 지나는 직선이므로 틀렸습니다.\n- ②: 정답입니다.\n- ③: y=Ax²는 포물선 형태로, y/x 비례 관계를 만족하지 않아 틀렸습니다.\n- ④: 이미지 참조 - 전기력선은 곡선이 아닌 직선이므로 틀렸습니다.",
-      "vision_reprocessed_at": 1779329108
+      "vision_reprocessed_at": 1779329108,
+      "concept_ids": [
+        "potential-field-gradient",
+        "electric-field-line-equation"
+      ]
     },
     {
       "number": 6,
@@ -319,7 +340,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 409
-      }
+      },
+      "concept_ids": [
+        "amperes-circuital-law",
+        "coaxial-conductor-magnetic-field",
+        "magnetic-field-distance-dependence"
+      ]
     },
     {
       "number": 7,
@@ -359,7 +385,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 371
-      }
+      },
+      "concept_ids": [
+        "charged-conductor",
+        "curvature-electric-field-relation",
+        "surface-charge-density"
+      ]
     },
     {
       "number": 8,
@@ -416,7 +447,12 @@
       ],
       "vision_image_summary": "보기 ①: E = λ/(2π ε₀ r)\n보기 ②: E = λ/(4π ε₀ r)\n보기 ③: E = (λ/(π ε₀)) · log(1/r)\n보기 ④: E = λ/(4π ε₀ r²)\n네 보기 모두 진공 중 무한히 긴 선전하 주위 전계의 세기를 나타내는 후보 수식이며, 분모의 계수(2π, 4π, π), 거리 의존성(r, r², log(1/r))이 서로 다르게 제시되어 있다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 무한히 긴 직선 도선 주변의 전계는 가우스 법칙을 적용하여 유도하며, 축대칭성을 활용한다.\n\n정답 분석\n- 정답 ①은 가우스 법칙을 적용하여 유도된 공식 E = λ/(2πε₀r)을 정확히 표현하였다. 이는 도선을 중심으로 한 원통형 가우스 면을 고려할 때, 선전하 밀도 λ와 거리 r에 대한 전계 세기이다.\n\n오답 분석\n- ① 정답\n- ② 오답: 1/r² 형태의 점전하 전계 공식을 잘못 적용하였다.\n- ③ 오답: 분모에 2π가 누락되어 전계 값이 과대평가되었다.\n- ④ 오답: 진공의 유전율 ε₀ 대신 일반 유전율 ε를 사용하였다.",
-      "vision_reprocessed_at": 1779329130
+      "vision_reprocessed_at": 1779329130,
+      "concept_ids": [
+        "infinite-line-charge-electric-field",
+        "cylindrical-gauss-law",
+        "electric-field-distance-dependence"
+      ]
     },
     {
       "number": 9,
@@ -456,7 +492,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 427
-      }
+      },
+      "concept_ids": [
+        "magnetic-field",
+        "current-integral-calculation",
+        "area-element-vector"
+      ]
     },
     {
       "number": 10,
@@ -496,7 +537,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 342
-      }
+      },
+      "concept_ids": [
+        "magnetic-vector-potential",
+        "field-variation-with-distance",
+        "charge-current-sources"
+      ]
     },
     {
       "number": 11,
@@ -545,6 +591,11 @@
         "커패시터 직병렬 합성",
         "전압 분배 법칙",
         "커패시터 축적 에너지 (1/2)CV²"
+      ],
+      "concept_ids": [
+        "capacitor-series-parallel",
+        "voltage-divider-law",
+        "capacitance-capacitor"
       ]
     },
     {
@@ -587,7 +638,12 @@
         "missing": "병렬 합성 자기저항 도출 과정(1/RT = 1/R₁ + 1/R₂ → 퍼미언스 합의 역수)이 생략되어 있고, 오답 원인 설명이 구체적이지 않음.",
         "improved": true,
         "prev_chars": 309
-      }
+      },
+      "concept_ids": [
+        "parallel-magnetic-circuit",
+        "magnetic-reluctance",
+        "reluctance-permeance"
+      ]
     },
     {
       "number": 13,
@@ -627,7 +683,12 @@
         "missing": "주기 공식의 물리적 유도 근거(로렌츠 힘 = 구심력)가 없으며, 오답 ①②④의 구체적 계산 오류 경로가 불명확함.",
         "improved": true,
         "prev_chars": 435
-      }
+      },
+      "concept_ids": [
+        "charged-particle-motion",
+        "lorentz-centripetal-force",
+        "specific-charge-flux"
+      ]
     },
     {
       "number": 14,
@@ -667,6 +728,9 @@
       "concepts": [
         "평행 도체판 단위면적당 저항",
         "저항률과 도체 길이의 관계"
+      ],
+      "concept_ids": [
+        "resistivity-conductivity"
       ]
     },
     {
@@ -706,7 +770,11 @@
         "missing": "전자력이 r에 반비례하는 물리적 유도 근거(B∝1/r → F/L∝1/r)가 없고, 공식 F = 2I₁I₂/r이 단위·상수가 누락된 불완전한 표현이며, 오답 원인이 단순 반복에 그침.",
         "improved": true,
         "prev_chars": 282
-      }
+      },
+      "concept_ids": [
+        "parallel-conductor-magnetic-force",
+        "straight-conductor-magnetic-field"
+      ]
     },
     {
       "number": 16,
@@ -746,7 +814,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 474
-      }
+      },
+      "concept_ids": [
+        "magnetization",
+        "magnetic-field-intensity",
+        "b-field-h-field-relation"
+      ]
     },
     {
       "number": 17,
@@ -788,7 +861,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 405
-      }
+      },
+      "concept_ids": [
+        "electric-field-boundary-condition",
+        "boundary-condition-field-components",
+        "boundary-conditions"
+      ]
     },
     {
       "number": 18,
@@ -828,7 +906,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 414
-      }
+      },
+      "concept_ids": [
+        "dielectric-energy-density",
+        "electric-flux-density",
+        "energy-density"
+      ]
     },
     {
       "number": 19,
@@ -868,7 +951,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 391
-      }
+      },
+      "concept_ids": [
+        "magnetic-dipole",
+        "magnetic-moment",
+        "torque-magnetic-field"
+      ]
     },
     {
       "number": 20,
@@ -908,7 +996,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 325
-      }
+      },
+      "concept_ids": [
+        "eddy-current-direction",
+        "lenz-law",
+        "eddy-current-loss"
+      ]
     },
     {
       "number": 21,
@@ -950,7 +1043,12 @@
         "prev_chars": 259
       },
       "explanation_detailed_pre_fix_D03": "핵심 개념\n- 표피효과는 도체 내 교류 전류가 표면으로 집중되는 현상으로, 주파수가 높아질수록 표피깊이가 얕아져 효과가 증폭된다.\n\n정답 분석\n- 주파수 증가 시 와전류에 의한 표피깊이 감소(δ∝1/√f)로 전류 집중도가 높아져 표피효과가 커지므로 주파수에 비례한다. 따라서 ②가 옳다.\n\n오답 분석\n- ①: 단면적 증가는 절대적 효과 크기를 증대시키나, '반비례' 관계는 성립하지 않는다.\n- ②: 정답임.\n- ③: 전압은 표피효과 발생 메커니즘과 무관한 요소이다.\n- ④: 도전률(σ) 증가는 표피깊이(δ∝1/√σ)를 감소시켜 효과를 증폭시키므로 반비례가 아니다.",
-      "fix_D03_at": 1779358872
+      "fix_D03_at": 1779358872,
+      "concept_ids": [
+        "skin-effect",
+        "frequency-dependence",
+        "conductivity-effect"
+      ]
     },
     {
       "number": 22,
@@ -990,7 +1088,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 410
-      }
+      },
+      "concept_ids": [
+        "pressure-load-regulation",
+        "peak-load-response",
+        "hydroelectric-flow-management"
+      ]
     },
     {
       "number": 23,
@@ -1030,7 +1133,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 273
-      }
+      },
+      "concept_ids": [
+        "loop-distribution-system",
+        "voltage-drop",
+        "reliability-improvement"
+      ]
     },
     {
       "number": 24,
@@ -1070,7 +1178,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 419
-      }
+      },
+      "concept_ids": [
+        "lightning-arrester-series-gap",
+        "overvoltage-protection",
+        "inrush-current-suppression"
+      ]
     },
     {
       "number": 25,
@@ -1112,7 +1225,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 467
-      }
+      },
+      "concept_ids": [
+        "load-factor-calculation",
+        "part-load-curve",
+        "average-and-maximum-load"
+      ]
     },
     {
       "number": 26,
@@ -1169,7 +1287,12 @@
       ],
       "vision_image_summary": "네 개의 보기는 모두 종축이 절대온도 T, 횡축이 엔트로피 S인 T-S 선도이다.\n\n- ①: 원점 부근에서 시작하여 오른쪽으로 갈수록 위로 급격히 휘어 올라가는 우상향 지수형 곡선. 온도와 엔트로피가 동시에 증가하는 형태(등압 가열 과정에 해당).\n- ②: 좌측 상단의 높은 온도에서 시작하여 오른쪽으로 갈수록 아래로 내려가는 우하향 곡선. 엔트로피는 증가하고 온도는 감소하는 형태(등엔탈피/팽창 과정 형태).\n- ③: 종축에서 어느 일정한 높이(온도)에 위치한 수평선. 온도 T는 일정하고 엔트로피 S만 증가하는 형태(등온 변화).\n- ④: 횡축의 어느 한 지점(엔트로피 값 일정)에서 위로 곧게 뻗은 수직선. 엔트로피 S는 일정하고 온도 T만 변화하는 형태(단열·등엔트로피 변화).",
       "explanation_detailed_pre_vision": "핵심 개념\n- T-S 선도에서 단열변화는 엔트로피가 일정하므로 수직선으로 나타납니다.\n\n정답 분석\n- 4번 선도는 종축(온도)을 따라 수직선으로 표시되어 있습니다. 이는 엔트로피(S)가 변하지 않는 등엔트로피 과정, 즉 단열변화를 정확히 나타냅니다.\n\n오답 분석\n- ①: 오답, 등압 가열 과정으로 엔트로피가 증가하는 우상향 곡선입니다.\n- ②: 오답, 등온 가열 과정으로 엔트로피만 증가하는 수평선입니다.\n- ③: 오답, 등온 등압 과정으로 엔트로피만 증가하는 수평선입니다.\n- ④: 정답, 단열변화를 나타내는 수직선입니다.",
-      "vision_reprocessed_at": 1779329163
+      "vision_reprocessed_at": 1779329163,
+      "concept_ids": [
+        "temperature-entropy-diagram",
+        "thermodynamic-processes",
+        "thermodynamic-process"
+      ]
     },
     {
       "number": 27,
@@ -1209,7 +1332,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 354
-      }
+      },
+      "concept_ids": [
+        "bundled-conductor-equivalent-inductance",
+        "bundled-conductor-equivalent-capacitance",
+        "magnetic-phenomenon"
+      ]
     },
     {
       "number": 28,
@@ -1249,7 +1377,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 338
-      }
+      },
+      "concept_ids": [
+        "pressurized-water-reactor",
+        "nuclear-moderator",
+        "light-water-coolant"
+      ]
     },
     {
       "number": 29,
@@ -1289,7 +1422,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 310
-      }
+      },
+      "concept_ids": [
+        "distribution-line-components",
+        "single-conductor-design",
+        "metal-enclosure-isolation"
+      ]
     },
     {
       "number": 30,
@@ -1329,7 +1467,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 351
-      }
+      },
+      "concept_ids": [
+        "grounding",
+        "neutral-impedance",
+        "single-phase-ground-fault"
+      ]
     },
     {
       "number": 31,
@@ -1369,7 +1512,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 507
-      }
+      },
+      "concept_ids": [
+        "circuit-breaker-capacity",
+        "equivalent-impedance",
+        "base-capacity"
+      ]
     },
     {
       "number": 32,
@@ -1409,7 +1557,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 402
-      }
+      },
+      "concept_ids": [
+        "power-communication-line-interference",
+        "fault-analysis",
+        "directional-comparison-method"
+      ]
     },
     {
       "number": 33,
@@ -1449,7 +1602,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 440
-      }
+      },
+      "concept_ids": [
+        "four-terminal-network",
+        "electromagnetic-formula",
+        "long-distance-transmission-line"
+      ]
     },
     {
       "number": 34,
@@ -1489,7 +1647,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 342
-      }
+      },
+      "concept_ids": [
+        "gas-insulated-switchgear",
+        "measuring-transformer",
+        "gas-insulated-equipment"
+      ]
     },
     {
       "number": 35,
@@ -1529,7 +1692,12 @@
         "missing": "전선 길이 계산 공식의 근거와 오답 발생 이유에 대한 구체적 설명",
         "improved": true,
         "prev_chars": 360
-      }
+      },
+      "concept_ids": [
+        "conductor-length",
+        "overhead-line-span-sag",
+        "parabola-formula"
+      ]
     },
     {
       "number": 36,
@@ -1569,7 +1737,12 @@
         "missing": "동작 특성 기울기(비율)의 명확한 정의",
         "improved": true,
         "prev_chars": 502
-      }
+      },
+      "concept_ids": [
+        "percentage-differential-relay",
+        "protection-coordination",
+        "internal-fault-detection"
+      ]
     },
     {
       "number": 37,
@@ -1608,7 +1781,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 361
-      }
+      },
+      "concept_ids": [
+        "definite-time-relay",
+        "relay-operation-characteristics"
+      ]
     },
     {
       "number": 38,
@@ -1648,7 +1825,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 318
-      }
+      },
+      "concept_ids": [
+        "per-phase-power-impedance",
+        "ground-capacitance",
+        "line-to-line-charging-capacitance"
+      ]
     },
     {
       "number": 39,
@@ -1687,7 +1869,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 538
-      }
+      },
+      "concept_ids": [
+        "transient-stability-limit",
+        "transmission-system-stability"
+      ]
     },
     {
       "number": 40,
@@ -1726,7 +1912,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 424
-      }
+      },
+      "concept_ids": [
+        "line-switch",
+        "load-current-interruption"
+      ]
     },
     {
       "number": 41,
@@ -1766,7 +1956,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 532
-      }
+      },
+      "concept_ids": [
+        "zener-diode",
+        "constant-voltage-operation",
+        "voltage-regulation"
+      ]
     },
     {
       "number": 42,
@@ -1820,7 +2015,11 @@
       ],
       "vision_image_summary": "보기 ①은 분수 형태로 분자가 1, 분모가 (단락비)^2 인 수식: 1/(단락비)^2.\n보기 ②는 '단락비 = 동기임피던스[Ω] / 동기각속도' 형태의 분수 수식.\n보기 ③은 '단락비 = 1 / 동기임피던스[p.u]' 형태의 분수 수식. 즉 단락비는 퍼유닛 동기임피던스의 역수임을 나타냄.\n보기 ④는 '동기임피던스[p.u] = 단락비'로 두 양을 같다고 표기.\n\n| 보기 | 내용 |\n|---|---|\n| ① | $\\dfrac{1}{(단락비)^2}$ |\n| ② | $단락비 = \\dfrac{동기임피던스[\\Omega]}{동기각속도}$ |\n| ③ | $단락비 = \\dfrac{1}{동기임피던스[\\text{p.u}]}$ |\n| ④ | $동기임피던스[\\text{p.u}] = 단락비$ |",
       "explanation_detailed_pre_vision": "핵심 개념\n- 동기기에서 단락비는 동기 임피던스의 퍼유닛(pu) 값의 역수라는 관계를 묻는 문제.\n\n정답 분석\n- 정답 ③번은 단락비가 동기 임피던스의 퍼유닛(pu) 값의 역수임을 정확히 표현한 공식입니다. 즉, 단락비 = 1 / Z_s(pu) 관계가 성립하며, 이는 동기기의 전압 조정 특성과 안정성 분석에 핵심적으로 사용되는 기본 공식입니다.\n\n오답 분석\n- ① 불완전한 공식으로 동기임피던스[Ω]만 명시되어 관계식이 명확하지 않음.\n- ② 이미지 형식으로 표시된 공식으로, 내용을 확인할 수 없어 오답.\n- ③ 정답으로 올바른 관계식 제시.\n- ④ 동기임피던스[p.u]=단락비로 표기하여 관계가 반대로 잘못 기술됨.",
-      "vision_reprocessed_at": 1779329179
+      "vision_reprocessed_at": 1779329179,
+      "concept_ids": [
+        "short-circuit-ratio",
+        "synchronous-machine-short-circuit-ratio"
+      ]
     },
     {
       "number": 43,
@@ -1860,7 +2059,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 396
-      }
+      },
+      "concept_ids": [
+        "series-wound-motor",
+        "mechanical-characteristics",
+        "resistance-effect"
+      ]
     },
     {
       "number": 44,
@@ -1900,7 +2104,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 399
-      }
+      },
+      "concept_ids": [
+        "series-generator",
+        "self-excitation",
+        "residual-magnetism"
+      ]
     },
     {
       "number": 45,
@@ -1940,7 +2149,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 389
-      }
+      },
+      "concept_ids": [
+        "induction-motor-phase-sequence-reversal",
+        "dc-generator-residual-magnetism",
+        "voltage-generation"
+      ]
     },
     {
       "number": 46,
@@ -1979,7 +2193,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 323
-      }
+      },
+      "concept_ids": [
+        "short-circuit-ratio",
+        "percent-synchronous-impedance"
+      ]
     },
     {
       "number": 47,
@@ -2034,7 +2252,12 @@
       ],
       "vision_image_summary": "각 보기는 효율 η를 정의하는 수식이며, 모두 ×100[%]가 붙어 백분율 효율을 나타낸다.\n\n① η = 출력 / (출력 + 손실) × 100[%]\n② η = (입력 − 손실) / 입력 × 100[%]\n③ η = 입력 / (입력 − 손실) × 100[%]\n④ η = 출력 / 입력 × 100[%]\n\nLaTeX로 표기하면:\n① $\\eta = \\dfrac{\\text{출력}}{\\text{출력}+\\text{손실}}\\times100[\\%]$\n② $\\eta = \\dfrac{\\text{입력}-\\text{손실}}{\\text{입력}}\\times100[\\%]$\n③ $\\eta = \\dfrac{\\text{입력}}{\\text{입력}-\\text{손실}}\\times100[\\%]$\n④ $\\eta = \\dfrac{\\text{출력}}{\\text{입력}}\\times100[\\%]$\n\n①은 발전기의 규약효율 형태, ②는 전동기의 규약효율 형태, ④는 실측효율(진효율)의 일반 정의 형태이다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 직류전동기의 규약효율은 전기 입력과 손실을 이용하여 계산되는 효율 공식이다.\n\n정답 분석\n- 정답 2번은 직류전동기 규약효율 공식 [(입력-손실)/입력]*100[%]을 정확히 표현하고 있어 옳다.\n\n오답 분석\n- ① 오답: 발전기 규약효율 공식 [출력/(출력+손실)]*100[%]을 표현하여 전동기 공식과 다르다.\n- ② 정답: 직류전동기 규약효율 공식 [(입력-손실)/입력]*100[%]을 정확히 표현하고 있다.\n- ③ 오답: 공식의 분자와 분모 구조가 잘못되었거나 비율 계산이 올바르지 않다.\n- ④ 오답: 효율 공식의 기본 구조(손실 제외된 출력/입력 비율)를 만족하지 않는다.",
-      "vision_reprocessed_at": 1779329189
+      "vision_reprocessed_at": 1779329189,
+      "concept_ids": [
+        "dc-motor-efficiency",
+        "input-based-efficiency",
+        "generator-motor-conventional-efficiency"
+      ]
     },
     {
       "number": 48,
@@ -2073,7 +2296,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 383
-      }
+      },
+      "concept_ids": [
+        "reactive-circulating-current",
+        "field-current"
+      ]
     },
     {
       "number": 49,
@@ -2112,7 +2339,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 368
-      }
+      },
+      "concept_ids": [
+        "dc-machine-core-loss",
+        "iron-loss"
+      ]
     },
     {
       "number": 50,
@@ -2151,7 +2382,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 372
-      }
+      },
+      "concept_ids": [
+        "induction-voltage-regulator",
+        "voltage-regulation"
+      ]
     },
     {
       "number": 51,
@@ -2193,7 +2428,12 @@
         "prev_chars": 444
       },
       "explanation_detailed_pre_fix_D03": "핵심 개념\n- 병렬 운전 변압기의 부하 분담은 임피던스에 반비례하며, 가장 낮은 임피던스의 변압기가 먼저 정격 용량에 도달하여 전체 부하 용량을 제한한다.\n\n정답 분석\n- 두 변압기의 임피던스 전압 비율은 8%와 9%이므로 부하 분담 비율은 9:8 (반비례)이다. 따라서 8% 변압기가 1000[kVA]에 도달했을 때 9% 변압기의 부하는 (8/9)*1000 ≈ 888.9[kVA]가 된다. 전체 부하는 1000 + 888.9 = 1888.9[kVA] ≈ 1889[kVA]이다. 이는 보기 ③과 일치한다.\n\n오답 분석\n- ① 2100: 두 변압기 정격의 합(2000kVA)을 초과한 값으로, 부하 분담을 고려하지 않은 오류이다.\n- ② 2200: 두 변압기 정격의 합(2000kVA)보다 큰 값으로, 부하 분담 원리를 무시한 오류이다.\n- ③ 1889: 정답, 부하 분담을 고려한 정확한 계산 결과이다.\n- ④ 2125: 8% 변압기의 용량 1000[kVA]에 (8+9)/8=17/8을 곱한 2125[kVA]로, 잘못된 공식을 적용한 오류이다.",
-      "fix_D03_at": 1779358872
+      "fix_D03_at": 1779358872,
+      "concept_ids": [
+        "transformer-parallel-operation",
+        "impedance-voltage",
+        "rated-condition"
+      ]
     },
     {
       "number": 52,
@@ -2232,7 +2472,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 353
-      }
+      },
+      "concept_ids": [
+        "ripple-factor",
+        "dc-ripple-voltage"
+      ]
     },
     {
       "number": 53,
@@ -2272,7 +2516,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 295
-      }
+      },
+      "concept_ids": [
+        "transformer-harmonic-characteristics",
+        "y-y-connection",
+        "communication-disturbance-cause"
+      ]
     },
     {
       "number": 54,
@@ -2327,7 +2576,12 @@
       ],
       "vision_image_summary": "보기 ①은 부등식 0 ≤ α ≤ π/2 를 나타내는 수식 이미지이다. 보기 ②는 부등식 π/2 ≤ α ≤ π 를 나타내는 수식 이미지이다. 보기 ④는 부등식 π/4 ≤ α ≤ π 를 나타내는 수식 이미지이다. 보기 ③은 텍스트로 0 ≤ α ≤ π 이다. 즉 네 보기는 모두 단상 전파제어회로의 제어각 α 의 허용 범위를 나타내는 부등식이며, 하한은 각각 0, π/2, 0, π/4 이고 상한은 각각 π/2, π, π, π 이다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 단상 전파제어회로에서 RL 부하의 위상각(θ=π/4)에 따른 제어각(α)의 실제 동작 범위를 묻는 문제.\n\n정답 분석\n- 정답은 4번으로, R=XL=2.3Ω이므로 부하 위상각 θ=tan⁻¹(XL/R)=π/4(45°)이다. 유도성 부하에서는 전류가 전압보다 지연되어 소호각(β=α+θ)까지 흐르므로, 제어각 α는 0부터 최소한 θ 이상인 π/4까지는 제어가 불가능하다. 따라서 실제 제어 가능한 범위는 π/4 ≤ α ≤ π이다.\n\n오답 분석\n- ①: 정답이 아님, 제어 범위가 π/4 미만을 포함하는 오류.\n- ②: 정답이 아님, 제어 범위가 π 초과를 포함하는 오류.\n- ③: 정답이 아님, RL 부하에서는 α=π에서도 제어가 가능하지만, α=0부터는 제어 불가능한 구간이 존재함을 간과함.\n- ④: 정답, π/4 ≤ α ≤ π로 RL 부하의 실제 제어 범위를 정확히 표현.",
-      "vision_reprocessed_at": 1779329201
+      "vision_reprocessed_at": 1779329201,
+      "concept_ids": [
+        "rectification-circuit",
+        "single-phase-phase-control-scr",
+        "commutation-angle"
+      ]
     },
     {
       "number": 55,
@@ -2367,7 +2621,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 345
-      }
+      },
+      "concept_ids": [
+        "no-load-current",
+        "core-loss",
+        "magnetizing-current"
+      ]
     },
     {
       "number": 56,
@@ -2407,7 +2666,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 283
-      }
+      },
+      "concept_ids": [
+        "transformer-winding-drying",
+        "back-to-back-load-method",
+        "transformer-characteristic-test"
+      ]
     },
     {
       "number": 57,
@@ -2447,7 +2711,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 355
-      }
+      },
+      "concept_ids": [
+        "induction-motor-load-speed-characteristics",
+        "slip-power-torque-loss-relationship",
+        "synchronous-speed"
+      ]
     },
     {
       "number": 58,
@@ -2487,7 +2756,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 375
-      }
+      },
+      "concept_ids": [
+        "synchronous-motor-excitation-effect",
+        "overexcitation-condition",
+        "armature-current"
+      ]
     },
     {
       "number": 59,
@@ -2527,7 +2801,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 404
-      }
+      },
+      "concept_ids": [
+        "leakage-transformer",
+        "output-characteristic",
+        "leakage-reactance"
+      ]
     },
     {
       "number": 60,
@@ -2567,7 +2846,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 472
-      }
+      },
+      "concept_ids": [
+        "motor-power-torque-relation",
+        "rotating-body-power-force",
+        "shaft-torque"
+      ]
     },
     {
       "number": 61,
@@ -2609,7 +2893,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 358
-      }
+      },
+      "concept_ids": [
+        "unit-impulse-function",
+        "laplace-transform",
+        "limit-concept"
+      ]
     },
     {
       "number": 62,
@@ -2651,7 +2940,12 @@
         "prev_chars": 490
       },
       "explanation_detailed_pre_fix_D03": "핵심 개념\n- 나이퀴스트 안정도 판정법에서 시스템이 안정하기 위한 조건은 개 루프 전달함수의 우반면 극점 수(P)와 (-1, j0) 점을 감싸는 횟수(N)의 합이 0이어야 합니다.\n\n정답 분석\n- 개 루프 시스템이 우반면에 극점 3개(P=3)를 가지므로 닫힌 루프 시스템이 안정하려면 N = -3(시계방향 3회)이어야 합니다. 하지만 보기 ①은 반시계방향 1회(N=+1)이므로 P + N = 3 + 1 = 4 ≠ 0으로 불안정합니다. 그러나 문제에서 요구하는 안정성 조건을 만족하는 답이 없으므로, 가장 근접한 답인 ①을 정답으로 선택한 것으로 보입니다.\n\n오답 분석\n- ①: 반시계방향 1회(N=+1)로 P + N = 4 ≠ 0, 불안정이지만 주어진 정답입니다.\n- ②: 시계방향 1회(N=-1)로 P + N = 2 ≠ 0, 불안정\n- ③: 반시계방향 5회(N=+5)로 P + N = 8 ≠ 0, 불안정\n- ④: 시계방향 5회(N=-5)로 P + N = -2 ≠ 0, 불안정",
-      "fix_D03_at": 1779358872
+      "fix_D03_at": 1779358872,
+      "concept_ids": [
+        "nyquist-stability",
+        "open-loop-transfer-function",
+        "stability-criterion"
+      ]
     },
     {
       "number": 63,
@@ -2691,7 +2985,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 297
-      }
+      },
+      "concept_ids": [
+        "three-phase-delta-connection",
+        "line-current-calculation",
+        "phase-line-current"
+      ]
     },
     {
       "number": 64,
@@ -2733,7 +3032,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 322
-      }
+      },
+      "concept_ids": [
+        "routh-hurwitz-stability",
+        "characteristic-equation",
+        "system-gain-range"
+      ]
     },
     {
       "number": 65,
@@ -2773,7 +3077,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 342
-      }
+      },
+      "concept_ids": [
+        "series-battery-circuit",
+        "short-circuit-current-calculation",
+        "internal-resistance"
+      ]
     },
     {
       "number": 66,
@@ -2813,7 +3122,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 361
-      }
+      },
+      "concept_ids": [
+        "damping-characteristics",
+        "transient-response",
+        "stable-system"
+      ]
     },
     {
       "number": 67,
@@ -2853,7 +3167,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 368
-      }
+      },
+      "concept_ids": [
+        "voltage-unbalance-rate",
+        "symmetrical-component-voltage",
+        "three-phase-voltage-unbalance"
+      ]
     },
     {
       "number": 68,
@@ -2893,7 +3212,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 438
-      }
+      },
+      "concept_ids": [
+        "series-rlc-resonant-circuit",
+        "quality-factor",
+        "unit-conversion"
+      ]
     },
     {
       "number": 69,
@@ -2935,7 +3259,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 418
-      }
+      },
+      "concept_ids": [
+        "rc-compensator",
+        "lead-compensator",
+        "frequency-dependent-operation"
+      ]
     },
     {
       "number": 70,
@@ -2985,7 +3314,11 @@
       "concepts_pre_vision": [],
       "vision_image_summary": "보기 이미지 내용:\n① $\\frac{1}{T}\\ln\\frac{1}{Z}$\n② $\\frac{1}{T}\\ln Z$\n③ $T\\ln Z$ (문제 본문 텍스트로 표기)\n④ $T\\ln\\frac{1}{Z}$\n\n즉 네 보기는 모두 라플라스 변환의 변수 S 대신 대입할 식 후보이며, T(샘플주기)와 Z(Z-변환 변수)의 로그 형태 조합으로 구성되어 있다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 이 문제는 Z-변환에서 라프라스 변환의 변수 S를 샘플주기 T와 Z-변환 변수 z를 사용하여 어떤 식으로 대체하는지 묻는 기본 관계식에 대한 것입니다.\n\n정답 분석\n- 정답인 ②번은 S 대신 \\( \\frac{\\ln z}{T} \\)를 대입하는 것으로, 이는 샘플링 과정에서 유도되는 \\( z = e^{sT} \\) 관계식의 역수 형태로, 연속 시간 라프라스 변환을 이산 시간 Z-변환으로 변환할 때 정확한 대입식입니다.\n\n오답 분석\n- ①: 정답이 아닌 다른 식으로, 관계식이 올바르지 않습니다.\n- ②: 정답입니다.\n- ③: \"T1nZ\"는 T ln z로 해석되며, S 대신 대입해야 할 \\( \\frac{\\ln z}{T} \\)와는 역수 관계로 틀렸습니다.\n- ④: 정답이 아닌 다른 �",
-      "vision_reprocessed_at": 1779329213
+      "vision_reprocessed_at": 1779329213,
+      "concept_ids": [
+        "z-transform-laplace-relationship",
+        "z-transform-sampling"
+      ]
     },
     {
       "number": 71,
@@ -3027,7 +3360,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 410
-      }
+      },
+      "concept_ids": [
+        "root-locus",
+        "complex-pole",
+        "poles-and-zeros"
+      ]
     },
     {
       "number": 72,
@@ -3086,7 +3424,12 @@
       ],
       "vision_image_summary": "문제 이미지(img1)에는 미분 방정식이 제시되어 있다: d²y(t)/dt² + 3·dy(t)/dt + 2·y(t) = dx(t)/dt + x(t). 보기 ①은 G(s) = (s² + 3s + 2)/(s + 1), 보기 ②는 G(s) = (2s + 1)/(s² + s + 1), 보기 ③은 G(s) = (s + 1)/(s² + 3s + 2), 보기 ④는 G(s) = (s² + s + 1)/(2s + 1)이다.",
       "explanation_detailed_pre_vision": "핵심 개념\n- 미분 방정식으로 표현된 계의 전달 함수는 입력과 출력의 라플라스 변환 비율로 구하며, 초기 조건을 0으로 가정한다.\n\n정답 분석\n- 주어진 미분 방정식을 라플라스 변환하여 초기 조건을 0으로 놓고 Y(s)/X(s) 형태로 정리하면, 전달 함수는 3번 보기처럼 s의 다항식 비율로 나타난다.\n\n오답 분석\n- ① 오답: 미분 방정식의 계수 순서를 반대로 뒤집거나 부호를 잘못 적용한 형태이다.\n- ② 오답: 분모와 분자의 위치를 서로 바꾸거나 라플라스 변환 과정에서 차수를 잘못 표현하였다.\n- ③ 정답: 주어진 미분 방정식을 올바르게 라플라스 변환하여 Y(s)/X(s)로 정리한 전달 함수이다.\n- ④ 오답: 미분 방정식의 상수항이나 s의 계수를 생략하거나 차수를 누락한 부정확한 표현이다.",
-      "vision_reprocessed_at": 1779329223
+      "vision_reprocessed_at": 1779329223,
+      "concept_ids": [
+        "differential-equation-laplace-transform",
+        "transfer-function-derivation",
+        "lti-system"
+      ]
     },
     {
       "number": 73,
@@ -3128,7 +3471,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 436
-      }
+      },
+      "concept_ids": [
+        "inductor-initial-condition",
+        "capacitor-initial-condition",
+        "initial-condition-zero-plus"
+      ]
     },
     {
       "number": 74,
@@ -3187,7 +3535,11 @@
       ],
       "vision_image_summary": "문제 식: d³C(t)/dt³ + 5·d²C(t)/dt² + dC(t)/dt + 2C(t) = r(t). 상태방정식 형태는 Ẋ = AX + BU.\n\n보기 행렬:\n① A = [[0, 1, 0], [0, 0, 1], [-2, -1, -5]]\n② A = [[0, 0, 1], [1, 0, 0], [5, 1, 2]]\n③ A = [[0, 0, 1], [1, 0, 0], [0, 5, 2]]\n④ A = [[0, 1, 0], [1, 0, 0], [-2, -1, 0]]",
       "explanation_detailed_pre_vision": "핵심 개념\n- 미분방정식으로 주어진 제어계를 상태방정식으로 변환할 때 계수 행렬 A를 구하는 문제입니다.\n\n정답 분석\n- 정답은 1번입니다. 상태변수를 X1=C(t), X2=dC(t)/dt, X3=d²C(t)/dt²로 정의하면, 미분방정식을 대입해 X3' = r(t) -5X3 -X2 -2X1을 얻으며, 이를 행렬로 표현하면 A 행렬의 마지막 행이 [-2 -1 -5]가 되어 정답과 일치합니다.\n\n오답 분석\n- ① 정답\n- ② 오답, 첫 번째 행의 두 번째 요소가 0이 아니며 1이어야 합니다.\n- ③ 오답, 마지막 행의 계수가 [-2 -1 -5]가 아니라 부호가 반대입니다.\n- ④ 오답, 첫 번째 행과 두 번째 행의 요소가 올바르게 0과 1이 배치되지 않았습니다.",
-      "vision_reprocessed_at": 1779329254
+      "vision_reprocessed_at": 1779329254,
+      "concept_ids": [
+        "state-space-representation",
+        "companion-matrix"
+      ]
     },
     {
       "number": 75,
@@ -3246,7 +3598,12 @@
       ],
       "vision_image_summary": "회로도: 입력 전압 e_i가 왼쪽 단자쌍에, 출력 전압 e_o가 오른쪽 단자쌍에 표시됨. 입력의 윗선에 저항 R1이 직렬로 연결되고, R1의 오른쪽 노드와 아래쪽 공통선 사이에 R2와 C2가 직렬로 연결된 가지(R2가 위, C2가 아래)가 있음. 출력 e_o는 바로 이 R2-C2 직렬 가지(즉 R1의 우측 노드와 하단 공통선 사이)에서 측정됨. 보기의 식은 다음과 같음. ① (R2 s + 1) / ((R1 + C2) s + 1), ② (R2 C2 s + 1) / ((R1 + R2) C2 s + 1), ③ (R1 R2 s + 1) / ((R1 + R2) C2 s + 1), ④ (R2 C2 s + 1) / ((R1 + C2) s + 1).",
       "explanation_detailed_pre_vision": "핵심 개념\n- R-C 직렬 분압 회로에서 임피던스를 이용한 전달함수 계산 방법\n\n정답 분석\n- 정답 2번은 분압 법칙에 따라 Vout/Vin = [R2 + 1/(C2s)] / [R1 + R2 + 1/(C2s)]로 표현 후, 분모 분자에 C2s를 곱해 [C2s R2 + 1] / [C2s(R1+R2) + 1]로 올바르게 정리했음\n\n오답 분석\n- ① 오답: 분모에서 R1이 누락되거나 분자에서 R2가 잘못 처리된 형태\n- ② 정답\n- ③ 오답: 분자와 분모가 반대로 되어 있는 형태\n- ④ 오답: C2s를 곱하지 않은 원시적인 표현이나 R1과 R2 위치가 바뀐 형태",
-      "vision_reprocessed_at": 1779329259
+      "vision_reprocessed_at": 1779329259,
+      "concept_ids": [
+        "rc-series-circuit",
+        "laplace-transfer-function",
+        "capacitive-reactance-impedance"
+      ]
     },
     {
       "number": 76,
@@ -3286,7 +3643,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 440
-      }
+      },
+      "concept_ids": [
+        "control-system",
+        "steady-state-error",
+        "unit-step-input"
+      ]
     },
     {
       "number": 77,
@@ -3345,7 +3707,12 @@
       ],
       "vision_image_summary": "회로도는 π형(파이형) 4단자망이다. 입력단과 출력단 사이에 직렬 임피던스 Z_A가 있고, 입력단 쪽에는 병렬(분로) 임피던스 Z_C가, 출력단 쪽에는 병렬(분로) 임피던스 Z_B가 접지로 연결되어 있다. 보기는 각각 다음과 같다.\n① A=1+Z_A/Z_B, B=Z_A, C=(Z_A+Z_B+Z_C)/(Z_B·Z_C), D=1/(Z_B·Z_C)\n② A=1+Z_A/Z_B, B=Z_A, C=1/Z_B, D=1+Z_A/Z_B\n③ A=1+Z_A/Z_B, B=Z_A, C=(Z_A+Z_B+Z_C)/(Z_B·Z_C), D=1+Z_A/Z_C\n④ A=1+Z_A/Z_B, B=Z_A, C=1/Z_A, D=1+Z_A/Z_A",
       "explanation_detailed_pre_vision": "핵심 개념\n- 4단자망 ABCD 파라미터는 입력출력 전압·전류 관계를 정의하며, 회로의 임피던스/어드미턴스 구성에 따라 계산된다.\n정답 분석\n- 정답 3번은 회로의 직렬·병렬 구조를 고려한 ABCD 파라미터 공식(A=V2/V2 open, B=V2/I2 short 등)을 정확 적용해 도출된 값이다.\n오답 분석\n- ①: 임피던스 직렬연산 시 A 파라미터 계산 오류로 과소평가됨\n- ②: 전류전달계수 C 산출시 접지점 영향 무시로 인한 과대평가\n- ③: 정답으로 회로 이론에 부합하는 정확한 파라미터 값\n- ④: 역전압전달비 D 계산 시 위상반전 누락으로 오류 발생",
-      "vision_reprocessed_at": 1779329280
+      "vision_reprocessed_at": 1779329280,
+      "concept_ids": [
+        "pi-network-abcd-parameters",
+        "impedance-synthesis",
+        "matrix-multiplication"
+      ]
     },
     {
       "number": 78,
@@ -3385,7 +3752,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 418
-      }
+      },
+      "concept_ids": [
+        "distributed-constant-line",
+        "propagation-constant",
+        "wavelength"
+      ]
     },
     {
       "number": 79,
@@ -3425,7 +3797,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 273
-      }
+      },
+      "concept_ids": [
+        "non-sinusoidal-harmonics",
+        "harmonic-component",
+        "dc-ac-component-analysis"
+      ]
     },
     {
       "number": 80,
@@ -3467,7 +3844,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 430
-      }
+      },
+      "concept_ids": [
+        "xor-gate",
+        "logic-operation",
+        "input-output-characteristics"
+      ]
     },
     {
       "number": 81,
@@ -3507,7 +3889,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 320
-      }
+      },
+      "concept_ids": [
+        "pvc-conduit-construction-support-spacing",
+        "low-voltage-indoor-wiring",
+        "electrical-equipment-safety-standard"
+      ]
     },
     {
       "number": 82,
@@ -3547,7 +3934,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 284
-      }
+      },
+      "concept_ids": [
+        "high-voltage-overhead-line-height",
+        "road-crossing-height-clearance",
+        "height-reduction-exception"
+      ]
     },
     {
       "number": 83,
@@ -3587,7 +3979,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 474
-      }
+      },
+      "concept_ids": [
+        "in-premises-overhead-line",
+        "300v-or-less-power-line-span"
+      ]
     },
     {
       "number": 84,
@@ -3627,7 +4023,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 458
-      }
+      },
+      "concept_ids": [
+        "isolation-transformer-secondary-grounding",
+        "uhv-equipment",
+        "class-1-grounding"
+      ]
     },
     {
       "number": 85,
@@ -3667,7 +4068,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 384
-      }
+      },
+      "concept_ids": [
+        "electric-motor",
+        "wire-allowable-current",
+        "2-5-times-regulation"
+      ]
     },
     {
       "number": 86,
@@ -3706,7 +4112,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 427
-      }
+      },
+      "concept_ids": [
+        "metal-conduit-construction-thickness",
+        "thickness-standard-regulation"
+      ]
     },
     {
       "number": 87,
@@ -3746,7 +4156,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 425
-      }
+      },
+      "concept_ids": [
+        "direct-burial-burial-depth",
+        "heavy-load-pressure-site-criteria",
+        "2021-kec-revision"
+      ]
     },
     {
       "number": 88,
@@ -3786,7 +4201,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 370
-      }
+      },
+      "concept_ids": [
+        "ehv-equipment",
+        "automatic-disconnecting-device",
+        "neutral-conductor-multi-grounded-system"
+      ]
     },
     {
       "number": 89,
@@ -3826,7 +4246,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 437
-      }
+      },
+      "concept_ids": [
+        "second-degree-approach-status",
+        "ultra-high-voltage-overhead-line",
+        "dry-location-conditions"
+      ]
     },
     {
       "number": 90,
@@ -3866,7 +4291,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 316
-      }
+      },
+      "concept_ids": [
+        "low-voltage-copper-wire-diameter",
+        "400v-below-low-voltage-standards",
+        "judgment-criteria-regulation"
+      ]
     },
     {
       "number": 91,
@@ -3906,7 +4336,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 370
-      }
+      },
+      "concept_ids": [
+        "inductive-interference-prevention",
+        "dc-single-wire-railway-power-supply",
+        "overhead-low-current-line"
+      ]
     },
     {
       "number": 92,
@@ -3945,7 +4380,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 349
-      }
+      },
+      "concept_ids": [
+        "ground-potential-limits",
+        "low-voltage-insulation"
+      ]
     },
     {
       "number": 93,
@@ -3984,7 +4423,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 453
-      }
+      },
+      "concept_ids": [
+        "power-plant-required-measurement-equipment",
+        "measurement-metering"
+      ]
     },
     {
       "number": 94,
@@ -4023,7 +4466,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 353
-      }
+      },
+      "concept_ids": [
+        "type-1-special-high-voltage-support",
+        "power-line-installation-and-safety"
+      ]
     },
     {
       "number": 95,
@@ -4062,7 +4509,11 @@
         "missing": "",
         "improved": false,
         "prev_chars": 312
-      }
+      },
+      "concept_ids": [
+        "entry-exit-sign-circuit",
+        "isolation-transformer-secondary-voltage"
+      ]
     },
     {
       "number": 96,
@@ -4102,7 +4553,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 427
-      }
+      },
+      "concept_ids": [
+        "low-voltage-overhead-line-specification",
+        "urban-installation-standard",
+        "copper-wire-minimum-diameter"
+      ]
     },
     {
       "number": 97,
@@ -4142,7 +4598,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 374
-      }
+      },
+      "concept_ids": [
+        "fuse-melting-time",
+        "rated-current-and-voltage-criteria",
+        "horizontal-installation-regulation"
+      ]
     },
     {
       "number": 98,
@@ -4182,7 +4643,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 433
-      }
+      },
+      "concept_ids": [
+        "bus-duct-work-facility",
+        "low-voltage-indoor-wiring",
+        "grounding-work-types"
+      ]
     },
     {
       "number": 99,
@@ -4222,7 +4688,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 344
-      }
+      },
+      "concept_ids": [
+        "high-voltage-indoor-wiring-method",
+        "dry-open-location",
+        "insulator-installation-work"
+      ]
     },
     {
       "number": 100,
@@ -4262,7 +4733,12 @@
         "missing": "",
         "improved": false,
         "prev_chars": 336
-      }
+      },
+      "concept_ids": [
+        "hard-drawn-copper-wire",
+        "high-voltage-overhead-line-general",
+        "sag-installation"
+      ]
     }
   ],
   "source_site": "comcbt.com",
