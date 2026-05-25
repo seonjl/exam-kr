@@ -921,7 +921,7 @@
       },
       "concept_ids": [
         "external-data-import-link",
-        "web-data-import-limits",
+        "web-data-import",
         "microsoft-query"
       ]
     },
@@ -978,8 +978,9 @@
       "vision_image_summary": "img1.gif은 엑셀 빠른 실행 도구 모음에 표시되는 [실행 취소] 아이콘으로, 왼쪽으로 굽은 파란색 화살표 모양 아이콘이다. 이 아이콘을 클릭하거나 Ctrl+Z를 누르면 직전에 수행한 작업을 취소할 수 있다. img2.gif는 [실행 취소] 버튼 옆에 붙어 있는 작은 아래쪽 방향 삼각형 화살표(드롭다운) 아이콘으로, 클릭하면 최근에 수행한 작업 목록이 펼쳐져 여러 작업을 한 번에 선택하여 취소할 수 있다.",
       "vision_reprocessed_at": 1779275147,
       "concept_ids": [
-        "undo-redo-shortcut",
-        "quick-access-toolbar"
+        "undo-redo",
+        "quick-access-toolbar",
+        "sheet-undo-restriction"
       ]
     },
     {
@@ -1024,9 +1025,9 @@
         "prev_chars": 667
       },
       "concept_ids": [
-        "worksheet-navigation-shortcut",
-        "page-updown-keys",
-        "selection-extension-shortcut"
+        "worksheet-navigation",
+        "page-navigation-key",
+        "cell-selection"
       ]
     },
     {
@@ -1119,8 +1120,8 @@
       },
       "concept_ids": [
         "custom-number-format",
-        "custom-format-codes",
-        "format-section-separator"
+        "number-format",
+        "alignment"
       ]
     },
     {
@@ -1163,7 +1164,7 @@
         "prev_chars": 591
       },
       "concept_ids": [
-        "worksheet-protect",
+        "sheet-protection",
         "workbook-protection",
         "sheet-rename"
       ]
@@ -1209,8 +1210,8 @@
       },
       "concept_ids": [
         "vba-range-object",
-        "vba-range-selection-code",
-        "function-argument-passing"
+        "cell-selection",
+        "function-arguments"
       ]
     },
     {
@@ -1255,9 +1256,9 @@
         "prev_chars": 680
       },
       "concept_ids": [
-        "do-loop-vba",
-        "odd-number-sum",
-        "fill-series"
+        "do-loop",
+        "odd-sum",
+        "increment-value-setting"
       ]
     },
     {
@@ -1301,8 +1302,8 @@
       },
       "concept_ids": [
         "status-bar",
-        "pivot-stats-by-data-type",
-        "count-text-cells"
+        "cell-function",
+        "string-handling"
       ]
     },
     {
@@ -1347,8 +1348,9 @@
         "prev_chars": 535
       },
       "concept_ids": [
+        "circular-reference-error",
         "circular-reference",
-        "excel-error-types"
+        "excel-error-message"
       ]
     },
     {
@@ -1394,7 +1396,7 @@
       },
       "concept_ids": [
         "vlookup-function",
-        "exact-match-lookup",
+        "find-match-options",
         "tenure-calculation"
       ]
     },
@@ -1440,9 +1442,9 @@
         "prev_chars": 559
       },
       "concept_ids": [
-        "chart-legend",
-        "data-table-what-if",
-        "chart-components"
+        "legend",
+        "data-table",
+        "chart-element"
       ]
     },
     {
@@ -1484,8 +1486,8 @@
         "prev_chars": 601
       },
       "concept_ids": [
-        "chart-auto-update",
-        "chart-data-series"
+        "chart-elements",
+        "data-series"
       ]
     },
     {
@@ -1527,8 +1529,8 @@
         "prev_chars": 557
       },
       "concept_ids": [
-        "repeat-rows-print",
-        "contiguous-range-selection"
+        "print-repeat-rows",
+        "range-selection"
       ]
     },
     {
@@ -1571,9 +1573,9 @@
         "prev_chars": 536
       },
       "concept_ids": [
-        "zoom-feature",
-        "print-scale-zoom",
-        "setting-independence"
+        "screen-zoom",
+        "print-scaling",
+        "configuration"
       ]
     },
     {
@@ -1633,9 +1635,9 @@
       "vision_image_summary": "네 개의 보기는 모두 고급 필터의 조건 영역을 나타낸 표로, 머리글은 [이름 | TOEIC | TOEIC | 직급 | 연차] 5개 열이다.\n\n보기 ① :\n| 이름 | TOEIC | TOEIC | 직급 | 연차 |\n| 이?? | >=600 | <800 |      |      |\n|      |       |       | 대리 | >=3 |\n\n보기 ② :\n| 이름 | TOEIC | TOEIC | 직급 | 연차 |\n| 이** | >=600 |       | 대리 |      |\n|      |       | <800  |      | >=3 |\n\n보기 ③ :\n| 이름 | TOEIC | TOEIC | 직급 | 연차 |\n| 이?? | >=600 |       | 대리 |      |\n|      |       | <800  |      | >=3 |\n\n보기 ④ :\n| 이름 | TOEIC | TOEIC | 직급 | 연차 |\n| 이** | >=600 | <800  |      |      |\n|      |       |       | 대리 | >=3 |\n\n①과 ④는 첫째 행에 이름/TOEIC 두 조건, 둘째 행에 직급/연차 두 조건이 모여 있어 두 조건 묶음이 OR로 결합되는 구조이고, ②와 ③은 조건이 대각선처럼 분산 배치되어 AND/OR 결합이 의도와 달라진다. 차이는 이름 칸의 와일드카드 표기인데 ①·③은 '이??'(세 글자 한정), ②·④는 '이**'(글자 수 제한 없음)로 되어 있다.",
       "vision_reprocessed_at": 1779275151,
       "concept_ids": [
-        "advanced-filter-and-or",
+        "advanced-filter-criteria",
         "wildcard-search",
-        "wildcard-question-mark-pattern"
+        "data-validation"
       ]
     },
     {
@@ -1679,6 +1681,7 @@
         "prev_chars": 601
       },
       "concept_ids": [
+        "subtotals",
         "subtotal"
       ]
     },
@@ -1721,8 +1724,8 @@
         "prev_chars": 539
       },
       "concept_ids": [
-        "sort-by-color-or-format",
-        "sort-options-misc"
+        "sort",
+        "sort-options"
       ]
     },
     {
@@ -1766,8 +1769,8 @@
         "prev_chars": 462
       },
       "concept_ids": [
-        "array-constant",
-        "array-row-col-separator"
+        "2d-array-constant",
+        "row-column-delimiter"
       ]
     },
     {
@@ -1812,7 +1815,7 @@
       },
       "concept_ids": [
         "sql-aggregate-functions",
-        "sumif-sumifs-function"
+        "sumif-function"
       ]
     },
     {

@@ -118,6 +118,14 @@ _JSON_RE = re.compile(r"\{[\s\S]*\}\s*$")
 
 def parse_json(text: str) -> dict:
     s = text.strip()
+    # 1) ```json ... ``` 블록이 본문 어느 위치에 있어도 추출 (모델이 preamble 추가하는 경우)
+    fence = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", s)
+    if fence:
+        try:
+            return json.loads(fence.group(1))
+        except Exception:
+            pass
+    # 2) 시작이 fence 면 제거
     if s.startswith("```"):
         s = re.sub(r"^```(?:json)?\s*", "", s)
         s = re.sub(r"\s*```\s*$", "", s)
@@ -125,6 +133,7 @@ def parse_json(text: str) -> dict:
         return json.loads(s)
     except Exception:
         pass
+    # 3) 마지막 {...} 매치
     m = _JSON_RE.search(s)
     if not m:
         raise ValueError(f"no JSON found: {text[:200]!r}")
@@ -137,7 +146,7 @@ def call_claude(prompt: str, *, timeout: int = 3600,
     for attempt in range(1, max_retries + 1):
         try:
             r = subprocess.run(
-                ["claude", "--model", "sonnet", "--fallback-model", "haiku", "-p", prompt],
+                ["claude", "--model", "haiku", "-p", prompt],
                 capture_output=True, text=True, timeout=timeout,
             )
             if r.returncode != 0:
@@ -294,25 +303,66 @@ def _patch_missing_with_singletons(items: list[dict], result: dict) -> int:
     return len(missing)
 
 
-def _sanitize_ids(result: dict) -> int:
-    """너무 긴 id (>60자) 는 잘라서 슬러그 규칙(60자 제한)에 맞춘다.
-    중복되면 -2, -3 ... 접미사. 수정 건수 반환."""
+def _dedupe_members(result: dict) -> int:
+    """같은 phrase 가 여러 canonical 의 members 에 들어간 경우 첫 등장만 유지하고 나머지에서 제거.
+    이 검증 위반은 모델 응답 흔한 버그 — 자동 보정. 수정 건수 반환."""
     concepts = result.get("concepts") or []
     seen: set[str] = set()
     n_fixed = 0
     for c in concepts:
-        cid = c.get("id") or ""
-        if len(cid) > 60:
-            base = cid[:58].rstrip("-") or "id"
-            new = base
-            i = 2
-            while new in seen:
-                suffix = f"-{i}"
-                new = (base[: 60 - len(suffix)] + suffix)
-                i += 1
-            c["id"] = new
+        members = c.get("members") or []
+        new_members = []
+        for m in members:
+            if isinstance(m, str) and m in seen:
+                n_fixed += 1
+                continue
+            new_members.append(m)
+            if isinstance(m, str):
+                seen.add(m)
+        c["members"] = new_members
+    # members 가 비게 된 canonical 은 제거
+    result["concepts"] = [c for c in concepts if c.get("members")]
+    return n_fixed
+
+
+def _sanitize_ids(result: dict) -> int:
+    """슬러그 규칙(소문자 영숫자+하이픈, 60자, 첫글자 영숫자) 위반 자동 보정.
+    1) 비허용 문자 (예: '.', '_', 공백) → 하이픈, 중복 하이픈 1개로
+    2) 길이 초과 → truncate
+    3) dup id → 접미사 -2, -3 ...
+    수정 건수 반환."""
+    concepts = result.get("concepts") or []
+    seen: set[str] = set()
+    n_fixed = 0
+    for c in concepts:
+        cid = c.get("id") or "id"
+        # 비허용 문자 정리
+        cleaned = re.sub(r"[^a-z0-9-]+", "-", cid.lower()).strip("-")
+        cleaned = re.sub(r"-{2,}", "-", cleaned) or "id"
+        # 첫 글자가 영숫자가 아니면 'x' 접두사
+        if not re.match(r"[a-z0-9]", cleaned):
+            cleaned = "x" + cleaned
+        if cleaned != cid:
             n_fixed += 1
-        seen.add(c["id"])
+        cid = cleaned
+        # 길이 초과 시 truncate
+        if len(cid) > 60:
+            cid = cid[:58].rstrip("-") or "id"
+            n_fixed += 1
+        # dedupe: 이미 본 id 면 접미사
+        if cid in seen:
+            base = cid
+            i = 2
+            while True:
+                suffix = f"-{i}"
+                cand = (base[: 60 - len(suffix)] + suffix) if len(base) + len(suffix) > 60 else f"{base}{suffix}"
+                if cand not in seen:
+                    cid = cand
+                    n_fixed += 1
+                    break
+                i += 1
+        c["id"] = cid
+        seen.add(cid)
     return n_fixed
 
 
@@ -324,6 +374,9 @@ def _call_and_validate(exam_name: str, label: str,
     dt = time.time() - t0
     result = parse_json(text)
     materialize_members(items, result)
+    n_dup = _dedupe_members(result)
+    if n_dup:
+        print(f"  ⚠ [{label}] {n_dup} dup phrase 제거", flush=True)
     n_truncated = _sanitize_ids(result)
     if n_truncated:
         print(f"  ⚠ [{label}] {n_truncated} id 길이 초과 → truncate", flush=True)
