@@ -41,6 +41,8 @@ def _load_credentials() -> tuple[str, str]:
 
 API_KEY, BASE_URL = _load_credentials()
 DEFAULT_MODEL = os.environ.get("GLM_MODEL", "glm-4.5")
+# GLM_MODEL_CHAIN: 쉼표구분, 좋은 모델부터. 각 모델 fail 시 다음으로 fallback.
+DEFAULT_CHAIN = [m.strip() for m in os.environ.get("GLM_MODEL_CHAIN", "").split(",") if m.strip()]
 
 # 싱글톤 클라이언트 (스레드세이프)
 _client = None
@@ -69,34 +71,44 @@ def call_glm(
 ) -> str:
     """GLM API 로 텍스트 생성. 기존 call_claude() 와 동일 인터페이스.
 
+    GLM_MODEL_CHAIN 환경변수가 설정되어 있으면 좋은 모델부터 시도, 실패 시 다음으로 fallback.
+    각 모델은 `retries` 회 시도 후 다음 모델로 넘어감. 마지막 모델까지 실패 시 raise.
+
     Returns: 생성된 텍스트 (stripped)
-    Raises: RuntimeError after retries exhausted
+    Raises: RuntimeError after all models exhausted
     """
-    model = model or DEFAULT_MODEL
+    if model:
+        chain = [model]
+    elif DEFAULT_CHAIN:
+        chain = list(DEFAULT_CHAIN)
+    else:
+        chain = [DEFAULT_MODEL]
+
     client = _get_client()
     last_err = ""
 
-    for attempt in range(retries):
-        if attempt:
-            time.sleep(2 + 2 * attempt)
-        try:
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=max_tokens,
-                temperature=temperature,
-                timeout=timeout,
-            )
-            out = (resp.choices[0].message.content or "").strip()
-            if not out:
-                last_err = "empty output"
+    for mdl in chain:
+        for attempt in range(retries):
+            if attempt:
+                time.sleep(2 + 2 * attempt)
+            try:
+                resp = client.chat.completions.create(
+                    model=mdl,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    timeout=timeout,
+                )
+                out = (resp.choices[0].message.content or "").strip()
+                if not out:
+                    last_err = f"{mdl}: empty output"
+                    continue
+                return out
+            except Exception as e:
+                last_err = f"{mdl}: {type(e).__name__}: {e}"
                 continue
-            return out
-        except Exception as e:
-            last_err = f"{type(e).__name__}: {e}"
-            continue
 
-    raise RuntimeError(f"GLM API failed after {retries} retries: {last_err}")
+    raise RuntimeError(f"GLM API failed after all models in chain ({chain}): {last_err}")
 
 
 # ── CLI 테스트 ─────────────────────────────────────────

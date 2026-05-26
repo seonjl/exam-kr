@@ -29,7 +29,6 @@ import concurrent.futures as cf
 import json
 import os
 import re
-import subprocess
 import sys
 import tempfile
 import threading
@@ -38,6 +37,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from exams import EXAMS  # noqa: E402
+from call_glm import call_glm  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
@@ -207,16 +207,8 @@ def normalize_body(rec: dict) -> dict:
 
 
 def call_claude(prompt: str, *, timeout: int = CLAUDE_TIMEOUT) -> str:
-    r = subprocess.run(
-        ["claude", "--model", "haiku", "-p", prompt],
-        capture_output=True, text=True, timeout=timeout,
-    )
-    if r.returncode != 0:
-        raise RuntimeError(f"claude failed: {r.stderr.strip()[:200]}")
-    out = r.stdout.strip()
-    if not out:
-        raise RuntimeError("claude returned empty output")
-    return out
+    """GLM-5.1 API 호출 (기존 claude CLI 대체)."""
+    return call_glm(prompt, max_tokens=4096)
 
 
 def call_with_retry(prompt: str, *, retries: int = 3) -> dict:
