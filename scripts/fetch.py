@@ -7,10 +7,14 @@ scripts/exams.py의 EXAMS 테이블을 참조하여 동작한다.
   python3 fetch.py <code> fetch <YYYYMMDD>     # 단일 회차 JSON 저장
   python3 fetch.py <code> fetch-all            # 전체 회차 순회
   python3 fetch.py <code> manifest             # data/<code>/sessions.json 재생성
+  python3 fetch.py <code> cbtbank list         # cbtbank.kr 회차 목록
+  python3 fetch.py <code> cbtbank fetch <D>    # cbtbank.kr 단일 회차
+  python3 fetch.py <code> cbtbank fetch-all    # cbtbank.kr 전체 회차
   python3 fetch.py all-exams fetch-all         # 모든 자격증 전체
 
 예:
   python3 fetch.py g1 fetch-all
+  python3 fetch.py g2 cbtbank fetch 20241026
   python3 fetch.py s2 list
 """
 
@@ -34,6 +38,7 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120"
 # 데이터 소스 base URL — comcbt.com 고정. 환경변수로 override 가능 (미러/테스트용).
 DEFAULT_BASE = "https://www.comcbt.com/cbt"
 BASE = os.environ.get("FETCH_BASE_URL", DEFAULT_BASE).rstrip("/")
+CBTBANK = "https://cbtbank.kr"
 DATA_ROOT = Path(__file__).parent.parent / "data"
 DATA_ROOT.mkdir(exist_ok=True)
 
@@ -322,6 +327,130 @@ def _write_top_manifest() -> None:
     print(f"wrote {DATA_ROOT / 'exams.json'} ({len(all_exams)} exams)")
 
 
+# ── cbtbank.kr 소스 ──────────────────────────────────────────────
+
+def _cbtbank_code(code: str) -> str:
+    """cbtbank.kr URL에 쓰는 코드. sa→ku, 나머지는 그대로."""
+    return cfg(code).get("dbname", code)
+
+
+def _cbtbank_clean(html: str) -> str:
+    t = re.sub(r"<br\s*/?>", "\n", html)
+    t = re.sub(r"<[^>]+>", "", t)
+    t = unescape(t)
+    t = re.sub(r"[ \t]+", " ", t)
+    return t.strip()
+
+
+def list_cbtbank(code: str) -> list[tuple[str, str]]:
+    """cbtbank.kr 카테고리에서 회차 목록 반환."""
+    from urllib.parse import quote
+    name = cfg(code)["name"]
+    cat_url = f"{CBTBANK}/category/{quote(name)}"
+    html = _req(cat_url)
+    exams = re.findall(r'href="/exam/([^"]+)"', html)
+    prefix = _cbtbank_code(code)
+    out = []
+    for e in exams:
+        if not e.startswith(prefix):
+            continue
+        date = e[len(prefix):]
+        if len(date) != 8 or not date.isdigit():
+            continue
+        label = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
+        out.append((date, label))
+    return out
+
+
+def fetch_cbtbank_session(code: str, date: str) -> dict:
+    """cbtbank.kr에서 회차 전체 HTML을 한 번에 받아 파싱."""
+    cb = _cbtbank_code(code)
+    url = f"{CBTBANK}/exam/{cb}{date}"
+    html = _req(url)
+
+    q_pat = re.compile(
+        r'<p class="exam-title"><span class="exam-number">(\d+)</span>\.\s*(.*?)</p>', re.S)
+    ol_pat = re.compile(
+        r'<ol class="circlednumbers" correct="(\d+)">(.*?)</ol>', re.S)
+
+    q_matches = list(q_pat.finditer(html))
+    ol_matches = list(ol_pat.finditer(html))
+
+    # 과목 경계 — "X과목: ...</p>" 마커 → 시작 문항 번호 매핑
+    subj_map: dict[int, str] = {}  # question_number -> subject_name
+    for sm in re.finditer(r'(\d*)과목[^<]*?:\s*([^<]+)</p>', html):
+        subj_name = re.sub(r'<[^>]+>', '', sm.group(2)).strip()
+        # 이 과목 마커 이후 첫 문항 번호
+        after = html[sm.end():sm.end() + 500]
+        num_m = re.search(r'<span class="exam-number">(\d+)</span>', after)
+        if num_m:
+            subj_map[int(num_m.group(1))] = subj_name
+
+    items: list[dict] = []
+    for i, qm in enumerate(q_matches):
+        num = int(qm.group(1))
+        question = _cbtbank_clean(qm.group(2))
+
+        # 질문 내 이미지
+        stem_imgs = []
+        for im in re.finditer(r'<img[^>]*src=["\']([^"\']+)', qm.group(2)):
+            stem_imgs.append(im.group(1))
+
+        # 정답률 — 질문 p 이후 근처에서 찾기
+        region_after_q = html[qm.end():qm.end() + 500]
+        rate_m = re.search(r"정답률:\s*(\d+)%", region_after_q)
+        pass_rate = int(rate_m.group(1)) if rate_m else None
+
+        # 대응 ol 찾기
+        best_ol = None
+        for om in ol_matches:
+            if om.start() > qm.end() and (best_ol is None or om.start() < best_ol.start()):
+                best_ol = om
+        if not best_ol:
+            continue
+
+        answer = int(best_ol.group(1))
+        choices_raw = re.findall(r"<li[^>]*>(.*?)</li>", best_ol.group(2), re.S)
+        choices = []
+        for cr in choices_raw:
+            imgs = [m.group(1) for m in re.finditer(r'<img[^>]*src=["\']([^"\']+)', cr)]
+            text = _cbtbank_clean(cr)
+            choices.append({"text": text, "images": imgs})
+
+        items.append({
+            "number": num,
+            "subject": "",
+            "question": question,
+            "question_images": stem_imgs,
+            "pass_rate": pass_rate,
+            "choices": choices,
+            "answer": answer,
+            "explanation": "",
+            "explanation_images": [],
+        })
+
+    # 과목 배정 — subj_map 기준으로 누적
+    sorted_subj_starts = sorted(subj_map.items())
+    current = ""
+    for q in items:
+        num = q["number"]
+        for start_num, subj_name in sorted_subj_starts:
+            if num >= start_num:
+                current = subj_name
+        q["subject"] = current
+
+    return {
+        "exam": EXAMS[code]["name"],
+        "dbname": code,
+        "date": date,
+        "label": "",
+        "count": len(items),
+        "questions": items,
+    }
+
+
+# ── CLI ──────────────────────────────────────────────────────────
+
 def main() -> None:
     args = sys.argv[1:]
     if not args:
@@ -377,6 +506,45 @@ def main() -> None:
     if cmd == "manifest":
         _write_manifest(code, list_sessions(code))
         _write_top_manifest()
+        return
+
+    if cmd == "cbtbank":
+        sub = args[2] if len(args) > 2 else "list"
+        if sub == "list":
+            for c_, label in list_cbtbank(code):
+                print(f"{c_}\t{label}")
+            return
+        if sub == "fetch":
+            date = args[3]
+            data = fetch_cbtbank_session(code, date)
+            # 과목 배정: 기존 파일 있으면 거기서 가져오기
+            path = _session_path(code, date)
+            if path.exists():
+                old = json.loads(path.read_text(encoding="utf-8"))
+                old_by_num = {q["number"]: q for q in old["questions"]}
+                for q in data["questions"]:
+                    if q["number"] in old_by_num:
+                        q["subject"] = old_by_num[q["number"]].get("subject", "")
+                data["label"] = old.get("label", "")
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
+            print(f"{path} ({data['count']} questions) [cbtbank]")
+            return
+        if sub == "fetch-all":
+            sessions = list_cbtbank(code)
+            for c_, label in sessions:
+                path = _session_path(code, c_)
+                if path.exists():
+                    print(f"skip {c_}")
+                    continue
+                data = fetch_cbtbank_session(code, c_)
+                data["label"] = label
+                path.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                                encoding="utf-8")
+                print(f"{path} ({data['count']} questions) [cbtbank]", flush=True)
+                time.sleep(0.5)
+            return
+        print("cbtbank sub-commands: list, fetch <date>, fetch-all")
         return
 
     print(__doc__)
