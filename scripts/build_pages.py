@@ -126,12 +126,14 @@ def patch_shell(*, title: str, description: str, canonical: str,
     og_description = og_description or description
     og_image = og_image or f"{BASE_URL}/og-image.png"
 
-    h = _RX_TITLE.sub(f"<title>{esc(title)}</title>", h, count=1)
+    _title_tag = f"<title>{esc(title)}</title>"
+    h = _RX_TITLE.sub(lambda _m: _title_tag, h, count=1)
 
     def replace(name: str, value: str, attr: str = "name") -> None:
         nonlocal h
         new_tag = f'<meta {attr}="{name}" content="{esc(value)}">'
-        h2, n = _RX_META(name, attr).subn(new_tag, h, count=1)
+        # lambda 로 raw replacement → \W, \1 등 escape 해석 회피
+        h2, n = _RX_META(name, attr).subn(lambda _m: new_tag, h, count=1)
         if n == 0:
             # not present — inject before </head>
             h2 = h.replace("</head>", new_tag + "\n</head>", 1)
