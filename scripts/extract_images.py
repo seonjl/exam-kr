@@ -81,6 +81,8 @@ def collect_urls() -> list[str]:
         if p.name == "sessions.json":
             continue
         d = json.loads(p.read_text(encoding="utf-8"))
+        if not isinstance(d, dict):  # data/audit/*.json 등 비문항 산출물 스킵
+            continue
         for q in d.get("questions", []):
             for u in (q.get("question_images") or []): urls.append(u)
             for c in (q.get("choices") or []):
@@ -92,6 +94,13 @@ def collect_urls() -> list[str]:
 def url_key(url: str) -> str:
     """Canonical cache key — strip query string."""
     return url.split("?", 1)[0]
+
+
+def resolve_url(url: str) -> str:
+    """상대경로 /images/{path} → comcbt CDN 절대 URL 로 해석 (다운로드용)."""
+    if url.startswith("/images/"):
+        return "https://img.comcbt.com/cbt/data/" + url[len("/images/"):]
+    return url
 
 
 # ---------- detection ----------
@@ -107,7 +116,7 @@ def detect_kind(content: str) -> str:
 
 
 # ---------- claude call ----------
-def call_claude_on_image(url: str, *, timeout: int = 120) -> str:
+def call_claude_on_image(url: str, *, timeout: int = 120, model: str | None = None) -> str:
     """Download image to a temp dir (cwd-scoped) and ask claude to Read it."""
     with tempfile.TemporaryDirectory(prefix="imgx_") as td:
         tmpdir = Path(td)
@@ -115,13 +124,16 @@ def call_claude_on_image(url: str, *, timeout: int = 120) -> str:
         fname = f"img.{ext}"
         fpath = tmpdir / fname
 
-        raw = urllib.request.Request(url, headers={"User-Agent": UA})
+        raw = urllib.request.Request(resolve_url(url), headers={"User-Agent": UA})
         with urllib.request.urlopen(raw, timeout=30) as r:
             fpath.write_bytes(r.read())
 
         prompt = PROMPT.format(filename=fname)
+        cmd = ["claude", "-p", prompt]
+        if model:
+            cmd[1:1] = ["--model", model]
         r = subprocess.run(
-            ["claude", "-p", prompt],
+            cmd,
             capture_output=True, text=True, cwd=td, timeout=timeout,
         )
         if r.returncode != 0:
@@ -151,7 +163,7 @@ class Breaker:
                 self.tripped = True
 
 
-def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False) -> dict:
+def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False, model: str | None = None) -> dict:
     cache = load_cache()
     # dedupe by canonical key, keep first occurrence
     seen = set(); work = []
@@ -178,7 +190,7 @@ def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False) -> dic
         if breaker.tripped:
             return
         try:
-            text = call_claude_on_image(u)
+            text = call_claude_on_image(u, model=model)
             kind = detect_kind(text)
             cache[k] = {"kind": kind, "content": text, "ts": int(time.time())}
             breaker.ok()
@@ -219,6 +231,8 @@ def apply_cache(cache: dict) -> dict:
     for p in sorted(DATA.glob("*/*_*.json")):
         if p.name == "sessions.json": continue
         d = json.loads(p.read_text(encoding="utf-8"))
+        if not isinstance(d, dict):  # data/audit/*.json 등 비문항 산출물 스킵
+            continue
         changed = False
         for q in d.get("questions", []):
             for src_key, dst_key in [
@@ -256,6 +270,7 @@ def main() -> None:
     ap.add_argument("--sample", type=int, help="앞 N개 URL만 처리")
     ap.add_argument("--all", action="store_true", help="전체 처리")
     ap.add_argument("--workers", type=int, default=1)
+    ap.add_argument("--model", default=None, help="claude -p 모델 (sonnet/haiku 등)")
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--stats", action="store_true", help="진척 통계만 출력하고 종료")
     ap.add_argument("--apply", action="store_true",
@@ -286,7 +301,7 @@ def main() -> None:
     else:
         ap.print_help(); sys.exit(1)
 
-    process_urls(work, workers=args.workers, dry=args.dry)
+    process_urls(work, workers=args.workers, dry=args.dry, model=args.model)
 
 
 if __name__ == "__main__":

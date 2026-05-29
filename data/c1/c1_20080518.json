@@ -1906,7 +1906,7 @@
         }
       ],
       "answer": 2,
-      "explanation": ">\n\nConnection객체의 Close메서드는 열려있는 객체와 관련된 종속 개체를 모두 닫는 기능만 수행합니다.\n객체를 닫는 동시에 메모리에서 제거하려면 객체변수를 Close가 아닌 Nothing으로 설정해야 합니다.\n[ 해설작성자 : 내일모레 시험 두둥! ]",
+      "explanation": "Connection객체의 Close메서드는 열려있는 객체와 관련된 종속 개체를 모두 닫는 기능만 수행합니다.\n객체를 닫는 동시에 메모리에서 제거하려면 객체변수를 Close가 아닌 Nothing으로 설정해야 합니다.\n[  : 내일모레 시험 두둥! ]",
       "explanation_images": [],
       "explanation_detailed": "핵심 개념\nADO(ActiveX Data Objects)의 Connection 객체 생명주기, 특히 Close 메서드와 객체 메모리 해제(Nothing)의 차이를 묻는 문제입니다.\n\n정답 분석\nConnection 객체의 Close 메서드는 열려 있는 연결과 관련된 종속 개체를 닫는 역할만 수행하며, 객체 자체를 메모리에서 제거하지는 않습니다. 객체를 메모리에서 완전히 해제하려면 별도로 객체변수에 Nothing을 대입(Set conn = Nothing)해야 합니다. 따라서 \"close 메서드로 객체를 닫는 동시에 메모리에서 제거한다\"는 설명은 잘못된 표현입니다.\n\n오답 분석\n① Connection 객체는 데이터베이스 연결 시 Open 메서드를 사용하므로 옳은 설명입니다.\n② Close는 연결만 닫고 메모리 해제는 Nothing으로 따로 처리해야 하므로 틀린 설명이며 정답입니다.\n③ ②와 동일한 문장으로 출제 오류이며, 내용상으로는 동일하게 틀린 설명입니다.\n④ ②와 동일한 문장으로 출제 오류이며, 내용상으로는 동일하게 틀린 설명입니다.",
       "concepts": [

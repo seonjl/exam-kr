@@ -49,6 +49,29 @@ INLINE_PATTERNS = [
 ]
 
 
+# 문제·보기 텍스트에 붙은 플랫폼 안내문 (출제 내용 아님)
+# 괄호 안에 플랫폼 용어(오류 신고/복원중/작성 부탁/게시판)가 들어간 안내문 제거
+QUESTION_NOTICE = re.compile(
+    r"\([^)]*(?:오류\s*신고|오류신고|복원\s*중|복원중|작성\s*부탁|게시판에\s*작성)[^)]*\)"
+)
+
+
+# 사용자 노출 텍스트에 남은 플랫폼/출처 흔적 탐지 (이게 있을 때만 해설 정리)
+TRACE_DETECT = re.compile(
+    r"comcbt|cbt\.com|해설작성자|오류\s*신고|밀양금성|전자문제집|해설집|"
+    r"시험지를\s*스캔|기출문제\s*복원|관리자\s*입니다|관리자입니다",
+    re.I,
+)
+
+
+def clean_question(text: str) -> str:
+    """문제·보기 텍스트: 플랫폼 안내문만 제거 (다른 공백/내용은 보존)."""
+    if not text:
+        return ""
+    s = QUESTION_NOTICE.sub("", text)
+    return s.strip()
+
+
 def clean_explanation(text: str) -> str:
     if not text:
         return ""
@@ -70,12 +93,32 @@ def clean_explanation(text: str) -> str:
 
 def scrub_file(path: Path) -> dict:
     d = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(d, dict) or "questions" not in d:  # audit 산출물 등 스킵
+        return {"file": path.name, "changed": 0, "total": 0}
     count_changed = 0
     for q in d["questions"]:
+        changed = False
         orig = q.get("explanation") or ""
-        cleaned = clean_explanation(orig)
-        if cleaned != orig:
-            q["explanation"] = cleaned
+        # 해설은 플랫폼 흔적이 실제 있을 때만 정리 (cosmetic 변경 회피)
+        if TRACE_DETECT.search(orig):
+            cleaned = clean_explanation(orig)
+            if cleaned != orig:
+                q["explanation"] = cleaned
+                changed = True
+        qt = q.get("question") or ""
+        cqt = clean_question(qt)
+        if cqt != qt:
+            q["question"] = cqt
+            changed = True
+        for c in (q.get("choices") or []):
+            if not isinstance(c, dict):
+                continue
+            ct = c.get("text") or ""
+            cct = clean_question(ct)
+            if cct != ct:
+                c["text"] = cct
+                changed = True
+        if changed:
             count_changed += 1
     path.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
     return {"file": path.name, "changed": count_changed, "total": len(d["questions"])}
