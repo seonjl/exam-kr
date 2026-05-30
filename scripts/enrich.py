@@ -82,14 +82,20 @@ def prompt_for(exam_code: str, q: dict) -> str:
 """
 
 
+MODEL: str | None = None  # --model 로 설정 (sonnet 등). None 이면 기본 세션 모델.
+
+
 def call_claude(prompt: str, *, timeout: int = 120, retries: int = 3) -> str:
     import time as _time
     last_err = ""
+    cmd = ["claude", "-p", prompt]
+    if MODEL:
+        cmd[1:1] = ["--model", MODEL]
     for attempt in range(retries):
         if attempt:
             _time.sleep(2 + 2 * attempt)
         r = subprocess.run(
-            ["claude", "-p", prompt],
+            cmd,
             capture_output=True, text=True, timeout=timeout,
         )
         if r.returncode != 0:
@@ -262,7 +268,11 @@ def main() -> None:
     ap.add_argument("--dry", action="store_true", help="첫 프롬프트만 출력하고 종료")
     ap.add_argument("--breaker", type=int, default=20,
                     help="연속 실패 임계치 (기본 20)")
+    ap.add_argument("--model", default=None, help="claude -p 모델 (sonnet/haiku 등)")
     args = ap.parse_args()
+
+    global MODEL
+    MODEL = args.model
 
     t0 = time.time()
     grand = {"done": 0, "failed": 0, "sessions": 0, "exams": 0}
