@@ -990,9 +990,6 @@
       "number": 23,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 (ㄱ), (ㄴ)에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m23.gif?1593379597"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -1031,6 +1028,12 @@
         "kinetic-energy",
         "water-hammer",
         "surging-phenomenon"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "파이프 속을 유체가 흐를 때 파이프 끝의 밸브를 갑자기 닫으면 유체의 ( ㄱ )에너지가 압력으로 변환되면서 밸브 직전에서 높은 압력이 발생하고 상류로 압력파가 전달되는 ( ㄴ ) 현상이 발생한다."
+        }
       ]
     },
     {
@@ -1126,9 +1129,6 @@
       "number": 26,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 수족관에 직경 3m의 투시경이 설치되어있다. 이 투시경에 작용하는 힘(kN)은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m26.gif?1593379597"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -1167,6 +1167,12 @@
         "fluid-statics",
         "buoyancy-hydrostatics",
         "geometry-pipe-dimension"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\n벽  ────────────────────────────\n│                    /  3m\n│                   /\n│      벽          /\n│                 / 30°\n│            ┌──○──┐\n│            │  3m │\n│            └─────┘\n```\n벽에서 30° 각도로 기울어진 원통형 물체, 벽과의 거리 3m, 원통 직경 3m"
+        }
       ]
     },
     {
@@ -1263,33 +1269,42 @@
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "관의 길이가 l이고, 지름이 d, 관마찰계수가 f일 때, 총 손실수두 H(m)를 식으로 바르게 나타낸 것은? (단, 입구 손실계수가 0.5, 출구 손실계수가 1.0, 속도수두는 V2/2g이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m29.gif?1593379597"
-      ],
       "pass_rate": 65,
       "choices": [
         {
           "text": "$\\left(1.5 + f\\dfrac{l}{d}\\right)\\dfrac{V^{2}}{2g}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m29b1.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(1.5 + f\\dfrac{l}{d}\\right)\\dfrac{V^2}{2g}$$"
+            }
           ]
         },
         {
           "text": "$\\left(f\\dfrac{l}{d} + 1\\right)\\dfrac{V^{2}}{2g}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m29b2.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(f\\dfrac{l}{d} + 1\\right)\\dfrac{V^2}{2g}$$"
+            }
           ]
         },
         {
           "text": "$\\left(0.5 + f\\dfrac{l}{d}\\right)\\dfrac{V^{2}}{2g}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m29b3.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(0.5 + f\\dfrac{l}{d}\\right)\\dfrac{V^2}{2g}$$"
+            }
           ]
         },
         {
           "text": " ",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m29b4.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(f\\dfrac{l}{d}\\right)\\dfrac{V^2}{2g}$$"
+            }
           ]
         }
       ],
@@ -1321,6 +1336,12 @@
         "flow-losses-resistance",
         "darcy-weisbach-equation",
         "head-loss-equivalent-length"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\n┌──▽──┐         ┌──▽──┐\n│▓▓▓▓▓│    H    │▓▓▓▓▓│\n│▓▓▓▓▓│↕        │▓▓▓▓▓│\n│     │         │     │\n│     └────┬────┘     │\n│          │d         │\n└──────────┴──────────┘\n           ←l→\n```\nH: 수두차, d: 연결관 직경, l: 연결관 길이"
+        }
       ]
     },
     {
@@ -1372,9 +1393,6 @@
       "number": 31,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 길이 5m, 입구직경 (D1) 30cm, 출구직경 (D2) 16cm인 직관을 수평면과 30° 기울어지게 설치하였다. 입구에서 0.3m3/s로 유입되어 출구에서 대기중으로 분출된다면 입구에서의 압력(kPa)은? (단, 대기는 표준대기압 상태이고 마찰손실은 없다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m31.gif?1593379597"
-      ],
       "pass_rate": 32,
       "choices": [
         {
@@ -1415,6 +1433,12 @@
         "bernoulli-equation",
         "flow-continuity-equation",
         "pressure-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "배관이 수평면과 30° 각도로 경사진 구조도.\n\n- 배관 길이: 5m (경사 방향)\n- 입구(D₁): 하단 왼쪽, Q = 0.3m³/s 유입\n- 출구(D₂): 상단 오른쪽\n- 수직 높이: Z\n- 하단 수평 기준면까지 거리: 3m\n- 경사각: 30°"
+        }
       ]
     },
     {
@@ -1556,9 +1580,6 @@
       "number": 35,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 그림에서 A, B점의 압력차(kPa)는? (단, A는 비중 1의 물, B는 비중 0.899의 벤젠이다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m35.gif?1597761929"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -1597,6 +1618,12 @@
         "u-tube-manometer",
         "specific-gravity-difference",
         "pressure-difference"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자관 압력계 구성도.\n\n- 왼쪽: 용기 A (물)\n- 오른쪽: 벤젠 B\n- U자관 내부 충전액: 수은 (비중 13.6)\n- 왼쪽 관 높이 기준: 14cm\n- U자관 하단 폭: 15cm\n- 오른쪽 수은 상단에서 벤젠까지 높이: 24cm"
+        }
       ]
     },
     {
@@ -1608,26 +1635,38 @@
       "choices": [
         {
           "text": "v1^2/(2g) + P1/γ + z1 = v2^2/(2g) + P2/γ + H_L  (펌프 수두 H_P 누락, 위치수두 z2 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m36b1.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         },
         {
           "text": "v1^2/(2g) + P1/γ + z1 + H_P = v2^2/(2g) + P2/γ + H_L  (우변 위치수두 z2 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m36b2.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         },
         {
           "text": "v1^2/(2g) + P1/γ + H_P = v2^2/(2g) + P2/γ + z2 + H_L  (좌변 위치수두 z1 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m36b3.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         },
         {
           "text": "v1^2/(2g) + P1/γ + z1 + H_P = v2^2/(2g) + P2/γ + z2 + H_L  (속도수두, 압력수두, 위치수두 모두 포함 + 펌프 수두 H_P는 좌변(에너지 공급)에 +, 손실 수두 H_L은 우변(에너지 소비)에 + 로 구성된 완전한 식)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m36b4.gif?1593379597"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         }
       ],
@@ -1665,9 +1704,6 @@
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 단면 A에서 정압이 500kPa이고 10m/s로 난류의 물이 흐르고 있을 때 단면 B에서의 유속(m/s)은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m37.gif?1593379597"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1705,6 +1741,12 @@
       "concept_ids": [
         "continuity-equation",
         "cross-sectional-area-velocity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "벤투리미터(축소 노즐) 단면도.\n\n- 입구 단면 A: 직경 10cm\n- 출구 단면 B: 직경 5cm\n- 유동 방향: A → B (왼쪽 → 오른쪽)"
+        }
       ]
     },
     {
@@ -2202,9 +2244,6 @@
       "number": 49,
       "subject": "3과목 : 소방관계법규",
       "question": "소방기본법령상 불꽃을 사용하는 용접ㆍ용단 기구의 용접 또는 용단 작업장에서 지켜야 하는 사항 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m49.gif?1593379597"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2243,6 +2282,12 @@
         "welding-cutting-safety",
         "fire-extinguisher-placement-distance",
         "safety-distance-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "용접 또는 용단 작업자로부터 반경 ( ⊙ )m 이내에 소화기를 갖추어 둘 것. 용접 또는 용단 작업장 주변 반경 ( ⊙ )m 이내에는 가연물을 쌓아두거나 놓아두지 말 것. 다만, 가연물의 제거가 곤란하여 방지포 등으로 방호조치를 한 경우는 제외한다."
+        }
       ]
     },
     {
@@ -2380,9 +2425,6 @@
       "number": 53,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법령상 다음의 규정을 위반하여 위험물의 운송에 관한 기준을 따르지 아니한 자에 대한 과태료 기준은?(2020년 10월 20일 개정된 규정 적용됨)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m53.gif?1593379597"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -2419,6 +2461,12 @@
       "concept_ids": [
         "hazmat-transporter-qualification",
         "administrative-penalties"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "위험물운송자는 이동탱크저장소에 의하여 위험물을 운송하는 때에는 행정안전부령으로 정하는 기준을 준수하는 등 당해 위험물의 안전확보를 위하여 세심한 주의를 기울여야 한다."
+        }
       ]
     },
     {
@@ -2855,9 +2903,6 @@
       "number": 64,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "화재예방, 소방시설 설치ㆍ유지 및 안전관리에 관한 법률상 자동소화장치를 모두 고른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m64.gif?1593379597"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2897,6 +2942,12 @@
       "concept_ids": [
         "automatic-extinguishing-system",
         "fire-prevention-act-apparatus"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 분말자동소화장치\n② 액체자동소화장치\n③ 고체에어로졸자동소화장치\n④ 공업용 주방자동소화장치\n⑤ 캐비닛형 자동소화장치"
+        }
       ]
     },
     {
@@ -3300,9 +3351,6 @@
       "number": 74,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "연결살수설비의 화재안전기준에 따른 건축물에 설치하는 연결살수설비의 헤드에 대한 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m74.gif?1593379598"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -3341,6 +3389,12 @@
         "sprinkler-system-head-installation-standard",
         "head-spacing",
         "installation-positioning"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "천장 또는 반자의 각 부분으로부터 하나의 살수헤드까지의 수평거리가 연결살수설비 전용헤드의 경우는 ( ⊙ )m 이하, 스프링클러헤드의 경우는 ( ⊙ )m 이하로 할 것. 다만, 살수헤드의 부착면과 바닥과의 높이가 ( ⊙ )m 이하인 부분은 살수헤드의 살수분포에 따른 거리로 할 수 있다."
+        }
       ]
     },
     {
@@ -3392,9 +3446,6 @@
       "number": 76,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 화재안전기준상 차고ㆍ주차장에 설치하는 포소화전설비의 설치 기준 중 다음 ( ) 안에 알맞은 것은? (단, 1개 층의 바닥면적이 200m2 이하인 경우는 제외한다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m76.gif?1593379598"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -3433,6 +3484,12 @@
         "foam-system-pressure",
         "parking-garage-foam-extinguishing-system",
         "floor-area-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특정소방대상물의 어느 층에 있어서도 그 층에 설치된 포소화전방수구(포소화전방수구가 5개 이상 설치된 경우에는 5개)를 동시에 사용할 경우 각 이동식 포노즐단의 포수용액 방사압력이 ( ⊙ )MPa 이상이고 ( ⊙ )L/min 이상의 포수용액을 수평거리 15m 이상으로 방사할 수 있도록 할 것."
+        }
       ]
     },
     {
@@ -3484,9 +3541,6 @@
       "number": 78,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "물분무소화설비의 화재안전기준에 따른 물분무소화설비의 저수량에 대한 기준 중 다음 ( ) 안의 내용으로 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200606/nd20200606m78.gif?1593379598"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -3527,6 +3581,12 @@
         "water-mist-system-water-source",
         "water-discharge-by-protection-target",
         "special-combustibles-storage-and-handling"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "절연유 봉입 변압기는 바닥부분을 제외한 표면적을 합한 면적 1m²에 대하여 ( )L/min로 20분간 방수할 수 있는 양 이상으로 할 것."
+        }
       ]
     },
     {

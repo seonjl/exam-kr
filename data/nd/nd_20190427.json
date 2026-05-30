@@ -901,10 +901,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 물에 의하여 점 B에서 힌자된 사분원 모양의 수문이 평형을 유지하기 위하여 수면에서 수문을 잡아 당겨야 하는 힘 T는 약 몇 [kN]인가? (단, 수문의 폭 1[m], 반지름 (  )은 2[m], 4분원의 중심은 O점에서 왼쪽으로 4r/3π인 곳에 있다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m21m1.gif?1560116176",
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m21.gif?1560116176"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -943,6 +939,16 @@
         "hydrostatic-force-plane",
         "hinge-moment-equilibrium",
         "curved-gate-hydraulic-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$r = \\overline{OB}$$"
+        },
+        {
+          "kind": "text",
+          "content": "직사각형 용기 단면도:\n- 좌측: T (수위면, 수평선 표시)\n- 우측 상단: O\n- 우측 하단: B\n- O–B 사이: 원호 (1/4 원), 중심 O, 반지름 r = OB\n- 화살표: 원호 곡면 방향 표시"
+        }
       ]
     },
     {
@@ -994,9 +1000,6 @@
       "number": 23,
       "subject": "2과목 : 소방유체역학",
       "question": "단면적이 A와 2A인 U자형 관에 밀도가 d인 기름이 담겨져 있다. 단면적이 2A인 관에 관벽과는 마찰이 없는 물체를 놓았더니 그림과 같이 평형을 이루었다. 이 때 이 물체의 질량은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m23.gif?1560116176"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -1037,39 +1040,54 @@
         "fluid-statics",
         "cross-sectional-area-change",
         "pascal-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자형 유압 장치 단면도:\n- 좌측 실린더: 단면적 A, 기름 채워짐\n- 우측 실린더: 단면적 2A, 물체(하중) 올려짐\n- 좌측 액면 높이: h₁ (위쪽)\n- 우측 액면 높이: h₂ (아래쪽, h₁ > h₂)\n- 하부 연결 통로"
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 물이 들어있는 아주 큰 탱크에 사이펀이 장치되어 있다. 출구에서의 속도 V와 관의 상부 중심 A지점에서의 게이지 압력 pA를 구하는 식은? (단. g는 중력가속도, ρ는 물의 밀도이며, 관의 직경은 일정하고 모든 손실은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m24.gif?1560116176"
-      ],
       "pass_rate": 61,
       "choices": [
         {
           "text": "은 V=√(2g(h1+h2)), pA=-ρg·h3; 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m24b1.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V = \\sqrt{2g(h_1 + h_2)}, \\quad p_A = -\\rho g h_3$$"
+            }
           ]
         },
         {
           "text": "는 V=√(2g(h1+h2)), pA=-ρg(h1+h2+h3); 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m24b2.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V = \\sqrt{2g(h_1 + h_2)}, \\quad p_A = -\\rho g(h_1 + h_2 + h_3)$$"
+            }
           ]
         },
         {
           "text": "은 V=√(2g·h2), pA=-ρg(h1+h2+h3); 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m24b3.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V = \\sqrt{2g h_2}, \\quad p_A = -\\rho g(h_1 + h_2 + h_3)$$"
+            }
           ]
         },
         {
           "text": "는 V=√(2g(h1+h2)), pA=ρg(h1+h2-h3) 이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m24b4.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V = \\sqrt{2g(h_1 + h_2)}, \\quad p_A = \\rho g(h_1 + h_2 - h_3)$$"
+            }
           ]
         }
       ],
@@ -1095,6 +1113,12 @@
       "concept_ids": [
         "siphon",
         "bernoulli-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사이펀 관 단면도:\n- 좌측: 수조 (액면 일정)\n- 상단: A 지점 (관의 최고점)\n- 우측 수직관:\n  - h₃: A에서 수조 액면까지 높이\n  - h₁: 수조 액면에서 출구까지 높이 (중간)\n  - h₂: 수조 액면에서 출구까지 추가 높이\n- 하단: V (출구, 유출 방향 화살표 아래)"
+        }
       ]
     },
     {
@@ -1275,9 +1299,6 @@
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "피토관을 사용하여 일정 속도로 흐르고 있는 물의 유속(V)을 측정하기 위해, 그림과 같이 비중 S인 유체를 갖는 액주계를 설치하였다. S=2일 때 액주의 높이차이가 H=h가 되면, S=3일 때 액주의 높이 차(H)는 얼마가 되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m29.gif?1560116176"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1286,8 +1307,11 @@
         },
         {
           "text": "는 분수식 h/√3 을 의미한다. LaTeX로 \\dfrac{h}{\\sqrt{3}}.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m29b2.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{h}{\\sqrt{3}}$$"
+            }
           ]
         },
         {
@@ -1324,6 +1348,12 @@
       "concept_ids": [
         "pitot-tube-dynamic-pressure",
         "manometer"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "피토관 단면도:\n- 좌측: 수평 유동 V (화살표 →)\n- 상부: Water (수면 기준선)\n- 중앙: 피토관 (U자형 삽입관)\n- S: 정체점 (관 입구)\n- H: 피토관 수두 (수면 기준으로부터 S 까지의 높이)"
+        }
       ]
     },
     {
@@ -1732,33 +1762,42 @@
       "number": 39,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 관에 비압축성 유체가 흐를 때 A 단면의 평균속도가 V1이라면 B단면에서의 평균속도 V2는? (단, A 단면의 지름은 d1이고 B단면의 지름은 d2이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m39.gif?1560116176"
-      ],
       "pass_rate": 61,
       "choices": [
         {
           "text": ": $V_2 = \\left(\\dfrac{d_1}{d_2}\\right) V_1$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m39b1.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\frac{d_1}{d_2}\\right) V_1$$"
+            }
           ]
         },
         {
           "text": ": $V_2 = \\left(\\dfrac{d_1}{d_2}\\right)^2 V_1$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m39b2.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\frac{d_1}{d_2}\\right)^2 V_1$$"
+            }
           ]
         },
         {
           "text": ": $V_2 = \\left(\\dfrac{d_2}{d_1}\\right) V_1$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m39b3.gif?1560116176"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\dfrac{d_2}{d_1}\\right) V_1$$"
+            }
           ]
         },
         {
           "text": ": $V_2 = \\left(\\dfrac{d_2}{d_1}\\right)^2 V_1$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m39b4.gif?1560116177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\dfrac{d_2}{d_1}\\right)^2 V_1$$"
+            }
           ]
         }
       ],
@@ -1790,6 +1829,12 @@
         "incompressible-fluid",
         "circular-cross-sectional-area",
         "velocity-increase-narrow-pipe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "축소 노즐(확대관) 단면도:\n- 좌측 단면: 지름 d₁ (큰 쪽), A 지점\n- 우측 단면: 지름 d₂ (작은 쪽), B 지점\n- 유동 방향: A → B (화살표 →)"
+        }
       ]
     },
     {
@@ -3055,9 +3100,6 @@
       "number": 68,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "화재 시 연기가 찰 우려가 없는 장소로서 호스릴분말소화설비를 설치할 수 있는 기준 중 다음 ()안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m68.gif?1560116177"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -3096,15 +3138,18 @@
         "hose-reel-powder-system",
         "opening-protection",
         "ventilation-and-smoke-exhaust"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 지상 1층 및 피난층에 있는 부분으로서 지상에서 수동 또는 원격조작에 따라 개방할 수 있는 개구부의 유효면적의 합계가 바닥면적의 ( ⓐ )[%] 이상이 되는 부분\n- 전기설비가 설치되어 있는 부분 또는 다량의 화기를 사용하는 부분의 바닥면적이 해당 설비가 설치되어 있는 구획의 바닥면적의 ( ⓒ ) 미만이 되는 부분"
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "다음 ()안에 들어가는 기기로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m69.gif?1560116177"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -3143,6 +3188,12 @@
         "powder-suppression-system-gas-cylinder",
         "electronic-opening-valve",
         "pressure-regulator"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 분말소화약제의 가압용가스 용기를 3병 이상 설치한 경우에는 2개 이상의 용기에 ( ⓐ )를 부착하여야 한다.\n- 분말소화약제의 가압용가스 용기에는 2.5[MPa] 이하의 압력에서 조정이 가능한 ( ⓑ )를 설치하여야 한다."
+        }
       ]
     },
     {
@@ -3464,9 +3515,6 @@
       "number": 77,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 자동식 기동장치를 패쇄형 스프링클러헤드의 개방과 연동하여 가압송수장치ㆍ일제개방밸브 및 포 소화약제 혼합 장치를 기동하는 경우 다음 ()안에 알맞은 것은? (단, 자동화재탐지설비의 수신기가 설치된 장소에 장시 사람이 근무하고 있고, 화재시 즉시 해당 조작부를 작동시킬 수 있는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m77.gif?1560116177"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -3505,15 +3553,18 @@
         "foam-extinguishing-system-startup-time",
         "head-opening-rate",
         "automatic-fire-detection"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "표시온도가 ( ⓐ )[℃] 미만인 것을 사용하고, 1개의 스프링클러헤드의 경계면적은 ( ⓒ )[㎡] 이하로 할 것"
+        }
       ]
     },
     {
       "number": 78,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "특정소방대상물별 소화기구의 능력단위의 기준 중 다음 ()안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m78.gif?1560116177"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3552,15 +3603,18 @@
         "fire-extinguisher-capability-unit",
         "fire-target-installation-and-placement",
         "fire-rated-structure-area-discount-condition"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 특정 소방대상물 | 소화기구의 능력단위 |\n|---|---|\n| 장례식장 및 의료시설 | 해당 용도의 바닥면적 ( ⓒ )[㎡]마다 능력 단위 1단위 이상 |\n| 노유자시설 | 해당 용도의 바닥면적 ( ⓒ )[㎡]마다 능력 단위 1단위 이상 |\n| 위락시설 | 해당 용도의 바닥면적 ( ⓒ )[㎡]마다 능력 단위 1단위 이상 |"
+        }
       ]
     },
     {
       "number": 79,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "아래 평면도와 같이 반자가 있는 어느 실내에 전등이나 공조용 디퓨져 등의 시설물을 무시하고 수평거리를 2.1[m]로 하여 스프링클러헤드를 정방형으로 설치하고자 할 때 최소 몇 개의 헤드를 설치해야 하는가? (단, 반자 속에는 헤드를 설치하지 아니하는 것으로 본다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190427/nd20190427m79.gif?1560116177"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3599,6 +3653,12 @@
         "sprinkler-head-spacing-arrangement",
         "square-layout-design",
         "suspended-ceiling-requirements"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\n        25[m]\n   ┌───────────┐\n   │           │\n15[m]          │\n   │           │\n   └───────────┘\n```"
+        }
       ]
     },
     {

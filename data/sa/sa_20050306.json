@@ -465,9 +465,6 @@
       "number": 13,
       "subject": "1과목 : 안전관리론",
       "question": "안전조직형은 어떤 형태의 조직인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m13.gif?1466485012"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -498,6 +495,12 @@
       "concept_ids": [
         "staff-safety-organization",
         "safety-org-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    경영자 -->|생산지시| 관리자\n    경영자 -->|생산지시| 감독자\n    경영자 -->|생산지시| 작업자\n    안전staff -.->|안전지시| 경영자\n    안전staff -.->|안전지시| 관리자\n    안전staff -.->|안전지시| 감독자\n    안전staff -.->|안전지시| 작업자\n    관리자 -->|생산지시| 감독자\n    감독자 -->|생산지시| 작업자\n```\n\n← 생산지시 (실선)\n←‥ 안전지시 (점선)"
+        }
       ]
     },
     {
@@ -801,9 +804,6 @@
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림과 같은 상황에서 시각(visual angle)은 얼마 인가? (단, D:71cm, H:1cm 이다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m22.gif?1466485012"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -834,6 +834,12 @@
       "concept_ids": [
         "visual-angle-diopter",
         "visual-angle"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "눈의 위치에서 거리 D 떨어진 곳에 높이 H인 대상물 A를 바라볼 때의 시각 다이어그램\n\n- 눈의 위치 (좌측)\n- 시각: 눈에서 대상물 상·하단을 잇는 각도\n- D: 눈과 대상물 사이의 수평 거리\n- H: 대상물의 높이"
+        }
       ]
     },
     {
@@ -877,9 +883,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템의 신뢰도는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m24.gif?1466485012"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -910,6 +913,12 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "신뢰도 회로 (직·병렬 혼합):\n\n- 병렬 구성: 0.7과 0.7 (두 요소 병렬)\n- 직렬 구성: 위 병렬 블록 → 0.8 → 0.8\n\n$$R = \\left[1-(1-0.7)(1-0.7)\\right] \\times 0.8 \\times 0.8$$"
+        }
       ]
     },
     {
@@ -2631,9 +2640,6 @@
       "number": 70,
       "subject": "4과목 : 전기위험방지기술",
       "question": "전격을 받은 경우의 인체 저항값은 손과 발의 경우는 그림과 같다. 전압이 낮은 부분의 상한과 하한은 무엇으로 결정되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m70.gif?1466485012"
-      ],
       "pass_rate": 41,
       "choices": [
         {
@@ -2664,6 +2670,12 @@
       "concept_ids": [
         "human-body-resistance",
         "skin-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "절연저항 [×10² Ω] vs 전압 [V] 그래프\n\n- Y축: 절연저항 (×10² Ω), 범위 0~6\n- X축: 전압 (V), 범위 100~700\n- 빗금 영역: 상한과 하한 사이의 허용 범위\n- 상한 곡선: 전압 증가에 따라 감소\n- 하한 곡선: 전압 증가에 따라 감소 (상한보다 낮음)"
+        }
       ]
     },
     {
@@ -3088,9 +3100,6 @@
       "number": 82,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "그림에 나타난 혼합장치는 포말소화 약제혼합 장치 중 어느 것에 해당되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m82.gif?1466485012"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -3123,6 +3132,12 @@
         "foam-extinguishing-agent-mixer",
         "line-proportioner",
         "line-mixing"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[포말소화약제용기] -->|포말소화약재| B[혼합기]\n    C[가압수] --> B\n    B -->|포말방출구| D[출구]\n```"
+        }
       ]
     },
     {
@@ -3623,9 +3638,6 @@
       "number": 96,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "아세틸렌 가스가 다음과 같은 반응식에 의하여 연소할 때 열역학 표를 참조하여 연소열(ΔH)을 구하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050306/ku20050306m96.gif?1466485012"
-      ],
       "pass_rate": 41,
       "choices": [
         {
@@ -3658,6 +3670,12 @@
         "acetylene-combustion",
         "standard-heat-of-formation",
         "combustion-reaction-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\text{C}_2\\text{H}_2 + \\frac{5}{2}\\text{O}_2 \\rightarrow 2\\text{CO}_2 + \\text{H}_2\\text{O}$$\n\n| 구분 | ΔH (kcal/mol) |\n|------|--------------|\n| C₂H₂ | 54.194 |\n| CO₂ | -94.052 |\n| H₂O(g) | -57.798 |"
+        }
       ]
     },
     {

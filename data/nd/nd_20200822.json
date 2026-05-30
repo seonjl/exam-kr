@@ -1249,26 +1249,38 @@
       "choices": [
         {
           "text": "f = 64μ / (DVρ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m29b1.gif?1599294986"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64\\mu}{DV\\rho}$$"
+            }
           ]
         },
         {
           "text": "f = 64ρ / (DVμ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m29b2.gif?1599294986"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64\\rho}{DV\\mu}$$"
+            }
           ]
         },
         {
           "text": "f = 64D / (Vρμ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m29b3.gif?1599294986"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64D}{V\\rho\\mu}$$"
+            }
           ]
         },
         {
           "text": "f = 64 / (DVρμ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m29b4.gif?1599294986"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64}{DV\\rho\\mu}$$"
+            }
           ]
         }
       ],
@@ -1304,9 +1316,6 @@
       "number": 30,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 매우 큰 탱크에 연결된 길이 100m, 안지름 20cm인 원관에 부차적 손실계수가 5이 밸브 A가 부착되어 있다. 관 입구에서의 부차적 손실계수가 0.5, 관마찰계수는 0.02이고, 평균속도가 2m/s 일 때 물의 높이 H(m)는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m30.gif?1599294986"
-      ],
       "pass_rate": 34,
       "choices": [
         {
@@ -1345,6 +1354,12 @@
         "bernoulli-equation",
         "head-loss",
         "pipe-flow-characteristics"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "탱크에서 오리피스(A)를 통해 유출되는 구조도.\n\n- 왼쪽: 수조(탱크)\n- 오른쪽 배관 출구에 오리피스 A 설치\n- 수면과 오리피스 중심 간 높이 차: H\n- 유동 방향: 탱크 → 오리피스 → 우측 방출"
+        }
       ]
     },
     {
@@ -1396,9 +1411,6 @@
       "number": 32,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 반지름이 1m, 폭(y 방향) 2m인 곡면 AB에 작용하는 물에 의한 힘의 수직성분(z방향) Fz와 수평성분(x방향) Fx와의 비(Fz/Fx)는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m32.gif?1599294986"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1437,6 +1449,12 @@
         "curved-surface-fluid-force",
         "vertical-hydrostatic-force",
         "projected-area"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "위어(웨어) 단면 흐름 구조도.\n\n- 상류 수면: A 지점 (위어 상단)\n- 하류 방출구: B 지점 (바닥 근처)\n- 수면에서 B까지 수직 낙차: 1m\n- 좌표계: z (수직), y (횡), x (유동 방향)\n- 수면 기호(▽): 상류 수위 표시"
+        }
       ]
     },
     {
@@ -1533,9 +1551,6 @@
       "number": 35,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 폭(b)이 1m이고 깊이(h0) 1m로 물이 들어있는 수조가 트럭 위에 실려 있다. 이 트럭이 7m/s2의 가속도로 달릴 때 물의 최대 높이(h2)와 최소 높이(h1)는 각각 몇 m 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m35.gif?1599294986"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -1574,6 +1589,12 @@
         "accelerating-liquid-free-surface",
         "slope-height-calculation",
         "continuity-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직사각형 단면 수조 개략도 (경사 수면).\n\n- 수조 내 유체: 물\n- 수조 폭: b\n- 왼쪽 수면 높이: h₁\n- 오른쪽 수면 높이: h₂ (h₂ > h₁)\n- 기준 높이: h₀ (오른쪽 벽 기준)\n- 수면이 좌측 낮고 우측 높은 경사 상태 (가속도 운동)"
+        }
       ]
     },
     {
@@ -1625,9 +1646,6 @@
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "출구단면적이 0.0004m2 인 소방호스로부터 25m/s 의 속도로 수평으로 분출되는 물제트가 수직으로 세워진 평판과 충돌한다. 평판을 고정시키기 위한 힘(F)은 몇 N 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m37.gif?1599294986"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1666,15 +1684,18 @@
         "fluid-impact-force",
         "velocity-discharge",
         "conservation-of-momentum"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "노즐에서 분사된 유체가 평판에 충돌하는 구조도.\n\n- 왼쪽: 노즐(수축 유로)에서 유체 분사\n- 오른쪽: 수직 평판\n- 평판에 작용하는 힘: F (왼쪽 방향, 유체 충돌력)\n- 분사 방향: 좌 → 우 (평판에 수직 충돌)"
+        }
       ]
     },
     {
       "number": 38,
       "subject": "2과목 : 소방유체역학",
       "question": "두 개의 가벼운 공을 그림과 같이 실로 매달아 놓았다. 두 개의 공 사이로 공기를 불어 넣으면 공은 어떻게 되겠는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m38.gif?1599294986"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1713,6 +1734,12 @@
         "bernoulli-law",
         "velocity-pressure-relationship",
         "force-due-to-pressure-difference"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 개의 구(球)가 실에 매달려 있고, 그 사이로 공기가 흘러 들어오는 구조도.\n\n- 두 구(원형) 각각 실에 매달린 상태\n- 공기 흐름: 두 구 사이 방향(화살표 표시)\n- 베르누이 원리 관련 실험 (공기 유입 시 두 구가 가까워짐)"
+        }
       ]
     },
     {
@@ -1764,9 +1791,6 @@
       "number": 40,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 수은 마노미터를 이용하여 물의 유속을 측정하고자 한다. 마노미터에서 측정한 높이차(h)가 30mm일 때 오리피스 전후의 압력(kPa) 차이는? (단, 수은의 비중은 13.6 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m40.gif?1599294986"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1805,6 +1829,12 @@
         "manometer-pressure-difference",
         "unit-weight",
         "mercury-manometer"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "관로 내 돌출 장애물(블록) 주변 유동 단면도.\n\n- 유동 방향: 왼쪽 → 오른쪽 (화살표)\n- 바닥에 직사각형 블록 설치 (해칭 표시)\n- 블록 높이: h\n- 블록 위쪽으로 유동이 우회하는 구조"
+        }
       ]
     },
     {
@@ -2533,9 +2563,6 @@
       "number": 57,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법령상 위험물시설의 설치 및 변경 등에 관한 기준 중 다음 (  ) 안에 들어갈 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m57.gif?1599294986"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -2576,6 +2603,12 @@
         "hazardous-materials-facility",
         "spacing-distance-standard",
         "jurisdiction-and-authority"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "제조소등의 위치·구조 또는 설비의 변경 없이 당해 제조소등에서 저장하거나 취급하는 위험물의 품명·수량 또는 지정수량의 배수를 변경하고자 하는 자는 변경하고자 하는 날의 ( ⊙ )일 전까지 ( ⊙ )이 정하는 바에 따라 ( ⊙ )에게 신고하여야 한다."
+        }
       ]
     },
     {
@@ -2852,9 +2885,6 @@
       "number": 64,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "도로터널의 화재안전기준상 옥내소화전설비 설치 기준 중 괄호 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m64.gif?1599294986"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -2893,6 +2923,12 @@
         "tunnel-hydrant-installation",
         "nozzle-tip-water-pressure",
         "water-discharge-rate-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "가압송수장치는 옥내소화전 2개(4초로 미상의 터널인 경우 3개)를 동시에 사용할 경우 각 옥내소화전의 노즐선단에서의 방수압력은 ( ⊙ )MPa 이상이고 방수량은 ( ⊙ )L/min 이상이 되는 성능의 것으로 할 것."
+        }
       ]
     },
     {
@@ -3079,9 +3115,6 @@
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "연소방지설비의 화재안전기준상 배관의 설치기준 중 다음 괄호 안에 알맞은 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 1번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m69.gif?1599294986"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3120,15 +3153,18 @@
         "smoke-prevention-system-piping-slope",
         "nfsc-506",
         "discontinued-fire-safety-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연소방지설비에 있어서의 수평주행배관의 구경은 100mm 이상의 것으로 하되, 연소방지설비전용헤드 및 스프링클러헤드를 향하여 상향으로 ( ) 이상의 기울기로 설치하여야 한다."
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 화재안전기준상 포헤드의 설치 기준 중 다음 괄호 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m70.gif?1599294986"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3167,6 +3203,12 @@
         "foam-extinguishing-system-foam-head",
         "foam-head-installation",
         "special-combustibles-storage-facility"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "압축공기포소화설비의 분사헤는 천장 또는 반자에 설치하되 방호대상물에 따라 측벽에 설치할 수 있으며 유류탱크 주위에는 바닥면적 ( ⑤ ) ㎡ 마다 1개 이상, 특수가연물저장소에는 바닥면적 ( ⓒ ) ㎡ 마다 1개 이상으로 당해 방호대상물의 화재를 유효하게 소화할 수 있도록 할 것"
+        }
       ]
     },
     {
@@ -3441,9 +3483,6 @@
       "number": 77,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "옥내소화전설비의 화재안전기준상 배관의 설치기준 중 다음 괄호 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20200822/nd20200822m77.gif?1599294986"
-      ],
       "pass_rate": 84,
       "choices": [
         {
@@ -3480,6 +3519,12 @@
       "concept_ids": [
         "main-pipe-specifications",
         "branch-pipe-minimum-diameter"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연결송수관설비의 배관과 겸용할 경우의 주배관은 구경 ( ⑤ )mm 이상, 방수구로 연결되는 배관의 구경은 ( ⓒ )mm 이상의 것으로 하여야 한다."
+        }
       ]
     },
     {

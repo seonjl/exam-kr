@@ -906,26 +906,38 @@
       "choices": [
         {
           "text": "입력자료: 엑셀 / 표시형식: @@@ / 결과: 엑셀엑셀엑셀",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m21b1.gif?1488628561"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 입력자료 | 엑셀 |\n|------|------|\n| 표시형식 | @@@ |\n| 결과 | 엑셀엑셀엑셀 |"
+            }
           ]
         },
         {
           "text": "입력자료: 1 / 표시형식: #\"0,000\" / 결과: 10,000",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m21b2.gif?1488628561"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 항목 | 값 |\n|------|------|\n| 입력자료 | 1 |\n| 표시형식 | #\"0,000\" |\n| 결과 | 10,000 |"
+            }
           ]
         },
         {
           "text": "입력자료: 0.5 / 표시형식: [<1]0.??;#,### / 결과: 0.50",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m21b3.gif?1488628561"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 항목 | 값 |\n|------|-----|\n| 입력자료 | 0.5 |\n| 표시형식 | `[<1]0.??;#,###` |\n| 결과 | 0.50 |"
+            }
           ]
         },
         {
           "text": "입력자료: 2012-10-09 / 표시형식: mmm-dd / 결과: Oct-09",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m21b4.gif?1488628561"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 항목 | 값 |\n|------|------|\n| 입력자료 | 2012-10-09 |\n| 표시형식 | mmm-dd |\n| 결과 | Oct-09 |"
+            }
           ]
         }
       ],
@@ -963,9 +975,6 @@
       "number": 22,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 그림과 같이 [A1] 셀에 10을 입력하고 [A3] 셀까지 자동 채우기 한 후 나타나는 [자동 채우기] 옵션에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m22.gif?1488628561"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1004,6 +1013,12 @@
         "auto-fill",
         "cell-function",
         "cell-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C | D |\n|---|---|---|---|\n| 1 | 10 | | |\n| 2 | 10 | | |\n| 3 | 10 | | |\n| 4 | | | |\n\n- 셀 복사(C)\n- 연속 데이터 채우기(S)\n- 서식만 채우기(F)\n- 서식 없이 채우기(O)"
+        }
       ]
     },
     {
@@ -1055,9 +1070,6 @@
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래는 연이율 6%의 대출금 5,000,000원을 36개월, 60개월, 24개월로 상환 시 월상환액에 따른 시나리오 요약 보고서를 작성한 것이다. 다음 중 이에 관한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m24.gif?1488628561"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -1096,6 +1108,12 @@
         "scenario-variable-cell",
         "range-cell-reference",
         "result-cell-specification"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 항목 | 값 |\n|------|-----|\n| 원금 | 5,000,000 |\n| 연이율 | 6% |\n| 기간 | 36 |\n| 월 상환액 | ₩152,110 |\n| 총 상환액 | ₩5,475,948.74 |\n\n**시나리오 요약**\n\n| | 현재 값 | 기간 연장 | 기간 단축 |\n|------|--------|---------|---------|\n| **변경 셀: 기간** | 36 | 60 | 24 |\n| **결과 셀: 월상환액** | ₩152,110 | ₩96,664 | ₩221,603 |"
+        }
       ]
     },
     {
@@ -1147,9 +1165,6 @@
       "number": 26,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 워크시트 (가)를 (나)와 같이 정렬하기 위한 방법으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m26.gif?1488628561"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1186,6 +1201,12 @@
       "concept_ids": [
         "sorting",
         "column-rearrange"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "(가)\n\n| A | B | C | D |\n|---|---|---|---|\n| **이름** | **사번** | **부서** | **직위** |\n| 윤여송 | a-001 | 기획실 | 과장 |\n| 이기상 | a-002 | 기획실 | 대리 |\n| 이원평 | a-003 | 기획실 | 사원 |\n| 강문상 | a-004 | 관리과 | 사원 |\n\n⇩\n\n(나)\n\n| A | B | C | D |\n|---|---|---|---|\n| **부서** | **사번** | **이름** | **직위** |\n| 기획실 | a-001 | 윤여송 | 과장 |\n| 기획실 | a-002 | 이기상 | 대리 |\n| 기획실 | a-003 | 이원평 | 사원 |\n| 관리과 | a-004 | 강문상 | 사원 |"
+        }
       ]
     },
     {
@@ -1278,9 +1299,6 @@
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 프로시저를 이용하여 [A1:C3] 영역의 서식만 지우려고 한다. 다음 중 괄호 안에 들어갈 코드로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m29.gif?1488628561"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1317,15 +1335,18 @@
       "concept_ids": [
         "vba-format-property",
         "clear-methods"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vba\nSub Procedure()\n    Range(\"A1:C3\")\n    Select Selection,(          )\nEnd Sub\n```"
+        }
       ]
     },
     {
       "number": 30,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [찾기 및 바꾸기] 대화상자에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m30.gif?1488628561"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1362,6 +1383,12 @@
       "concept_ids": [
         "wildcard-search",
         "escape-character"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**찾기 및 바꾸기** 대화 상자\n\n탭: 찾기(D) | 바꾸기(P)\n\n| 항목 | 값 / 옵션 |\n|------|-----------|\n| 찾을 내용(N) | _(빈 입력란)_ |\n| 범위(H) | 시트 |\n| 검색(S) | 행 |\n| 찾는 위치(L) | 수식 |\n\n옵션 체크박스:\n- 대/소문자 구분(C)\n- 전체 셀 내용 일치(O)\n- 전자/반자 구분(B)\n\n버튼: 모두 찾기(I) | 다음 찾기(F) | 닫기"
+        }
       ]
     },
     {
@@ -1413,9 +1440,6 @@
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 시트에서 각 수식을 실행했을 때의 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m32.gif?1488628561"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1454,15 +1478,18 @@
         "large-small-functions",
         "count-family-functions",
         "nested-function-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 이름 | 국어 | 영어 | 수학 | 평균 |\n|------|------|------|------|------|\n| 홍길동 | 83 | 90 | 73 | 82 |\n| 이대한 | 65 | 87 | 91 | 81 |\n| 한민국 | 80 | 75 | 100 | 85 |\n| 평균 | 76 | 84 | 88 | 82.66667 |"
+        }
       ]
     },
     {
       "number": 33,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 시트에서 각 수식을 실행했을 때의 결과 값으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m33.gif?1488628561"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1501,6 +1528,12 @@
         "eomonth-function",
         "days360-function",
         "workday-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A |\n|---|\n| 2017년 3월 5일 일요일 |\n| 2017년 3월 20일 월요일 |\n| 2017년 4월 10일 월요일 |"
+        }
       ]
     },
     {
@@ -1551,9 +1584,6 @@
       "number": 35,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 그림과 같이 워크시트에 배열상수 형태로 배열 수식이 입력되어 있을 때, [A5] 셀에서 수식 =SUM(A1, B2)를 실행하였다. 다음 중 그 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m35.gif?1488628562"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1592,6 +1622,12 @@
         "array-constant",
         "array-formula",
         "cell-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | A | B | C |\n|---|---|---|---|\n| 1 | {={1,2,3;4,5,6}} | {={1,2,3;4,5,6}} | {={1,2,3;4,5,6}} |\n| 2 | {={1,2,3;4,5,6}} | {={1,2,3;4,5,6}} | {={1,2,3;4,5,6}} |"
+        }
       ]
     },
     {
@@ -1778,9 +1814,6 @@
       "number": 40,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래에서 설명하는 차트의 종류로 가장 적절한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m40.gif?1488628562"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1819,15 +1852,18 @@
         "scatter-chart",
         "chart-irregular-axis",
         "data-visualization"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 가로 축의 값이 일정한 간격이 아닌 경우\n- 가로 축에 데이터 요소 수가 많은 경우\n- 데이터 요소 간의 차이점보다는 큰 데이터 집합 간의 유사점을 표시하려는 경우"
+        }
       ]
     },
     {
       "number": 41,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래의 이벤트 프로시저에서 [Command1] 단추를 클릭했을 때의 실행 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m41.gif?1488628562"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1866,6 +1902,12 @@
         "docmd-object",
         "gotorecord-acnewrec",
         "new-record-mode"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nPrivate Sub Command1_Click()\n    DoCmd.OpenForm \"사원정보\", acNormal\n    DoCmd.GoToRecord , , acNewRec\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -2138,9 +2180,6 @@
       "number": 48,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 보고서의 [그룹, 정렬 및 요약] 창의 그룹 설정에 대한 설명으로 옳은 것을 모두 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m48.gif?1488628562"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2178,6 +2217,12 @@
       "concept_ids": [
         "report-grouping",
         "group-header-footer"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 필드나 식을 기준으로 최대 5개까지 그룹 수준을 정의할 수 있다.\n② 같은 필드나 식을 두 번 이상 그룹화 할 수 있다.\n③ 여러 필드에 요약을 추가하거나 같은 필드에 여러 종류의 요약을 계산할 수 있다.\n④ 그룹 수준을 삭제하려면 그룹의 머리글 구역과 바닥글 구역을 모두 제거하면 된다.\n⑤ 그룹에서 머리글과 그룹 바닥글을 모두 선택해야 한다."
+        }
       ]
     },
     {
@@ -2274,9 +2319,6 @@
       "number": 51,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 그림과 같은 결과를 표시하는 쿼리로 옳은 것은?(오피스 2007 기준 문제입니다. 오피스 2010에 관련된 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m51.gif?1488628562"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -2313,15 +2355,18 @@
       "concept_ids": [
         "multi-field-sort",
         "ascending-sort"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 영화명 | 감독 | 장르 | 제작년도 |\n|--------|------|------|----------|\n| 베테랑 | 백감독 | 멜로 | 2013 |\n| 베테랑 | 류승완 | 액션 | 2015 |\n| 퇴마전 | 김휘 | 스릴러 | 2014 |\n| Mother | 난니 모레티 | 멜로 | 2015 |"
+        }
       ]
     },
     {
       "number": 52,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 <PERSON> 테이블에 대한 쿼리의 실행 결과 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m52.gif?1488628562"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -2358,15 +2403,18 @@
       "concept_ids": [
         "wildcard-character",
         "like-pattern-match"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "<PERSON>\n\n| Full_name |\n|-----------|\n| 오연서 |\n| 이종민 |\n| 오연수 |\n| 오연서 |\n| 김종오 |\n| 오연수 |\n\n<쿼리>\n\n```sql\nSELECT COUNT(Full_name)\nFROM PERSON\nWHERE Full_name Like \"*\" & \"_오\";\n```"
+        }
       ]
     },
     {
       "number": 53,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 사원 테이블에서 호봉이 6인 사원의 연봉을 3% 인상된 값으로 수정하는 실행 쿼리를 작성하고자할 때, 아래의 각 괄호에 넣어야 할 구문을 순서대로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m53.gif?1488628562"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -2403,6 +2451,12 @@
       "concept_ids": [
         "update-statement",
         "update-set-where"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nUPDATE 사원\n(                ) 연봉=연봉*1.03\n(                ) 호봉=6;\n```"
+        }
       ]
     },
     {
@@ -2582,9 +2636,6 @@
       "number": 58,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "아래 그림과 같이 <주문내역> 테이블과 <제품> 테이블의 관계가 설정되어 있다. 다음 중 <제품> 테이블의 특정 레코드를 삭제하였을 경우에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m58.gif?1488628562"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2623,15 +2674,18 @@
         "referential-integrity",
         "cascade-operations",
         "relationship-options"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nerDiagram\n    제품 {\n        PK 제품번호\n        string 제품명\n        number 소비자가격\n        number 할인율\n        string 제조사\n    }\n    주문내역 {\n        PK 주문번호\n        FK 제품번호\n        string 주문자\n        number 주문개수\n        string 연락처\n        string 주소\n        string 배송방법\n    }\n    제품 ||--o{ 주문내역 : \"1 : ∞\"\n```\n\n**관계 편집**\n\n| 항목 | 값 |\n|---|---|\n| 테이블/쿼리 (L) | 제품 |\n| 테이블/쿼리 (R) | 주문내역 |\n| 조인 필드 (L) | 제품번호 |\n| 조인 필드 (R) | 제품번호 |\n| 관계 종류 | 일대다 관계 |\n\n- [x] 항상 참조 무결성 유지(E)\n- [ ] 관련 필드 모두 업데이트(U)\n- [ ] 관련 레코드 모두 삭제(D)"
+        }
       ]
     },
     {
       "number": 59,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래와 같이 필드 속성을 설정한 경우 입력 값에 따른 결과가 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m59.gif?1488628562"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -2670,15 +2724,18 @@
         "format-property",
         "thousand-separator-format",
         "validation-rule"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 필드 크기 | 실수(Single) |\n|-----------|-------------|\n| 형식 | 표준 |\n| 소수 자릿수 | 1 |\n| 입력 마스크 | |\n| 캡션 | |\n| 기본값 | 0 |\n| 유효성 검사 규칙 | <>1 And <>-1 |\n| 유효성 검사 텍스트 | |\n| 필수 | 예 |"
+        }
       ]
     },
     {
       "number": 60,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래와 같은 <학생> 테이블에서 필드의 순서를 변경하기 위한 방법으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120170304/c120170304m60.gif?1488628562"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -2717,6 +2774,12 @@
         "field-display-modification",
         "listbox-multi-select",
         "form-view-mode-edit"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 학번 | 성명 | 주소 | 취미 | 전화 |\n|------|------|------|------|------|\n| 1111 | 홍길동 | 서울시 | 변장술 | 111-2222 |\n| 2222 | 이도령 | 남원시 | 태권도 | 222-3333 |"
+        }
       ]
     }
   ],

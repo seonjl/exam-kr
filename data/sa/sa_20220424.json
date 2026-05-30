@@ -46,9 +46,6 @@
       "number": 2,
       "subject": "1과목 : 안전관리론",
       "question": "A사업장의 현황이 다음과 같을 때 이 사업장의 강도율은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m2.gif?1651270953"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -81,15 +78,18 @@
         "injury-severity-rate",
         "lost-workdays",
         "physical-disability-grade"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 근로자수 : 500명\n- 연근로시간수 : 2400시간\n- 신체장해등급\n  - 2급 : 3명\n  - 10급 : 5명\n- 의사 진단에 의한 휴업일수 : 1500일"
+        }
       ]
     },
     {
       "number": 3,
       "subject": "1과목 : 안전관리론",
       "question": "보호구 자율안전확인 고시상 자율안전확인 보호구에 표시하여야 하는 사항을 모두 고른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m3.gif?1651270953"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -120,6 +120,12 @@
       "concept_ids": [
         "self-safety-confirmation",
         "protective-equipment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ㄱ. 모델명　　ㄴ. 제조 번호\nㄷ. 사용 기한　ㄹ. 자율안전확인 번호"
+        }
       ]
     },
     {
@@ -237,9 +243,6 @@
       "number": 7,
       "subject": "1과목 : 안전관리론",
       "question": "산업안전보건법령상 안전보건관리규정 작성 시 포함되어야 하는 사항을 모두 고른 것은? (단, 그 밖에 안전 및 보건에 관한 사항은 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m7.gif?1651270954"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -270,6 +273,12 @@
       "concept_ids": [
         "safety-management-regulation",
         "occupational-safety-health-act"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ㄱ. 안전보건교육에 관한 사항\nㄴ. 재해사례 연구 토의결과에 관한 사항\nㄷ. 사고 조사 및 대책 수립에 관한 사항\nㄹ. 작업장의 안전 및 보건 관리에 관한 사항\nㅁ. 안전 및 보건에 관한 관리조직과 그 직무에 관한 사항"
+        }
       ]
     },
     {
@@ -841,9 +850,6 @@
       "number": 23,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "A작업의 평균에너지소비량이 다음과 같을 때, 60분간의 총 작업시간 내에 포함되어야 하는 휴식시간(분)은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m23.gif?1651270953"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -876,6 +882,12 @@
         "rest-time-calculation-formula",
         "murrell-rest-allowance",
         "energy-expenditure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 휴식중 에너지소비량 : 1.5 kcal/min\n- A작업 시 평균 에너지소비량 : 6 kcal/min\n- 기초대사를 포함한 작업에 대한 평균 에너지소비량 상한 : 5 kcal/min"
+        }
       ]
     },
     {
@@ -1033,9 +1045,6 @@
       "number": 28,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림과 같은 FT도에 대한 최소 컷셋(minimal cut sets)으로 옳은 것은? (단, Fussell의 알고리즘을 따른다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m28.gif?1651270953"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -1068,6 +1077,12 @@
         "minimal-cut-set",
         "boolean-algebra-minimal-cut-set",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T --> AND1[AND]\n    AND1 --> A\n    AND1 --> B\n    A --> OR1[OR]\n    OR1 --> 1\n    OR1 --> 2\n    B --> OR2[OR]\n    OR2 --> 3\n    OR2 --> 4[\"①\"]\n```"
+        }
       ]
     },
     {
@@ -1116,26 +1131,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m30b1.gif?1651270953"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "사각형 기호 (AND 게이트 / 결함사상 기본 박스)"
+            }
           ]
         },
         {
           "text": "\\theta",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m30b2.gif?1651270953"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "원형 기호 (기본사상 / 기본 결함사상)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m30b3.gif?1651270953"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "마름모 기호 (미전개사상 / 전이사상)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m30b4.gif?1651270953"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "집 모양(오각형) 기호 (OR 게이트 / 통상사상)"
+            }
           ]
         }
       ],
@@ -1169,8 +1196,11 @@
         },
         {
           "text": "A \\cdot \\overline{A} = 1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m31b3.gif?1651270953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A \\cdot \\overline{A} = 1$$"
+            }
           ]
         },
         {
@@ -1196,9 +1226,6 @@
       "number": 32,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "근골격계질환 작업분석 및 평가 방법인 OWAS의 평가요소를 모두 고른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m32.gif?1651270954"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1229,6 +1256,12 @@
       "concept_ids": [
         "anthropometry-posture",
         "musculoskeletal-disorders"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ㄱ. 상지　　ㄴ. 무게(하중)\nㄷ. 하지　　ㄹ. 허리"
+        }
       ]
     },
     {
@@ -1277,26 +1310,38 @@
       "choices": [
         {
           "text": "MTTF \\times n",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m34b1.gif?1651270954"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF \\times n$$"
+            }
           ]
         },
         {
           "text": "MTTF \\times \\frac{1}{n}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m34b2.gif?1651270954"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF \\times \\frac{1}{n}$$"
+            }
           ]
         },
         {
           "text": "MTTF \\times (1 + \\frac{1}{2} + \\cdots + \\frac{1}{n})",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m34b3.gif?1651270954"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF \\times \\left(1 + \\frac{1}{2} + \\cdots + \\frac{1}{n}\\right)$$"
+            }
           ]
         },
         {
           "text": "MTTF \\times (1 \\times \\frac{1}{2} \\times \\cdots",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m34b4.gif?1651270954"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF \\times \\left(1 \\times \\frac{1}{2} \\times \\cdots \\times \\frac{1}{n}\\right)$$"
+            }
           ]
         }
       ],
@@ -1392,9 +1437,6 @@
       "number": 37,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음에서 설명하는 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m37.gif?1651270954"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1427,6 +1469,12 @@
         "risk-assessment",
         "risk-assessment-classification",
         "hazard-assessment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "유해·위험요인을 파악하고 해당 유해·위험요인에 의한 부상 또는 질병의 발생 가능성(빈도)과 중대성(강도)을 추정·결정하고 감소대책을 수립하여 실행하는 일련의 과정을 말한다."
+        }
       ]
     },
     {
@@ -1509,9 +1557,6 @@
       "number": 40,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "1 sone에 관한 설명으로 (  ) 에 알맞은 수치는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m40.gif?1651270954"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1544,6 +1589,12 @@
         "sone-phon-loudness",
         "sound-pressure-level-measurement",
         "phon-sone-loudness-scale"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "1 sone : ( ㄱ )Hz, ( ㄴ )dB의 음압수준을 가진 순음의 크기"
+        }
       ]
     },
     {
@@ -2006,9 +2057,6 @@
       "number": 53,
       "subject": "3과목 : 기계위험방지기술",
       "question": "보기와 같은 기계요소가 단독으로 발생시키는 위험점은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m53.gif?1651270954"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2039,6 +2087,12 @@
       "concept_ids": [
         "hazard-point-types",
         "shearing-point"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "밀링커터, 둥근톱날"
+        }
       ]
     },
     {
@@ -2740,26 +2794,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m72b1.gif?1651270954"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "전압-전류 그래프: 전류가 증가해도 전압이 일정하게 유지되는 수평 특성 곡선 (정전압 특성)"
+            }
           ]
         },
         {
           "text": "전류, 저항",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m72b2.gif?1651270954"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "전압-전류 그래프: 전류가 증가함에 따라 전압도 비례하여 증가하는 우상향 직선 특성 (정전류·상승 특성)"
+            }
           ]
         },
         {
           "text": "무게 \\\\\n저울",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m72b3.gif?1651270954"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "전압(y축) - 전류(x축) 그래프: 전압이 높을 때 전류가 낮고, 전류가 증가할수록 전압이 감소하는 반비례 곡선 (쌍곡선 형태)"
+            }
           ]
         },
         {
           "text": "매출 지출",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m72b4.gif?1651270954"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "전압(y축) - 전류(x축) 그래프: 전류가 증가할수록 전압이 처음에는 급격히 상승하다가 점차 완만해지는 로그 형태의 상승 곡선"
+            }
           ]
         }
       ],
@@ -2856,9 +2922,6 @@
       "number": 75,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 설명이 나타내는 현상은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m75.gif?1651270954"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2891,6 +2954,12 @@
         "insulation-breakdown",
         "insulation-surface-conduction",
         "electrical-fire-causes"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전압이 인가된 이극 도체관의 고체 절연물 표면에 이슬골이 부착되면 미소방전이 일어난다. 이 미소방전이 반복되면서 절연물 표면에 도전성 통로가 형성되는 현상이다."
+        }
       ]
     },
     {
@@ -2936,9 +3005,6 @@
       "number": 77,
       "subject": "4과목 : 전기위험방지기술",
       "question": "심실세동 전류  라면 심실세동 시 인체에 직접 받는 전기에너지(cal)는 약 얼마인가? (단, t는 통전시간으로 1초이며, 인체의 저항은 500Ω으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m77m1.gif?1651270954"
-      ],
       "pass_rate": 30,
       "choices": [
         {
@@ -2971,6 +3037,12 @@
         "ventricular-fibrillation-current",
         "heat-electrical-property",
         "electrical-energy-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{t}} \\text{(mA)}$$"
+        }
       ]
     },
     {
@@ -3478,9 +3550,6 @@
       "number": 91,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "산업안전보건법령상 다음 인화성 가스의 정의에서 (   ) 안에 알맞은 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m91.gif?1651270954"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -3513,6 +3582,12 @@
         "combustible-gas",
         "explosion-limit-concentration",
         "explosion-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"인화성 가스\"란 인화한계 농도의 최저한도가 ( ㉠ )% 이하 또는 최고한도와 최저한도의 차가 ( ㉡ )% 이상인 것으로서 표준압력(101.3 kPa), 20℃에서 가스 상태인 물질을 말한다."
+        }
       ]
     },
     {
@@ -3710,9 +3785,6 @@
       "number": 97,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 표의 가스(A~D)를 위험도가 큰 것부터 작은 순으로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220424/ku20220424m97.gif?1651270954"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3743,6 +3815,12 @@
       "concept_ids": [
         "risk-assessment-calculation",
         "explosion-limit-concentration"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구분 | 폭발하한값 | 폭발상한값 |\n|------|-----------|-----------|\n| A | 4.0 vol% | 75.0 vol% |\n| B | 3.0 vol% | 80.0 vol% |\n| C | 1.25 vol% | 44.0 vol% |\n| D | 2.5 vol% | 81.0 vol% |"
+        }
       ]
     },
     {

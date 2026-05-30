@@ -889,9 +889,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "유속 6 m/s로 정상류의 물이 화살표 방향으로 흐르는 배관에 압력계와 피토계가 설치되어 있다. 이때 압력계의 계기압력이 300 kPa이었다면 피토계의 계기압력은 몇 kPa인가? (단, 중력가속도는 9.8 m/s2 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m21.gif?1498250255"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -930,6 +927,12 @@
         "pitot-tube-pressure-measurement",
         "dynamic-pressure",
         "static-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수평 관로 시스템\n\n- 유속: 6 m/s (좌측 유입)\n- 좌측 압력계: 300 kPa\n- 관 축소부 (오리피스/벤투리 미터 기호 표시)\n- 우측 압력계: P = ? (미지수)"
+        }
       ]
     },
     {
@@ -1116,34 +1119,42 @@
       "number": 26,
       "subject": "2과목 : 소방유체역학",
       "question": "직경이 D/2인 출구를 통해 유체가 대기로 방출될 때, 이음매에 작용하는 힘은? (단, 마찰손실과 중력의 영향은 무시하고, 유체의 밀도 = p 단면적 )",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26m1.gif?1498250255",
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26.gif?1498250255"
-      ],
       "pass_rate": 42,
       "choices": [
         {
           "text": "(img3): (1/2)ρV²A. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26b1.gif?1498250255"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{1}{2} \\rho V^2 A$$"
+            }
           ]
         },
         {
           "text": "(img4): 3ρV²A. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26b2.gif?1498250255"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$3\\rho V^2 A$$"
+            }
           ]
         },
         {
           "text": "(img5): (9/2)ρV²A. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26b3.gif?1498250255"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{9}{2} \\rho V^2 A$$"
+            }
           ]
         },
         {
           "text": "(img6): (15/2)ρV²A.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m26b4.gif?1498250255"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{15}{2} \\rho V^2 A$$"
+            }
           ]
         }
       ],
@@ -1175,6 +1186,16 @@
         "contracted-outlet-reaction",
         "continuity-equation",
         "control-volume-momentum-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$A = \\dfrac{\\pi}{4} D^2$$"
+        },
+        {
+          "kind": "text",
+          "content": "이음매가 있는 축소 관로\n\n- 유속: V → (좌측 유입)\n- 입구 직경: D\n- 압력계: P (이음매 부근)\n- 출구 직경: D/2"
+        }
       ]
     },
     {
@@ -1226,9 +1247,6 @@
       "number": 28,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 소방선 펌프가 물에 담긴 관으로부터 해수(비중 = 1.03)를 끌어들여 노즐을 통해 방수한다. 펌프 효율이 60%이고 펌프 동력이 305 hp일 때 펌프 내부를 제외한 총 손실 수두는 대략 얼마인가? (단, 1hp = 746W, 물의 비중량 = 9790 N/m3)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m28.gif?1498250255"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1267,15 +1285,18 @@
         "pump-efficiency",
         "total-head-loss",
         "density"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A[\"수조 (수면 기준)\"] -->|\"높이 8m\"| B[\"굴곡관\"]\n    B -->|\"높이 2m\"| C[\"지면\"]\n    C -->|\"수평 배관\"| D[\"노즐 출구\\nD=5cm, V=50m/s\"]\n    style A fill:#cce5ff\n```\n\n- 수조 수면에서 배관 입구까지 높이: 8m\n- 배관 입구에서 지면까지 높이: 2m\n- 배관 직경(입구): 10cm\n- 노즐 출구 직경: D = 5cm\n- 노즐 출구 유속: V = 50 m/s"
+        }
       ]
     },
     {
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 평형상태를 유지하고 있을 때 오른쪽 관에 있는 유체의 비중 S는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m29.gif?1498250256"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1314,6 +1335,12 @@
         "hydrostatic-pressure-depth",
         "u-tube-manometer",
         "specific-gravity-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수조 단면 구성 (위에서 아래):\n\n- 기름 (비중 0.8): 높이 2m\n- 물: 높이 1m\n- U자관 하단까지: 1m\n\n오른쪽 마노미터:\n- S (미지 유체)\n- 높이: 1.8m"
+        }
       ]
     },
     {
@@ -1455,9 +1482,6 @@
       "number": 33,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 반지름이 0.8m 이고 폭이 2m인 곡면 AB가 수문으로 이용된다. 물에 의한 힘의 수평성분의 크기는 약 몇 kN 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m33.gif?1498250256"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1498,15 +1522,18 @@
         "force-on-curved-surface",
         "projected-area",
         "water-depth"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수조 및 곡관 구성:\n\n- 수조 수심: 5m\n- 곡관 폭: 2m\n- 곡관 반지름: R = 0.8 m\n- 곡관 위치: 수조 하단부 (A → B, 수평에서 하향 곡관)\n- 수조 상단: 자유수면 (대기압 개방)"
+        }
       ]
     },
     {
       "number": 34,
       "subject": "2과목 : 소방유체역학",
       "question": "표면온도가 90℃인 표면 (방사율 0.9)이 큰 방에 그림과 같이 놓여있다. 주위 및 방의 벽 온도는 10℃이다. 표면의 면적이 2m2 일 때, 대류 및 복사에 의한 표면에서의 전체 열 전달률은 약 몇 kW인가? (단, Stefan-Boltzmann 상수는 5.67×10-8 W/(m2ㆍK4)이고 대류열전달 계수는 10W/(m2ㆍK)이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m34.gif?1498250256"
-      ],
       "pass_rate": 41,
       "choices": [
         {
@@ -1545,6 +1572,12 @@
         "convective-heat-transfer",
         "radiation-heat-transfer",
         "stefan-boltzmann-law"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "- $$T_{wall} = 10^\\circ C$$ (벽면 온도)\n- $$T_{air} = 10^\\circ C$$ (공기 온도)\n- $$T_s = 90^\\circ C$$ (하단 가열면 온도)"
+        }
       ]
     },
     {
@@ -2627,9 +2660,6 @@
       "number": 59,
       "subject": "3과목 : 소방관계법규",
       "question": "소방안전관리자 선임에 관한 설명 중 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130928/nd20130928m59.gif?1498250256"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -2668,6 +2698,12 @@
         "fire-safety-manager-appointment",
         "notification-reporting-system",
         "14-day-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "소방안전관리대상물의 관계인이 소방안전관리자를 선임한 경우에는 안전행정부령이 정하는 바에 따라 선임한 날부터 ( ⓐ ) 이내에 ( ⓒ )에게 신고하여야 한다."
+        }
       ]
     },
     {

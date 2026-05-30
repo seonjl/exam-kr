@@ -1034,33 +1034,42 @@
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 중앙부분에 구멍이 뚫린 원판에 지름 D의 원형 물제트가 대기압 상태에서 V의 속도로 충돌하여, 원판 뒤로 지름 D/2의 원형 물제트가 V의 속도로 흘러나가고 있을 때, 이 원판이 받는 힘은 얼마인가? (단, ρ는 물의 밀도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m24.gif?1527250865"
-      ],
       "pass_rate": 74,
       "choices": [
         {
           "text": "3/16 ρπV²D²,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m24b1.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{3}{16} \\rho \\pi V^2 D^2$$"
+            }
           ]
         },
         {
           "text": "3/8 ρπV²D²,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m24b2.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{3}{8} \\rho \\pi V^2 D^2$$"
+            }
           ]
         },
         {
           "text": "3/4 ρπV²D²,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m24b3.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{3}{4} \\rho \\pi V^2 D^2$$"
+            }
           ]
         },
         {
           "text": "3 ρπV²D².",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m24b4.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$3\\rho\\pi V^2 D^2$$"
+            }
           ]
         }
       ],
@@ -1090,6 +1099,12 @@
       "concept_ids": [
         "momentum-equation",
         "jet-momentum-change"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[\"V →\"] --> B[\"관경 D\"]\n    B --> C[\"원판\\n(오리피스, 직경 D/2)\"]\n    C --> D[\"→ V\"]\n```\n\n유체가 속도 V로 직경 D인 관을 흐르다가 직경 D/2인 원판(오리피스)을 통과하는 구조."
+        }
       ]
     },
     {
@@ -1231,9 +1246,6 @@
       "number": 28,
       "subject": "2과목 : 소방유체역학",
       "question": "아래 그림과 같은 반지름이 1m이고, 폭이 3m인 곡면의 수문 AB가 받는 수평분력은 약몇 N인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m28.gif?1527250865"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1272,6 +1284,12 @@
         "curved-surface-fluid-force",
         "projected-area",
         "hydrostatic-pressure-depth"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    수조[\"물 (수조)\"] -- \"수면 A\" --> 수문[\"수문\\n(반경 1m 원호형)\"]\n    수문 --> 벽[\"벽 B (고정)\"]\n```\n\n수조의 수면(A)에서 반경 1m인 원호형 수문을 통해 벽(B)으로 연결되는 구조. 물이 수문에 작용하는 힘 계산 문제."
+        }
       ]
     },
     {
@@ -1547,9 +1565,6 @@
       "number": 35,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 거꾸로 된 마노미터에서 물과 기름, 수은이 채워져 있다. a=10cm, c=25cm이고 A의 압력이 B의 압력보다 80kPa작을 때 b의 길이는 약 몇 cm인가? (단, 수은의 비중량은 133100N/m3, 기름의 비중은 0.9이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m35.gif?1527250865"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1588,6 +1603,12 @@
         "inclined-manometer",
         "multilayer-fluid-hydrostatic-pressure",
         "unit-weight-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    기름[\"기름\"] --> 중간관[\"│ a\\n│ b\\n│ c\"]\n    A[\"물\\n(A)\"] --- 중간관\n    중간관 --- B[\"수은\\n(B)\"]\n```\n\nU자형 마노미터: 왼쪽(A)에 물, 오른쪽(B)에 수은, 중간 연결관에 기름이 채워진 구조.\n구간 a, b, c 는 각 유체 계면 사이의 높이 차이를 나타냄."
+        }
       ]
     },
     {
@@ -1685,26 +1706,38 @@
       "choices": [
         {
           "text": "(τ1+τ2)/2 — 두 힘의 산술평균",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m38b1.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\tau_1 + \\tau_2}{2}$$"
+            }
           ]
         },
         {
           "text": "√(τ1·τ2) — 두 힘의 기하평균",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m38b2.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\tau_1 \\tau_2}$$"
+            }
           ]
         },
         {
           "text": "2τ1τ2/(τ1+τ2) — 두 힘의 조화평균",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m38b3.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2\\tau_1 \\tau_2}{\\tau_1 + \\tau_2}$$"
+            }
           ]
         },
         {
           "text": "τ1+τ2 — 두 힘의 합",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m38b4.gif?1527250865"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\tau_1 + \\tau_2$$"
+            }
           ]
         }
       ],
@@ -1782,9 +1815,6 @@
       "number": 40,
       "subject": "2과목 : 소방유체역학",
       "question": "다음과 같은 유동형태를 갖는 파이프 입구 영역의 유동에서 부차적 손실계수가 가장 큰 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m40.gif?1527250866"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -1821,6 +1851,12 @@
       "concept_ids": [
         "minor-losses",
         "pipe-inlet-form"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "관 입구 형태 4종류:\n\n| 구분 | 설명 |\n|------|------|\n| 날카로운 모서리 | 입구 모서리가 예리하게 각진 형태 |\n| 약간 둥근 모서리 | 입구 모서리가 약간 둥글게 처리된 형태 |\n| 잘 다듬어진 모서리 | 입구 모서리가 매끄럽게 둥글게 다듬어진 형태 |\n| 돌출 입구 | 관이 벽면 안쪽으로 돌출된 형태 |"
+        }
       ]
     },
     {
@@ -2524,9 +2560,6 @@
       "number": 57,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법상 위험물시설의 설치 및 변경 등에 관한 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m57.gif?1527250866"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -2564,6 +2597,12 @@
       "concept_ids": [
         "hazardous-materials-facility",
         "notification-reporting-system"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "제조소등의 위치·구조 또는 설비의 변경 없이 당해 제조소등에서 저장하거나 취급하는 위험물의 품명·수량 또는 지정수량의 배수를 변경하고자 하는 자는 변경하고자 하는 날의 ( ㉠ )일 전까지 ( ㉡ )이 정하는 바에 따라 ( ㉢ )에게 신고하여야 한다."
+        }
       ]
     },
     {
@@ -2615,9 +2654,6 @@
       "number": 59,
       "subject": "3과목 : 소방관계법규",
       "question": "소방기본법령상 특수가연물의 저장 및 취급 기준 중 다음 ( ) 안에 알맞은 것은?(단, 석탄ㆍ목탄류를 발전용으로 저장하는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m59.gif?1527250866"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -2656,15 +2692,18 @@
         "special-combustible-storage-handling",
         "coal-charcoal-storage",
         "floor-area-limitation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "살수설비를 설치하거나, 방사능력 범위에 해당 특수가연물이 포함되도록 대형수동식 소화기를 설치하는 경우에는 쌓는 높이를 ( ㉠ )m 이하, 쌓는 부분의 바닥면적을 ( ㉡ )m²이하로 할 수 있다."
+        }
       ]
     },
     {
       "number": 60,
       "subject": "3과목 : 소방관계법규",
       "question": "소방시설공사업법령상 상주 공사감리 대상 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m60.gif?1527250866"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -2703,6 +2742,12 @@
         "resident-construction-supervision",
         "apartment-regulation",
         "basement-inclusion-criteria"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 연면적 ( ㉠ )㎡ 이상의 특정소방대상물(아파트는 제외)에 대한 소방시설의 공사\n- 지하층을 포함한 층수가 ( ㉡ )층 이상으로서 ( ㉢ )세대 이상인 아파트에 대한 소방시설의 공사"
+        }
       ]
     },
     {
@@ -2801,9 +2846,6 @@
       "number": 63,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "화재 시 연기가 찰 우려가 없는 장소로서 호스릴분말소화설비를 설치할 수 있는 기준중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m63.gif?1527250866"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -2842,6 +2884,12 @@
         "hose-reel-powder-system",
         "effective-area-volume",
         "compartment-area"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 지상 1층 및 피난층에 있는 부분으로서 지상에서 수동 또는 원격조작에 따라 개방할 수 있는 개구부의 유효면적의 합계가 바닥면적의 ( ㉠ )% 이상이 되는 부분\n- 전기설비가 설치되어 있는 부분 또는 다량의 화기를 사용하는 부분의 바닥면적이 해당 설비가 설치되어 있는 구획의 바닥면적의 ( ㉡ )이만이 되는 부분"
+        }
       ]
     },
     {
@@ -2893,9 +2941,6 @@
       "number": 65,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "건축물에 설치하는 연결살수설비 헤드의 설치기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m65.gif?1527250866"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -2934,15 +2979,18 @@
         "sprinkler-system-head-installation-standard",
         "head-type-criteria",
         "exception-rules"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "천장 또는 반자의 각 부분으로부터 하나의 살수헤드까지의 수평거리가 연결살수설비 전용 헤드의 경우는 ( ㉠ )m 이하, 스프링클러헤드의 경우는 ( ㉡ )m 이하로 할 것. 다만, 살수헤드의 부착면과 바닥과의 높이가 ( ㉢ )m이하인 부분은 살수헤드의 살수 분포에 따른 거리로 할 수 있다."
+        }
       ]
     },
     {
       "number": 66,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 자동식 기동장치를 폐쇄형 스프링클러헤드의 개방과 연동하여 가압송수장치ㆍ일제 개방밸브 및 포 소화약제 혼합장치를 기동하는 경우의 설치 기준 중 다음 ( )안에 알맞은 것은?(단, 자동화재탐지설비의 수신기가 설치된 장소에 상시 사람이 근무하고 있고, 화재 시 즉시 해당 조작부를 작동시킬 수 있는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m66.gif?1527250866"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -2979,6 +3027,12 @@
       "concept_ids": [
         "sprinkler-head-rated-temperature",
         "area-calculation-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "표시온도가 ( ㉠ )℃ 미만의 것을 사용하고, 1개의 스프링클러헤드의 경계면적은 ( ㉡ )㎡ 이하로 할 것"
+        }
       ]
     },
     {
@@ -3030,9 +3084,6 @@
       "number": 68,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "특별피난계단의 계단실 및 부속실 제연설비의 차압 등에 관한 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m68.gif?1527250866"
-      ],
       "pass_rate": 80,
       "choices": [
         {
@@ -3069,15 +3120,18 @@
       "concept_ids": [
         "stairwell-smoke-control",
         "smoke-pressure-differential"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "제연설비가 가동되었을 경우 출입문의 개방에 필요한 힘은 ( )N 이하로 하여야 한다."
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "완강기의 최대사용자수 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m69.gif?1527250866"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -3114,6 +3168,12 @@
       "concept_ids": [
         "descent-device-load",
         "user-operation-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "최대사용자수(1회에 강하할 수 있는 사용자의 최대수)는 최대사용하중을 ( )N으로 나누어서 얻은 값으로 한다."
+        }
       ]
     },
     {
@@ -3165,9 +3225,6 @@
       "number": 71,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "스프링클러설비 헤드의 설치기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m71.gif?1527250866"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -3204,6 +3261,12 @@
       "concept_ids": [
         "sprinkler-head-spacing-arrangement",
         "sprinkler-head-wall-clearance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "살수가 방해되지 아니하도록 스프링클러헤드로부터 반경 ( ㉠ )cm 이상의 공간을 보유 할 것. 다만, 벽과 스프링클러헤드간의 공간은 ( ㉡ )cm 이상으로 한다."
+        }
       ]
     },
     {
@@ -3255,9 +3318,6 @@
       "number": 73,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "전동기 또는 내연기관에 따른 펌프를 이용하는 옥외소화전설비의 가압송수장치의 설치 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m73.gif?1527250866"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -3293,15 +3353,18 @@
       },
       "concept_ids": [
         "outdoor-hydrant-discharge-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "해당 특정소방대상물에 설치된 옥외소화전(2개 이상 설치된 경우에는 2개의 옥외소화전)을 동시에 사용할 경우 각 옥외소화전의 노즐선단에서의 방수압력이 ( ㉠ )MPa이상이고, 방수량이 ( ㉡ )L/min 이상이 되는 성능의 것으로 할 것"
+        }
       ]
     },
     {
       "number": 74,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "미분무소화설비 용어의 정의 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m74.gif?1527250866"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -3337,6 +3400,12 @@
       },
       "concept_ids": [
         "mist-suppression-system"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"미분무\"란 물만을 사용하여 소화하는 방식으로 최소설계압력에서 헤드로부터 방출되는 물입자 중 99%의 누적체적분포가 ( ㉠ )μm이하로 분무되고 ( ㉡ )급 화재에 적응성을 갖는 것을 말한다."
+        }
       ]
     },
     {
@@ -3386,9 +3455,6 @@
       "number": 76,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "소화약제 외의 것을 이용한 간이소화용구의 능력단위 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m76.gif?1527250866"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -3427,15 +3493,18 @@
         "portable-fire-extinguisher-rating-unit",
         "foam-expansion-materials",
         "bucket-supply"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 간이소화용구 | 능력단위 |\n|---|---|\n| 마른모래 | 삽을 상비한 50L 이상의 것 1포 | ( )단위 |"
+        }
       ]
     },
     {
       "number": 77,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "다음과 같은 소방대상물의 부분에 완강기를 설치할 경우 부착 금속구의 부착위치로서 가장 적합한 위치는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m77.gif?1527250866"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -3474,15 +3543,18 @@
         "descent-device-attachment",
         "building-structure",
         "fire-safety-conditions"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "300(mm)\nC\nB\nD\n400(mm)\n2700(mm) 1500(mm)\nA\n800(mm)"
+        }
       ]
     },
     {
       "number": 78,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "연소방지설비의 배관의 설치기준 중 다음 ( ) 안에 알맞은 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 2번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180428/nd20180428m78.gif?1527250866"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -3521,6 +3593,12 @@
         "smoke-prevention-system-piping-slope",
         "fire-safety-regulation",
         "nfsc-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연소방지설비에 있어서의 수평주행배관의 구경은 100mm이상의 것으로 하되, 연소방지설비 전용헤드 및 스프링클러헤드를 향하여 설정상으로 ( )이상의 기울기로 설치하여야 한다."
+        }
       ]
     },
     {

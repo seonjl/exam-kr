@@ -138,9 +138,6 @@
       "concept_ids": [
         "requirements-process-1"
       ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m3.gif?1621458069"
-      ],
       "refetch_log": [
         {
           "at": "2026-05-13T15:28:25+0900",
@@ -427,9 +424,6 @@
       },
       "concept_ids": [
         "system-integration-interface"
-      ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m9.gif?1621458069"
       ],
       "refetch_log": [
         {
@@ -1082,9 +1076,6 @@
         "defect-clustering",
         "software-testing-7-principles"
       ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m23.gif?1621458069"
-      ],
       "refetch_log": [
         {
           "at": "2026-05-13T15:28:25+0900",
@@ -1368,9 +1359,6 @@
       "concept_ids": [
         "git-distributed-vcs"
       ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m29.gif?1621458069"
-      ],
       "refetch_log": [
         {
           "at": "2026-05-13T15:28:25+0900",
@@ -1473,9 +1461,6 @@
       },
       "concept_ids": [
         "bubble-sort"
-      ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m31.gif?1621458069"
       ],
       "refetch_log": [
         {
@@ -1595,9 +1580,6 @@
       },
       "concept_ids": [
         "postfix-evaluation"
-      ],
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m33.gif?1621458069"
       ],
       "refetch_log": [
         {
@@ -2145,33 +2127,42 @@
       "number": 46,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "테이블 R1, R2에 대하여 다음 SQL문의결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m46.gif?1621458069"
-      ],
       "pass_rate": 61,
       "choices": [
         {
           "text": "학번\t성적 점수\t과목번호\n20202222\t20\tCS200",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m46b1.gif?1628171915"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 학번 | 학점 수 | 과목번호 |\n|------|---------|---------|\n| 20202222 | 20 | CS200 |"
+            }
           ]
         },
         {
           "text": "학번\n20202222",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m46b2.gif?1628171915"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "학번\n20202222"
+            }
           ]
         },
         {
           "text": "학번\n20201111\n20202222\n20203333",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m46b3.gif?1628171916"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 학번 |\n|------|\n| 20201111 |\n| 20202222 |\n| 20203333 |"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m46b4.gif?1621458069"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 학번 | 학점 수 | 과목번호 |\n|------|---------|---------|\n| 20201111 | 15 | NULL |\n| 20202222 | 20 | CS200 |\n| 20203333 | NULL | CS300 |"
+            }
           ]
         }
       ],
@@ -2193,6 +2184,12 @@
       "concept_ids": [
         "sql-set-operators",
         "relational-algebra-categories"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "```sql\n(SELECT 학번 FROM R1)\nINTERSECT\n(SELECT 학번 FROM R2)\n```\n\n**[R1] 테이블**\n\n| 학번 | 학점 수 |\n|------|--------|\n| 20201111 | 15 |\n| 20202222 | 20 |\n\n**[R2] 테이블**\n\n| 학번 | 과목번호 |\n|------|---------|\n| 20202222 | CS200 |\n| 20203333 | CS300 |"
+        }
       ]
     },
     {
@@ -2328,9 +2325,6 @@
       "number": 50,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 R1과 R2의 테이블에서 아래의　실행 결과를 얻기 위한 SQL문은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m50.gif?1623360007"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -2366,6 +2360,12 @@
       },
       "concept_ids": [
         "sql-select-from-where"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "[R1] 테이블\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 홍길동 | 1 | 컴퓨터공학 | 서울 |\n| 2000 | 김철수 | 1 | 전기공학 | 경기 |\n| 3000 | 강남길 | 2 | 전자공학 | 경기 |\n| 4000 | 오말자 | 2 | 컴퓨터공학 | 경기 |\n| 5000 | 장미화 | 3 | 전자공학 | 서울 |\n\n[R2] 테이블\n\n| 학번 | 과목번호 | 과목이름 | 학점 | 점수 |\n|------|----------|----------|------|------|\n| 1000 | C100 | 컴퓨터구조 | A | 91 |\n| 2000 | C200 | 데이터베이스 | A+ | 99 |\n| 3000 | C100 | 컴퓨터구조 | B+ | 89 |\n| 3000 | C200 | 데이터베이스 | B | 85 |\n| 4000 | C200 | 데이터베이스 | A | 93 |\n| 4000 | C300 | 운영체제 | B+ | 88 |\n| 5000 | C300 | 운영체제 | B | 82 |\n\n[실행결과]\n\n| 과목번호 | 과목이름 |\n|----------|----------|\n| C100 | 컴퓨터구조 |\n| C200 | 데이터베이스 |"
+        }
       ]
     },
     {
@@ -2544,9 +2544,6 @@
       "number": 55,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 SQL 문에서 (   ) 안에 들어갈 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m55.gif?1621458069"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -2582,6 +2579,12 @@
       },
       "concept_ids": [
         "dml-update-set"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nUPDATE 인사급여 (        ) 호봉=15  WHERE 성명= '홍길동';\n```"
+        }
       ]
     },
     {
@@ -2812,9 +2815,6 @@
       "number": 61,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 설명에 해당하는 방식은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m61.gif?1621458069"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -2852,6 +2852,12 @@
       "concept_ids": [
         "csma-ca",
         "wireless-mac-rts-cts"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 무선 랜에서 데이터 전송 시, 매체가 비어 있음을 확인한 뒤 충돌을 회피하기 위해 임의 시간을 기다린 후 데이터를 전송하는 방법이다.\n- 네트워크에서 데이터의 전송이 없는 경우라도 동시 전송에 의한 충돌에 대비하여 확인 신호를 전송한다."
+        }
       ]
     },
     {
@@ -2902,9 +2908,6 @@
       "number": 63,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 C언어 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m63.gif?1621458069"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -2944,15 +2947,18 @@
         "binary-representation"
       ],
       "explanation_detailed_pre_fix_D03": "핵심 개념\n- 비트 OR 연산자(|)는 두 정수를 2진수로 나란히 놓고 각 자리마다 둘 중 하나라도 1이면 1, 둘 다 0일 때만 0을 반환하는 비트 단위 논리합 연산입니다.\n\n정답 분석\n- a = 4는 2진수로 00000100, b = 7은 2진수로 00000111입니다.\n- 각 비트별 OR 결과는 00000100 | 00000111 = 00000111이 되어 십진수 7이 됩니다.\n- 따라서 c = a | b의 값은 7이며, 보기 ③(값 7)이 정답입니다. ('정답 3번'은 보기 번호 ③을 가리킵니다.)\n\n오답 분석\n- ① 3 : 4 ^ 7 (XOR) 결과로, OR이 아니라 서로 다른 비트만 1이 되는 연산의 값이라 오답입니다.\n- ② 4 : 4 & 7 (AND) 결과로, 둘 다 1인 비트만 1이 되는 연산이라 OR과 다릅니다.\n- ③ 7 : 4 | 7의 비트 OR 결과로 정답입니다.\n- ④ 10 : 4 + 7과도 다르며, 비트 연산과 무관한 임의의 값이라 오답입니다.",
-      "fix_D03_at": 1779358754
+      "fix_D03_at": 1779358754,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n        int a = 4;\n        int b = 7;\n        int c = a | b;\n\n        printf(\"%d\", c);\n        return 0;\n}\n```"
+        }
+      ]
     },
     {
       "number": 64,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 파이썬(Python) 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m64.gif?1627946405"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -2988,6 +2994,12 @@
       },
       "concept_ids": [
         "python-instance-method-self"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```python\nclass FourCal:\n    def setdata(sel, fir, sec):\n        sel.fir = fir\n        sel.sec = sec\n    def add(sel):\n        result = sel.fir + sel.sec\n        return result\n\na = FourCal()\na.setdata(4, 2)\nprint(a.add())\n```"
+        }
       ]
     },
     {
@@ -3081,9 +3093,6 @@
       "number": 67,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 JAVA 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m67.gif?1627866988"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -3120,6 +3129,12 @@
       "concept_ids": [
         "postfix-increment",
         "prefix-increment-decrement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```java\npublic class Operator{\npublic static void main(String[] args) {\n    int x=5, y=0, z=0;\n    y = x++;\n    z = --x;\n    System.out.println(x + \",\" + y + \",\"+ z);\n  }\n}\n```"
+        }
       ]
     },
     {
@@ -3215,9 +3230,6 @@
       "number": 70,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 JAVA 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m70.gif?1621458069"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -3258,7 +3270,13 @@
         "if-else-branch"
       ],
       "explanation_detailed_pre_fix_D03": "핵심 개념\ndo-while문은 본문을 최소 1회 실행한 뒤 조건을 검사하며, if-else는 조건에 따라 한쪽 분기만 실행된다. 후위 증가(cnt++)는 현재 값을 사용한 뒤 1을 더한다.\n정답 분석\ncnt=0에서 do-while 본문의 cnt++가 실행되어 cnt=1이 된 후 조건 cnt<0이 거짓이므로 루프를 종료한다. 이어서 if(cnt==1) 조건이 참이므로 if 블록의 cnt++만 실행되어 cnt=2가 되고, else 분기는 실행되지 않아 최종 출력은 2이다.\n오답 분석\n① 2 → do-while 1회 실행으로 cnt=1이 된 뒤 if 분기에서 한 번 더 증가하여 2가 되는 정답이다.\n② 3 → if 대신 else의 cnt+=3이 실행된다고 잘못 가정했을 때 나오는 값이다.\n③ 4 → if와 else가 모두 실행된다고 오해하여 1+3에 추가 증가를 더한 잘못된 결과다.\n④ 5 → do-while이 여러 번 반복되거나 모든 분기가 누적 실행된다고 오해할 때 나오는 값이다.",
-      "fix_D03_at": 1779358754
+      "fix_D03_at": 1779358754,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```java\npublic class array1 {\n  public static void main(String[] args) {\n    int cnt = 0;\n    do {\n      cnt++;\n    } while (cnt < 0);\n    if(cnt==1)\n      cnt++;\n    else\n      cnt = cnt + 3;\n    System.out.printf(\"%d\", cnt);\n  }\n}\n```"
+        }
+      ]
     },
     {
       "number": 71,
@@ -3318,9 +3336,6 @@
       "number": 72,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 C언어 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m72.gif?1621458069"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -3359,15 +3374,18 @@
         "char-int-arithmetic",
         "ascii-code",
         "printf-format-specifier"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n        char a;\n        a = 'A' + 1;\n        printf(\"%d\", a);\n        return 0;\n}\n```"
+        }
       ]
     },
     {
       "number": 73,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 C언어 프로그램이 실행되었을 때의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m73.gif?1676805495"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3405,6 +3423,12 @@
       "concept_ids": [
         "pointer-arithmetic",
         "for-loop"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n        int a[2][2] = {{11, 22},{44, 55}};\n        int i, sum = 0;\n        int *p;\n        p= a[0];\n        for(i = 1; i < 4; i++)\n        sum += *(p + i);\n        printf(\"%d\", sum);\n        return 0;\n}\n```"
+        }
       ]
     },
     {
@@ -3542,9 +3566,6 @@
       "number": 77,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "C언어에서 연산자 우선순위가 높은 것에서 낮은 것으로 바르게 나열된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m77.gif?1621458069"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -3581,6 +3602,12 @@
       "concept_ids": [
         "c-operator-precedence",
         "operator-precedence"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "⊙ ( )　　　⊙ ==　　　⊙ <\n⊜ <<　　　⊜ ||　　　⊜ /"
+        }
       ]
     },
     {
@@ -3716,9 +3743,6 @@
       "number": 81,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 내용이 설명하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m81.gif?1621458069"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3756,6 +3780,12 @@
       "concept_ids": [
         "san-storage",
         "storage-virtualization"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 네트워크상에 광채널 스위치의 이점인 고속 전송과 장거리 연결 및 멀티 프로토콜 기능을 활용\n- 각기 다른 운영체제를 가진 여러 기종들이 네트워크상에서 동일 저장장치의 데이터를 공유하게 함으로써, 여러 개의 저장장치나 백업 장비를 단일화시킨 시스템"
+        }
       ]
     },
     {
@@ -3856,9 +3886,6 @@
       "number": 84,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 내용이 설명하는 접근 제어 모델은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m84.gif?1621458069"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3896,6 +3923,12 @@
       "concept_ids": [
         "bell-lapadula-model",
         "mac-access-control"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 군대의 보안 레벨처럼 정보의 기밀성에 따라 상하 관계가 구분된 정보를 보호하기 위해 사용\n- 자신의 권한 보다 낮은 보안 레벨 권한을 가진 경우에는 높은 보안 레벨의 문서를 읽을 수 없고 자신의 권한보다 낮은 수준의 문서만 읽을 수 있다.\n- 자신의 권한보다 높은 보안 레벨의 문서에는 쓰기가 가능하지만 보안레벨이 낮은 문서의 쓰기 권한은 제한한다."
+        }
       ]
     },
     {
@@ -4379,9 +4412,6 @@
       "number": 96,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "침입차단 시스템(방화벽) 중 다음과 같은 형태의 구축 유형은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210515/iz20210515m96.gif?1621458069"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -4419,6 +4449,12 @@
       "concept_ids": [
         "screened-subnet-firewall",
         "bastion-dmz"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\n    INTERNET([\"INTERNET\"])\n    Router_top[\"Router\"]\n    BastionHost[\"Bastion Host\"]\n    Server1[\"Server\"]\n    Server2[\"Server\"]\n    Server3[\"Server\"]\n    Router_right[\"Router\"]\n    PC1[\"PC\"]\n    PC2[\"PC\"]\n    PC3[\"PC\"]\n\n    INTERNET --> Router_top\n    Router_top --- BastionHost\n    Router_top --- Server1\n    Router_top --- Server2\n    Router_top --- Server3\n    Server3 --- Router_right\n    Router_right --- PC1\n    Router_right --- PC2\n    Router_right --- PC3\n```"
+        }
       ]
     },
     {

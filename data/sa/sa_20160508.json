@@ -418,9 +418,6 @@
       "number": 12,
       "subject": "1과목 : 안전관리론",
       "question": "시몬즈(Simonds)의 재해코스트 산출방식에서 A, B, C, D는 무엇을 뜻하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m12.gif?1647325343"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -450,6 +447,12 @@
       ],
       "concept_ids": [
         "simonds-accident-cost"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "홍재해 코스트 － 보험코스트+(Ax휴업상해건수)+(Bx통원상해건수)+Cx응급조치건수)+(Dx무상해사고건수)"
+        }
       ]
     },
     {
@@ -756,9 +759,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림과 같이 7개의 기기로 구성된 시스템의 신뢰도는 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m21.gif?1499117919"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -788,6 +788,12 @@
       ],
       "concept_ids": [
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "[다음]\n\n```mermaid\nflowchart LR\n    A((A)) --> B((B))\n    A --> C((C))\n    B --> D((D))\n    B --> F((F))\n    C --> F\n    C --> E((E))\n    D --> G((G))\n    F --> G\n    E --> G\n```\n\n[신뢰도]\nA = G : 0.75\nB = C = D = E : 0.8\nF : 0.9"
+        }
       ]
     },
     {
@@ -799,26 +805,38 @@
       "choices": [
         {
           "text": "R = E \\times \\frac{60 - 4}{E - 2}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m22b1.gif?1499117919"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$R = E \\times \\frac{60-4}{E-2}$$"
+            }
           ]
         },
         {
           "text": "R=60\\times\\frac{E-4}{E-1.5}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m22b2.gif?1499117919"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$R = 60 \\times \\frac{E-4}{E-1.5}$$"
+            }
           ]
         },
         {
           "text": "R=60\\times(E-4)\\times(E-2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m22b3.gif?1499117919"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$R = 60 \\times (E-4) \\times (E-2)$$"
+            }
           ]
         },
         {
           "text": "R = 60 \\times (60 - 4) \\times (E - 1.5)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m22b4.gif?1499117919"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$R = 60 \\times (60-4) \\times (E-1.5)$$"
+            }
           ]
         }
       ],
@@ -1180,9 +1198,6 @@
       "number": 32,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음의 그림과 같이 FTA 로 분석된 시스템에서 현재 모든 기본사상에 대한 부품이 고장난 상태이다. 부품 X1부터 부품 X5 까지 순서대로 복구한다면 어느 부품을 수리 완료하는 순간부터 시스템은 정상가동이 되겠는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m32.gif?1499117919"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1213,6 +1228,12 @@
       "concept_ids": [
         "fta-system-recovery-order",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> AND1[ AND ]\n    AND1 --> AND2[ AND ]\n    AND1 --> OR1{ OR }\n    AND2 --> X8((X₈))\n    AND2 --> X5((X₅))\n    AND2 --> X1a((X₁))\n    OR1 --> AND3[ AND ]\n    AND3 --> X4((X₄))\n    AND3 --> X1b((X₁))\n    OR1 --> AND4[ AND ]\n    AND4 --> X2((X₂))\n    AND4 --> X8b((X₈))\n```"
+        }
       ]
     },
     {
@@ -2275,9 +2296,6 @@
       "number": 61,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 설명과 가장 관계가 깊은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m61.gif?1499117919"
-      ],
       "pass_rate": 85,
       "choices": [
         {
@@ -2308,6 +2326,12 @@
       "concept_ids": [
         "flowing-charge-accumulation",
         "static-electricity-charging-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 파이프 속에 저항이 높은 액체가 흐를때 발생된다.\n- 액체의 흐름이 정전기 발생에 영향을 준다."
+        }
       ]
     },
     {
@@ -2922,9 +2946,6 @@
       "number": 78,
       "subject": "4과목 : 전기위험방지기술",
       "question": "그림과 같은 전기설비에서 누전사고가 발생 하여 인체가 전기설비의 외함에 접촉하였을 때 인체통과 전류는 약 몇 mA 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m78.gif?1499117919"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -2957,6 +2978,12 @@
         "human-body-transfer-current",
         "series-parallel-resistance",
         "electrical-shock-circuit-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전동기 (인체의 저항 3000 Ω)\n220 V\nR₂ = 20 Ω　　R₃ = 80 Ω"
+        }
       ]
     },
     {
@@ -3192,26 +3219,38 @@
       "choices": [
         {
           "text": "H = \\frac{U - L}{L}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m85b1.gif?1499117919"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{U-L}{L}$$"
+            }
           ]
         },
         {
           "text": "H = \\frac{|L - U|}{U}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m85b2.gif?1499117920"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{|L-U|}{U}$$"
+            }
           ]
         },
         {
           "text": "H = \\frac{L}{U - L}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m85b3.gif?1499117920"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{L}{U-L}$$"
+            }
           ]
         },
         {
           "text": "H = \\frac{U}{\\vert L - U \\vert}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160508/ku20160508m85b4.gif?1499117920"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{U}{L-U}$$"
+            }
           ]
         }
       ],

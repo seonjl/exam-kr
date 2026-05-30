@@ -792,9 +792,6 @@
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FT도에 사용되는 다음 게이트의 명칭은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m22.gif?1465741702"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -833,7 +830,13 @@
         "FTA 논리기호",
         "결함수분석"
       ],
-      "fix_D10_at": 1779355194
+      "fix_D10_at": 1779355194,
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  G[AND 게이트] --> ai[ai]\n  G --> aj[aj]\n  G --> ak[ak]\n  G --- H[/육각형 출력\\]\n```"
+        }
+      ]
     },
     {
       "number": 23,
@@ -1069,9 +1072,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 각 요소의 발생확률이 요소 ①과 요소 ②는 0.2, 요소 ③은 0.25, 요소 ④는 0.3 일 때 A 사상의 발생확률은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m29.gif?1465741702"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -1104,6 +1104,12 @@
         "fta-probability-calculation",
         "fta-gate-calculation",
         "fta-general"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  A[A] -->|OR| B[B]\n  A -->|OR| C[C]\n  B -->|OR| E1((1))\n  B -->|OR| E2((2))\n  C -->|OR| E3((3))\n  C -->|OR| E4((4))\n```"
+        }
       ]
     },
     {
@@ -1147,9 +1153,6 @@
       "number": 31,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FMEA의 표준적인 실시절차를 다음과 같이 나눌 때 2단계의 내용과 관계가 없는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m31.gif?1465741702"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -1180,6 +1183,12 @@
       "concept_ids": [
         "fmea-procedure",
         "fmea"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 1 단계 : 대상 시스템의 분석\n- 2 단계 : 고장의 유형과 그 영향의 해석\n- 3 단계 : 치명도 해석과 개선책의 검토"
+        }
       ]
     },
     {
@@ -1223,9 +1232,6 @@
       "number": 33,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림과 같이 3개의 부품이 병렬로 이루어진 시스템의 전체 신뢰도는 약 얼마인가? (단, 원 안의 값은 각 부품의 신뢰도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m33.gif?1465741702"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1256,6 +1262,12 @@
       "concept_ids": [
         "parallel-system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  IN[ ] --> A((0.9))\n  IN --> B((0.6))\n  IN --> C((0.9))\n  A --> OUT[ ]\n  B --> OUT\n  C --> OUT\n```"
+        }
       ]
     },
     {
@@ -1534,26 +1546,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m41b1.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\pi DN}{1000} \\text{ (m/min)}$$"
+            }
           ]
         },
         {
           "text": "\\pi DN (m/\\min)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m41b2.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\pi DN \\text{ (m/min)}$$"
+            }
           ]
         },
         {
           "text": "\\frac{\\pi DN}{60}(m/\\min)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m41b3.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\pi DN}{60} \\text{ (m/min)}$$"
+            }
           ]
         },
         {
           "text": "\\frac{DN}{1000}(m/\\min)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m41b4.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{DN}{1000} \\text{ (m/min)}$$"
+            }
           ]
         }
       ],
@@ -1798,9 +1822,6 @@
       "number": 48,
       "subject": "3과목 : 기계위험방지기술",
       "question": "보기와 같은 안전수칙을 적용해야 하는 수공구는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m48.gif?1465741702"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1831,6 +1852,12 @@
       "concept_ids": [
         "chisel-safety-rules",
         "hand-tool-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "1. 칩이 튀는 작업에는 보호안경 착용\n2. 처음에는 가볍게 때리고 점차 힘을 가함\n3. 절단된 가공물의 끝이 튕길 위험 발생 방지"
+        }
       ]
     },
     {
@@ -1874,9 +1901,6 @@
       "number": 50,
       "subject": "3과목 : 기계위험방지기술",
       "question": "그림과 같이 목재가공용 둥근톱 기계에서 분할날(t2) 두께가 4.0mm 일 때 톱날과의 관계로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m50.gif?1465741702"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1909,6 +1933,12 @@
         "circular-saw-splitter-blade",
         "split-blade",
         "woodworking-machine-guard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "톱날 단면 치수 도해:\n\nt ←[톱날]→ b ←[톱날진폭]→ t₂\n\nt : 톱날두께  b : 톱날진폭  t₂ : 분할날 두께"
+        }
       ]
     },
     {
@@ -2115,14 +2145,20 @@
       "choices": [
         {
           "text": "S = \\frac{Q \\times P}{N}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m56b1.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{Q \\times P}{N}$$"
+            }
           ]
         },
         {
           "text": "S = \\frac{N \\times P}{Q}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m56b2.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{N \\times P}{Q}$$"
+            }
           ]
         },
         {
@@ -2131,8 +2167,11 @@
         },
         {
           "text": "S = \\frac{Q \\times N}{P}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m56b4.gif?1465741702"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{Q \\times N}{P}$$"
+            }
           ]
         }
       ],
@@ -2229,9 +2268,6 @@
       "number": 59,
       "subject": "3과목 : 기계위험방지기술",
       "question": "다음 ( )안의 (ㄱ), (ㄴ)에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m59.gif?1465741702"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -2262,15 +2298,18 @@
       "concept_ids": [
         "pressure-relief-valve",
         "maximum-working-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "보일러에서 압력방출장치를 2개 설치하는 경우 1개는 ( ㉮ ) 이하에서 작동되도록 하고, 또 다른 하나는 ( ㉮ )의 ( ㉯ ) 이하에서 작동하도록 부착한다."
+        }
       ]
     },
     {
       "number": 60,
       "subject": "3과목 : 기계위험방지기술",
       "question": "다음 ( ) 안에 들어갈 용어로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m60.gif?1465741702"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -2301,6 +2340,12 @@
       "concept_ids": [
         "pressure-limiting-switch",
         "boiler-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 보일러의 과열을 방지하기 위하여 최고사용 압력과 상용압력사이에서 보일러의 버너연소를 차단할 수있도록 ( )을(를) 부착하여 사용하여야 한다."
+        }
       ]
     },
     {
@@ -2346,9 +2391,6 @@
       "number": 62,
       "subject": "4과목 : 전기위험방지기술",
       "question": "전류가 흐르는 상태에서 단로기를 끊었을 때 여러 가지 파괴작용을 일으킨다. 다음 그림에서 유입차단기의 차단순위와 투입순위가 안전수칙에 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m62.gif?1465741702"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -2379,6 +2421,12 @@
       "concept_ids": [
         "oil-immersed-circuit-breaker",
         "disconnector-operation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    인입 --o A[① DS] --> B[② VCB] --> C[③ DS] --o 부하\n```"
+        }
       ]
     },
     {
@@ -2422,9 +2470,6 @@
       "number": 64,
       "subject": "4과목 : 전기위험방지기술",
       "question": "고압활선 근접작업과 관련하여 다음 ( ㉮ ), ( ㉯ )에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m64.gif?1465741702"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -2455,6 +2500,12 @@
       "concept_ids": [
         "high-voltage-live-work-proximity",
         "energized-circuit-approach"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "해당 충전전로에 대하여 머리 위로의 거리가 ( ㉮ )cm이내 이거나, 신체 또는 발 아래로의 거리가 ( ㉯ )cm이내로 접근함으로 인하여 감전의 우려가 있는 때에는 당해 충전전로에 절연용 방호구를 설치하여야 한다."
+        }
       ]
     },
     {
@@ -2687,9 +2738,6 @@
       "number": 71,
       "subject": "4과목 : 전기위험방지기술",
       "question": "심실세동전류  인체의 저항(Rb)1000[Ω], 지표상층 저항율(Rs)을 100[Ω・m], 고정시간(T)을 1초로 하는 경우 허용 접촉 전압은 약 몇 [V] 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m71m1.gif?1465741702"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -2722,6 +2770,12 @@
         "allowable-contact-voltage",
         "ventricular-fibrillation-current",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I_K = (0.116 / \\sqrt{T}) \\text{ [A]}$$"
+        }
       ]
     },
     {
@@ -2765,9 +2819,6 @@
       "number": 73,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 ( ) 안에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m73.gif?1465741702"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -2798,6 +2849,12 @@
       "concept_ids": [
         "protective-device-performance",
         "series-parallel-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "과전류보호장치는 반드시 접지선의의 전로에 ( )로 연결하여 과전류 발생시 전로를 자동으로 차단하도록 설치 할 것"
+        }
       ]
     },
     {
@@ -3305,9 +3362,6 @@
       "number": 87,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "인화성 가스 혼합물을 구성하는 각 성분의 조성과 연소범위가 다음 [표]와 같을 때 혼합가스의 연소하한값은 약몇 vol% 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m87.gif?1465741702"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -3338,6 +3392,12 @@
       "concept_ids": [
         "le-chateliers-principle",
         "mixed-gas-lower-explosion-limit"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성분 | 조성 (vol%) | 연소하한값 (vol%) | 연소상한값 (vol%) |\n|------|-------------|------------------|------------------|\n| 헥산 | 1 | 1.1 | 7.4 |\n| 메탄 | 2.5 | 5.0 | 15.0 |\n| 메틸렌 | 0.5 | 2.7 | 36.0 |\n| 공기 | 96 | - | - |"
+        }
       ]
     },
     {
@@ -3572,9 +3632,6 @@
       "number": 94,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 [표]의 가스를 위험도가 큰 것부터 작은 순으로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m94.gif?1465741702"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3607,6 +3664,12 @@
         "hazard-level",
         "explosion-limit-concentration",
         "explosion-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | 폭발하한값 | 폭발상한값 |\n|---|-----------|-----------|\n| 수소 | 4.0 vol% | 75.0 vol% |\n| 산화메틸렌 | 3.0 vol% | 80.0 vol% |\n| 이황화탄소 | 1.25 vol% | 44.0 vol% |\n| 아세틸렌 | 2.5 vol% | 81.0 vol% |"
+        }
       ]
     },
     {
@@ -4370,9 +4433,6 @@
       "number": 115,
       "subject": "6과목 : 건설안전기술",
       "question": "그림과 같이 두 곳에 줄을 달아 중량물을 들어올릴때, 힘 P의 크기에 관한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090301/ku20090301m115.gif?1465741702"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -4403,6 +4463,12 @@
       "concept_ids": [
         "rigging-work",
         "sling-load-capacity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "삼각형 형태의 구조물 그림:\n- 꼭짓점에서 위쪽으로 하중 P 작용\n- 꼭짓점 각도 α\n- 밑면은 고정단(벽에 지지)"
+        }
       ]
     },
     {

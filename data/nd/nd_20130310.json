@@ -910,9 +910,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 중심각 β=30° 이고 반경 R = 12m인 원호형 방파제 AB가 있다. 방파제의 폭 1m당 유체에 의해 작용하는 힘은 몇 kN인가? (단, 해수의 비중량은 9.8 kN/m3으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m21.gif?1498080902"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -949,6 +946,12 @@
       "concept_ids": [
         "curved-surface-fluid-force",
         "geometry-pipe-dimension"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "경사면(각도 β)을 가진 사다리꼴 단면 댐 구조\n- 수면(▽)에서 경사면이 β 각도로 내려감\n- R: 경사면 길이\n- A: 상단 우측 꼭짓점\n- B: 하단 경사면과 기초의 교점\n- 기초부는 빗금(토사) 처리"
+        }
       ]
     },
     {
@@ -998,9 +1001,6 @@
       "number": 23,
       "subject": "2과목 : 소방유체역학",
       "question": "대기 중에 개방된 탱크 속의 액면이 점선의 위치에서 현재 액면 위치 D까지 서서히 내려왔다. 파이프 끝 C에서 대기 중으로 방출될 때 유출속도는 Vc는 약 m/s 인가? (단, 관에서의 마찰은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m23.gif?1498080902"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -1037,15 +1037,18 @@
       "concept_ids": [
         "torricelli-theorem",
         "tank-outflow-velocity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "P_atm (대기압) 작용하는 관로 시스템\n\n- D: 좌측 입구 (수평관)\n- E: D에서 하강 후 수평 연결부\n- A: E 우측 연결점\n- B: 상단 수평관 (P_atm 작용)\n- C: 하단 출구, 3m 낙하 후 V_C = P_atm 조건\n- A→B: 상승관, B→C: 3m 하강관"
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 탱크차가 받는 추력은 약 몇 N 인가? (단, 노즐의 단면적은 0.03m2이며 마찰은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m24.gif?1498080902"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1082,6 +1085,12 @@
       "concept_ids": [
         "conservation-of-momentum",
         "nozzle-reaction-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "P = 40 kPa (상단 압력 게이지)\n\n탱크 내부:\n- 공기 (상부)\n- 물 (하부, 수면 ▽ 표시)\n- 수심: h (미지수)\n\n우측 하단 출구로 유출 (→ 방향)"
+        }
       ]
     },
     {
@@ -1131,9 +1140,6 @@
       "number": 26,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 그림과 같이 설치한 피토 정압관의 액주계 눈금 R = 100mm일 때 ①에서의 물의 유속은 약 몇 m/s인가? (단, 액주계에 사용된 수은의 비중은 13.6이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m26.gif?1498080902"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -1172,6 +1178,12 @@
         "pitot-static-tube",
         "manometer",
         "specific-gravity-correction"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "피토관(Pitot tube) 구조\n\n- V → ①: 유체 유입 방향 (수평 흐름)\n- ①: 피토관 앞끝 (정체점)\n- 관 끝에 U자형 마노미터 연결\n- R: 마노미터 읽음값 (액주 높이)\n- 우측 상단: 압력 기준면 표시"
+        }
       ]
     },
     {
@@ -1268,33 +1280,42 @@
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 물이 유량 Q로 저수조로 들어가고, 속도V=√2gh로 저수조 바닥에 있는 면적 A2의 구멍을 통하여 나간다. 저수조의 수면 높이의 변화 속도 dh/dt는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m29.gif?1498080902"
-      ],
       "pass_rate": 53,
       "choices": [
         {
           "text": "(img2): dh/dt = Q/A₂",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m29b1.gif?1498080902"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{Q}{A_2}$$"
+            }
           ]
         },
         {
           "text": "(img3): dh/dt = A₂√(2gh)/A₁",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m29b2.gif?1498080903"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{A_2\\sqrt{2gh}}{A_1}$$"
+            }
           ]
         },
         {
           "text": "(img4): dh/dt = (Q − A₂√(2gh))/A₂",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m29b3.gif?1498080903"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{Q - A_2\\sqrt{2gh}}{A_2}$$"
+            }
           ]
         },
         {
           "text": "(img5): dh/dt = (Q − A₂√(2gh))/A₁",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m29b4.gif?1498080903"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{Q - A_2\\sqrt{2gh}}{A_1}$$"
+            }
           ]
         }
       ],
@@ -1326,6 +1347,12 @@
         "mass-conservation",
         "torricelli-theorem",
         "water-surface-drawdown"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "유량 Q 유입 (좌상단 샤워헤드형 입구)\n\n직사각형 수조:\n- 면적 A₁ (수조 단면적)\n- 면적 A₂ (바닥 출구 단면적)\n- h: 수위 높이\n\n출구 유속: $$V = \\sqrt{2gh}$$"
+        }
       ]
     },
     {
@@ -1643,9 +1670,6 @@
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 오리피스에서 hm은 0.1m, r는 물의 비중량이고,rm은 수은 (비중 13.6)의 비중량일 때 오리피스 전후의 압력차는 약 몇 kPa인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20130310/nd20130310m37.gif?1498080903"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -1682,6 +1706,12 @@
       "concept_ids": [
         "manometer-pressure-difference",
         "specific-gravity-difference"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "피토관(Pitot tube) 단면 구조 (수평 유동)\n\n- 유선이 피토관 주위를 흐르는 모습\n- X-X': 기준 수평면\n- y: 관 중심에서 기준면까지 높이\n- h: U자형 마노미터 액주 높이 차\n- 좌측 γ: 유체 비중량, 우측 γ_m: 마노미터 유체 비중량"
+        }
       ]
     },
     {

@@ -420,9 +420,6 @@
       "number": 12,
       "subject": "1과목 : 안전관리론",
       "question": "다음 [그림]과 같은 안전관리 조직의 특징으로 잘못된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m12.gif?1466238210"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -453,6 +450,12 @@
       "concept_ids": [
         "staff-type-safety-organization",
         "safety-org-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    공장장((공장장)) -->|생산지시| 관리자((관리자))\n    공장장 -->|안전지시| 안전스탭[안전 스탭]\n    관리자 --> 감독자((감독자))\n    감독자 --> 작업자((작업자))\n    관리자 --> 안전스탭\n    감독자 --> 안전스탭\n    작업자 --> 안전스탭\n```"
+        }
       ]
     },
     {
@@ -796,9 +799,6 @@
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FMEA의 표준적 실시절차를 다음과 같이 3가지로 구분 하였을 때 “대상 시스템의 분석”에 해당되는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m22.gif?1466238210"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -829,6 +829,12 @@
       "concept_ids": [
         "fmea-procedure",
         "reliability-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "대상 시스템의 분석 → 고장의 유형과 그 영향의 해석 → 치명도 해석과 개선책의 검토"
+        }
       ]
     },
     {
@@ -872,9 +878,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템에 대하여 톱사상(Top Event)에 도달할 수 있는 최소 컷셋(Minimal Cut Set)을 구할 때 다음 중 올바른 집합은? (단, ①, ②, ③, ④는 각 부품의 고장확률을 의미하며 집합 {1,2}는 ①번 부품과 ②번 부품이 동시에 고장 나는 경우를 의미한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m24.gif?1466238210"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -905,6 +908,12 @@
       "concept_ids": [
         "minimal-cut-set",
         "fta-top-event"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  A[( )] --- B[( 1 )]\n  A --- C[( 2 )]\n  B --- D[( 3 )]\n  C --- D\n  A --- E[( 4 )]\n  E --- F[ ]\n  D --- F\n```"
+        }
       ]
     },
     {
@@ -987,9 +996,6 @@
       "number": 27,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "각 부품의 신뢰도가 다음과 같을 때 시스템의 전체 신뢰도는 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m27.gif?1466238210"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -1020,15 +1026,18 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  IN[ ] --> R1[( 0.95 )]\n  R1 --> P1[( 0.95 )]\n  R1 --> P2[( 0.90 )]\n  P1 --> OUT[ ]\n  P2 --> OUT\n```"
+        }
       ]
     },
     {
       "number": 28,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음과 같은 실내 표면에서 일반적으로 추천반사율의 크기를 올바르게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m28.gif?1466238210"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -1059,6 +1068,12 @@
       "concept_ids": [
         "indoor-surface-reflectance",
         "lighting-environment-design"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 바닥　② 천장　③ 가구　④ 벽"
+        }
       ]
     },
     {
@@ -2521,9 +2536,6 @@
       "number": 67,
       "subject": "4과목 : 전기위험방지기술",
       "question": "심실세동 전류를  라면 감전되었을 경우 심실세동시에 인체에 직접 받는 전기에너지는 약 몇[cal]인가? (단, T는 통전시간으로 1초이며, 인체의 저항은 500Ω으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m67m1.gif?1466238210"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -2556,6 +2568,12 @@
         "ventricular-fibrillation-current",
         "electrical-energy-calculation",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}} \\, [mA]$$"
+        }
       ]
     },
     {
@@ -2761,26 +2779,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m73b1.gif?1466238210"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "OR 게이트 (입력 2개, 출력 1개)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m73b2.gif?1466238210"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "OR 게이트 (입력 2개, 출력 1개) — 버블 없음"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m73b3.gif?1466238210"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "AND 게이트 (입력 2개, 출력 1개)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m73b4.gif?1466238210"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "NOT 게이트 (버퍼 + 인버터, 입력 1개, 출력 1개 — 출력 측 버블 있음)"
+            }
           ]
         }
       ],
@@ -3154,9 +3184,6 @@
       "number": 83,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 설명이 의미하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m83.gif?1466238210"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -3187,6 +3214,12 @@
       "concept_ids": [
         "runaway-reaction",
         "exothermic-reaction-control"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "온도, 압력 등 제어상태가 규정의 조건을 벗어 나는 것에 의해 반응 속도가 지수 함수적으로 증대되고 반응기내의 온도, 압력이 급격히 이상 상승되어 규정 조건을 벗어나고, 반응이 과격화되는 현상"
+        }
       ]
     },
     {
@@ -4206,9 +4239,6 @@
       "number": 111,
       "subject": "6과목 : 건설안전기술",
       "question": "다음 보기의 (     ) 안에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100509/ku20100509m111.gif?1466238210"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -4241,6 +4271,12 @@
         "pipe-support",
         "strut-horizontal-member",
         "formwork-falsework-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동바리용 파이프서포트는 ( ① )본 이상 이어서 사용하지 마니하여야 하며 또 높이가 ( ② )미터 이상의 경우 높이 ( ③ )미터 이미마다 수평연결재를 2개 방향으로 설치하여야 한다."
+        }
       ]
     },
     {

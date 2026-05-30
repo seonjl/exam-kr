@@ -9,33 +9,42 @@
       "number": 1,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 콘덴서 C[F]에 교번전압 Vssinωt[V]를 가했을 때 콘덴서 내의 변위전류[A]는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m1.gif?1461676512"
-      ],
       "pass_rate": 75,
       "choices": [
         {
           "text": "은 V_s/(ωC) · cos ωt, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m1b1.gif?1461676721"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s}{\\omega C} \\cos\\omega t$$"
+            }
           ]
         },
         {
           "text": "는 ωC V_s tan ωt, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m1b2.gif?1461676721"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\omega C V_s \\tan\\omega t$$"
+            }
           ]
         },
         {
           "text": "은 ωC V_s sin ωt, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m1b3.gif?1461676721"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\omega C V_s \\sin\\omega t$$"
+            }
           ]
         },
         {
           "text": "는 ωC V_s cos ωt 이다. (즉 기존 해설의 ②·③ 설명과 실제 보기 식이 다르며, 실제로는 ②가 tan 함수, ③이 sin 함수 형태이다.)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m1b4.gif?1461676721"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\omega C V_s \\cos\\omega t$$"
+            }
           ]
         }
       ],
@@ -67,39 +76,54 @@
         "capacitance-capacitor",
         "ac-voltage-differentiation-phase",
         "capacitive-current-phase"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RC 회로 (교류 전압원):\n\n- 전압원: $V_s \\sin\\omega t$\n- C: 커패시터 (병렬 연결)"
+        }
       ]
     },
     {
       "number": 2,
       "subject": "1과목 : 전기자기학",
       "question": "그림에서 I[A]의 전류가 반지름 a[m]의 무한히 긴 원주도체를 축에 대하여 대칭으로 흐를 때 원주 외부의 자계 H를 구한 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m2.gif?1461676513"
-      ],
       "pass_rate": 70,
       "choices": [
         {
           "text": "H = I/(4πr) [AT/m],",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m2b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{I}{4\\pi r} \\text{ [AT/m]}$$"
+            }
           ]
         },
         {
           "text": "H = I/(4πr²) [AT/m],",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m2b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{I}{4\\pi r^2} \\text{ [AT/m]}$$"
+            }
           ]
         },
         {
           "text": "H = I/(2πr) [AT/m],",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m2b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{I}{2\\pi r} \\text{ [AT/m]}$$"
+            }
           ]
         },
         {
           "text": "H = I/(2πr²) [AT/m].",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m2b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{I}{2\\pi r^2} \\text{ [AT/m]}$$"
+            }
           ]
         }
       ],
@@ -131,6 +155,12 @@
         "infinite-wire-magnetic-field",
         "amperes-circuital-law",
         "cylindrical-magnetic-field"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원통형 도체의 단면도 (동축 케이블 구조):\n\n- 왼쪽: 원통 측면도 — 내부 도체 반지름 $a$, 외부 반지름 $r$, 전류 $I$ (위 방향), 점 $P$ 표시\n- 오른쪽: 원통 단면도 — 내부 도체(빗금, 반지름 $a$), 외부 도체 경계 반지름 $r$, 점 $P$, 축 $C$, $H$ 방향 표시"
+        }
       ]
     },
     {
@@ -182,9 +212,6 @@
       "number": 4,
       "subject": "1과목 : 전기자기학",
       "question": "한 변의 길이가 500[mm]인 정사격형 평행 평판 2장이 10[mm] 간격으로 놓여 있고 그림과 같이 유전율이 다른 2개의 유전체로 채워진 경우 합성용량은 약 몇 [pF]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m4.gif?1461676514"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -223,6 +250,12 @@
         "combined-capacitance",
         "permittivity",
         "capacitance-parallel-plate"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "평행판 콘덴서 단면도 (두 유전체 층):\n\n- 상단 층: 두께 4mm, 유전율 $\\varepsilon_o$ (공기)\n- 하단 층: 두께 6mm, 비유전율 $\\varepsilon_r = 4$ (유전체, 빗금 표시)\n- 전체 두 전극 사이에 두 층이 직렬로 배치됨"
+        }
       ]
     },
     {
@@ -274,33 +307,42 @@
       "number": 6,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 점 O 를 중심으로 반지름 a[m]의 도체구 1과 내반지름 b[m], 외반지름 c[m]의 도체구 2가 있다. 이 도체계에서 전위계수 P11[1/F]에 해당되는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m6.gif?1461676513"
-      ],
       "pass_rate": 81,
       "choices": [
         {
           "text": "1/(4πε₀)·(1/a), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m6b1.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon}\\left(\\frac{1}{a}\\right)$$"
+            }
           ]
         },
         {
           "text": "1/(4πε₀)·(1/a − 1/b), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m6b2.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon}\\left(\\frac{1}{a} - \\frac{1}{b}\\right)$$"
+            }
           ]
         },
         {
           "text": "1/(4πε₀)·(1/b − 1/c), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m6b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon}\\left(\\frac{1}{b} - \\frac{1}{c}\\right)$$"
+            }
           ]
         },
         {
           "text": "1/(4πε₀)·(1/a − 1/b + 1/c).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m6b4.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon}\\left(\\frac{1}{a} - \\frac{1}{b} + \\frac{1}{c}\\right)$$"
+            }
           ]
         }
       ],
@@ -332,6 +374,12 @@
         "concentric-spherical-conductors",
         "electrostatic-induction",
         "conductor-interior-field"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동심 구형 도체 단면도:\n\n- 중심(0): 내부 도체 (반지름 $a$)\n- 영역 1: 내부 도체와 외부 도체 사이 공간 (반지름 $a$ ~ $b$)\n- 외부 도체: 빗금 부분 (반지름 $b$ ~ $c$)\n- 영역 2: 외부 도체 바깥 공간 (반지름 $c$ 이상, 빗금)\n- 화살표: 위 방향 (전기장 또는 전류 방향)"
+        }
       ]
     },
     {
@@ -388,26 +436,38 @@
       "choices": [
         {
           "text": "e = -(1/N) · dφ/dt",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m8b1.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$e = -\\frac{1}{N}\\frac{d\\phi}{dt}$$"
+            }
           ]
         },
         {
           "text": "e = -(1/N²) · dφ/dt",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m8b2.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$e = -\\frac{1}{N^2}\\frac{d\\phi}{dt}$$"
+            }
           ]
         },
         {
           "text": "e = -N · dφ/dt",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m8b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$e = -N\\frac{d\\phi}{dt}$$"
+            }
           ]
         },
         {
           "text": "e = -N² · dφ/dt",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m8b4.gif?1461676515"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$e = -N^2\\frac{d\\phi}{dt}$$"
+            }
           ]
         }
       ],
@@ -450,26 +510,38 @@
       "choices": [
         {
           "text": "$F = \\dfrac{\\rho^2}{\\varepsilon_0 r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m9b1.gif?1461676515"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho^2}{\\varepsilon_0 r}$$"
+            }
           ]
         },
         {
           "text": "$F = \\dfrac{\\rho^2}{\\pi \\varepsilon_0 r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m9b2.gif?1461676515"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho^2}{\\pi\\varepsilon_0 r}$$"
+            }
           ]
         },
         {
           "text": "$F = \\dfrac{\\rho^2}{2\\pi \\varepsilon_0 r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m9b3.gif?1461676515"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho^2}{2\\pi\\varepsilon_0 r}$$"
+            }
           ]
         },
         {
           "text": "$F = \\dfrac{\\rho^2}{4\\pi \\varepsilon_0 r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m9b4.gif?1461676515"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho^2}{4\\pi\\varepsilon_0 r}$$"
+            }
           ]
         }
       ],
@@ -512,26 +584,38 @@
       "choices": [
         {
           "text": "| $H = \\dfrac{I}{4a}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m10b1.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{I}{4a}$$"
+            }
           ]
         },
         {
           "text": "| $H = \\dfrac{I}{a}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m10b2.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{I}{a}$$"
+            }
           ]
         },
         {
           "text": "| $H = \\dfrac{I}{2a}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m10b3.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{I}{2a}$$"
+            }
           ]
         },
         {
           "text": "| $H = \\dfrac{2I}{a}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m10b4.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2I}{a}$$"
+            }
           ]
         }
       ],
@@ -706,26 +790,38 @@
       "choices": [
         {
           "text": "M = (μ/π) ∮_{C1} ∮_{C2} (dl1 × dl2)/r12  — 계수 μ/π, 분자는 외적(dl1 × dl2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m14b1.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\mu}{\\pi} \\oint_{c_1} \\oint_{c_2} \\frac{dl_1 \\times dl_2}{r_{12}}$$"
+            }
           ]
         },
         {
           "text": "M = (μ/2π) ∮_{C1} ∮_{C2} (dl1 · dl2)/r12 — 계수 μ/2π, 분자는 내적(dl1 · dl2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m14b2.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\mu}{2\\pi} \\oint_{c_1} \\oint_{c_2} \\frac{dl_1 \\cdot dl_2}{r_{12}}$$"
+            }
           ]
         },
         {
           "text": "M = (εμ/π) ∮_{C1} ∮_{C2} (dl1 × dl2)/r12 — 계수에 유전율 ε가 곱해진 εμ/π, 분자는 외적",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m14b3.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\varepsilon\\mu}{\\pi} \\oint_{c_1} \\oint_{c_2} \\frac{dl_1 \\times dl_2}{r_{12}}$$"
+            }
           ]
         },
         {
           "text": "M = (μ/4π) ∮_{C1} ∮_{C2} (dl1 · dl2)/r12 — 계수 μ/4π, 분자는 내적(dl1 · dl2), 분모는 두 미소부분 사이 거리 r12",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m14b4.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\mu}{4\\pi} \\oint_{c_1} \\oint_{c_2} \\frac{dl_1 \\cdot dl_2}{r_{12}}$$"
+            }
           ]
         }
       ],
@@ -768,26 +864,38 @@
       "choices": [
         {
           "text": "$E = \\dfrac{1}{4\\pi\\varepsilon_0} \\dfrac{\\lambda}{r^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m15b1.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{4\\pi\\epsilon_0} \\frac{\\lambda}{r^2}$$"
+            }
           ]
         },
         {
           "text": "$E = \\dfrac{1}{2\\pi\\varepsilon_0} \\dfrac{\\lambda}{r^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m15b2.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2\\pi\\epsilon_0} \\frac{\\lambda}{r^2}$$"
+            }
           ]
         },
         {
           "text": "$E = \\dfrac{1}{2\\pi\\varepsilon_0} \\dfrac{\\lambda}{r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m15b3.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2\\pi\\epsilon_0} \\frac{\\lambda}{r}$$"
+            }
           ]
         },
         {
           "text": "$E = \\dfrac{1}{4\\pi\\varepsilon_0} \\dfrac{\\lambda}{r}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m15b4.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{4\\pi\\epsilon_0} \\frac{\\lambda}{r}$$"
+            }
           ]
         }
       ],
@@ -875,26 +983,38 @@
       "choices": [
         {
           "text": "~④는 모두 도체구(반지름 a, 전하 Q)를 둘러싼 유전체(비유전율 εs) 경계면의 분극 전하 밀도 후보 수식이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m17b1.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi a^2}(1 - \\varepsilon_s)$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{Q}{4\\pi a^{2}}(\\epsilon_{s}-1)$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m17b2.gif?1461676512"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi a^2}(\\varepsilon_s - 1)$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{Q}{4\\pi a^{2}}\\left(1-\\dfrac{1}{\\epsilon_{s}}\\right)$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m17b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi a^2}\\left(1 - \\frac{1}{\\varepsilon_s}\\right)$$"
+            }
           ]
         },
         {
           "text": "는 모두 도체구(반지름 a, 전하 Q)를 둘러싼 유전체(비유전율 εs) 경계면의 분극 전하 밀도 후보 수식이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m17b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi a^2}\\left(\\frac{1}{\\varepsilon_s} - 1\\right)$$"
+            }
           ]
         }
       ],
@@ -937,26 +1057,38 @@
       "choices": [
         {
           "text": "$E = -\\dfrac{\\partial A}{\\partial t}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m18b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = -\\frac{\\partial A}{\\partial t}$$"
+            }
           ]
         },
         {
           "text": "$\\operatorname{rot} E = -\\dfrac{\\partial A}{\\partial t}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m18b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{rot}\\, E = -\\frac{\\partial A}{\\partial t}$$"
+            }
           ]
         },
         {
           "text": "$E = \\operatorname{rot} B$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m18b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\text{rot}\\, B$$"
+            }
           ]
         },
         {
           "text": "$\\operatorname{rot} E = \\dfrac{\\partial B}{\\partial t}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m18b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{rot}\\, E = \\frac{\\partial B}{\\partial t}$$"
+            }
           ]
         }
       ],
@@ -1840,9 +1972,6 @@
       "number": 38,
       "subject": "2과목 : 전력공학",
       "question": "4단자 정수가 A, B, C, D 인 송전선로의 등가 π회로를 그림과 같이 하면 Z1의 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m38.gif?1461676513"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1881,6 +2010,12 @@
         "four-terminal-network-parameters",
         "matrix-multiplication-order",
         "transmission-line-modeling"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A[입력] --> Z1[Z₁]\n    Z1 --> B[출력]\n    A --> Z2[Z₂]\n    Z2 --> Z3[Z₃]\n    Z3 --> B\n```\n\nZ₁과 (Z₂, Z₃ 직렬)이 병렬로 연결된 회로.\n- 위 경로: Z₁\n- 아래 경로: Z₂ — Z₃ (직렬)"
+        }
       ]
     },
     {
@@ -2071,26 +2206,38 @@
       "choices": [
         {
           "text": "$\\dfrac{dT_m}{dn} < \\dfrac{dT_L}{dn}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m43b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{dT_m}{dn} < \\frac{dT_L}{dn}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{dT_m}{dn} = \\dfrac{dT_L^2}{dn}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m43b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{dT_m}{dn} = \\frac{dT_L^2}{dn}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{dT_m}{dn} > \\dfrac{dT_L}{dn}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m43b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{dT_m}{dn} > \\frac{dT_L}{dn}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{dT_m}{dn} \\neq \\dfrac{dT_L^2}{dn}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m43b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{dT_m}{dn} \\neq \\frac{dT_L^2}{dn}$$"
+            }
           ]
         }
       ],
@@ -2358,26 +2505,38 @@
       "choices": [
         {
           "text": "$6\\sin\\dfrac{\\pi}{18}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m49b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$6\\sin\\frac{\\pi}{18}$$"
+            }
           ]
         },
         {
           "text": "$3\\sin\\dfrac{\\pi}{9}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m49b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$3\\sin\\frac{\\pi}{9}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{1}{6\\sin\\dfrac{\\pi}{18}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m49b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{6\\sin\\dfrac{\\pi}{18}}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{1}{3\\sin\\dfrac{\\pi}{18}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m49b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{3\\sin\\dfrac{\\pi}{18}}$$"
+            }
           ]
         }
       ],
@@ -2725,9 +2884,6 @@
       "number": 57,
       "subject": "3과목 : 전기기기",
       "question": "동기발전기의 무부하 포화곡선은 그림 중 어느 것인가? (단, V는 단자전압, If는 여자전류이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m57.gif?1461676513"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2764,6 +2920,12 @@
       "concept_ids": [
         "no-load-saturation-curve",
         "magnetic-saturation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "V-I_f 특성 곡선 그래프\n\n- 세로축: V (전압)\n- 가로축: I_f (계자전류)\n- 곡선 ①: 가장 위쪽, 포화도 가장 높음\n- 곡선 ②: ① 아래\n- 곡선 ③: ② 아래\n- 곡선 ④: 가장 아래쪽, 거의 직선에 가까운 완만한 곡선"
+        }
       ]
     },
     {
@@ -2912,26 +3074,38 @@
       "choices": [
         {
           "text": "| $s = \\pm j\\sqrt{20}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m61b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$s = \\pm j\\sqrt{20}$$"
+            }
           ]
         },
         {
           "text": "| $s = \\pm j\\sqrt{30}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m61b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$s = \\pm j\\sqrt{30}$$"
+            }
           ]
         },
         {
           "text": "| $s = \\pm j\\sqrt{40}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m61b3.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$s = \\pm j\\sqrt{40}$$"
+            }
           ]
         },
         {
           "text": "| $s = \\pm j\\sqrt{5}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m61b4.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$s = \\pm j\\sqrt{50}$$"
+            }
           ]
         }
       ],
@@ -3014,9 +3188,6 @@
       "number": 63,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "의 함수를 z 역변환하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m63m1.gif?1461676513"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3055,6 +3226,12 @@
         "z-inverse-transform",
         "partial-fraction-expansion",
         "z-transform"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$Y(z) = \\frac{2z}{(z-1)(z-2)}$$"
+        }
       ]
     },
     {
@@ -3151,34 +3328,42 @@
       "number": 66,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "상태 방정식이 다음과 같은 계의 천이행렬  는 어떻게 표시되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66m1.gif?1461676514",
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66.gif?1461676513"
-      ],
       "pass_rate": 62,
       "choices": [
         {
           "text": "$\\mathcal{L}^{-1}[(sI - A)]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66b1.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\mathcal{L}^{-1}[(sI - A)^{-1}]$$"
+            }
           ]
         },
         {
           "text": "$\\mathcal{L}^{-1}[(sI - A)^{-1}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66b2.gif?1461676513"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\mathcal{L}^{-1}[(sI - A)^{-1}]^{-1}$$"
+            }
           ]
         },
         {
           "text": "$\\mathcal{L}^{-1}[(sI - B)]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\mathcal{L}^{-1}[(sI - B)^{-1}]$$"
+            }
           ]
         },
         {
           "text": "$\\mathcal{L}^{-1}[(sI - B)^{-1}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m66b4.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\mathcal{L}^{-1}[(sI - B)^{-1}]^{-1}$$"
+            }
           ]
         }
       ],
@@ -3210,15 +3395,22 @@
         "state-transition-matrix",
         "linear-algebra-matrix",
         "state-transition-laplace-inverse"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\Phi(t)$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$\\dot{x}(t) = Ax(t) + Bu$$"
+        }
       ]
     },
     {
       "number": 67,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "의 논리식을 간략화 하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m67m1.gif?1461676514"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3231,14 +3423,20 @@
         },
         {
           "text": "(img2)은 A̅ + AB̅ 이고, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m67b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A} + A\\overline{B}$$"
+            }
           ]
         },
         {
           "text": "(img3)은 A̅ + AC̅ 이다. 즉 LaTeX로 표기하면 문제식은 $\\bar{A}BC+\\bar{A}B\\bar{C}+A\\bar{B}\\bar{C}+AB\\bar{C}+\\bar{A}\\bar{B}C+\\bar{A}\\bar{B}\\bar{C}$, ③은 $\\bar{A}+A\\bar{B}$, ④는 $\\bar{A}+A\\bar{C}$ 이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m67b4.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A} + A\\overline{C}$$"
+            }
           ]
         }
       ],
@@ -3270,6 +3468,12 @@
         "boolean-algebra",
         "karnaugh-map",
         "logic-simplification"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\overline{A}BC + \\overline{A}\\overline{B}\\overline{C} + A\\overline{B}\\overline{C} + AB\\overline{C} + \\overline{A}B\\overline{C} + \\overline{A}\\overline{B}C$$"
+        }
       ]
     },
     {
@@ -3321,33 +3525,42 @@
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 시스템의 전달함수 (C/R)는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m69.gif?1461676514"
-      ],
       "pass_rate": 74,
       "choices": [
         {
           "text": "C/R = (G1 G2) / (1 + G1 G2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m69b1.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C}{R} = \\frac{G_1 G_2}{1 + G_1 G_2}$$"
+            }
           ]
         },
         {
           "text": "C/R = (G1 G2) / (1 - G1 G2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m69b2.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C}{R} = \\frac{G_1 G_2}{1 - G_1 G_2}$$"
+            }
           ]
         },
         {
           "text": "C/R = (1 + G1 G2) / (G1 G2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m69b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C}{R} = \\frac{1 + G_1 G_2}{G_1 G_2}$$"
+            }
           ]
         },
         {
           "text": "C/R = (1 - G1 G2) / (G1 G2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m69b4.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C}{R} = \\frac{1 - G_1 G_2}{G_1 G_2}$$"
+            }
           ]
         }
       ],
@@ -3379,15 +3592,18 @@
         "unit-feedback",
         "block-diagram",
         "cascaded-parameter-abcd-matrix"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    R -->|+| S((+/-))\n    S --> G1[G₁]\n    G1 --> G2[G₂]\n    G2 --> C\n    C -->|feedback| S\n```"
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같은 궤환 제어계가 안정하기 위한 K 의 범위는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m70.gif?1461676514"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3426,6 +3642,12 @@
         "stability-determination",
         "characteristic-equation",
         "routh-hurwitz-stability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    R -->|+| S((+/-))\n    S --> G[\"$$\\dfrac{K}{s(s+1)^2}$$\"]\n    G --> C\n    C -->|feedback| S\n```"
+        }
       ]
     },
     {
@@ -3475,33 +3697,42 @@
       "number": 72,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 결합 회로의 4단자 정수 A, B, C, D 파라미터 행렬은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m72.gif?1461676514"
-      ],
       "pass_rate": 58,
       "choices": [
         {
           "text": "[[A,B],[C,D]] = [[n, 0], [0, 1/n]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m72b1.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{bmatrix} A & B \\\\ C & D \\end{bmatrix} = \\begin{bmatrix} n & 0 \\\\ 0 & \\dfrac{1}{n} \\end{bmatrix}$$"
+            }
           ]
         },
         {
           "text": "[[A,B],[C,D]] = [[1, n], [1/n, 0]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m72b2.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{bmatrix} A & B \\\\ C & D \\end{bmatrix} = \\begin{bmatrix} 1 & n \\\\ \\dfrac{1}{n} & 0 \\end{bmatrix}$$"
+            }
           ]
         },
         {
           "text": "[[A,B],[C,D]] = [[0, n], [1/n, 1]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m72b3.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{bmatrix} A & B \\\\ C & D \\end{bmatrix} = \\begin{bmatrix} 0 & n \\\\ \\dfrac{1}{n} & 1 \\end{bmatrix}$$"
+            }
           ]
         },
         {
           "text": "[[A,B],[C,D]] = [[1/n, 0], [0, n]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m72b4.gif?1461676514"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{bmatrix} A & B \\\\ C & D \\end{bmatrix} = \\begin{bmatrix} \\dfrac{1}{n} & 0 \\\\ 0 & n \\end{bmatrix}$$"
+            }
           ]
         }
       ],
@@ -3530,6 +3761,12 @@
       "concept_ids": [
         "ideal-transformer",
         "two-port-network"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    subgraph 변압기[\"변압기 (권수비 n:1)\"]\n        direction LR\n        P1[\"V₁\\n+\\n-\\n→ I₁\"] -->|n:1| P2[\"→ I₂\\nV₂\\n+\\n-\"]\n    end\n```\n\n권수비 n:1 변압기\n- 1차측: V₁, I₁ (+ 단자)\n- 2차측: V₂, I₂ (+ 단자)"
+        }
       ]
     },
     {
@@ -3712,9 +3949,6 @@
       "number": 77,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "직렬 저항 2[Ω], 병렬 저항 1.5[Ω]인 무한제형 회로(Infinite Ladder)의 입력저항(등가 2단자망의 저항)의 값은 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m77.gif?1461676514"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3752,6 +3986,12 @@
       "concept_ids": [
         "infinite-ladder-network",
         "equivalent-circuit"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 2[Ω] 저항과 병렬 1.5[Ω] 저항이 반복되는 사다리(ladder) 회로\n\n- 직렬 저항: 2[Ω] (반복)\n- 병렬 저항: 1.5[Ω] (반복)\n- 회로는 무한히 연속됨 (……)"
+        }
       ]
     },
     {
@@ -3802,9 +4042,6 @@
       "number": 79,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림의 정전용량 C[F]를 충전한 후 스위치 S를 닫아 이것을 방전하는 경우의 과도전류는? (단, 회로에는 저항이 없다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m79.gif?1461676514"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -3843,15 +4080,18 @@
         "lc-circuit",
         "energy-conservation",
         "resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    S[\"S (스위치)\"] -- 도선 --> L[\"L (인덕터)\"]\n    L -- 도선 --> C[\"C (커패시터)\"]\n    C -- 도선 --> S\n```"
+        }
       ]
     },
     {
       "number": 80,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같은 전류의 초기값 i(0+)은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20130818/kt20130818m80.gif?1461676514"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -3890,6 +4130,12 @@
         "initial-value-theorem",
         "laplace-transform",
         "transient-response"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I(s) = \\frac{12}{2s(s+6)}$$"
+        }
       ]
     },
     {

@@ -310,9 +310,6 @@
       "number": 8,
       "subject": "1과목 : 소방원론",
       "question": "그림에 표현된 불꽃연소의 기본요소 중 (   )안에 해당 되는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m8.gif?1519075653"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -349,6 +346,12 @@
       "concept_ids": [
         "flame-combustion",
         "combustion-process-characteristics"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연소의 3요소 다이어그램 (마름모/다이아몬드 형태).\n- 열\n- 산소\n- 가연물\n- 세 요소가 중심에서 교차 → 연소 성립"
+        }
       ]
     },
     {
@@ -889,9 +892,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 고정베인 (vane)에 대하여 제트가 속도V, 유입각 α, 유출각 β로 작용할 때 베인을 고정시키는데 필요한 x 방향 성분의 힘 Fx는? (단, Q는 유량, p는 유체의 밀도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m21.gif?1519075653"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -930,6 +930,12 @@
         "conservation-of-momentum",
         "fixed-vane-momentum-equation",
         "fluid-forces-impact"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    subgraph 곡면에 작용하는 힘\n        A[\"y축\"]\n        B[\"x축\"]\n        C[\"Fx (수평분력)\"]\n        D[\"v (유속, 상하 대칭)\"]\n        E[\"β (곡면 각도)\"]\n        F[\"α (하부 각도)\"]\n        G[\"O --- O (수평 기준선)\"]\n    end\n```\n\n곡면에 작용하는 유체력 다이어그램:\n- x축, y축 좌표계\n- 곡면(호형) 물체에 수평력 Fx 가 오른쪽에서 작용\n- 유속 v 는 상하로 대칭되어 곡면에 유입\n- β: 상부 유입각, α: 하부 유입각\n- O-O: 수평 기준선"
+        }
       ]
     },
     {
@@ -1071,9 +1077,6 @@
       "number": 25,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 1m×3m의 평판이 수면과 45° 기울어져 물에 잠겨있다. 한쪽 면에 작용하는 유체력의 크기 (F)와 작용점의 위치(yf)는 각각 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m25.gif?1519075653"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1112,15 +1115,18 @@
         "hydrostatic-pressure-depth",
         "center-of-pressure",
         "inclined-plate-hydrostatic-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "경사 평면 수문 단면도:\n- 수면에서 45° 경사진 평판 수문\n- 수문 길이: 1.5m\n- 수문 폭(수평 투영): 3m\n- 힘 F 가 수문 중앙에 작용 (수평 방향 좌향)\n- 수심: 1m (수문 하단 기준)\n- O: 힌지(경첩) 위치 (수면과 접하는 상단)\n- y: 수직 기준축"
+        }
       ]
     },
     {
       "number": 26,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 그림과 같이 단면 1, 2에서 수은의 높이 차가  h[m]이다. 압력차 P1-P2는 몇 Pa인가? (단, 축소 관에서의 부차적 손실은 무시하고 수은의 비중은 13.5물의 비중량은 9800N/m3이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m26.gif?1519075653"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1157,6 +1163,12 @@
       "concept_ids": [
         "mercury-manometer",
         "specific-weight-gravity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "벤투리미터(Venturi meter) 단면도:\n\n유체 흐름: 왼쪽 → 오른쪽\n\n- 입구 단면: $P_1$, $A_1$, $V_1$ (넓은 관)\n- 목(throat) 단면: $P_2$, $A_2$, $V_2$ (좁은 관)\n- 하부 U자관 액주계: 수은(수올) 사용\n- 액주계 높이 차: $h$ (m)"
+        }
       ]
     },
     {
@@ -1297,26 +1309,38 @@
       "choices": [
         {
           "text": "$\\dfrac{v_1^2}{2g} + \\dfrac{P_1}{\\gamma} + z_1 + H_P = \\dfrac{v_2^2}{2g} + \\dfrac{P_2}{\\gamma} + z_2 + H_L$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m30b1.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{V_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g} + \\dfrac{P_1}{\\gamma} + z_1 - H_P = \\dfrac{v_2^2}{2g} + \\dfrac{P_2}{\\gamma} + z_2 + H_L$ (펌프 수두 부호가 음수)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m30b2.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{V_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g} + \\dfrac{P_1}{\\gamma} + H_P = \\dfrac{v_2^2}{2g} + \\dfrac{P_2}{\\gamma} + z_2 + H_L$ (좌변에 위치수두 z₁ 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m30b3.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_1^2}{2g} + \\frac{P_1}{\\gamma} + H_P = \\frac{V_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g} + \\dfrac{P_1}{\\gamma} + z_1 = \\dfrac{v_2^2}{2g} + \\dfrac{P_2}{\\gamma} + H_L$ (좌변의 펌프수두 H_P와 우변의 위치수두 z₂ 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m30b4.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 = \\frac{V_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         }
       ],
@@ -1536,26 +1560,38 @@
       "choices": [
         {
           "text": ": f = 64μ / (D V ρ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m35b1.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64\\mu}{DV\\rho}$$"
+            }
           ]
         },
         {
           "text": ": f = 64ρ / (D V μ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m35b2.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64\\rho}{DV\\mu}$$"
+            }
           ]
         },
         {
           "text": ": f = 64D / (V ρ μ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m35b3.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64D}{V\\rho\\mu}$$"
+            }
           ]
         },
         {
           "text": ": f = 64μ / (D V ρ μ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m35b4.gif?1519075653"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f = \\frac{64\\mu}{DV\\rho\\mu}$$"
+            }
           ]
         }
       ],
@@ -1907,9 +1943,6 @@
       "number": 43,
       "subject": "3과목 : 소방관계법규",
       "question": "연소할 우려가 있는 구조에 대한 설명으로 다음 ( ㉮ ), ( ㉯ )에 들어갈 수치로 알맞은 것은?(관련 규정 개정이 개정되었습니다. 기존 정답은 1번이며 여기서는 1번을 누르면 정답 처리 됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m43.gif?1519075653"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1950,6 +1983,12 @@
         "combustion-hazard-structure",
         "safety-distance-standards",
         "regulation-2023-amendment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"건축물 대장의 건축물 현황도에 표시된 대지 경계선안에 2이상의 건축물이 있는 경우로서 각각의 건축물이 다른 건축물의 외벽으로부터 수평거리가 1층 있어서는 ( ㉮ )m 이하, 2층 이상의 층에 있어서는 ( ㉯ )m 이하이고 개구부가 다른 건축물을 향하여 설치된 구조를 말한다.\""
+        }
       ]
     },
     {
@@ -2273,9 +2312,6 @@
       "number": 51,
       "subject": "3과목 : 소방관계법규",
       "question": "다음은 소방기본법의 목적을 기술한 것이다. ( ㉮ ), ( ㉯ ), ( ㉰ )에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m51.gif?1519075653"
-      ],
       "pass_rate": 80,
       "choices": [
         {
@@ -2312,15 +2348,18 @@
       "concept_ids": [
         "fire-basic-law-purpose",
         "fire-response-three-stages"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"화재를 ( ㉮ )·( ㉯ )하거나 ( ㉰ )하고 화재, 재난·재해 그 밖의 위급한 상황에서의 구조·구급활동 등을 통하여 국민의 생명·신체 및 재산을 보호함으로써 공공의 안녕질서 유지와 복리 증진에 이바지함을 목적으로 한다.\""
+        }
       ]
     },
     {
       "number": 52,
       "subject": "3과목 : 소방관계법규",
       "question": "다음은 소방시설공사업자의 시공능력평가액 산정을 위한 산식이다. (   )에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m52.gif?1519075653"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -2357,6 +2396,12 @@
       "concept_ids": [
         "fire-facility-construction-contractor-capability",
         "qualification-requirements"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"시 공능력평 가액 = 실적평 가액 + 자본금평 가액 + 기술력평가액 + (　　　) ± 신인도평가액\""
+        }
       ]
     },
     {
@@ -2842,9 +2887,6 @@
       "number": 64,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "다음 연결살수설비에 대한 시설기준에서 (   )안에 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m64.gif?1519075653"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2883,6 +2925,12 @@
         "sprinkler-system-water-capacity",
         "minimum-water-retention",
         "installation-scope-conditions"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "송수구는 구경 65mm의 쌍구형으로 설치할 것. 다만, 하나의 송수구역에 부착하는 살수 헤드의 수가 (　　)개 미하일 경우에 있어서는 단구형의 것으로 할 수 있다."
+        }
       ]
     },
     {
@@ -3392,9 +3440,6 @@
       "number": 76,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "경유 10000리터를 저장하는 옥외탱크저장소에 고정포방 출구를 설치할 때 다음 조건에 의해 포소화약제의 최소 저장량은 몇 리터인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m76.gif?1519075653"
-      ],
       "pass_rate": 31,
       "choices": [
         {
@@ -3433,6 +3478,12 @@
         "fixed-foam-discharge-outlet",
         "auxiliary-foam-extinguisher-system",
         "outdoor-tank-fire-suppression"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "탱크 액표면적 20㎡ 고정포방출구 1개, 보조포소화전수 2개(호스 접결구수 4개), 소화약제 농도 3%형, 단위 포소화수용액의 양 4(리터/㎡·분), 방출시간 0.5시간"
+        }
       ]
     },
     {
@@ -3529,9 +3580,6 @@
       "number": 79,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "다음은 상수도소화전의 설비의 설치기준에 대한 설명이다. 괄호 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20090830/nd20090830m79.gif?1519075653"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -3570,6 +3618,12 @@
         "water-supply-system-hose",
         "piping-standard",
         "installation-positioning"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "1. 호형지름 ( ㉮ )의 수도배관에는 호형지름 ( ㉯ )의소화전을 접속하여야 한다.\n2. 소화전은 소방대상물의 수평투영면의 각 부분으로 부터 ( ㉰ )가 (미) 되도록 한다."
+        }
       ]
     },
     {

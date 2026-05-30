@@ -163,7 +163,7 @@ class Breaker:
                 self.tripped = True
 
 
-def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False, model: str | None = None) -> dict:
+def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False, model: str | None = None, breaker_threshold: int = 50) -> dict:
     cache = load_cache()
     # dedupe by canonical key, keep first occurrence
     seen = set(); work = []
@@ -180,7 +180,7 @@ def process_urls(urls: list[str], *, workers: int = 1, dry: bool = False, model:
             print(PROMPT.format(filename="example.gif"))
         return {"done": 0, "failed": 0, "skipped": len(cache)}
 
-    breaker = Breaker()
+    breaker = Breaker(breaker_threshold)
     done = failed = 0
     lock = threading.Lock()
 
@@ -271,6 +271,7 @@ def main() -> None:
     ap.add_argument("--all", action="store_true", help="전체 처리")
     ap.add_argument("--workers", type=int, default=1)
     ap.add_argument("--model", default=None, help="claude -p 모델 (sonnet/haiku 등)")
+    ap.add_argument("--breaker", type=int, default=50, help="연속 실패 N회 시 중단")
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--stats", action="store_true", help="진척 통계만 출력하고 종료")
     ap.add_argument("--apply", action="store_true",
@@ -301,7 +302,7 @@ def main() -> None:
     else:
         ap.print_help(); sys.exit(1)
 
-    process_urls(work, workers=args.workers, dry=args.dry, model=args.model)
+    process_urls(work, workers=args.workers, dry=args.dry, model=args.model, breaker_threshold=args.breaker)
 
 
 if __name__ == "__main__":

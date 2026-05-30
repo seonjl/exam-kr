@@ -568,9 +568,6 @@
       "number": 16,
       "subject": "1과목 : 안전관리론",
       "question": "시몬즈(Simonds)의 재해코스트 산출방식에서 A, B, C, D는 무엇을 뜻하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m16.gif?1466489977"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -607,7 +604,13 @@
         "시몬즈 재해코스트 산출방식",
         "비보험 코스트 평균치"
       ],
-      "fix_D10_at": 1779355181
+      "fix_D10_at": 1779355181,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "총 재해코스트 =\n보험코스트 + (A × 휴업상해건수) + (B × 통원상해건수) + (C × 응급조치건수) + (D × 무상해 사고건수)"
+        }
+      ]
     },
     {
       "number": 17,
@@ -944,9 +947,6 @@
       "number": 26,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "자극과 반응의 실험에서 자극 A가 나타날 경우 1로 반응하고 자극 B가 나타날 경우 2로 반응하는 것으로 하고, 100회 반복하여 표와 같은 결과를 얻었다. 제대로 전달된 정보량을 계산하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m26.gif?1466489977"
-      ],
       "pass_rate": 41,
       "choices": [
         {
@@ -979,6 +979,12 @@
         "information-transmission-capacity",
         "information-processing",
         "information-content-log2n"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 자극 \\ 반응 | 1 | 2 |\n|------------|---|---|\n| A | 50 | - |\n| B | 10 | 40 |"
+        }
       ]
     },
     {
@@ -1218,26 +1224,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m33b1.gif?1466489977"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "사각형 (위아래로 선이 붙은 네모 박스) — 공정 기호: 가공·작업"
+            }
           ]
         },
         {
           "text": "\\theta",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m33b2.gif?1466489977"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "원 (위로 선이 붙은 동그라미) — 공정 기호: 운반"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m33b3.gif?1466489977"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "마름모 (위로 선이 붙은 다이아몬드) — 공정 기호: 검사"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m33b4.gif?1466489977"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "육각형 (옆으로 선이 붙은 육각형) — 공정 기호: 정체·대기"
+            }
           ]
         }
       ],
@@ -1552,9 +1570,6 @@
       "number": 42,
       "subject": "3과목 : 기계위험방지기술",
       "question": "그림과 같이 길이 10m인 양단 고정단 A, B에 집중하중이 작용할 때 B의 고정단에 생기는 굽힘모멘트는 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m42.gif?1466489977"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -1585,6 +1600,12 @@
       "concept_ids": [
         "bending-moment",
         "concentrated-load-moment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "단순보 위 집중하중 문제 (보 길이 10 m, 하중 792 kg)\n\nA ←────── 6 m ──────↓792 kg── 4 m ──→ B\n          ├──────────── 10 m ───────────┤\n\n- 보 양단 A, B는 핀/롤러 지지\n- 집중하중 792 kg이 A에서 6 m, B에서 4 m 지점에 작용"
+        }
       ]
     },
     {
@@ -3160,9 +3181,6 @@
       "number": 84,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "용적비로 메탄 70%, 프로판 21%, 부탄 9%의 혼합가스가 있다면 이 혼합가스의 공기중에서의 폭발범위는 용적비로 얼마인가? (단, 이들 가스의 공기중에서의 폭발범위는 표에서와 같다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m84.gif?1466489977"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -3195,15 +3213,18 @@
         "le-chateliers-principle",
         "mixed-gas-explosion-limits",
         "explosion-limit-concentration"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 가스 | 폭발하한 | 폭발상한 |\n|------|---------|---------|\n| C₂H₁₀ | 1.8 | 8.4 |\n| C₃H₈ | 2.1 | 9.5 |\n| C₂H₆ | 3.0 | 12.4 |\n| CH₄ | 5.0 | 15.0 |"
+        }
       ]
     },
     {
       "number": 85,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "그림에 나타난 혼합장치는 포말소화 약제혼합 장치 중 어느 것에 해당되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m85.gif?1466489977"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -3236,6 +3257,12 @@
         "foam-extinguishing-agent-mixer",
         "line-proportioner",
         "line-mixing"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[포말소화약제용기] -->|포말소화약재| B[혼합기]\n    C[가압수] --> B\n    B -->|포말방출구| D[출구]\n```"
+        }
       ]
     },
     {
@@ -4146,9 +4173,6 @@
       "number": 110,
       "subject": "6과목 : 건설안전기술",
       "question": "보통 흙의 건지에 깊이 5m를 개굴착하고자 한다. 구배를 1:0.5로 할 경우 그림에서 L은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040905/ku20040905m110.gif?1466489977"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -4181,6 +4205,12 @@
         "excavation-safety",
         "ordinary-soil-slope",
         "horizontal-members-distance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "경사 1:9.5, 높이 5m, 밑변 L인 직각삼각형\n\n$$\\text{경사} = 1:9.5, \\quad H = 5\\text{m}, \\quad L$$"
+        }
       ]
     },
     {

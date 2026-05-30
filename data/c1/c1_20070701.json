@@ -1084,9 +1084,6 @@
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 데이터에서 영업부의 연봉 합계를 계산하려고 한다. 다음 중 [E11] 셀에 들어갈 함수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m25.gif?1390887397"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1125,6 +1122,12 @@
         "sumif-function",
         "criteria-range",
         "sum-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 이름 | 입사일 | 부서 | 연봉 |\n|------|--------|------|------|\n| 김나미 | 1990-03-01 | 영업부 | 3,000만원 |\n| 김보라 | 1998-03-02 | 홍보부 | 3,500만원 |\n| 이지선 | 1998-03-02 | 홍보부 | 3,500만원 |\n| 윤정회 | 2001-03-02 | 영업부 | 2,000만원 |\n| 임형석 | 2002-11-26 | 홍보부 | 1,800만원 |\n| 안미국 | 2000-10-08 | 홍보부 | 2,200만원 |\n| 김상호 | 2003-06-17 | 홍보부 | 1,500만원 |\n\n영업부의 연봉 합계: 5,000만원"
+        }
       ]
     },
     {
@@ -1176,33 +1179,42 @@
       "number": 27,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 [E2] 셀과 같이 수식의 결과 값이 아닌 수식 자체를 표시하게 하는 바로 가기 키로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m27.gif?1390887398"
-      ],
       "pass_rate": 43,
       "choices": [
         {
           "text": "[Ctrl]+[~](물결표 키),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m27b1.gif?1390887398"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "[ Ctrl ]+[ ↵ ]"
+            }
           ]
         },
         {
           "text": "[Alt]+[~](물결표 키),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m27b2.gif?1390887398"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$[\\text{Alt}] + \\boxed{\\uparrow}$$"
+            }
           ]
         },
         {
           "text": "[Ctrl]+[Enter],",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m27b3.gif?1390887399"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "`[ Ctrl ] + `⊟`"
+            }
           ]
         },
         {
           "text": "[Alt]+[Enter].",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m27b4.gif?1390887399"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "`Alt` + `.`"
+            }
           ]
         }
       ],
@@ -1231,15 +1243,18 @@
       "concept_ids": [
         "formula-display-toggle",
         "excel-cell-input"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "| 이름 | 국어 | 영어 | 수학 | 평균 |\n|------|------|------|------|------|\n| 김만호 | 92 | 88 | 81 | $$=\\text{SUM}(B2:D2)/3$$ |"
+        }
       ]
     },
     {
       "number": 28,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 직책이 부장이고 기본급이 1,000,000 이상인 직원의 수를 계산하는 배열 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m28.gif?1390887399"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -1276,6 +1291,12 @@
       "concept_ids": [
         "array-formula",
         "multi-condition-count"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 이름 | 직책 | 기본급 |\n|------|------|--------|\n| 김두한 | 과장 | 850,000 |\n| 박대리 | 부장 | 950,000 |\n| 이정수 | 대리 | 800,000 |\n| 김한국 | 과장 | 1,005,000 |\n| 고영국 | 부장 | 1,200,000 |\n| 이태석 | 대리 | 830,000 |\n| 최성민 | 부장 | 1,100,000 |"
+        }
       ]
     },
     {
@@ -1503,9 +1524,6 @@
       "number": 34,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 차트에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m34.gif?1390887400"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1544,6 +1562,12 @@
         "chart-axis-intersection",
         "data-label",
         "chart-area-formatting"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 월 | 수입 | 지출 |\n|---|---|---|\n| 1월 | 980 | 875 |\n| 2월 | 760 | 670 |\n| 3월 | 455 | 512 |\n| 4월 | 768 | 640 |\n| 5월 | 669 | 520 |\n| 6월 | 758 | 700 |"
+        }
       ]
     },
     {
@@ -1640,9 +1664,6 @@
       "number": 37,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 주어진 표와 같이 3가지 조건에 따라 셀 서식을 각각 다르게 설정하기 위한 사용자 정의 셀 서식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m37.gif?1390887400"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -1681,15 +1702,18 @@
         "custom-number-format",
         "conditional-formatting",
         "general-number-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구분 | 기준 | 표시문자열 | 문자색상 | 표시형식(예) |\n|------|------|-----------|---------|------------|\n| 조건1 | 5000이상 | 목표달성! | 파랑색 | 목표달성!!510 |\n| 조건2 | 3000이만 | 주의요망! | 빨강색 | 주의요망!!250 |\n| 조건3 | 300~499 | 노력요망! | 표준색 | 노력요망!!400 |"
+        }
       ]
     },
     {
       "number": 38,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 Macro1이라는 이름의 매크로 코드이다. 이 매크로를 수행한 후 수식 “=SUM(A2:A10)”의 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m38.gif?1390887401"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -1728,6 +1752,12 @@
         "for-next-loop",
         "range-object-vba",
         "vba-code-execution"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vba\nSub Macro1( )\n    Dim a As Integer\n    Range(\"A1:A10\").Value = \"0\"\n    Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"번호\"\n    For a = 1 To 10 Step 2\n        [A1].Offset(a, 0) = a\n    Next a\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1957,9 +1987,6 @@
       "number": 44,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음은 보고서 작성 시 입력란(Text Box)의 속성에 대한 설명이다. 가장 관련이 있는 속성으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m44.gif?1390887401"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -1998,6 +2025,12 @@
         "report-textbox-can-grow",
         "field-size-auto-adjust",
         "control-auto-resize"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- '자기소개' 필드와 같이 데이터의 양이 일정하지 않은 경우에 유용하다.\n- 표시할 텍스트의 양이 많은 경우 컨트롤을 자동적으로 세로로 확장하여 텍스트가 모두 표시될 수 있도록 한다."
+        }
       ]
     },
     {
@@ -2094,9 +2127,6 @@
       "number": 47,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보고서에서 ‘거래처명’과 같이 컨트롤의 데이터가 이전 레코드와 동일한 경우에는 이를 표시(혹은 인쇄)되지 않도록 설정하고자 한다. 다음 중 설정 방법으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m47.gif?1390887402"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -2134,6 +2164,12 @@
       "concept_ids": [
         "control-properties",
         "report-readability"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 기래차별 제품목록\n\n| 거래처명 | 제품번호 | 제품이름 | 단가 | 재고량 |\n|---------|---------|---------|------|-------|\n| 광명(A) | 3 | 안경테C | ₩20,000 | 67 |\n| | 1 | 안경테A | ₩35,000 | 33 |\n| | 2 | 안경테B | ₩15,000 | 50 |\n\n총제품수: 3　　　총재고량:"
+        }
       ]
     },
     {
@@ -2185,9 +2221,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 질의 문에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m49.gif?1390887402"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -2225,6 +2258,12 @@
       "concept_ids": [
         "delete-statement",
         "update-statement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nDELETE * FROM 회원 WHERE 회원번호 = 300\n```"
+        }
       ]
     },
     {
@@ -2365,9 +2404,6 @@
       "number": 53,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "보고서에 들어 있는 정보를 다음 [보기]와 같이 여러 개의 구역으로 나눌 수 있다. 다음 중 보고서의 구역에 관한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m53.gif?1390887402"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -2405,6 +2441,12 @@
       "concept_ids": [
         "report-sections",
         "page-output-characteristics"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "<보기>\n\n◆보고서 머리글\n\n◆페이지 머리글\n\n◆본문\n\n◆페이지 바닥글\n\n◆보고서 바닥글"
+        }
       ]
     },
     {
@@ -2500,9 +2542,6 @@
       "number": 56,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래와 같은 형식의 보고서에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m56.gif?1390887403"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -2540,15 +2579,18 @@
       "concept_ids": [
         "label-wizard-address-report",
         "criteria-expression"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "100-785\n서울특별시 중구 정동 34-5\n121-757\n서울특별시 마포구 공덕동 370-4"
+        }
       ]
     },
     {
       "number": 57,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "폼에서 ‘회원등급’ 컨트롤의 속성이 다음과 같이 설정되었다. 이에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m57.gif?1390887403"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -2587,15 +2629,18 @@
         "control-properties",
         "control-locked-property",
         "validation-rule"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 속성 | 값 |\n|------|-----|\n| 컨트롤 원본 | 회원등급 |\n| 입력 마스크 | |\n| 기본값 | =1 |\n| 유효성 검사 규칙 | >=1 |\n| 유효성 검사 텍스트 | 회원등급을 입력하시오 |\n| 사용 가능 | 예 |\n| 잠금 | 아니요 |\n| 검색 필터 | 없음 |\n\n**탭:** 형식 / 데이터 / 이벤트 / 기타 / 모두"
+        }
       ]
     },
     {
       "number": 58,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보기의 프로그램이 수행되었을 때 변수 Sum의 값은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m58.gif?1390887403"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -2634,6 +2679,12 @@
         "mod-operator",
         "vba-select-case",
         "running-sum-property"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\nSum = 0\nFor i = 1 to 20\n    Select Case (i Mod 4)\n        Case 0\n            Sum = Sum + i\n        Case 1, 2, 3\n    End Select\nNext\n```"
+        }
       ]
     },
     {
@@ -2685,9 +2736,6 @@
       "number": 60,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 두 테이블간의 관계를 다음과 같이 설정하였을 경우에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120070701/c120070701m60.gif?1390887404"
-      ],
       "pass_rate": 31,
       "choices": [
         {
@@ -2726,6 +2774,12 @@
         "referential-integrity",
         "cascade-update-delete",
         "cascade-operations"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**관계 편집**\n\n| 항목 | 값 |\n|---|---|\n| 테이블/쿼리(T) | 상품 |\n| 관련 테이블/쿼리(B) | 매출내역 |\n| 조인 필드 (좌) | 상품번호 |\n| 조인 필드 (우) | 상품번호 |\n\n- ☑ 항상 참조 무결성 유지(E)\n- ☐ 관련 필드 모두 업데이트(U)\n- ☐ 관련 레코드 모두 삭제(D)\n\n관계 종류: 일대다 관계"
+        }
       ]
     }
   ],

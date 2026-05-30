@@ -889,9 +889,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "지름이 5cm인 원형 관내에 이상기체가 층류로 흐른다. 다음 중 이 기체의 속도가 될 수 있는 것을 모두 고르면? (단, 이 기체의 절대압력은 200kPa, 온도는 27℃, 기체상수는 2080 J/kg·K, 점성계수는 2×10-5 N·s/m2, 하임계 레이놀즈수는 2200으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m21.gif?1635752493"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -928,6 +925,12 @@
       "concept_ids": [
         "critical-reynolds-number",
         "ideal-gas-law"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ㄱ. 0.3m/s　　ㄴ. 1.5m/s\nㄷ. 8.3m/s　　ㄹ. 15.5m/s"
+        }
       ]
     },
     {
@@ -1067,9 +1070,6 @@
       "number": 25,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 노즐이 달린 수평관에서 계기압력이 0.49MPa 이었다. 이 관의 안지름이 6cm이고 관의 끝에 달린 노즐의 지름이 2cm 이라면 노즐의 분출속도는 몇 m/s인가? (단, 노즐에서의 손실은 무시하고, 관마찰계수는 0.025 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m25.gif?1635752493"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -1108,6 +1108,12 @@
         "bernoulli-equation",
         "continuity-equation",
         "gauge-absolute-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[\"물 (수조)\"] --> B[\"압력계\"]\n    B --> C[\"노즐\"]\n    note[\"← 100m →\"]\n```\n\n물 수조 → 압력계 → 노즐 (노즐까지 거리: 100m)"
+        }
       ]
     },
     {
@@ -1158,9 +1164,6 @@
       "number": 27,
       "subject": "2과목 : 소방유체역학",
       "question": "안지름 4cm, 바깥지름 6cm인 동심 이중관의 수력직경(hydraulic diameter)은 몇 cm 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m27.gif?1635752493"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1199,6 +1202,12 @@
         "hydraulic-diameter",
         "hydraulic-radius",
         "concentric-pipe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동심 원형 단면 (원통 속 원통):\n- 내부 원 지름: 4cm\n- 외부 원 지름: 6cm\n- 두 원 사이 공간에 유체 흐름"
+        }
       ]
     },
     {
@@ -1250,9 +1259,6 @@
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 중 차원이 서로 같은 것을 모두 고르면? (단, P : 압력, ρ : 밀도, V : 속도, h : 높이, F : 힘, m : 질량, g : 중력가속도)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m29.gif?1635752493"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -1291,6 +1297,12 @@
         "dimensional-analysis",
         "unit-system-mlt",
         "fluid-mechanics-quantities"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ㄱ. ρV²　　ㄴ. ρgh\nㄷ. P　　　ㄹ. F/m"
+        }
       ]
     },
     {
@@ -1432,9 +1444,6 @@
       "number": 33,
       "subject": "2과목 : 소방유체역학",
       "question": "그림의 액주계에서 밀도 ρ1 = 1000 kg/m3, ρ2 = 13600 kg/m3, 높이 h1 = 500mm, h2 = 800mm 일 때 중심 A의 계기압력은 몇 kPa 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m33.gif?1635752493"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1473,15 +1482,18 @@
         "liquid-column-manometer",
         "density-properties-calculation",
         "gauge-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자관 마노미터 그림:\n- 왼쪽: 용기 A (수위 h₁)\n- 연결관을 통해 U자관으로 연결\n- U자관 왼쪽 유체 밀도: ρ₁, 높이 h₂\n- U자관 오른쪽 유체 밀도: ρ₂"
+        }
       ]
     },
     {
       "number": 34,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 수조의 두 노즐에서 물이 분출하여 한 점(A)에서 만나려고 하면 어떤 관계가 성립되어야 하는가? (단, 공기저항과 노즐의 손실은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m34.gif?1635752493"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1520,6 +1532,12 @@
         "projectile-trajectory",
         "projectile-outflow",
         "trajectory-intersection"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "오리피스(수문) 방류 다이어그램:\n- 수면 기준: ▽ (기준 수위)\n- h₁: 상류 수위 (수면에서 오리피스 상단까지)\n- h₂: 오리피스 전체 높이 (수면에서 오리피스 하단까지)\n- V₁: 오리피스 상단에서의 유속\n- V₂: 오리피스 하단에서의 유속\n- y₁: 방류 후 상단 수맥 낙하 높이\n- y₂: 방류 후 하단 수맥 낙하 높이\n- A: 방류 지점 (수평 거리 x 위치)"
+        }
       ]
     },
     {
@@ -1616,9 +1634,6 @@
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 반지름 0.8m이고 폭이 2m인 곡면 AB가 수문으로 이용된다. 물에 의한 힘의 수평성분의 크기는 약 몇 kN 인가? (단, 수문의 폭은 2m 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m37.gif?1635752493"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -1657,6 +1672,12 @@
         "hydrostatic-force",
         "scour-depth",
         "projected-area-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수조 및 방류 구조물 그림:\n- 상류 수조: 수위 5m (▽ 표시)\n- 수조 내부에 펌프 장치 있음\n- 하류 방류부: 폭 2m\n- 방류 구조물 하단부 높이: 0.8m\n- 곡면부(1/4 원호): R = 0.8m\n- A 지점: 곡면 시작점\n- B 지점: 곡면 끝점 (바닥)"
+        }
       ]
     },
     {
@@ -1753,9 +1774,6 @@
       "number": 40,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 물 탱크차가 받는 추력은 약 몇 N 인가? (단, 노즐의 단면적은 0.03m2 이며, 탱크 내의 계기압력은 40kPa 이다. 또한 노즐에서 마찰 손실은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m40.gif?1635752493"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1794,6 +1812,12 @@
         "nozzle-thrust",
         "conservation-of-momentum",
         "torricelli-theorem"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "이동식 수조 그림:\n- 압력계: P = 40kPa\n- 수조 내부: 공기 (상부) / 물 (하부, ▽ 표시)\n- 물 위 공기층 높이: 5m\n- 수조 하부에 바퀴 달림\n- 하부 출구에 노즐 연결"
+        }
       ]
     },
     {
@@ -2116,9 +2140,6 @@
       "number": 48,
       "subject": "3과목 : 소방관계법규",
       "question": "화재예방, 소방시설 설치·유지 및 안전관리에 관한 법령상 1급 소방안전관리대상물의 소방안전관리자 선임대상 기준 중 (   ) 안에 알맞은 내용은?(관련 규정 개정전 문제로 여기서는 기존 정답인 2번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m48.gif?1635752493"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -2157,15 +2178,18 @@
         "class-1-fire-safety-target",
         "fire-safety-manager-appointment",
         "professional-firefighter"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "산업안전기사 또는 산업안전산업기사의 자격을 취득한 후 (    ) 2급 소방안전관리대상물 또는 3급 소방안전관리대상물의 소방안전관리자로 근무한 실무경력이 있는 사람"
+        }
       ]
     },
     {
       "number": 49,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법령상 제조소등에 설치하여야 할 자동화재탐지설비의 설치기준 중 (  ) 안에 알맞은 내용은? (단, 광선식분리형 감지기 설치는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m49.gif?1635752493"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2203,6 +2227,12 @@
       "concept_ids": [
         "auto-fire-detection-boundary-zone",
         "area-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "하나의 경계구역의 면적은 ( ⓐ )㎡ 이하로 하고 그 한 변의 길이는 ( ⓑ )m 이하로 할 것. 다만, 당해 건물은 그 밖의 공작물의 주요한 출입구에서 그 내부의 전체를 볼 수 있는 경우에 있어서는 그 면적을 1000㎡ 이하로 할 수 있다."
+        }
       ]
     },
     {
@@ -2299,9 +2329,6 @@
       "number": 52,
       "subject": "3과목 : 소방관계법규",
       "question": "화재예방, 소방시설 설치·유지 및 안전관리에 관한 법령상 특정소방대상물의 관계인이 특정소방대상물의 규모·용도 및 수용인원 등을 고려하여 갖추어야 하는 소방시설의 종류에 대한 기준 중 다음 (  ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m52.gif?1635752493"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -2340,15 +2367,18 @@
         "fire-extinguisher-minimum-floor-area",
         "elderly-welfare-facilities",
         "specific-fire-facility-definition-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "화재안전기준에 따라 소화기구를 설치하여야 하는 특정소방대상물은 연면적 ( ⓐ )㎡ 이상인 것. 다만, 노유자시설의 경우에는 투척용 소화용구 등을 화재안전기준에 따라 산정된 소화기 수량의 ( ⓒ ) 이상으로 설치할 수 있다."
+        }
       ]
     },
     {
       "number": 53,
       "subject": "3과목 : 소방관계법규",
       "question": "화재예방, 소방시설 설치·유지 및 안전관리에 관한 법령상 용어의 정의 중 (   ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m53.gif?1635752493"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -2387,6 +2417,12 @@
         "terminology-definition",
         "presidential-decree",
         "subordinate-ordinances"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특정소방대상물이란 소방시설을 설치하여야 하는 소방대상물로서 (    )으로 정하는 것을 말한다."
+        }
       ]
     },
     {
@@ -2483,9 +2519,6 @@
       "number": 56,
       "subject": "3과목 : 소방관계법규",
       "question": "다음 위험물안전관리법령의 자체소방대 기준에 대한 설명으로 틀린 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m56.gif?1635752494"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -2524,6 +2557,12 @@
         "in-house-fire-brigade",
         "manufacturing-facility-range",
         "hazmat-quantity-threshold"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "다량의 위험물을 저장·취급하는 제조소등으로서 대통령령이 정하는 제조소등이 있는 동일한 사업소에서 대통령령이 정하는 수량 이상의 위험물을 저장 또는 취급하는 경우 당해 사업소의 관계인은 대통령령이 정하는 바에 따라 당해 사업소에 자체소방대를 설치하여야 한다."
+        }
       ]
     },
     {
@@ -2974,9 +3013,6 @@
       "number": 67,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "상수도소화용수설비의 화재안전기준에 따른 설치기준 중 다음 (  ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m67.gif?1635752494"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -3015,6 +3051,12 @@
         "water-supply-system-installation-standard",
         "water-supply-pipe-nominal-diameter",
         "hydrant-installation-criteria"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "호칭지름이 ( ⓐ )mm 이상의 수도배관에 호칭지름이 ( ⓑ )mm 이상의 소화전을 접속하여야 하며, 소화전은 특정소방대상물의 수평투영면의 각 부분으로부터 ( ⓒ )m 이하가 되도록 설치할 것"
+        }
       ]
     },
     {
@@ -3377,9 +3419,6 @@
       "number": 76,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "연결송수관설비의 화재안전기준에 따라 송수구가 부설된 옥내소화전을 설치한 특정소방대상물로서 연결송수관설비의 방수구를 설치하지 아니할 수 있는 층의 기준 중 다음 (  ) 안에 알맞은 것은? (단, 집회장·관람장·백화점·도매시장·소매시장·판매시설·공장·창고시설 또는 지하가를 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m76.gif?1635752494"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -3418,6 +3457,12 @@
         "fire-hose-system-outlet-nozzle",
         "indoor-hydrant-installation-standard",
         "floor-story-requirements"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 지하층을 제외한 층수가 ( ⓐ )층 이하이고 연면적이 ( ⓑ )㎡ 미만인 특정소방대상물의 지상층\n- 지하층의 층수가 ( ⓒ ) 이하인 특정소방대상물의 지하층"
+        }
       ]
     },
     {
@@ -3514,9 +3559,6 @@
       "number": 79,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "물분무소화설비의 화재안전기준상 물분무헤드를 설치하지 아니할 수 있는 장소의 기준 중 다음 (  ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20210912/nd20210912m79.gif?1635752494"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -3555,6 +3597,12 @@
         "water-mist-system-nozzle",
         "mechanical-device-surface-temperature-standard",
         "head-installation-exclusion"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "운전시에 표면의 온도가 (    )℃ 이상으로 되는 등 직접 분무를 하는 경우 그 부분에 손상을 입힐 우려가 있는 기계장치 등이 있는 장소"
+        }
       ]
     },
     {

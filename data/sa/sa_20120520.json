@@ -573,9 +573,6 @@
       "number": 16,
       "subject": "1과목 : 안전관리론",
       "question": "다음 [그림]에 해당하는 산업안전보건법상 안전・보건 표지의 명칭은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m16.gif?1465789130"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -608,6 +605,12 @@
         "safety-signs",
         "prohibition-safety-sign",
         "safety-health-signs"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "[금지 표지] 탑승금지 (승강기·리프트 탑승 금지 안전표지)"
+        }
       ]
     },
     {
@@ -872,9 +875,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 정상사상(Top event)이 발생하는 최소 컷셋의 P(T)는 약 얼마인가? (단, 원 안의 수치는 각 사상의 발생확률이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m24.gif?1465789130"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -905,6 +905,12 @@
       "concept_ids": [
         "fault-tree-top-event-probability",
         "unmapped-1"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> A_gate(( ))\n    T --> S_gate(( ))\n    A_gate --> A_leaf[A\\n0.4]\n    S_gate --> S[S]\n    S --> S2_gate(( ))\n    S2_gate --> B_leaf[B\\n0.3]\n    S2_gate --> C_leaf[C\\n0.3]\n    S2_gate --> A2_leaf[A\\n0.4]\n```"
+        }
       ]
     },
     {
@@ -953,26 +959,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m26b1.gif?1465789130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "기본사건 (Basic Event) — FTA 기호: 사각형 (직사각형)"
+            }
           ]
         },
         {
           "text": "\\Diamond",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m26b2.gif?1465789130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "다이아몬드(마름모) 기호 — FTA: 미전개사상 (Undeveloped Event)"
+            }
           ]
         },
         {
           "text": "\\theta",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m26b3.gif?1465789130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "원형 기호 (상단 선 포함) — FTA: 기본사건 (Basic Event) / 또는 정상사상 입력선"
+            }
           ]
         },
         {
           "text": "\\triangle",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m26b4.gif?1465789130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "삼각형 기호 (상단 선 포함) — FTA: 전이기호 (Transfer Symbol, 이동기호)"
+            }
           ]
         }
       ],
@@ -1066,9 +1084,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "어떤 결함수를 분석하여 minimal cut set을 구한결과 다음과 같았다. 각 기본사상의 발생확률을 qi, i=1, 2, 3라 할 때 정상사상의 발생확률함수로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m29.gif?1465789130"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1101,6 +1116,12 @@
         "minimal-cut-set",
         "normal-distribution-probability",
         "inclusion-exclusion-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$k_1 = [1,2], \\quad k_2 = [1,3], \\quad k_3 = [2,3]$$"
+        }
       ]
     },
     {
@@ -1415,9 +1436,6 @@
       "number": 38,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "금속세정작업장에서 실시하는 안전성 평가단계를 다음과 같이 5가지로 구분할 때 다음 중 4단계에 해당 하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m38.gif?1465789130"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -1448,6 +1466,12 @@
       "concept_ids": [
         "safety-assessment-steps",
         "safety-design-principles"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 재평가 - 안전대책\n- 정량적 평가\n- 정성적 평가 - 관계 자료의 작성준비"
+        }
       ]
     },
     {
@@ -1752,9 +1776,6 @@
       "number": 47,
       "subject": "3과목 : 기계위험방지기술",
       "question": "[그림]과 같은 프레스의 punch와 금형의 die에서 손가락이 punch와 die 사이에 들어가지 않도록 할 때 D의 거리로 가장 적절한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m47.gif?1465789130"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1785,6 +1806,12 @@
       "concept_ids": [
         "press-punch-die-safety-gap",
         "nip-point-protection"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전단(shearing) 가공 단면도:\n- 상사형 punch (상부)\n- 금형 Die (하부, 빗금)\n- 클리어런스 D (punch와 die 간격)"
+        }
       ]
     },
     {
@@ -2668,9 +2695,6 @@
       "number": 71,
       "subject": "4과목 : 전기위험방지기술",
       "question": "내측원통의 반경이 r 이고 외측원통의 반경이 R인 원통간극(r/R-1)에서 인가전압이 V인 경우 최대 전계  이다. 인가전압을 간극간 공기의 절연파괴 전압 전까지 낮은 전압에서 서서히 증가할 때의 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m71m1.gif?1465789130"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -2703,6 +2727,12 @@
         "corona-discharge",
         "cylindrical-electrode-electric-field",
         "insulation-breakdown"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$E_m = \\frac{V}{r \\ln(R/r)}$$"
+        }
       ]
     },
     {
@@ -2787,9 +2817,6 @@
       "number": 74,
       "subject": "4과목 : 전기위험방지기술",
       "question": "인체의 전기저항을 최악의 상태라고 가정하여 500[Ω]으로 하는 경우 심실세동을 일으킬 수 있는 에너지는 얼마정도인가? (단, 심실세동전류  로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m74m1.gif?1465789130"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2822,6 +2849,12 @@
         "ventricular-fibrillation-current",
         "electrical-energy-transfer",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}} \\ [\\mathrm{mA}]$$"
+        }
       ]
     },
     {
@@ -4508,9 +4541,6 @@
       "number": 120,
       "subject": "6과목 : 건설안전기술",
       "question": "작업장으로 통하는 장소 또는 작업장 내에 근로자가 사용할 통로설치에 대한 준수사항 중 다음 ( )안에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20120520/ku20120520m120.gif?1465789130"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -4541,6 +4571,12 @@
       "concept_ids": [
         "work-passage-installation",
         "passage-stair-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "· 통로의 주요 부분에는 통로표시를 하고, 근로자가 안전하게 통행할 수 있도록 하여야 한다.\n· 통로면으로부터 높이 이 (　　) m 이내에는 장애물이 없도록 하여야 한다."
+        }
       ]
     }
   ],

@@ -9,9 +9,6 @@
       "number": 1,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 중 Windows XP의 부팅 과정을 순서대로 옳게 나열한 것은 무엇인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m1.gif?1390887441"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -48,6 +45,12 @@
       "concept_ids": [
         "windows-os",
         "boot-sequence"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "a. USERINIT.EXE 실행\nb. NTDETECT.COM 파일 읽기\nc. MBR과 부트섹터 검색\nd. NTLDR 파일 읽기"
+        }
       ]
     },
     {
@@ -97,9 +100,6 @@
       "number": 3,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 그림은 디스플레이 등록 정보 창에서 [설정]의 속성을 나타내고 있다. 다음 중 그림에 설명으로 옳지 않은 것은?(문제오류로 2, 3번이 정답 처리된 문제입니다. 여기서는 2번을 정답 처리 합니다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m3.gif?1390887443"
-      ],
       "pass_rate": 83,
       "choices": [
         {
@@ -136,6 +136,12 @@
       "concept_ids": [
         "dual-monitor",
         "extension-mode"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**디스플레이 등록 정보**\n\n---\n\n탭: 테마 | 바탕 화면 | 화면 보호기 | 화면 배색 | **설정** *(현재 선택됨)*\n\n---\n\n모니터 아이콘을 끌어서 모니터의 실제 크기가 일치하게 하십시오.\n\n```\n[ 1 ]  [ 2 ]\n```\n\n---\n\n| 항목 | 값 |\n|---|---|\n| 디스플레이(D) | 2. NVIDIA GeForce 7025 / NVIDIA nForce 630a의 플러그 앤 플레이 모니터 |\n| 화면 해상도(S) | 낮음 ←————→ 높음 / 1280 × 1024 픽셀 |\n| 색 품질(C) | 아주 높음 (32비트) |\n\n---\n\n☑ 이 장치를 기본 모니터로 사용(U)\n☑ Windows 바탕 화면을 이 모니터로 확장(E)\n\n---\n\n확인 　 문제 해결(T)... 　 고급(V)...\n\n확인 　 취소 　 적용(A)"
+        }
       ]
     },
     {
@@ -985,9 +991,6 @@
       "number": 23,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "1부터 입력된 수까지의 곱을 구하는 폼 화면과 프로그램이다. [결과보기] 명령단추를 누르면 그 결과가 아래의 Label에 출력된다. 아래의 프로그램 코드로 실행했더니 결과가 ‘1’로 표시되었다. 그 원인이 되는 문장은 어느 것인가? 단, 3을 입력한 Textbox의 이름은 Textbox1, [결과보기] 명령단추 이름은 CommandButton1, 결과가 표시되는 Label의 이름은 Label3이다.",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m23.gif?1390887442"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -1026,15 +1029,18 @@
         "vba-loop-control",
         "cumulative-calculations",
         "variable"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "```\nPrivate Sub CommandButton1_Click()\nDim sum As Long, num As Integer\nnum = 1\nsum = 1\nWhile num > TextBox1.Text\nsum = sum * num\nnum = num + 1\nWend\nLabel3.Caption = sum\nEnd Sub\n```\n\n**UI 구성**\n\n- 제목: `UserForm1`\n- 레이블: `1부터`\n- 입력: `TextBox1` (예: `3`)\n- 레이블: `까지 계승구하기`\n- 버튼: `결과보기`\n- 출력 레이블: `Label3` (예: `1`)\n\n**동작 설명**\n\n$$\n\\text{sum} = \\prod_{k=1}^{n} k = n!\n$$\n\n- `num = 1`, `sum = 1` 초기화\n- `While num > TextBox1.Text` 조건이 참인 동안:\n  - `sum = sum * num`\n  - `num = num + 1`\n- 결과를 `Label3.Caption`에 출력\n\n> ⚠️ 조건문이 `num > TextBox1.Text`이므로, 실제로는 `num`이 입력값보다 클 때 루프가 실행됨 → 입력값 `3`일 때 루프 미진입, 결과 `1` 출력 (버그: `<` 또는 `<=` 이어야 정상 계승 계산)"
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트에서 [A2:A7] 영역의 이름이 ‘대표’로 정의되었을 때 [A8] 영역에 =MATCH(\"김영희\",대표,0) 수식을 입력하였을 때 결과 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m24.gif?1390887442"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -1073,15 +1079,18 @@
         "match-function",
         "named-range",
         "cell-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 대표 | 거래처명 |\n|------|----------|\n| 홍길동 | 인천직물 |\n| 김영희 | 서울통상 |\n| 김선주 | 중동무역 |\n| 나대리 | 하나무역 |\n| 김영철 | 나루교역 |\n| 이연수 | 서울통상 |\n\n`=MATCH(\"김영희\",대표,0)`"
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트에서 [A2:C6] 영역을 선택한 후 응시인원수가 10 이상이고, 평균점수가 80 이상이면 글꼴 스타일 : ‘기울임꼴’, 무늬 : ‘노랑’으로 설정하는 [조건부 서식]을 지정하려고 한다. 다음 중 [조건부 서식]의 수식 입력란에 입력해야 할 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m25.gif?1390887442"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1120,6 +1129,12 @@
         "conditional-formatting-formula",
         "mixed-reference",
         "row-operations"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 과목 | 응시인원수 | 평균점수 |\n|------|-----------|---------|\n| 국어 | 15 | 92 |\n| 수학 | 7 | 75 |\n| 영어 | 15 | 89 |\n| 화학 | 8 | 78 |\n| 생물 | 8 | 65 |"
+        }
       ]
     },
     {
@@ -1351,9 +1366,6 @@
       "number": 31,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음의 대화상자에서 수행하는 레코드 관리 기능에 대한 설명으로 가장 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m31.gif?1390887443"
-      ],
       "pass_rate": 31,
       "choices": [
         {
@@ -1392,6 +1404,12 @@
         "data-form-editing",
         "formula-field-protection",
         "record-management"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 항목 | 값 |\n|------|-----|\n| 이름(A) | 홍1 |\n| 중간(B) | 82 |\n| 기말(E) | 36 |\n| 평균(G) | 90.00 |\n\n1 / 5"
+        }
       ]
     },
     {
@@ -1488,9 +1506,6 @@
       "number": 34,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "셀 범위 [A1:C4]에 대한 각 보기의 수식을 실행하였을 때 다음 중 결과 값이 다른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m34.gif?1390887444"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -1529,6 +1544,12 @@
         "index-match-function",
         "match-function",
         "function-basics"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | A | B | C | D |\n|---|---|---|---|---|\n| 1 | 바나나 | 38 | 2500 | |\n| 2 | 오렌지 | 25 | 1500 | |\n| 3 | 사과 | 41 | 1200 | |\n| 4 | 배 | 40 | 2300 | |\n| 5 | | | | |"
+        }
       ]
     },
     {
@@ -1580,9 +1601,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래와 같은 조건을 만족하는 사용자 정의 서식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m36.gif?1390887444"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -1621,6 +1639,12 @@
         "custom-number-format",
         "sign-number-format",
         "semicolon-separator"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "<조건>\n\n1) 양수와 음수 모두 앞에 \\\\b기호 표시하고 천 단위마다 콤마 표시\n2) 소수점 첫째 자리까지만 표시하고, 소수점 첫째 자리에 값이 없을 때는 무조건 0이 표시되도록 함 (단 소수점 둘째자리에서 반올림)\n3) 0은 숫자 0 대신 - 기호로 표시\n4) 음수는 빨강색으로 표시"
+        }
       ]
     },
     {
@@ -1805,9 +1829,6 @@
       "number": 41,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 그림과 같이 폼의 바닥글 영역에 Format()을 사용하지 않고 함수만 입력하여 시스템의 오늘 날짜와 현재 시간을 텍스트 상자에 표시하려고 한다. 다음 중 함수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m41.gif?1390887444"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -1845,6 +1866,12 @@
       "concept_ids": [
         "now-function",
         "vba-date-time-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "2008-09-05 오후 4:36:28"
+        }
       ]
     },
     {
@@ -1896,9 +1923,6 @@
       "number": 43,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "페이지 번호를 자동으로 출력하고자 한다. 다음 중 결과와 서식이 틀리게 짝지어진 번호는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m43.gif?1390887445"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -1937,6 +1961,12 @@
         "page-number-control",
         "ampersand-operator",
         "page-number-expression"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 번호 | 결과 (단, 전체 페이지는 3페이지이다.) | 서식 |\n|------|--------------------------------------|------|\n| A | 1, 2, 3 | `=[Page]` |\n| B | 001, 002, 003 | `=Format([Page],\"000\")` |\n| C | 1페이지, 2페이지, 3페이지 | `=[Page]&\"페이지\"` |\n| D | 1의 3페이지, 2의 3페이지, 3의 3페이지 | `=[Page]&\"의 \"&[Pages]&\"페이지\"` |"
+        }
       ]
     },
     {
@@ -2033,9 +2063,6 @@
       "number": 46,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음은 레코드 삭제와 관련된 설명이다. 잘못 설명한 사람은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m46.gif?1390887445"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2074,15 +2101,18 @@
         "record-deletion-permanence",
         "cascade-delete",
         "delete-query"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "은경 : 삭제할 레코드를 선택한 후 [레코드삭제] 단추를 클릭하면 삭제할 수 있다.\n은효 : 삭제 확인 대화상자가 나오는 경우 [예]를 클릭하면 삭제가 실행된다.\n희윤 : 여러 개의 레코드를 선택한 후 한꺼번에 삭제할 수도 있다.\n지연 : 삭제된 레코드를 되살릴 수 있다."
+        }
       ]
     },
     {
       "number": 47,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "직원(사원번호, 부서명, 직급, 급여, 이름, 나이, 주소)의 테이블에서 직급별 급여 평균금액과, 총합계가 다음과 같이 출력되기 위한 질의문으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m47.gif?1390887446"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -2121,6 +2151,12 @@
         "sql-aggregate-function",
         "group-by-clause",
         "column-alias-as"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 직급 | 급여평균 | 급여총계 |\n|------|----------|----------|\n| 제정 | ₩1,450,000 | ₩2,900,000 |\n| 과장 | ₩1,840,000 | ₩3,680,000 |\n| 사원 | ₩990,000 | ₩4,950,000 |"
+        }
       ]
     },
     {
@@ -2217,33 +2253,42 @@
       "number": 50,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 질의를 수행 한 결과로 가장 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m50.gif?1390887446"
-      ],
       "pass_rate": 46,
       "choices": [
         {
           "text": "(img2): 학번, 이름, 학년 세 컬럼이 모두 표시되며 4명의 학생 레코드가 그대로 나열됨 (김한글 1, 박진수 1, 김인수 2, 조영자 1).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m50b1.gif?1390887446"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 학번 | 이름 | 학년 |\n|------|------|------|\n| 12345671 | 김한글 | 1 |\n| 12345672 | 박진수 | 1 |\n| 12345673 | 김민수 | 2 |\n| 12345674 | 조영자 | 1 |"
+            }
           ]
         },
         {
           "text": "(img3): 이름, 학년 두 컬럼이 표시되며 4명의 학생이 그대로 나열됨 (김한글 1, 박진수 1, 김인수 2, 조영자 1).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m50b2.gif?1390887447"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 이름 | 학년 |\n|------|------|\n| 김한글 | 1 |\n| 박진수 | 1 |\n| 김인수 | 2 |\n| 조영자 | 2 |"
+            }
           ]
         },
         {
           "text": "(img4): 학년 컬럼 하나만 표시되며 값은 1, 2 두 개의 행만 출력됨.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m50b3.gif?1390887447"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "학년\n1\n2"
+            }
           ]
         },
         {
           "text": "(img5): 학번, 이름, 학년 컬럼이 표시되며 김한글(1), 김인수(2) 두 개의 행만 출력됨.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m50b4.gif?1390887447"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 학번 | 이름 | 학년 |\n|------|------|------|\n| 12345671 | 김한글 | 1 |\n| 12345673 | 김인수 | 2 |"
+            }
           ]
         }
       ],
@@ -2275,6 +2320,12 @@
         "distinct-keyword",
         "select-field-projection",
         "sql-result-set"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "```sql\nselect distinct 학년 FROM 학생;\n```\n\n단, [학생] 테이블의 내용은 다음과 같다.\n\n| 학번 | 이름 | 학년 |\n|------|------|------|\n| 12345671 | 김한글 | 1 |\n| 12345672 | 박진수 | 1 |\n| 12345673 | 김인수 | 2 |\n| 12345674 | 조영자 | 1 |"
+        }
       ]
     },
     {
@@ -2416,9 +2467,6 @@
       "number": 54,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "텍스트 상자 컨트롤에 다음과 같은 식을 입력하였다. 다음 식에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m54.gif?1390887448"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -2457,15 +2505,18 @@
         "dlookup-function",
         "lookup-field",
         "table-design-structure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "`=DLookup(\"금액\", \"주문령\", \"교재\"=\"데이터베이스\")`"
+        }
       ]
     },
     {
       "number": 55,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "<수강> 테이블의 ‘수강학생’ 필드는 <학생> 테이블의 ‘학번’ 필드를 참조한다. 다음 중 참조 무결성 규칙을 위반한 작업은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m55.gif?1390887448"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -2504,15 +2555,18 @@
         "referential-integrity",
         "foreign-key-constraint",
         "table-relationships"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**〈학생〉 테이블**\n\n| 학번 | 성명 |\n|------|------|\n| 123 | 홍길동 |\n| 246 | 김갑동 |\n| 357 | 박동식 |\n\n**〈수강〉 테이블**\n\n| 번호 | 수강학생 | 수강과목 |\n|------|----------|----------|\n| 1 | 246 | 영어문화학 |\n| 2 | 246 | 미적문학 |\n| 3 | 123 | 일반화학 |\n| 4 | 123 | 컴퓨터개론 |\n| 5 | 246 | 전기회로 |"
+        }
       ]
     },
     {
       "number": 56,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보기의 SQL문의 의미를 설명한 것이다. 바르게 설명한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120081012/c120081012m56.gif?1390887448"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -2549,6 +2603,12 @@
       "concept_ids": [
         "in-or-operator-equivalence",
         "order-by-clause"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSELECT 이름, 나이, 급여\nFROM 사원\nWHERE 부서='영업부' OR 부서='홍무부'\nORDER BY 나이 ASC;\n```"
+        }
       ]
     },
     {

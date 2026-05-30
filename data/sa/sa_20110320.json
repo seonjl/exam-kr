@@ -787,9 +787,6 @@
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "결함수분석(FTA)에 의한 재해사례의 연구 순서가 다음과 같을 때 올바른 순서대로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m22.gif?1466142306"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -822,6 +819,12 @@
         "fta-accident-analysis-procedure",
         "fta-general",
         "fta-analysis-method"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① FT(Fault Tree)도 작성\n② 개선안 실시계획\n③ 톱 사상의 선정\n④ 사상마다 재해원인 및 요인 규명\n⑤ 개선계획 작성"
+        }
       ]
     },
     {
@@ -1022,9 +1025,6 @@
       "number": 28,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FT도에 사용되는 다음 게이트의 명칭은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m28.gif?1466142306"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1062,7 +1062,13 @@
         "우선적 AND 게이트",
         "FTA 게이트"
       ],
-      "fix_D10_at": 1779355198
+      "fix_D10_at": 1779355198,
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  AND(AND 게이트) --> ai[ai]\n  AND --> aj[aj]\n  AND --> ak[ak]\n  AND --> EVENT([이벤트])\n```"
+        }
+      ]
     },
     {
       "number": 29,
@@ -3075,9 +3081,6 @@
       "number": 82,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "메탄(CH4) 70vol%, 부탄(C4H10) 30vol% 혼합가스의 25℃, 대기압에서의 공기 중 폭발하한계(vol%)는 약 얼마인가? (단, 각 물질의 폭발하한계는 다음 식을 이용하여 추정, 계산한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m82.gif?1466142306"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3108,6 +3111,12 @@
       "concept_ids": [
         "mixed-gas-explosion-limits",
         "le-chateliers-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$C_{st} = \\frac{1}{1 + 4.77 \\times O_2} \\times 100, \\qquad L_{25} \\doteq 0.55 C_{st}$$"
+        }
       ]
     },
     {
@@ -3262,9 +3271,6 @@
       "number": 87,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "산업안전보건법에서 정한 공정안전보고서의 제출대상 업종이 아닌 사업장으로서 유해ㆍ위험물질의 1일 취급량이 염소 10000kg, 수소 20000kg 인 경우 공정안전보고서 제출대상 여부를 판단하기 위한 R값은 얼마인가? (단, 유해ㆍ위험물질의 규정수량은 다음 [표]를 참고한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m87.gif?1466142306"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -3295,15 +3301,18 @@
       "concept_ids": [
         "process-safety-management-report",
         "hazardous-substance-threshold-limit"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "[표] 유해 · 위험물질의 규정수량\n\n| 유해 · 위험물질명 | 규정수량 (Kg) |\n|---|---|\n| 인화성 가스 | 취급 : 5000 / 저장 : 200000 |\n| 염소 | 20000 |\n| 수소 | 50000 |"
+        }
       ]
     },
     {
       "number": 88,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 정의에 해당하는 물질의 명칭으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m88.gif?1466142306"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3334,6 +3343,12 @@
       "concept_ids": [
         "fume-dust-mist",
         "airborne-particulate-matter"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "금속의 증기가 공기 중에서 응고되어, 화학변화를 일으켜 고체의 미립자로 되어 공기 중에 부유하는 것"
+        }
       ]
     },
     {
@@ -3683,9 +3698,6 @@
       "number": 98,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 [보기]의 물질들이 가지고 있는 공통적인 특성은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m98.gif?1466142306"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -3716,15 +3728,18 @@
       "concept_ids": [
         "hygroscopicity",
         "metal-salt-hygroscopicity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "CuCl₂,  Cu(NO₃)₂,  Zn(NO₃)₂"
+        }
       ]
     },
     {
       "number": 99,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "아세틸렌가스가 다음과 같은 반응식에 의하여 연소할때 연소열은 약 몇 kcal/mol 인가? (단, 다음의 열역학 표를 참조하여 계산한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m99.gif?1466142306"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -3757,6 +3772,12 @@
         "combustion",
         "standard-heat-of-formation",
         "acetylene-combustion"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\text{C}_2\\text{H}_2 + \\frac{5}{2}\\text{O}_2 \\rightarrow 2\\text{CO}_2 + \\text{H}_2\\text{O}$$\n\n| 물질 | ΔH(kcal/mol) |\n|------|--------------|\n| C₂H₂ | 54.194 |\n| CO₂ | -94.052 |\n| H₂O(g) | -57.798 |"
+        }
       ]
     },
     {
@@ -4036,9 +4057,6 @@
       "number": 107,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 산업안전기준에 관한 규칙의 콘크리트 타설 작업에 관한 사항이다. 괄호 안에 들어갈 적절한 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m107.gif?1466142306"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -4071,6 +4089,12 @@
         "concrete-placement-safety",
         "formwork-falsework-inspection",
         "ground-settlement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "당일의 작업을 시작하기 전에 해당 작업에 관한 거푸집 동바리 등의 ( ① ), 변위 및 ( ② ) 등을 점검하고 이상을 발견한 때에는 이를 보수할 것"
+        }
       ]
     },
     {
@@ -4268,9 +4292,6 @@
       "number": 113,
       "subject": "6과목 : 건설안전기술",
       "question": "사다리식 통로의 구조에 대한 아래의 설명 중 (     )에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110320/ku20110320m113.gif?1466142306"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -4301,6 +4322,12 @@
       "concept_ids": [
         "stairway-passage",
         "ladder-inclination"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사다리의 상단은 걸쳐놓은 지점으로부터 (　　)cm 이상 올라가도록 할 것"
+        }
       ]
     },
     {

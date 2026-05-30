@@ -1223,9 +1223,6 @@
       "number": 28,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 액주계에서 원 중심의 압력은 몇 kPa 인가? (단, 대기압은 101 kPa 이 작용한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m28.gif?1525955699"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -1264,6 +1261,12 @@
         "liquid-column-manometer",
         "unit-weight",
         "atmospheric-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자형 마노미터 그림:\n- 왼쪽: 비중 2인 액체, 액면 높이 10cm\n- 오른쪽: 대기압 개방, 오른쪽 관 상단에 대기압 표시\n- 두 관 사이 수평 거리: 20cm\n- 하단: 비중 4인 액체\n\n```\n[비중 2인 액체]        [대기압]\n       |                  |\n 10cm  |                  |\n  _____|                  |\n |         20cm           |\n |_________________________|\n         [비중 4인 액체]\n```"
+        }
       ]
     },
     {
@@ -1360,33 +1363,42 @@
       "number": 31,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 관에 비압축성 유체가 흐를 때 A 단면의 평균속도가 V1 일 때 B 단면에서의 평균속도 V2는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m31.gif?1525955699"
-      ],
       "pass_rate": 39,
       "choices": [
         {
           "text": "V_2 = \\left(\\dfrac{d_1}{d_2}\\right)^2 V_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m31b1.gif?1525955699"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\frac{d_1}{d_2}\\right)^2 V_1$$"
+            }
           ]
         },
         {
           "text": "V_2 = \\dfrac{d_1}{d_2} V_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m31b2.gif?1525955699"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\dfrac{d_1}{d_2}\\right) V_1$$"
+            }
           ]
         },
         {
           "text": "V_2 = \\left(\\dfrac{d_2}{d_1}\\right)^2 V_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m31b3.gif?1525955699"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\dfrac{d_2}{d_1}\\right)^2 V_1$$"
+            }
           ]
         },
         {
           "text": "V_2 = \\dfrac{d_2}{d_1} V_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m31b4.gif?1525955699"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_2 = \\left(\\dfrac{d_2}{d_1}\\right) V_1$$"
+            }
           ]
         }
       ],
@@ -1418,6 +1430,12 @@
         "incompressible-fluid",
         "circular-cross-sectional-area",
         "velocity-increase-narrow-pipe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "유체 유동 축소관(노즐형):\n- 왼쪽 단면: 지름 d₁ (큰 쪽), 단면 A\n- 오른쪽 단면: 지름 d₂ (작은 쪽), 단면 B\n- 유동 방향: A → B (→)"
+        }
       ]
     },
     {
@@ -1469,9 +1487,6 @@
       "number": 33,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 오리피스 전·후의 압력차는 몇 kPa 인가? (단, 액주계 액체의 비중은 2.5, 흐르는 유체의 비중은 0.85, 마노미터의 읽음은 400mm이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m33.gif?1525955699"
-      ],
       "pass_rate": 27,
       "choices": [
         {
@@ -1510,6 +1525,12 @@
         "u-tube-manometer",
         "liquid-specific-gravity",
         "manometer"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    subgraph 단면1[\"단면 1\"]\n        P1[\"P₁\"]\n    end\n    subgraph 단면2[\"단면 2\"]\n        P2[\"P₂\"]\n    end\n    단면1 -->|유체 흐름| 단면2\n```\n\n수평 관로 단면도:\n- 단면 1: 압력 P₁, 높이 H, 반지름 R\n- 단면 2: 압력 P₂, 높이 r\n- 기준면: Y₀"
+        }
       ]
     },
     {
@@ -2927,9 +2948,6 @@
       "number": 66,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "정격토출량이 2400ℓ /분인 스프링클러용 펌프를 그림과 같이 설치하고자 한다. 흡입배관의 호칭구경을 200mm로할때, 이 펌프의 소요 NPSH는 얼마 이하가 되어야 할 것인가? (단, 설계기준온도는 21℃로 하며 이 온도에서의 수증기압은 0.1kgf/cm2, 흡입배관을 통하여 2400리터/분의 흐름이 일어날때의 총 마찰손실수두는 2.2m, 대기압은 1kgf/cm2이라고 하고, 속도수두는 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m66.gif?1525955699"
-      ],
       "pass_rate": 25,
       "choices": [
         {
@@ -2966,6 +2984,12 @@
       "concept_ids": [
         "required-npsh-calculation",
         "fire-pump"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "펌프 설치 다이어그램:\n- 펌프 위치: 유체 수면 위\n- 펌프 ~ 후드밸브 수직 거리: 3.5 m\n- 후드밸브 ~ 수조 바닥: 1 m\n- 구성: 펌프 → 흡입관 → 후드밸브 → 수조"
+        }
       ]
     },
     {
@@ -3365,9 +3389,6 @@
       "number": 76,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화약제의 저장량은 고정포 방출구에서 방출하기 위하여 필요한 량 이상으로 하여야 한다. 공식에 대한 설명이 틀린 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20030316/nd20030316m76.gif?1525955699"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -3406,6 +3427,12 @@
         "foam-agent-storage",
         "tank-surface-area",
         "formula-variable"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$Q = A \\times Q_1 \\times T \\times S$$"
+        }
       ]
     },
     {

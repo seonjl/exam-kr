@@ -948,9 +948,6 @@
       "number": 22,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트에서 배열수식을 이용하여 1학년 학생의 국어 평균을 구하려고 할 때 올바른 수식은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m22.gif?1390887474"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -989,6 +986,12 @@
         "array-formula-conditional",
         "nested-if",
         "string-handling"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 학년 | 성명 | 국어 | 영어 | 수학 |\n|------|------|------|------|------|\n| 1학년 | 홍길동 | 80 | 90 | 80 |\n| 2학년 | 김기동 | 80 | 80 | 90 |\n| 1학년 | 황길동 | 50 | 60 | 70 |\n\n1학년 국어 평균"
+        }
       ]
     },
     {
@@ -1084,9 +1087,6 @@
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 [A2:A7]은 '이름'으로 [B2:B7]은 '고객구분'으로 [D2:D7]은 '구입금액'으로 영역의 이름이 정의되었을 때 고객구분이 정회원이면서 지역이 인천인 회원 수를 구하는 수식으로 옳은 것은?(문제오류로 실제 시험장에서는 모두 정답 처리 하였습니다. 여기서는 4번을 정답처리 합니다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m25.gif?1390887475"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1125,15 +1125,18 @@
         "sumproduct-function",
         "condition-logical-and",
         "named-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 번호 | 이름 | 고객부분 | 지역 | 구입금액 |\n|------|------|----------|------|----------|\n| 1 | 이경규 | 비회원 | 인천 | 30,000 |\n| 2 | 지명준 | 정회원 | 서울 | 40,000 |\n| 3 | 전의철 | 정회원 | 인천 | 25,000 |\n| 4 | 노재용 | 비회원 | 인천 | 14,000 |\n| 5 | 양태우 | 정회원 | 인천 | 25,000 |\n| 6 | 서재삼 | 비회원 | 부산 | 15,000 |"
+        }
       ]
     },
     {
       "number": 26,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 프로시저를 실행한 결과에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m26.gif?1390887475"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1170,6 +1173,12 @@
       "concept_ids": [
         "range-object-vba",
         "vba-cell-value-assignment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\nSub range연습()\n    Range(\"B1\", \"B5\").Value = 10\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1181,26 +1190,38 @@
       "choices": [
         {
           "text": ": 스크롤 화살표 키를 클릭하거나 스크롤 상자를 끌어서 값 범위를 스크롤한다. 스크롤 상자와 스크롤 화살표 키 사이를 클릭하면 한 페이지씩 이동할 수 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m27b1.gif?1390887475"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 구분 | 내용 |\n|------|------|\n| 형식 | GIF 아이콘 |\n| 구조 | 테이블/그리드 레이아웃 |"
+            }
           ]
         },
         {
           "text": ": 옵션을 설정하거나 해제한다. 시트나 그룹에서 동시에 여러 개의 항목을 선택할 수 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m27b2.gif?1390887476"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "☑"
+            }
           ]
         },
         {
           "text": ": 그룹상자에 포함된 옵션그룹 중 하나를 선택한다. 몇 가지 항목 중 하나만 선택할 수 있게 하려는 경우에 사용한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m27b3.gif?1390887476"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "◎"
+            }
           ]
         },
         {
           "text": ": 컨트롤이나 워크시트 또는 양식에 대한 정보를 제공하는 텍스트이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m27b4.gif?1390887476"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{(이미지가 너무 작거나 내용을 식별하기 어렵습니다)}$$\n\n이미지가 매우 작은 아이콘 크기(~16×16px)의 GIF로, 식별 가능한 텍스트·수식·표·다이어그램 콘텐츠가 없습니다. 더 큰 이미지나 다른 파일을 제공해 주세요."
+            }
           ]
         }
       ],
@@ -1235,9 +1256,6 @@
       "number": 28,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 나이 구간별 인원수를 알기 위하여 [E2:E5] 셀에 사용할 함수로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m28.gif?1390887477"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1274,6 +1292,12 @@
       "concept_ids": [
         "frequency-function",
         "frequency-distribution"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성별 | 나이 | 나이 | 인원수 |\n|------|------|------|--------|\n| 남 | 27 | 29 | 3 |\n| 여 | 40 | 39 | - |\n| 여 | 21 | 49 | 2 |\n| 남 | 50 | 50- | 3 |\n| 남 | 47 | | |\n| 여 | 19 | | |\n| 남 | 55 | | |\n| 남 | 50 | | |"
+        }
       ]
     },
     {
@@ -1323,9 +1347,6 @@
       "number": 30,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래와 같이 MySheet의 [A1:A10]의 각 셀 값의 총합을 메시지 상자로 나타나도록 하기 위해 밑줄(_) 부분에 입력할 내용을 순서대로 바르게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m30.gif?1390887477"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -1364,6 +1385,12 @@
         "vba-variable-declaration",
         "for-each-loop",
         "msgbox-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nSub SumMarco()\n    Dim MyRange As Range, myCell As Range, MySum As Integer\n    Set MyRange = Worksheets(\"MySheet\").Range(\"A1:A10\")\n    For Each myCell In MyRange\n        MySum = MySum + myCell\n    Next\n    MsgBox \"합계:\" & MySum\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1456,9 +1483,6 @@
       "number": 33,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트와 같이 이름에 '원'이라는 글자가 포함된 셀을 노란색으로 무늬를 변경하려고 할 때 조건부 서식의 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m33.gif?1390887477"
-      ],
       "pass_rate": 27,
       "choices": [
         {
@@ -1495,6 +1519,12 @@
       "concept_ids": [
         "conditional-formatting-formula",
         "count-family-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 이름 | 국어 | 수학 | 영어 |\n|------|------|------|------|\n| 강퀀태 | 89 | 79 | 87 |\n| 김우련 | 48 | 70 | 68 |\n| 원기호 | 69 | 68 | 89 |\n| 김진명 | 71 | 85 | 57 |\n| 안태원 | 53 | 67 | 86 |\n| 신주영 | 90 | 78 | 40 |"
+        }
       ]
     },
     {
@@ -1587,9 +1617,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 그림과 같이 한 시트에 A4용지 네 페이지 분량의 자료가 있다. 이것을 A4용지 1장 내지 2장에 모두 인쇄하고자 할 때 [페이지 설정] 대화상자에서 사용할 수 있는 방법 중 올바르지 못한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m36.gif?1390887478"
-      ],
       "pass_rate": 34,
       "choices": [
         {
@@ -1628,6 +1655,12 @@
         "page-setup-scale-fit",
         "print-setting",
         "paper-size"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 번호 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? |\n|------|---|---|---|---|---|---|---|---|---|---|---|\n| 1 | | | | | | | | | | | |\n| 2 | | | | | | | | | | | |\n| 3 | | | | | | | | | | | |\n| 4 | | | | | | | | | | | |\n| 5 | | | | | | | | | | | |\n| 6 | | | | | | | | | | | |\n| 7 | | | | | | | | | | | |\n| 8 | | | | | | | | | | | |\n| 9 | | | | | | | | | | | |\n| 10 | | | | | | | | | | | |\n\n이미지 해상도가 너무 낮아 셀 내부의 텍스트 값을 정확하게 판독할 수 없습니다. 더 높은 해상도의 이미지를 제공해 주시면 정확하게 변환하겠습니다."
+        }
       ]
     },
     {
@@ -1679,9 +1712,6 @@
       "number": 38,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음과 같이 [A7] 셀에 '=A4+A5'를 입력하여 결과를 확인한 후 5번째 행을 삭제했을 때 [A6] 셀(원래는 [A7])의 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m38.gif?1390887478"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -1720,15 +1750,18 @@
         "formula-error",
         "row-operations",
         "cell-delete-clear"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "|   | A | B |\n|---|---|---|\n| 1 |   | 1 |\n| 2 |   | 2 |\n| 3 |   | 3 |\n| 4 |   | 4 |\n| 5 |   | 5 |\n| 6 |   |   |\n| 7 |   | 9 |"
+        }
       ]
     },
     {
       "number": 39,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "고급 필터에서 조건을 다음과 같이 설정했을 때 이에 대한 설명으로 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m39.gif?1390887478"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1767,6 +1800,12 @@
         "advanced-filter-criteria",
         "row-operations",
         "and-or-logic"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C |\n|---|---|---|\n| 학교 | 학년 | 주소 |\n| 강신대학 | 2학년 | 강남구 |\n| 강창대학 | 1학년 | 강북구 |"
+        }
       ]
     },
     {
@@ -2171,9 +2210,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음의 관계에 관한 설명으로 가장 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m49.gif?1390887479"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -2210,6 +2246,12 @@
       "concept_ids": [
         "referential-integrity",
         "one-to-many-relationship"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nerDiagram\n    출판사 {\n        string 출판사코드\n        string 출판사명\n        string 연락처\n        string 주소\n    }\n    도서 {\n        string 도서명\n        string 저자\n        string 분류번호\n        string 정가\n        string 출판사코드\n    }\n    출판사 ||--o{ 도서 : \"\"\n```"
+        }
       ]
     },
     {
@@ -2394,9 +2436,6 @@
       "number": 54,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "프로시저는 연산을 수행하거나 값을 계산하는 일련의 명령문과 메서드로 구성된다. 다음 예제 중 메서드에 해당되는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m54.gif?1390887479"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -2435,6 +2474,12 @@
         "vba-method-call",
         "docmd-object",
         "openform-macro-method"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nPrivate Sub OpenOrders_Click()\n        DoCmd.OpenForm \"Orders\"\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -2576,9 +2621,6 @@
       "number": 58,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보고서는 전체 64페이지 중의 17번째 페이지이다. 이 보고서에 대한 설명으로 가장 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120091018/c120091018m58.gif?1390887480"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -2617,6 +2659,12 @@
         "group-header-footer",
         "repeat-section-property",
         "report-design-view"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "분류별 상품목록\n\n| 분류코드 | 분류명 | 총상품수 |\n|---|---|---|\n| 107 | 트레이닝회 | 14 |\n\n| 순번 | 상품코드 | 상품명 | 소비자가 | 브랜드명 |\n|---|---|---|---|---|\n| 12 | 050009 | 마우이 A-8 | 33000 | MAUI & EONS |\n| 13 | 010024 | FIRE-OUI | 37400 | |\n| 14 | 000015 | STONE | 37400 | |\n\n---\n\n| 분류코드 | 분류명 | 총상품수 |\n|---|---|---|\n| 107 | 아춘회 | 21 |\n\n| 순번 | 상품코드 | 상품명 | 소비자가 | 브랜드명 |\n|---|---|---|---|---|\n| 1 | 040029 | 134082 | 129000 | NIKE |\n| 2 | 010033 | 스페이스2 | 23000 | FUN & FUN |\n| 3 | 010018 | 터브하이 | 28000 | |\n\n2009년 1월 2일 금요일 17/64"
+        }
       ]
     },
     {

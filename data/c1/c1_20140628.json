@@ -9,9 +9,6 @@
       "number": 1,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 중 아래 설명에 해당하는 그래픽 관련 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m1.gif?1404052135"
-      ],
       "pass_rate": 86,
       "choices": [
         {
@@ -50,6 +47,12 @@
         "3d-modeling",
         "vrml",
         "wireframe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "물체의 형상을 컴퓨터 내부에서 3차원 그래픽으로 어떻게 표현할 것인지를 정하는 과정"
+        }
       ]
     },
     {
@@ -415,9 +418,6 @@
       "number": 10,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 중 아래에서 설명하는 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m10.gif?1403968052"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -456,6 +456,12 @@
         "system-software",
         "hardware-resource-management",
         "application-software"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "컴퓨터를 사용하기 위해 근본적으로 필요한 소프트웨어를 의미하며, 여기에는 운영체제, 각종 언어의 컴파일러, 어셈블러, 라이브러리 프로그램 등이 있다."
+        }
       ]
     },
     {
@@ -1135,9 +1141,6 @@
       "number": 26,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트에서 [A2:C4] 영역을 선택한 후 조건부 서식을 그림과 같이 설정하였다. 다음 중 이에 대한 설명으로 옳은 것은? (단, 규칙의 적용 대상은 $A$2:$C$4임)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m26.gif?1403968052"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1176,15 +1179,18 @@
         "conditional-formatting-formula",
         "column-freeze",
         "left-right-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| (행) | A | B | C |\n|------|------|------|------|\n| 1 | 성명 | 금액 | 비고 |\n| 2 | 김길동 | 1,100 | |\n| 3 | 손미영 | 3,800 | 최우수 |\n| 4 | 박상우 | 2,900 | |\n| 5 | 합계 | 7,800 | |\n\n---\n\n**서식 규칙 표시(S):** 현재 선택 영역\n\n**규칙(표시 순서대로 적용)** | **서식**\n---|---\n수식: `=MAX($B$2:$B$4)=$B2` | 가나다AaBbCc *(노란 배경)*\n수식: `=RIGHT($A2,1)=\"손\"` | 가나다AaBbCc *(연두 배경)*"
+        }
       ]
     },
     {
       "number": 27,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 부분합 실행 결과에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m27.gif?1403968052"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1223,6 +1229,12 @@
         "subtotal",
         "summary-report",
         "outline"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 이름 | 분기 | 매출 |\n|------|------|-----:|\n| 강호등 | 상반기 | 3,302,000 |\n| 강호등 | 하반기 | 3,062,850 |\n| **강호등 요약** | | **6,364,850** |\n| 박명수 | 상반기 | 1,565,100 |\n| 박명수 | 하반기 | 2,691,100 |\n| **박명수 요약** | | **4,256,200** |\n| 유재석 | 상반기 | 3,138,950 |\n| 유재석 | 하반기 | 1,948,500 |\n| **유재석 요약** | | **5,087,450** |\n| **총합계** | | **15,708,500** |"
+        }
       ]
     },
     {
@@ -1274,9 +1286,6 @@
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [B5] 셀에 적용된 사용자 지정 표시 형식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m29.gif?1403968052"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -1315,15 +1324,18 @@
         "custom-datetime-format",
         "format-brackets",
         "time-display-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 근무일 | 근무시간 |\n|--------|----------|\n| 1패날 | 11:30 |\n| 2패날 | 10:45 |\n| 3패날 | 11:10 |\n| 합계 | 33:25 |\n\nB5 셀 수식: `=SUM(B2:B4)`"
+        }
       ]
     },
     {
       "number": 30,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트에서 배열 수식을 이용하여 한 번에 금액 [D2:D5]을 구하려고 한다. 다음 중 [D2] 셀에 입력할 배열 수식으로 옳은 것은? (금액 = 수량 * 단가)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m30.gif?1403968052"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1362,15 +1374,18 @@
         "array-formula",
         "ctrl-shift-enter-array-formula",
         "array-multiplication"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 제품명 | 수량 | 단가 | 금액 |\n|--------|------|------|------|\n| 디지털카메라 | 10 | 350,000 | |\n| 선풍사전 | 15 | 205,000 | |\n| 모니터 | 20 | 155,000 | |\n| 태블릿 | 5 | 550,000 | |"
+        }
       ]
     },
     {
       "number": 31,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 그림의 [매크로 기록] 대화상자에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m31.gif?1403968052"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1409,15 +1424,18 @@
         "macro-name",
         "macro-storage-location",
         "macro-shortcut-key"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "**매크로 기록**\n\n매크로 이름(M):\nMacro1\n\n바로 가기 키(K):\nCtrl+\n\n매크로 저장 위치(I):\n개인용 매크로 통합 문서\n\n설명(D):"
+        }
       ]
     },
     {
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 시트에서 지원자가 0이 아닌 셀의 평균을 구하는 [B9] 셀의 수식으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m32.gif?1403968052"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1456,6 +1474,12 @@
         "average-function",
         "sumif-function",
         "array-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 지원부서 | 지원자 |\n|----------|--------|\n| 개발 | 450 |\n| 영업 | 261 |\n| 마케팅 | 880 |\n| 재무 | 0 |\n| 기획 | 592 |\n| 생산 | 0 |\n| **전체 평균** | **364** |\n| **0 제외 평균** | |"
+        }
       ]
     },
     {
@@ -1507,9 +1531,6 @@
       "number": 34,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [보기]탭의 [페이지 나누기 미리보기]에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m34.gif?1403968052"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1547,6 +1568,12 @@
       "concept_ids": [
         "page-break-preview",
         "page-break"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "기본\n페이지\n레이아웃\n\n페이지 나누기 미리 보기\n사용자 지정 보기\n전체 화면\n\n통합 문서 보기"
+        }
       ]
     },
     {
@@ -1603,8 +1630,11 @@
       "choices": [
         {
           "text": "탭 스크롤 단추()를 이용하여 다른 시트를 빠르게 선택할 수 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m36b1.gif?1403968052"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "|◄  ◄  ►  ►|"
+            }
           ]
         },
         {
@@ -1744,9 +1774,6 @@
       "number": 39,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래에서 설명하는 차트의 종류로 가장 적절한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m39.gif?1403968052"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1785,6 +1812,12 @@
         "scatter-chart",
         "chart-type-characteristics",
         "data-aggregation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 가로 축의 값이 일정한 간격이 아닌 경우\n- 가로 축의 데이터 요소 수가 많은 경우\n- 데이터 요소 간의 차이점보다는 데이터 집합 간의 유사점을 표시하려는 경우"
+        }
       ]
     },
     {
@@ -2016,9 +2049,6 @@
       "number": 45,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 보고서 인쇄 미리 보기에서의 [페이지 설정] 대화상자에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m45.gif?1403968052"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -2057,15 +2087,18 @@
         "report-page-setup",
         "column-layout",
         "report-print-preview-setup"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "페이지 설정\n\n인쇄 옵션　페이지　여백\n\n**눈금 설정**\n\n열 개수(O):　2\n행 간격(W):　0cm\n열 간격(U):　0.635cm\n\n**열 크기**\n\n너비(B):　10cm　　높이(T):　1.005cm\n\n☐ 분문과 같게(A)\n\n**열 레이아웃**\n\n○ 왼 우선(Q)　　[그림: 왼→오→아래 순서 레이아웃]\n○ 열 우선(N)　　[그림: 위→아래→열 순서 레이아웃]\n\n---\n\n확인　　취소"
+        }
       ]
     },
     {
       "number": 46,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 제품별 납품 현황을 출력하기 위한 아래의 보고서를 작성하는 방법에 대한 설명으로 옳지 않은 것은? (단, 이 보고서는 전체 7페이지이며, 현재 표시된 부분은 5페이지이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m46.gif?1403968052"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -2104,6 +2137,12 @@
         "report-sections",
         "group-header-footer",
         "hide-duplicates-property"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 제품별 납품 현황\n\n### 와이어\n\n| 제품명 | 납품일자 | 납품수량 | 납품금액 |\n|--------|----------|----------|----------|\n| 와이어 | 2003-11-14 | 43 | 1,720 |\n|        | 2003-10-11 | 34 | 1,360 |\n|        | 2003-10-09 | 30 | 1,200 |\n|        | 2003-08-21 | 31 | 1,240 |\n\n납품건수: 5\n\n### 갑쇠기\n\n| 제품명 | 납품일자 | 납품수량 | 납품금액 |\n|--------|----------|----------|----------|\n| 갑쇠기 | 2003-12-11 | 60 | 3,120 |\n|        | 2003-12-10 | 133 | 6,916 |\n|        | 2003-11-19 | 80 | 4,160 |\n|        | 2003-11-17 | 105 | 5,460 |\n|        | 2003-09-27 | 65 | 3,380 |\n\n5/7"
+        }
       ]
     },
     {
@@ -2245,9 +2284,6 @@
       "number": 50,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 SQL문에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m50.gif?1403968052"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -2286,6 +2322,12 @@
         "select-field-projection",
         "where-clause-filtering",
         "table-join"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSELECT T1.품번, T2.제조사\nFROM T1, T2\nWHERE T2.소재지 IN ('서울', '수원') AND T1.품번 = T2.품번;\n```"
+        }
       ]
     },
     {
@@ -2337,9 +2379,6 @@
       "number": 52,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 문자열 처리 함수 instr의 식이 아래와 같을 때, 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120140628/c120140628m52.gif?1403968052"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -2378,6 +2417,12 @@
         "instr-function",
         "string-search-case-sensitivity",
         "string-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\n=instr(\"ABCDABCDAB\",\"CD\")\n```"
+        }
       ]
     },
     {

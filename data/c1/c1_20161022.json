@@ -950,33 +950,42 @@
       "number": 22,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 워크시트에서 ‘영어’가 중간값을 초과하면서 ‘성명’의 두 번째 문자가 “영”인 데이터를 필터링하고자 한다. 다음 중 고급 필터 실행을 위한 조건의 입력 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m22.gif?1477631044"
-      ],
       "pass_rate": 55,
       "choices": [
         {
           "text": "머리글 '영어중간값', '성명' / 값 =$D2>MEDIAN($D$2:$D$10), =\"=*영*\"",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m22b1.gif?1477631044"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 영역중간값 | 성명 |\n|---|---|\n| `=$D2>MEDIAN($D$2:$D$10)` | `=\"*\"&\"A\"` |"
+            }
           ]
         },
         {
           "text": "머리글 '영어중간값', '성명' / 값 =$D2>MEDIAN($D$2:$D$10), =\"=?영*\"",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m22b2.gif?1477631044"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 영어중간값 | 설명 |\n|---|---|\n| `=$D2>MEDIAN($D$2:$D$10)` | `=\"?명*\"` |"
+            }
           ]
         },
         {
           "text": "머리글 '영어', '성명' / 값 =$D2>MEDIAN($D$2:$D$10), =\"=*영*\"",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m22b3.gif?1477631044"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 영어 | 설명 |\n|------|------|\n| `=$D2>MEDIAN($D$2:$D$10)` | `=\"\"영\"\"` |"
+            }
           ]
         },
         {
           "text": "머리글 '영어', '성명' / 값 =$D2>MEDIAN($D$2:$D$10), =\"=?영*\"",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m22b4.gif?1477631044"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 명어 | 성명 |\n|------|------|\n| =$D2>MEDIAN($D$2:$D$10) | =\"'?영*\" |"
+            }
           ]
         }
       ],
@@ -1005,15 +1014,18 @@
       "concept_ids": [
         "advanced-filter-criteria",
         "wildcard-search"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 반 | 국어 | 영어 |\n|------|-----|------|------|\n| 강동식 | 1 | 80 | 80 |\n| 강영주 | 2 | 50 | 90 |\n| 박강영 | 1 | 90 | 91 |\n| 박영식 | 1 | 60 | 85 |\n| 박민영 | 2 | 80 | 80 |\n| 영수김 | 2 | 70 | 81 |\n| 박영에리 | 1 | 95 | 92 |\n| 김영미 | 2 | 88 | 86 |\n| 이영 | 1 | 75 | 87 |"
+        }
       ]
     },
     {
       "number": 23,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래와 같이 왼쪽 그림의 [B2:B5] 영역에 [텍스트 나누기]를 실행하여 오른쪽 그림과 같이 소속이 분리되도록 실행하는 과정에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m23.gif?1477631044"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1050,6 +1062,12 @@
       "concept_ids": [
         "text-to-columns",
         "page-breaks"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "| 성명 | 소속 |\n|------|------|\n| 여종댁 | 교통시설과 |\n| 장성태 | 교통행정과 |\n| 곽배동 | 교통행정과 |\n| 박난조 | 교통환경과 |\n\n```mermaid\nflowchart LR\n    A[\"성명 / 소속\\n(구분 기호로 분리된 2열)\"] -->|텍스트 마법사 3단계 중 1단계| B[\"성명 / 소속 / 부서\\n(3열 분리)\"]\n```\n\n| 성명 | 소속 | 부서 |\n|------|------|------|\n| 여종댁 | 교통 | 시설과 |\n| 장성태 | 교통 | 행정과 |\n| 곽배동 | 교통 | 행정과 |\n| 박난조 | 교통 | 환경과 |\n\n---\n\n**텍스트 마법사 - 3단계 중 1단계**\n\n데이터가 구분 기호로 분리됨(으)로 설정되어 있습니다.\n\n데이터 형식이 올바로 선택되었다면 [다음] 단추를 누르고, 마법사 후에 적절하게 선택합십시오.\n\n원본 데이터 형식\n\n원본 데이터의 파일 유형을 선택하십시오.\n\n- ◉ 구분 기호로 분리됨(D) — 각 필드가 쉼표나 탭과 같은 문자로 나누어져 있습니다.\n- ○ 너비가 일정함(W) — 각 필드가 일정한 너비로 정렬되어 있습니다."
+        }
       ]
     },
     {
@@ -1108,10 +1126,19 @@
         },
         {
           "text": ", ,  등의 윤곽 기호가 표시되지 않는 경우 [Excel 옵션]에서 표시되도록 설정할 수 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m25b2-1.gif?1477631044",
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m25b2-2.gif?1477631044",
-            "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m25b2-3.gif?1477631044"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 1 | 2 |\n|---|---|"
+            },
+            {
+              "kind": "formula",
+              "content": "$$+$$"
+            },
+            {
+              "kind": "text",
+              "content": "```\n□\n```"
+            }
           ]
         },
         {
@@ -1288,9 +1315,6 @@
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [H2:H10] 영역에 ‘총점’으로 순위를 구한 후 동점자에 대해 ‘국어’로 순위를 구할 경우 [H2] 셀에 들어갈 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m29.gif?1477631044"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1329,6 +1353,12 @@
         "rank-function",
         "array-formula",
         "ranking"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 국어 | 수학 | 영어 | 사회 | 총점 | 순위(총점) | 순위(총점, 국어) |\n|------|------|------|------|------|------|-----------|----------------|\n| 홍길동 | 90 | 50 | 30 | 10 | 180 | 1 | 2 |\n| 한민국 | 80 | 50 | 20 | 30 | 180 | 1 | 3 |\n| 이대한 | 90 | 40 | 20 | 30 | 180 | 1 | 1 |\n| 이나래 | 70 | 50 | 30 | 30 | 180 | 1 | 4 |\n| 마상욱 | 80 | 50 | 30 | 10 | 170 | 5 | 6 |\n| 박정인 | 90 | 40 | 20 | 20 | 170 | 5 | 5 |\n| 사수영 | 70 | 40 | 30 | 30 | 170 | 5 | 8 |\n| 고소영 | 80 | 40 | 30 | 20 | 170 | 5 | 6 |\n| 장영수 | 70 | 50 | 10 | 5 | 135 | 9 | 9 |"
+        }
       ]
     },
     {
@@ -1380,9 +1410,6 @@
       "number": 31,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [개발 도구] 탭의 [컨트롤] 그룹에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m31.gif?1477631044"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1419,6 +1446,12 @@
       "concept_ids": [
         "form-controls-vs-activex",
         "design-mode"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "삽입　　디자인 모드\n\n속성\n코드 보기\n대화 상자 실행\n\n컨트롤"
+        }
       ]
     },
     {
@@ -1595,9 +1628,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [A13] 셀에 수식‘=INDEX((A1:C6, A8:C11), 2, 2, 2)’을 입력한 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m36.gif?1477631045"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1636,6 +1666,12 @@
         "index-match-function",
         "range-cell-reference",
         "reference-area-number"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 과일 | 가격 | 개수 |\n|------|------|------|\n| 사과 | ₩690 | 40 |\n| 바나나 | ₩340 | 38 |\n| 레몬 | ₩550 | 15 |\n| 오렌지 | ₩250 | 25 |\n| 배 | ₩590 | 40 |\n| 아몬드 | ₩2,800 | 10 |\n| 캐슈넛 | ₩3,550 | 16 |\n| 땅콩 | ₩1,250 | 20 |\n| 호두 | ₩1,750 | 12 |\n\n`=INDEX((A1:C6, A8:C11), 2, 2, 2)`"
+        }
       ]
     },
     {
@@ -2086,9 +2122,6 @@
       "number": 47,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래와 같은 필드로 구성된 <SERVICE> 테이블에서 실행 가능한 쿼리로 적절하지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120161022/c120161022m47.gif?1477631045"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -2125,6 +2158,12 @@
       "concept_ids": [
         "primary-key-uniqueness",
         "insert-statement"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 필드 이름 | 데이터 형식 |\n|-----------|-------------|\n| 등급      | 텍스트      |\n| 비용      | 숫자        |\n| 번호      | 숫자        |"
+        }
       ]
     },
     {

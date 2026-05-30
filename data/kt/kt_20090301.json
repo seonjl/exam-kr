@@ -9,33 +9,42 @@
       "number": 1,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 면적 S[m2]인 평행판 콘덴서의 극판 간에 판과 평행으로 두께 d1[m], d2[m]유전율 ε1[F/m], ε2[F/m]의 유전체를 삽입하면 정전용량 [F]은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m1.gif?1518384566"
-      ],
       "pass_rate": 71,
       "choices": [
         {
           "text": "$C=\\dfrac{S}{\\dfrac{d_1}{\\varepsilon_1}+\\dfrac{d_2}{\\varepsilon_2}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m1b1.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{S}{\\dfrac{d_1}{\\varepsilon_1} + \\dfrac{d_2}{\\varepsilon_2}}$$"
+            }
           ]
         },
         {
           "text": "$C=\\dfrac{S}{\\dfrac{\\varepsilon_1}{d_1}+\\dfrac{\\varepsilon_2}{d_2}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m1b2.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{S}{\\dfrac{\\varepsilon_1}{d_1} + \\dfrac{\\varepsilon_2}{d_2}}$$"
+            }
           ]
         },
         {
           "text": "$C=\\dfrac{S}{d_1\\varepsilon_1+d_2\\varepsilon_2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m1b3.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{S}{d_1 \\varepsilon_1 + d_2 \\varepsilon_2}$$"
+            }
           ]
         },
         {
           "text": "$C=\\dfrac{S}{d_1\\varepsilon_2+d_2\\varepsilon_2}$ (※ 분모에 ε2가 두 번 들어간 형태로, 물리적으로 의미가 어긋남)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m1b4.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{S}{d_1 \\varepsilon_2 + d_2 \\varepsilon_1}$$"
+            }
           ]
         }
       ],
@@ -64,6 +73,12 @@
       "concept_ids": [
         "series-layered-parallel-plate-capacitor",
         "series-capacitance-combination"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 유전체 층이 평행판 사이에 쌓인 구조 (단면도):\n\n- 상단 전극 (S 단자)\n- 유전체 층 1: 두께 $d_1$, 유전율 $\\varepsilon_1$ (사선 음영)\n- 유전체 층 2: 두께 $d_2$, 유전율 $\\varepsilon_2$ (사선 음영)\n- 하단 전극 (접지)"
+        }
       ]
     },
     {
@@ -115,33 +130,42 @@
       "number": 3,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 반지름 ρ[m]인 원형 영역에 걸쳐 균등 자속밀도가 B0az[T]로 측정 되었다면 그 원형 영역내의 벡터 포텐셜 A[Wb/m]는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m3.gif?1518384567"
-      ],
       "pass_rate": 28,
       "choices": [
         {
           "text": "A = (ρB0)/(2π) · a_z",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m3b1.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho B_0}{2\\pi} \\mathbf{a}_z$$"
+            }
           ]
         },
         {
           "text": "A = (ρB0)/(2π) · a_φ",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m3b2.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho B_0}{2\\pi} \\mathbf{a}_\\phi$$"
+            }
           ]
         },
         {
           "text": "A = (ρB0)/2 · a_z",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m3b3.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho B_0}{2} \\mathbf{a}_z$$"
+            }
           ]
         },
         {
           "text": "A = (ρB0)/2 · a_φ",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m3b4.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho B_0}{2} \\mathbf{a}_\\phi$$"
+            }
           ]
         }
       ],
@@ -173,6 +197,12 @@
         "magnetic-vector-potential",
         "cylindrical-coordinate-system",
         "uniform-magnetic-field"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원형 도체 루프가 xy평면에 놓인 구조 (3D 좌표계):\n\n- z축: 위 방향\n- y축: 오른쪽\n- x축: 앞 방향 (독자 방향)\n- 균일 자계: $\\mathbf{B} = B_0 \\mathbf{a}_z$ (z축 방향, 루프 위에 화살표)\n- 루프 중심: 원점 O\n- 루프 위 점: ρ (반지름)\n- 단자 S: 루프 하단"
+        }
       ]
     },
     {
@@ -589,26 +619,38 @@
       "choices": [
         {
           "text": "$\\dfrac{2\\varepsilon_r}{3\\varepsilon_r+1}E$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m13b1.gif?1518384566"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2\\varepsilon_r}{3\\varepsilon_r + 1} E$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\varepsilon_r}{2\\varepsilon_r+1}E$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m13b2.gif?1518384566"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\varepsilon_r}{2\\varepsilon_r + 1} E$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{3\\varepsilon_r}{2\\varepsilon_r+1}E$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m13b3.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{3\\varepsilon_r}{2\\varepsilon_r + 1} E$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\varepsilon_r}{3\\varepsilon_r+1}E$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m13b4.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\varepsilon_r}{3\\varepsilon_r + 1} E$$"
+            }
           ]
         }
       ],
@@ -920,26 +962,38 @@
       "choices": [
         {
           "text": "$\\sum_{i=1}^{n} \\varnothing_i = \\infty$ (자속의 합이 무한대)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m20b1.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} \\varnothing_i = \\infty$$"
+            }
           ]
         },
         {
           "text": "$\\sum_{i=1}^{n} N_i \\varnothing_i = 0$ (코일권수와 자속 곱의 합이 0)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m20b2.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} N_i \\varnothing_i = 0$$"
+            }
           ]
         },
         {
           "text": "$\\sum_{i=1}^{n} R_i \\varnothing_i = \\sum_{i=1}^{n} N_i I_i$ (자기저항과 자속 곱의 합이 코일권수와 전류 곱의 합과 같음)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m20b3.gif?1534263347"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} R_i \\varnothing_i = \\sum_{i=1}^{n} N_i I_i$$"
+            }
           ]
         },
         {
           "text": "$\\sum_{i=1}^{n} R_i \\varnothing_i = \\sum_{i=1}^{n} N_i L_i$ (자기저항과 자속 곱의 합이 코일권수와 인덕턴스 곱의 합과 같음)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m20b4.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} R_i \\varnothing_i = \\sum_{i=1}^{n} N_i L_i$$"
+            }
           ]
         }
       ],
@@ -1459,9 +1513,6 @@
       "number": 32,
       "subject": "2과목 : 전력공학",
       "question": "다음 그림은 변류기의 접속도이다. 이와 같은 접속을 무슨 접속이라 하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m32.gif?1518384567"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1500,6 +1551,12 @@
         "current-transformer",
         "synchronization-connection",
         "polarity-marking"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 전력계통 사이의 계전기(게전기) 연결 회로도:\n\n- 좌측: 전류 $I_{1L}$ (아래 방향)\n- 우측: 전류 $I_{2L}$ (아래 방향)\n- 중앙 상단: 두 전류 변성기(CT) 교차 연결\n- 중앙: 계전기 (게전기), 동작 전류 $i_{Ry}$"
+        }
       ]
     },
     {
@@ -3027,9 +3084,6 @@
       "number": 67,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "6[Ω]과 2[Ω]의 저항 3개를 그림과 같이 연결하였을 때, a, b 사이의 합성저항은 몇 [Ω]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m67.gif?1518384567"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -3068,15 +3122,18 @@
         "bridge-circuit",
         "combined-resistance-calculation",
         "series-parallel-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "a, b 두 단자 사이의 저항 회로망:\n\n- a단자 → 6[Ω] (수직) → b단자\n- a단자 → 6[Ω] (수직) → b단자 (좌측 두 개 병렬)\n- 중간 세로 접속점 → 2[Ω] (수평, 직렬 저항) → 우측 접속점\n- 우측: 2[Ω] (수직) × 2개 병렬\n- 우측 끝: 6[Ω] (수직)"
+        }
       ]
     },
     {
       "number": 68,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "Δ결선된 3상 회로에서 상전류가 다음과 같을 때 선전류 I1, I2, I3 중에서 그 크기가 가장 큰 것은 몇 [A]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m68.gif?1635302083"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -3115,15 +3172,18 @@
         "delta-connection",
         "line-current-calculation",
         "three-phase-current"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "$I_{12} = 4 \\angle -36°$ [A]\n$I_{23} = 4 \\angle -156°$ [A]\n$I_{31} = 4 \\angle 84°$ [A]"
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 직류 LC 직렬 회로에 대한 설명 중 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m69.gif?1518384567"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -3162,6 +3222,12 @@
         "lc-oscillation-circuit",
         "energy-conservation",
         "maximum-voltage"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 RLC 회로 (스위치 S 포함):\n\n- 전원: E (직류 전압원)\n- 스위치 S (직렬)\n- 인덕터 L, 양단 전압 $e_L$\n- 커패시터 C, 양단 전압 $e_C$\n- 모두 직렬 연결"
+        }
       ]
     },
     {
@@ -3258,9 +3324,6 @@
       "number": 72,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "의 고유값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m72m1.gif?1518384567"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -3301,39 +3364,54 @@
         "matrix-eigenvalue",
         "matrix",
         "characteristic-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$A = \\begin{bmatrix} 0 & 1 & 0 \\\\ 0 & -1 & 6 \\\\ -1 & -1 & -5 \\end{bmatrix}$$"
+        }
       ]
     },
     {
       "number": 73,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 회로의 출력 Z는 어떻게 표현되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m73.gif?1518384567"
-      ],
       "pass_rate": 64,
       "choices": [
         {
           "text": "은 Ā+B̄+C̄+D̄+Ē+F, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m73b1.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\bar{A}+\\bar{B}+\\bar{C}+\\bar{D}+\\bar{E}+F$$"
+            }
           ]
         },
         {
           "text": "는 A+B+C+D+E+F̄, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m73b2.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A+B+C+D+E+\\bar{F}$$"
+            }
           ]
         },
         {
           "text": "은 ĀB̄C̄D̄Ē+F, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m73b3.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A}\\,\\overline{B}\\,C\\,D\\,\\overline{E}+F$$"
+            }
           ]
         },
         {
           "text": "는 ABCDE+F̄ 입니다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m73b4.gif?1518384567"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A\\,B\\,C\\,D\\,E+\\bar{F}$$"
+            }
           ]
         }
       ],
@@ -3363,6 +3441,12 @@
       "concept_ids": [
         "de-morgans-law",
         "logic-simplification"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A --> AND1\n    B --> AND1\n    C --> AND1\n    AND1 -->|NAND| NAND1\n    D --> AND2\n    E --> AND2\n    F --> AND2\n    AND2 -->|NAND| NAND1\n    NAND1 --> NOT1\n    NOT1 --> Z\n```\n\n논리회로: A, B, C 입력 → NAND 게이트, D, E, F 입력 → NAND 게이트, 두 출력 → NOR 게이트(버블 포함) → Z 출력"
+        }
       ]
     },
     {
@@ -3414,9 +3498,6 @@
       "number": 75,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 요소는 제어계의 어떤 요소인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090301/kt20090301m75.gif?1518384567"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3459,6 +3540,12 @@
       "concept_ids": [
         "first-order-lag-derivative-element",
         "control-system-basic-components"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전기 회로: C(커패시터)와 R(저항)이 병렬 연결된 회로.\n- 입력: $e_i(t)$ (좌측)\n- 출력: $e_0(t)$ (우측)\n- 전류: $i(t)$ (중앙, R 통과)\n- C는 상단 직렬, R은 중앙 병렬"
+        }
       ]
     },
     {

@@ -1001,33 +1001,42 @@
       "number": 23,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 대기압 상태에서 V의 균열한 속도로 분출된 직경 D의 원형 물제트가 원판에 충돌할 때 원판이 U의 속도로 오른쪽으로 계속 동일한 속도로 이동하려면 외부에서 원판에 가해야 하는 힘 F는? (단, ρ는 물의 밀도, g는 중력가속도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m23.gif?1647588205"
-      ],
       "pass_rate": 65,
       "choices": [
         {
           "text": "F = (ρπD²/4)(V−U)²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m23b1.gif?1647588206"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho \\pi D^2}{4}(V - U)^2$$"
+            }
           ]
         },
         {
           "text": "F = (ρπD²/4)(V+U)²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m23b2.gif?1647588206"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho \\pi D^2}{4}(V + U)^2$$"
+            }
           ]
         },
         {
           "text": "F = ρπD²(V−U)(V+U)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m23b3.gif?1647588206"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\rho \\pi D^2 (V - U)(V + U)$$"
+            }
           ]
         },
         {
           "text": " ",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m23b4.gif?1647588206"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\rho \\pi D^2 (V - U)(V + U)}{4}$$"
+            }
           ]
         }
       ],
@@ -1053,15 +1062,18 @@
       "concept_ids": [
         "fluid-forces-impact",
         "relative-velocity-momentum"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "노즐에서 원판으로 유체 충돌 그림:\n- 노즐: 지름 D, 유속 V (왼쪽에서 오른쪽 방향)\n- 원판: 오른쪽 벽에 고정, 유체를 받아냄\n- F: 원판에 작용하는 힘 (오른쪽 방향)\n- U: 원판의 이동 속도 (오른쪽 방향)"
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 폭이 넓은 두 평판 사이를 흐르는 유체의 속도 분포 u(y)가 다음과 같을 때, 평판 벽에 작용하는 전단응력은 약 몇 Pa인가? (단, um = 1m/s, h = 0.01m, 유체의 점성계수는 0.1 N·s/m2이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m24.gif?1647588206"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -1100,6 +1112,12 @@
         "newtons-law-of-viscosity",
         "shear-stress",
         "velocity-gradient"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$u(y) = u_m \\left[1 - \\left(\\frac{y}{h}\\right)^2\\right]$$\n\n(덕트 내 포물선 속도 분포: 중심선에서 최대, 벽면에서 0)"
+        }
       ]
     },
     {
@@ -1419,9 +1437,6 @@
       "number": 32,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 U자관 차압액주계에서 γ1 = 9.8kN/m3, γ2 = 133kN/m3, γ3 = 9.0kN/m3, h1 = 0.2m, h3 = 0.1이고 압력차 pA - pB = 30kPA이다. h2는 몇 m 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m32.gif?1647588206"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1460,6 +1475,12 @@
         "u-tube-manometer",
         "pressure-balance",
         "specific-gravity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자형 다중 액주계 다이어그램\n\n- 좌측: 용기 A (비중량 γ₁)\n  - 지점 (1): 액면\n  - 지점 (2): 하부\n  - 높이: h₁\n- 중간 U관: 비중량 γ₂\n  - 지점 (2) → (3) → (4): U자 하부 경로\n  - 높이: h₂\n- 우측: 용기 B (비중량 γ₃)\n  - 지점 (4) → (5): 상부\n  - 높이: h₃"
+        }
       ]
     },
     {
@@ -1511,9 +1532,6 @@
       "number": 34,
       "subject": "2과목 : 소방유체역학",
       "question": "베르누이의 정리(  = constant)가 적용되는 조건이 아닌 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m34m1.gif?1647588206"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1552,15 +1570,18 @@
         "bernoulli-equation",
         "incompressible-fluid",
         "steady-flow"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{P}{\\rho} + \\frac{V^2}{2} + gZ$$"
+        }
       ]
     },
     {
       "number": 35,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 수평과 30˚ 경사된 폭 50cm인 수문 AB가 A점에서 힌지(hinge)로 되어있다. 이 문을 열기 위한 최소한의 힘 F(수문에 직각 방향)는 약 몇 kN인가? (단, 수문의 무게는 무시하고, 유체의 비중은 1이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m35.gif?1647588206"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -1599,6 +1620,12 @@
         "gate-hydrostatic-force",
         "inclined-surface-pressure",
         "momentum-equilibrium"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "경사 평판에 작용하는 수압력 다이어그램\n\n- 수면(자유표면): 상단 기준선\n- 평판 AB: 수면에서 30° 경사\n- 길이: 3 m\n- 폭: 50 cm\n- A: 수면 근처 상단\n- B: 하단 (경사 하부)\n- F: 평판에 작용하는 전수압력(합력)"
+        }
       ]
     },
     {
@@ -1695,9 +1722,6 @@
       "number": 38,
       "subject": "2과목 : 소방유체역학",
       "question": "원관 속을 층류상태로 흐르는 유체의 속도분포가 다음과 같을 때 관벽에서 30mm 떨어진 곳에서 유체의 속도기울기(속도구배)는 약 몇 s-1인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m38.gif?1647588206"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -1736,6 +1760,12 @@
         "velocity-distribution",
         "velocity-gradient",
         "pipe-wall-shear-stress"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$u = 3y^{\\frac{1}{2}}$$\n\n- u : 유속(m/s)\n- y : 관벽으로부터의 거리(m)"
+        }
       ]
     },
     {
@@ -2056,9 +2086,6 @@
       "number": 46,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법령상 위험물 및 지정수량에 대한 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m46.gif?1647588206"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -2095,6 +2122,12 @@
       "concept_ids": [
         "hazardous-material",
         "particle-size-weight-percent"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "금속분미라 함은 알칼리금속 알칼리토류금속 철 및 마그네슘외의 금속의 분말을 말하고, 구리분니켈분 및 (◎) 마이크로미터의 체를 통과하는 것이 (◎) 중량퍼센트 미만인 것은 제외한다."
+        }
       ]
     },
     {
@@ -2715,9 +2748,6 @@
       "number": 61,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "소화기구 및 자동소화장치의 화재안전기준상 대형소화기의 정의 중 다음 ( )안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m61.gif?1647588206"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -2756,6 +2786,12 @@
         "large-capacity-fire-extinguisher",
         "class-a-extinguishing",
         "class-b-extinguishing"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "화재 시 사람이 운반할 수 있도록 운반대와 바퀴가 설치되어 있고 능력단위가 A급 (◎) 단위 이상, B급 (◎) 단위 이상인 소화기를 말한다."
+        }
       ]
     },
     {
@@ -2807,9 +2843,6 @@
       "number": 63,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 화재안전기준상 포소화설비의 자동식 기동장치에 화재감지기를 사용하는 경우, 화재감지기 회로의 발신기 설치 기준 중 ( )안에 알맞은 것은? (단, 자동화재탐지설비의 수신기가 설치된 장소에 상시 사람이 근무하고 있고, 화재 시 즉시 해당 조작부를 작동시킬 수있는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m63.gif?1647588206"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -2848,6 +2881,12 @@
         "foam-extinguishing-system-automatic-starter",
         "detector-installation",
         "horizontal-distance-and-walking-distance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특정소방대상물의 층마다 설치하되, 해당 특정소방대상물의 각 부분으로부터 수평거리가 (◎) m 이하가 되도록 할 것. 다만, 복도 또는 별도로 구획된 실로서 보행거리가 (◎) m 이상일 경우에는 추가로 설치하여야 한다."
+        }
       ]
     },
     {
@@ -3171,9 +3210,6 @@
       "number": 71,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "상수도소화용수설비의 화재안전기준상 상수도소화용수설비 소화전의 설치 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m71.gif?1647588206"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -3214,6 +3250,12 @@
         "water-supply-system-hydrant-installation",
         "fire-hydrant-connection-pipe-sizing",
         "hydrant-installation-criteria"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "호칭지름 (◎) mm 이상의 수도배관에 호칭지름 (◎) mm 이상의 소화전을 접속할 것"
+        }
       ]
     },
     {
@@ -3485,9 +3527,6 @@
       "number": 78,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "미분무소화설비의 화재안전기준상 용어의 정의 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m78.gif?1647588206"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -3524,15 +3563,18 @@
       "concept_ids": [
         "mist-suppression-system",
         "fire-classification-and-grade"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"미분무\"란 물만을 사용하여 소화하는 방식으로 최소설계압력에서 헤드로부터 방출되는 물입자 중 99%의 누적체적분포가 (◎) μm 이하로 부무되고 (◎) 급 화재에 적응성을 갖는 것을 말한다."
+        }
       ]
     },
     {
       "number": 79,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 화재안전기준상 포소화설비의 자동식 기동장치에 폐쇄형 스프링클러헤드를 사용하는 경우에 대한 설치 기준 중 다음 ( ) 안에 알맞은 것은? (단, 자동화재탐지설비의 수신기가 설치된 장소에 상시 사람이 근무하고 있고, 화재 시 즉시 해당 조작부를 작동시킬 수 있는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m79.gif?1647588206"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3569,15 +3611,18 @@
       "concept_ids": [
         "foam-extinguishing-system-automatic-starter",
         "closed-sprinkler-head-requirements"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 표시온도가 (◎) ℃ 미만인 것을 사용하고 1개의 스프링클러헤드의 경계 면적은 (◎) ㎡ 이하로 할 것\n- 부착면의 높이는 바닥으로부터 (◎) m 이하로 하고 화재를 유효하게 감지할 수 있도록 할 것"
+        }
       ]
     },
     {
       "number": 80,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "할론소화설비의 화재안전기준상 할론소화약제 저장용기의 설치 기준 중 다음 ( ) 안에 알말은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20220305/nd20220305m80.gif?1647588206"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -3614,6 +3659,12 @@
       "concept_ids": [
         "halon-extinguishing-agent",
         "halon-1211-1301"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "축압식 저장용기의 압력은 온도 20℃에서 할론 1301을 저장하는 것은 (◎) MPa 또는 (◎) MPa이 되도록 질소가스로 축압할 것"
+        }
       ]
     }
   ],

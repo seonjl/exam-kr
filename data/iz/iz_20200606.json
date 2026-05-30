@@ -1014,9 +1014,6 @@
       "number": 24,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "인터페이스 구현 검증도구 중 아래에서 설명하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m24.gif?1592219719"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -1055,6 +1052,12 @@
         "interface-verification-tools",
         "distributed-test-automation",
         "test-automation-framework"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 서비스 호출, 컴포넌트 재사용 등 다양한 환경을 지원하는 테스트 프레임워크\n- 각 테스트 분산 환경에 데몬을 사용하여 테스트 대상 프로그램을 통해 테스트를 수행하고, 통합하여 자동화하는 검증 도구"
+        }
       ]
     },
     {
@@ -1105,9 +1108,6 @@
       "number": 26,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "다음 트리를 전위 순회(preorder traversal)한 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m26.gif?1592219719"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -1144,6 +1144,12 @@
       "concept_ids": [
         "binary-tree-preorder",
         "tree-traversal"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\n    Plus[+]\n    Plus --> Star2[*]\n    Plus --> E\n\n    Star2 --> Star1[*]\n    Star2 --> D\n\n    Star1 --> Slash[/]\n    Star1 --> C\n\n    Slash --> A\n    Slash --> B\n```"
+        }
       ]
     },
     {
@@ -1193,9 +1199,6 @@
       "number": 28,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "평가 점수에 따른 성적부여는 다음 표와 같다. 이를 구현한 소프트웨어를 경계값 분석 기법으로 테스트 하고자 할 때 다음 중 테스트 케이스의 입력 값으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m28.gif?1592219719"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1232,6 +1235,12 @@
       "concept_ids": [
         "black-box-testing",
         "equivalence-partitioning"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 평가 점수 | 성적 |\n|-----------|------|\n| 80~100 | A |\n| 60~79 | B |\n| 0~59 | C |"
+        }
       ]
     },
     {
@@ -1323,9 +1332,6 @@
       "number": 31,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "다음 트리의 차수(degree)와 단말 노드(terminal node)의 수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m31.gif?1592219719"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1362,6 +1368,12 @@
       "concept_ids": [
         "tree-degree",
         "leaf-node"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\n    A --> B\n    A --> C\n    B --> D\n    B --> E\n    C --> E\n    C --> F\n    E --> G\n    E --> H\n```"
+        }
       ]
     },
     {
@@ -1808,9 +1820,6 @@
       "number": 42,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 두 릴레이션에서 외래키로 사용된 것은? (단 밑줄 친 속성은 기본키이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m42.gif?1592219719"
-      ],
       "pass_rate": 87,
       "choices": [
         {
@@ -1846,6 +1855,12 @@
       },
       "concept_ids": [
         "referential-integrity-foreign-key"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "과목(과목번호, 과목명)\n수강(수강번호, 학번, 과목번호, 학기)"
+        }
       ]
     },
     {
@@ -1939,9 +1954,6 @@
       "number": 45,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 SQL 문의 실행 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m45.gif?1592219719"
-      ],
       "pass_rate": 90,
       "choices": [
         {
@@ -1980,6 +1992,12 @@
         "subquery",
         "sql-subquery",
         "where-clause"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "```sql\nSELECT 가격 FROM 도서가격\n  WHERE 책번호 = (SELECT 책번호\n      FROM 도서 WHERE 책명='자료구조');\n```\n\n| 책번호 | 책명 |\n|--------|------|\n| 111 | 운영체제 |\n| 222 | 자료구조 |\n| 333 | 컴퓨터구조 |\n\n| 책번호 | 가격 |\n|--------|------|\n| 111 | 20,000 |\n| 222 | 25,000 |\n| 333 | 10,000 |\n| 444 | 15,000 |"
+        }
       ]
     },
     {
@@ -2121,9 +2139,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "STUDENT  테이블에 독일어과 학생 50명, 중국어과 학생 30명, 영어영문학과 학생 50명의 정보가 저장되어 있을 때, 다음 두 SQL문의 실행 결과 튜플 수는? (단, DEPT 컬럼은 학과명)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m49.gif?1592219719"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -2159,6 +2174,12 @@
       },
       "concept_ids": [
         "select-distinct-cardinality"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\nⓐ SELECT DEPT FROM STUDENT;\nⓑ SELECT DISTINCT DEPT FROM STUDENT;\n```"
+        }
       ]
     },
     {
@@ -2170,26 +2191,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m50b1.gif?1592219719"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\bowtie$$"
+            }
           ]
         },
         {
           "text": "\\supset",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m50b2.gif?1592219719"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "⊃"
+            }
           ]
         },
         {
           "text": "\\pi",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m50b3.gif?1592219719"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\pi$$"
+            }
           ]
         },
         {
           "text": "\\sigma",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m50b4.gif?1592219719"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sigma$$"
+            }
           ]
         }
       ],
@@ -2217,9 +2250,6 @@
       "number": 51,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "트랜잭션의 특성 중 다음 설명에 해당하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m51.gif?1592219719"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -2258,6 +2288,12 @@
         "transaction-atomicity",
         "acid-properties",
         "commit-rollback"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다."
+        }
       ]
     },
     {
@@ -2570,9 +2606,6 @@
       "number": 59,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 설명의 ( )안에 들어갈 내용으로 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m59.gif?1592219719"
-      ],
       "pass_rate": 81,
       "choices": [
         {
@@ -2608,6 +2641,12 @@
       },
       "concept_ids": [
         "candidate-key"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "후보키는 릴레이션에 있는 모든 튜플에 대해 유일성과 (    )을 모두 만족시켜야 한다."
+        }
       ]
     },
     {
@@ -3356,9 +3395,6 @@
       "number": 77,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음의 페이지 참조 열(Page reference string)에 대해 페이지 교체 기법으로 선입선출 알고리즘을 사용할 경우 페이지 부재(Page Fault) 횟수는? (단, 할당된 페이지 프레임 수는 3이고, 처음에는 모든 프레임이 비어 있다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m77.gif?1592219719"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -3399,15 +3435,18 @@
         "page-frame-management"
       ],
       "explanation_detailed_pre_fix_D03": "핵심 개념\nFIFO 페이지 교체는 프레임에 가장 먼저 적재된(가장 오래된) 페이지를 우선 교체하는 방식이며, 페이지 부재는 참조한 페이지가 프레임에 없어 새로 적재해야 하는 경우를 의미합니다.\n\n정답 분석\n참조열을 7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0 로 보고 프레임 3개에 FIFO를 적용하면, 초기 7·0·1 적재에서 3회 부재, 이후 2(7 교체), 0(적중), 3(0 교체), 0(1 교체), 4(2 교체), 2(3 교체), 3(0 교체), 0(4 교체), 3·2(적중), 1(2 교체), 2(3 교체), 0·1(적중), 7(0 교체), 0(1 교체) 순서로 진행되어 총 14회의 부재가 발생하므로 정답은 ②입니다. 핵심은 '최근 사용 여부'가 아니라 '적재 순서'만으로 교체 대상을 결정한다는 점입니다.\n\n오답 분석\n① 13: 교체 단계 한 번을 누락하고 적중으로 잘못 처리했을 때 나오는 값입니다.\n② 14: FIFO 규칙에 따라 가장 오래된 페이지를 순차적으로 교체했을 때의 정확한 부재 횟수입니다.\n③ 15: 실제 적중 케이스 한 번을 부재로 오인했을 때 도출되는 값입니다.\n④ 20: 참조열 전체를 부재로 잘못 합산한 결과로, 적중 케이스를 전혀 반영하지 않은 값입니다.",
-      "fix_D03_at": 1779358725
+      "fix_D03_at": 1779358725,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "<페이지 참조 열>\n\n7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0"
+        }
+      ]
     },
     {
       "number": 78,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "C언어에서 배열 b[5]의 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m78.gif?1592219719"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -3443,6 +3482,12 @@
       },
       "concept_ids": [
         "default-zero-initialization"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```c\nstatic int b[9]={1,2,3};\n```"
+        }
       ]
     },
     {
@@ -4026,9 +4071,6 @@
       "number": 92,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음이 설명하는 용어로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m92.gif?1592219719"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -4067,6 +4109,12 @@
         "hadoop",
         "hdfs",
         "mapreduce"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 오픈 소스를 기반으로 한 분산 컴퓨팅 플랫폼이다.\n- 일반 PC급 컴퓨터들로 가상화된 대형 스토리지를 형성한다.\n- 다양한 소스를 통해 생성된 빅데이터를 효율적으로 저장하고 처리한다."
+        }
       ]
     },
     {
@@ -4334,9 +4382,6 @@
       "number": 99,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 설명의 정보보안 침해 공격 관련 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20200606/iz20200606m99.gif?1592219719"
-      ],
       "pass_rate": 83,
       "choices": [
         {
@@ -4374,6 +4419,12 @@
       "concept_ids": [
         "ransomware",
         "malware-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "인터넷 사용자의 컴퓨터에 침입해 내부 문서 파일 등을 암호화해 사용자가 열지 못하게 하는 공격으로, 암호 해독용 프로그램의 전달을 조건으로 사용자에게 돈을 요구하기도 한다."
+        }
       ]
     },
     {

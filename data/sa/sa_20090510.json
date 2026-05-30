@@ -793,9 +793,6 @@
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FMEA에서 고장의 발생확률 β 가 다음 값의 범위일 경우 고장의 영향으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m22.gif?1465739576"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -826,6 +823,12 @@
       "concept_ids": [
         "fmea",
         "probability-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$0.10 \\leq \\beta < 1.00$$"
+        }
       ]
     },
     {
@@ -869,9 +872,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림에서 전체 시스템의 신뢰도는 약 얼마인가? (단, 모형 안의 수치는 각 부품의 신뢰도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m24.gif?1465739576"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -902,6 +902,12 @@
       "concept_ids": [
         "series-parallel-system-reliability",
         "system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    in --> A[0.9]\n    A --> B1[0.8]\n    A --> B2[0.8]\n    A --> B3[0.7]\n    B1 --> C[0.7]\n    B2 --> C\n    B3 --> C\n    C --> out\n```"
+        }
       ]
     },
     {
@@ -1064,9 +1070,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "일반적으로 연구조사에 사용되는 기준의 요건 중 다음 설명에 해당하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m29.gif?1465739576"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1099,6 +1102,12 @@
         "visual-coding-design-principles",
         "research-standards",
         "measurement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "기준 척도는 측정하고자 하는 변수 외의 다른 변수들의 영향을 받아서는 안된다."
+        }
       ]
     },
     {
@@ -1182,9 +1191,6 @@
       "number": 32,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "부울대수식  를 가장 간단하게 표현한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m32m1.gif?1465739576"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -1193,8 +1199,11 @@
         },
         {
           "text": "\\overline{A} \\cdot B + A \\cdot \\overline{B}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m32b2.gif?1465739576"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A} \\cdot B + A \\cdot \\overline{B}$$"
+            }
           ]
         },
         {
@@ -1219,6 +1228,12 @@
         "boolean-algebra-minimal-cut-set",
         "boolean-algebra-theorems",
         "fta-logic-symbols-gates"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$(A+B) \\cdot (\\overline{A}+B)$$"
+        }
       ]
     },
     {
@@ -1420,9 +1435,6 @@
       "number": 38,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FT도에 사용되는 다음 기호의 명칭으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m38.gif?1465739576"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -1455,6 +1467,12 @@
         "fta-not-gate",
         "fta-gate-types",
         "fta-general"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    in --> A[A] --> out\n```"
+        }
       ]
     },
     {
@@ -1500,9 +1518,6 @@
       "number": 40,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 시스템의 신뢰도는 약 얼마인가? (단, 모든 부품의 발생확률은 0.15 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m40.gif?1465739576"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -1535,6 +1550,12 @@
         "fault-tree-diagram",
         "fta-gate-calculation",
         "system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T --> AND1[AND gate]\n    AND1 --> A[A]\n    AND1 --> B[B]\n    A --> OR1[OR gate]\n    OR1 --> 1((1))\n    OR1 --> 2((2))\n    B --> OR2[OR gate]\n    OR2 --> 4((4))\n    OR2 --> 3((3))\n```"
+        }
       ]
     },
     {
@@ -2417,9 +2438,6 @@
       "number": 64,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 ( ⓐ ), ( ⓑ )에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m64.gif?1465739576"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -2452,6 +2470,12 @@
         "electromagnetic-field-exposure-limit",
         "transmission-line-human-effects",
         "ac-magnetic-flux-density"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특별고압 가공전선로는 지표상 1 m 에서 전계강도가 ( ㉮ ), 자계 강도가 ( ㉯ )가 되도록 시설하는 등 상시 정전유도 및 전자유도 작용에 의하여 사람에게 위험을 줄 우려가 없도록 시설하여야 한다."
+        }
       ]
     },
     {
@@ -3364,9 +3388,6 @@
       "number": 89,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 [표]를 참조하여 메탄 70vol%, 프로판 21vol%, 부탄 9vol% 인 혼합가스의 폭발범위로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m89.gif?1465739576"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3399,6 +3420,12 @@
         "le-chateliers-principle",
         "mixed-gas-explosion-limits",
         "explosion-limit-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 가스 | 폭발하한계 (vol%) | 폭발상한계 (vol%) |\n|------|-----------------|-----------------|\n| $C_4H_{10}$ | 1.8 | 8.4 |\n| $C_3H_8$ | 2.1 | 9.5 |\n| $C_2H_6$ | 3.0 | 12.4 |\n| $CH_4$ | 5.0 | 15.0 |"
+        }
       ]
     },
     {
@@ -3518,9 +3545,6 @@
       "number": 93,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 설명에 해당하는 위험성 평가기법은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m93.gif?1465739576"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -3551,6 +3575,12 @@
       "concept_ids": [
         "risk-assessment-technique",
         "safety-assessment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "공장의 운전 및 유지 절차가 설계목적과 기준에 부합되는 지를 확인하는 것을 그 목적으로 하며, 결과의 형태로 검사보고서를 제공한다."
+        }
       ]
     },
     {
@@ -4090,9 +4120,6 @@
       "number": 108,
       "subject": "6과목 : 건설안전기술",
       "question": "통나무비계를 조립할 때 준수하여야 할 사항에 대한 아래표의 내용에서 ( )에 가장 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20090510/ku20090510m108.gif?1465739576"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -4125,6 +4152,12 @@
         "timber-scaffolding",
         "scaffold-column-connection",
         "joint-connection"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "비계기둥의 이음이 맞댄이음인 때에는 비계기둥을 쌍기둥 틀로 하거나 ( ① )미터 이상의 덧댐목을 사용하여 ( ② ) 개소 이상을 묶을 것"
+        }
       ]
     },
     {

@@ -755,9 +755,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "시스템 A의 확률은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m21.gif?1465901787"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -788,6 +785,12 @@
       "concept_ids": [
         "parallel-system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A[\"A\"]\n    A --> B[\"0.7\"]\n    A --> C[\"0.9\"]\n```"
+        }
       ]
     },
     {
@@ -1472,9 +1475,6 @@
       "number": 40,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "자극과 반응의 실험에서 자극 A가 나타날 경우 1로 반응하고 자극 B가 나타날 경우 2로 반응하는 것으로 하고, 100회 반복하여 표와 같은 결과를 얻었다. 제대로 전달된 정보량을 계산하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m40.gif?1465901787"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -1507,6 +1507,12 @@
         "information-transmission-capacity",
         "mutual-information",
         "information-content-log2n"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 자극 \\ 반응 | 1 | 2 |\n|---|---|---|\n| A | 50 | |\n| B | 10 | 40 |"
+        }
       ]
     },
     {
@@ -1518,26 +1524,38 @@
       "choices": [
         {
           "text": "Ws = 0.010f\\sqrt{\\frac{P}{V}}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m41b1.gif?1465901787"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$W_s = 0.010f\\sqrt{\\frac{P}{V}}$$"
+            }
           ]
         },
         {
           "text": "Ws = 0.020f\\sqrt{\\frac{P}{V}}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m41b2.gif?1465901787"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$W_s = 0.020f\\sqrt{\\frac{P}{V}}$$"
+            }
           ]
         },
         {
           "text": "W_s = 0.010f \\sqrt{\\frac{V}{P}}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m41b3.gif?1465901787"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$W_s = 0.010f\\sqrt{\\frac{V}{P}}$$"
+            }
           ]
         },
         {
           "text": "W_s = 0.020f \\sqrt{\\frac{V}{P}}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030525/ku20030525m41b4.gif?1465901787"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$W_s = 0.020f\\sqrt{\\frac{V}{P}}$$"
+            }
           ]
         }
       ],

@@ -530,9 +530,6 @@
       "number": 15,
       "subject": "1과목 : 안전관리론",
       "question": "방진마스크의 형태에 따른 분류 중 그림에서 나타내는 것은 무엇인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m15.gif?1499046574"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -562,6 +559,12 @@
       ],
       "concept_ids": [
         "dust-respirator"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "주시부\n과공\n이마개\n통기밸브\n배기밸브\n머리끈\n안면부"
+        }
       ]
     },
     {
@@ -761,26 +764,38 @@
       "choices": [
         {
           "text": "| |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m21b1.gif?1499046574"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    rect[사각형 블록]\n```\n\n(사각형 기호 — AND 게이트 또는 블록)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m21b2.gif?1499046574"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    diamond{마름모 기호}\n```\n\n(마름모 기호 — OR 게이트)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m21b3.gif?1499046574"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "(원 기호 — 기본사상 / 기본 이벤트)"
+            }
           ]
         },
         {
           "text": "\\text{□}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m21b4.gif?1499046574"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "(지붕형 사각형 기호 — AND 게이트)"
+            }
           ]
         }
       ],
@@ -914,9 +929,6 @@
       "number": 25,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음의 설명은 무엇에 해당되는 것인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m25.gif?1499130063"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -947,15 +959,18 @@
       "concept_ids": [
         "human-error",
         "human-error-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 인간과오(Human error)에서 의지적 제어가 되지 않는다.\n- 결정을 잘못한다."
+        }
       ]
     },
     {
       "number": 26,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 최소컷셋(Minimal cut set)으로만 올바르게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m26.gif?1499046574"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -986,6 +1001,12 @@
       "concept_ids": [
         "minimal-cut-set",
         "fta-or-gate"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> OR1{ OR }\n    OR1 --> A[A]\n    OR1 --> B[B]\n    A --> AND1[ AND ]\n    AND1 --> X1a((X₁))\n    AND1 --> X2((X₂))\n    B --> AND2[ AND ]\n    AND2 --> X1b((X₁))\n    AND2 --> X3((X₃))\n```"
+        }
       ]
     },
     {
@@ -2351,26 +2372,38 @@
       "choices": [
         {
           "text": "\\frac{C_1}{C_1 + C_2}E",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m63b1.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_1}{C_1+C_2} E$$"
+            }
           ]
         },
         {
           "text": "\\frac{C_2}{C_1 + C_2}E",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m63b2.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_2}{C_1+C_2} E$$"
+            }
           ]
         },
         {
           "text": "C_{2}E",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m63b3.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$C_2E$$"
+            }
           ]
         },
         {
           "text": "\\frac{E}{\\sqrt{2}}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m63b4.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{\\sqrt{2}}$$"
+            }
           ]
         }
       ],
@@ -2437,26 +2470,38 @@
       "choices": [
         {
           "text": "\\frac{1}{2} \\sim \\frac{1}{4}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m65b1.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2} \\sim \\frac{1}{4}$$"
+            }
           ]
         },
         {
           "text": "\\frac{1}{6} \\sim \\frac{1}{10}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m65b2.gif?1499046574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{6} \\sim \\frac{1}{10}$$"
+            }
           ]
         },
         {
           "text": "\\frac{1}{12} \\sim \\frac{1}{20}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m65b3.gif?1499046575"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{12} \\sim \\frac{1}{20}$$"
+            }
           ]
         },
         {
           "text": "\\frac{1}{25} \\sim \\frac{1}{35}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m65b4.gif?1499046575"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{25} \\sim \\frac{1}{35}$$"
+            }
           ]
         }
       ],
@@ -2635,9 +2680,6 @@
       "number": 70,
       "subject": "4과목 : 전기위험방지기술",
       "question": "Dalziel에 의하여 동물실험을 통해 얻어진 전류값을 인체에 적용했을 때 심실세동을 일으키는 전기에너지(J)는? (단, 인체 전기저항은 500Ω으로 보며, 흐르는 전류 mA로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m70m1.gif?1499046575"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -2670,6 +2712,12 @@
         "ventricular-fibrillation-current",
         "dalziel-equation",
         "hazardous-electrical-energy"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}}$$"
+        }
       ]
     },
     {
@@ -3548,9 +3596,6 @@
       "number": 94,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "산업안전보건법에서 정한 공정안전보고서의 제출대상 업종이 아닌 사업장으로서 유해ㆍ위험물질의 1일 취급량이 염소 10000kg, 수소 20000kg인 경우 공정안전보고서 제출대상 여부를 판단하기 위한 R값은 얼마인가?(단, 유해ㆍ위험물질의 규정수량은 표에 따른다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m94.gif?1499046575"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -3581,6 +3626,12 @@
       "concept_ids": [
         "psm-submission-target",
         "hazardous-substance-threshold-limit"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 유해·위험물질명 | 규정수량(kg) |\n|---|---|\n| 인화성 가스 | 5000 |\n| 염소 | 20000 |\n| 수소 | 50000 |"
+        }
       ]
     },
     {
@@ -3852,9 +3903,6 @@
       "number": 102,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 낙하물 방지망 또는 방호선반을 설치하는 경우의 준수해야 할 사항이다. ( )안에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m102.gif?1499046574"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -3887,6 +3935,12 @@
         "falling-object-prevention-net",
         "protective-shelf",
         "fall-drop-prevention"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "높이 ( A ) 미터 이내마다 설치하고, 내민 길이는 벽면으로부터 ( B )미터 이상으로 할 것"
+        }
       ]
     },
     {
@@ -4049,9 +4103,6 @@
       "number": 107,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 가설통로를 설치하는 경우의 준수사항이다. 빈칸에 알맞은 수치를 고르면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m107.gif?1499046574"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -4084,6 +4135,12 @@
         "temporary-walkway-landing",
         "scaffolding-safety",
         "vertical-shaft-passage"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "건설공사에 사용하는 높이 8미터 이상인 비계다리에는 ( )미터 이내마다 계단참을 설치할 것"
+        }
       ]
     },
     {
@@ -4207,9 +4264,6 @@
       "number": 111,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 산업안전보건기준에 관한 규칙의 콘크리트 타설작업에 관한 사항이다. 빈칸에 들어갈 적절한 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160821/ku20160821m111.gif?1499046574"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -4240,6 +4294,12 @@
       "concept_ids": [
         "formwork-falsework-inspection",
         "concrete-placement-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "당일의 작업을 시작하기 전에 당해작업에 관한 거푸집 동바리 등의 ( A ), 변위 및 ( B ) 등을 점검하고 이상을 발견한 때에는 미리 보수할 것"
+        }
       ]
     },
     {

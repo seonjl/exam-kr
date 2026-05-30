@@ -9,9 +9,6 @@
       "number": 1,
       "subject": "1과목 : 안전관리론",
       "question": "그림은 산업안전표시의 기본 모형을 나타낸 것이다. 어느 표지에 사용하는 것인가? (단, L은 안전ㆍ보건표지를 인식할 수 있거나 인식하여야 할 안전거리를 말한다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m1.gif?1465737690"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -42,6 +39,12 @@
       "concept_ids": [
         "safety-health-signs",
         "information-safety-sign"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "단면 치수:\n\n$$b \\geq 0.0224L$$\n$$b_2 = 0.8b$$\n\n외부 폭: b, 내부 점선 폭: b₂ (양쪽 여백 b₂씩)"
+        }
       ]
     },
     {
@@ -760,9 +763,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음의 직ㆍ병렬 시스템에 있어서의 장치의 신뢰도는? (단, 각 구성요소의 신뢰도는 R이다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m21.gif?1465737690"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -793,6 +793,12 @@
       "concept_ids": [
         "parallel-series-system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "병렬 R, R → 직렬 R\n\n```\n       ┌──[R]──┐\n──o────┤       ├────[R]────o──\n       └──[R]──┘\n```"
+        }
       ]
     },
     {
@@ -804,26 +810,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m22b1.gif?1465737690"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "FTA 기호: OR 게이트 (오각형 집 모양, 아래 직선 출력)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m22b2.gif?1465737690"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "FTA 기호: 기본 사상 (직사각형, 양쪽 선 연결)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m22b3.gif?1465737690"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "FTA 기호: AND 게이트 (삼각형, 위 꼭짓점 출력)"
+            }
           ]
         },
         {
           "text": "\\text{diamond}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m22b4.gif?1465737690"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "FTA 기호: 다이아몬드 (마름모형, 미개발 사상)"
+            }
           ]
         }
       ],
@@ -1068,9 +1086,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음의 FT도에서 각 요소의 발생확률이 요소 ①은 0.15, 요소 ②는 0.2, 요소 ③은 0.25, 요소 ④는 0.3일 때 A 사상의 발생확률은 얼마인가? (단, 소숫점 셋째 자리까지 구하시오)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m29.gif?1465737691"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1101,6 +1116,12 @@
       "concept_ids": [
         "fault-tree-diagram",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  A[\"A\"] --> B[\"B\"]\n  A --> C[\"C\"]\n  B --> N1((\"①\"))\n  B --> N2((\"②\"))\n  C --> N3((\"③\"))\n  C --> N4((\"④\"))\n```"
+        }
       ]
     },
     {
@@ -1151,26 +1172,38 @@
       "choices": [
         {
           "text": "웨버(Weber) 비 =",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m31b1.gif?1465737691"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\Delta I}{I}$$"
+            }
           ]
         },
         {
           "text": "웨버(Weber)비 =",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m31b2.gif?1465737691"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{I}{\\Delta I}$$"
+            }
           ]
         },
         {
           "text": "웨버(Weber)비 =",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m31b3.gif?1465737691"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\Delta I \\times I$$"
+            }
           ]
         },
         {
           "text": "웨버(Weber)비 =",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m31b4.gif?1465737691"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\Delta I - I}{\\Delta I}$$"
+            }
           ]
         }
       ],
@@ -1386,9 +1419,6 @@
       "number": 37,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음은 화학설비의 안전성 평가단계이다. 순서를 바르게 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m37.gif?1465737691"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1419,6 +1449,12 @@
       "concept_ids": [
         "safety-assessment-steps",
         "chemical-facility-safety-evaluation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 관계지료의 작성준비　② 정탐적 평가\n③ 정성적 평가　④ 안전대책"
+        }
       ]
     },
     {
@@ -2616,9 +2652,6 @@
       "number": 69,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 중 심실세동을 일으키는 위험 한계 에너지로 알맞은 것은 약 몇 J인가?(단 심실세동전류는 [mA], 통전시간 T = 1[s],인체의 전기저항 R = 800Ω 이라 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m69m1.gif?1465737691"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -2651,6 +2684,12 @@
         "ventricular-fibrillation-threshold",
         "dalziel-equation",
         "body-current-effects"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}}$$"
+        }
       ]
     },
     {
@@ -3073,9 +3112,6 @@
       "number": 81,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 표의 가스들은 위험도가 높은 가스들이다. 위험도가 큰 것부터 작은 순으로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m81.gif?1465737691"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -3106,6 +3142,12 @@
       "concept_ids": [
         "hazard-level",
         "explosion-limit-concentration"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "|  | 폭발하한값 | 폭발상한값 |\n|---|---|---|\n| 수소 | 4.0vol% | 75.0vol% |\n| 산화에틸렌 | 3.0vol% | 80.0vol% |\n| 이황화탄소 | 1.25vol% | 44.0vol% |\n| 아세틸렌 | 2.5vol% | 81.0vol% |"
+        }
       ]
     },
     {
@@ -3441,9 +3483,6 @@
       "number": 91,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 표와 같은 조성의 혼합물이 있다. 이 혼합가스의 연소하한값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m91.gif?1465737691"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3476,6 +3515,12 @@
         "le-chateliers-principle",
         "lower-combustion-limit",
         "mixed-gas-explosion-limits"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성분 | 조성(vol%) | 연소하한값(vol%) |\n|---|---|---|\n| 활화수소 | 0.5 | 4.3 |\n| 에탄 | 2.7 | 3.0 |\n| 아세틸렌 | 0.3 | 2.5 |\n| 공기 | 96.5 | - |"
+        }
       ]
     },
     {
@@ -3675,9 +3720,6 @@
       "number": 97,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 보기의 물질들이 가지고 있는 공통적인 특징은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m97.gif?1465737691"
-      ],
       "pass_rate": 33,
       "choices": [
         {
@@ -3708,6 +3750,12 @@
       "concept_ids": [
         "hygroscopicity",
         "hygroscopic-substance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\text{CuCl}_2 \\qquad \\text{Cu(NO}_3)_2 \\qquad \\text{Zn(NO}_3)_2$$"
+        }
       ]
     },
     {
@@ -3903,9 +3951,6 @@
       "number": 103,
       "subject": "6과목 : 건설안전기술",
       "question": "사다리식 통로의 구조에 대한 아래의 설명 중 ( )에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20070304/ku20070304m103.gif?1465737690"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -3936,6 +3981,12 @@
       "concept_ids": [
         "stairway-passage",
         "ladder-inclination"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사다리의 상단은 걸쳐 놓은 지점으로부터 ( )cm 이상 올라가도록 할 것"
+        }
       ]
     },
     {

@@ -355,9 +355,6 @@
       "number": 10,
       "subject": "1과목 : 안전관리론",
       "question": "안전점검을 점검시기에 따라 구분할 때 다음에서 설명하는 안전점검은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m10.gif?1647765262"
-      ],
       "pass_rate": 84,
       "choices": [
         {
@@ -388,6 +385,12 @@
       "concept_ids": [
         "safety-inspection",
         "safety-inspection-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "작업담당자 또는 해당 관리감독자가 맡고 있는 공정의 설비, 기계, 공구 등을 매일 작업 전 또는 작업 중에 일상적으로 실시하는 안전점검"
+        }
       ]
     },
     {
@@ -508,9 +511,6 @@
       "number": 14,
       "subject": "1과목 : 안전관리론",
       "question": "산업안전보건법령상 그림과 같은 기본 모형이 나타내는 안전·보건표시의 표시사항으로 옳은 것은? (단, L은 안전·보건표시를 인식할 수 있거나 인식해야 할 안전거리를 말한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m14.gif?1647765262"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -543,6 +543,12 @@
         "safety-health-signs",
         "information-safety-sign",
         "safety-color"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$b \\geq 0.0224\\,L$$\n$$b_2 = 0.8\\,b$$\n\n(그림: 직사각형 단면. 외부 폭 b, 높이 b. 내부 점선 여백 b₂.)"
+        }
       ]
     },
     {
@@ -772,9 +778,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "인간공학적 연구에 사용되는 기준 척도의 요건 중 다음 설명에 해당하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m21.gif?1647765262"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -807,15 +810,18 @@
         "standard-scale-requirements",
         "visual-coding-design-principles",
         "ergonomics-research-methods"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "기준 척도는 측정하고자 하는 변수 외의 다른 변수들의 영향을 받아서는 안된다."
+        }
       ]
     },
     {
       "number": 22,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림과 같은 시스템에서 부품 A, B, C, D의 신뢰도가 모두 r로 동일할 때 이 시스템의 신뢰도는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m22.gif?1647765262"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -846,15 +852,18 @@
       "concept_ids": [
         "series-parallel-system-reliability",
         "system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    subgraph 직렬1\n        A\n        C\n    end\n    subgraph 직렬2\n        B\n        D\n    end\n    입력 --> A\n    입력 --> C\n    A --> 출력\n    C --> 출력\n    출력2 --> B\n    출력2 --> D\n```\n\n(회로: A와 C가 병렬 연결, B와 D가 병렬 연결, 두 병렬 블록이 직렬 연결)"
+        }
       ]
     },
     {
       "number": 23,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "서브시스템 분석에 사용되는 분석방법으로 시스템 수명주기에서 ㉠에 들어갈 위험분석기법은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m23.gif?1647765262"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -885,6 +894,12 @@
       "concept_ids": [
         "failure-hazard-analysis",
         "hazard-analysis-risk-management"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngantt\n    dateFormat  X\n    axisFormat %s\n    section 시스템 수명주기\n    시스템 구성  : 0, 1\n    시스템 정의  : 1, 2\n    시스템 개발  : 2, 3\n    시스템 생산  : 3, 4\n    시스템 운전  : 4, 5\n```\n\n← (㉠) →"
+        }
       ]
     },
     {
@@ -973,26 +988,38 @@
       "choices": [
         {
           "text": "A + \\overline{A} = 1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m26b1.gif?1647765262"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + \\bar{A} = 1$$"
+            }
           ]
         },
         {
           "text": "A + AB = A",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m26b2.gif?1647765262"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + AB = A$$"
+            }
           ]
         },
         {
           "text": "A(A+B)=A+B",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m26b3.gif?1647765262"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A(A + B) = A + B$$"
+            }
           ]
         },
         {
           "text": "A + \\overline{AB} = A + B",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m26b4.gif?1647765262"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + \\bar{A}B = A + B$$"
+            }
           ]
         }
       ],
@@ -1124,9 +1151,6 @@
       "number": 30,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "어떤 결함수를 분석하여 minimal cut set을 구한 결과 다음과 같았다. 각 기본사상의 발생확률은 qi, i = 1, 2, 3라 할 때, 정상사상의 발생확률함수로 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m30.gif?1647765262"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1159,6 +1183,12 @@
         "minimal-cut-set",
         "fault-tree-top-event-probability",
         "inclusion-exclusion-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$k_1 = [1, 2],\\ k_2 = [1, 3],\\ k_3 = [2, 3]$$"
+        }
       ]
     },
     {
@@ -1499,9 +1529,6 @@
       "number": 40,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "James Reason의 원인적 휴먼에러 종류 중 다음 설명의 휴먼에러 종류는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m40.gif?1647765262"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1532,6 +1559,12 @@
       "concept_ids": [
         "human-error",
         "rule-based-error"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "자동차가 우측 운행하는 한국의 도로에 익숙해진 운전자가 좌측 운행을 해야 하는 일본에서 우측 운행을 하다가 교통사고를 냈다."
+        }
       ]
     },
     {
@@ -2290,9 +2323,6 @@
       "number": 61,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 (  ) 안의 알맞은 내용을 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m61.gif?1647765262"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -2323,6 +2353,12 @@
       "concept_ids": [
         "safety-spacing",
         "explosion-grade-measurement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "폭발성 가스의 폭발등급 측정에 사용되는 표준용기는 내용적이 ( ㉮ )㎤, 반구상의 플랜지 접합면의 안길이 ( ㉯ )mm의 구상용기의 틈새를 통과시켜 화염일주 한계를 측정하는 장치이다."
+        }
       ]
     },
     {
@@ -2588,9 +2624,6 @@
       "number": 69,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 빈칸에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m69.gif?1647765262"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -2621,6 +2654,12 @@
       "concept_ids": [
         "extra-high-voltage-work",
         "extremely-low-frequency-electromagnetic-field"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"교류 특고압 가공전선로에서 발생하는 극저주파 전자계는 지표상 1m에서 전계가 ( ⓐ ), 자계가 ( ⓑ )가 되도록 시설하는 등 상시 접전유도 및 전자유도의 작용에 의하여 사람에게 위험을 줄 우려가 없도록 시설하여야 한다.\""
+        }
       ]
     },
     {
@@ -2929,9 +2968,6 @@
       "number": 78,
       "subject": "4과목 : 전기위험방지기술",
       "question": "인체의 전기저항을 0.5kΩ이라고 하면 심실세동을 일으키는 위험한계 에너지는 몇 J 인가? (단, 심실세동전류값  mA 의 Dalziel의 식을 이용하며, 통전시간은 1초로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m78m1.gif?1647765262"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -2964,6 +3000,12 @@
         "ventricular-fibrillation-dangerous-energy",
         "dalziel-equation",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}}$$"
+        }
       ]
     },
     {
@@ -3048,9 +3090,6 @@
       "number": 81,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 설명이 의미하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m81.gif?1647765262"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -3081,6 +3120,12 @@
       "concept_ids": [
         "runaway-reaction",
         "chemical-reaction"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "온도, 압력 등 제어상태가 규정의 조건을 벗어나는 것에 의해 반응속도가 지수함수적으로 증대되고, 반응용기 내의 온도, 압력이 급격히 이상 상승되어 규정 조건을 벗어나고, 반응이 과격화되는 현상"
+        }
       ]
     },
     {
@@ -3161,9 +3206,6 @@
       "number": 84,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 표와 같은 혼합가스의 폭발범위(vol%)로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20220305/ku20220305m84.gif?1647765262"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -3194,6 +3236,12 @@
       "concept_ids": [
         "mixed-gas-explosion-limits",
         "le-chateliers-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 종류 | 용적비율 (vol%) | 폭발하한계 (Vol%) | 폭발상한계 (vol%) |\n|------|----------------|-----------------|-----------------|\n| CH₄ | 70 | 5 | 15 |\n| C₂H₆ | 15 | 3 | 12.5 |\n| C₃H₈ | 5 | 2.1 | 9.5 |\n| C₄H₁₀ | 10 | 1.9 | 8.5 |"
+        }
       ]
     },
     {

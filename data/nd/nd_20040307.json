@@ -1126,9 +1126,6 @@
       "number": 26,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 입구 A에서 공기의 압력은 3x105 Pa(절대압력), 온도 20℃, 속도 5 m/s이다. 그리고 출구 B에서 공기의 압력은 2x105 Pa(절대압력), 온도 20℃이면 출구 B에서의 속도는 몇 m/s 인가 ? (단, 공기의 기체상수 R = 287 J/㎏·K이며, 여러가지 손실은 없다고 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m26.gif?1499653799"
-      ],
       "pass_rate": 23,
       "choices": [
         {
@@ -1169,6 +1166,12 @@
         "compressible-fluid",
         "air-density-calculation",
         "absolute-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "벤투리미터 다이어그램:\n- 입구 A: 내경 20 cm, 압력계 부착\n- 출구 B: 내경 10 cm, 압력계 부착\n- 유체 흐름 방향: A → B (좌 → 우)\n- 관로는 입구에서 목부(throat)로 수축하는 형상"
+        }
       ]
     },
     {
@@ -1578,34 +1581,42 @@
       "number": 36,
       "subject": "2과목 : 소방유체역학",
       "question": "유체가 파이프 속을 흐를 때 돌연 축소로 인한 부차손실계수 Kc는 어느 것인가? (단, 는 축소 계수이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36m1.gif?1499653799",
-        "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36.gif?1499653799"
-      ],
       "pass_rate": 35,
       "choices": [
         {
           "text": "번 위치(축소부, 베나 콘트랙타)에서 최소 단면적 $V_0$를 가지며, 이후",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36b1.gif?1499653799"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$K_C = \\left(\\dfrac{1}{C_C} - 1\\right)^2$$"
+            }
           ]
         },
         {
           "text": "번 위치에서 다시 관을 가득 채워 속도 $V_2$로 흐른다. 그림에는 '축소부'라는 한글 라벨과 단면 ①, ②가 표시되어 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36b2.gif?1499653799"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$K_C = \\dfrac{1}{C_C^2} - 1$$"
+            }
           ]
         },
         {
           "text": "$K_C = 1 - C_C^2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36b3.gif?1499653799"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$K_C = 1 - C_c^2$$"
+            }
           ]
         },
         {
           "text": "$K_C = (C_C - 1)^2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m36b4.gif?1499653799"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$K_C = (C_c - 1)^2$$"
+            }
           ]
         }
       ],
@@ -1633,15 +1644,22 @@
         "minor-loss-coefficient",
         "vena-contracta",
         "borda-carnot-loss"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$Co\\left(= \\dfrac{A_0}{A_2}\\right)$$"
+        },
+        {
+          "kind": "text",
+          "content": "오리피스 유량계 다이어그램:\n- 입구 유속: V₁ (좌측)\n- 오리피스 통과 유속: V₀ (최소 단면)\n- 출구 측 단면 ①: 직후 축소부\n- 단면 ②: 유속 V₂ (축소부 이후 확대)\n- 축소부(vena contracta): 오리피스 직후 유속 최대·단면적 최소 지점"
+        }
       ]
     },
     {
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "피스톤 A2의 반지름이 A1의 반지름의 2배이며 A1과 A2에 작용하는 압력을 각각 P1, P2 라 하면 평형상태일 때 P1과 P2사이의 관계는 ?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20040307/nd20040307m37.gif?1499653799"
-      ],
       "pass_rate": 33,
       "choices": [
         {
@@ -1680,6 +1698,12 @@
         "pascal-principle",
         "static-equilibrium",
         "fluid-pressure-transmission"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "비연속식 유압 시스템 다이어그램\n\n왼쪽 실린더: 단면적 $A_2$, 하중 $F_2$ (위에서 아래로), 압력 $P_2$ (아래에서 위로)\n오른쪽 실린더: 단면적 $A_1$, 하중 $F_1$ (위에서 아래로), 압력 $P_1$ (아래에서 위로)\n두 실린더는 하부 유로로 연결됨"
+        }
       ]
     },
     {

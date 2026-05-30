@@ -54,33 +54,42 @@
       "number": 2,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 손실 유전체에서 전원의 양극 사이에 채워진 동축 케이블의 전력 손실은 몇 W인가? (단, 모든 단위는 MKS 유리화 단위이며, σ는 매질의 도전율 S/m이라 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m2.gif?1461562382"
-      ],
       "pass_rate": 69,
       "choices": [
         {
           "text": "$\\dfrac{\\pi \\sigma V^{2} L}{2\\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m2b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\pi \\sigma V^2 L}{2 \\ln \\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\pi \\sigma V^{2} L}{\\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m2b2.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\pi \\sigma V^2 L}{\\ln \\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{2\\pi \\sigma V^{2} L}{\\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m2b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2\\pi \\sigma V^2 L}{\\ln \\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{4\\pi \\sigma V^{2} L}{\\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m2b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{4\\pi \\sigma V^2 L}{\\ln \\dfrac{b}{a}}$$"
+            }
           ]
         }
       ],
@@ -108,16 +117,18 @@
         "coaxial-cable-parameters",
         "rc-epsilon-sigma-duality",
         "dielectric-loss-power"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동축 케이블(원통형 콘덴서) 단면 구조도\n\n- 내부 도체 반지름: a\n- 외부 도체 반지름: b\n- 길이: L\n- 인가 전압: V (+ 극과 - 극)"
+        }
       ]
     },
     {
       "number": 3,
       "subject": "1과목 : 전기자기학",
       "question": "어떤 공간의 비유전율은 2이고, 전위  이라고 할 때 점  에서의 전하밀도 p는 약 몇 pC/m3 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m3m1.gif?1461562383",
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m3m2.gif?1461562383"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -158,6 +169,16 @@
         "poissons-equation",
         "laplacian-operator",
         "volume-charge-density"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$V(x, y) = \\frac{1}{x} + 2xy^2$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$\\left(\\frac{1}{2}, 2\\right)$$"
+        }
       ]
     },
     {
@@ -428,9 +449,6 @@
       "number": 10,
       "subject": "1과목 : 전기자기학",
       "question": "공기 콘덴서의 고정 전극판 A와 가동 전극판 B간의 간격이 d = 1mm이고 전계는 극면간에서만 균등하다고 하면 정전 용량은 몇 μF 인가? (단, 전극판의 상대되는 부분의 면적은S[m2]라 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m10.gif?1461562382"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -467,6 +485,12 @@
       "concept_ids": [
         "parallel-plate-capacitor",
         "physical-constants-unit-conversion"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "축(A 방향)과 B 경계면에서의 전하 분포 및 전계 방향 다이어그램\n\n| 위치 | 전하 | 전계(E) 방향 |\n|------|------|------------|\n| 상부 d | $-\\delta$ | ↑ |\n| 상부 d | $+\\delta$ | E↑ |\n| 하부 d | $+\\delta$ | E↓ |\n| 하부 d | $-\\delta$ | ↓ |\n\n- 좌측: 축(A)\n- 우측 경계: A (상단), B (하단)"
+        }
       ]
     },
     {
@@ -568,26 +592,38 @@
       "choices": [
         {
           "text": "$\\dfrac{evB}{\\mu_0}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m13b1.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\varepsilon v B}{\\mu_0}$$"
+            }
           ]
         },
         {
           "text": "$\\mu_0 evB$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m13b2.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\mu_0 \\varepsilon v B$$"
+            }
           ]
         },
         {
           "text": "$evB$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m13b3.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\varepsilon v B$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{eB}{v}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m13b4.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\varepsilon B}{v}$$"
+            }
           ]
         }
       ],
@@ -804,9 +840,6 @@
       "number": 18,
       "subject": "1과목 : 전기자기학",
       "question": "전자파가 유전율과 투자율이 각각 ε1, μ1인 매질에서 ε2, μ2 인 매질에 수직으로 입사할 경우 입사전계 E1과 입사자계 H1 에 비하여 투과전계 E2 와 투과 자계 H2 의 크기는 각각 어떻게 되는가? (단,  이다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m18m1.gif?1461562382"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -845,6 +878,12 @@
         "em-wave-medium-transmission",
         "intrinsic-impedance",
         "em-wave-boundary-conditions"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\sqrt{\\frac{\\mu_1}{\\varepsilon_1}} > \\sqrt{\\frac{\\mu_2}{\\varepsilon_2}}$$"
+        }
       ]
     },
     {
@@ -856,14 +895,20 @@
       "choices": [
         {
           "text": "은 분수식 Q/(4πε₀a) 이고, 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m19b1.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi\\varepsilon_0 a^2}$$"
+            }
           ]
         },
         {
           "text": "는 분수식 3Q/(2πε₀a³) 이다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m19b2.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{3Q}{2\\pi\\varepsilon_0 a^2}$$"
+            }
           ]
         },
         {
@@ -1184,26 +1229,38 @@
       "choices": [
         {
           "text": "$\\left|1 - \\dfrac{Z_s Z_{12}}{Z_{1s} Z_{2s}}\\right|$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m26b1.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left|1 - \\frac{Z_s Z_{12}}{Z_{1s} Z_{2s}}\\right|$$"
+            }
           ]
         },
         {
           "text": "$\\left|1 - \\dfrac{Z_{1s} Z_{2s}}{Z_s Z_{12}}\\right|$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m26b2.gif?1461562382"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left|1 - \\frac{Z_{1s} Z_{2s}}{Z_s Z_{12}}\\right|$$"
+            }
           ]
         },
         {
           "text": "$\\left|1 - \\dfrac{Z_{1s} Z_{12}}{Z_s Z_{2s}}\\right|$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m26b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left|1 - \\frac{Z_{1s} Z_{12}}{Z_s Z_{2s}}\\right|$$"
+            }
           ]
         },
         {
           "text": "$\\left|1 - \\dfrac{Z_s Z_{2s}}{Z_{12} Z_{1s}}\\right|$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m26b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left|1 - \\frac{Z_s Z_{2s}}{Z_{12} Z_{1s}}\\right|$$"
+            }
           ]
         }
       ],
@@ -1241,9 +1298,6 @@
       "number": 27,
       "subject": "2과목 : 전력공학",
       "question": "그림과 같은 66kV 선로의 송전전력이 20000kW, 역률이 0.8(lag)일 때 a상에 완전 지락사고가 발생하였다. 지락 계전기 DG에 흐르는 전류는 약 몇 A인가? (단, 부하의 정상, 역상 임피던스 및 기타 정수는 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m27.gif?1461562383"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -1282,6 +1336,12 @@
         "earth-fault-current-calculation",
         "current-transformer-ratio",
         "ground-voltage"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "3상 전력 측정 회로도 (2전력계법 또는 3전류계법)\n\n- 좌측: 300Ω 부하 (접지)\n- 변류기(CT): 300/5 비율, 3상(a, b, c상)\n- DG: 발전기(전원)\n- 전류계(A): a상, b상, c상 각 1개씩 총 3개\n- 선로: c상(상단), b상(중간), a상(하단)"
+        }
       ]
     },
     {
@@ -1828,9 +1888,6 @@
       "number": 40,
       "subject": "2과목 : 전력공학",
       "question": "그림과 같이 각 도체와 연피간의 정전용량이 C0, 각 도체간의 정전용량이 Cm인 3심 케이블의 도체 1조당의 작용 정전용량은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m40.gif?1470621814"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1869,39 +1926,54 @@
         "charging-current-capacitance",
         "y-delta-transformation",
         "effective-capacitance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "3심 케이블 정전용량 등가회로 단면도\n\n- 도체(좌측) ↔ 연피(우측) 사이 구조\n- $C_0$: 도체-연피 간 정전용량 (각 심선과 연피 사이, 총 3개)\n- $C_m$: 도체 상호 간 정전용량 (심선 간, 총 3개)\n- 3심이 원형으로 배치, 각 심선에 $C_0$ (외측)와 $C_m$ (내측) 연결"
+        }
       ]
     },
     {
       "number": 41,
       "subject": "3과목 : 전기기기",
       "question": "그림과 같은 단상 브리지 정류회로(혼합 브리지)에서 직류 평균 전압[V]은?(단, E는 교류측 실효치 전압, α 는 점호  어각이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m41.gif?1461562383"
-      ],
       "pass_rate": 65,
       "choices": [
         {
           "text": "은 (2√2 E / π) × ((1 + cosα)/2), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m41b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{2\\sqrt{2}\\,E}{\\pi}\\left(\\dfrac{1+\\cos\\alpha}{2}\\right)$$"
+            }
           ]
         },
         {
           "text": "는 (√2 E / π) × ((1 + cosα)/2), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m41b2.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{\\sqrt{2}\\,E}{\\pi}\\left(\\dfrac{1+\\cos\\alpha}{2}\\right)$$"
+            }
           ]
         },
         {
           "text": "은 (2√2 E / π) × ((1 − cosα)/2), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m41b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{2\\sqrt{2}\\,E}{\\pi}\\left(\\dfrac{1-\\cos\\alpha}{2}\\right)$$"
+            }
           ]
         },
         {
           "text": "는 (√2 E / π) × ((1 − cosα)/2) 이다. 정리하면 ①=√2 E(1+cosα)/π, ②=√2 E(1+cosα)/(2π), ③=√2 E(1−cosα)/π, ④=√2 E(1−cosα)/(2π).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m41b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{\\sqrt{2}\\,E}{\\pi}\\left(\\dfrac{1-\\cos\\alpha}{2}\\right)$$"
+            }
           ]
         }
       ],
@@ -1933,6 +2005,12 @@
         "single-phase-mixed-bridge-rectifier",
         "firing-angle-control",
         "scr-diode-mixed-circuit"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "단상 브리지 정류 회로도\n\n- 좌측: 변압기 (인덕터 기호)\n- 브리지 구성: 사이리스터(S) 2개 + 다이오드(D) 2개\n  - 상단: S (사이리스터) × 2\n  - 하단: D (다이오드) × 2\n- 우측: 부하(부 하)"
+        }
       ]
     },
     {
@@ -2124,26 +2202,38 @@
       "choices": [
         {
           "text": "$\\dfrac{V_1 - V_2}{\\sqrt{3}\\, V_1}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m46b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{V_1 - V_2}{\\sqrt{3}\\,V_1}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{V_1 - V_2}{V_1}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m46b2.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{V_1 - V_2}{V_1}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\sqrt{3}(V_1 - V_2)}{2 V_1}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m46b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{\\sqrt{3}\\,(V_1 - V_2)}{2\\,V_1}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{V_1^2 - V_2^2}{\\sqrt{3}\\, V_1 V_2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m46b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{V_1^2 - V_2^2}{\\sqrt{3}\\,V_1\\,V_2}$$"
+            }
           ]
         }
       ],
@@ -2233,26 +2323,38 @@
       "choices": [
         {
           "text": "Er = √2 · (P/a) · Z · (N/60) · φm",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m48b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_t = \\sqrt{2}\\,\\dfrac{P}{a}\\,\\dfrac{Z\\,N}{60}\\,\\phi_m$$"
+            }
           ]
         },
         {
           "text": "Er = (1/√2) · (P/a) · Z · φm · N",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m48b2.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_t = \\dfrac{1}{\\sqrt{2}}\\,\\dfrac{P}{a}\\,Z\\,\\phi_m\\,N$$"
+            }
           ]
         },
         {
           "text": "Er = (P/a) · Z · (N/60) · φm",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m48b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_t = \\dfrac{P}{a}\\,Z\\,\\dfrac{N}{60}\\,\\phi_m$$"
+            }
           ]
         },
         {
           "text": "Er = (1/√2) · (P/a) · Z · (N/60) · φm",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m48b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_t = \\dfrac{1}{\\sqrt{2}}\\,\\dfrac{P}{a}\\,Z\\,\\dfrac{N}{60}\\,\\phi_m$$"
+            }
           ]
         }
       ],
@@ -2610,26 +2712,38 @@
       "choices": [
         {
           "text": ": θ ∝ e(t) — 회전각 θ가 제어권선 전압 e(t)에 비례.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m56b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\theta \\propto \\varepsilon(t)$$"
+            }
           ]
         },
         {
           "text": ": dθ/dt ∝ e(t) — 회전각의 시간 미분(각속도)이 제어권선 전압 e(t)에 비례.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m56b2.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{d\\theta}{dt} \\propto \\varepsilon(t)$$"
+            }
           ]
         },
         {
           "text": ": θ · e(t) = 일정 — 회전각과 전압의 곱이 일정(반비례 관계).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m56b3.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\theta \\cdot \\varepsilon(t) = \\text{일정}$$"
+            }
           ]
         },
         {
           "text": ": (dθ/dt) · e(t) = 일정 — 각속도와 전압의 곱이 일정(반비례 관계).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m56b4.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\dfrac{d\\theta}{dt} \\cdot \\varepsilon(t) = \\text{일정}$$"
+            }
           ]
         }
       ],
@@ -2670,26 +2784,38 @@
       "choices": [
         {
           "text": "E_{2s} = s E_2,  f_{2s} = s f_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m57b1.gif?1461562383"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_{2s} = sE_2,\\quad f_{2s} = sf_1$$"
+            }
           ]
         },
         {
           "text": "E_{2s} = s E_2,  f_{2s} = f_1 / s",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m57b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_{2s} = sE_2,\\quad f_{2s} = \\dfrac{f_1}{s}$$"
+            }
           ]
         },
         {
           "text": "E_{2s} = E_2 / s,  f_{2s} = f_1 / s",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m57b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_{2s} = \\dfrac{E_2}{s},\\quad f_{2s} = \\dfrac{f_1}{s}$$"
+            }
           ]
         },
         {
           "text": "E_{2s} = (1-s) E_2,  f_{2s} = (1-s) f_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m57b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_{2s} = (1-s)E_2,\\quad f_{2s} = (1-s)f_1$$"
+            }
           ]
         }
       ],
@@ -2905,9 +3031,6 @@
       "number": 62,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "의 K ≥ 0 에서의 분지점(break away point)은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m62m1.gif?1461562384"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -2946,39 +3069,54 @@
         "branch-node-analysis",
         "root-locus-analysis",
         "stability-condition"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$G(s)\\,H(s) = \\dfrac{K}{s(s+1)(s+4)}$$"
+        }
       ]
     },
     {
       "number": 63,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림의 회로와 동일한 논리소자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m63.gif?1461562384"
-      ],
       "pass_rate": 46,
       "choices": [
         {
           "text": "(img2): 입력 측이 곡선으로 들어가고 출력 측이 뾰족하며 출력에 반전 버블(○)이 있는 게이트 기호 → NOR 게이트.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m63b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "OR 게이트\n\n입력: X, Y\n출력: D\n\n$$D = X + Y$$"
+            }
           ]
         },
         {
           "text": "(img3): 입력 측이 평평하고 출력 측이 반원(D자) 형태이며 버블이 없는 게이트 기호 → AND 게이트.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m63b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "AND 게이트\n\n입력: X, Y\n출력: D\n\n$$D = X \\cdot Y$$"
+            }
           ]
         },
         {
           "text": "(img4): 입력 측이 평평하고 출력 측이 반원(D자) 형태이며 출력에 반전 버블(○)이 있는 게이트 기호 → NAND 게이트.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m63b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "NAND 게이트\n\n입력: X, Y\n출력: D\n\n$$D = \\overline{X \\cdot Y}$$"
+            }
           ]
         },
         {
           "text": "(img5): 입력 측이 곡선으로 들어가고 출력 측이 뾰족하며 버블이 없는 게이트 기호 → OR 게이트.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m63b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart LR\n    X --> G[ ]\n    Y --> G\n    G --> D\n```"
+            }
           ]
         }
       ],
@@ -3010,39 +3148,54 @@
         "transistor-pulldown-circuit",
         "nor-gate",
         "logic-gate"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    VCC([+V]) -- 저항 --> D([D 출력])\n    X([X 입력]) -- 저항 --> T1[T₁ NPN TR]\n    T1 --> D\n    Y([Y 입력]) -- 저항 --> T2[T₂ NPN TR]\n    T2 --> GND1([GND])\n    T1 --> GND2([GND])\n```\n\nX, Y 두 입력이 각각 저항을 통해 트랜지스터 T₁, T₂ 베이스에 연결되고, 컬렉터 측은 +V 전원(저항 경유)에서 출력 D로 이어지는 TTL NAND/AND 게이트 회로."
+        }
       ]
     },
     {
       "number": 64,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 RLC 회로에서 입력전압 ei(t), 출력 전류가 i(t) 인 경우 이 회로의 전달함수 I(s)/Ei(s) 는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m64.gif?1461562384"
-      ],
       "pass_rate": 53,
       "choices": [
         {
           "text": "(img2): Cs / (RCs² + LCs + 1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m64b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Cs}{RCs^2 + LCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img3): 1 / (RCs² + LCs + 1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m64b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{RCs^2 + LCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img4): Cs / (LCs² + RCs + 1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m64b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Cs}{LCs^2 + RCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img5): 1 / (LCs² + RCs + 1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m64b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{LCs^2 + RCs + 1}$$"
+            }
           ]
         }
       ],
@@ -3072,15 +3225,18 @@
       "concept_ids": [
         "rlc-series-circuit",
         "voltage-current-transfer-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "R, L 직렬 후 C 병렬 RLC 회로.\n입력전압 $e_i(t)$, 전류 $i_{(t)}$, 소자 순서: R → L → C (병렬)"
+        }
       ]
     },
     {
       "number": 65,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "아래의 신호흐름선도의 이득 Y6/Y1 의 분자에 해당되는 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m65.gif?1461562384"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -3119,6 +3275,12 @@
         "mason-gain-formula",
         "forward-path",
         "non-touching-loop"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "신호흐름선도 (Signal Flow Graph)\n\n```mermaid\nflowchart LR\n    Y1 --1--> A( )\n    A --G1--> Y2( )\n    Y2 --G2--> Y3( )\n    Y3 --G3--> Y4( )\n    Y4 --G4--> Y5( )\n    Y5 --1--> Y6\n    Y3 --G5--> Y5\n    Y4 --\"-H1\"--> Y2\n    Y5 --\"-H2\"--> Y4\n    Y5 --\"-H3\"--> A\n```\n\n전향경로: G1→G2→G3→G4 (with G5 bypass G2→G3→G4 구간)\n피드백: -H1, -H2, -H3"
+        }
       ]
     },
     {
@@ -3130,26 +3292,38 @@
       "choices": [
         {
           "text": "$W_m = W_n \\sqrt{1 - \\alpha^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m66b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$w_m = w_n \\sqrt{1 - a^2}$$"
+            }
           ]
         },
         {
           "text": "$W_m = W_n \\sqrt{1 + \\alpha^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m66b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$w_m = w_n \\sqrt{1 + a^2}$$"
+            }
           ]
         },
         {
           "text": "$W_m = W_n \\sqrt{1 - 2\\alpha^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m66b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$w_m = w_n \\sqrt{1 - 2a^2}$$"
+            }
           ]
         },
         {
           "text": "$W_m = W_n \\sqrt{1 + 2\\alpha^2}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m66b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$w_m = w_n \\sqrt{1 + 2a^2}$$"
+            }
           ]
         }
       ],
@@ -3277,33 +3451,42 @@
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음의 미분방정식으로 표시되는 시스템의 계수 행렬 A는 어떻게 표시되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m69.gif?1470621681"
-      ],
       "pass_rate": 75,
       "choices": [
         {
           "text": "A = [[-5, -3], [0, 1]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m69b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{pmatrix} -5 & -3 \\\\ 0 & 1 \\end{pmatrix}$$"
+            }
           ]
         },
         {
           "text": "A = [[-3, -5], [0, 1]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m69b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{pmatrix} -3 & -5 \\\\ 0 & 1 \\end{pmatrix}$$"
+            }
           ]
         },
         {
           "text": "A = [[0, 1], [-3, -5]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m69b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{pmatrix} 0 & 1 \\\\ -3 & -5 \\end{pmatrix}$$"
+            }
           ]
         },
         {
           "text": "A = [[0, 1], [-5, -3]]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m69b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\begin{pmatrix} 0 & 1 \\\\ -5 & -3 \\end{pmatrix}$$"
+            }
           ]
         }
       ],
@@ -3335,15 +3518,18 @@
         "second-order-state-space-representation",
         "state-variable-representation",
         "companion-matrix"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{d^2c(t)}{dt^2} + 5\\frac{dc(t)}{dt} + 3c(t) = r(t)$$"
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 RC 회로에서 RC << 1인 경우 어떤 요소의 회로인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m70.gif?1461562384"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -3382,15 +3568,18 @@
         "rc-circuit",
         "transfer-function",
         "derivative-element"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RC 회로 (미분회로)\n입력 $e_i(t)$, C 직렬, R 병렬(출력측), 출력 $e_o(t)$, 전류 $i(t)$\n구성: + 단자 → C → 노드 → R → − 단자, 출력은 R 양단"
+        }
       ]
     },
     {
       "number": 71,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "4단자 정수 A, B, C, D로 출력측을 개방시켰을 때 입력측에서 본 구동점 임피던스  를 표시한 것중 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m71m1.gif?1461562384"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -3429,15 +3618,18 @@
         "four-terminal-network",
         "open-circuit-output-condition",
         "input-output-characteristics"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$Z_{11} = \\left.\\frac{V_1}{I_1}\\right|_{I_2=0}$$"
+        }
       ]
     },
     {
       "number": 72,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "직렬로 유도 결합된 회로이다. 단자 a-b에서 본 등가 임피던스 Zab 를 나타낸 식은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m72.gif?1461562384"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -3475,15 +3667,18 @@
       "concept_ids": [
         "mutual-inductance",
         "equivalent-impedance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "2포트 결합 회로 (변압기 포함)\n- 좌측 포트: a-b 단자, 전압 E, 전류 I\n  - R₁, L₁ 직렬 연결\n- 우측 포트: 전류 I\n  - R₂, L₂ 직렬 → L₃, R₃ 직렬 연결\n- L₁과 L₂는 결합 인덕터 (상호인덕턴스)"
+        }
       ]
     },
     {
       "number": 73,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "RC 저역 여파기 회로의 전달함수 G(jw)에서 w=1/(RC) 인 경우 |G(jw)| 의 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m73.gif?1461562384"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -3522,6 +3717,12 @@
         "rc-lowpass-filter-transfer-function",
         "cutoff-frequency",
         "complex-magnitude-phase"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RC 병렬 회로 (2포트)\n입력 단자 (좌) → R 직렬 → 출력 단자 (우)\nC 는 출력 단자 양단에 병렬 연결"
+        }
       ]
     },
     {
@@ -3533,26 +3734,38 @@
       "choices": [
         {
           "text": "$\\sqrt{\\dfrac{L}{C}}$ — 인덕턴스 L을 정전용량 C로 나눈 값의 제곱근 (무손실 선로의 특성 임피던스).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m74b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{L}{C}}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\dfrac{L}{R}}$ — 인덕턴스 L을 저항 R로 나눈 값의 제곱근.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m74b2.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{L}{R}}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\dfrac{G}{C}}$ — 컨덕턴스 G를 정전용량 C로 나눈 값의 제곱근.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m74b3.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{G}{C}}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\dfrac{R}{G}}$ — 저항 R을 컨덕턴스 G로 나눈 값의 제곱근 (직류 인가 시 특성 임피던스).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m74b4.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{R}{G}}$$"
+            }
           ]
         }
       ],
@@ -3590,9 +3803,6 @@
       "number": 75,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 회로에서 전압 V를 가하니 20A의 전류가 흘렀다고 한다. 이 회로의 역률은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m75.gif?1461562384"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -3631,6 +3841,12 @@
         "rlc-series-circuit",
         "power-factor-calculation",
         "resistance-and-reactance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 RLC 회로\n$R = 9\\,\\Omega$, $X_L = 15\\,\\Omega$, $X_C = 3\\,\\Omega$\n전류원: 20 A, 전압계 V (교류)"
+        }
       ]
     },
     {
@@ -3642,26 +3858,38 @@
       "choices": [
         {
           "text": "$E_0 = \\dfrac{1}{3}(E_a + E_b + E_c)$ — 영상분 표현식.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m76b1.gif?1461562384"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_0 = \\frac{1}{3}(E_a + E_b + E_c)$$"
+            }
           ]
         },
         {
           "text": "$E_1 = \\dfrac{1}{3}(E_a + a E_b + a^2 E_c)$ — 정상분 표현식.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m76b2.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_1 = \\frac{1}{3}(E_a + aE_b + a^2E_c)$$"
+            }
           ]
         },
         {
           "text": "$E_2 = \\dfrac{1}{3}(E_a + a^2 E_b + a E_c)$ — 역상분 표현식.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m76b3.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_2 = \\frac{1}{3}(E_a + a^2E_b + aE_c)$$"
+            }
           ]
         },
         {
           "text": "$E_3 = \\dfrac{1}{3}(E_a^2 + E_b^2 + E_c^2)$ — 존재하지 않는 'E3' 성분을 정의하고, 상전압을 제곱(Ea², Eb², Ec²)한 형태로 표현하여 표준 대칭 좌표법 공식과 전혀 다른 부정확한 식.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m76b4.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_3 = \\frac{1}{3}(E_a^2 + E_b^2 + E_c^2)$$"
+            }
           ]
         }
       ],
@@ -3695,9 +3923,6 @@
       "number": 77,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 형 4단자 회로의 어드미턴스 파라미터 중 Y22는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m77.gif?1461562385"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -3734,15 +3959,18 @@
       "concept_ids": [
         "y-parameter",
         "admittance"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    1o --- YB[\"Y_B\"] --- 2o\n    1o --- YA[\"Y_A\"] --- 11o\n    2o --- YC[\"Y_C\"] --- 21o\n    11o --- 21o\n```\n\n단자 1, 2 사이에 $Y_B$가 직렬, 양 단에 $Y_A$, $Y_C$가 병렬로 연결된 2단자쌍 회로.\n\n- 포트 1: 단자 1 — 1'\n- 포트 2: 단자 2 — 2'\n- $Y_B$: 직렬 어드미턴스\n- $Y_A$: 포트 1 측 병렬 어드미턴스\n- $Y_C$: 포트 2 측 병렬 어드미턴스"
+        }
       ]
     },
     {
       "number": 78,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "에서  x(t) 는 얼마인가? (단, x(0)=x'(0)=0 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m78m1.gif?1463982308"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -3779,6 +4007,12 @@
       "concept_ids": [
         "laplace-transform",
         "partial-fraction-expansion"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{d^2x(t)}{dt^2} + 2\\frac{dx(t)}{dt} + x(t) = 1$$"
+        }
       ]
     },
     {
@@ -3790,26 +4024,38 @@
       "choices": [
         {
           "text": "$\\dfrac{1}{2}\\cdot\\dfrac{2}{s^{2}+2^{2}}$ (정리하면 $\\dfrac{1}{s^{2}+4}$)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m79b1.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2} \\cdot \\frac{2}{s^2 + 2^2}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{1}{8s}\\cdot\\dfrac{1}{8}\\cdot\\dfrac{4s}{s^{2}+16}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m79b2.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{8s} - \\frac{1}{8} \\cdot \\frac{4s}{s^2 + 4}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{1}{4s}\\cdot\\dfrac{1}{4}\\cdot\\dfrac{s}{s^{2}+4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m79b3.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4s} - \\frac{1}{4} \\cdot \\frac{s}{s^2 + 4}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{1}{4s}\\cdot\\dfrac{1}{s}\\cdot\\dfrac{4s}{s^{2}+4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m79b4.gif?1461562385"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4s} - \\frac{1}{s} \\cdot \\frac{4s}{s^2 + 4}$$"
+            }
           ]
         }
       ],
@@ -3841,9 +4087,6 @@
       "number": 80,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 왜형파 전류의 왜형률은 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m80.gif?1461562385"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -3880,6 +4123,12 @@
       "concept_ids": [
         "harmonic-distortion-factor",
         "harmonic-component"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$i(t) = 30\\sin\\omega t + 10\\cos 3\\omega t + 5\\sin 5\\omega t \\ [A]$$"
+        }
       ]
     },
     {
@@ -4544,9 +4793,6 @@
       "number": 96,
       "subject": "5과목 : 전기설비기술기준 및 판단기준",
       "question": "다음 ( )안에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20140525/kt20140525m96.gif?1461562385"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -4585,6 +4831,12 @@
         "short-circuit-current",
         "mechanical-strength",
         "electromagnetic-force-and-mechanical-stress"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "발전기, 변압기, 조상기, 모선 또는 이를 지지하는 애자는 (   )에 의하며 생기는 기계적 충격에 견디는 것이어야 한다."
+        }
       ]
     },
     {

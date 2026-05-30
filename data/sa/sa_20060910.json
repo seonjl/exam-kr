@@ -904,33 +904,42 @@
       "number": 25,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "fㆍg를 부울변수라 할 때 다음 식을 간단히 한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m25.gif?1465737946"
-      ],
       "pass_rate": 41,
       "choices": [
         {
           "text": "f \\cdot g + \\overline{g}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m25b1.gif?1465737946"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f \\cdot g + \\overline{g}$$"
+            }
           ]
         },
         {
           "text": "\\overline{f} \\cdot g + f \\cdot \\overline{g}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m25b2.gif?1465737946"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{f} \\cdot g + f \\cdot \\overline{g}$$"
+            }
           ]
         },
         {
           "text": "f",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m25b3.gif?1465737946"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f$$"
+            }
           ]
         },
         {
           "text": "g",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m25b4.gif?1465737946"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$g$$"
+            }
           ]
         }
       ],
@@ -945,6 +954,12 @@
       "concept_ids": [
         "boolean-algebra-minimal-cut-set",
         "complement-law"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$(f \\cdot g) \\cdot (\\overline{f} + g)$$"
+        }
       ]
     },
     {
@@ -1360,9 +1375,6 @@
       "number": 37,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템의 신뢰도는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m37.gif?1465737946"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1393,15 +1405,18 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "병렬 0.7, 0.7 → 직렬 0.8 → 직렬 0.8\n\n```\n       ┌──[0.7]──┐\n──o────┤         ├────[0.8]────[0.8]────o──\n       └──[0.7]──┘\n```"
+        }
       ]
     },
     {
       "number": 38,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FRA기법의 발생확률 G1값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m38.gif?1465737946"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1432,6 +1447,12 @@
       "concept_ids": [
         "fta-and-gate",
         "fault-tree-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    G1 --> OR[\"OR 게이트\"]\n    OR --> E1[\"① 0.2\"]\n    OR --> E2[\"② 0.1\"]\n```"
+        }
       ]
     },
     {
@@ -4109,9 +4130,6 @@
       "number": 109,
       "subject": "6과목 : 건설안전기술",
       "question": "아래 표의 설명은 경화한 콘크리트에서 발생할 수 있는 현상을 설명한 것이다. 이러한 현상을 무엇이라 하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060910/ku20060910m109.gif?1465737946"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -4142,6 +4160,12 @@
       "concept_ids": [
         "concrete-carbonation",
         "rebar-corrosion"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "시멘트의 수화 반응에서 생성되는 수산화칼슘은 pH12~13정도의 알카리성을 나타낸다. 이 수산화칼슘이 대기 중에 있는 약산성의 이산화탄소와 접촉, 반응하여 pH8~10 정도의 탄산칼슘과 변화하는 현상"
+        }
       ]
     },
     {

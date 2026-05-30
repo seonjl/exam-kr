@@ -549,33 +549,42 @@
       "number": 13,
       "subject": "1과목 : 전기자기학",
       "question": "공기 중에 그림과 같이 가느다란 전선으로 반경 a인 원형코일을 만들고, 이것에 전하 Q가 균일하게 분포하고 있을 때, 원형 코일의 중심축상에서 중심으로부터 거리 x만큼 떨어진 P점의 전계의 세기는 몇 [V/m]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m13.gif?1518384569"
-      ],
       "pass_rate": 44,
       "choices": [
         {
           "text": "E = Q / [2πε₀ √(A + x)]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m13b1.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{2\\pi\\varepsilon_0 \\sqrt{A + x}}$$"
+            }
           ]
         },
         {
           "text": "E = Q / [4πε₀ √(A + x)]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m13b2.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi\\varepsilon_0 \\sqrt{A + x}}$$"
+            }
           ]
         },
         {
           "text": "E = Qx / [2πε₀ (a² + x²)^{3/2}]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m13b3.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Qx}{2\\pi\\varepsilon_0 (a^2 + x^2)^{\\frac{3}{2}}}$$"
+            }
           ]
         },
         {
           "text": "E = Qx / [4πε₀ (a² + x²)^{3/2}]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m13b4.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Qx}{4\\pi\\varepsilon_0 (a^2+x^2)^{\\frac{3}{2}}}$$"
+            }
           ]
         }
       ],
@@ -607,6 +616,12 @@
         "charged-ring-axial-field",
         "axial-vector-components",
         "coulombs-law"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원형 고리(반지름 a)의 축(x축) 위 점 P까지의 거리 r, 축 방향 거리 x인 전기장 다이어그램.\n\n- 고리 중심: 원점 O\n- 고리 반지름: a (y-z 평면)\n- 미소 전류 요소: dI\n- 축 위 점: P\n- OP 거리: x\n- dI에서 P까지 거리: r"
+        }
       ]
     },
     {
@@ -876,9 +891,6 @@
       "number": 20,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 2동심 구도체에서 도체 1의 전하가 Q1=4πε0[C], 도체 2의 전하가 Q2=0[C]일 때, 도체 1의 전위는 몇 [V]인가? (단, a=10㎝, b=15㎝, c=20㎝라 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m20.gif?1518384569"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -915,6 +927,12 @@
       "concept_ids": [
         "concentric-spherical-conductors",
         "composite-conductor"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동심 구형 도체 단면도:\n- 내부 구체(반지름 a): 전하 Q₁\n- 중간 구형 도체(안쪽 반지름 b, 바깥쪽 반지름 c): 전하 Q₂\n- 영역 1: r < a (내부 구체 내부)\n- 영역 2: a < r < b (내부 구체와 중간 도체 사이 공간)\n- 중간 도체: b < r < c\n- 영역 외부: r > c"
+        }
       ]
     },
     {
@@ -926,26 +944,38 @@
       "choices": [
         {
           "text": "은 √(L/C), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m21b1.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{L}{C}}$$"
+            }
           ]
         },
         {
           "text": "는 √(C/L), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m21b2.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{C}{L}}$$"
+            }
           ]
         },
         {
           "text": "은 1/√(LC), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m21b3.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\sqrt{LC}}$$"
+            }
           ]
         },
         {
           "text": "는 √(LC) 의 수식 이미지이다. 즉 네 보기는 단위 선로 길이당 인덕턴스 L과 커패시턴스 C로 구성된 네 가지 형태의 수식으로, 차례로 특성 임피던스의 형태, 그 역수 형태, 전파속도 형태, 단위 길이당 전파 지연시간 형태에 해당한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m21b4.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{LC}$$"
+            }
           ]
         }
       ],
@@ -1026,9 +1056,6 @@
       "number": 23,
       "subject": "2과목 : 전력공학",
       "question": "불평형 3상 전압을 Va, Vb, Vc라 하고, 라 할 때, Vx=1/3(Va＋aVb＋a2Vc)이다. 여기서 Vx는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m23m1.gif?1518384569"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1067,6 +1094,12 @@
         "symmetrical-component-method",
         "positive-sequence-voltage",
         "unbalanced-three-phase-voltage"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$a = e^{j\\frac{2x}{3}}$$"
+        }
       ]
     },
     {
@@ -1523,9 +1556,6 @@
       "number": 34,
       "subject": "2과목 : 전력공학",
       "question": "임피던스 Z1, Z2 및 Z3를 그림과 같이 접속한 선로의 A쪽에서 전압파 E가 진행해 왔을 때 접속점 B에서 무반사로 되기 위한 조건은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m34.gif?1518384569"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1564,6 +1594,12 @@
         "non-reflection-condition",
         "parallel-impedance-equivalent",
         "voltage-wave-reflection-transmission"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A -->|E| B\n    B --> C\n    B --> D\n    A -. Z₁ .- B\n    B -. Z₂ .- C\n    B -. Z₃ .- D\n```"
+        }
       ]
     },
     {
@@ -1750,9 +1786,6 @@
       "number": 39,
       "subject": "2과목 : 전력공학",
       "question": "그림과 같이 일직선 배치로 완전 연가한 경우의 등가 선간 거리는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m39.gif?1518384569"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -1792,6 +1825,12 @@
       "concept_ids": [
         "fully-transposed-line",
         "geometric-mean-distance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "3개의 동일한 원형 도체(반지름 a)가 간격 D로 일렬 배치된 단면도.\n각 도체는 반지름 r의 중심을 가지며, 도체 간 간격은 D로 동일함.\n\n배치: ○--D--○--D--○\n각 원의 반지름: a, 중심 표시: r"
+        }
       ]
     },
     {
@@ -2965,33 +3004,42 @@
       "number": 66,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 RLC 회로에서 입력전압 ei(t), 출력 전류가 i(t)인 경우 이 회로의 전달함수 I(s), Ei(S)는? (단, 모든 초기 조건은 0이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m66.gif?1518384569"
-      ],
       "pass_rate": 48,
       "choices": [
         {
           "text": "(img2): \\(\\dfrac{Cs}{RCs^{2}+LCs+1}\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m66b1.gif?1523138819"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Cs}{RCs^2 + LCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img3): \\(\\dfrac{1}{RCs^{2}+LCs+1}\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m66b2.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{RCs^2 + LCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img4): \\(\\dfrac{Cs}{LCs^{2}+RCs+1}\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m66b3.gif?1534230136"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Cs}{LCs^2 + RCs + 1}$$"
+            }
           ]
         },
         {
           "text": "(img5): \\(\\dfrac{1}{LCs^{2}+RCs+1}\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m66b4.gif?1534230136"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{LCs^2 + RCs + 1}$$"
+            }
           ]
         }
       ],
@@ -3020,6 +3068,12 @@
       "concept_ids": [
         "rlc-series-circuit",
         "voltage-current-transfer-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 RLC 회로:\n- 전압원 e_i(t) (좌측, 극성: 위가 +)\n- 저항 R (상단 좌)\n- 인덕터 L (상단 우)\n- 커패시터 C (우측)\n- 루프 전류 i_(t) (시계 방향)"
+        }
       ]
     },
     {
@@ -3112,33 +3166,42 @@
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 중 그림의 신호흐름 선도에서 C/R는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m69.gif?1518384569"
-      ],
       "pass_rate": 75,
       "choices": [
         {
           "text": "ab/(1+b-abd),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m69b1.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{ab}{1 + b - abd}$$"
+            }
           ]
         },
         {
           "text": "ab/(1-b-abd),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m69b2.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{ab}{1 - b - abd}$$"
+            }
           ]
         },
         {
           "text": "ab/(1+b-abd),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m69b3.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{ab}{1 + b - abd}$$"
+            }
           ]
         },
         {
           "text": "ab/(1-ab+abd).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m69b4.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{ab}{1 - ab + abd}$$"
+            }
           ]
         }
       ],
@@ -3167,39 +3230,54 @@
       "concept_ids": [
         "mason-gain-formula",
         "signal-flow-graph"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "신호 흐름선도 (Signal Flow Graph):\n- 노드: R, a, b, c\n- 전방 경로: R →(l)→ a →(a)→ b →(b)→ c (상단 화살표)\n- 자기 루프: b →(1)→ b\n- 피드백 경로: b →(d)→ a (하단 곡선 화살표, 역방향)\n- R에서 c로의 전달: 이득 l"
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같이 2중으로 된 블록선도의 출력 C는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m70.gif?1518384569"
-      ],
       "pass_rate": 56,
       "choices": [
         {
           "text": ": (G2/(1-G1G2))(G1R+u)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m70b1.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(\\frac{G_2}{1 - G_1 G_2}\\right)(G_1 R + u)$$"
+            }
           ]
         },
         {
           "text": ": (G2/(1+G1G2))(G1R+u)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m70b2.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(\\frac{G_2}{1 + G_1 G_2}\\right)(G_1 R + u)$$"
+            }
           ]
         },
         {
           "text": ": (G1/(1-G1G2))(G1R-u)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m70b3.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(\\frac{G_1}{1 - G_1 G_2}\\right)(G_1 R - u)$$"
+            }
           ]
         },
         {
           "text": ": (G1/(1+G1G2))(G1R-u)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m70b4.gif?1518384569"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(\\frac{G_1}{1 + G_1 G_2}\\right)(G_1 R - u)$$"
+            }
           ]
         }
       ],
@@ -3228,6 +3306,12 @@
       "concept_ids": [
         "block-diagram-reduction",
         "superposition-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "블록선도 (Block Diagram):\n- 입력: R (좌측)\n- 합산점 1: R (+) 와 피드백 (−) 합산\n- 블록 G₁: 합산점 1 출력을 입력으로 받음\n- 합산점 2: G₁ 출력 (+) 와 외란 u (+) 합산\n- 블록 G₂: 합산점 2 출력을 입력으로 받음\n- 출력: C (우측)\n- 피드백: C → 합산점 1 (음의 피드백, −)"
+        }
       ]
     },
     {
@@ -3323,9 +3407,6 @@
       "number": 73,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 파형의 라플라스 변환은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m73.gif?1518384570"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -3364,6 +3445,12 @@
         "ramp-function",
         "laplace-transform",
         "unit-step-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "f(t) 대 t 그래프:\n- 원점에서 시작하는 직선 (램프 함수)\n- 기울기: E/T\n- 세로축: f(t)\n- 가로축: t"
+        }
       ]
     },
     {
@@ -3415,9 +3502,6 @@
       "number": 75,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 회로에서 전류 I는 몇 [A]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m75.gif?1518384570"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -3456,6 +3540,12 @@
         "balanced-bridge",
         "equivalent-resistance-calculation",
         "series-parallel-circuit-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "100V 전원에 연결된 회로:\n- 상단 경로: 5Ω (직렬)\n- 중간 경로: 5Ω, 1Ω, 3Ω (직렬)\n- 우측: 3Ω (병렬)\n\n```\n        5Ω\n  ┌───[5Ω]───────────────────┐\n  │                          │\n100V  ┌─[5Ω]─[1Ω]─┐         │\n  │   │      [3Ω]  │    [3Ω]│\n  └───┴─────────────┴────────┘\n```"
+        }
       ]
     },
     {
@@ -3552,33 +3642,42 @@
       "number": 78,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같은 회로에서 t=0에서 스위치 S를 닫으면서 전압 E[V]를 가할 때 L 양단에 걸리는 전압 eL[V]는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m78.gif?1518384570"
-      ],
       "pass_rate": 42,
       "choices": [
         {
           "text": "(img2): e_L = E(1 - e^{-(R/L)t})",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m78b1.gif?1518384570"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E\\!\\left(1 - e^{-\\frac{R}{L}t}\\right)$$"
+            }
           ]
         },
         {
           "text": "(img3): e_L = E·e^{-(R/L)t}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m78b2.gif?1518384570"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E e^{-\\frac{R}{L}t}$$"
+            }
           ]
         },
         {
           "text": "(img4): e_L = E(1 + e^{(R/L)t})",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m78b3.gif?1518384570"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E\\!\\left(1 + e^{\\frac{R}{L}t}\\right)$$"
+            }
           ]
         },
         {
           "text": "(img5): e_L = -E·e^{-(R/L)t}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20090726/kt20090726m78b4.gif?1518384570"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$-E e^{-\\frac{R}{L}t}$$"
+            }
           ]
         }
       ],
@@ -3610,6 +3709,12 @@
         "rl-series-circuit",
         "inductor-voltage-characteristics",
         "time-constant"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 RL 회로:\n- 전원 E, 스위치 S, 저항 R, 인덕터 L 직렬 연결\n- 전류 i (시계 방향)\n- 인덕터 양단 전압: $e_L$\n\n```\n    S        R\n┌──/ ──────[WWW]──────┐\n│                     │\nE        i →       L ║ e_L\n│         (↻)        ║\n└────────────────────┘\n```"
+        }
       ]
     },
     {

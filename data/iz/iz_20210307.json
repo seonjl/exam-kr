@@ -314,9 +314,6 @@
       "number": 8,
       "subject": "1과목 : 소프트웨어 설계",
       "question": "다음은 어떤 프로그램 구조를 나타낸다. 모듈 F에서의 fan-in과 fan-out의 수는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m8.gif?1617698130"
-      ],
       "pass_rate": 91,
       "choices": [
         {
@@ -353,6 +350,12 @@
       },
       "concept_ids": [
         "fan-in-fan-out"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\n    A --> B\n    A --> C\n    A --> D\n    B --> E\n    B --> F\n    C --> F\n    D --> F\n    F --> G\n    F --> H\n```"
+        }
       ]
     },
     {
@@ -874,9 +877,6 @@
       "number": 21,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "구현 단계에서의 작업 절차를 순서에 맞게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m21.gif?1617698130"
-      ],
       "pass_rate": 93,
       "choices": [
         {
@@ -913,15 +913,18 @@
       "concept_ids": [
         "implementation-phase",
         "coding-compile-test-order"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 코딩한다.\n② 코딩작업을 계획한다.\n③ 코드를 테스트한다.\n④ 컴파일한다."
+        }
       ]
     },
     {
       "number": 22,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "다음 자료에 대하여 “Selection Sort”를 사용하여 오름차순으로 정렬한 경우 PASS 3의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m22.gif?1617698130"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -957,6 +960,12 @@
       },
       "concept_ids": [
         "selection-sort"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "초기상태 : 8, 3, 4, 9, 7"
+        }
       ]
     },
     {
@@ -1007,9 +1016,6 @@
       "number": 24,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "다음 전위식(prefix)을 후위식(postfix)으로 옳게 표현한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m24.gif?1617698130"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1046,6 +1052,12 @@
       "concept_ids": [
         "prefix-postfix-conversion",
         "operator-precedence"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- / + A + B C D E"
+        }
       ]
     },
     {
@@ -1717,9 +1729,6 @@
       "number": 40,
       "subject": "2과목 : 소프트웨어 개발",
       "question": "다음 트리를 Preorder 운행법으로 운행할 경우 다섯 번째로 탐색되는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m40.gif?1617698130"
-      ],
       "pass_rate": 87,
       "choices": [
         {
@@ -1756,15 +1765,18 @@
       "concept_ids": [
         "binary-tree-preorder",
         "tree-traversal"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\n    A --> B\n    A --> C\n    B --> D\n    C --> E\n    C --> F\n    E --> G\n    E --> H\n```"
+        }
       ]
     },
     {
       "number": 41,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "결과 값이 아래와 같을 때 SQL 질의로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m41.gif?1617698130"
-      ],
       "pass_rate": 91,
       "choices": [
         {
@@ -1800,15 +1812,18 @@
       },
       "concept_ids": [
         "like-wildcards"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**[공급자] Table**\n\n| 공급자번호 | 공급자명 | 위치 |\n|---|---|---|\n| 16 | 대신공업사 | 수원 |\n| 27 | 삼진사 | 서울 |\n| 39 | 삼양사 | 인천 |\n| 62 | 진마공업사 | 대전 |\n| 70 | 신촌상사 | 서울 |\n\n**[결과]**\n\n| 공급자번호 | 공급자명 | 위치 |\n|---|---|---|\n| 16 | 대신공업사 | 수원 |\n| 70 | 신촌상사 | 서울 |"
+        }
       ]
     },
     {
       "number": 42,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음에서 설명하는 스키마(Schema)는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m42.gif?1617698130"
-      ],
       "pass_rate": 81,
       "choices": [
         {
@@ -1845,6 +1860,12 @@
       "concept_ids": [
         "conceptual-schema",
         "three-level-schema"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "데이터베이스 전체를 정의한 것으로 데이터개체, 관계, 제약조건, 접근권한, 무결성 규칙 등을 명세한 것"
+        }
       ]
     },
     {
@@ -1896,9 +1917,6 @@
       "number": 44,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 릴레이션의 카디널리티와 차수가 옳게 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m44.gif?1617698130"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -1934,15 +1952,18 @@
       },
       "concept_ids": [
         "relation-degree-cardinality"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 아이디 | 성명 | 나이 | 등급 | 적립금 | 가입년도 |\n|--------|------|------|------|--------|----------|\n| yuyu01 | 원유철 | 36 | 3 | 2000 | 2008 |\n| sykim10 | 김성일 | 29 | 2 | 3300 | 2014 |\n| kshan4 | 한경선 | 45 | 3 | 2800 | 2009 |\n| namsu52 | 이남수 | 33 | 5 | 1000 | 2016 |"
+        }
       ]
     },
     {
       "number": 45,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음과 같은 트랜잭션의 특성은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m45.gif?1617698130"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -1980,6 +2001,12 @@
       "concept_ids": [
         "acid-properties",
         "integrity-constraint-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "시스템이 가지고 있는 고정요소는 트랙잭션 수행 전과 트랙잭션 수행 완료 후의 상태가 같아야 한다."
+        }
       ]
     },
     {
@@ -2072,9 +2099,6 @@
       "number": 48,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "다음 정의에서 말하는 기본 정규형은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m48.gif?1617698130"
-      ],
       "pass_rate": 85,
       "choices": [
         {
@@ -2113,6 +2137,12 @@
         "first-normal-form",
         "atomic-domain",
         "normalization-stages"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "어떤 릴레이션 R에 속한 모든 도메인이 원자값(Atomic Value)만으로 되어 있다."
+        }
       ]
     },
     {
@@ -2472,33 +2502,42 @@
       "number": 57,
       "subject": "3과목 : 데이터베이스 구축",
       "question": "아래의 SQL문을 실행한 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m57.gif?1617698130"
-      ],
       "pass_rate": 90,
       "choices": [
         {
           "text": "이름\n학급명\n김남길\n전화번호",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m57b1.gif?1617698130"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 이름 |\n|------|\n| 홍길동 |\n| 강남길 |\n| 장미화 |"
+            }
           ]
         },
         {
           "text": "이름  \n학점등급  \n김남길  \n오언자",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m57b2.gif?1617698130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "이름\n홍길동\n강남길\n오말자"
+            }
           ]
         },
         {
           "text": "이름\n학급번호\n김숙수\n강남대학교\n오월자\n장미화",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m57b3.gif?1617698130"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "이름\n홍길동\n김철수\n강남길\n오말자\n장미화"
+            }
           ]
         },
         {
           "text": "이름\n홍길동\n김철수",
-          "images": [
-            "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m57b4.gif?1617698130"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 이름 |\n|------|\n| 홍길동 |\n| 김철수 |"
+            }
           ]
         }
       ],
@@ -2519,6 +2558,12 @@
       "concept_ids": [
         "subquery",
         "in-operator"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "[R1 테이블]\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 홀길동 | 4 | 컴퓨터 | 서울 |\n| 2000 | 김철수 | 3 | 전기 | 경기 |\n| 3000 | 강남길 | 1 | 컴퓨터 | 경기 |\n| 4000 | 오말자 | 4 | 컴퓨터 | 경기 |\n| 5000 | 장미화 | 2 | 전자 | 서울 |\n\n[R2 테이블]\n\n| 학번 | 과목번호 | 학점 | 점수 |\n|------|----------|------|------|\n| 1000 | C100 | A | 91 |\n| 1000 | C200 | A | 94 |\n| 2000 | C300 | B | 85 |\n| 3000 | C400 | A | 90 |\n| 3000 | C500 | C | 75 |\n| 3000 | C100 | A | 90 |\n| 4000 | C400 | A | 95 |\n| 4000 | C500 | A | 91 |\n| 4000 | C100 | B | 80 |\n| 4000 | C200 | C | 74 |\n| 5000 | C400 | B | 85 |\n\n[SQL 문]\n\n```sql\nSELECT 이름\nFROM R1\nWHERE 학번 IN\n    (SELECT 학번\n     FROM R2\n     WHERE 과목번호 = 'C100');\n```"
+        }
       ]
     },
     {
@@ -3048,9 +3093,6 @@
       "number": 70,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 JAVA 코드 출력문의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m70.gif?1617698130"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -3087,6 +3129,12 @@
       "concept_ids": [
         "string-concat-operator",
         "parenthesis-arithmetic-precedence"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "..생략..\nSystem.out.println(\"5 + 2 = \" + 3 + 4);\nSystem.out.println(\"5 + 2 = \" + (3 + 4));\n..생략.."
+        }
       ]
     },
     {
@@ -3181,9 +3229,6 @@
       "number": 73,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "결합도가 낮은 것부터 높은 순으로 옳게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m73.gif?1617698130"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -3219,15 +3264,18 @@
       },
       "concept_ids": [
         "module-coupling"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "(ㄱ) 내용결합도　　　(ㄴ) 자료결합도\n(ㄷ) 공통결합도　　　(ㄹ) 스탬프결합도\n(ㅁ) 외부결합도　　　(ㅂ) 제어결합도"
+        }
       ]
     },
     {
       "number": 74,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음 설명의 ㉠과 ㉡에 들어갈 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m74.gif?1617698130"
-      ],
       "pass_rate": 81,
       "choices": [
         {
@@ -3264,6 +3312,12 @@
       "concept_ids": [
         "paging",
         "segmentation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "가상기억장치의 일반적인 구현 방법에는 프로그램을 고정된 크기의 일정한 블록으로 나누는 ( ① ) 기법과 가변적인 크기의 블록으로 나누는 ( ② ) 기법이 있다."
+        }
       ]
     },
     {
@@ -3441,9 +3495,6 @@
       "number": 79,
       "subject": "4과목 : 프로그래밍 언어 활용",
       "question": "다음은 파이썬으로 만들어진 반복문 코드이다. 이 코드의 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m79.gif?1617698130"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -3480,6 +3531,12 @@
       "concept_ids": [
         "while-loop",
         "continue-statement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```python\n>> while(True) :\n    print('A')\n    print('B')\n    print('C')\n    continue\n    print('D')\n```"
+        }
       ]
     },
     {
@@ -3617,9 +3674,6 @@
       "number": 83,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 내용이 설명하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m83.gif?1617698130"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -3656,6 +3710,12 @@
       },
       "concept_ids": [
         "mqtt-pubsub"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 사물통신, 사물인터넷과 같이 대역폭이 제한된 통신환경에 최적화하여 개발된 푸시기술 기반의 경량 메시지 전송 프로토콜\n- 메시지 매개자(Broker)를 통해 송신자가 특정 메시지를 발행하고 수신자가 메시지를 구독하는 방식\n- IBM이 주도하여 개발"
+        }
       ]
     },
     {
@@ -3878,9 +3938,6 @@
       "number": 89,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 내용이 설명하는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m89.gif?1617698131"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -3917,6 +3974,12 @@
       "concept_ids": [
         "baas",
         "cloud-blockchain-platform"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 블록체인(Blockchain) 개발환경을 클라우드로 서비스하는 개념\n- 블록체인 네트워크에 노드의 추가 및 제거가 용이\n- 블록체인의 기본 인프라를 추상화하며 블록체인 응용프로그램을 만들 수 있는 클라우드 컴퓨팅 플랫폼"
+        }
       ]
     },
     {
@@ -3967,9 +4030,6 @@
       "number": 91,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 LAN의 네트워크 토폴로지는 어떤 형인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m91.gif?1617698131"
-      ],
       "pass_rate": 92,
       "choices": [
         {
@@ -4006,6 +4066,12 @@
       "concept_ids": [
         "bus-topology",
         "lan-shared-medium-topology"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph LR\n  S1[스테이션1] --> S2[스테이션2] --> S3[스테이션3] --> S4[스테이션4] --> S5[스테이션5]\n```\n\n데이터 전송 방향 →"
+        }
       ]
     },
     {
@@ -4055,9 +4121,6 @@
       "number": 93,
       "subject": "5과목 : 정보시스템 구축관리",
       "question": "다음 내용이 설명하는 소프트웨어 개발 모형은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/iz/iz20210307/iz20210307m93.gif?1617698131"
-      ],
       "pass_rate": 82,
       "choices": [
         {
@@ -4096,7 +4159,13 @@
         "waterfall-model"
       ],
       "explanation_detailed_pre_fix_D03": "핵심 개념\n- 폭포수 모형은 SDLC에서 가장 고전적이고 선형 순차적인 접근으로, 각 단계가 완료되어야 다음 단계로 진행되며 이전 단계로 되돌아가지 않는 모델이다.\n정답 분석\n- 폭포수 모형(Waterfall Model)은 Royce가 제시한 고전적 생명주기 모형으로, 타당성 검토 → 계획 → 요구사항 분석 → 설계 → 구현 → 시험 → 유지보수 단계가 폭포에서 물이 떨어지듯 순차적으로 진행된다. 각 단계의 산출물이 명확하고 단계 간 피드백이 제한적이며, 요구사항이 초기에 확정되는 프로젝트에 적합하다.\n오답 분석\n- ① 프로토타입 모형: 요구사항을 명확히 하기 위해 시제품을 먼저 만들어 사용자 피드백으로 개선하는 모델.\n- ② 나선형 모형: Boehm이 제안, 위험 분석을 핵심으로 계획·분석·개발·평가를 반복하며 점진적으로 완성하는 모델.\n- ③ 폭포수 모형: 선형 순차적으로 단계가 진행되는 고전적 SDLC 모델로 정답.\n- ④ RAD 모형: CASE 도구·코드 생성기를 활용해 60~90일의 짧은 주기로 빠르게 개발하는 모델.",
-      "fix_D03_at": 1779358737
+      "fix_D03_at": 1779358737,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "소프트웨어 생명주기 모형 중 Boehm이 제시한 고전적 생명주기 모형으로서 선형 순차적 모델이라고도 하며, 타당성 검토, 계획, 요구사항 분석, 설계, 구현, 테스트, 유지보수의 단계를 통해 소프트웨어를 개발하는 모형"
+        }
+      ]
     },
     {
       "number": 94,

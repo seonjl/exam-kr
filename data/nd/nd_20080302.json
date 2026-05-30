@@ -910,26 +910,38 @@
       "choices": [
         {
           "text": "$\\dfrac{U}{U_{max}} = \\left(\\dfrac{R}{R_o}\\right)^2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m21b1.gif?1500852195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{U}{U_{max}} = \\left(\\frac{R}{R_o}\\right)^2$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{U}{U_{max}} = 2\\left(\\dfrac{R}{R_o}\\right)^2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m21b2.gif?1500852195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{U}{U_{max}} = 2\\left(\\frac{R}{R_o}\\right)^2$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{U}{U_{max}} = \\left(\\dfrac{R}{R_o}\\right)^2 - 2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m21b3.gif?1500852195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{U}{U_{max}} = \\left(\\frac{R}{R_o}\\right)^2 - 2$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{U}{U_{max}} = 1 - \\left(\\dfrac{R}{R_o}\\right)^2$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m21b4.gif?1500852195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{U}{U_{max}} = 1 - \\left(\\frac{R}{R_o}\\right)^2$$"
+            }
           ]
         }
       ],
@@ -1274,9 +1286,6 @@
       "number": 29,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 지름 25cm인 수평관에 12cm의 오리피스가 설치되어 있으며, 물ㆍ수은 액주계가 오리피스판 양쪽에 연결되어 있다. 액주계의 높이 차이가 25cm 일 때 유량은 몇 인가? (단, 수은의 비중은 13.6, 수축계수는 0.7, 속도계수(Cv)는 0.9 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m29.gif?1500852195"
-      ],
       "pass_rate": 19,
       "choices": [
         {
@@ -1313,6 +1322,12 @@
       "concept_ids": [
         "orifice-discharge-rate",
         "manometer-liquid-column"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수평 배관에 유체가 흐르는 관 내부 구조 그림.\n관 중앙부에서 유체가 수렴하여 좁아지는 형태(벤투리 형상).\n하단에 U자형 수직 관이 연결되어 있으며, 수직 관의 길이는 25 cm."
+        }
       ]
     },
     {
@@ -1452,9 +1467,6 @@
       "number": 33,
       "subject": "2과목 : 소방유체역학",
       "question": "그림의 액주계에서 밀도 p1 =1 000kg/m3 , p2 = 13600kg/m3 높이, h1 = 500mm, h2 = 800mm 일 때 관 중심 A의 계기압력은 몇 kPa 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m33.gif?1500852195"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -1493,16 +1505,18 @@
         "liquid-column-manometer",
         "density",
         "gauge-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 탱크(좌: 액위 $h_1$, 우: 액위 $h_2$)가 U자형 관으로 연결된 구조.\n좌측 탱크 상단에 펌프(원형 기호, $A$) 있음.\n$\\ell_1$: 좌측 관 길이, $\\ell_2$: 우측 관 길이."
+        }
       ]
     },
     {
       "number": 34,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 단면적이 A인 원형관으로 밀도가 ρ인 비압축성 유체가 V의 유속으로 들어와 직경이 인 원형노즐로 분출되고 있다. 제트에 위해서 평판에 작용하는 힘은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m34m1.gif?1500852195",
-        "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m34.gif?1500852195"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -1541,6 +1555,16 @@
         "continuity-equation",
         "conservation-of-momentum",
         "cross-sectional-area-change"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{1}{3}D$$"
+        },
+        {
+          "kind": "formula",
+          "content": "수평 관에서 단면이 좁아지는 구조(벤투리관 또는 오리피스).\n- 왼쪽: 유속 $V$, 직경 $D$, 디퓨저 A\n- 중앙 좁은 목 부분: 직경 $\\frac{1}{3}D$\n- 오른쪽: 힘 $F$ 방향(화살표)"
+        }
       ]
     },
     {
@@ -1726,9 +1750,6 @@
       "number": 39,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 물 탱크에 수명으로부터 6m되는 지점에 직경 15cm가 되는 노즐이 있을 경우 유출하는 유량은 몇 인가? (단, 손실은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20080302/nd20080302m39.gif?1500852196"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1767,6 +1788,12 @@
         "head-difference-calculation",
         "nozzle-discharge-characteristics",
         "continuity-equation-flow-rate"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사각형 수조(액면 높이 $6m$) 하단에 수평 배관이 연결된 구조.\n배관 출구 우측에 수직 높이 표시: $0.15m$."
+        }
       ]
     },
     {

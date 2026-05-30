@@ -1222,9 +1222,6 @@
       "number": 28,
       "subject": "2과목 : 소방유체역학",
       "question": "다음 시차압력계에서 압력차 (PA - PB )는 몇 kPa 인가? (단, H1 = 300mm, H2 = 200mm, H3 = 800mm 이고 수은의 비중은 13.6 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m28.gif?1496991009"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1263,6 +1260,12 @@
         "u-tube-manometer",
         "mercury-measurement",
         "hydraulic-calculation-principles"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "U자형 마노미터 단면도:\n- 좌측 상단 A점 (원형 단면 배관)\n- 우측 상단 B점 (원형 단면 배관)\n- 좌측관 높이: H₃ (A에서 수은 상단까지)\n- 우측관 높이: H₁ (B에서 수은 상단까지)\n- 하부 U관 수은(수은) 높이: H₂\n- 하부 유체: 수은"
+        }
       ]
     },
     {
@@ -1313,9 +1316,6 @@
       "number": 30,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 탱크에 비중이 0.8인 기름과 물이 들어있다. 벽면 AB에 작용하는 유체(기름 및 물)에 의한 힘은 약 몇 kN인가? (단, 벽면 AB의 폭(y 방향)은 1m 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m30.gif?1496991009"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -1354,15 +1354,18 @@
         "hydrostatic-force-application",
         "multiple-fluid-pressure-superposition",
         "buoyancy-hydrostatics"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "2층 유체 탱크 단면도:\n- 상부: 기름 (비중 0.8), 높이 2m\n- 하부: 물 (빗금 영역, 삼각형 단면), 높이 2m, 밑변 2m\n- 좌측 벽면 연직\n- 우측 벽면 경사 (A점 상단, B점 하단)\n- 좌표계: z(상), y(우), x(전방)"
+        }
       ]
     },
     {
       "number": 31,
       "subject": "2과목 : 소방유체역학",
       "question": "체적 0.05m3인 구 안에 가득 찬 유체가 있다. 이 구를 그림과 같이 물 속에 넣고 수직 방향으로 100N의 힘을 가해서 들어 주면 구가 물 속에 절반만 잠긴다. 구 안에 있는 유체의 비중량[N/m3]은? (단, 구의 두께와 무게는 모두 무시할 정도로 작다고 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m31.gif?1496991009"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -1403,6 +1406,12 @@
         "buoyancy",
         "archimedes-principle",
         "unit-weight-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "부력 문제 그림:\n- 구(球) 체적: 0.05 m³ (빗금 원)\n- 수면(▽): 구의 중심부 위치\n- 상방향 힘: 100 N (위쪽 화살표)"
+        }
       ]
     },
     {
@@ -1504,26 +1513,38 @@
       "choices": [
         {
           "text": "은 (τ₁+τ₂)/2 (산술평균), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m34b1.gif?1496991010"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\tau_1 + \\tau_2}{2}$$"
+            }
           ]
         },
         {
           "text": "는 √(τ₁·τ₂) (기하평균), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m34b2.gif?1496991010"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\tau_1 \\tau_2}$$"
+            }
           ]
         },
         {
           "text": "은 2τ₁τ₂/(τ₁+τ₂) (조화평균), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m34b3.gif?1496991010"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2\\tau_1 \\tau_2}{\\tau_1 + \\tau_2}$$"
+            }
           ]
         },
         {
           "text": "는 τ₁+τ₂ 이다. 정답은 ③번으로, 두 유체가 위아래 반반씩 채워진 쿠엣 유동에서 단위면적당 힘은 두 단독 유체의 전단응력 τ₁, τ₂의 조화평균 형태로 표현된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m34b4.gif?1496991010"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\tau_1 + \\tau_2$$"
+            }
           ]
         }
       ],
@@ -1735,9 +1756,6 @@
       "number": 39,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 크기가 다른 관이 접속된 수평배관내에 화살표의 방향으로 정상류의 물이 흐르고 있고 두 개의 압력계 A, B가 각각 설치되어 있다. 압력계 A, B에서 지시하는 압력을 각각 PA , PB 라고 할 때 Pa 와 Pb 의 관계로 옳은 것은? (단, A와 B지점간의 배관 내 마찰손실은 없다고 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20150919/nd20150919m39.gif?1496991010"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -1774,6 +1792,12 @@
       "concept_ids": [
         "bernoulli-law",
         "velocity-pressure-relationship"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A([계기 A]) --> pipe[배관]\n    pipe --> B([계기 B])\n    pipe --> arrow[ → ]\n```\n\n배관이 좁아지는 구간(축소부)에 계기 A(입구)와 계기 B(출구)가 설치된 구조. 유체는 왼쪽에서 오른쪽으로 흐름."
+        }
       ]
     },
     {

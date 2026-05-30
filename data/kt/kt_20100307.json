@@ -54,9 +54,6 @@
       "number": 2,
       "subject": "1과목 : 전기자기학",
       "question": "대지의 고유저항이 ρ[Ω·m]일 때 반지름 a[m]인 그림과 같은 반구 접지극의 접지저항[Ω]은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m2.gif?1518271149"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -95,6 +92,12 @@
         "hemispherical-grounding-resistance",
         "earth-resistivity",
         "grounding-electrode-geometry"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "반구형 오목면(접지된 도체) 위에 점전하가 놓인 그림.\n반지름: $a$ [m]\n\n```\n        ●  (점전하)\n        |\n   _____|_____\n  /     ↓a[m] \\\n /             \\\n/_______________\\\n▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  (접지 도체면)\n```"
+        }
       ]
     },
     {
@@ -196,26 +199,38 @@
       "choices": [
         {
           "text": "| (10^3 / 120π) · sin(ωt − βz) a_z [A/m] |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m5b1.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{10^3}{120\\pi}\\sin(\\omega t - \\beta z)\\,\\mathbf{a}_z$$"
+            }
           ]
         },
         {
           "text": "| (10^3 / 120π) · sin(ωt − βz) a_x [A/m] |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m5b2.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{10^3}{120\\pi}\\sin(\\omega t - \\beta z)\\,\\mathbf{a}_x$$"
+            }
           ]
         },
         {
           "text": "| −(10^3 / 120π) · sin(ωt − βz) a_z [A/m] |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m5b3.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$-\\frac{10^3}{120\\pi}\\sin(\\omega t - \\beta z)\\,\\mathbf{a}_z$$"
+            }
           ]
         },
         {
           "text": "| −(10^3 / 120π) · sin(ωt − βz) a_x [A/m] |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m5b4.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$-\\frac{10^3}{120\\pi}\\sin(\\omega t - \\beta z)\\,\\mathbf{a}_x$$"
+            }
           ]
         }
       ],
@@ -301,26 +316,38 @@
       "choices": [
         {
           "text": ": Z₀ = √(L/C)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m7b1.gif?1518271152"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$Z_0 = \\sqrt{\\frac{L}{C}}$$"
+            }
           ]
         },
         {
           "text": ": Z₀ = √(LC)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m7b2.gif?1707545768"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$Z_0 = \\sqrt{LC}$$"
+            }
           ]
         },
         {
           "text": ": Z₀ = √(C/L)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m7b3.gif?1518271152"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$Z_0 = \\sqrt{\\frac{C}{L}}$$"
+            }
           ]
         },
         {
           "text": ": Z₀ = 1/√(LC)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m7b4.gif?1518271152"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$Z_0 = \\frac{1}{\\sqrt{LC}}$$"
+            }
           ]
         }
       ],
@@ -984,9 +1011,6 @@
       "number": 22,
       "subject": "2과목 : 전력공학",
       "question": "과전류 계전기는 그 용도에 따라 적절한 동작 시한(time limit)이 있는 것을 선정하여야 하는바 그림에서 반한시형으로 가장 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m22.gif?1518271149"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -1024,6 +1048,12 @@
       "concept_ids": [
         "inverse-time-overcurrent-relay",
         "relay-operation-characteristics"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동작시간 [sec] vs 동작전류 그래프 (반한시 계전기 특성 곡선)\n\n- 세로축: 동작시간 [sec] (위로 증가)\n- 가로축: 동작 전류 (오른쪽으로 증가)\n- 곡선 ①: 가장 위 (동작시간 가장 길다)\n- 곡선 ②: 중간\n- 곡선 ③: 가장 아래 (동작시간 가장 짧다)\n- 곡선 ④: 가로축 근처 (정한시 또는 순한시 특성)\n\n모두 전류 증가에 따라 동작시간이 감소하는 반한시 특성."
+        }
       ]
     },
     {
@@ -1345,9 +1375,6 @@
       "number": 30,
       "subject": "2과목 : 전력공학",
       "question": "6.6[kV] 3상 3선식 배전선로에서 완전 1선 지락 고장이 발생 하였을 때 GPT 2차에 나타나는 전압 [V]은? (단, GPT는 변압기 3대로 구성되어 있으며, 변압기의 변압비는 (6600/√3)/(110/√3)V이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m30.gif?1518271149"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -1386,6 +1413,12 @@
         "zero-sequence-component",
         "single-line-earth-fault",
         "instrument-transformer"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "3상 접지형 계기용 변압기(GPT) 결선 회로\n\n- 1차측: 3상(a, b, c) Y결선, 중성점 접지\n- GPT (접지형 PT)\n- 2차측: 출력전압 $V_2$\n\n```\na ─┬─[PT 1차]─┐\nb ─┼─[PT 1차]─┤(GPT)─── V₂\nc ─┴─[PT 1차]─┘\n         │\n        접지(GND)\n```"
+        }
       ]
     },
     {
@@ -1397,26 +1430,38 @@
       "choices": [
         {
           "text": "위로 볼록한 곡선: T축 상단 부근에서 시작하여 S가 증가함에 따라 완만하게 우측 아래로 내려가는 형태(엔트로피 증가에 따라 온도가 점차 감소하는 곡선).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m31b1.gif?1518271150"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "T-S 그래프: 토크(T) vs 슬립(S)\n\n- 세로축: T (토크)\n- 가로축: S (슬립, 오른쪽 방향)\n- 원점(O)에서 시작하여 S 증가에 따라 T가 단조 증가하는 곡선 (초기 상승 구간)"
+            }
           ]
         },
         {
           "text": "우측으로 급격히 떨어지는 지수함수형 곡선: T축 가까이에서 매우 높은 온도로 시작하여 S가 조금만 증가해도 온도가 급격히 떨어지다가 S축에 점근하는 모양.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m31b2.gif?1518271150"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "T-S 그래프: 토크(T) vs 슬립(S)\n\n- 세로축: T (토크)\n- 가로축: S (슬립, 오른쪽 방향)\n- 원점(O) 근처 높은 T에서 시작하여 S 증가에 따라 T가 단조 감소하는 곡선 (반비례 하강 구간)"
+            }
           ]
         },
         {
           "text": "수평선: 일정한 T값에서 S방향으로 평행하게 그어진 직선(온도가 일정한 등온변화).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m31b3.gif?1518271150"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "T-S 그래프: 토크(T) vs 슬립(S)\n\n- 세로축: T (토크)\n- 가로축: S (슬립, 오른쪽 방향)\n- S 변화에 관계없이 T가 일정한 수평선 (정토크 특성)"
+            }
           ]
         },
         {
           "text": "수직선: 일정한 S값에서 T방향으로 평행하게 그어진 짧은 직선(엔트로피가 일정한 단열변화).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m31b4.gif?1518271150"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "T-S 그래프: 토크(T) vs 슬립(S)\n\n- 세로축: T (토크)\n- 가로축: S (슬립, 오른쪽 방향)\n- S=0 근처에서 T가 급격히 상승하는 수직선 형태 (임펄스/돌입 특성)"
+            }
           ]
         }
       ],
@@ -1639,26 +1684,38 @@
       "choices": [
         {
           "text": "L = 1/((2πf₀)²·C),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m36b1.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L = \\frac{1}{(2\\pi f_0)^2 C}$$"
+            }
           ]
         },
         {
           "text": "L = 1/((5πf₀)²·C),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m36b2.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L = \\frac{1}{(5\\pi f_0)^2 C}$$"
+            }
           ]
         },
         {
           "text": "L = 1/((6πf₀)²·C),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m36b3.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L = \\frac{1}{(6\\pi f_0)^2 C}$$"
+            }
           ]
         },
         {
           "text": "L = 1/((10πf₀)²·C). 여기서 f₀는 기본 주파수, C는 역률 개선용 콘덴서 용량이다. (2πf₀)는 기본파 각주파수 ω, (6πf₀)=3·2πf₀는 3고조파 각주파수, (10πf₀)=5·2πf₀는 5고조파 각주파수에 해당한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m36b4.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L = \\frac{1}{(10\\pi f_0)^2 C}$$"
+            }
           ]
         }
       ],
@@ -2765,26 +2822,38 @@
       "choices": [
         {
           "text": "| $\\dfrac{1}{z - e^{-aT}}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m61b1.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{z - e^{-at}}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{1}{z + e^{-aT}}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m61b2.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{z + e^{-at}}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{z}{z - e^{-aT}}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m61b3.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{z}{z - e^{-at}}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{z}{z + e^{-aT}}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m61b4.gif?1518271150"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{z}{z + e^{-at}}$$"
+            }
           ]
         }
       ],
@@ -2822,10 +2891,6 @@
       "number": 62,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "상태 방정식  = Ax(t)+bu(t) 에서 A = 이라면 A의 고유값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m62m1.gif?1518271150",
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m62m2.gif?1518271151"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -2864,6 +2929,16 @@
         "eigenvalue-calculation",
         "characteristic-equation",
         "state-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{d}{dt}x(t)$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$\\begin{bmatrix} -6 & 7 \\\\ 2 & -1 \\end{bmatrix}$$"
+        }
       ]
     },
     {
@@ -2915,33 +2990,42 @@
       "number": 64,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 벡터 궤적을 갖는 계의 주파수 전달 함수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m64.gif?1518271151"
-      ],
       "pass_rate": 56,
       "choices": [
         {
           "text": "G(jω) = 1/(jω+1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m64b1.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{j\\omega + 1}$$"
+            }
           ]
         },
         {
           "text": "G(jω) = 1/(j2ω+1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m64b2.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{j2\\omega + 1}$$"
+            }
           ]
         },
         {
           "text": "G(jω) = (jω+1)/(j2ω+1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m64b3.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{j\\omega + 1}{j2\\omega + 1}$$"
+            }
           ]
         },
         {
           "text": "G(jω) = (j2ω+1)/(jω+1)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m64b4.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{j2\\omega + 1}{j\\omega + 1}$$"
+            }
           ]
         }
       ],
@@ -2973,15 +3057,18 @@
         "lead-compensator-vector-locus",
         "frequency-response",
         "poles-and-zeros"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "Im축과 Re축으로 이루어진 복소평면에서 Re축 위 1과 2 사이를 중심으로 하는 반원(상반면).\n- Re축 위: 1 ~ 2\n- 반원 위 왼쪽: ω=0\n- 반원 위 오른쪽: ω=∞\n- 원점(0)은 Im축과 Re축 교점"
+        }
       ]
     },
     {
       "number": 65,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 블록선도로 표시되는 계는 무슨 형인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m65.gif?1518271151"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3020,6 +3107,12 @@
         "system-characteristics",
         "poles-at-origin",
         "open-loop-transfer-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    R[\"R(s)\"] --> sum((\" \"))\n    sum --> G1[\"(S+1) / S²(S+3)\"]\n    G1 --> G2[\"S / (S+1)\"]\n    G2 --> C[\"C(s)\"]\n    G2 -->|피드백| sum\n```"
+        }
       ]
     },
     {
@@ -3071,9 +3164,6 @@
       "number": 67,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 중 G(s)H(s) =  일 때 근궤적의 수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m67m1.gif?1518271151"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -3112,39 +3202,54 @@
         "root-locus-analysis",
         "transfer-function",
         "root-locus-critical-points"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{K(s+2)}{s(s+1)(s+3)}$$"
+        }
       ]
     },
     {
       "number": 68,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 신호흐름 선도에서 전달함수 C(s)/R(s)는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m68.gif?1586261121"
-      ],
       "pass_rate": 53,
       "choices": [
         {
           "text": "1/s 노드 주위(또는 1/s 노드의 출력에서 입력으로 되돌아가는) 자기·짧은 루프에 이득 -s²가 표시되어 있고,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m68b1.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C(s)}{R(s)} = \\frac{K}{(s+a)(s^2 + s + 0.1K)}$$"
+            }
           ]
         },
         {
           "text": "C(s) 쪽에서 1/s 노드(즉 1/(s+a) 다음 노드)로 되돌아가는 큰 피드백 가지에 이득 -0.1이 표시되어 있다. 보기 ①: C/R = K / [(s+a)(s² + s + 0.1K)]. 보기 ②: C/R = K(s+a) / [(s+a)(s² + s + 0.1K)]. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m68b2.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C(s)}{R(s)} = \\frac{K(s+a)}{(s+a)(s^2 + s + 0.1K)}$$"
+            }
           ]
         },
         {
           "text": ": C/R = K / [(s+a)(s² + s − 0.1K)]. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m68b3.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C(s)}{R(s)} = \\frac{K}{(s+a)(s^2 + s - 0.1K)}$$"
+            }
           ]
         },
         {
           "text": ": C/R = K / [(s+a)(−s² − s + 0.1K)].",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m68b4.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C(s)}{R(s)} = \\frac{K}{(s+a)(-s^2 - s + 0.1K)}$$"
+            }
           ]
         }
       ],
@@ -3174,39 +3279,54 @@
       "concept_ids": [
         "mason-gain-formula",
         "signal-flow-graph"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    R[\"R(s)\"] --> n1((\" \"))\n    n1 -->|\"1/(S+a)\"| n2((\" \"))\n    n2 -->|\"1/S\"| n3((\" \"))\n    n3 -->|\"K\"| n4((\" \"))\n    n4 -->|\"1\"| C[\"C(s)\"]\n    n3 -->|\"-S²\"| n2\n    n3 -->|\"-0.1\"| n1\n```"
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음의 논리회로를 간단히 하면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m69.gif?1518271151"
-      ],
       "pass_rate": 60,
       "choices": [
         {
           "text": "X = A·B,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m69b1.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$X = AB$$"
+            }
           ]
         },
         {
           "text": "X = Ā·B,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m69b2.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$X = \\overline{A}B$$"
+            }
           ]
         },
         {
           "text": "X = A·B̄,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m69b3.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$X = A\\overline{B}$$"
+            }
           ]
         },
         {
           "text": "X = A·B(전체에 보수, 즉 NAND) 가 각각 부울 식으로 제시되어 있다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m69b4.gif?1518271151"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$X = \\overline{AB}$$"
+            }
           ]
         }
       ],
@@ -3236,6 +3356,12 @@
       "concept_ids": [
         "boolean-algebra",
         "logic-circuit-simplification"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A --> AND[\"AND\"]\n    B --> AND\n    AND -->|\"(AB)\"| NAND_in[\"NAND\"]\n    A --> NAND_in\n    NAND_in --> NOT[\"NOT(버블)\"]\n    NOT --> X\n```\n\n논리회로: A, B를 입력으로 AND 게이트 통과 후, A와 함께 NAND 게이트 입력, 출력에 인버터(버블) → X"
+        }
       ]
     },
     {
@@ -3247,26 +3373,38 @@
       "choices": [
         {
           "text": ": ω=∞ 라벨이 좌측 상단(허수축 위쪽 무한대 근방)에 있고, ω=0 라벨이 우측 실수축 위에 있음. 곡선은 실수축 아래 4사분면(혹은 3·4사분면 하단)을 지나는 반원 형태로, 우측 유한값에서 시작해 위쪽 허수축 무한대로 향함. → Type 0 또는 분모에 1차 극이 추가된 형태가 아닌 다른 시스템.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m70b1.gif?1518271151"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "Im-Re 복소평면에서 하반면 반원:\n- 왼쪽(Im축 근처): ω=∞\n- 오른쪽(Re축 근처): ω=0\n- 반원 아래쪽 화살표 방향: ω 증가 방향\n- 반원은 Re축 아래(하반면)에 위치"
+            }
           ]
         },
         {
           "text": ": ω=0 라벨이 좌측 하단(Re=-K 부근에서 Im=-∞ 방향)에 있고, ω=∞ 라벨이 원점 부근(실수축과 허수축 교차 지점)에 있음. 곡선은 좌측 하단(3사분면) 무한대에서 출발하여 좌측으로 휘면서 위로 올라와 원점으로 수렴. 곡선은 전적으로 3사분면(Re<0, Im<0)에 존재하며, 좌측 수직 점근선(Re=-K)을 가짐.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m70b2.gif?1518271152"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "Im-Re 복소평면에서 제2사분면 곡선:\n- 오른쪽(Re축 근처): ω=∞\n- 왼쪽 하단: ω=0\n- 곡선은 제2사분면(Im>0, Re<0) 영역에 위치"
+            }
           ]
         },
         {
           "text": ": ω=0 라벨이 좌측 상단(2사분면)에 있고, ω=∞ 라벨이 우측 실수축 위에 있음. 곡선이 실수축을 가로지르거나 영점 존재 시의 형태로, 상·하 양쪽에 걸친 형태.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m70b3.gif?1518271152"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "Im 축과 Re 축으로 이루어진 복소평면에서 반원형 궤적.\n\n- 왼쪽 끝(허수축 방향): $\\omega = 0$\n- 오른쪽 끝(실수축 방향): $\\omega = \\infty$"
+            }
           ]
         },
         {
           "text": ": ω=0 라벨이 좌측 하단에 있고, ω=∞ 라벨이 허수축 원점 근방에 있음. 곡선이 3사분면에서 출발하여 실수축을 위로 가로질러 2사분면(Im>0) 위쪽으로 올라가는 형태.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m70b4.gif?1518271152"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "Im 축과 Re 축으로 이루어진 복소평면에서 반원형 궤적.\n\n- 위쪽(허수축 양의 방향): $\\omega = \\infty$\n- 왼쪽(실수축 음의 방향): $\\omega = 0$"
+            }
           ]
         }
       ],
@@ -3393,9 +3531,6 @@
       "number": 73,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같이 1개의 콘덴서와 2개의 코일이 직렬로 접속된 회로에 300[hz]의 주파수가 공진한다고 한다. C=30[μF], L1=L2=4[mH]이면 상호인덕턴스 M 값은 약 몇 [mH]인가? (단, 코일은 동일 축 상에 같은 방향으로 감겨져 있다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m73.gif?1518271152"
-      ],
       "pass_rate": 34,
       "choices": [
         {
@@ -3434,6 +3569,12 @@
         "series-resonance",
         "inductor-coupling",
         "mutual-inductance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 회로 구성:\n\nC — L1 — L2 (직렬 연결)\n\nL1 과 L2 사이에 상호 인덕턴스 M 존재 (양의 방향 결합, 점 표시)."
+        }
       ]
     },
     {
@@ -3573,9 +3714,6 @@
       "number": 77,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 회로를 테브낭의 등가회로로 변환할 때 테브낭의 등가저항 RT[Ω]과 등가전압 VT[V]는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20100307/kt20100307m77.gif?1519198910"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3614,6 +3752,12 @@
         "thevenin-equivalent-circuit",
         "current-source-open-circuit",
         "unmapped-3"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전류원 2A 와 저항으로 구성된 회로:\n\n- 전류원 2A (좌측)\n- 4Ω 저항 (직렬, 상단)\n- 8Ω 저항 (병렬, 우측)\n- 단자 a (우측 상단), 단자 b (우측 하단)"
+        }
       ]
     },
     {

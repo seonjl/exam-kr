@@ -144,9 +144,6 @@
       "number": 4,
       "subject": "1과목 : 소방원론",
       "question": "다음 그림에서 목조 건물의 표준 화재 온도 시간 곡선으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m4.gif?1524066649"
-      ],
       "pass_rate": 85,
       "choices": [
         {
@@ -185,6 +182,12 @@
         "wooden-building-fire-temperature",
         "material-specific-fire-curve",
         "standard-fire-curve"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nxychart-beta\n  x-axis 시간\n  y-axis 농도\n  line [0, 0.2, 0.8, 1.0, 0.9]\n  line [0, 0.3, 1.0, 0.8, 0.5]\n  line [0, 0.5, 0.9, 0.6, 0.3]\n  line [0, 0.1, 0.2, 0.3, 0.4]\n```\n\n(그래프: 시간-농도 곡선 4개. 위에서부터 d: 급격히 상승 후 완만히 유지, c: 빠르게 상승 후 감소, b: 완만히 상승 후 감소, a: 완만히 단조 증가)"
+        }
       ]
     },
     {
@@ -900,9 +903,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "유속 6m/s로 정상류의 물이 화살표 방향으로 흐르는 배관에 압력계와 피토계가 설치되어 있다. 이때 압력계의 계기압력이 300kPa 이었다면 피토계의 계기압력은 약 몇 kPa인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m21.gif?1645885563"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -939,6 +939,12 @@
       "concept_ids": [
         "pitot-tube-pressure-measurement",
         "dynamic-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  A[300kPa\\n계기압] --> pipe[수평관]\n  pipe --> B[P = ?\\n계기압]\n  v1[6m/s] --> pipe\n```\n\n수평관에서 유속 6m/s, 계기압 300kPa인 지점에서 다른 지점의 압력 P = ? (베르누이 방정식 적용)"
+        }
       ]
     },
     {
@@ -1031,9 +1037,6 @@
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 수직 평판에 속도 2m/s로 단면적이 0.01m2인 물제트가 수직으로 세워진 벽면에 충돌하고 있다. 벽면의 오른쪽에서 물제트를 왼쪽 방향으로 쏘아 벽면의 평형을 이루게 하려면 물제트의 속도를 약 몇 m/s로 해야 하는가? (단, 오른쪽에서 쏘는 물제트의 단면적은 0.005 m2이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m24.gif?1747643963"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -1070,15 +1073,18 @@
       "concept_ids": [
         "water-jet-impact-force",
         "momentum"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$A_1 = 0.01\\,\\text{m}^2,\\quad V_1 = 2\\,\\text{m/s}$$\n$$A_2 = 0.005\\,\\text{m}^2,\\quad V_2 = ?\\,\\text{m/s}$$\n\n(양쪽에서 유체가 유입되는 관 구조)"
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 사이펀에서 마찰손실을 무시할 때, 사이펀 끝단에서의 속도(V)가 4m/s이기 위해서는 h가 약 몇 m이어야 하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m25.gif?1524066649"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -1115,6 +1121,12 @@
       "concept_ids": [
         "siphon",
         "head-hydrostatic-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  tank[수조\\n수면] -->|0.5m| pipe_in[관 입구]\n  pipe_in --> U자관\n  U자관 -->|h| 출구\n  출구 --> V[↓ V]\n```\n\n수조 수면에서 관 입구까지 0.5m, U자관 높이 차 h, 출구 유속 V (토리첼리 적용)"
+        }
       ]
     },
     {
@@ -1126,26 +1138,38 @@
       "choices": [
         {
           "text": "$L_w = \\dfrac{rQH}{102 \\times 60}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m26b1.gif?1524066649"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_w = \\frac{rQH}{102 \\times 60}$$"
+            }
           ]
         },
         {
           "text": "$L_w = \\dfrac{rQH}{1000 \\times 60}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m26b2.gif?1524066649"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_w = \\frac{rQH}{1000 \\times 60}$$"
+            }
           ]
         },
         {
           "text": "$L_w = \\dfrac{rQHg}{102 \\times 60}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m26b3.gif?1524066649"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_w = \\frac{rQHg}{102 \\times 60}$$"
+            }
           ]
         },
         {
           "text": "$L_w = \\dfrac{rQHg}{1000 \\times 60}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m26b4.gif?1524066649"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_w = \\frac{rQHg}{1000 \\times 60}$$"
+            }
           ]
         }
       ],
@@ -1623,9 +1647,6 @@
       "number": 37,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 h1＝120㎜, h2＝180㎜, h3＝100㎜일 때 A에서의 압력과 묘에서의 압력의 차이 (PA-PB)를 구하면? (단, A, B 속의 액체는 물이고, 차압액주계에서의 중간 액체는 수은(비중 13.6)이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m37.gif?1524066649"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1664,6 +1685,12 @@
         "u-tube-manometer",
         "pressure-difference",
         "mercury-specific-gravity"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  A[\"A+\\nr₁\"] -->|h₁| node1[\"(1)\"]\n  node1 --> node2[\"(2)\\nr₂\"]\n  node2 -->|h₂| node3[\"(3)\"]\n  node3 --> node4[\"(4)\"]\n  node4 -->|h₃| node5[\"(5)\"]\n  node5 --> B[\"B+\\nr₃\"]\n```\n\n관로 구성: A측(r₁) → (1) → (2, r₂, 높이h₁) → (3) → (4) → (5, 높이h₃) → B측(r₃), 중간 높이 h₂"
+        }
       ]
     },
     {
@@ -1850,9 +1877,6 @@
       "number": 42,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법상 시·도지사의 허가를 받지 아니하고 당해 제조소등을 설치할 수 있는 기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m42.gif?1524066649"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1891,6 +1915,12 @@
         "hazardous-substance-storage-facility",
         "designated-quantity",
         "building-fire-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "농예용·축산용 또는 수산용으로 필요한 난방시설 또는 건조시설을 위한 지정수량 ( )배 이하의 저장소"
+        }
       ]
     },
     {
@@ -1987,9 +2017,6 @@
       "number": 45,
       "subject": "3과목 : 소방관계법규",
       "question": "소방기본법령상 특수가연물의 저장 및 취급의 기준 중 다음 ( ) 안에 알맞은 것은? (단, 석탄·목탄류를 발전용으로 저장하는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m45.gif?1524066649"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -2028,6 +2055,12 @@
         "special-combustible-storage-handling",
         "sprinkler-system",
         "coal-charcoal-storage"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "살수설비를 설치하거나, 방사능력 범위에 해당 특수가연물이 포함되도록 대형수동식소화기를 설치하는 경우에는 쌓는 높이를 ( ㉠ )m 이하, 석탄·목탄류의 경우에는 쌓는 부분의 바닥면적을 ( ㉡ )㎡ 이하로 할 수 있다."
+        }
       ]
     },
     {
@@ -2124,9 +2157,6 @@
       "number": 48,
       "subject": "3과목 : 소방관계법규",
       "question": "화재예방, 소방시설 설치·유지 및 안전관리에 관한 법령상 용어의 정의 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m48.gif?1524066649"
-      ],
       "pass_rate": 81,
       "choices": [
         {
@@ -2165,6 +2195,12 @@
         "fire-service-terminology",
         "presidential-ordinance",
         "legal-system-regulation-subject"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특정 소방대상물이란 소방시설을 설치하여야 하는 소방대상물로서 ( )으로 정하는 것을 말한다."
+        }
       ]
     },
     {
@@ -2390,9 +2426,6 @@
       "number": 54,
       "subject": "3과목 : 소방관계법규",
       "question": "화재예방, 소방시설 설치·유지 및 안전관리에 관한 법령상 종합정밀점검 실시 대상이 되는 특정소방대상물의 기준 중 다음 (   )안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m54.gif?1524066649"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -2429,6 +2462,12 @@
       "concept_ids": [
         "comprehensive-precision-inspection",
         "floor-area-thresholds"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 스프링클러설비 또는 물분무등소화설비[호스릴 방식의 물분무등소화설비만을 설치한 경우는 제외]가 설치된 경우에는 ( ㉠ )㎡ 이상인 특정 소방대상 (위험물 제조소등은 제외)\n- 아파트는 연면적 ( ㉡ )㎡ 이상이고 ( ㉢ )층 이상인 것 만 해당"
+        }
       ]
     },
     {
@@ -2613,9 +2652,6 @@
       "number": 59,
       "subject": "3과목 : 소방관계법규",
       "question": "소방기본법령상 일반음식점에서 조리를 위하여 불을 사용하는 설비를 설치하는 경우 지켜야 하는 사항 중 다음 (   ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m59.gif?1524066649"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2654,6 +2690,12 @@
         "general-restaurant-cooking-equipment-safety",
         "exhaust-duct-materials",
         "cooking-equipment-clearance-distance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 주방설비에 부속된 배기덕트는 ( ㉠ )㎜ 이상의 아연도금 강판 또는 이와 동등이상의 내식성 불연재로 설치할 것\n- 열을 발생하는 조리기구로부터 ( ㉡ )m 이내의 거리에 있는 가연성 주요구조부는 석면판 또는 단열성이 있는 불연 재료로 덮어씌울 것"
+        }
       ]
     },
     {
@@ -2705,9 +2747,6 @@
       "number": 61,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "제연설비의 배출량 기준 중 다음 (   ) 안에 알맞은 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 2번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m61.gif?1524066649"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -2746,6 +2785,12 @@
         "expected-smoke-control-area-exhaust-quantity",
         "discharge-rate-per-unit-area",
         "minimum-discharge-rate"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "거실의 바닥면적이 400㎡ 미만으로 구획된 예상제연구역에 대한 배출량은 바닥면적 1㎡ 당 ( ㉠ )㎥/min 이상으로 하되, 예상제연구역 전체에 대한 최저 배출량은 ( ㉡ )㎥/hr 이상으로 하여야 한다. 다만, 예상제연구역이 다른 거실의 피난을 위한 경우 거실인 경우에는 그 예상제연구역의 배출량은 이 기준량의 ( ㉢ )배 이상으로 하여야 한다."
+        }
       ]
     },
     {
@@ -3055,9 +3100,6 @@
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포헤드의 설치기준 중 다음 (   ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m69.gif?1524066649"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -3094,6 +3136,12 @@
       "concept_ids": [
         "foam-head-installation",
         "foam-head-system"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "압축공기포소화설비의 분사헤드는 천장 또는 반자에 설치하되 방호대상물에 따라 측벽에 설치할 수 있으며 유류탱크 주위에는 바닥면적 ( ㉠ )㎡ 마다 1개 이상, 방호대상물을 저장소에는 바닥면적 ( ㉡ )㎡마다 1개 이상으로 당해 방호대상물의 화재를 유효하게 소화할 수 있도록 할 것"
+        }
       ]
     },
     {
@@ -3143,9 +3191,6 @@
       "number": 71,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "이산화탄소 소화설비의 배관의 설치기준 중 다음 (   ) 안에 알맞은 것은?(2024년 개정된 규정 적용됨)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m71.gif?1524066650"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -3181,6 +3226,12 @@
       },
       "concept_ids": [
         "co2-fire-system-piping"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "고압식의 경우 개폐밸브 또는 선택밸브의 2차측 배관부속은 호칭 압력 2.0MPa 이상의 것을 사용하여야 하며, 1차측 배관부속은 호칭 압력 ( ㉠ ) MPa 이상의 것을 사용하여야 하고, 저압식의 경우에는 ( ㉡ )MPa 의 압력에 견딜 수 있는 배관부속을 사용할 것"
+        }
       ]
     },
     {
@@ -3230,9 +3281,6 @@
       "number": 73,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "물분무헤드의 설치제외 기준 중 다음 (   ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20180304/nd20180304m73.gif?1524066650"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -3269,6 +3317,12 @@
       "concept_ids": [
         "water-mist-nozzle-installation-exemption",
         "firefighting-technical-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "운전 시에 표면의 온도가 ( )℃ 이상으로 되는 등 직접 분무를 하는 경우 그 부분에 손상을 입힐 우려가 있는 기계장치 등이 있는 장소"
+        }
       ]
     },
     {

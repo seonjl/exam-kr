@@ -939,9 +939,6 @@
       "number": 22,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 빈 시트에 [보기]와 같이 표시되도록 하기 위한 프로시저를 작성하고자 한다. 다음 중 프로시저의 빈 칸에 들어갈 내용이 순서대로 올바르게 나열된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m22.gif?1390887510"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -978,6 +975,12 @@
       "concept_ids": [
         "vba-for-loop",
         "cells-object"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "```vba\nSub UpTable()\n    For T_Year = ① To 2\n        Cells(①, T_Year + 1).Value _\n            = ①+ T_Year\n    Next T_Year\n    For TQ = 1 To 2\n        Cells(①, 1).Value _\n            = \"Quarter\"& TQ\n    Next TQ\nEnd Sub\n```\n\n[보기]\n\n|   | A        | B    | C    |\n|---|----------|------|------|\n| 1 |          | 2012 | 2013 | 2014 |\n| 2 | Quarter1 |      |      |\n| 3 | Quarter2 |      |      |"
+        }
       ]
     },
     {
@@ -1036,20 +1039,29 @@
         },
         {
           "text": "제목 표시줄의 왼쪽에 있는 Office 단추()를 클릭한 후 [Excel 끝내기] 단추를 클릭한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m24b2.gif?1390887510"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "🔄"
+            }
           ]
         },
         {
           "text": "제목 표시줄의 왼쪽에 있는 Office 단추()를 더블 클릭한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m24b3.gif?1390887510"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "이미지가 매우 작은 아이콘 형태의 GIF입니다. 식별 가능한 구조화된 텍스트 콘텐츠가 없는 소형 문서/스프레드시트 아이콘입니다.\n\n---\n\n📄"
+            }
           ]
         },
         {
           "text": "제목 표시줄의 오른쪽에 있는 닫기 단추()를 클릭한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m24b4.gif?1390887510"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\times$$"
+            }
           ]
         }
       ],
@@ -1084,9 +1096,6 @@
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음과 같은 조건을 만족하는 사용자 지정 셀 서식을 작성한 것으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m25.gif?1390887510"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -1123,6 +1132,12 @@
       "concept_ids": [
         "custom-number-format",
         "conditional-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 입력한 문자 앞에 \"판매액\"을 표시한다.\n- 00이면 0.00으로 표시한다.\n- 양수이면 검은색으로 천 단위 구분 기호를 사용해서 표시하고, 소수 자릿수는 둘째 자리까지 표시한다.\n- 음수이면 빨간색으로 천 단위 구분 기호와 괄호를 표시하며, 소수 자릿수는 둘째 자리까지 표시한다."
+        }
       ]
     },
     {
@@ -1174,9 +1189,6 @@
       "number": 27,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트의 [A9]셀에 수식 '=OFFSET(A1, 3, 3)'을 입력했을 때의 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m27.gif?1390887511"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -1213,15 +1225,18 @@
       "concept_ids": [
         "offset-function",
         "cell-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 이론 | 실기 | 합계 |\n|------|------|------|------|\n| 김선이 | 47 | 45 | 92 |\n| 이수경 | 38 | 46 | 84 |\n| 장영주 | 44 | 48 | 92 |\n| 김시니 | 40 | 42 | 82 |\n| 홍진도 | 49 | 50 | 99 |\n| 박순수 | 37 | 43 | 80 |"
+        }
       ]
     },
     {
       "number": 28,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트에서 [A1:G3] 영역을 제목으로 설정하여 매 페이지마다 반복 인쇄하기 위한 페이지 설정 방법으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m28.gif?1390887511"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -1258,15 +1273,18 @@
       "concept_ids": [
         "print-repeat-rows",
         "page-setup-sheet-tab"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 영업소코드 | 영업소명 | 입고량 | 재고량 | 재고율 | 재고일 |\n|---|---|---|---|---|---|\n| SB-00 | 서울 | 536 | 280 | 56 | 3.06667 |\n| G6-003 | 인천 | 536 | 280 | 56 | 3.06667 |\n| G6-003 | 인천 | 536 | 280 | 56 | 0 |\n| DA-003 | 대전 | 536 | 280 | 56 | 0 |\n| SB-003 | 인천 | 295 | 27 | 9.15 | 0.13 |\n| SB-02 | 인천 | 295 | 27 | 9.15 | 0.13 |\n| GM-02 | 인천 | 295 | 176 | 70 | 0 |\n| GM-02 | 서울 | 295 | 27 | 9.15 | 0 |\n| SB-004 | 서울 | 215 | 46 | 21.4 | 0.13 |\n\n**영업소별 리노스 재고현황**"
+        }
       ]
     },
     {
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "차트에 표시할 데이터 계열의 요소 간 값의 차이가 큰 경우 [수정 전] 차트와 같이 그 차이를 차트에 표시하기가 어려운데, [수정 후] 차트처럼 변경하면 값의 차이를 표시할 수 있게 된다. 다음 중 [수정 전] 차트를 [수정 후]와 같이 변경하기 위한 축 옵션으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m29.gif?1390887511"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1303,6 +1321,12 @@
       "concept_ids": [
         "log-scale",
         "data-visualization"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "## [수정 전] 전반기 매출 실적\n\nY축: 선형 척도 (0 ~ 800,000)\n\n```mermaid\nxychart-beta\n    title \"전반기 매출 실적\"\n    x-axis [\"1월\", \"2월\", \"3월\", \"4월\", \"5월\"]\n    y-axis \"매출\" 0 --> 800000\n    bar [10000, 10000, 600000, 100000, 100000]\n```\n\n---\n\n## [수정 후] 전반기 매출 실적\n\nY축: 로그 척도 (1 ~ 1,000,000)\n\n| 월 | 매출 (로그 척도) |\n|---|---|\n| 1월 | 10,000 |\n| 2월 | 10,000 |\n| 3월 | 600,000 |\n| 4월 | 100,000 |\n| 5월 | 100,000 |"
+        }
       ]
     },
     {
@@ -1354,33 +1378,42 @@
       "number": 31,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트에서 고급 필터 기능을 이용하여 수량이 전체평균보다 크면서 거래 일자가 1월인 데이터를 추출하려고 한다. 다음 중 고급필터의 조건식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m31.gif?1390887511"
-      ],
       "pass_rate": 51,
       "choices": [
         {
           "text": "은 머리글이 '거래일자 | 수량', 조건이 =MONTH($A2)=1, =$D2>AVERAGE($D$2:$D$10). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m31b1.gif?1390887512"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 거래일자 | 수량 |\n|---|---|\n| =MONTH($A2)=1 | =$D2>AVERAGE($D$2:$D$10) |"
+            }
           ]
         },
         {
           "text": "는 머리글이 '거래일자 | 수량', 조건이 =MONTH($A2)=1, =$D2>AVERAGE(D2:D10). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m31b2.gif?1390887512"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 거래일자 | 수량 |\n|---|---|\n| =MONTH(SA2)=1 | =$D2>AVERAGE(D2:D10) |"
+            }
           ]
         },
         {
           "text": "은 머리글이 '거래일 | 평균', 조건이 =MONTH($A2)=1, =$D2>AVERAGE(D2:D10). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m31b3.gif?1390887512"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 기계절 | 평균 |\n|--------|------|\n| =MONTH($A2)=1 | =$D$2>AVERAGE(D2:D10) |"
+            }
           ]
         },
         {
           "text": "는 머리글이 '거래월 | 평균', 조건이 =MONTH($A2)=1, =$D2>AVERAGE($D$2:$D$10). 모든 보기는 두 조건을 같은 행에 배치한 AND 형태이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m31b4.gif?1390887512"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 거래월 | 평균 |\n|---|---|\n| `=MONTH($A2)=1` | `=$D2>AVERAGE($D$2:$D$10)` |"
+            }
           ]
         }
       ],
@@ -1412,6 +1445,12 @@
         "advanced-filter-criteria",
         "average-function",
         "and-condition-placement"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 거래일자 | 거래처명 | 제품명 | 수량 | 단가 | 금액 |\n|---|---|---|---|---|---|\n| 12-01-02 | 대형선사 | LED TV | 10 | 1,230,000 | 12,300,000 |\n| 12-01-05 | 한국전자 | 세탁기 | 15 | 369,000 | 5,535,000 |\n| 12-01-15 | 산대전자 | 청소 로봇 | 20 | 95,000 | 1,900,000 |\n| 12-01-15 | 대형선사 | 세탁기 | 25 | 856,000 | 21,400,000 |\n| 12-01-20 | 한국전자 | 세탁기 | 15 | 369,000 | 5,535,000 |\n| 12-01-25 | 한국전자 | 청소 로봇 | 10 | 129,000 | 1,290,000 |\n| 12-02-03 | 대형선사 | 미니세탁기 | 10 | 129,000 | 1,290,000 |\n| 12-02-03 | 대형선사 | 미니세탁기 | 30 | 369,000 | 11,070,000 |\n| 12-02-08 | 한국전자 | LED TV | 25 | 856,000 | 8,625,000 |"
+        }
       ]
     },
     {
@@ -1595,9 +1634,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 매크로에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m36.gif?1390887512"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1634,15 +1670,18 @@
       "concept_ids": [
         "macro-storage-location",
         "macro-execution"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vba\nSub Macro1( )\n  'Macro1 Macro\n  '바로 가기 키: Ctrl+ a\n    Range(\"A2:B8\").Select\n    Selection.Font.Bold = True\n    With Selection.Font\n        .Name = \"바탕체\"\n        .Size = 11\n    End With\nEnd Sub\n```"
+        }
       ]
     },
     {
       "number": 37,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 프로시저가 실행된 후 LoopN의 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m37.gif?1390887512"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -1679,6 +1718,12 @@
       "concept_ids": [
         "do-loop",
         "loop-control"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nsub Chk()\n  LoopN = 0\n  Num = 10\n  Do\n    Num = Num - 2\n    LoopN = LoopN + 1\n  Loop While Num > 5\n  MsgBox \"루프를 \" & LoopN & \"번 반복.\"\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1994,9 +2039,6 @@
       "number": 45,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 관계 편집 창의 옵션에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m45.gif?1390887513"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -2035,15 +2077,18 @@
         "cascade-update",
         "referential-integrity",
         "relationship-table-design"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**관계 편집**\n\n| 테이블/쿼리(L): | 중계 테이블/쿼리(M): | 테이블/쿼리(R): |\n|---|---|---|\n| 학과 | 학과대학 | 학교명 |\n| 학과명 | 학과명 | 학과명 |\n\n- [x] 항상 참조 동질성 유지(E)\n- [ ] 관련 필드 모두 업데이트(S)\n- [ ] 관련 레코드 모두 삭제(D)\n\n관계 종류: 일대다 관계"
+        }
       ]
     },
     {
       "number": 46,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 폼이 다음과 같은 형태로 표시되는 경우 설정된 폼의 '기본 보기' 속성의 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m46.gif?1390887513"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -2080,6 +2125,12 @@
       "concept_ids": [
         "form-default-view-property",
         "form-default-view-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 학번 | 성명 | 전화번호 |\n|------|------|----------|\n| 0021004 | 이후진 | 016-728-6838 |\n| 0022001 | 백승희 | 016-214-0229 |\n| 0022018 | 이재영 | 019-886-1094 |"
+        }
       ]
     },
     {
@@ -2608,9 +2659,6 @@
       "number": 59,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "아래 그림의 반 필드와 같이 데이터 입력 시 목록 상자에서 원하는 값을 선택하려고 할 때 설정해야 하는 필드 속성은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120120616/c120120616m59.gif?1390887513"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -2649,6 +2697,12 @@
         "lookup-field",
         "combo-list-box-binding",
         "combo-box-properties"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 학년 | 반 |\n|------|-----|\n| 1 | A |\n| (새 항목) | A |\n| | B |\n| | C |"
+        }
       ]
     },
     {

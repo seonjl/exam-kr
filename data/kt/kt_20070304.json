@@ -57,26 +57,38 @@
       "choices": [
         {
           "text": "은 div D = ρv (전속밀도의 발산이 공간 전하밀도와 같다)로 가우스 법칙을 나타낸다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m2b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{div}\\, \\mathbf{D} = \\rho_v$$"
+            }
           ]
         },
         {
           "text": "는 div B = 0 (자속밀도의 발산이 0이다)로 자기에 대한 가우스 법칙(자기 단극자 부재)을 나타낸다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m2b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{div} \\, B = 0$$"
+            }
           ]
         },
         {
           "text": "은 ∇×H = J + ∂D/∂t (자계의 회전은 전도전류밀도와 변위전류밀도의 합과 같다)로 앙페르-맥스웰 법칙을 나타낸다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m2b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\nabla \\times \\mathbf{H} = \\mathbf{J} + \\frac{\\partial \\mathbf{D}}{\\partial t}$$"
+            }
           ]
         },
         {
           "text": "는 ∇×E = -∂B/∂t (전계의 회전은 자속밀도의 시간변화율에 음의 부호를 붙인 값과 같다)로 패러데이 전자유도 법칙을 나타낸다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m2b4.gif?1551069428"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}$$"
+            }
           ]
         }
       ],
@@ -206,26 +218,38 @@
       "choices": [
         {
           "text": "은 푸아송 방정식 형태 ∇²V = ρ 이다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m5b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\nabla^2 V = \\rho$$"
+            }
           ]
         },
         {
           "text": "는 V₀·d 이다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m5b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$V_0 d$$"
+            }
           ]
         },
         {
           "text": "은 (V₀/d)·x 이다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m5b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_0}{d} x$$"
+            }
           ]
         },
         {
           "text": "는 Q/(4πε₀) 이다. 문제는 1차원 라플라스 방정식 d²V/dx²=0 에 경계조건 V(0)=0, V(d)=V₀ 을 적용해 해를 구하는 것이다. 일반해 V=Ax+B 에서 V(0)=0 → B=0, V(d)=V₀ → A=V₀/d 이므로 V=(V₀/d)x 가 된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m5b4.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi\\varepsilon_0 d}$$"
+            }
           ]
         }
       ],
@@ -389,9 +413,6 @@
       "number": 9,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 직류전원에서 부하에 공급하는 전류는 50[A]이고 전원전압은 480[V]이다. 도선이 10[㎝] 간격으로 평행하게 배선되어 있다면 1[m] 당 두 도선 사이에 작용하는 힘은 몇 [N]이며, 어떻게 작용하는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m9.gif?1518349141"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -428,6 +449,12 @@
       "concept_ids": [
         "force-between-parallel-conductors",
         "force-on-current-in-magnetic-field"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A((+)) -- I --> B[부하]\n    B -- I --> A\n```"
+        }
       ]
     },
     {
@@ -482,26 +509,38 @@
       "choices": [
         {
           "text": ": P = D - ε₀E",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m11b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$P = D - \\varepsilon_0 E$$"
+            }
           ]
         },
         {
           "text": ": P = D - ε₀(D/ε)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m11b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$P = D - \\varepsilon_0 \\left(\\frac{D}{\\varepsilon}\\right)$$"
+            }
           ]
         },
         {
           "text": ": P = D(1 - 1/εᵣ)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m11b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$P = D\\!\\left(1 - \\frac{1}{\\varepsilon_r}\\right)$$"
+            }
           ]
         },
         {
           "text": ": P = E - ε₀(D/ε)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m11b4.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$P = E - \\varepsilon_0 \\left(\\frac{D}{\\varepsilon}\\right)$$"
+            }
           ]
         }
       ],
@@ -538,9 +577,6 @@
       "number": 12,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 수평한 연철봉 위에 절연된 동선을 감아 이것에 저항, 전류, 스위치를 접속하여 연철봉의 한 끝에는 알루미늄 링을 축과 일치시켜 움직일 수 있도록 가느다란 실로 매달아 정지시켰을 때 다음 설명 중 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m12.gif?1518349140"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -579,6 +615,12 @@
         "lenz-law",
         "induced-emf",
         "electromagnetic-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연결봉 — 실\nR, S, E — 알루미늄링"
+        }
       ]
     },
     {
@@ -762,9 +804,6 @@
       "number": 17,
       "subject": "1과목 : 전기자기학",
       "question": "유전체 A, B의 접합하여 전하가 없을 때, 각 유전체 중 전계의 방향이 그림과 같고 EA=100[V/m]이면, EB는 몇 [V/m]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m17.gif?1518349140"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -801,6 +840,12 @@
       "concept_ids": [
         "dielectric-boundary-conditions",
         "e-field-boundary-tangential"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "A/B 경계면에서 두 전계 벡터:\n- $E_A$: 경계면 법선으로부터 30° 방향\n- $E_B$: 경계면 법선으로부터 60° 방향 (아래쪽)"
+        }
       ]
     },
     {
@@ -850,33 +895,42 @@
       "number": 19,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 평등자장 및 두 평행 도선이 놓여 있을 때 두 평행 도선상을 한 도선봉이 V[m/s]의 일정한 속도로 이동한다면 부하 R [Ω]에서 줄열로 소비되는 전력 [W]은 어떻게 표시되는가? (단, 도선봉과 두 평행 도선은 완전도체로 저항이 없는 것으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m19.gif?1518349140"
-      ],
       "pass_rate": 50,
       "choices": [
         {
           "text": "$\\dfrac{Bd^2 v^2}{R}$,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m19b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Bd^2v^2}{R}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{B^2 dv^2}{R}$,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m19b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{B^2 dv^2}{R}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{B^2 d^2 v^2}{R}$,",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m19b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{B^2 d^2 v^2}{R}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{B^2 d^2 v^2}{2R}$.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m19b4.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{B^2 d^2 v^2}{2R}$$"
+            }
           ]
         }
       ],
@@ -905,6 +959,12 @@
       "concept_ids": [
         "motional-emf",
         "resistance-power-relation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "도체봉이 균일 자속밀도 $B[\\text{T}]$ 안에서 운동하는 회로 구성:\n- 간격 $d[\\text{m}]$의 평행 도선 위에 도체봉 배치\n- 자속 방향: 지면 밖(⊙)으로 균일\n- 저항 $R[\\Omega]$ 부하에 연결"
+        }
       ]
     },
     {
@@ -1134,9 +1194,6 @@
       "number": 25,
       "subject": "2과목 : 전력공학",
       "question": "그림과 같은 회로의 영상, 정상, 역상임피던스 Z0, Z1, Z2는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m25.gif?1518349140"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -1175,6 +1232,12 @@
         "image-impedance",
         "symmetrical-component-impedance",
         "neutral-impedance"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    Zn[\"Zn\"] --- Z1[\"Z\"]\n    Z1 --- Z2[\"Z\"]\n    Z2 --- Z3[\"Z\"]\n    Z1 --- Za[\"a\"]\n    Z2 --- Zb[\"b\"]\n    Z3 --- Zc[\"c\"]\n    Z3 --- GND[\"접지\"]\n```"
+        }
       ]
     },
     {
@@ -1225,9 +1288,6 @@
       "number": 27,
       "subject": "2과목 : 전력공학",
       "question": "다음 ( ① ), ( ② ), ( ③ ) 에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m27.gif?1518349140"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1266,6 +1326,12 @@
         "nuclear-fusion",
         "nuclear-power-generation",
         "nuclear-reaction"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원자력이란 일반적으로 무거운 원자핵이 핵분열 하여 가벼운 핵으로 바뀌면서 발생하는 핵분열 에너지를 이용하는 것이고, ( ① ) 발전은 가벼운 원자핵을 (과) ( ② ) 하여 무거운 핵으로 바뀌면서 ( ③ ) 전후의 질량결손에 해당하는 방출 에너지를 이용하는 방식이다."
+        }
       ]
     },
     {
@@ -2804,26 +2870,38 @@
       "choices": [
         {
           "text": "은 E/R [A], 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m62b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{R} \\, [\\text{A}]$$"
+            }
           ]
         },
         {
           "text": "는 0.368·E/R [A], 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m62b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$0.368 \\frac{E}{R} \\, [\\text{A}]$$"
+            }
           ]
         },
         {
           "text": "은 0.5·E/R [V] (단위가 [V]로 표기됨), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m62b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$0.5 \\frac{E}{R} \\, [\\text{V}]$$"
+            }
           ]
         },
         {
           "text": "는 0.632·E/R [A] 이다. 즉 R-L 직렬회로에 직류전압 E를 인가했을 때 t = L/R(시정수 τ)에서의 전류값을 묻는 문제로, 각 보기는 정상상태 전류 E/R에 대해 서로 다른 계수(1, 1/e≈0.368, 0.5, 1-1/e≈0.632)를 곱한 형태로 제시된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m62b4.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$0.632 \\frac{E}{R} \\, [\\text{A}]$$"
+            }
           ]
         }
       ],
@@ -2866,26 +2944,38 @@
       "choices": [
         {
           "text": "영상분: E0 = (1/3)(Ea + Eb + Ec)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m63b1.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_0 = \\frac{1}{3}(E_a + E_b + E_c)$$"
+            }
           ]
         },
         {
           "text": "정상분: E1 = (1/3)(Ea + aEb + a²Ec)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m63b2.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_1 = \\frac{1}{3}(E_a + aE_b + a^2 E_c)$$"
+            }
           ]
         },
         {
           "text": "역상분: E2 = (1/3)(Ea + a²Eb + aEc)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m63b3.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_2 = \\frac{1}{3}(E_a + a^2 E_b + aE_c)$$"
+            }
           ]
         },
         {
           "text": "E3 = (1/3)(Ea² + Eb² + Ec²)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m63b4.gif?1518349140"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E_3 = \\frac{1}{3}(E_a^2 + E_b^2 + E_c^2)$$"
+            }
           ]
         }
       ],
@@ -2970,9 +3060,6 @@
       "number": 65,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "회로에서 7[Ω]의 저항 양단의 전압은 몇 [V]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m65.gif?1518349379"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -3011,15 +3098,18 @@
         "superposition-principle",
         "resistance",
         "voltage-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "회로: 전압원 4[V](+위, -아래), 저항 7[Ω](직렬), 전류원 1A(+위, -아래) 직렬 연결 루프"
+        }
       ]
     },
     {
       "number": 66,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 T형 회로의 임피던스 파라미터 Z11의 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m66.gif?1518349379"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -3058,6 +3148,12 @@
         "z-parameter",
         "t-type-circuit",
         "cascaded-parameter-abcd-matrix"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    V1_p((+)) --- Z1_in\n    Z1_in --- Z1[Z1]\n    Z1 --- node1\n    node1 --- Z2[Z2]\n    Z2 --- V2_p((+))\n    node1 --- Z3[Z3]\n    Z3 --- gnd\n    V1_m((-)) --- gnd\n    V2_m((-)) --- gnd\n```\n\n4단자망: 입력단 V1(+/-), Z1 직렬, 중간 노드에 Z3 병렬, Z2 직렬, 출력단 V2(+/-)"
+        }
       ]
     },
     {
@@ -3108,33 +3204,42 @@
       "number": 68,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림의 회로에서 합성 인덕턴스는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m68.gif?1518349140"
-      ],
       "pass_rate": 51,
       "choices": [
         {
           "text": ": 합성 인덕턴스 = (L1·L2 + M²) / (L1 + L2 − 2M)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m68b1.gif?1594541399"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{L_1 L_2 + M^2}{L_1 + L_2 - 2M}$$"
+            }
           ]
         },
         {
           "text": ": 합성 인덕턴스 = (L1·L2 − M²) / (L1 + L2 − 2M)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m68b2.gif?1594541400"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{L_1 L_2 - M^2}{L_1 + L_2 - 2M}$$"
+            }
           ]
         },
         {
           "text": ": 합성 인덕턴스 = (L1·L2 + M²) / (L1 + L2 + 2M)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m68b3.gif?1594541399"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{L_1 L_2 + M^2}{L_1 + L_2 + 2M}$$"
+            }
           ]
         },
         {
           "text": ": 합성 인덕턴스 = (L1·L2 − M²) / (L1 + L2 + 2M)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m68b4.gif?1594541398"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{L_1 L_2 - M^2}{L_1 + L_2 + 2M}$$"
+            }
           ]
         }
       ],
@@ -3166,15 +3271,18 @@
         "inductance-calculation",
         "mutual-inductance",
         "dot-notation-polarity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 인덕터 L1, L2가 병렬 연결, 상호 인덕턴스 M 존재\n(L1과 L2는 병렬, M은 상호 결합)"
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "R, C 저역 필터회로의 전달함수 G(jω)는 얼마인가? (단, ω=0 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m69.gif?1518349140"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -3213,6 +3321,12 @@
         "rc-circuit",
         "transfer-function",
         "dc-gain"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RC 회로: 입력 V1, 저항 R 직렬, 커패시터 C 병렬(출력단), 출력 V2"
+        }
       ]
     },
     {
@@ -3269,26 +3383,38 @@
       "choices": [
         {
           "text": "| $\\dfrac{s+2}{s^2+4s+13}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m71b1.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$F(s) = \\frac{s+2}{s^2+4s+13}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{s-2}{s^2+4s+13}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m71b2.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$F(s) = \\frac{s-2}{s^2+4s+13}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{s+2}{s^2+4s-5}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m71b3.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$F(s) = \\frac{s+2}{s^2+4s-5}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{s-2}{s^2+4s-5}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m71b4.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$F(s) = \\frac{s-2}{s^2+4s-5}$$"
+            }
           ]
         }
       ],
@@ -3416,9 +3542,6 @@
       "number": 74,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "상태 방정식 X=AX＋BU에서 일 때 고유 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m74.gif?1524692542"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -3457,39 +3580,54 @@
         "matrix-eigenvalue",
         "characteristic-equation",
         "matrix-determinant"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$A = \\begin{pmatrix} 0 & 1 \\\\ -2 & -3 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$$"
+        }
       ]
     },
     {
       "number": 75,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 블록선도에서 등가 전달함수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m75.gif?1518349141"
-      ],
       "pass_rate": 66,
       "choices": [
         {
           "text": "$\\dfrac{G_1G_2}{1+G_2+G_1G_2G_3}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m75b1.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{G_1 G_2}{1 + G_2 + G_1 G_2 G_3}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{G_1G_2}{1-G_2+G_1G_2G_3}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m75b2.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{G_1 G_2}{1 - G_2 + G_1 G_2 G_3}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{G_1G_3}{1-G_2+G_1G_2G_3}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m75b3.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{G_1 G_3}{1 - G_2 + G_1 G_2 G_3}$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{G_1G_3}{1+G_2+G_1G_2G_3}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m75b4.gif?1518349141"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{G_1 G_3}{1 + G_2 + G_1 G_2 G_3}$$"
+            }
           ]
         }
       ],
@@ -3520,15 +3658,18 @@
       "concept_ids": [
         "block-diagram-reduction",
         "closed-loop-transfer-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "블록선도: R → 합산점(+) → G1 → 합산점(+) → G2 → C\nG3는 두 번째 합산점 출력에서 첫 번째 합산점(-)으로 피드백\n(R에서 첫 합산점, G1 출력에서 두 번째 합산점, G3는 두 번째 합산점 입력 전 신호에서 첫 합산점 부(-) 피드백)"
+        }
       ]
     },
     {
       "number": 76,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 논리회로는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m76.gif?1518349141"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -3567,6 +3708,12 @@
         "or-gate",
         "logic-operation",
         "logic-gate"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "논리회로: A, B 두 입력 NAND 게이트 → 출력 Xo\n(A, B 입력 → NAND → Xo)"
+        }
       ]
     },
     {
@@ -3618,9 +3765,6 @@
       "number": 78,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 제어계에서 단위 계단 입력 D가 인가 될 때 외란 D에 의한 정상편차는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m78.gif?1595839777"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -3659,15 +3803,18 @@
         "steady-state-error-disturbance",
         "unit-signal-response",
         "gain"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "블록선도: R(s) → 합산점(+, -) → E → 전달함수 [20/(1+s)] → 합산점(+) ← D(외란, +) → C(s)\n단위 음(-)피드백 루프"
+        }
       ]
     },
     {
       "number": 79,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 회로망은 어떤 보상기로 사용될 수 있는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m79.gif?1519795491"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -3706,6 +3853,12 @@
         "compensator",
         "capacitor-placement-effect",
         "transfer-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "회로: 입력 ei, 직렬 브랜치에 R1과 C1 병렬 조합, 출력단에 R2 병렬, 출력 eo\n(R1∥C1 직렬 후 R2 부하)"
+        }
       ]
     },
     {
@@ -3982,9 +4135,6 @@
       "number": 86,
       "subject": "5과목 : 전기설비기술기준 및 판단기준",
       "question": "다음 ( ) 안의 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20070304/kt20070304m86.gif?1518349141"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -4021,6 +4171,12 @@
       "concept_ids": [
         "electrostatic-induction",
         "electromagnetic-induction"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전력보안 통신설비는 가공전선로로부터의 （　　）에 의하여 사람에게 위험을 줄 우려가 없도록 시설하여야 한다."
+        }
       ]
     },
     {

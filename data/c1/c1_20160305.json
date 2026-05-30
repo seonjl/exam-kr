@@ -1014,9 +1014,6 @@
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 그림과 같이 목표값 찾기를 지정했을 때의 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m24.gif?1457181427"
-      ],
       "pass_rate": 85,
       "choices": [
         {
@@ -1054,6 +1051,12 @@
       "concept_ids": [
         "goal-seek",
         "financial-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 정기적금 예시표\n\n| 항목 | 값 |\n|---|---|\n| 월 납입금 | ₩14,261 |\n| 불입횟수(개월) | 60 |\n| 적금 이율(연) | 6% |\n| 불입금 | ₩855,690 |\n| 이자 | ₩144,310 |\n| 만기시 수령액 | ₩1,000,000 |\n\n불입일은 매달 1일, 지급일은 마지막 회차 납입 다음달 1일  \n만기시 수령액은 세전 기준\n\n---\n\n**목표값 찾기 설정**\n\n- 수식 셀(E): `$B$9`\n- 찾는 값(V): `2000000`\n- 값을 바꿀 셀(C): `$B$4`"
+        }
       ]
     },
     {
@@ -1149,9 +1152,6 @@
       "number": 27,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 조건을 처리하는 셀 서식의 사용자 지정 표시 형식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m27.gif?1457181428"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -1190,6 +1190,12 @@
         "custom-format-conditional-brackets",
         "placeholder-characters",
         "color"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "셀의 값이 1000이상이면 '파랑', 1000미만 500이상이면 '빨강', 500미만이면 색을 지정하지 않고, 각 조건에 대해 천단위 구분 기호(,)와 소수 이하 첫째 자리까지표시한다.\n\n[표시 예 : 1234.56 → 1,234.6, 432 → 432.0]"
+        }
       ]
     },
     {
@@ -1241,9 +1247,6 @@
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 괄호( )에 해당하는 바로 가기 키의 연결이 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m29.gif?1457181428"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1282,6 +1285,12 @@
         "vbe-debugging",
         "macro-execution",
         "cursor-position-macro-execution"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "Visual Basic Editor에서 매크로를 한 단계씩 실행하기 위한 바로 가기 키는 ( 가 )이고, 모듈 창의 커서 위치 까지 실행하기 위한 바로 가기 키는 ( 나 )이며, 매크로를 바로 실행하기 위한 바로 가기 키는 ( 다 )이다."
+        }
       ]
     },
     {
@@ -1378,9 +1387,6 @@
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래는 'Macro1' 매크로의 실행 결과와 VBA 코드이다. 다음 중 VBA 코드의 ⓐ, ⓑ, ⓒ에 해당하는 내용이 순서대로 나열된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m32.gif?1457181428"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1419,15 +1425,18 @@
         "range-object-vba",
         "formula-r1c1",
         "macro-recording"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C |\n|---|---|---|\n| Name | Address | |\n| | | |\n| | | |\n\n```vba\nSub Macro1()\n    [A1].Select\n    ActiveCell.[A1] = \"Name\"\n    [B1].Select\n    ActiveCell.[B1] = \"Address\"\n    [B2].[B2]\nEnd Sub\n```"
+        }
       ]
     },
     {
       "number": 33,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래와 같이 워크시트에 데이터가 입력되어 있는 경우, 보기의 수식과 그 결과 값으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m33.gif?1457181428"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1468,15 +1477,18 @@
         "string-search-functions",
         "replace-function",
         "function-basics"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A |\n|---|\n| 한국 대한민국 |\n| 분기 수익 |\n| 수익 |\n| 아름다운 설악산 |"
+        }
       ]
     },
     {
       "number": 34,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 워크시트에서 [F2] 셀에 소속이 ‘영업 1부’인 총매출액의 합계를 계산하기 위한 수식으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m34.gif?1457181428"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1515,6 +1527,12 @@
         "database-function",
         "sumif-function",
         "header-footer"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 소속 | 총매출액 |\n|------|------|---------|\n| 이민우 | 영업1부 | 8,819 |\n| 차소라 | 영업2부 | 8,072 |\n| 진희경 | 영업3부 | 6,983 |\n| 장용 | 영업1부 | 7,499 |\n| 최병철 | 영업1부 | 7,343 |\n| 김철수 | 영업3부 | 4,875 |\n| 정진수 | 영업2부 | 5,605 |\n| 고희수 | 영업3부 | 8,689 |\n| 조민희 | 영업3부 | 7,060 |\n| 추소영 | 영업2부 | 6,772 |\n| 홍수아 | 영업3부 | 6,185 |\n| 이경식 | 영업1부 | 4,920 |\n| 유동근 | 영업2부 | 7,590 |\n| 이혁세 | 영업2부 | 6,437 |\n\n| 소속 | 총매출액 | 평균매출액 |\n|------|---------|----------|\n| 영업1부 | 28,581 | 7,145 |\n\n소속별 총매출액의 합계"
+        }
       ]
     },
     {
@@ -1566,9 +1584,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 차트와 같이 오차 막대를 표시하기 위한 오차 막대 서식 설정값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m36.gif?1457181428"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1606,15 +1621,18 @@
       "concept_ids": [
         "error-bar",
         "display-direction"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| x | y (대략) |\n|---|---------|\n| 1 | 40 |\n| 2 | 45 |\n| 3 | 25 |\n| 4 | 30 |\n\ny축: 0 – 60  \nx축: 1, 2, 3, 4  \n각 점에 오차 막대(error bar) 포함"
+        }
       ]
     },
     {
       "number": 37,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 워크시트의 [C3:C15] 영역을 이용하여 출신지역별로 인원수를 [G3:G7] 영역에 계산하려고 한다. 다음 중 [G3]셀에 수식을 작성한 뒤 채우기 핸들을 사용하여 [G7]셀까지 수식 복사를 할 경우 [G3]셀에 입력할 수식으로 옳은 것은?(오피스 2007 기준 문제)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m37.gif?1457181428"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -1653,6 +1671,12 @@
         "array-formula",
         "count-by-condition",
         "absolute-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 출신지역 | 나이 |\n|------|----------|------|\n| 김광철 | 서울 | 32 |\n| 김다나 | 경기 | 35 |\n| 고준영 | 서울 | 36 |\n| 성영주 | 호남 | 38 |\n| 김철수 | 경기 | 38 |\n| 정석중 | 호남 | 42 |\n| 이진주 | 영남 | 44 |\n| 박성수 | 제주 | 45 |\n| 최미나 | 영남 | 48 |\n| 강희수 | 제주 | 50 |\n| 조광식 | 서울 | 52 |\n| 원춘배 | 호남 | 52 |\n| 지민주 | 영남 | 54 |\n\n| 출신지역 | 인원 |\n|----------|------|\n| 서울 지역 | 3 |\n| 경기 지역 | 2 |\n| 호남 지역 | 3 |\n| 영남 지역 | 3 |\n| 제주 지역 | 2 |"
+        }
       ]
     },
     {
@@ -1748,9 +1772,6 @@
       "number": 40,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 그림 [보기]탭 [창]그룹의 각 명령에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m40.gif?1457738089"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1789,6 +1810,12 @@
         "view-mode",
         "new-window",
         "window-arrange-hide"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "새 창\n모두 정렬\n틀 고정 ▾\n나누기\n숨기기\n숨기기 취소\n창"
+        }
       ]
     },
     {
@@ -2154,9 +2181,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 주어진 [Customer] 테이블을 참조하여 아래의 SQL문을 실행한 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m49.gif?1457181428"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -2194,6 +2218,12 @@
       "concept_ids": [
         "distinct-keyword",
         "count-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "```sql\nSELECT Count(*)\nFROM (SELECT Distinct City From Customer);\n```\n\n| City | Age | Hobby |\n|------|-----|-------|\n| 부산 | 30 | 축구 |\n| 서울 | 26 | 영화감상 |\n| 부산 | 45 | 낚시 |\n| 서울 | 25 | 야구 |\n| 대전 | 21 | 축구 |\n| 서울 | 19 | 음악감상 |\n| 광주 | 19 | 여행 |\n| 서울 | 38 | 야구 |\n| 인천 | 53 | 배구 |"
+        }
       ]
     },
     {
@@ -2645,9 +2675,6 @@
       "number": 60,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "아래와 같이 조회할 고객의 최소 나이를 입력받아 검색하는 매개 변수 쿼리를 작성하려고 한다. 다음 중 ‘Age’ 필드의 조건식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120160305/c120160305m60.gif?1457181428"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2686,6 +2713,12 @@
         "parameter-query",
         "field-reference-bracket-notation",
         "where-condition-expression"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nerDiagram\n    Customer {\n        string Name PK\n        string City\n        int Age\n    }\n```\n\n| 필드:   | Name     | Age      |         |\n|--------|----------|----------|---------|\n| 테이블: | Customer | Customer |         |\n| 정렬:   |          |          |         |\n| 표시:   | ✓        | ✓        | □       |\n| 조건:   |          |          |         |\n| 또는:   |          |          |         |\n\n매개 변수 값 입력\n\n조회할 최소 나이 입력\n\n20"
+        }
       ]
     }
   ],

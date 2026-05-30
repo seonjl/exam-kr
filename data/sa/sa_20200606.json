@@ -675,9 +675,6 @@
       "number": 19,
       "subject": "1과목 : 안전관리론",
       "question": "무재해운동의 기본이념 3원칙 중 다음에서 설명하는 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 1번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m19.gif?1593416576"
-      ],
       "pass_rate": 80,
       "choices": [
         {
@@ -708,6 +705,12 @@
       "concept_ids": [
         "zero-accident-three-principles",
         "zero-accident-principle"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직장 내의 모든 잠재위험요인을 적극적으로 사전에 발견, 파악, 해결함으로서 뿌리에서 부터 산업재해를 제거하는 것"
+        }
       ]
     },
     {
@@ -827,9 +830,6 @@
       "number": 23,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "각 부품의 신뢰도가 다음과 같을 때 시스템의 전체 신뢰도는 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m23.gif?1593416576"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -861,6 +861,12 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    in[ ] -->|0.95| s1((○)) --> mid[ ]\n    mid --> s2((○))\n    mid --> s3((○))\n    s2 -->|0.95| out[ ]\n    s3 -->|0.90| out\n```"
+        }
       ]
     },
     {
@@ -980,9 +986,6 @@
       "number": 27,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 시스템에 고장이 발생할 확률은 약 얼마인가? (단, X1과 X2의 발생확률은 각각 0.05, 0.03이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m27.gif?1593416576"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1015,6 +1018,12 @@
         "fta-or-gate",
         "failure-probability-beta",
         "basic-event-combination"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T((T)) --> G[AND게이트]\n    G --> X1((X₁))\n    G --> X2((X₂))\n```"
+        }
       ]
     },
     {
@@ -1323,9 +1332,6 @@
       "number": 36,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FT도에서 사용하는 기호 중 다음 그림과 같이 OR 게이트이지만 2개 또는 그 이상의 입력이 동시에 존재할 때 출력이 생기지 않는 경우 사용하는 것은?(문제 오류로 처음 가답안 발표시 2번으로 정답이 발표되었지만 확정답안 발표시 전항 정답 처리 되었습니다. 여기서는 가답안인 2번을 누르면 정답 처리 됩니다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m36.gif?1593416576"
-      ],
       "pass_rate": 83,
       "choices": [
         {
@@ -1356,6 +1362,12 @@
       "concept_ids": [
         "fta-event-gate-symbols",
         "fta-logic-symbols-gates"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    in[ ] --> G[AND게이트]\n    G --> label[\"동시 발생이\\n없음\"]\n```"
+        }
       ]
     },
     {
@@ -2377,9 +2389,6 @@
       "number": 64,
       "subject": "4과목 : 전기위험방지기술",
       "question": "인체의 전기저항을 500Ω이라 한다면 심실세동을 일으키는 위험에너지(J)는? (단, 심실세동전류 , 통전시간은 1초이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m64m1.gif?1593416576"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -2412,6 +2421,12 @@
         "ventricular-fibrillation-dangerous-energy",
         "ventricular-fibrillation-current",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}} \\text{ mA}$$"
+        }
       ]
     },
     {
@@ -2577,8 +2592,11 @@
         },
         {
           "text": "제2종 : Ω이하, 공칭단면적 2.5mm2 이상의 연동선",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m69b2-1.gif?1593416576"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{150}{\\text{1선지락전류}}$$"
+            }
           ]
         },
         {
@@ -2725,26 +2743,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m73b1.gif?1593416576"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "OR 게이트 (논리합 게이트)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m73b2.gif?1593416576"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "NOR 게이트 (부정 논리합 게이트, OR + NOT)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m73b3.gif?1593416576"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "AND 게이트 (논리곱 게이트)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m73b4.gif?1593416576"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "NOT 게이트 (인버터, 부정 게이트)"
+            }
           ]
         }
       ],
@@ -4374,9 +4404,6 @@
       "number": 116,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 안전대와 관련된 설명이다. 아래내용에 해당되는 용어로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20200606/ku20200606m116.gif?1593416576"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -4409,6 +4436,12 @@
         "vertical-access-system",
         "safety-harness",
         "fall-prevention"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "로프 또는 레일 등과 같은 유연하거나 단단한 고정물로서 추락발생시 추락을 저지시키는 추락방지대를 지탱해 주는 줄모양의 부품"
+        }
       ]
     },
     {

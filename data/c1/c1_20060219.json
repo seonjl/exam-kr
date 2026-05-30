@@ -952,9 +952,6 @@
       "number": 22,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 매크로 기록 대화상자에 대한 설명으로 잘못된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m22.gif?1390887345"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -993,15 +990,18 @@
         "macro-recording",
         "macro",
         "macro-name"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**매크로 기록**\n\n| 항목 | 값 |\n|---|---|\n| 매크로 이름(M) | Macro2 |\n| 바로 가기 키(K) | Ctrl+ |\n| 매크로 저장 위치(I) | 현재 통합 문서 |\n| 설명(D) | 이(가) 2002-07-31에 기록한 매크로 |"
+        }
       ]
     },
     {
       "number": 23,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "숫자 24600을 입력한 후 아래의 표시형식을 적용했을 때 표시되는 결과로 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m23.gif?1390887346"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -1040,15 +1040,18 @@
         "custom-number-format",
         "number-format",
         "thousands-separator-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "#0.0,\"천원\":(#0.0,\"천원\") 0.0:@\"님\""
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 그림과 같이 \"표\" 기능을 사용하여 이자율에 따른 이자액을 계산하려고 한다. 이 때 실행하여야 할 작업내용에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m24.gif?1390887346"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -1087,15 +1090,18 @@
         "data-table",
         "range-cell-reference",
         "input-cell-setting"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | A | B | C | D | E | F |\n|---|---|---|---|---|---|---|\n| **1** | | | 이자율에 따른 이자액 계산 | | | |\n| **2** | | | | 이자율 | | |\n| **3** | | | 5% | 10% | 15% | 20% |\n| **4** | 원금 | 2,000 | 100 | 200 | 300 | 400 |\n| **5** | | 3,500 | 175 | 350 | 525 | 700 |\n| **6** | | 4,000 | 200 | 400 | 600 | 800 |\n| **7** | | 5,500 | 275 | 550 | 825 | 1,100 |"
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 [F2:G4]를 참조하여 각 사원의 보너스액을 계산하려고 한다. [D2] 셀에 수식을 작성한 후 채우기 핸들을 이용하여 [D3:D5]를 채우려고 한다. [D2] 셀에 입력될 수식으로 적당한 것은? (보너스액 = 본봉 * 부서별 보너스율)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m25.gif?1390887347"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -1134,6 +1140,12 @@
         "vlookup-function",
         "table-range-fixed",
         "row-operations"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 본봉(원) | 소속부서 | 보너스액 | 부서 | 보너스(%) |\n|------|----------|----------|----------|------|-----------|\n| 홍길동 | 1,500,000 | 총무부 | 2,250,000 | 영업부 | 100 |\n| 김철수 | 2,000,000 | 기술부 | 4,000,000 | 총무부 | 150 |\n| 이세운 | 1,700,000 | 영업부 | 1,700,000 | 기술부 | 200 |\n| 김민 | 1,200,000 | 총무부 | 1,800,000 | | |"
+        }
       ]
     },
     {
@@ -1271,33 +1283,42 @@
       "number": 29,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트의 \"판매수량\"에서 \"판매수량\"의 평균값 이상인 데이터만을 찾기 위한 고급필터의 조건으로 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m29.gif?1390887347"
-      ],
       "pass_rate": 61,
       "choices": [
         {
           "text": "제목: 평균판매수량, 수식: =$C$2>=AVERAGE($C$2:$C$6)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m29b1.gif?1390887347"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "평균판매수량\n\n=$C$2>=AVERAGE($C$2:$C$6)"
+            }
           ]
         },
         {
           "text": "제목: 평균판매수량, 수식: =C$2>=AVERAGE($C$2:$C$6)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m29b2.gif?1390887348"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{평균판매수량} = \\text{C\\$2} = \\text{AVERAGE}(\\$C\\$2:\\$C\\$6)$$"
+            }
           ]
         },
         {
           "text": "제목: 평균판매수량, 수식: =C2>=AVERAGE($C$2:$C$6)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m29b3.gif?1390887348"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "평균판매수량\n\n$$=C2>=\\text{AVERAGE}(\\$C\\$2:\\$C\\$6)$$"
+            }
           ]
         },
         {
           "text": "제목: 판매수량, 수식: =C$2>=AVERAGE($C$2:$C$6)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m29b4.gif?1390887348"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "판매수량\n\n$$=C\\$2=\\text{AVERAGE}(\\$C\\$2:\\$C\\$6)$$"
+            }
           ]
         }
       ],
@@ -1326,6 +1347,12 @@
       "concept_ids": [
         "advanced-filter-criteria",
         "cell-reference-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 상품명 | 지점명 | 판매수량 | 매출액 |\n|--------|--------|----------|--------|\n| 선풍기 | 동부지점 | 10 | 120000 |\n| 세탁기 | 서부지점 | 20 | 38000 |\n| 에어컨 | 동부지점 | 60 | 250000 |\n| 오디오 | 서부지점 | 50 | 78000 |\n| 청소기 | 서부지점 | 40 | 92000 |"
+        }
       ]
     },
     {
@@ -1420,9 +1447,6 @@
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 전체 데이터[A1:E5]를 이용하여 대리점별, 분기별 매출액을 비교하기 위해 하나의 차트를 작성하려고 할 때 다음 중 가장 적합하지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m32.gif?1390887349"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1461,6 +1485,12 @@
         "multi-series-chart",
         "pie-chart",
         "chart-suitability-judgment"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구분 | 1분기 | 2분기 | 3분기 | 4분기 |\n|------|-------|-------|-------|-------|\n| 대리점 | | | | |\n| 칼날 | 3,000,000 | 3,500,000 | 4,000,000 | 3,600,000 |\n| 칼서 | 2,300,000 | 3,000,000 | 3,000,000 | 3,000,000 |\n| 칼동 | 3,400,000 | 2,300,000 | 1,900,000 | 2,500,000 |\n| 칼목 | 3,500,000 | 3,600,000 | 4,500,000 | 6,000,000 |"
+        }
       ]
     },
     {
@@ -1602,9 +1632,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 그림에서 [A1] 셀에서 [Ctrl] 키를 누른 채 채우기 핸들을 끌었을 때 [A4] 셀에 입력되는 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m36.gif?1390887349"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1643,15 +1670,18 @@
         "ctrl-fill",
         "integer-increment",
         "decimal-places-display"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C |\n|---|---|---|\n| 10.2 | | |\n| | | |\n| | | |\n| | | |\n| | | |\n| | | |"
+        }
       ]
     },
     {
       "number": 37,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 [A6] 셀에 수식\"=SUM(OFFSET(A1,1,0,3,1))\"을 입력했을 때 알맞은 결과 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m37.gif?1390887349"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -1689,15 +1719,18 @@
       "concept_ids": [
         "offset-function",
         "dynamic-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C | D |\n|---|---|---|---|\n| 1 | 2 | 3 | 4 |\n| 5 | 6 | 7 | 8 |\n| 9 | 10 | 11 | 12 |\n| 13 | 14 | 15 | 16 |\n\n`=SUM(OFFSET(A1,1,0,3,1))`"
+        }
       ]
     },
     {
       "number": 38,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 부서명이 \"판매1부\"인 직원들의 급여 평균을 [C10] 셀에 구하는 배열 수식으로 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m38.gif?1390887350"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1736,15 +1769,18 @@
         "array-formula-writing",
         "if-function",
         "automatic-braces"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 사원명 | 부서명 | 직위 | 급여 |\n|--------|--------|------|------|\n| 김명진 | 판매1부 | 부장 | 1500000 |\n| 이현기 | 판매2부 | 부장 | 1350000 |\n| 박미나 | 판매3부 | 대리 | 1050000 |\n| 노용주 | 판매1부 | 과장 | 1300000 |\n| 조명섭 | 판매2부 | 대리 | 1150000 |\n| 김진수 | 판매3부 | 부장 | 1380000 |\n| 최진호 | 판매1부 | 대리 | 1190000 |"
+        }
       ]
     },
     {
       "number": 39,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래와 같이 대상 개체의 이름을 다시 참조하지 않아도 여러 가지 메소드나 속성을 지정할 수 있으며, 또한 프로그램의 길이를 줄일 수 있는 것으로 다음 중 밑줄(__)에 들어갈 구문으로 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m39.gif?1390887350"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1783,6 +1819,12 @@
         "with-statement",
         "dot-operator",
         "code-readability-improvement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\n____ Selection.Font\n    .Name = \"바탕\"\n    .Size = 15\n    .Bold = FALSE\n    .Italic = TRUE\nEnd ____\n```"
+        }
       ]
     },
     {
@@ -1834,9 +1876,6 @@
       "number": 41,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "입력마스크를 아래와 같이 정의하고 \"sun\", \"moon\"의 데이터를 각각 입력하였을 때 테이블에 입력된 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m41.gif?1390887350"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -1872,6 +1911,12 @@
       },
       "concept_ids": [
         "input-mask"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "<보기>  >L<???"
+        }
       ]
     },
     {
@@ -1921,9 +1966,6 @@
       "number": 43,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 명령을 실행했을 때 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m43.gif?1390887351"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1960,6 +2002,12 @@
       "concept_ids": [
         "for-next-loop",
         "loop-counter-final-value"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\nHap = 0\nFor k=1 To 5 Step 1\n  Hap = Hap + k\nNext\n```"
+        }
       ]
     },
     {
@@ -2097,9 +2145,6 @@
       "number": 47,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 SQL문으로 알 수 있는 사항이 아닌 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m47.gif?1390887351"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -2138,15 +2183,18 @@
         "order-by-clause",
         "sort-order-asc-desc",
         "multi-field-sort-criteria"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSelect 학과, 이름, 데이터베이스, 운영체제, 평균\nFrom 성적\nWhere 평균 >= 60 ORDER BY 학과, 평균 DESC\n```"
+        }
       ]
     },
     {
       "number": 48,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음의 보고서에 있는 \"서울 지역에 거주하는 회원 수는 3명\" 부분과 같이 출력하기 위하여 입력란에 작성해야 하는 식으로 옳은 것은? (단, \"서울\"은 [주소] 필드에 저장된 값이며, \"3\"은 해당 주소에 거주하는 회원 수를 관련 함수로 사용하여 산출해야 함.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m48.gif?1390887351"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2185,6 +2233,12 @@
         "report-expression-syntax",
         "field-value-reference",
         "count-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 주소 | 회원번호 | 이름 | 나이 |\n|------|----------|------|------|\n| 서울 | 527 | 김혜민 | 29 |\n|  | 327 | 최영주 | 55 |\n|  | 120 | 박찬주 | 21 |\n\n회원수 : 서울 지역에 거주하는 회원수는 3명"
+        }
       ]
     },
     {
@@ -2505,9 +2559,6 @@
       "number": 56,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "폼에서 '회원등급' 컨트롤의 속성이 다음과 같이 설정되었다. 이에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m56.gif?1390887352"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -2546,6 +2597,12 @@
         "control-validation-rule",
         "form-control-properties",
         "form-data-properties"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 속성 | 값 |\n|------|-----|\n| 형식 | 데이터 \\| 이벤트 \\| 기타 \\| 모두 |\n| 컨트롤 원본 | |\n| 입력 마스크 | |\n| 기본값 | =1 |\n| 유효성 검사 규칙 | |\n| 유효성 검사 메시지 | 회원등급을 입력하시오. |\n| 잠금 | 예 |\n| 검색 필터 | 없음 |\n\n캡션: 업력란: 회원등급"
+        }
       ]
     },
     {
@@ -2685,9 +2742,6 @@
       "number": 60,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "도서명에 '액세스'라는 단어가 포함된 도서 정보를 검색하려고 할 때, 다음 SQL문의 WHERE절에 들어갈 조건으로 적당한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120060219/c120060219m60.gif?1390887352"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -2724,6 +2778,12 @@
       "concept_ids": [
         "sql-like-operator",
         "wildcard-character"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSELECT 도서명, 저자, 출판년도, 가격\nFROM 도서 WHERE ______________;\n```"
+        }
       ]
     }
   ],

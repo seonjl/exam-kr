@@ -753,9 +753,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "결함수상의 다음 그림의 기호는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m21.gif?1465901250"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -786,6 +783,12 @@
       "concept_ids": [
         "combination-and-gate",
         "fta-logic-symbols-gates"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A[AND 게이트] -->|연결가 2개| B[ ]\n    A --> C[ ]\n    A --> D[ ]\n```"
+        }
       ]
     },
     {
@@ -1013,9 +1016,6 @@
       "number": 28,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림과 같은 FT(Fault Tree)도가 있을 때 G1의 발생확률은 얼마인가? (단, ①의 발생확률이 0.3, ②는 0.4,③은 0.3, ④는 0.5 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m28.gif?1465901250"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1046,39 +1046,54 @@
       "concept_ids": [
         "fault-tree-occurrence-probability",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (AND)\"] --> G2[\"G₂ (OR)\"]\n    G1 --> G3[\"G₃ (OR)\"]\n    G2 --> N1[\"①\"]\n    G2 --> N2[\"②\"]\n    G3 --> N3[\"③\"]\n    G3 --> N4[\"④\"]\n```"
+        }
       ]
     },
     {
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "오른쪽 그림의 결함수를 간략히 한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m29.gif?1465901250"
-      ],
       "pass_rate": 62,
       "choices": [
         {
           "text": "G1 下方连接 1、2、3、4 四个输入端",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m29b1.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (AND)\"] --> N1[\"①\"]\n    G1 --> N2[\"②\"]\n    G1 --> N3[\"③\"]\n    G1 --> N4[\"④\"]\n```"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m29b2.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (OR)\"] --> N1[\"①\"]\n    G1 --> N2[\"②\"]\n    G1 --> N3[\"③\"]\n    G1 --> N4[\"④\"]\n```"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m29b3.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (AND)\"] --> N1[\"①\"]\n    G1 --> N2[\"②\"]\n    G1 --> G2[\"G₂ (OR)\"]\n    G2 --> N3[\"③\"]\n    G2 --> N4[\"④\"]\n```"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m29b4.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (AND)\"] --> G2[\"G₂ (OR)\"]\n    G1 --> N3[\"③\"]\n    G1 --> N4[\"④\"]\n    G2 --> N1[\"①\"]\n    G2 --> N2[\"②\"]\n```"
+            }
           ]
         }
       ],
@@ -1093,6 +1108,12 @@
       "concept_ids": [
         "fault-tree-simplification",
         "boolean-algebra-minimal-cut-set"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    G1[\"G₁ (OR)\"] --> G2[\"G₂ (AND)\"]\n    G1 --> G3[\"G₃ (AND)\"]\n    G2 --> N1[\"①\"]\n    G2 --> N2[\"②\"]\n    G3 --> N3[\"③\"]\n    G3 --> N4[\"④\"]\n```"
+        }
       ]
     },
     {
@@ -1136,9 +1157,6 @@
       "number": 31,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 어느 기계 시스템의 신뢰도를 구하려고 한다. 계산식이 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m31.gif?1465901250"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -1171,6 +1189,12 @@
         "system-reliability",
         "series-parallel-system-reliability",
         "parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬-병렬 신뢰도 블록 다이어그램\n\n→ [0.95] → { [0.62] 병렬 [0.65] } →"
+        }
       ]
     },
     {
@@ -1255,9 +1279,6 @@
       "number": 34,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음과 같은 실내 표면에서 반사율이 낮아야 하는 순서는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m34.gif?1465901250"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1290,6 +1311,12 @@
         "indoor-reflectance",
         "lighting-environment-design",
         "luminance-reflectance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 바닥　② 천정　③ 가구　④ 벽"
+        }
       ]
     },
     {
@@ -1928,9 +1955,6 @@
       "number": 52,
       "subject": "3과목 : 기계위험방지기술",
       "question": "PRESS 작업에서 손이 금형 안으로 들어가는 작업이다. 그림과 같이 용기의 가장자리를 잘라내는 작업명에 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m52.gif?1465901250"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1961,6 +1985,12 @@
       "concept_ids": [
         "trimming-operation",
         "press-operation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "가장자리절단선\n\n(작업전) → (작업후)"
+        }
       ]
     },
     {
@@ -2966,26 +2996,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m79b1.gif?1465901251"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\int_{\\infty}^{A} -E \\, dX$$"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m79b2.gif?1465901251"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\int_{A}^{B} E \\, dX$$"
+            }
           ]
         },
         {
           "text": "\\int_{\\infty}^A E dX",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m79b3.gif?1465901251"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\int_{\\infty}^{A} E \\, dX$$"
+            }
           ]
         },
         {
           "text": "\\int_{\\infty}^B -E dX",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m79b4.gif?1465901251"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\int_{\\infty}^{B} -E \\, dX$$"
+            }
           ]
         }
       ],
@@ -3570,9 +3612,6 @@
       "number": 95,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음과 같이 각 인화성 물질의 LFL, UFL 값이 주어졌을 때 위험도가 가장 큰 물질은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m95.gif?1465901251"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -3605,6 +3644,12 @@
         "risk-assessment-calculation",
         "lower-flammability-limit",
         "explosion-limits"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "|     | 프로판 | 부탄 | 벤젠 | 가솔린 |\n|-----|--------|------|------|--------|\n| UFL | 9.5    | 8.4  | 6.7  | 6.2    |\n| LFL | 2.4    | 1.8  | 1.4  | 1.4    |"
+        }
       ]
     },
     {
@@ -3806,9 +3851,6 @@
       "number": 101,
       "subject": "6과목 : 건설안전기술",
       "question": "폭이 10cm, 높이 10cm, 길이 40cm인 콘크리트 공시체를 그림과 같이 휨시험에서 1,000kgf에 파괴되었다. 이때 콘크리트의 휨강도는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m101.gif?1465901250"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -3841,6 +3883,12 @@
         "concrete-flexural-strength",
         "specimen-compression-test",
         "section-modulus"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "하중 P 가 중앙에 작용하는 단순지지 보\n\nP ↓ (중앙)\n|←20cm→|←20cm→|\n|←────40cm────→|\n\n양단 단순지지(핀·롤러)"
+        }
       ]
     },
     {
@@ -3852,26 +3900,38 @@
       "choices": [
         {
           "text": "\\frac{제외수}{연구로시간} \\times 100",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m102b1.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{재해자수}}{\\text{연근로시간}} \\times 100$$"
+            }
           ]
         },
         {
           "text": "\\frac{환산재배지수}{상시",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m102b2.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{환산재해자수}}{\\text{상시근로시간}} \\times 100$$"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m102b3.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{환산재해자수}}{\\text{상시근로시간}} \\times 1000$$"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m102b4.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{재해자수}}{\\text{연근로시간}} \\times 1000$$"
+            }
           ]
         }
       ],
@@ -3936,26 +3996,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m104b1.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "1줄걸이 허용하중 = $$\\frac{\\text{절단하중}}{2}$$"
+            }
           ]
         },
         {
           "text": "1줄열이 허용하중 = \\(\\frac{견단축중}{3}\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m104b2.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "1줄걸이 허용하중 = $$\\frac{\\text{절단하중}}{3}$$"
+            }
           ]
         },
         {
           "text": "1줄값이 하루합계 = \\frac{월단위금액}{4}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m104b3.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "1줄걸이 허용하중 = $$\\frac{\\text{절단하중}}{4}$$"
+            }
           ]
         },
         {
           "text": "1줄일이 형량하중 = \\frac{검단하중",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m104b4.gif?1465901250"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "1줄걸이 허용하중 = $$\\frac{\\text{절단하중}}{5}$$"
+            }
           ]
         }
       ],
@@ -4237,9 +4309,6 @@
       "number": 112,
       "subject": "6과목 : 건설안전기술",
       "question": "그림과 같이 두 곳에 줄을 달아 중량물을 들 때, 매단줄의 각도(α)가 얼마일 때 힘 P의 크기가 최소인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m112.gif?1465901250"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -4272,6 +4341,12 @@
         "sling-angle-tension",
         "hoisting-work-load",
         "rigging-work"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "하중 P 가 위로 작용하는 2줄걸이 슬링 다이어그램\n\nP ↑ (상단 중앙)\n \\α/\n  \\/\n████████ (하단 수평 부재)\n\nα: 두 슬링 간 사이각"
+        }
       ]
     },
     {
@@ -4389,9 +4464,6 @@
       "number": 116,
       "subject": "6과목 : 건설안전기술",
       "question": "다음 중 압쇄기를 사용하여 건물해체시의 순서가 가장 바르게 된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m116.gif?1465901250"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -4422,6 +4494,12 @@
       "concept_ids": [
         "crushing-machine-disassembly",
         "building-demolition-method"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "A 보　　B 기둥　　C 슬래브　　D 벽체"
+        }
       ]
     },
     {
@@ -4470,26 +4548,38 @@
       "choices": [
         {
           "text": "P, R_t",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m118b1.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    P[\"↓ P\"] --> pile[\"말뚝 (pile)\"]\n    pile --> Rt[\"Rt (선단지지력)\"]\n    style pile fill:#fff,stroke:#000\n```\n\n하중 P가 말뚝 두부에 작용하고, 말뚝 선단에 Rt(선단지지력)가 작용하는 구조 (주면마찰력 없음)"
+            }
           ]
         },
         {
           "text": "P",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m118b2.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    P[\"↓ P\"] --> pile[\"말뚝 (pile)\"]\n    pile --> tip[\"선단\"]\n    pile -- \"주면마찰력 (→ 방향)\" --> side1[\"\"]\n    pile -- \"주면마찰력 (→ 방향)\" --> side2[\"\"]\n    style pile fill:#fff,stroke:#000\n```\n\n하중 P가 말뚝 두부에 작용하고, 말뚝 주면에서 바깥쪽(→)으로 마찰력이 작용하는 구조 (부주면마찰력)"
+            }
           ]
         },
         {
           "text": "P, Rt",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m118b3.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    P[\"↓ P\"] --> pile[\"말뚝 (pile)\"]\n    pile -- \"주면마찰력 (↓ 방향)\" --> side[\"\"]\n    pile --> Rt[\"Rt (선단지지력)\"]\n    style pile fill:#fff,stroke:#000\n```\n\n하중 P가 말뚝 두부에 작용하고, 말뚝 주면에서 아래쪽(↓)으로 마찰력과 선단에 Rt가 함께 작용하는 구조"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040307/ku20040307m118b4.gif?1465901250"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    P[\"↓ P\"] --> pile[\"말뚝 (pile)\"]\n    pile -- \"주면마찰력 (→ 방향)\" --> side1[\"\"]\n    pile -- \"주면마찰력 (→ 방향)\" --> side2[\"\"]\n    style pile fill:#fff,stroke:#000\n```\n\n하중 P가 말뚝 두부에 작용하고, 말뚝 주면에서 바깥쪽(→)으로 마찰력이 작용하는 구조 (선단지지력 없음)"
+            }
           ]
         }
       ],

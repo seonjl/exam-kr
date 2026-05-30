@@ -412,9 +412,6 @@
       "number": 10,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 중 아래의 설명에 해당하는 Windows 제공 기능은?(윈도우 10 검증 완료)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m10.gif?1569933116"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -452,6 +449,12 @@
       "concept_ids": [
         "ole",
         "windows-version-features"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 데이터와 데이터를 연결하여 원본 데이터를 수정할 때 연결된 데이터도 함께 수정되도록 지원하는 기능이다.\n- 이 기능을 지원하는 그래픽 프로그램에서 그린 그림을 문서 편집기에 연결한 경우 그래픽 프로그램에서 그림을 수정하면 문서 편집기의 그림도 같이 변경된다."
+        }
       ]
     },
     {
@@ -899,9 +902,6 @@
       "number": 21,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 피벗 테이블에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m21.gif?1567258470"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -940,6 +940,12 @@
         "pivot-tables",
         "auto-group-naming",
         "pivot-table-filter"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 그룹 | 사번번호 | 기획팀 | 영업팀 | 총무팀 | 총합계 |\n|------|----------|--------|--------|--------|--------|\n| A 그룹 | AC-300 | 7 | | | 7 |\n| A 그룹 | AC-301 | 10 | | | 10 |\n| B 그룹 | BY-400 | | 12 | | |\n| B 그룹 | BY-401 | 21 | | | |\n| B 그룹 | BY-402 | | | 8 | 2 |"
+        }
       ]
     },
     {
@@ -1036,9 +1042,6 @@
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래와 같이 왼쪽 그림의 [B2:B5] 영역에 [텍스트 나누기]를 실행하여 오른쪽 그림과 같이 소속이 분리되도록 실행하는 과정으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m24.gif?1567258470"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -1076,15 +1079,18 @@
       "concept_ids": [
         "text-to-columns",
         "page-breaks"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| # | A | B |\n|---|---|---|\n| 1 | 성명 | 소속 |\n| 2 | 여종택 | 교통시설과 |\n| 3 | 장성태 | 교통행정과 |\n| 4 | 곽배동 | 교통행정과 |\n| 5 | 박난초 | 교통환경과 |\n\n↓\n\n| # | A | B | C |\n|---|---|---|---|\n| 1 | 성명 | 소속 | |\n| 2 | 여종택 | 교통 | 시설과 |\n| 3 | 장성태 | 교통 | 행정과 |\n| 4 | 곽배동 | 교통 | 행정과 |\n| 5 | 박난초 | 교통 | 환경과 |\n\n---\n\n**텍스트 마법사 - 3단계 중 1단계**\n\n데이터가 구분 기호로 분리(②)로 설정되어 있습니다.\n\n데이터 형식이 올바로 선택되었으면 [다음] 단추를 누르고, 아닐 경우 알맞게 선택하십시오.\n\n**원본 데이터 형식**\n\n원본 데이터의 파일 유형을 선택하십시오.\n\n- ○ 구분 기호로 분리(D) — 각 필드가 쉼표나 탭과 같은 문자로 나누어져 있습니다.\n- ● 너비가 일정함(W) — 각 필드가 일정한 너비로 정렬되어 있습니다."
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 워크시트의 [B2] 셀에 표시 형식을 '$#,##0;($#,##0)'으로 설정하였을 때 표시되는 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m25.gif?1567258470"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1123,6 +1129,12 @@
         "custom-number-format",
         "negative-format",
         "currency-format"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | A | B | C | D |\n|---|---|---|---|---|\n| 1 | | | | |\n| 2 | | -32767 | | |"
+        }
       ]
     },
     {
@@ -1219,33 +1231,42 @@
       "number": 28,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 그림에서 바로 가기 메뉴 [삭제]의 삭제옵션을 선택하여 실행한 결과로 가능하지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m28.gif?1567258470"
-      ],
       "pass_rate": 58,
       "choices": [
         {
           "text": "(img2): A열은 21, 32, 33, 34, 25 / B열은 31, (빈), (빈), (빈), 35 — A2:A4를 삭제하고 오른쪽 B2:B4의 값이 왼쪽으로 이동한 모습(셀을 왼쪽으로 밀기).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m28b1.gif?1567258470"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "|   | A  | B  |\n|---|----|----|\n| 1 | 21 | 31 |\n| 2 | 32 |    |\n| 3 | 33 |    |\n| 4 | 34 |    |\n| 5 | 25 | 35 |"
+            }
           ]
         },
         {
           "text": "(img3): A열은 21, 25, (빈), (빈), (빈) / B열은 31, 32, 33, 34, 35 — A2:A4를 삭제하고 A5의 25가 A2로 위로 이동한 모습(셀을 위로 밀기).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m28b2.gif?1567258470"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| | A | B |\n|---|---|---|\n| 1 | 21 | 31 |\n| 2 | 25 | 32 |\n| 3 | | 33 |\n| 4 | | 34 |\n| 5 | | 35 |"
+            }
           ]
         },
         {
           "text": "(img4): A열은 21, (빈), (빈), (빈), 25 / B열은 31, 32, 33, 34, 35 — A2:A4의 내용만 비워졌고 주변 셀은 전혀 이동하지 않음(이것은 Delete 키로 내용만 지운 결과).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m28b3.gif?1567258470"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "|   | A  | B  |\n|---|----|----|\n| 1 | 21 | 31 |\n| 2 |    | 32 |\n| 3 |    | 33 |\n| 4 |    | 34 |\n| 5 | 25 | 35 |"
+            }
           ]
         },
         {
           "text": "(img5): A열은 31, 32, 33, 34, 35 / B열은 모두 빈 칸 — A열 전체가 삭제되어 B열이 A열 자리로 이동한 모습(열 전체 삭제).",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m28b4.gif?1567258470"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| A | B |\n|---|---|\n| 1 | 31 |\n| 2 | 32 |\n| 3 | 33 |\n| 4 | 34 |\n| 5 | 35 |"
+            }
           ]
         }
       ],
@@ -1266,6 +1287,12 @@
       "concept_ids": [
         "cell-delete-clear",
         "cell-movement"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B |\n|---|---|\n| 21 | 31 |\n| 22 | 32 |\n| 23 | 33 |\n| 24 | 34 |\n| 25 | 35 |"
+        }
       ]
     },
     {
@@ -1362,9 +1389,6 @@
       "number": 31,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 워크시트에서 순위[G2:G10]는 총점을 기준으로 구하되 동점자에 대해서는 국어를 기준으로 순위를 구하였다. 다음 중 [G2] 셀에 입력된 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m31.gif?1567258470"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1403,15 +1427,18 @@
         "rank-function",
         "array-formula",
         "ranking"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 국어 | 수학 | 영어 | 사회 | 총점 | 순위 |\n|------|------|------|------|------|------|------|\n| 홍길동 | 92 | 50 | 30 | 10 | 182 | 1 |\n| 한민국 | 80 | 50 | 20 | 30 | 180 | 3 |\n| 이대한 | 90 | 40 | 20 | 30 | 180 | 2 |\n| 이나래 | 70 | 50 | 30 | 30 | 180 | 4 |\n| 마상욱 | 80 | 50 | 30 | 10 | 170 | 7 |\n| 박정인 | 90 | 40 | 20 | 20 | 170 | 6 |\n| 사수영 | 70 | 40 | 30 | 30 | 170 | 8 |\n| 고소영 | 85 | 40 | 30 | 20 | 175 | 5 |\n| 장명수 | 70 | 50 | 10 | 5 | 135 | 9 |"
+        }
       ]
     },
     {
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트와 같이 원본값에 LEFT(원본값, 2) 함수를 적용하여 추출값을 뽑아낸 후 추출값들의 합계를 계산하려고 한다. 다음 중 이를 위한 계산 방법으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m32.gif?1567258470"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -1450,15 +1477,18 @@
         "string-number-conversion",
         "unary-operator",
         "data-conversion-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 원본값 | 추출값 |\n|--------|--------|\n| 10개   | 10     |\n| 23개   | 23     |\n| 15개   | 15     |\n| 09개   | 09     |\n| 24개   | 24     |\n| **합계** |      |"
+        }
       ]
     },
     {
       "number": 33,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 [A13] 셀에 수식 '=INDEX((A1:C6, A8:C11), 2, 2, 2)'을 입력한 결과는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m33.gif?1567258470"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -1497,6 +1527,12 @@
         "index-match-function",
         "area-designation",
         "cell-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "| 과일 | 가격 | 개수 |\n|------|------|------|\n| 사과 | ₩690 | 40 |\n| 바나나 | ₩840 | 88 |\n| 레몬 | ₩550 | 15 |\n| 오렌지 | ₩250 | 25 |\n| 배 | ₩590 | 40 |\n\n| 과일 | 가격 | 개수 |\n|------|------|------|\n| 아몬드 | ₩2,800 | 10 |\n| 캐슈넛 | ₩3,550 | 16 |\n| 판로 | ₩1,250 | 20 |\n| 호두 | ₩1,750 | 12 |\n\n$$\\text{=INDEX(A1:C6, 2, 2, 2)}$$"
+        }
       ]
     },
     {
@@ -1553,8 +1589,11 @@
       "choices": [
         {
           "text": "엑셀 창 오른쪽 위에 있는 '리본 메뉴 최소화 단추(   )'를 클릭한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m35b1-1.gif?1567258470"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "이미지는 28×21 픽셀 크기의 아이콘으로, 텍스트·수식·표·다이어그램 등 변환할 구조화된 내용이 없습니다. 화면에 표시된 것은 작은 클라우드/홈 모양의 픽셀 아이콘입니다.\n\n변환할 문서 이미지가 별도로 있으면 해당 파일 경로를 알려주세요."
+            }
           ]
         },
         {
@@ -1604,9 +1643,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 데이터를 이용하여 작성 가능한 차트 종류에 해당하지 않는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m36.gif?1567258471"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1643,6 +1679,12 @@
       "concept_ids": [
         "stock-chart",
         "chart-series-minimum-count"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 지역 | A사 | B사 |\n|------|-----|-----|\n| 동부 | 13% | 39% |\n| 서부 | 35% | 6% |\n| 남부 | 27% | 27% |\n| 북부 | 25% | 28% |"
+        }
       ]
     },
     {
@@ -1692,9 +1734,6 @@
       "number": 38,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 ＜수정 전＞ 차트를 ＜수정 후＞ 차트로 변경하기 위한 작업으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m38.gif?1567258471"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1731,6 +1770,12 @@
       "concept_ids": [
         "log-scale",
         "chart-axis-gridline"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "<수정 전>\n\n**사용금액** (선형 Y축)\n\n| 기간 | 대략적 값 범위 |\n|------|--------------|\n| 3-198 | ~0 |\n| 3-120 | ~100,000 이하 |\n| 2-241 | ~100,000 이하 |\n| 2-241 | ~100,000 이하 |\n| 3-138 | ~1,000,000 |\n| 1-358 | ~700,000 |\n| 4-253 | ~500,000 |\n| 2-122 | ~3,000,000 (최고점) |\n| 2-154 | ~2,500,000 |\n| 2-227 | ~200,000 |\n\nY축 범위: 0 ~ 3,500,000\n\n---\n\n<수정 후>\n\n**사용금액** (로그 Y축)\n\n| 기간 | 특징 |\n|------|------|\n| 3-198 | ~1,000,000 |\n| 3-120 | ~100,000 |\n| 2-241 | ~10,000~100,000 |\n| 2-241 | ~10,000~100,000 |\n| 3-138 | ~100,000 |\n| 1-358 | ~10,000~100,000 |\n| 4-253 | ~100,000 |\n| 2-122 | ~1,000,000 |\n| 2-154 | ~100,000 |\n| 2-227 | ~100,000 |\n\nY축 범위: 1 ~ 10,000,000 (로그 스케일)"
+        }
       ]
     },
     {
@@ -1868,9 +1913,6 @@
       "number": 42,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래의 이벤트 프로시저에서 [Command1] 단추를 클릭했을 때의 실행 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m42.gif?1567258471"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1908,6 +1950,12 @@
       "concept_ids": [
         "docmd-object",
         "new-record-mode"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nPrivate Sub Command1_Click()\n    DoCmd.OpenForm \"사원정보\", acNormal\n    DoCmd.GoToRecord , , acNewRec\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -2173,9 +2221,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "[평균성적] 테이블에서 '평균' 필드 값이 90 이상인 학생들을 검색하여 '학년' 필드를 기준으로 내림차순, '반' 필드를 기준으로 오름차순 정렬하여 표시하고자 한다. 다음 중 아래 SQL문의 각 괄호 안에 넣을 예약어로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m49.gif?1567258471"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2214,6 +2259,12 @@
         "sql-order-by-clause",
         "sql-sort-order",
         "sql-order-by-direction"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSELECT 학년, 반, 이름\nFROM 평균성적\nWHERE 평균 >= 90\n```\n\n( ⓢ ) 학년 ( ⓒ ) 반 ( ⓒ );"
+        }
       ]
     },
     {
@@ -2263,9 +2314,6 @@
       "number": 51,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 SQL 문에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120190831/c120190831m51.gif?1567258471"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -2304,6 +2352,12 @@
         "update-statement",
         "where-clause-filtering",
         "update-set-where"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nUPDATE 학생 SET 주소='서울'\nWHERE 학번=100;\n```"
+        }
       ]
     },
     {

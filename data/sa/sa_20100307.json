@@ -349,26 +349,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m10b1.gif?1466425966"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "KC 마크 (한국산업표준 인증 마크)"
+            }
           ]
         },
         {
           "text": "KG",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m10b2.gif?1466425966"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "KS 마크 (한국산업표준 표시 마크 — 원형 테두리 안에 KS 문자)"
+            }
           ]
         },
         {
           "text": "S",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m10b3.gif?1466425966"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "S 마크 (안전인증 마크 — 원형 테두리 안에 S 문자)"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m10b4.gif?1466425966"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "KP 안전인증 마크 (원형 테두리 안에 kp 문자와 '안전인증' 텍스트)"
+            }
           ]
         }
       ],
@@ -873,9 +885,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음은 사건수분석 (Event Tree Analysis ETA)의 작성사례 이다. A, B, C 에 들어갈 확률값들이 올바르게 나열된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m24.gif?1466425966"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -906,6 +915,12 @@
       "concept_ids": [
         "event-tree-analysis",
         "branching-probability-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph LR\n    A[루트] -->|0.99| B\n    A -->|?| 시스템고장1[시스템 고장]\n    B -->|0.992| 시스템성공1[시스템 성공]\n    B --> C\n    C -->|0.3| 시스템성공2[시스템 성공]\n    C -->|0.2| 시스템고장2[시스템 고장]\n```"
+        }
       ]
     },
     {
@@ -1284,9 +1299,6 @@
       "number": 35,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 [그림]에서 시스템 위험분석 기법 중 PHA 가 실행되는 사이클의 영역으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m35.gif?1466425966"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1317,15 +1329,18 @@
       "concept_ids": [
         "preliminary-hazard-analysis",
         "system-safety-general"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[시스템 구상] --> B[시스템 정의]\n    B --> C[시스템 개발]\n    C --> D[시스템 생산]\n    D --> E[시스템 운전]\n    ①[\"①\"] -.->|span| A\n    ②[\"②\"] -.->|span| B\n    ③[\"③\"] -.->|span| E\n    ④[\"④\"] -.->|span| D\n```"
+        }
       ]
     },
     {
       "number": 36,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 시스템에 고장이 발생할 확률은 약 얼마인가? (단, X1과 X2의 발생확률은 각각 0.05, 0.03 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m36.gif?1466425966"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1356,6 +1371,12 @@
       "concept_ids": [
         "fta-or-gate",
         "fta-general"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> OR{OR 게이트}\n    OR --> X1((X₁))\n    OR --> X2((X₂))\n```"
+        }
       ]
     },
     {
@@ -1510,9 +1531,6 @@
       "number": 41,
       "subject": "3과목 : 기계위험방지기술",
       "question": "그림과 같이 500kgf의 중량물을 와이어로프 상부 60°의 각으로 들어 올릴 때 로프 한 선에 걸리는 하중(T)는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m41.gif?1466425966"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1545,6 +1563,12 @@
         "wire-rope-tension-load",
         "sling-angle-between-legs",
         "lifting-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "삼각형 구조물, 꼭짓각 60°, 하중 500 kgf 수직 작용\n양쪽 경사면 부재의 장력 T"
+        }
       ]
     },
     {
@@ -1860,9 +1884,6 @@
       "number": 50,
       "subject": "3과목 : 기계위험방지기술",
       "question": "다음과 같은 조건에서 원통용기를 제작했을 때 안전성(안전도)이 높은 것부터 순서대로 나열된 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m50.gif?1466425966"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -1895,6 +1916,12 @@
         "safety-factor",
         "cylindrical-container-safety",
         "tensile-strength-to-pressure-ratio"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "|  | 내압 | 인장강도 |\n|---|---|---|\n| 1 | 50 kgf/cm² | 40 kgf/cm² |\n| 2 | 60 kgf/cm² | 50 kgf/cm² |\n| 3 | 70 kgf/cm² | 55 kgf/cm² |"
+        }
       ]
     },
     {
@@ -2579,9 +2606,6 @@
       "number": 69,
       "subject": "4과목 : 전기위험방지기술",
       "question": "그림과 같은 설비에 누전되었을 때 인체가 접촉 하여도 안전하도록 ELB를 설치하려고 한다. 가장 적당한 ELB 정격은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m69.gif?1466425966"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2612,6 +2636,12 @@
       "concept_ids": [
         "residual-current-device-sensitivity",
         "shock-protection-residual-current-device"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "변압기(Tr) — 220[V] — 접지저항 20[Ω](E₂) — 접지저항 80[Ω](E₃) — MOTOR — 인체 3000[Ω]\n\n회로 구성:\n- Tr (변압기) → 220V 공급\n- E₂: 접지저항 20Ω\n- E₃: 접지저항 80Ω\n- MOTOR 연결\n- 인체저항: 3000Ω"
+        }
       ]
     },
     {
@@ -2951,9 +2981,6 @@
       "number": 79,
       "subject": "4과목 : 전기위험방지기술",
       "question": "그림과 같은 전기설비에서 누전사고가 발생하였을 때 인체가 전기설비의 외함에 접촉하였을 때 인체통과 전류는 약 몇[mA] 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m79.gif?1466425966"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -2984,6 +3011,12 @@
       "concept_ids": [
         "human-body-transfer-current",
         "ground-fault-enclosure-shock"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "변압기 — 220V — Motor — 인체의 저항 3000Ω\n\n- R₂ = 20Ω (접지저항)\n- R₃ = 80Ω (접지저항)"
+        }
       ]
     },
     {
@@ -3322,9 +3355,6 @@
       "number": 89,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 [보기]에서 일반적인 자동제어 시스템의 작동순서를 바르게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100307/ku20100307m89.gif?1466425967"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -3355,6 +3385,12 @@
       "concept_ids": [
         "automatic-control-operation",
         "automatic-fire-detection-system-component"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 검출　② 조절계　③ 밸브　④ 공정상황"
+        }
       ]
     },
     {

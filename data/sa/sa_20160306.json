@@ -389,26 +389,38 @@
       "choices": [
         {
           "text": "KC^s",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m11b1.gif?1465626299"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "KC (한국산업표준 인증마크, KCs)"
+            }
           ]
         },
         {
           "text": "KG",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m11b2.gif?1465626299"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "K (원 안에 K 표시, 한국가스안전공사 검사 합격 마크)"
+            }
           ]
         },
         {
           "text": "S",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m11b3.gif?1465626299"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "S (원 안에 S 표시, 안전인증마크)"
+            }
           ]
         },
         {
           "text": "kp) 출판문화",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m11b4.gif?1465626299"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "안전인증 (kp 마크, 원형 테두리 안에 \"kp\" 및 \"안전인증\" 표시)"
+            }
           ]
         }
       ],
@@ -880,9 +892,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "인간-기계 시스템에서 시스템의 설계를 다음과 같이 구분할 때 제3단계인 기본설계에 해당 되지 않는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m24.gif?1465626299"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -914,6 +923,12 @@
       "concept_ids": [
         "human-machine-system-design",
         "system-design-phases"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "1단계 : 시스템의 목표와 성능 명세 결정\n2단계 : 시스템의 정의\n3단계 : 기본설계\n4단계 : 인터페이스설계\n5단계 : 보조물 설계\n6단계 : 시험 및 평가"
+        }
       ]
     },
     {
@@ -1185,9 +1200,6 @@
       "number": 32,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "한 대의 기계를 10시간 가동하는 동안 4회의 고장이 발생하였고, 이때의 고장수리시간이 다음 표와 같을 때 MTTR(Mean Time To Repair)은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m32.gif?1465626299"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1220,6 +1232,12 @@
         "mtbf-mttr-metrics",
         "mtbf-mean-time-between-failures",
         "system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 가동시간(hour) | 수리시간(hour) |\n|--------------|--------------|\n| T1 = 2.7 | Ta = 0.1 |\n| T2 = 1.8 | Tb = 0.2 |\n| T3 = 1.5 | Tc = 0.3 |\n| T4 = 2.3 | Td = 0.3 |"
+        }
       ]
     },
     {
@@ -1302,9 +1320,6 @@
       "number": 35,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "어떤 결함수를 분석하여 minimal cut set을 구한 결과 다음과 같았다. 각 기본사상의 발생확률을 qi, i=1,2,3 이라 할 때 정상사상의 발생확률함수로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m35.gif?1465626299"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -1337,6 +1352,12 @@
         "minimal-cut-set",
         "fault-tree-top-event-probability",
         "fault-tree-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$k_1 = [1,2],\\quad k_2 = [1,3],\\quad k_3 = [2,3]$$"
+        }
       ]
     },
     {
@@ -1382,9 +1403,6 @@
       "number": 37,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FMEA에서 고장의 발생확률 β가 다음 값의 범위일 경우 고장의 영향으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m37.gif?1465626299"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -1417,6 +1435,12 @@
         "fmea",
         "failure-propagation-probability",
         "function-loss-estimation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$0.10 \\leq \\beta < 1.00$$"
+        }
       ]
     },
     {
@@ -2353,9 +2377,6 @@
       "number": 62,
       "subject": "4과목 : 전기위험방지기술",
       "question": "통전 경로별 위험도를 나타낼 경우 위험도가 큰 순서대로 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m62.gif?1465626299"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2386,15 +2407,18 @@
       "concept_ids": [
         "electric-shock-accident",
         "electric-shock-physiology"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 왼손-오른손　　② 왼손-등\n③ 양손-양발　　　④ 오른손-가슴"
+        }
       ]
     },
     {
       "number": 63,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음은 어떤 방폭구조에 대한 설명인가",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m63.gif?1465626299"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -2425,6 +2449,12 @@
       "concept_ids": [
         "safety-increased-enclosure",
         "explosion-proof-structure-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전기기구의 권선, 에어-캡, 접점부, 단자부 등과 같이 정상적인 운전 중에 불꽃, 아크, 또는 과열이 생겨서는 안될 부분에 대해 이를 방지하거나 또는 온도상승을 제한하기 위하여 전기안전도를 증가시켜 제작한 구조이다."
+        }
       ]
     },
     {
@@ -2585,9 +2615,6 @@
       "number": 68,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 작업조건에 적합한 보호구로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m68.gif?1465626299"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -2620,15 +2647,18 @@
         "safety-footwear",
         "static-electricity-charging-prevention",
         "electric-shock-prevention-protective-equipment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "물체의 낙하 충격, 물체에의 끼임, 감전 또는 정전기의 대전에 의한 위험이 있는 작업"
+        }
       ]
     },
     {
       "number": 69,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 ( ) 안의 알맞은 내용을 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m69.gif?1465626299"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -2661,6 +2691,12 @@
         "quenching-distance",
         "explosion-hazard",
         "explosion-proof-structure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "폭발성 가스의 폭발등급 측정에 사용되는 표준용기는 내용적이 (　⑧　)cm³, 반구상의 플렌지 접합면의 안길이 (　⑩　)mm의 구상용기의 틈새를 통과시켜 화염일주 한계를 측정하는 장치이다."
+        }
       ]
     },
     {
@@ -3006,9 +3042,6 @@
       "number": 79,
       "subject": "4과목 : 전기위험방지기술",
       "question": "그림과 같은 전기기기 A점에서 완전 지락이 발생하였다. 이 전기기기의 외함에 인체가 접촉되었을 경우 인체를 통해서 흐르는 전류는 약 몇 mA 인가? (단 인체의 저항은 3000Ω 이다)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m79.gif?1465626299"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -3041,6 +3074,12 @@
         "ground-fault-current-calculation",
         "human-body-conduction-current",
         "grounding-resistance-parallel-circuit"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "변압기 — 200V — 전기기기 (A)\n접지저항 R1 = 10Ω (변압기 측)\n접지저항 R2 = 100Ω (전기기기 측)"
+        }
       ]
     },
     {
@@ -3201,9 +3240,6 @@
       "number": 84,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 중 산화반응에 해당하는 것을 모두 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m84.gif?1465626299"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3236,6 +3272,12 @@
         "oxidation-reaction",
         "combustion",
         "corrosion"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "㉮ 철이 공기 중에서 녹이 슬었다.\n㉯ 숨이 공기 중에서 불에 탔다."
+        }
       ]
     },
     {
@@ -3355,9 +3397,6 @@
       "number": 88,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 [표]를 참조하여 메탄 70vol%, 프로판 21vol%, 부탄 9vol% 인 혼합가스의 폭발범위를 구하면 약 몇 vol% 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m88.gif?1465626299"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -3388,6 +3427,12 @@
       "concept_ids": [
         "le-chateliers-principle",
         "mixed-gas-explosion-limits"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 가스 | 폭발하한계 (vol%) | 폭발상한계 (vol%) |\n|------|-----------------|-----------------|\n| C₄H₁₀ | 1.8 | 8.4 |\n| C₃H₈ | 2.1 | 9.5 |\n| C₂H₆ | 3.0 | 12.4 |\n| CH₄ | 5.0 | 15.0 |"
+        }
       ]
     },
     {
@@ -3653,9 +3698,6 @@
       "number": 96,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음은 산업안전보건기준에 관한 규칙에서 정한 폭발 또는 화재 등의 예방에 관한 내용이다. ( )에 알맞은 용어는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m96.gif?1465626300"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -3686,6 +3728,12 @@
       "concept_ids": [
         "dust-explosion-prevention",
         "ventilation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 인화성 액체의 증기, 인화성 가스 또는 인화성 고체가 존재하여 폭발이나 화재가 발생할 우려가 있는 장소에서 해당 증기·가스 또는 분진에 의한 폭발 또는 화재를 예방하기 위하여 (    )·(    ) 및 분진 제거 등의 조치를 하여야 한다."
+        }
       ]
     },
     {
@@ -4431,9 +4479,6 @@
       "number": 117,
       "subject": "6과목 : 건설안전기술",
       "question": "다음 설명에서 제시된 산업안전보건법에서 말하는 고용노동부령으로 정하는 공사에 해당하지 않는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20160306/ku20160306m117.gif?1465626299"
-      ],
       "pass_rate": 83,
       "choices": [
         {
@@ -4464,6 +4509,12 @@
       "concept_ids": [
         "hazard-prevention-plan-submission-target",
         "excavation-depth-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "건설업 중 고용노동부령으로 정하는 공사를 착공하려는 사업주는 고용노동부령으로 정하는 자격을 갖춘 자의 의견을 들은 후 유해·위험방지계획서를 작성하여 고용 노동부령으로 정하는 바에 따라 고용노동부장관에게 제출하여야 한다."
+        }
       ]
     },
     {

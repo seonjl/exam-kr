@@ -643,9 +643,6 @@
       "number": 18,
       "subject": "1과목 : 안전관리론",
       "question": "다음 설명에 해당하는 위험예지훈련법은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m18.gif?1465542416"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -683,7 +680,13 @@
         "Tool Box Meeting",
         "위험예지훈련"
       ],
-      "fix_D10_at": 1779355217
+      "fix_D10_at": 1779355217,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 현장에서 그때 그 장소의 상황에 즉응하여 실시한다.\n- 10명 이하의 소수가 적합하며, 시간은 10분 정도가 바람직하다.\n- 사전에 주제를 정하고 자료 등을 준비한다.\n- 결론은 가급적 서두르지 않는다."
+        }
+      ]
     },
     {
       "number": 19,
@@ -995,9 +998,6 @@
       "number": 27,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "[그림]과 같은 FT도에서 F1 = 0.015, F2 = 0.02, F3 =0.05 이면, 정상사상 T가 발생할 확률은 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m27.gif?1465542416"
-      ],
       "pass_rate": 63,
       "choices": [
         {
@@ -1028,6 +1028,12 @@
       "concept_ids": [
         "fault-tree-top-event-probability",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> AND{AND게이트}\n    AND --> A[A]\n    AND --> C((3))\n    A --> OR{OR게이트}\n    OR --> B1((1))\n    OR --> B2((2))\n```"
+        }
       ]
     },
     {
@@ -1221,9 +1227,6 @@
       "number": 33,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "어떤 전자회로에는 4개의 트랜지스터와 20개의 저항이 직렬로 연결되어 있다 . 이러한 부품들이 정상운용 상태에서 다음과 같은 고장률을 가질 때 이 회로의 신뢰도는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m33.gif?1465542416"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1256,6 +1259,12 @@
         "series-parallel-system-reliability",
         "failure-rate-summation",
         "exponential-distribution-reliability-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 트랜지스터 : 0.00001/시간\n- 저항 : 0.000001/시간"
+        }
       ]
     },
     {
@@ -2790,9 +2799,6 @@
       "number": 74,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 ( )안에 알맞은 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m74.gif?1465542416"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -2823,6 +2829,12 @@
       "concept_ids": [
         "electrical-shock-hazard",
         "electric-shock-risk"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "A. 감전 시 인체에 흐르는 전류는 인가전압이 ( ① )하고 인체저항에 ( ② )한다.\nB. 인체통전류의 열작용이 ( ③ ) × ( ④ )이 어느 정도 이상이 되면 발생한다."
+        }
       ]
     },
     {
@@ -2905,9 +2917,6 @@
       "number": 77,
       "subject": "4과목 : 전기위험방지기술",
       "question": "일반적으로 고압충전로 근접작업 시 접근한계 이격거리가 적절하지 않은 경우 충전전로에 절연방호구를 설치하여야 한다. 이에 대한 기준으로 ( ) 안에 알맞은 내용은?(관련 규정 개정전 문제로 여기서는 기존 정답인 3번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m77.gif?1465542416"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -2940,15 +2949,18 @@
         "high-voltage-live-work-proximity",
         "approach-limit-distance",
         "insulation-ppe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "충전전로에 대하여 머리위로 (ㄱ)cm 이내이거나 신체 또는 발 아래로 거리가 (L)cm 이내로 접근한 경우"
+        }
       ]
     },
     {
       "number": 78,
       "subject": "4과목 : 전기위험방지기술",
       "question": "어느 변전소에서 고장전류가 유입되었을 때 도전성 구조물과 그 부근 지표상의 점과의 사이(약 1m)의 허용접촉전압은?(단, 심실세동전류 : , 인체의 저항 1000Ω, 지표의 저항율 150Ωㆍm, 통전시간을 1초로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m78m1.gif?1465542416"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -2981,6 +2993,12 @@
         "allowable-contact-voltage",
         "ventricular-fibrillation-current",
         "soil-and-ground-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I_k = \\frac{0.165}{\\sqrt{t}} \\, [A]$$"
+        }
       ]
     },
     {
@@ -3916,9 +3934,6 @@
       "number": 104,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 통나무 비계를 조립하는 경우의 준수사항에 대한 내용이다. ( )안에 알맞은 내용을 고르면?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m104.gif?1465542416"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -3949,6 +3964,12 @@
       "concept_ids": [
         "timber-scaffolding",
         "scaffolding-assembly-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "통나무 비계는 지상높이 ( ① ) 이하 또는 ( ② ) 이하인 건축물·공작물 등의 건조·해체 및 조립 등의 작업에만 사용할 수 있다."
+        }
       ]
     },
     {
@@ -4150,9 +4171,6 @@
       "number": 110,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 말비계 조립 시 준수사항이다. ( )안에 알맞은 수치는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m110.gif?1465542416"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -4185,6 +4203,12 @@
         "horse-scaffold",
         "platform-width",
         "strut-member-installation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 지주부재와 수평면의 기울기를 (①)° 이하로 하고 지주부재와 지주부재 사이를 고정시키는 보조부재를 설치할 것\n- 말비계의 높이가 2m를 초과하는 경우에는 작업발판의 폭을 ( ②cm 이상으로 할 것"
+        }
       ]
     },
     {
@@ -4415,9 +4439,6 @@
       "number": 117,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 굴착공사표준안전작업지침에 따른 트렌치 굴착시 준수사항이다. ( ) 안에 들어갈 내용으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20130818/ku20130818m117.gif?1465542416"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -4448,6 +4469,12 @@
       "concept_ids": [
         "trench-excavation-standard",
         "earth-retaining-support-installation-depth"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "굴착폭은 작업 및 대피가 용이하도록 충분한 넓이를 확보 하여야 하며, 굴착깊이가 2m 이상일 경우에는 (　　)이상의 폭으로 한다."
+        }
       ]
     },
     {

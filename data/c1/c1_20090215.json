@@ -451,9 +451,6 @@
       "number": 11,
       "subject": "1과목 : 컴퓨터 일반",
       "question": "다음 설명에 해당하는 용어로 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m11.gif?1390887449"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -490,6 +487,12 @@
       "concept_ids": [
         "memory-dump",
         "ram-memory-management"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RAM의 내부 기억 장치로부터 프린터 등의 외부 장치로 기억된 내용의 일부 또는 전부를 출력시키는 것"
+        }
       ]
     },
     {
@@ -982,9 +985,6 @@
       "number": 23,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "[A2:C4]까지 범위를 선택한 후 조건부 서식을 아래와 같이 설정하였다. 다음 설명 중 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m23.gif?1390887449"
-      ],
       "pass_rate": 31,
       "choices": [
         {
@@ -1023,15 +1023,18 @@
         "conditional-formatting-priority",
         "conditional-formatting",
         "row-operations"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 번호 | 성명 | 금액 | 비고 |\n|------|------|------|------|\n| 2 | 권필동 | 1,100 | |\n| 3 | 손미연 | 3,800 | 최우수 |\n| 4 | 박상우 | 2,900 | |\n| 5 | 합계 | 7,800 | |\n\n**조건부 서식**\n\n조건 1(1)\n수식이 `=MAX($B$2:$B$4)=$B2`\n\n조건을 만족하면 적용할 서식 미리 보기 : AaB\n\n조건 2(2)\n수식이 `=LEFT($A2,1)=\"손\"`\n\n조건을 만족하면 적용할 서식 미리 보기 : AaB\n\n추가(A)"
+        }
       ]
     },
     {
       "number": 24,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트의 [F2]셀에 총점이 큰 값을 기준으로 순위를 구한 후 채우기 핸들을 이용하여 [F5] 셀까지 드래그하려고 한다. 다음 중 [F2] 셀의 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m24.gif?1390887450"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1069,6 +1072,12 @@
       "concept_ids": [
         "rank-function",
         "fill-handle"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 국어 | 영어 | 수학 | 총점 | 순위 |\n|------|------|------|------|------|------|\n| 홍길동 | 89 | 78 | 80 | 247 |  |\n| 강감찬 | 60 | 70 | 89 | 219 |  |\n| 황당통 | 80 | 90 | 60 | 240 |  |\n| 김순동 | 79 | 67 | 77 | 223 |  |"
+        }
       ]
     },
     {
@@ -1293,9 +1302,6 @@
       "number": 30,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 Visual Basic 편집창에 나타난 내용에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m30.gif?1390887450"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1332,6 +1338,12 @@
       "concept_ids": [
         "vba-format-property",
         "underscore-space"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nSub Macro1()\n    Range(\"C2:D5\").Select\n    With Selection.Font\n        .Name = \"굴림\"\n        .Size = 11\n        .Underline = xlUnderlineStyleNone\n        .Shadow = False\n        .ColorIndex = 3\n    End With\n    With Selection\n        .HorizontalAlignment = xlCenter\n        .VerticalAlignment = xlBottom\n        .WrapText = False\n    End With\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1427,9 +1439,6 @@
       "number": 33,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 차트에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m33.gif?1390887451"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -1467,15 +1476,18 @@
       "concept_ids": [
         "chart-data",
         "data-label"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 도서 구입 내역\n\n| 구분 | 어학 | 수리 |\n|------|------|------|\n| 3월 | 35,830 | 43,410 |\n| 2월 | 48,500 | 31,300 |\n| 1월 | 37,500 | 34,300 |"
+        }
       ]
     },
     {
       "number": 34,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래의 시트에서 [A8] 셀에 다음과 같이 수식을 입력했을 때의 계산 결과 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m34.gif?1390887451"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -1514,6 +1526,12 @@
         "index-match-function",
         "match-function",
         "function-basics"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "`=INDEX(A1:C6, MATCH(12,B1:B6,1), 2)`\n\n|   | A | B  | C  |\n|---|---|----|----|\n| 1 | 1 | 10 | 20 |\n| 2 | 2 | 11 | 21 |\n| 3 | 3 | 12 | 22 |\n| 4 | 4 | 13 | 23 |\n| 5 | 5 | 14 | 24 |\n| 6 | 6 | 15 | 25 |"
+        }
       ]
     },
     {
@@ -1698,9 +1716,6 @@
       "number": 39,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 시트에서 “판매1부”의 평균수량을 배열 수식을 이용하여 계산하였다. [D10] 셀에 표시되는 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m39.gif?1390887451"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -1739,15 +1754,18 @@
         "array-formula-conditional",
         "string-handling",
         "condition-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 시번 | 부서명 | 직위 | 수량 |\n|------|--------|------|------|\n| A001 | 판매1부 | 부장 | 150 |\n| A002 | 판매2부 | 부장 | 135 |\n| A003 | 판매3부 | 대리 | 105 |\n| A004 | 판매1부 | 과장 | 130 |\n| A005 | 판매2부 | 대리 | 115 |\n| A006 | 판매2부 | 부장 | 138 |\n| A007 | 판매1부 | 대리 | 119 |\n\n판매1부의 평균수량 : 133"
+        }
       ]
     },
     {
       "number": 40,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "[표1]과 [표2]를 이용하여 [표3]의 최대실적품명을 계산하려고 한다. 다음 중 [B15] 셀의 함수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m40.gif?1390887452"
-      ],
       "pass_rate": 30,
       "choices": [
         {
@@ -1786,6 +1804,12 @@
         "dget-function",
         "database-function",
         "condition-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "[표1]\n\n| 상품명 | 강서지점 | 강남지점 | 강동지점 |\n|--------|----------|----------|----------|\n| 건강보험 | 418,000 | 418,000 | 407,000 |\n| 변액보험 | 391,000 | 735,000 | 404,000 |\n| 신혼대출 | 393,500 | 192,000 | 477,400 |\n| 적금활부대출 | 272,000 | 482,000 | 268,000 |\n| 주택예금 | 354,000 | 208,000 | 495,000 |\n\n[표2]\n\n| | 강서지점 | 강남지점 | 강동지점 |\n|--|----------|----------|----------|\n| 최대실적액 | 406,000 | 735,000 | 495,000 |\n\n[표3]\n\n| | 강서지점 | 강남지점 | 강동지점 |\n|--|----------|----------|----------|\n| 최대실적상품명 | | | |"
+        }
       ]
     },
     {
@@ -1835,9 +1859,6 @@
       "number": 42,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음은 [성적]과 [학생] 테이블에 대한 테이블 디자인이다. 다음의 테이블을 이용한 1학년 1반 학생들의 학번, 과목, 점수를 조회하는 질의로 가장 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m42.gif?1390887452"
-      ],
       "pass_rate": 43,
       "choices": [
         {
@@ -1874,15 +1895,18 @@
       "concept_ids": [
         "subquery-and-operators",
         "multi-table-record-source"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph LR\n  선택[\"선택 : 데이터베이스\"]\n  학생[\"학생 : 데이터베이스\"]\n\n  선택 --> 선택테이블[\"테이블 : 데이터 형식\"]\n  학생 --> 학생테이블[\"테이블 : 데이터 형식\"]\n\n  선택테이블 --> 한번[\"한번 | 텍스트\"]\n  선택테이블 --> 점수[\"점수 | 숫자\"]\n\n  학생테이블 --> 학번[\"학번 | 숫자\"]\n  학생테이블 --> 학년[\"학년 | 숫자\"]\n  학생테이블 --> 반[\"반 | 숫자\"]\n```\n\n**선택 : 데이터베이스**\n\n| 필드 이름 | 데이터 형식 |\n|-----------|-------------|\n| 한번      | 텍스트      |\n| 점수      | 숫자        |\n\n**학생 : 데이터베이스**\n\n| 필드 이름 | 데이터 형식 |\n|-----------|-------------|\n| 학번      | 숫자        |\n| 학년      | 숫자        |\n| 반        | 숫자        |"
+        }
       ]
     },
     {
       "number": 43,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보기 프로그램이 수행되었을 때 Sum의 값으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m43.gif?1390887453"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -1919,33 +1943,45 @@
       "concept_ids": [
         "vba-control-flow",
         "cumulative-sum"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\ni=0\nSum=0\nDo\n    i=i+1\n    Sum=Sum+i\n    if i=7 Then\n        Exit Do\n    End if\nLoop Until i>=10\n```"
+        }
       ]
     },
     {
       "number": 44,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 테이블 필드의 조회 기능 설정에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m44.gif?1390887453"
-      ],
       "pass_rate": 40,
       "choices": [
         {
           "text": "문제에서 주어진 대로 설정한 경우, 콤보상자는 옆의 그림과 같은 형태로 표시되고, 필드에는 1, 2, 3, 4등이 저장된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m44b1.gif?1390887453"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 뒤치 | 비씨 |\n|------|------|\n| 2 | 현대 |\n| 3 | 삼성 |\n| 4 | 신한 |"
+            }
           ]
         },
         {
           "text": "‘바운드 열’을 2로 수정하면, 콤보상자는 옆의 그림과 같은 형태로 표시되면 필드에는 ‘비씨’,‘현대’,‘삼성’,‘신한’등이 저장된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m44b2.gif?1390887454"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "| 뒤쪽 | 비쪽 |\n|------|------|\n| 1    | 살생 |\n| 2    | 살생 |\n| 3    | 삼살 |\n| 4    | 삼살 |\n| 5    | 삼살 |\n| 산한 |      |"
+            }
           ]
         },
         {
           "text": "‘열 너비’를 0cm;1.503cm 와 같이 수정하면, 콤보상자는 옆의 그림과 같은 형태로 표시되면 필드에는 ‘비씨’,‘현대’,‘삼성’,‘신한’ 등이 저장된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m44b3.gif?1390887454"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "비싸\n비싸\n편대\n김성\n신힌"
+            }
           ]
         },
         {
@@ -1980,6 +2016,12 @@
         "bound-column",
         "column-layout",
         "combo-box-row-source"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 항목 | 일반 | 조회 |\n|------|------|------|\n| 컨트롤 표시 | 폼보 상자 | |\n| 항목 원본 유형 | 값 목록 | |\n| 항목 원본 | 1:일반;2:현대;3:삼성;4:신한 | |\n| 바운드 열 | 1 | |\n| 열 수 | 1 | |\n| 이름 | 아니요 | |\n| 열 너비 | 1cm;1.501cm | |\n| 행 수 | 8 | |\n| 목록 너비 | 2.501cm | |\n| 목록 값만 허용 | 아니요 | |"
+        }
       ]
     },
     {
@@ -2029,9 +2071,6 @@
       "number": 46,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 납품내역관리 폼의 거래처코드(txt거래처코드)에 대한 거래처명(txt거래처명)을 [거래처] 테이블을 이용하여 표시하려고 한다. 다음 중 거래처명(txt거래처명)을 구하는 함수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m46.gif?1390887454"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -2070,6 +2109,12 @@
         "dlookup-function",
         "string-literal-notation",
         "where-condition-expression"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**[거래처] 테이블의 필드 데이터 형식**\n\n거래처코드 : 일련번호\n거래처명 : 텍스트\n\n---\n\n## 납품내역관리\n\n**납품 내역 관리**\n\n날짜: 2009-01-12　　조회　　출력\n\n| 납품일자 | 거래처코드 | 거래처명 | 제품 | 납품단가 | 납품수량 | 납품금액 |\n|---------|-----------|---------|------|---------|---------|---------|\n| 2003-08-18 | 23 | 서울전기 | 현대서 | 50 | 50 | 2,500 |\n| 2003-08-29 | 45 | 한성전기 | 커버터 | 30 | 78 | 2,340 |\n| 2003-09-05 | 46 | 한성전기 | 파워코드 | 70 | 110 | 7,700 |\n| 2003-10-11 | 35 | 전주전기 | 컨버서 | 50 | 125 | 6,250 |\n\n**합계**　　3,860　　172,044\n\n---\n\n레코드: | ◀ | 1 | ▶ ▶| | 총계: 50"
+        }
       ]
     },
     {
@@ -2166,9 +2211,6 @@
       "number": 49,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 구매(구매일자, 사번, 제품번호, 구매수량) 테이블을 레코드 원본으로 하는 폼의 바닥글에 ‘구매수량’의 평균이 표시되도록 하기 위한 텍스트 상자의 컨트롤 원본 속성으로 가장 옳지 않은 것은?<단, ‘구매수량’ 필드에는 모두 값이 입력되어 있다.>",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m49.gif?1390887455"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -2207,6 +2249,12 @@
         "report-calculation-formula",
         "aggregate-function",
         "control-binding-source"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구매일자 | 사번 | 제품번호 | 구매수량 |\n|---|---|---|---|\n| 2004-02-08 | 00026001 | F1001 | 60 |\n| 2004-02-08 | 00026002 | T1001 | 85 |\n| 2004-02-08 | 01083201 | T1001 | 90 |\n| 2004-02-08 | 01083202 | T1001 | 80 |\n\n구매수량 평균 : 78.75\n\n현재 레코드: 1 / 전체: 4"
+        }
       ]
     },
     {
@@ -2258,9 +2306,6 @@
       "number": 51,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음은 보고서 작성시 텍스트 상자(textbox)의 속성에 대한 설명이다. 가장 관련 있는 속성으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m51.gif?1390887455"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -2299,6 +2344,12 @@
         "can-grow-property",
         "textbox-control",
         "control-properties"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 자기소개 필드와 같이 데이터의 양이 일정하지 않은 경우에 유용하다.\n- 표시할 텍스트의 양이 많은 경우 컨텐를의 세로 크기를 자동적으로 조정하여 텍스트가 모두 표시될 수 있도록 한다."
+        }
       ]
     },
     {
@@ -2350,9 +2401,6 @@
       "number": 53,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 보고서에 대한 설명으로 옳은 것은? 단, 보고서는 전체 7페이지이며, 현재 페이지는 4페이지이다.",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m53.gif?1390887456"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -2391,6 +2439,12 @@
         "report-grouping",
         "hide-duplicates-property",
         "report-header"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 재품별 납품 현황\n\n| 제품코드 | 제품명 | 납품일자 | 거래처명 | 납품단가 | 납품수량 | 납품금액 |\n|---|---|---|---|---|---|---|\n| D5 | 커피전자 | 2003-10-12 | 구리전기 | 35 | 45 | 1,575 |\n| | | 2003-10-13 | 의왕부건기 | 35 | 94 | 3,290 |\n| | | 2003-10-08 | 성호주건기 | 35 | 31 | 1,085 |\n\n납품건수: 7\n\n| 제품코드 | 제품명 | 납품일자 | 거래처명 | 납품단가 | 납품수량 | 납품금액 |\n|---|---|---|---|---|---|---|\n| D6 | PCB | 2003-08-12 | 감동전기 | 65 | 23 | 1,495 |\n| | | 2003-12-20 | 산본전기 | 65 | 34 | 2,210 |\n| | | 2003-06-22 | 금솔전기 | 65 | 42 | 2,730 |\n\n납품건수: 3\n\n| 제품코드 | 제품명 | 납품일자 | 거래처명 | 납품단가 | 납품수량 | 납품금액 |\n|---|---|---|---|---|---|---|\n| D7 | 와이어 | 2003-06-21 | 감동전기 | 40 | 31 | 1,240 |\n\n2005년 1월 10일 월요일 4/7"
+        }
       ]
     },
     {
@@ -2442,9 +2496,6 @@
       "number": 55,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음의 [거래처]와 [매출] 테이블을 조인하여 질의를 수행한 결과에 대한 설명으로 가장 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m55.gif?1390887456"
-      ],
       "pass_rate": 33,
       "choices": [
         {
@@ -2483,6 +2534,12 @@
         "inner-join",
         "join-operation",
         "query-result-record-count"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 거래처번호 | 거래처명 |\n|-----------|---------|\n| 1 | 대미 |\n| 2 | 대한 |\n| 3 | 한국 |\n\n| 매출번호 | 매출거래처 | 매출일 |\n|---------|-----------|--------|\n| 1 | 2 | 05-01 |\n| 2 | 1 | 05-08 |\n| 3 | 1 | 05-02 |\n| 4 | 5 | 05-04 |\n\n```sql\nSELECT * FROM 매출\nINNER JOIN 거래처\nON 매출.매출거래처=거래처.거래처번호;\n```"
+        }
       ]
     },
     {
@@ -2532,9 +2589,6 @@
       "number": 57,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "[관계 편집] 대화상자에서 다음 그림과 같이 설정한 경우에 대한 설명으로 가장 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m57.gif?1390887456"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -2573,15 +2627,18 @@
         "referential-integrity",
         "edit-relationship-dialog",
         "cascade-update-delete"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "**관계 편집**\n\n| 테이블/쿼리 | 관계 테이블/쿼리 |\n|---|---|\n| 과목 | 성적 |\n| 과목코드 | 과목코드 |\n\n- [x] 항상 참조 무결성 유지(E)\n- [x] 관련 필드 모두 업데이트(U)\n- [x] 관련 레코드 모두 삭제(D)\n\n관계 종류: 일대다 관계"
+        }
       ]
     },
     {
       "number": 58,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음과 같은 이벤트 프로시져에 대한 설명 중 옳지 않은 것은? (단, 단추는 텍스트는 ‘cmd정지’로 표시)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m58.gif?1390887457"
-      ],
       "pass_rate": 36,
       "choices": [
         {
@@ -2618,6 +2675,12 @@
       "concept_ids": [
         "caption-property",
         "string-concat-operator"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```vb\nPrivate Sub cmd실행_Click()\n    cmd실행.Caption = \"동작\"\n    DoCmd.OpenReport \"회원보고서\"\n    MsgBox cmd실행.Caption & \" 결과 완료!!\"\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -2669,9 +2732,6 @@
       "number": 60,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 폼의 ‘기본 보기’ 속성으로 가장 적절한 것은?(단, 이 폼에는 하위 폼이 들어 있지 않다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120090215/c120090215m60.gif?1390887457"
-      ],
       "pass_rate": 40,
       "choices": [
         {
@@ -2708,6 +2768,12 @@
       "concept_ids": [
         "form-default-view-property",
         "form-default-view-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 필드 | 값 |\n|------|-----|\n| 수금입력 : 폼 | (창 제목) |\n| 수금번호 | (입력란) |\n| 수금일 | 2009-01-03 |\n| 거래처 | 1 / 여봄전세실 |\n| 수금액 | (입력란) |\n\n**버튼:** 입력 · 검색 · 수정 · 전체조회보기\n\n---\n\n| 수금번호 | 수금일 | 거래처번호 | 거래처명 | 수금액 |\n|----------|------------|------------|----------|--------|\n| 3 | 2006-01-25 | 3 | 여봄전세실 | 160,000 |\n| 2 | 2006-01-05 | 2 | 6456013 | 160,000 |\n| 1 | 1999-11-12 | | 합계 | 165,100 |\n| | | | 합 계 | 4,676,500 |\n\n레코드: 14 ◄ | ▶ ▶| / 전체: 20"
+        }
       ]
     }
   ],

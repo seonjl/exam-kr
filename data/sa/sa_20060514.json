@@ -48,9 +48,6 @@
       "number": 2,
       "subject": "1과목 : 안전관리론",
       "question": "안전태도교육의 순서를 보기에서 골라 올바르게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m2.gif?1465738059"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -81,6 +78,12 @@
       "concept_ids": [
         "safety-attitude-education-4-steps",
         "attitude-education"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 들어본다    ② 이해시킨다\n③ 시범을 보인다  ④ 평가한다"
+        }
       ]
     },
     {
@@ -987,9 +990,6 @@
       "number": 27,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템에 대하여 톱사상(Top Event)에 도달할 수 있는 최소 컷셋(Minimal Cut Sets)을 구할 때 다음 중 올바른 집합은? (단, ⓐ,ⓑ,ⓒ,ⓓ는 각부품의 고장확률을 의미하며 집합 {a,b}는 ⓐ번 부품과 ⓑ번 부품이 동시에 고장 나는 경우를 의미한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m27.gif?1465738059"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -1020,6 +1020,12 @@
       "concept_ids": [
         "minimal-cut-set",
         "fault-tree-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    AB[\"a\\nb\"] --- C((\"c\"))\n    D((\"d\")) --- AB\n    AB --- C\n```"
+        }
       ]
     },
     {
@@ -1063,9 +1069,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림의 고장 수목에서 FA=0.15, FB=0.2, FC=0.05 이면, 정상사상 T가 발생할 확률은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m29.gif?1465738059"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -1096,15 +1099,18 @@
       "concept_ids": [
         "fault-tree-probability-calculation",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[\"T\"] --> G((\" \"))\n    G --> C((\"C\\n0.05\"))\n    G --> G2((\" \"))\n    G2 --> A((\"A\\n0.15\"))\n    G2 --> B((\"B\\n0.2\"))\n```"
+        }
       ]
     },
     {
       "number": 30,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "주어진 그림에 대한 다음 설명 중 틀린 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m30.gif?1465738060"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -1137,15 +1143,18 @@
         "fta-gate-calculation",
         "logical-or-gate",
         "fault-tree-symbols"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A --> B\n    A --> C\n```"
+        }
       ]
     },
     {
       "number": 31,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림은 어느 기계 시스템의 각 신뢰도를 표시한 것이다. 이 시스템의 신뢰도 계산식이 올바른 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m31.gif?1465738060"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1176,6 +1185,12 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "병렬 회로: 0.62와 0.65가 병렬 연결, 전체 직렬에 0.95\n\n```\n       ┌──[0.62]──┐\n──o────┤          ├────o──\n  0.95 └──[0.65]──┘\n```"
+        }
       ]
     },
     {
@@ -1781,9 +1796,6 @@
       "number": 48,
       "subject": "3과목 : 기계위험방지기술",
       "question": "프레스 작업에서 그림과 같이 용기의 가장자리를 잘라내는 작업명은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m48.gif?1465738060"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -1816,6 +1828,12 @@
         "trimming-operation",
         "press-safety",
         "plastic-deformation-classification-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "가장자리절단선\n\n(작업전) → (작업후)"
+        }
       ]
     },
     {
@@ -2132,9 +2150,6 @@
       "number": 57,
       "subject": "3과목 : 기계위험방지기술",
       "question": "그림과 같이 500kg의 중량물을 와이어로프로 상부60°의 각으로 들어 올릴 때, 로프 한 선에 걸리는 하중(T')은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m57.gif?1465738060"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -2165,6 +2180,12 @@
       "concept_ids": [
         "wire-rope-tension-load",
         "rope-load"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "꼭짓점에서 줄이 두 방향으로 갈라짐, 사이 각도 60°, 장력 T\n\n하중: 500[kg]"
+        }
       ]
     },
     {
@@ -2213,26 +2234,38 @@
       "choices": [
         {
           "text": "S = \\frac{Q \\times P}{N}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m59b1.gif?1465738060"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{Q \\times P}{N}$$"
+            }
           ]
         },
         {
           "text": "S = \\frac{N \\times P}{Q}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m59b2.gif?1465738060"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{N \\times P}{Q}$$"
+            }
           ]
         },
         {
           "text": "S = N \\times Q \\times P",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m59b3.gif?1465738060"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = N \\times Q \\times P$$"
+            }
           ]
         },
         {
           "text": "S = \\frac{Q \\times N}{P}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m59b4.gif?1465738060"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$S = \\frac{Q \\times N}{P}$$"
+            }
           ]
         }
       ],
@@ -2670,9 +2703,6 @@
       "number": 71,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 설명과 가장 관계가 깊은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m71.gif?1465738060"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -2703,6 +2733,12 @@
       "concept_ids": [
         "flowing-charge-accumulation",
         "static-electricity-charging-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 파이프 속에 저항이 높은 액체가 흐를 때 발생된다.\n- 액체의 흐름이 정전기 발생에 영향을 준다."
+        }
       ]
     },
     {
@@ -3761,9 +3797,6 @@
       "number": 100,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "산업안전보건법에서 정한 공정안전보고서 제출대상 업종이 아닌 사업장으로서 위험물질의 1일 취급량이 염소 10,000㎏, 수소 20,000㎏, 프로판 1,000㎏, 톨루엔 2,000㎏인 경우 공정안전보고서 제출대상 여부를 판단하기 위한 R값은 얼마인가? (단, 유해ㆍ위험물질의 규정수량은[표]를 참고하여 계산한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m100.gif?1465738059"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -3794,6 +3827,12 @@
       "concept_ids": [
         "process-safety-management-report",
         "hazardous-substance-threshold-limit"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "[표] 유해위험물질의 규정수량\n\n| 유해·위험물질명 | | 규정수량(kg) |\n|---|---|---|\n| 1. 인화성 가스 | 취급 | 5,000 |\n| | 저장 | 200,000 |\n| 2. 인화성 액체 | 취급 | 5,000 |\n| | 저장 | 200,000 |\n| 3. 염 소 | | 20,000 |\n| 4. 수 소 | | 50,000 |"
+        }
       ]
     },
     {
@@ -4327,9 +4366,6 @@
       "number": 115,
       "subject": "6과목 : 건설안전기술",
       "question": "그림과 같이 인장력 T=55,000kgf을 받는 두 개의 판에 체결해야 할 허용전단응력이 τa=1125kgf/cm2인 M22(직경 22mm) 볼트의 최소 개수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20060514/ku20060514m115.gif?1465738059"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -4362,6 +4398,12 @@
         "bolt-shear-stress",
         "stress-allowance-design",
         "bolt-quantity-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "T← [격자망 열교환기] →T"
+        }
       ]
     },
     {

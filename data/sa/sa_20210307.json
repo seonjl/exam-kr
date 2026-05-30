@@ -1144,9 +1144,6 @@
       "number": 31,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템의 신뢰도 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m31.gif?1615710654"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1178,15 +1175,18 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    IN[ ] --- P1\n    P1 --- A[\"0.7\"]\n    P1 --- B[\"0.7\"]\n    A --- P2\n    B --- P2\n    P2 --- C((\"0.8\"))\n    C --- D((\"0.8\"))\n    D --- OUT[ ]\n```"
+        }
       ]
     },
     {
       "number": 32,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 현상을 설명한 이론은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m32.gif?1615710654"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1219,15 +1219,18 @@
         "weber-law-sensory-sensitivity",
         "just-noticeable-difference",
         "sensory-stimulus"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "인간이 감지할 수 있는 외부의 물리적 자극 변화의 최소범위는 표준 자극의 크기에 비례한다."
+        }
       ]
     },
     {
       "number": 33,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림과 같은 FT도에서 정상사상 T의 발생 확률은? (단, X1, X2, X3의 발생 확률은 각각 0.1, 0.15, 0.1 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m33.gif?1615710654"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1260,6 +1263,12 @@
         "fault-tree-analysis",
         "fta-gate-calculation",
         "fault-tree-top-event-probability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[\"T\"] --> G[\"OR게이트\"]\n    G --> X1((\"X₁\"))\n    G --> X2((\"X₂\"))\n    G --> X3((\"X₃\"))\n```"
+        }
       ]
     },
     {
@@ -1473,8 +1482,11 @@
         },
         {
           "text": "A + \\overline{A} = 0",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m39b2.gif?1615710654"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + \\bar{A} = 0$$"
+            }
           ]
         },
         {
@@ -2368,9 +2380,6 @@
       "number": 63,
       "subject": "4과목 : 전기위험방지기술",
       "question": "인체의 전기저항을 500Ω으로 하는 경우 심실세동을 일으킬 수 있는 에너지는 약 얼마인가? (단, 심실세동전류 로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m63m1.gif?1615710654"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -2403,6 +2412,12 @@
         "ventricular-fibrillation-current",
         "hazardous-electrical-energy",
         "dalziel-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}} \\text{mA}$$"
+        }
       ]
     },
     {
@@ -3255,9 +3270,6 @@
       "number": 86,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "산업안전보건법령상 다음 내용에 해당하는 폭발위험장소는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m86.gif?1615710654"
-      ],
       "pass_rate": 76,
       "choices": [
         {
@@ -3290,6 +3302,12 @@
         "explosive-atmosphere-area",
         "zone-1",
         "explosion-proof-area-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "20종 장소 밖으로서 분진운 형태의 가연성 분진이 폭발농도를 형성할 정도의 충분한 양이 정상 작동 중에 존재할 수 있는 장소를 말한다."
+        }
       ]
     },
     {
@@ -3728,20 +3746,29 @@
         },
         {
           "text": "E=0.24I^{2}\\sqrt{R}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m98b2.gif?1615710654"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = 0.24I^2\\sqrt{R}$$"
+            }
           ]
         },
         {
           "text": "E = \\frac{1}{2} C V^2",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m98b3.gif?1615710654"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2}CV^2$$"
+            }
           ]
         },
         {
           "text": "E = \\frac{1}{2} \\sqrt{C^2 V}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m98b4.gif?1615710654"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2}\\sqrt{C^2V}$$"
+            }
           ]
         }
       ],
@@ -4522,9 +4549,6 @@
       "number": 119,
       "subject": "6과목 : 건설안전기술",
       "question": "공사진척에 따른 공정율이 다음과 같을 때 안전관리비 사용기준으로 옳은 것은? (단, 공정율은 기성공정율을 기준으로 함)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20210307/ku20210307m119.gif?1615710654"
-      ],
       "pass_rate": 80,
       "choices": [
         {
@@ -4555,6 +4579,12 @@
       "concept_ids": [
         "occupational-health-safety-mgmt-fund-usage-standards",
         "progress-rate-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "공정률 : 70퍼센트 이상, 90퍼센트 미만"
+        }
       ]
     },
     {

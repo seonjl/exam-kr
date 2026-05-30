@@ -993,14 +993,20 @@
       "choices": [
         {
           "text": "은 분수 형태로 1/13.6 이며 단위 없이 표현되어 있다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m23b1.gif?1563259544"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{13.6}$$"
+            }
           ]
         },
         {
           "text": "는 (1/13.6) × 10⁻³ 형태로, 1을 13.6으로 나눈 값에 10의 -3제곱을 곱한 형태이다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m23b2.gif?1563259544"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{13.6} \\times 10^{-3}$$"
+            }
           ]
         },
         {
@@ -1034,9 +1040,6 @@
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 U자관 차압 액주계에서 A와 B에 있는 유체는 물이고 그 중간에 유체는  수은(비중 13.6)이다. 또한, 그림에서 h1=20cm, h2=30cm, h3=15cm 일 때 A의 압력(PA)와 B의 압력(PB)의 차이(PA - PB)는 약 몇 kPa 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m24.gif?1563259544"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1073,6 +1076,12 @@
       "concept_ids": [
         "u-tube-manometer",
         "unit-weight"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  A((A +)) -->|γ₁| node1(( ))\n  node1 -->|\"(1)\"| node2(( ))\n  node2 -->|\"h₁\\n(2)\"| node3(( ))\n  node3 -->|γ₂| node4(( ))\n  node4 -->|\"h₂\\n(3)\"| node5(( ))\n  node5 -->|\"(4)\"| node6(( ))\n  node6 -->|\"h₃\\n(5)\"| node7(( ))\n  node7 -->|γ₃| B((B +))\n```\n\n- A + : 좌측 단 (γ₁)\n- (1) : 좌측 수직관 상단\n- (2) : 좌측 수직관, 높이 h₁\n- γ₂ : 하부 연결관\n- (3) : 우측 수직관 하단, 높이 h₂\n- (4) : 우측 수직관 중간\n- (5) : 우측 수직관 상단, 높이 h₃\n- B + : 우측 단 (γ₃)"
+        }
       ]
     },
     {
@@ -1210,9 +1219,6 @@
       "number": 28,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 물 탱크차가 받는 추력은 약 몇 N 인가? (단, 노즐의 단면적은 0.03m2 이며, 탱크 내의 계기압력은 40 kPa 이다. 또한 노즐에서 마찰 손실은 무시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m28.gif?1563259544"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1249,6 +1255,12 @@
       "concept_ids": [
         "fluid-forces-impact",
         "head-summation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "압력 게이지: P = 40 kPa\n\n탱크 내부:\n- 상부: 공기\n- 하부: 물\n\n수위면에서 출구까지 높이: 5 m\n\n출구(우측 하단): 수평 파이프 연결"
+        }
       ]
     },
     {
@@ -1298,9 +1310,6 @@
       "number": 30,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 피스톤의 지름이 각각 25cm와 5cm이다. 작은 피스톤을 화살표 방향으로 20cm 만큼 움직일 경우 큰 피스톤이 움직이는 거리는 약 몇 mm 인가? (단, 누설은 없고, 비압축성이라고 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m30.gif?1563259544"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1337,6 +1346,12 @@
       "concept_ids": [
         "continuity-equation",
         "piston-pump"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "좌측 피스톤 단면: 25 cm (위에서 하중 화살표)\n우측 피스톤 단면: 5 cm (위에서 하중 화살표)\n하부: U자형 연결 용기 (액체 채워짐)"
+        }
       ]
     },
     {
@@ -1482,26 +1497,38 @@
       "choices": [
         {
           "text": "$L_2 = L_1 \\times \\left(\\dfrac{N_1}{N_2}\\right)^3$ (회전수 비를 역수로 세제곱)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m34b1.gif?1563259544"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_2 = L_1 \\times \\left(\\frac{N_1}{N_2}\\right)^3$$"
+            }
           ]
         },
         {
           "text": "$L_2 = L_1 \\times \\left(\\dfrac{N_1}{N_2}\\right)^2$ (회전수 비를 역수로 제곱)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m34b2.gif?1563259544"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_2 = L_1 \\times \\left(\\frac{N_1}{N_2}\\right)^2$$"
+            }
           ]
         },
         {
           "text": "$L_2 = L_1 \\times \\left(\\dfrac{N_2}{N_1}\\right)^3$ (회전수 비를 세제곱)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m34b3.gif?1563259544"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_2 = L_1 \\times \\left(\\frac{N_2}{N_1}\\right)^3$$"
+            }
           ]
         },
         {
           "text": "$L_2 = L_1 \\times \\left(\\dfrac{N_2}{N_1}\\right)^2$ (회전수 비를 제곱)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m34b4.gif?1563259545"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_2 = L_1 \\times \\left(\\frac{N_2}{N_1}\\right)^2$$"
+            }
           ]
         }
       ],
@@ -1539,9 +1566,6 @@
       "number": 35,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 1/4원형의 수문(水門) AB가 받는 수평성분 힘(FH)과 수직성분 힘(FV)은 각각 약 몇 kN 인가? (단, 수문의 반지름은 2m 이고, 폭은 3m 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m35.gif?1563259545"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -1579,6 +1603,12 @@
       "concept_ids": [
         "curved-gate-hydraulic-force",
         "hydrostatic-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "수조 단면도 (측면):\n- 수위면 (상단, 화살표 표시)\n- 폭: 3 m\n- 우측 상단 모서리: A\n- 우측 하단 모서리: B\n- A–B 사이: 반지름 2 m 인 1/4 원호 (곡면)"
+        }
       ]
     },
     {
@@ -2606,9 +2636,6 @@
       "number": 59,
       "subject": "3과목 : 소방관계법규",
       "question": "소방시설공사업법령상 상주 공사감리 대상 기준 중 다음 ㉠, ㉡, ㉢에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m59.gif?1563259545"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -2647,6 +2674,12 @@
         "resident-construction-supervision",
         "building-fire-safety",
         "construction-management"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 연면적 ( ⓐ ) ㎡ 이상의 특정소방대상물(아파트는 제외)에 대한 소방시설의 공사\n- 지하층을 포함한 층수가 ( ⓑ ) 층 이상으로서 ( ⓒ ) 세대 이상인 아파트에 대한 소방시설의 공사"
+        }
       ]
     },
     {
@@ -2919,9 +2952,6 @@
       "number": 66,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "할론소화설비에서 국소방출방식의 경우 할론소화약제의 양을 산출하는 식은 다음과 같다. 여기서 A는 무엇을 의미하는가? (단, 가연물이 비산할 우려가 있는 경우로 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m66.gif?1563259545"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -2958,6 +2988,12 @@
       "concept_ids": [
         "halon-system-local-discharge",
         "combustible-protection"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$Q = X - Y\\frac{a}{A}$$"
+        }
       ]
     },
     {
@@ -3050,9 +3086,6 @@
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "소화용수설비와 관련하여 다음 설명 중 괄호 안에 들어갈 항목으로 옳게 짝지어진 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m69.gif?1563259545"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -3089,15 +3122,18 @@
       "concept_ids": [
         "fire-water-supply-installation",
         "pipe-diameter-specifications"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "상수도소화용수설비를 설치하여야 하는 특정소방대상물은 다음 각 목의 어느 하나와 같다. 다만, 상수도소화용수설비를 설치하여야 하는 특정소방대상물의 대지 경계선으로부터 ( ⓐ ) m 이내에 지름 ( ⓑ ) mm 이상인 상수도용 배수관이 설치되지 않은 지역의 경우에는 화재안전기준에 따른 소화수조 또는 저수조를 설치하여야 한다."
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "연소방지설비의 수평주행배관의 설치 기준에 대한 설명 중 괄호 안의 항목이 옳게 짝지어진 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 2번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20190303/nd20190303m70.gif?1563259545"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -3134,6 +3170,12 @@
       "concept_ids": [
         "smoke-prevention-system-horizontal-piping",
         "pipe-sizing-velocity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연소방지설비에 있어서의 수평주행배관의 구경은 ( ⓐ ) mm 이상의 것으로 하되, 연소방지설비 전용헤드 및 스프링클러헤드를 함께하여 상향으로 ( ⓑ ) 이상의 기울기로 설치하여야 한다."
+        }
       ]
     },
     {

@@ -14,34 +14,43 @@
       "choices": [
         {
           "text": ": H = (K/4) r^4 a_φ [AT/m]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m1b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{K}{4} r^4 a_{\\phi}$$"
+            }
           ]
         },
         {
           "text": ": H = (K/4) r^3 a_φ [AT/m] (정답)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m1b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{K}{4} r^3 a_{\\phi}$$"
+            }
           ]
         },
         {
           "text": ": H = (K/4) r^4 a_φ [AT/m]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m1b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{K}{4} r^4 a_{s}$$"
+            }
           ]
         },
         {
           "text": ": H = (K/4) r^3 a_φ [AT/m]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m1b4.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$H = \\frac{K}{4} r^3 a_{s}$$"
+            }
           ]
         }
       ],
       "answer": 2,
       "explanation": "",
-      "explanation_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m1h1.gif?1498535968"
-      ],
       "needs_vision_reprocess": false,
       "explanation_detailed": "핵심 개념\n원통좌표계에서 z방향 전류밀도 J=Kr² â_z에 암페어 주회적분 법칙(∮H·dL = I_enc)을 적용해 자계 H를 구합니다.\n\n정답 분석\n반지름 r인 원형 폐경로로 둘러싸인 전류는 면적분 I_enc = ∫∫ Kr² · r dr dφ = K · (r^4/4) · 2π = (πKr^4)/2 입니다. 이를 경로 길이 2πr로 나누면 H = I_enc/(2πr) = Kr³/4 가 되고, 전류가 +z 방향이므로 오른나사 법칙(â_z × â_r = â_φ)에 의해 H의 방향은 â_φ입니다. 따라서 H = (K/4) r³ â_φ [AT/m]로 ②가 정답입니다. 해설 이미지에서도 면적 요소 ds = r dr dφ를 명시하고 적분 결과를 2πr로 나누는 과정이 그대로 제시됩니다.\n\n오답 분석\n①: r^4 항으로 표현되어 있어, 2πr로 나누기 전 단계의 전류값 형태에 머문 오답입니다.\n②: (K/4) r³ â_φ로 암페어 법칙 계산 결과와 정확히 일치하는 정답입니다.\n③: r^4 항으로 되어 있어, 면적분 결과를 경로 길이로 나누지 않은 오답입니다.\n④: r의 지수는 맞으나 단위벡터 방향이 정답과 달라 오른나사 법칙을 잘못 적용한 오답입니다.",
       "concepts": [
@@ -67,39 +76,54 @@
         "amperes-circuital-law",
         "surface-integral",
         "hand-rules"
+      ],
+      "explanation_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\int_S J \\cdot ds = \\int_L H \\cdot dL$$\n\n원통좌표계에서 $J = Kr^2\\hat{a}_z$ 이므로 $ds = dr\\, rd\\Phi$ 입니다.\n\n$$I = \\int_S Kr^2 r\\, dr\\, d\\Phi = k\\int_0^\\rho r^3 dr \\int_{\\Phi=0}^{2\\pi} d\\Phi = k \\cdot \\frac{1}{4}r^4 \\cdot 2\\pi = \\frac{kr^2}{2}\\pi \\text{ 입니다.}$$\n\n그리고 전류의 방향이 Z방향이므로 오른나사 법칙에 의해 H의 방향은 $\\hat{a}_\\phi$ 입니다.\n또는 외적으로 직접구하시면 I는 $\\hat{a}_z$ 방향 X(외적 크로스)r은 $\\hat{d}r$ 방향 $= \\hat{a}_\\phi$ 입니다.\n\n$$H = \\frac{I}{2\\pi r}\\hat{a}_\\phi = \\frac{1}{2\\pi r} \\cdot \\frac{kr^4}{2}\\pi\\, \\hat{a}_\\phi = \\frac{k}{4}r^3\\hat{a}_\\phi$$"
+        }
       ]
     },
     {
       "number": 2,
       "subject": "1과목 : 전기자기학",
       "question": "최대 정전용량 C0[F]인 그림과 같은 콘덴서의 정전용량이 각도에 비례하여 변화한다고 한다. 이 콘덴서를 전압 V[V]로 충전하였을 때 회전자에 작용하는 토크는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m2.gif?1495316572"
-      ],
       "pass_rate": 72,
       "choices": [
         {
           "text": "$\\dfrac{C_0 V^2}{2}\\,[\\text{N}\\cdot\\text{m}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m2b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0 V^2}{2} \\, [\\text{N·m}]$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{C_0^2 V}{2\\pi}\\,[\\text{N}\\cdot\\text{m}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m2b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0^2 V}{2\\pi} \\, [\\text{N·m}]$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{C_0 V^2}{2\\pi}\\,[\\text{N}\\cdot\\text{m}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m2b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0 V^2}{2\\pi} \\, [\\text{N·m}]$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{C_0 V^2}{\\pi}\\,[\\text{N}\\cdot\\text{m}]$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m2b4.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0 V^2}{\\pi} \\, [\\text{N·m}]$$"
+            }
           ]
         }
       ],
@@ -131,6 +155,12 @@
         "torque-magnetic-field",
         "electrostatic-energy",
         "capacitance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원형 단면 (부채꼴 각도 θ 표시)\n\n- 원의 중심에서 반지름 두 선이 각도 θ를 이루는 부채꼴 모양\n- 나머지 부분은 큰 원호로 닫힌 형태"
+        }
       ]
     },
     {
@@ -227,9 +257,6 @@
       "number": 5,
       "subject": "1과목 : 전기자기학",
       "question": "어떤 공간의 비유전율은 2이고, 전위 이라고 할 때 점 (1/2,2)에서의 전하밀도 p는 약 몇 pC/m3인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m5m1.gif?1495316572"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -268,15 +295,18 @@
         "poissons-equation",
         "laplace-equation",
         "volume-charge-density"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$V(x, y) = \\frac{1}{x} + 2xy^2$$"
+        }
       ]
     },
     {
       "number": 6,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 히스테리시스 루프를 가진 철심이 강한 평등자계에 의해 매초 60Hz로 자화할 경우 히스테리시스 손실은 몇 W인가? (단, 철심의 체적은 20cm3,Br=5Wb/m2, HC=2AT/m이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m6.gif?1495316573"
-      ],
       "pass_rate": 51,
       "choices": [
         {
@@ -315,16 +345,18 @@
         "hysteresis",
         "volume-relationships",
         "magnetic-permeability-reluctance"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "히스테리시스 곡선 (B-H 곡선)\n\n- 세로축: B [Wb/m²], 포화 자속밀도 Br (잔류 자속밀도)\n- 가로축: H [AT/m]\n- -Hc (왼쪽 보자력), Hc (오른쪽 보자력)\n- -Br (하단 잔류 자속밀도)\n- 원점(0)을 중심으로 대칭인 히스테리시스 루프 (평행사변형 형태)"
+        }
       ]
     },
     {
       "number": 7,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 직각 코일이 인 자계에 위치하고 있다. 코일에 5A 전류가 흐를 때 z축에서의 토크는 약 몇 N ㆍ m 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m7m1.gif?1590828363",
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m7.gif?1495316573"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -363,39 +395,58 @@
         "torque",
         "cross-product",
         "magnetic-force"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$B = 0.05 \\frac{a_x + a_y}{\\sqrt{2}} \\, [T]$$"
+        },
+        {
+          "kind": "text",
+          "content": "3차원 좌표계 내 직사각형 도체 루프\n\n- x, y, z 축 표시 (z 위, y 오른쪽, x 앞)\n- 루프는 y-z 평면에 위치\n- 가로 크기: 0.08m (y축 방향)\n- 세로 크기: y=-0.04m ~ y=0 ~ y=0.08m 범위\n- 전류 I 가 루프를 흐름 (화살표 방향 표시)\n- 위쪽 변에 아래 방향 화살표, 오른쪽 변에 아래 방향 화살표"
+        }
       ]
     },
     {
       "number": 8,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같이 무한평면 도체 앞 a[m] 거리에 점전하 Q[C]가 있다. 점 0에서 x[m]인 P점의 전하밀도 σ[C/m2]는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m8.gif?1495316574"
-      ],
       "pass_rate": 64,
       "choices": [
         {
           "text": ": σ = (Q/4π) · a/(a²+x²)^(3/2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m8b1.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi} \\cdot \\frac{a}{(a^2 + x^2)^{\\frac{3}{2}}}$$"
+            }
           ]
         },
         {
           "text": ": σ = (Q/2π) · a/(a²+x²)^(3/2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m8b2.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{2\\pi} \\cdot \\frac{a}{(a^2 + x^2)^{\\frac{3}{2}}}$$"
+            }
           ]
         },
         {
           "text": ": σ = (Q/4π) · a/(a²+x²)^(2/3)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m8b3.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{4\\pi} \\cdot \\frac{a}{(a^2 + x^2)^{\\frac{2}{3}}}$$"
+            }
           ]
         },
         {
           "text": ": σ = (Q/2π) · a/(a²+x²)^(2/3)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m8b4.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{2\\pi} \\cdot \\frac{a}{(a^2 + x^2)^{\\frac{2}{3}}}$$"
+            }
           ]
         }
       ],
@@ -427,6 +478,12 @@
         "method-of-images",
         "conductor-charge-distribution",
         "point-charge-field-potential"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "점 P는 수직 도선 위에 있고, 점 Q는 수평축 위에 있다.\n원점 O에서 수평 거리 $a$, 수직 거리 $x$ 인 위치 관계를 나타낸 그림.\n\n- P: 수직 도선 상의 점 (위쪽)\n- O: 원점\n- Q: 수평축 상의 점\n- $x$: O에서 P까지의 수직 거리\n- $a$: O에서 Q까지의 수평 거리"
+        }
       ]
     },
     {
@@ -478,9 +535,6 @@
       "number": 10,
       "subject": "1과목 : 전기자기학",
       "question": "막대자석 위쪽에 동축 도체 원판을 놓고 회로의 한 끝은 원판의 주변에 접촉시켜 회전하도록 해 놓은 그림과 같은 패러데이 원판 실험을 할 때 검류계에 전류가 흐르지 않는 경우는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m10.gif?1495316571"
-      ],
       "pass_rate": 84,
       "choices": [
         {
@@ -519,6 +573,12 @@
         "relative-motion",
         "induced-emf",
         "magnetic-flux-faraday"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직류 발전기 구조 다이어그램:\n- 원형 회전자(전기자) — 위쪽에 자속선(↑) 다수\n- B: 브러시 (오른쪽)\n- G: 갈바노미터 또는 외부 회로 (오른쪽)\n- 막대자석 N극 (왼쪽 하단, 사선 방향)\n- N: 자석 N극 레이블\n- 점선 화살표(↓): 아래 방향 자속"
+        }
       ]
     },
     {
@@ -530,26 +590,38 @@
       "choices": [
         {
           "text": "은 E = (1/(4πε₀)) · (Q/r²), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m11b1.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon_0} \\frac{Q}{r^2}$$"
+            }
           ]
         },
         {
           "text": "는 E = (1/(4πε₀)) · (σ/r²), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m11b2.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{4\\pi\\varepsilon_0} \\frac{\\sigma}{r^2}$$"
+            }
           ]
         },
         {
           "text": "은 E = (1/(2πε₀)) · (Q/r²), 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m11b3.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2\\pi\\varepsilon_0} \\frac{Q}{r^2}$$"
+            }
           ]
         },
         {
           "text": "는 E = (1/(2πε₀)) · (σ/r²) 형태의 전계 세기 수식이 각각 표시되어 있다. ①은 분모 계수가 4πε₀이며 분자에 점전하량 Q와 거리의 제곱 r²이 있어 쿨롱 법칙에서 유도되는 점전하의 전계 세기 표준식이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m11b4.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2\\pi\\varepsilon_0} \\frac{\\sigma}{r^2}$$"
+            }
           ]
         }
       ],
@@ -592,26 +664,38 @@
       "choices": [
         {
           "text": "$\\dfrac{1}{\\sqrt{\\varepsilon\\mu}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m12b1.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\sqrt{\\varepsilon\\mu}}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\varepsilon\\mu}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m12b2.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\varepsilon\\mu}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\dfrac{\\varepsilon}{\\mu}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m12b3.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{\\varepsilon}{\\mu}}$$"
+            }
           ]
         },
         {
           "text": "$\\sqrt{\\dfrac{\\mu}{\\varepsilon}}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m12b4.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{\\mu}{\\varepsilon}}$$"
+            }
           ]
         }
       ],
@@ -697,26 +781,38 @@
       "choices": [
         {
           "text": "$L_1 < L_2,\\ |M| = \\dfrac{L_2 + L_1}{4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m14b1.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_1 < L_2, \\quad |M| = \\frac{L_2 + L_1}{4}$$"
+            }
           ]
         },
         {
           "text": "$L_1 > L_2,\\ |M| = \\dfrac{L_1 + L_2}{4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m14b2.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_1 > L_2, \\quad |M| = \\frac{L_1 + L_2}{4}$$"
+            }
           ]
         },
         {
           "text": "$L_1 < L_2,\\ |M| = \\dfrac{L_2 - L_1}{4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m14b3.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_1 < L_2, \\quad |M| = \\frac{L_2 - L_1}{4}$$"
+            }
           ]
         },
         {
           "text": "$L_1 > L_2,\\ |M| = \\dfrac{L_1 - L_2}{4}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m14b4.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L_1 > L_2, \\quad |M| = \\frac{L_1 - L_2}{4}$$"
+            }
           ]
         }
       ],
@@ -758,26 +854,38 @@
       "choices": [
         {
           "text": "은 분자 2C₀, 분모 1 + 1/ε 인 분수식 즉 2C₀/(1 + 1/ε). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m15b1.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2C_0}{1 + \\dfrac{1}{\\varepsilon}}$$"
+            }
           ]
         },
         {
           "text": "는 분자 C₀, 분모 1 + 1/ε 인 분수식 즉 C₀/(1 + 1/ε). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m15b2.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0}{1 + \\dfrac{1}{\\varepsilon}}$$"
+            }
           ]
         },
         {
           "text": "은 분자 2C₀, 분모 1 + ε₀/ε 인 분수식 즉 2C₀/(1 + ε₀/ε). 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m15b3.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{2C_0}{1 + \\dfrac{\\varepsilon_0}{\\varepsilon}}$$"
+            }
           ]
         },
         {
           "text": "는 분자 C₀, 분모 1 + ε/ε₀ 인 분수식 즉 C₀/(1 + ε/ε₀). 모든 보기가 평행판 콘덴서에 유리판(유전율 ε)을 판간격 d의 절반 두께만큼 삽입했을 때의 합성 정전용량을 나타내는 후보 수식이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m15b4.gif?1495316571"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{C_0}{1 + \\dfrac{\\varepsilon}{\\varepsilon_0}}$$"
+            }
           ]
         }
       ],
@@ -815,33 +923,42 @@
       "number": 16,
       "subject": "1과목 : 전기자기학",
       "question": "벡터 포텐샬 일 때의 자계의 세기 H[A/m]는? (단, μ는 투자율이라 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m16m1.gif?1495316572"
-      ],
       "pass_rate": 56,
       "choices": [
         {
           "text": "(1/μ)(2 − 3x²) a_y",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m16b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\mu}(2 - 3x^2)\\, a_y$$"
+            }
           ]
         },
         {
           "text": "(1/μ)(3 − 2x²) a_y",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m16b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\mu}(3 - 2x^2)\\, a_y$$"
+            }
           ]
         },
         {
           "text": "(1/μ)(2 − 3x²) a_z",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m16b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\mu}(2-3x^2)a_z$$"
+            }
           ]
         },
         {
           "text": "(1/μ)(3 − 2x²) a_z",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m16b4.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{\\mu}(3-2x^2)a_z$$"
+            }
           ]
         }
       ],
@@ -872,6 +989,12 @@
       "concept_ids": [
         "magnetic-vector-potential",
         "curl-cartesian-coordinates"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$A = 3x^2 y\\, a_z + 2x\\, a_y - z^3\\, a_x \\ [\\text{Wb/m}]$$"
+        }
       ]
     },
     {
@@ -921,27 +1044,33 @@
       "number": 18,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 길이가 1m인 동축 원통 사이의 정전용량[F/m]]은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m18.gif?1495316572"
-      ],
       "pass_rate": 83,
       "choices": [
         {
           "text": ": $C = \\dfrac{2\\pi}{\\varepsilon \\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m18b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$C = \\frac{2\\pi}{\\varepsilon \\ln\\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
           "text": ": $C = \\dfrac{\\varepsilon}{2\\pi \\ln(b/a)}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m18b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$C = \\frac{\\varepsilon}{2\\pi \\ln\\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
           "text": ": $C = \\dfrac{2\\pi \\varepsilon}{\\ln(b/a)}$ [F/m]",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m18b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$C = \\frac{2\\pi\\varepsilon}{\\ln\\dfrac{b}{a}}$$"
+            }
           ]
         },
         {
@@ -974,6 +1103,12 @@
       "concept_ids": [
         "coaxial-cylinder-capacitance",
         "permittivity"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "길이 1m인 원통형 동축 케이블 (내부 반지름 b, 외부 반지름 a)"
+        }
       ]
     },
     {
@@ -1025,9 +1160,6 @@
       "number": 20,
       "subject": "1과목 : 전기자기학",
       "question": "그림과 같은 정방형관 단면의 격자점 ⑥의 전위를 반복법으로 구하면 약 몇 V 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m20.gif?1495316572"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1064,6 +1196,12 @@
       "concept_ids": [
         "iterative-potential-calculation",
         "adjacent-point-potential-average"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "4×4 격자 전위 분포 (유한차분법 경계조건)\n\n상단 경계: V=0\n하단 경계: V=0\n좌측 경계: V=0\n우측 경계: V=100\n\n내부 격자 노드 (행×열, 위→아래, 좌→우):\n③ ④ ② (1행)\n④ ① ⑤ (2행, 중앙 ①에 점)\n③ ④ ② (3행)"
+        }
       ]
     },
     {
@@ -1300,26 +1438,38 @@
       "choices": [
         {
           "text": "$\\dfrac{V_h}{e} \\times W$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m26b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_h}{e} \\times W$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{V_e}{e} \\times W$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m26b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s}{e} \\times W$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{V_e}{V_h - V_e} \\times W$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m26b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s}{V_h - V_s} \\times W$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{V_h - V_e}{V_e} \\times W$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m26b4.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_h - V_s}{V_s} \\times W$$"
+            }
           ]
         }
       ],
@@ -1407,26 +1557,38 @@
       "choices": [
         {
           "text": "| $\\dfrac{V_s - V_r}{X}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m28b1.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s - V_r}{X}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{V_s^2 - V_r^2}{X}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m28b2.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s^2 - V_r^2}{X}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{V_s(V_s - V_r)}{X}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m28b3.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s(V_s - V_r)}{X}$$"
+            }
           ]
         },
         {
           "text": "| $\\dfrac{V_s V_r}{X}$ |",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m28b4.gif?1495316572"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{V_s V_r}{X}$$"
+            }
           ]
         }
       ],
@@ -1554,9 +1716,6 @@
       "number": 31,
       "subject": "2과목 : 전력공학",
       "question": "송전 계통의 한 부분이 그림과 같이 3상 변압기로 1차측은 △로, 2차측은 Y로 중성점이 접지되어 있을 경우, 1차측에 흐르는 영상전류는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m31.gif?1495316572"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -1595,6 +1754,12 @@
         "delta-wye-transformer",
         "zero-sequence-current-characteristic",
         "neutral-grounding"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "변압기 권선 기호\n\n1차측: △ (삼각형) 결선\n2차측: Y (접지형 스타) 결선"
+        }
       ]
     },
     {
@@ -2238,26 +2403,38 @@
       "choices": [
         {
           "text": "$\\dfrac{\\text{출력}}{\\text{입력}} \\times 100\\%$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m46b1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{출력}}{\\text{입력}} \\times 100\\%$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\text{입력}}{\\text{입력} + \\text{손실}} \\times 100\\%$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m46b2.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{입력}}{\\text{입력}+\\text{손실}} \\times 100\\%$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\text{출력}}{\\text{출력} + \\text{손실}} \\times 100\\%$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m46b3.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{출력}}{\\text{출력}+\\text{손실}} \\times 100\\%$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{\\text{입력} - \\text{손실}}{\\text{입력}} \\times 100\\%$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m46b4.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\text{입력}-\\text{손실}}{\\text{입력}} \\times 100\\%$$"
+            }
           ]
         }
       ],
@@ -2431,26 +2608,38 @@
       "choices": [
         {
           "text": ": $L \\dfrac{T_c}{2I_c}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m50b1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L\\frac{T_c}{2T_s}$$"
+            }
           ]
         },
         {
           "text": ": $L \\dfrac{I_c}{2T_c}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m50b2.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L\\frac{T_s}{2T_c}$$"
+            }
           ]
         },
         {
           "text": ": $L \\dfrac{2I_c}{T_c}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m50b3.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L\\frac{2T_s}{T_c}$$"
+            }
           ]
         },
         {
           "text": ": $L \\dfrac{I_c}{T_c}$",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m50b4.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$L\\frac{T_s}{T_c}$$"
+            }
           ]
         }
       ],
@@ -2617,9 +2806,6 @@
       "number": 54,
       "subject": "3과목 : 전기기기",
       "question": "주파수가 정격보다 3% 감소하고 동시에 전압이 정격보다 3% 상승된 전원에서 운전되는 변압기가 있다. 철손이 에 비례한다면 이 변압기 철손은 정격 상태에 비하여 어떻게 달라지는가? (단, f : 주파수, Bm : 자속밀도 최대치이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m54m1.gif?1495316573"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -2658,6 +2844,12 @@
         "transformer-iron-loss",
         "voltage-frequency-change-effect",
         "flux-density-frequency"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$fB_m^2$$"
+        }
       ]
     },
     {
@@ -2983,21 +3175,24 @@
       "number": 62,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "폐루프 전달함수 C(s)/R(s)가 다음과 같은 2차 제어계에 대한 설명 중 틀린 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m62.gif?1495316573"
-      ],
       "pass_rate": 67,
       "choices": [
         {
           "text": "최대 오버슈트는 이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m62b1-1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$e^{-\\pi\\delta / \\sqrt{1-\\delta^2}}$$"
+            }
           ]
         },
         {
           "text": "이 폐루프계의 특성 방정식은 이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m62b2-1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$s^2 + 2\\delta w_n s + w_n^2 = 0$$"
+            }
           ]
         },
         {
@@ -3033,6 +3228,12 @@
         "second-order-control-system",
         "maximum-overshoot",
         "characteristic-equation"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{C(s)}{R(s)} = \\frac{w_n^2}{s^2 + 2\\delta w_n s + w_n^2}$$"
+        }
       ]
     },
     {
@@ -3084,9 +3285,6 @@
       "number": 64,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음의 특성 방정식을 Routh-Hurwitz 방법으로 안정도를 판별하고자 한다. 이때 안정도를 판별하기 위하여 가장 잘 해석한 것은 어느 것인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m64.gif?1495316573"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -3125,15 +3323,18 @@
         "routh-hurwitz-stability",
         "auxiliary-polynomial",
         "sign-changes"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$q(s) = s^5 + 2s^4 + 2s^3 + 4s^2 + 11s + 10$$"
+        }
       ]
     },
     {
       "number": 65,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "전달함수 일 때 근궤적의 수는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m65m1.gif?1495316573"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -3172,40 +3373,54 @@
         "root-locus",
         "closed-loop-pole",
         "root-locus-branch"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$G(s)H(s) = \\frac{K(s+1)}{s(s+1)(s+2)}$$"
+        }
       ]
     },
     {
       "number": 66,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음의 미분 방정식을 신호 흐름 선도에 옳게 나타낸 것은? (단,로 표시한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66m1.gif?1495316573",
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66.gif?1495316573"
-      ],
       "pass_rate": 53,
       "choices": [
         {
           "text": "(img3): 피드백 게인 -5/2 (음의 부호)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66b1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "신호 흐름도 (Signal Flow Graph)\n\n```mermaid\nflowchart LR\n    R[\"R(S)\"] -->|\"1/2\"| X2[\"X₂(S)\"]\n    X2 -->|\"S⁻¹\"| X1[\"X₁(S)\"]\n    X1 -->|\"1\"| C[\"C(S)\"]\n    X1 -->|\"-5/2\"| X2\n    X1 -->|\"X₁(t)\"| X1\n```\n\n노드 간 가지 이득:\n- R(S) → X₂(S): 1/2\n- X₂(S) → X₁(S): S⁻¹\n- X₁(S) → C(S): 1\n- X₁(S) → X₂(S): -5/2 (피드백)"
+            }
           ]
         },
         {
           "text": "(img4): 피드백 게인 +5/2 (양의 부호)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66b2.gif?1495316573"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "신호 흐름도 (Signal Flow Graph)\n\n```mermaid\nflowchart LR\n    R[\"R(S)\"] -->|\"1/2\"| X2[\"X₂(S)\"]\n    X2 -->|\"S⁻¹\"| X1[\"X₁(S)\"]\n    X1 -->|\"1\"| C[\"C(S)\"]\n    X1 -->|\"5/2\"| X2\n    X1 -->|\"X₁(t)\"| X1\n```\n\n노드 간 가지 이득:\n- R(S) → X₂(S): 1/2\n- X₂(S) → X₁(S): S⁻¹\n- X₁(S) → C(S): 1\n- X₁(S) → X₂(S): 5/2 (피드백)"
+            }
           ]
         },
         {
           "text": "(img5): 피드백 게인 -5/2 이지만 피드백 가지의 연결 위치/방향이 ①과 다름",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66b3.gif?1495316573"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "신호 흐름도 (Signal Flow Graph)\n\n```mermaid\nflowchart LR\n    R[\"R(S)\"] -->|\"1/2\"| X2[\"X₂(S)\"]\n    X2 -->|\"S⁻¹\"| X1[\"X₁(S)\"]\n    X1 -->|\"1\"| C[\"C(S)\"]\n    X1 -->|\"-5/2\"| X2\n    X1 -->|\"X₁(t)\"| X1\n```\n\n노드 간 가지 이득:\n- R(S) → X₂(S): 1/2\n- X₂(S) → X₁(S): S⁻¹\n- X₁(S) → C(S): 1\n- X₁(S) → X₂(S): -5/2 (피드백)"
+            }
           ]
         },
         {
           "text": "(img6): 피드백 게인 +5/2 이며 ②와 유사한 잘못된 부호 구성",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m66b4.gif?1495316573"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "신호 흐름도 (Signal Flow Graph)\n\n```mermaid\nflowchart LR\n    R[\"R(S)\"] -->|\"1/2\"| X2[\"X₂(S)\"]\n    X2 -->|\"S⁻¹\"| X1[\"X₁(S)\"]\n    X1 -->|\"1\"| C[\"C(S)\"]\n    X1 -->|\"5/2\"| X2\n    X1 -->|\"X₁(t)\"| X1\n```\n\n노드 간 가지 이득:\n- R(S) → X₂(S): 1/2\n- X₂(S) → X₁(S): S⁻¹\n- X₁(S) → C(S): 1\n- X₁(S) → X₂(S): 5/2 (피드백)"
+            }
           ]
         }
       ],
@@ -3235,39 +3450,58 @@
       "concept_ids": [
         "first-order-differential-equation",
         "integrator-feedback-system"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$c(t) = X_1(t), \\quad X_2(t) = \\frac{d}{dt}X_1(t)$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$2\\frac{dc(t)}{dt} + 5c(t) = r(t)$$"
+        }
       ]
     },
     {
       "number": 67,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음 블록선도의 전체 전달함수가 1이 되기 위한 조건은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m67.gif?1495316573"
-      ],
       "pass_rate": 57,
       "choices": [
         {
           "text": "G = 1 / (1 - H1 - H2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m67b1.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$G = \\frac{1}{1 - H1 \\cdot H2}$$"
+            }
           ]
         },
         {
           "text": "G = 1 / (1 + H1 + H2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m67b2.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$G = \\frac{1}{1 + H1 + H2}$$"
+            }
           ]
         },
         {
           "text": "G = -1 / (1 - H1 - H2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m67b3.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$G = \\frac{-1}{1 - H1 \\cdot H2}$$"
+            }
           ]
         },
         {
           "text": "G = -1 / (1 + H1 + H2)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m67b4.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$G = \\frac{-1}{1 + H1 + H2}$$"
+            }
           ]
         }
       ],
@@ -3299,6 +3533,12 @@
         "multiple-feedback-loops",
         "closed-loop-transfer-function",
         "mason-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "블록선도 (Block Diagram) — 피드포워드 H1, 피드백 H2 구성\n\n```mermaid\nflowchart LR\n    R[\"R\"] --> sum((\"×\"))\n    sum --> G[\"G\"]\n    G --> C[\"C\"]\n    H1[\"H1\"] --> sum\n    C --> H2[\"H2\"]\n    H2 --> sum\n```\n\n- 입력 R에서 비교기(×)로 입력\n- 비교기 → G → 출력 C\n- H1: 피드포워드 (비교기 앞단으로 연결)\n- H2: 피드백 (C → 비교기)"
+        }
       ]
     },
     {
@@ -3350,9 +3590,6 @@
       "number": 69,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림의 회로는 어느 게이트(gate)에 해당되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m69.gif?1495316573"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3390,15 +3627,18 @@
       "concept_ids": [
         "diode-logic-circuit",
         "or-gate"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "다이오드 AND 게이트 회로\n\n```mermaid\nflowchart LR\n    A[\"A o\"] --> DA[\"▶|\"]\n    B[\"B o\"] --> DB[\"▶|\"]\n    DA --> X[\"o X\"]\n    DB --> X\n    X --> Rg[\"Rg (접지)\"]\n```\n\n- 입력 A, B 각각 다이오드를 통해 출력 X에 연결\n- Rg: 접지 저항 (pulldown)\n- A, B 모두 HIGH일 때만 X = HIGH (AND 동작)"
+        }
       ]
     },
     {
       "number": 70,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "전달함수가 로 주어진 시스템의 단위 임펄스 응답은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m70m1.gif?1495316573"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -3437,15 +3677,18 @@
         "impulse-response",
         "transfer-function",
         "inverse-laplace-transform"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$G(s) = \\frac{Y(s)}{X(s)} = \\frac{1}{s^2(s+1)}$$"
+        }
       ]
     },
     {
       "number": 71,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같은 회로망에서 영상파라미터(영상전달정수) θ는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m71.gif?1495316573"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -3484,6 +3727,12 @@
         "image-transfer-constant",
         "three-phase-symmetry",
         "abcd-parameter"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "T형 4단자 회로망 (T-type Two-port Network)\n\n- 직렬 임피던스 (입력측): $j600\\ \\Omega$\n- 직렬 임피던스 (출력측): $j600\\ \\Omega$\n- 병렬 임피던스 (중앙 접지): $-j300\\ \\Omega$\n\n입력단자: $I_1$ (좌측)\n출력단자: $I_2$ (우측)"
+        }
       ]
     },
     {
@@ -3580,9 +3829,6 @@
       "number": 74,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 회로에서 스위치 S를 닫았을 때, 과도분을 포함하지 않기 위한 R[Ω]은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m74.gif?1495316573"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -3621,6 +3867,12 @@
         "critical-damping",
         "transient-response",
         "rlc-circuit"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "RL-RC 직렬 회로 (스위치 S 포함)\n\n- 전원: E (직류)\n- 스위치: S (t=0에서 닫힘)\n- 직렬 소자: R, L = 0.9 H (인덕터)\n- 병렬 소자: R, C = 10 μF (커패시터)\n- 전류: i (회로 내 흐르는 전류)"
+        }
       ]
     },
     {
@@ -3640,14 +3892,20 @@
         },
         {
           "text": ")은 수식 √(Y/Z)를 나타낸다. 즉 병렬 어드미턴스 Y를 직렬 임피던스 Z로 나눈 값의 제곱근이다. LaTeX로 표기하면 \\sqrt{Y/Z}이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m75b3.gif?1495316573"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{Y}{Z}}$$"
+            }
           ]
         },
         {
           "text": ")는 수식 √(Z/Y)를 나타낸다. 즉 직렬 임피던스 Z를 병렬 어드미턴스 Y로 나눈 값의 제곱근이다. LaTeX로 표기하면 \\sqrt{Z/Y}이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m75b4.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sqrt{\\frac{Z}{Y}}$$"
+            }
           ]
         }
       ],
@@ -3683,9 +3941,6 @@
       "number": 76,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "다음과 같은 회로의 공진시 어드미턴스는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m76.gif?1495316574"
-      ],
       "pass_rate": 49,
       "choices": [
         {
@@ -3724,15 +3979,18 @@
         "resonance",
         "rl-circuit",
         "resonance-condition"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "LC 병렬 공진 회로 (직렬 R 포함)\n\n```mermaid\nflowchart LR\n    in1[\"o\"] --- L[\"L (인덕터)\"]\n    in1 --- C[\"C (커패시터)\"]\n    L --- R[\"R (저항)\"]\n    R --- out1[\"o\"]\n    C --- out1\n```\n\n- L (인덕터): 상단 직렬\n- R (저항): L과 직렬 연결\n- C (커패시터): 하단, L+R과 병렬 연결\n- 입출력 단자: 좌우 각 1쌍"
+        }
       ]
     },
     {
       "number": 77,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 회로에서 전류 I[A]는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m77.gif?1495316574"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -3771,15 +4029,18 @@
         "resonance",
         "reactance",
         "ohm-law"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "병렬 RLC 교류 회로\n\n- 전원: $1\\angle 0°\\ [\\text{V}]$ (교류 전압원)\n- 전류: I (전원에서 공급)\n- 병렬 소자:\n  - $2\\ [\\Omega]$ (저항)\n  - $X_{L1} = 4\\ [\\Omega]$ (유도성 리액턴스)\n  - $X_{C} = 4\\ [\\Omega]$ (용량성 리액턴스)"
+        }
       ]
     },
     {
       "number": 78,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "로 주어졌을 때 F(s)의 역변환은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m78m1.gif?1495316574"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -3818,15 +4079,18 @@
         "inverse-laplace-transform",
         "partial-fraction-decomposition",
         "exponential-decay"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$F(s) = \\frac{s+1}{s^2+2s}$$"
+        }
       ]
     },
     {
       "number": 79,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "인 전압을 R-L 직렬 회로에 가할 때 제 5고조파 전류의 실효값은 약 몇 [A]인가? (단, R=12Ω, wL=1Ω 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m79m1.gif?1495316574"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -3865,39 +4129,54 @@
         "harmonic-and-nonsinusoidal",
         "harmonic-impedance",
         "rl-series-circuit"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$e(t) = 100\\sqrt{2}\\sin\\omega t + 150\\sqrt{2}\\sin 3\\omega t + 260\\sqrt{2}\\sin 5\\omega t \\ [\\text{V}]$$"
+        }
       ]
     },
     {
       "number": 80,
       "subject": "4과목 : 회로이론 및 제어공학",
       "question": "그림과 같은 파형의 전압 순시값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m80.gif?1495316574"
-      ],
       "pass_rate": 58,
       "choices": [
         {
           "text": "은 100 sin(ωt + π/6),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m80b1.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$100\\sin\\!\\left(\\omega t + \\frac{\\pi}{6}\\right)$$"
+            }
           ]
         },
         {
           "text": "는 100√2 sin(ωt + π/6),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m80b2.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$100\\sqrt{2}\\sin\\!\\left(\\omega t + \\frac{\\pi}{6}\\right)$$"
+            }
           ]
         },
         {
           "text": "은 100 sin(ωt − π/6),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m80b3.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$100\\sin\\!\\left(\\omega t - \\frac{\\pi}{6}\\right)$$"
+            }
           ]
         },
         {
           "text": "는 100√2 sin(ωt − π/6)이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/kt/kt20170507/kt20170507m80b4.gif?1495316574"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$100\\sqrt{2}\\sin\\!\\left(\\omega t - \\frac{\\pi}{6}\\right)$$"
+            }
           ]
         }
       ],
@@ -3929,6 +4208,12 @@
         "sinusoidal-instantaneous-value",
         "phase-angle-calculation",
         "peak-amplitude"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "정현파 전압 파형:\n- 최대값: 100V\n- 최솟값: -100V\n- $\\frac{5\\pi}{6}$ 지점에서 영점 교차 (하강)\n- 세로축: V, 가로축: ωt"
+        }
       ]
     },
     {

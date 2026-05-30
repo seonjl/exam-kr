@@ -905,9 +905,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 d1, d2는 각각 300mm, 200mm이고, ℓ1, ℓ2는 600m, 900m이며 마찰계수 f1, f2, 가 0.03, 0.02라고 할 때 직경 d1인 관 길이 ℓ1을 직경 d2인 관으로 환산한 등가길이 ℓ1e는 몇 m인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m21.gif?1497646952"
-      ],
       "pass_rate": 29,
       "choices": [
         {
@@ -946,6 +943,12 @@
         "pipe-length-equivalent",
         "diameter-ratio-fifth-power",
         "friction-loss-friction-factor"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직렬 연결 관로 시스템 단면도:\n\n- 좌측 저수조 (수위 높음) → 우측 저수조 (수위 낮음)\n- 관 1: 직경 $d_1$, 길이 $l_1$\n- 관 2: 직경 $d_2$, 길이 $l_2$\n- 두 관이 직렬로 연결되어 유체 이동\n- 수두차에 의한 자연 유동"
+        }
       ]
     },
     {
@@ -997,9 +1000,6 @@
       "number": 23,
       "subject": "2과목 : 소방유체역학",
       "question": "폭 2m의 수로 위에 그림과 같이 높이 3m의 판이 수직으로 설치되어 있다. 유속이 매우 느리고 상류의 수위는 3.5m 하류의 수위는 2.5m 일 때, 물이 판에 작용하는 힘은 약 몇 kN인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m23.gif?1497646952"
-      ],
       "pass_rate": 38,
       "choices": [
         {
@@ -1038,6 +1038,12 @@
         "pressure-flow-calculation",
         "head-difference-pressure",
         "hydrostatic-force-plane"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "위어(weir) 또는 수문 단면도:\n\n- 좌측 수위: 3.5m (바닥 기준)\n- 위어(수문) 높이: 3m (바닥 ~ 위어 마루)\n- 우측 하류 수위: 2.5m (바닥 기준)\n- 월류 수심(위어 마루 위): 0.5m (= 3.5m - 3m)\n- 유동 방향: 좌 → 우 (위어 상단 넘어 곡선 흐름)"
+        }
       ]
     },
     {
@@ -1179,33 +1185,42 @@
       "number": 27,
       "subject": "2과목 : 소방유체역학",
       "question": "직경이 D인 원형 축과 슬라이딩 베어링 사이에 (간격=t, 길이=L)에 점성계수가 μ인 유체가 채워져 있다. 축을 ⍵의 각속도로 회전시킬 때 필요한 토크를 구하면? (단, t << D)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m27.gif?1497646953"
-      ],
       "pass_rate": 45,
       "choices": [
         {
           "text": "T = μ(⍵D)/(2t)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m27b1.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$T = \\mu \\frac{wD}{2t}$$"
+            }
           ]
         },
         {
           "text": "T = πμ⍵D²L/(2t)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m27b2.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$T = \\frac{\\pi \\mu \\omega D^2 L}{2t}$$"
+            }
           ]
         },
         {
           "text": "T = πμ⍵D³L/(2t)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m27b3.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$T = \\frac{\\pi \\mu \\omega D^3 L}{2t}$$"
+            }
           ]
         },
         {
           "text": "T = πμ⍵D³L/(4t)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m27b4.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$T = \\frac{\\pi \\mu \\omega D^3 L}{4t}$$"
+            }
           ]
         }
       ],
@@ -1231,6 +1246,12 @@
       "concept_ids": [
         "newtons-law-of-viscosity",
         "rotating-shaft-torque"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원형 관(파이프) 단면도:\n\n- 직경: $D$\n- 길이: $L$\n- 우측 끝단에 각속도 $\\omega$ 로 회전하는 요소 표시\n- 수평 원통 형상의 관"
+        }
       ]
     },
     {
@@ -1287,26 +1308,38 @@
       "choices": [
         {
           "text": "F = (1/2)ρA[A²/(A_n)² − 1]V²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m29b1.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2} \\rho A \\left[\\frac{A_n}{(A_n)^2} - 1\\right] V^2$$"
+            }
           ]
         },
         {
           "text": "F = ρA[A/A_n − 1]V²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m29b2.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\rho A \\left[\\frac{A_n}{(A_n)^2} - 1\\right] V^2$$"
+            }
           ]
         },
         {
           "text": "F = (1/2)ρA[1 − (A_n)²/A²]V²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m29b3.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{1}{2} \\rho A \\left[1 - \\frac{(A_n)^2}{A^2}\\right] V^2$$"
+            }
           ]
         },
         {
           "text": "F = ρA[1 − (A_n)²/A²]V²",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m29b4.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\rho A \\left[1 - \\frac{(A_n)^2}{A^2}\\right] V^2$$"
+            }
           ]
         }
       ],
@@ -1696,9 +1729,6 @@
       "number": 38,
       "subject": "2과목 : 소방유체역학",
       "question": "그림의 역 U자관 manometer에서 압력차 Px - Py는 몇 Pa인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m38.gif?1497646953"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1737,6 +1767,12 @@
         "manometer-pressure-difference",
         "mercury-measurement",
         "water-column"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "기름 (비중 0.9)\n\n200mm\n↑\nPy\n1,500 mm         400 mm\n↑\n물\nPx"
+        }
       ]
     },
     {
@@ -1793,8 +1829,11 @@
       "choices": [
         {
           "text": "의 이미지는 dA/A + dρ/ρ + dV/V = 0 형태의 수식으로, 압축성 유체에 대한 미분형 연속방정식(단면적 A, 밀도 ρ, 속도 V의 상대 변화율의 합이 0)을 나타낸다. 보기",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m40b1.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{dA}{A} + \\frac{dp}{p} + \\frac{dV}{V} = 0$$"
+            }
           ]
         },
         {
@@ -1807,8 +1846,11 @@
         },
         {
           "text": "의 이미지는 ∂ρ/∂t + ∇·(ρV) = 0 형태의 수식으로, 일반적인 3차원 비정상류 유체에 대한 미분형 연속방정식(밀도의 시간 변화율과 질량유속 벡터의 발산의 합이 0)을 나타낸다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20100509/nd20100509m40b4.gif?1497646953"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{\\partial p}{\\partial t} + \\nabla \\cdot (pV) = 0$$"
+            }
           ]
         }
       ],

@@ -767,9 +767,6 @@
       "number": 21,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 시스템의 신뢰도는 약 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m21.gif?1466515562"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -800,6 +797,12 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[\"0.85\"] --> B[\"0.75\"]\n    A --> C[\"0.75\"]\n    B --> D[\" \"]\n    C --> D\n```"
+        }
       ]
     },
     {
@@ -880,9 +883,6 @@
       "number": 24,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림(a)는 양단이 벌어져 보이고, 그림(b)는 중앙이 벌어져 보인다. 누구의 착시현상인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m24.gif?1466515562"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -913,15 +913,18 @@
       "concept_ids": [
         "sensory-perception",
         "optical-illusion"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "(a) 마름모꼴 사선 패턴 (내향 삼각형 2개 마주보는 형태)\n(b) X자형 사선 패턴 (외향 삼각형 2개 마주보는 형태)"
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림에서 나타내는 기호는 무슨 사상을 나타내는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m25.gif?1466515562"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -952,15 +955,18 @@
       "concept_ids": [
         "fta-event-symbols",
         "fta-event-gate-symbols"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "원형 기호 (위아래 수직선 연결) — 계기 또는 밸브 기호"
+        }
       ]
     },
     {
       "number": 26,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림의 G3 Tree를 수식으로 나타낸 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m26.gif?1466515562"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -991,6 +997,12 @@
       "concept_ids": [
         "fault-tree-logic-symbols",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    G3[\"G₃\"] -->|AND| G1[\"G₁\"]\n    G3 -->|AND| G2[\"G₂\"]\n    G1 -->|OR| E1[\"①\"]\n    G1 -->|OR| E2[\"②\"]\n    G2 -->|OR| E3[\"③\"]\n    G2 -->|OR| E4[\"④\"]\n```"
+        }
       ]
     },
     {
@@ -1034,33 +1046,42 @@
       "number": 28,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "신뢰도가 r인 n개 요소가 병렬로 구성된 시스템의 신뢰도는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m28.gif?1466515562"
-      ],
       "pass_rate": 58,
       "choices": [
         {
           "text": "\\prod_{i=1}^n R_1",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m28b1.gif?1466515562"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} R_i$$"
+            }
           ]
         },
         {
           "text": "1 - \\prod_{i=1}^n R_i",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m28b2.gif?1466515563"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$1 - \\prod_{i=1}^{n} R_i$$"
+            }
           ]
         },
         {
           "text": "\\prod_{i=1}^n (1 - R_i)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m28b3.gif?1466515563"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\prod_{i=1}^{n}(1 - R_i)$$"
+            }
           ]
         },
         {
           "text": "1 - \\prod_{i=1}^n (1 - R_i)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m28b4.gif?1466515563"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$1 - \\prod_{i=1}^{n}(1 - R_i)$$"
+            }
           ]
         }
       ],
@@ -1075,6 +1096,12 @@
       "concept_ids": [
         "parallel-system-reliability",
         "series-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    IN[ ] --> r1[\"r₁\"]\n    IN --> r2[\"r₂\"]\n    IN --> rn[\"rₙ\"]\n    r1 --> OUT[ ]\n    r2 --> OUT\n    rn --> OUT\n```\n(r₁, r₂, …, rₙ 병렬 회로)"
+        }
       ]
     },
     {
@@ -1460,9 +1487,6 @@
       "number": 39,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림의 결함수에서 최소 컷셋을 올바르게 구한 것은?시 정답과 해설을 확인하시기 바랍니다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m39.gif?1466515563"
-      ],
       "pass_rate": 32,
       "choices": [
         {
@@ -1495,6 +1519,12 @@
         "minimal-cut-set",
         "fta-gate-calculation",
         "fta-probability-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[\"T\"] -->|OR| A1[\"A1\"]\n    T -->|OR| A2[\"A2\"]\n    A1 -->|AND| X1[\"X1\"]\n    A1 -->|AND| X2[\"X2\"]\n    A2 -->|OR| X3[\"X3\"]\n    A2 -->|OR| X4[\"X4\"]\n```"
+        }
       ]
     },
     {
@@ -4227,9 +4257,6 @@
       "number": 112,
       "subject": "6과목 : 건설안전기술",
       "question": "그림과 같이 말뚝을 두 줄로 달아 들어 운반할 때 다음 중 말뚝 내에 발생하는 휨응력의 크기를 최소화 할 수 있는 x 의 크기는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20030831/ku20030831m112.gif?1466515562"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -4260,6 +4287,12 @@
       "concept_ids": [
         "pile-transport-bending-stress",
         "hoisting-work-load"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "삼각형 집중하중 (위쪽 화살표), 단순지지보\n전체 경간: L\n양 끝단 지지점까지 각 x, 중앙 순경간: L-2x\n(x + (L-2x) + x = L)"
+        }
       ]
     },
     {

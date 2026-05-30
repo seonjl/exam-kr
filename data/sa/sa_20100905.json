@@ -120,9 +120,6 @@
       "number": 4,
       "subject": "1과목 : 안전관리론",
       "question": "하인리히의 재해발생 이론은 다음과 같이 표현할 수 있다. 이 때  가 의미하는 것으로 가장 적절한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m4.gif?1466144291"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -153,6 +150,12 @@
       "concept_ids": [
         "heinrich-domino-theory",
         "latent-hazard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "재해의 발생\n= 물적 불안전상태 + 인적 불안전행동 + α\n= 설비적 결함 + 관리적 결함 + α"
+        }
       ]
     },
     {
@@ -1257,9 +1260,6 @@
       "number": 34,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음과 같은 FT도에 있어 A의 사상이 발생할 수 있는 확률은? (단, 사상 ①, ②, ③ 의 발생확률은 각각 0.1, 0.2, 0.15 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m34.gif?1466144291"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1290,6 +1290,12 @@
       "concept_ids": [
         "fault-tree-top-event-probability",
         "fta-gate-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  A[A] --> OR_A(OR 게이트)\n  OR_A --> E1[① ]\n  OR_A --> AND_B(AND 게이트)\n  AND_B --> E2[② ]\n  AND_B --> E3[③ ]\n  OR_A --> B[B]\n```"
+        }
       ]
     },
     {
@@ -1410,9 +1416,6 @@
       "number": 38,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "[그림]과 같이 FAT로 분석된 시스템에서 현재 모든 기본사상에 대한 부품이 고장난 상태이다. 부품 X1 부터 부품 X5 까지 순서대로 복구한다면 어느 부품을 수리 완료하는 순간부터 시스템은 정상가동이 되겠는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m38.gif?1466144291"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -1445,6 +1448,12 @@
         "minimal-path-set",
         "fault-tree-diagram",
         "system-normal-operation"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  T[T] --> AND1(AND)\n  T --> AND2(AND)\n  T --> AND3(AND)\n  AND1 --> OR1(OR)\n  AND1 --> X3[X₃]\n  OR1 --> X1[X₁]\n  OR1 --> X2[X₂]\n  AND2 --> OR2(OR)\n  AND2 --> X4_r[X₄]\n  OR2 --> X1_r[X₁]\n  OR2 --> X4[X₄]\n  AND3 --> OR3(OR)\n  AND3 --> X5[X₅]\n  OR3 --> X3_r[X₃]\n  OR3 --> X5_r[X₅]\n```"
+        }
       ]
     },
     {
@@ -1714,9 +1723,6 @@
       "number": 46,
       "subject": "3과목 : 기계위험방지기술",
       "question": "3000kg의 질량을 가진 물체를 45도 각도로 그림과 같이 와이어로프가 직접 들어올릴 때, 안전율이 고려된 가장 적절한 와이어로프 지름을 표에서 구하면? (단, 안전율은 산업안전기준에 관한 규칙을 따른다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m46.gif?1466144291"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -1749,6 +1755,12 @@
         "wire-rope-safety-factor",
         "sling-tension-calculation",
         "wire-rope-diameter"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "각도 45도, W = 3000 kg\n\n< 와이어로프 지름 및 절단강도 >\n\n| 와이어로프 지름 [mm] | 절단 강도 [ton] |\n|---|---|\n| 10 | 5.76 |\n| 12 | 9.00 |\n| 14 | 11.30 |\n| 16 | 14.70 |"
+        }
       ]
     },
     {
@@ -3772,26 +3784,38 @@
       "choices": [
         {
           "text": "E = I^2 RT",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m100b1.gif?1466144290"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = I^2 R T$$"
+            }
           ]
         },
         {
           "text": "E = 0.24 I^2 RT",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m100b2.gif?1466144291"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = 0.24 \\, I^2 R T$$"
+            }
           ]
         },
         {
           "text": "E = \\frac{1}{2} CV^2",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m100b3.gif?1466144291"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2} C V^2$$"
+            }
           ]
         },
         {
           "text": "E = \\frac{1}{2} \\sqrt{CV^2}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m100b4.gif?1466144291"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2} \\sqrt{C V^2}$$"
+            }
           ]
         }
       ],
@@ -3812,9 +3836,6 @@
       "number": 101,
       "subject": "6과목 : 건설안전기술",
       "question": "거푸집동바리 등을 조립하는 때의 준수사항 중 다음 (     )안에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m101.gif?1466144291"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -3845,6 +3866,12 @@
       "concept_ids": [
         "formwork-falsework-horizontal-connector",
         "steel-pipe-support"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "동바로 사용하는 강관(파이프서포트 제외)에 대하여는 다음 각목의 정하는 바에 의할 것\n\n가. 높이 ( ① )미터 이마다 수평연결재를 ( ② )개 방향으로 만들고 수평연결재의 변위를 방지할 것"
+        }
       ]
     },
     {
@@ -4036,9 +4063,6 @@
       "number": 107,
       "subject": "6과목 : 건설안전기술",
       "question": "다음 (     )안에 가장 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20100905/ku20100905m107.gif?1466144291"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -4069,6 +4093,12 @@
       "concept_ids": [
         "wind-speed-weather-safety",
         "gust-wind-30ms-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 순간풍속이 매초당 (　　　)m를 초과하는 바람이 불어온 후에 옥외에 설치되어 있는 크레인을 사용하여 작업을 하는 때에는 미리 그 크레인의 각 부위의 이상유무를 점검하여야 한다."
+        }
       ]
     },
     {

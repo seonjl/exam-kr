@@ -1024,9 +1024,6 @@
       "number": 24,
       "subject": "2과목 : 소방유체역학",
       "question": "한 변의 길이가 L인 정사각형 단면의 수력직경(Dh)은? (단, P는 유체의 젖은 단면 둘레의 길이, A는 관의 단면적이며, 로 정의한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m24m1.gif?1498341801"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -1065,15 +1062,18 @@
         "hydraulic-diameter",
         "square-section-hydraulic-diameter",
         "wetted-perimeter"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$D_h = \\frac{4A}{P}$$"
+        }
       ]
     },
     {
       "number": 25,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 두 기체통에 수은 액주계(마노미터)를 연결하였을 때, 높이차(h)가 20cm이었다. 두 기체통의 압력차이는 몇 Pa인가? (단, 채워진 기체의 밀도는 수은에 비해 매우 작고, 수은의 비중량은 133kN/m3이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m25.gif?1498341801"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -1112,6 +1112,12 @@
         "liquid-column-manometer",
         "mercury-measurement",
         "hydraulic-calculation-principles"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "U자관 마노미터:\n\n- 왼쪽 압력: $$P_{G1}$$\n- 오른쪽 압력: $$P_{G2}$$\n- 두 유체면 높이 차: $$h$$"
+        }
       ]
     },
     {
@@ -1343,9 +1349,6 @@
       "number": 31,
       "subject": "2과목 : 소방유체역학",
       "question": "유체의 흐름에서 다음의 베르누이 방정식이 성립하기 위한 조건을 설명한 것으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m31.gif?1498341801"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1384,6 +1387,12 @@
         "bernoulli-equation",
         "steady-flow",
         "incompressible-fluid"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2$$"
+        }
       ]
     },
     {
@@ -1485,26 +1494,38 @@
       "choices": [
         {
           "text": "$\\dfrac{v_1^2}{2g}+\\dfrac{P_1}{\\gamma}+z_1=\\dfrac{v_2^2}{2g}+\\dfrac{P_2}{\\gamma}+H_L$ (펌프 수두 HP 누락, 위치수두 z2 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m34b1.gif?1498341801"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g}+\\dfrac{P_1}{\\gamma}+H_P=\\dfrac{v_2^2}{2g}+\\dfrac{P_2}{\\gamma}+H_L$ (위치수두 z1, z2 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m34b2.gif?1498341802"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g}+\\dfrac{P_1}{\\gamma}+H_P=\\dfrac{v_2^2}{2g}+\\dfrac{P_2}{\\gamma}+z_2+H_L$ (좌변에 z1 누락)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m34b3.gif?1498341802"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         },
         {
           "text": "$\\dfrac{v_1^2}{2g}+\\dfrac{P_1}{\\gamma}+z_1+H_P=\\dfrac{v_2^2}{2g}+\\dfrac{P_2}{\\gamma}+z_2+H_L$ (모든 항이 완전하게 포함된 올바른 수정 베르누이 방정식)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m34b4.gif?1498341802"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{v_1^2}{2g} + \\frac{P_1}{\\gamma} + z_1 + H_P = \\frac{v_2^2}{2g} + \\frac{P_2}{\\gamma} + z_2 + H_L$$"
+            }
           ]
         }
       ],
@@ -2704,9 +2725,6 @@
       "number": 61,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "그림과 같은 소방대상물의 부분에 완강기를 설치할 경우 부착 금속구의 부착위치로서 가장 적합한 곳은 다음 중 어느 위치인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m61.gif?1498341802"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -2745,6 +2763,12 @@
         "descent-device-attachment",
         "concrete-structure",
         "structural-stability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "덕트 단면 치수 구성:\n\n- 전체 높이: 2700 mm\n- 상단 폭: 300 mm\n- 내부 구획:\n  - 좌측 폭: 400 mm\n  - 중앙 폭: 1500 mm\n  - 하단 돌출: 800 mm\n- 우측 포인트: A (하단), B (중단), C (상단), D (우측 끝)"
+        }
       ]
     },
     {
@@ -2976,9 +3000,6 @@
       "number": 67,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "평면도와 같이 반자가 있는 어느 실내에 전등이나 공조용 디퓨져 등의 시설물에 구애됨이 없이 수평거리를 2.1m로 하여 스프링클러헤드를 정방형으로 설치하고자 할 때 최소한 몇 개의 헤드를 설치하면 될 것인가? (단, 반자속에는 헤드를 설치하지 아니한느 것으로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20140302/nd20140302m67.gif?1498341802"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -3016,6 +3037,12 @@
       "concept_ids": [
         "sprinkler-head-spacing-arrangement",
         "coverage-area-and-surface-calculation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "직사각형 공간:\n\n- 가로: 25 m\n- 세로: 15 m"
+        }
       ]
     },
     {

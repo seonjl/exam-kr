@@ -51,26 +51,38 @@
       "choices": [
         {
           "text": "KC^s",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m2b1.gif?1558042033"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "KC (한국인증) 마크"
+            }
           ]
         },
         {
           "text": "KG",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m2b2.gif?1558042033"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "㉡K"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m2b3.gif?1558042033"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "㉢S"
+            }
           ]
         },
         {
           "text": "kp) 산업연구",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m2b4.gif?1558042033"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "㉣kp (강건인증)"
+            }
           ]
         }
       ],
@@ -843,20 +855,29 @@
         },
         {
           "text": "MTTF \\times \\frac{1}{n}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m23b2.gif?1558042033"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF \\times \\frac{1}{n}$$"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m23b3.gif?1558042033"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF\\left(1+\\frac{1}{2}+\\cdots+\\frac{1}{n}\\right)$$"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m23b4.gif?1558042033"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$MTTF\\left(1\\times\\frac{1}{2}\\times\\cdots\\times\\frac{1}{n}\\right)$$"
+            }
           ]
         }
       ],
@@ -1063,9 +1084,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음과 같은 실내 표면에서 일반적으로 추천반사율의 크기를 맞게 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m29.gif?1558042033"
-      ],
       "pass_rate": 79,
       "choices": [
         {
@@ -1096,15 +1114,18 @@
       "concept_ids": [
         "indoor-surface-reflectance",
         "lighting-environment-design"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 바닥  ② 천정  ③ 가구  ④ 벽"
+        }
       ]
     },
     {
       "number": 30,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "어떤 결함수를 분석하여 minimal cut set을 구한 결과 다음과 같았다. 각 기본사상의 발생확률을 q1,i = 1, 2, 3라 할 때, 정상사상의 발생확률함수로 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m30.gif?1558042033"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -1137,6 +1158,12 @@
         "minimal-cut-set",
         "fault-tree-top-event-probability",
         "fault-tree-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "$k_1$ = [1, 2]　$k_2$ = [1, 3]　$k_3$ = [2, 3]"
+        }
       ]
     },
     {
@@ -1264,9 +1291,6 @@
       "number": 34,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림과 같이 7개의 부품으로 구성된 시스템의 신뢰도는 약 얼마인가? (단, 네모안의 숫자는 각 부품의 신뢰도이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m34.gif?1558042033"
-      ],
       "pass_rate": 56,
       "choices": [
         {
@@ -1299,6 +1323,12 @@
         "system-reliability",
         "series-parallel-system-reliability",
         "reliability-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A(( )) --> B[0.75]\n    B --> C[0.80]\n    B --> D[0.90]\n    B --> E[0.80]\n    C --> F[0.80]\n    D --> G[ ]\n    E --> H[0.80]\n    F --> I[0.75]\n    G --> I\n    H --> I\n    I --> J(( ))\n```\n\n직렬-병렬 신뢰도 블록도:\n- 입력 → 0.75 → (상단: 0.80→0.80 / 중간: 0.90 / 하단: 0.80→0.80) 병렬 → 0.75 → 출력"
+        }
       ]
     },
     {
@@ -2451,9 +2481,6 @@
       "number": 65,
       "subject": "4과목 : 전기위험방지기술",
       "question": "전류가 흐르는 상태에서 단로기를 끊었을 때 여러 가지 파괴작용을 일으킨다. 다음 그림에서 유입차단기의 차단순위와 투입순위가 안전수칙에 가장 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m65.gif?1558042033"
-      ],
       "pass_rate": 84,
       "choices": [
         {
@@ -2484,6 +2511,12 @@
       "concept_ids": [
         "disconnector-operation",
         "oil-immersed-circuit-breaker"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "전원 ─○ DS ○─ OCB ─○ DS ○─ 부하\n         ㉮        ㉯       ㉰"
+        }
       ]
     },
     {
@@ -2907,9 +2940,6 @@
       "number": 77,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 (    )안에 들어갈 내용으로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m77.gif?1558042033"
-      ],
       "pass_rate": 81,
       "choices": [
         {
@@ -2940,6 +2970,12 @@
       "concept_ids": [
         "overcurrent-protection-series-connection",
         "circuit-protection"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "과전류차단장치는 반드시 접지선이 아닌 전로에 (　　)로 연결하여 과전류 발생 시 전로를 자동으로 차단하도록 설치할 것"
+        }
       ]
     },
     {
@@ -3057,9 +3093,6 @@
       "number": 81,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "가연성 가스 혼합물을 구성하는 각 성분의 조성과 연소범위가 다음[표]와 같을 때 혼합 가스의 연소하한값은 약 몇 vol% 인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m81.gif?1558042033"
-      ],
       "pass_rate": 59,
       "choices": [
         {
@@ -3092,6 +3125,12 @@
         "mixed-gas-lower-explosion-limit",
         "le-chateliers-principle",
         "explosion-limit-concentration"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성분 | 조성 (vol%) | 연소하한값 (vol%) | 연소상한값 (vol%) |\n|------|------------|-----------------|-----------------|\n| 헥산 | 1 | 1.1 | 7.4 |\n| 메탄 | 2.5 | 5.0 | 15.0 |\n| 에틸렌 | 0.5 | 2.7 | 36.0 |\n| 공기 | 96 | - | - |"
+        }
       ]
     },
     {
@@ -3330,9 +3369,6 @@
       "number": 88,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "화염방지기의 설치에 관한 사항으로 (    )에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m88.gif?1713175561"
-      ],
       "pass_rate": 89,
       "choices": [
         {
@@ -3365,6 +3401,12 @@
         "flame-arrester",
         "ventilation-system",
         "backflash-prevention"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 인화성 액체 및 인화성 가스를 저장 취급하는 화학설비에서 증기나 가스를 대기로 방출하는 경우에는 외부로부터의 화염을 방지하기 위하여 화염방지기를 그 설비 (　　)에 설치하여야 한다."
+        }
       ]
     },
     {
@@ -4404,9 +4446,6 @@
       "number": 116,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 달비계 또는 높이 5m 이상의 비계를 조립ㆍ해체하거나 변경하는 작업을 하는 경우에 대한 내용이다. (    )에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m116.gif?1558042033"
-      ],
       "pass_rate": 42,
       "choices": [
         {
@@ -4437,15 +4476,18 @@
       "concept_ids": [
         "scaffolding-assembly-platform-width",
         "swing-scaffold-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "비계재료의 연결·해체작업을 하는 경우에는 폭 (　　)cm 이상의 발판을 설치하고 근로자로 하여금 안전대를 사용하도록 하는 등 추락을 방지하기 위한 조치를 할 것"
+        }
       ]
     },
     {
       "number": 117,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 사다리식 통로 등을 설치하는 경우의 준수사항이다. (    )안에 들어갈 숫자로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m117.gif?1558042033"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -4476,15 +4518,18 @@
       "concept_ids": [
         "stairway-passage",
         "ladder-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사다리의 상단은 걸쳐놓은 지점으로부터 (　　)cm 이상 올라가도록 할 것"
+        }
       ]
     },
     {
       "number": 118,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 가설통로를 설치하는 경우의 준수사항이다. (    )안에 들어갈 숫자로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20190427/ku20190427m118.gif?1558042033"
-      ],
       "pass_rate": 78,
       "choices": [
         {
@@ -4515,6 +4560,12 @@
       "concept_ids": [
         "temporary-walkway-landing",
         "scaffolding-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "건설공사에 사용하는 높이 8m이상인 비계다리에는 (　　)m 이내마다 계단참을 설치할 것"
+        }
       ]
     },
     {

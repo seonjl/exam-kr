@@ -2425,9 +2425,6 @@
       "number": 56,
       "subject": "2과목 : 조사방법론 II",
       "question": "다음의 특성을 가진 연구방법은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m56.gif?1523392500"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -2464,15 +2461,18 @@
       "concept_ids": [
         "participant-observation",
         "qualitative-research"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "○ 자연스러운 상태에서 현상을 파악할 수 있기 때문에 미묘한 어감차이, 시간상의 변화 등 심층의 차원을 이해할 수 있다.\n○ 때때로 객관적인 판단을 그르칠 수 있으며 대규모 모집단에 대한 기술이 어렵다."
+        }
       ]
     },
     {
       "number": 57,
       "subject": "2과목 : 조사방법론 II",
       "question": "다음 질문은 어떤 척도로 되었는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m57.gif?1523392500"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -2509,6 +2509,12 @@
       "concept_ids": [
         "nominal-scale",
         "four-levels-of-measurement"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "당신의 종교는 무엇입니까?\n① 기독교 ② 불교 ③ 유교 ④ 기타"
+        }
       ]
     },
     {
@@ -2701,9 +2707,6 @@
       "number": 62,
       "subject": "3과목 : 사회통계",
       "question": "설명변수(X)와 반응변수(Y)사이에 단순회귀모형을 가정할때, 결정계수는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m62.gif?1523392500"
-      ],
       "pass_rate": 15,
       "choices": [
         {
@@ -2740,38 +2743,57 @@
       "concept_ids": [
         "simple-regression-r-squared-correlation",
         "sum-of-squares-correction-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| $X_i$ | 0 | 1 | 2 | 3 | 4 | 5 |\n|--------|---|---|---|---|---|---|\n| $Y_i$ | 4 | 3 | 2 | 0 | -3 | -6 |"
+        }
       ]
     },
     {
       "number": 63,
       "subject": "3과목 : 사회통계",
       "question": "분석자 A는 자료 A에 대한 단순회귀분석의 결과로  를 얻었고, 분석자 B는 자료 B에 대한 단순회귀분석의 결과로  를 얻었다. 그런데 결과적으로  였다고 하자. 그리고 오차분산의 추정값도 같으나 독립변수 X 의 분산이 자료 A보다 자료 B에서 크다고 하자. 다음 중 맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63m1.gif?1523392500",
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63m2.gif?1523392500",
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63m3.gif?1523392500"
-      ],
       "pass_rate": 40,
       "choices": [
         {
           "text": "의 추정값  의 추정값",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b1-1.gif?1523392500",
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b1-2.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{Var}\\hat{\\beta}_A$$"
+            },
+            {
+              "kind": "formula",
+              "content": "$$= \\text{Var}\\hat{\\beta}_B$$"
+            }
           ]
         },
         {
           "text": "의 추정값  의 추정값",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b2-1.gif?1523392500",
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b2-2.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{Var}\\hat{\\beta}_A$$"
+            },
+            {
+              "kind": "formula",
+              "content": "$$< \\text{Var}\\hat{\\beta}_B$$"
+            }
           ]
         },
         {
           "text": "의 추정값  의 추정값",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b3-1.gif?1523392500",
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m63b3-2.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\text{Var}\\hat{\\beta}_A$$"
+            },
+            {
+              "kind": "formula",
+              "content": "$$> \\text{Var}\\hat{\\beta}_B$$"
+            }
           ]
         },
         {
@@ -2796,6 +2818,20 @@
       "concept_ids": [
         "regression-coefficient-estimation",
         "predictor-variance-and-precision"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\hat{y}_A = \\hat{\\alpha}_A + \\hat{\\beta}_A x$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$\\hat{y}_B = \\hat{\\alpha}_B + \\hat{\\beta}_B x$$"
+        },
+        {
+          "kind": "formula",
+          "content": "$$\\hat{\\alpha}_A = \\hat{\\alpha}_B, \\hat{\\beta}_A = \\hat{\\beta}_B$$"
+        }
       ]
     },
     {
@@ -3242,33 +3278,42 @@
       "number": 74,
       "subject": "3과목 : 사회통계",
       "question": "단순선형회귀모형 y=β0+β1x+ε 에서 n 개의 자료 (x1,y1),…,(xn,yn) 을 고려하자 이때 잔차  의 성질이 아닌 것은 무엇인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m74m1.gif?1523392500"
-      ],
       "pass_rate": 43,
       "choices": [
         {
           "text": "\\sum_{i=1}^n e_i = 0",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m74b1.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} e_i = 0$$"
+            }
           ]
         },
         {
           "text": "\\sum_{i=1}^n x_i e_i = 0",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m74b2.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} x_i e_i = 0$$"
+            }
           ]
         },
         {
           "text": "\\sum_{i=1}^n y_i e_i = 0",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m74b3.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} y_i e_i = 0$$"
+            }
           ]
         },
         {
           "text": "\\sum_{i=1}^n \\hat{y}_i e_i = 0",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m74b4.gif?1523392500"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\sum_{i=1}^{n} \\hat{y}_i e_i = 0$$"
+            }
           ]
         }
       ],
@@ -3289,6 +3334,12 @@
       "concept_ids": [
         "ls-normal-equations",
         "residual-orthogonality"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$e_i = y_i - \\hat{y}_i \\quad i = 1, \\ldots, n$$"
+        }
       ]
     },
     {
@@ -3338,9 +3389,6 @@
       "number": 76,
       "subject": "3과목 : 사회통계",
       "question": "아래 표본에 대하여 중심 측도로서 가장 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m76.gif?1523392500"
-      ],
       "pass_rate": 53,
       "choices": [
         {
@@ -3377,6 +3425,12 @@
       "concept_ids": [
         "robust-central-measure",
         "mean-median-mode-relation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "2.5, 2.7, 3.1, 4.0, 4.6, 5.3, 6.0, 7.1, 30.5"
+        }
       ]
     },
     {
@@ -3884,9 +3938,6 @@
       "number": 88,
       "subject": "3과목 : 사회통계",
       "question": "다음 표는 5명의 학생에 대한 국어와 수학 시험의 등수를 조사한 것이다. 이 자료를 보고 국어와 수학의 Spearman의 순위상관계수는 어떻다고 생각되는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m88.gif?1523392501"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -3922,15 +3973,18 @@
       },
       "concept_ids": [
         "spearman-rank-correlation"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 국어 | 1 | 2 | 3 | 4 | 5 |\n|------|---|---|---|---|---|\n| 수학 | 1 | 2 | 3 | 4 | 5 |"
+        }
       ]
     },
     {
       "number": 89,
       "subject": "3과목 : 사회통계",
       "question": "다음 자료는 설명변수(X)와 반응변수(Y)사이의 관계를 알아보기 위하여 조사한 자료이다. 설명변수(X)와 반응변수 (Y)사이에 단순회귀모형을 가정할 때, 회귀직선의 기울기에 대한 추정값은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m89.gif?1523392501"
-      ],
       "pass_rate": 24,
       "choices": [
         {
@@ -3967,6 +4021,12 @@
       "concept_ids": [
         "simple-regression-slope-estimation",
         "regression-slope-sxy-sxx"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| $X_i$ | 0 | 1 | 2 | 3 | 4 | 5 |\n|--------|---|---|---|---|---|---|\n| $Y_i$ | 4 | 3 | 2 | 0 | -3 | -6 |"
+        }
       ]
     },
     {
@@ -4016,9 +4076,6 @@
       "number": 91,
       "subject": "3과목 : 사회통계",
       "question": "다음의 자료는 강남과 강북지역을 대상으로 50가구를 추출한 평균연봉(단위:만원)에 대한 통계표이다. 어느 지역이 빈부의 격차가 더 심하다고 볼 수 있는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m91.gif?1523392501"
-      ],
       "pass_rate": 31,
       "choices": [
         {
@@ -4055,6 +4112,12 @@
       },
       "concept_ids": [
         "coefficient-of-variation"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 지역 | 평균 | 표준편차 |\n|------|------|---------|\n| 강남 | 3,000 | 500 |\n| 강북 | 1,500 | 500 |"
+        }
       ]
     },
     {
@@ -4149,15 +4212,15 @@
       "number": 94,
       "subject": "3과목 : 사회통계",
       "question": "어느 다이어트 프로그램이 효과가 있는지를 연구하려고 9명을 대상으로 프로그램 시행전과 시행후의 체중의 차이 di =시행후의 체중 - 시행전의 체중, i=1,2,…,9를 조사하여  = -0.61 Kg 과 sd = 0.54 Kg를 얻었다. 유의수준 5%에서 귀무가설 H0: μd = 0에 대하여 대립가설H1: μd＜0을 검정하고자 한다. 다음 중에서 틀린 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m94m1.gif?1523392501"
-      ],
       "pass_rate": 35,
       "choices": [
         {
           "text": "t통계량은  이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m94b1-1.gif?1523392501"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{-0.61 - 0}{0.54\\sqrt{9}} = -3.389$$"
+            }
           ]
         },
         {
@@ -4192,6 +4255,12 @@
         "paired-t-test",
         "one-tailed-rejection-region",
         "test-statistic"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "$\\bar{d}$"
+        }
       ]
     },
     {
@@ -4335,9 +4404,6 @@
       "number": 98,
       "subject": "3과목 : 사회통계",
       "question": "분산분석에 관한 설명이다. 옳은 것으로 짝지은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/s2/s220030316/s220030316m98.gif?1523392501"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -4376,6 +4442,12 @@
         "one-way-anova",
         "anova-post-hoc",
         "two-way-anova-no-replication"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "③ 처리의 수가 2인 일원배치법의 F검정은 독립인 이표본 t검정과 동일하다.\n④ 일원배치법에서는 반복수가 동일하여야 한다.\n⑤ 반복이 없는 이원배치법에서 교호작용의 효과를 검출할 수 있다.\n⑥ 일원배치법에서 F검정이 유의한 경우에만 다중비교가 의미가 있다."
+        }
       ]
     },
     {

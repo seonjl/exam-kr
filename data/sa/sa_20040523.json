@@ -9,9 +9,6 @@
       "number": 1,
       "subject": "1과목 : 안전관리론",
       "question": "A현장의 '98년도 재해건수는 24건, 의사진단에 의한 휴업 총일수는 3650일 이었다. 도수율과 강도율을 각각 구하면? (단, 1인당 1일 8시간, 300일 근무하며 평균근로자 수는 500명 이었음.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m1.gif?1466513194"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -44,6 +41,12 @@
         "frequency-rate",
         "accident-statistics-indices",
         "lost-workdays"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구분 | 도수률 | 강도률 |\n|------|--------|--------|\n| ① | 20.00 | 2.50 |\n| ② | 2.02 | 0.25 |\n| ③ | 20.04 | 3.40 |\n| ④ | 2.06 | 0.34 |"
+        }
       ]
     },
     {
@@ -422,9 +425,6 @@
       "number": 12,
       "subject": "1과목 : 안전관리론",
       "question": "다음 도수율 공식 중 괄호 안에 알맞는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m12.gif?1466513194"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -457,15 +457,18 @@
         "frequency-rate",
         "accident-statistics",
         "accident-statistics-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{(\\quad)}{연근로시간수} \\times 1000000$$"
+        }
       ]
     },
     {
       "number": 13,
       "subject": "1과목 : 안전관리론",
       "question": "산업안전 표지 중 다음 보기가 나타내는 뜻으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m13.gif?1466513195"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -498,6 +501,12 @@
         "safety-signs-and-warning",
         "safety-health-signs",
         "warning-safety-sign"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "경고 표지 (삼각형, 노란 배경, 느낌표 기호)"
+        }
       ]
     },
     {
@@ -886,26 +895,38 @@
       "choices": [
         {
           "text": "A + \\overline{A} \\cdot B = A + B",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m24b1.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + \\overline{A} \\cdot B = A + B$$"
+            }
           ]
         },
         {
           "text": "\\overline{A \\cdot B} = \\overline{A} + \\overline{B}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m24b2.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$$"
+            }
           ]
         },
         {
           "text": "A + B = \\overline{A} \\cdot \\overline{B}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m24b3.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + B = \\overline{A} \\cdot \\overline{B}$$"
+            }
           ]
         },
         {
           "text": "\\(A(A + B) = A\\)",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m24b4.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A(A + B) = A$$"
+            }
           ]
         }
       ],
@@ -1370,9 +1391,6 @@
       "number": 37,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "7개의 기기로 구성된, 다음 그림과 같은 시스템이 있다. 모든 기기가 동일하게 신뢰도가 0.8이다. 이 시스템의 신뢰도는 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m37.gif?1466513195"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -1403,6 +1421,12 @@
       "concept_ids": [
         "system-reliability",
         "series-parallel-system-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A --- B\n    A --- C\n    B --- F\n    C --- F\n    B --- D\n    C --- E\n    D --- G\n    E --- G\n    F --- G\n```\n\n노드: A, B, C, D, E, F, G (F는 중앙, B·D·C·E는 마름모 꼭짓점)"
+        }
       ]
     },
     {
@@ -2430,33 +2454,42 @@
       "number": 65,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음의 회로에서 완전누전하고 있는 전기기기의 외함에 사람이 접촉했을 경우 인체에 흐르는 전류(Im)는? (단, E:전원의 대지전압[V], R2:제2종 접지저항치[Ω], 변압기의 위치에서 1선 접지 R3:제3종 접지저항치[Ω], 사용기기 외함의 접지 RL:전기기기가 절연불량이 되었을 때의 저항치[Ω] Rm:인체저항[Ω])",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m65.gif?1466513195"
-      ],
       "pass_rate": 48,
       "choices": [
         {
           "text": "\\frac{E}{R_m \\left(1 + \\frac{R_2}{R_3}\\right)}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m65b1.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{R_m\\!\\left(1 + \\dfrac{R_2}{R_3}\\right)}$$"
+            }
           ]
         },
         {
           "text": "\\frac{E}{R_m \\left( 2 + \\frac{R_2}{R_3} \\right)}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m65b2.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{R_m\\!\\left(2 + \\dfrac{R_2}{R_3}\\right)}$$"
+            }
           ]
         },
         {
           "text": "\\frac{E}{R_m \\left(1 + \\frac{R_3}{R_2}\\right)}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m65b3.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{R_m\\!\\left(1 + \\dfrac{R_3}{R_2}\\right)}$$"
+            }
           ]
         },
         {
           "text": "\\frac{E}{R_m \\left( 2 + \\frac{R_3}{R_2} \\right)}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20040523/ku20040523m65b4.gif?1466513195"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{E}{R_m\\!\\left(2 + \\dfrac{R_3}{R_2}\\right)}$$"
+            }
           ]
         }
       ],
@@ -2471,6 +2504,12 @@
       "concept_ids": [
         "complete-leakage-body-current",
         "grounding-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    고압[\"고압\\n전원\"] -- E --> R2[\"R₂\"]\n    R2 --> motor[\"M\\nRL (전동기)\"]\n    motor --> Im[\"Im\"]\n    Im --> Rm[\"Rm\"]\n    motor --> R3[\"R₃\"]\n```\n\n회로 구성: 고압 전원 — E — R₂ — 전동기(M, RL) — Im/Rm 및 R₃ 병렬"
+        }
       ]
     },
     {

@@ -922,9 +922,6 @@
       "number": 25,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "그림과 같이 FTA로 분석된 시스템에서 현재 모든 기본사상에 대한 부품이 고장난 상태이다. 부품 X1부터 부품 X5까지 순서대로 복구한다면 어느 부품을 수리 완료하는 순간부터 시스템은 정상가동이 되겠는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m25.gif?1499374347"
-      ],
       "pass_rate": 84,
       "choices": [
         {
@@ -957,6 +954,12 @@
         "fta-gate-calculation",
         "minimum-path-set",
         "fta-general"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  T --> OR1(( ))\n  OR1 --> AND1(( ))\n  OR1 --> AND2(( ))\n  OR1 --> AND3(( ))\n  AND1 --> X1\n  AND1 --> X2\n  AND1 --> X3\n  AND2 --> X1\n  AND2 --> X4\n  AND3 --> X3\n  AND3 --> X5\n```"
+        }
       ]
     },
     {
@@ -1078,9 +1081,6 @@
       "number": 29,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "FT도에 사용되는 다음 기호의 명칭으로 옳은것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m29.gif?1499374347"
-      ],
       "pass_rate": 66,
       "choices": [
         {
@@ -1111,6 +1111,12 @@
       "concept_ids": [
         "combination-and-gate",
         "fault-tree-logic-symbols"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  AND[AND 게이트] --> OUT([출력])\n```"
+        }
       ]
     },
     {
@@ -1156,9 +1162,6 @@
       "number": 31,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 FT도에서 최소 컷셋을 올바르게 구한것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m31.gif?1499374347"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1189,6 +1192,12 @@
       "concept_ids": [
         "minimal-cut-set",
         "fta-analysis-method"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n  T --> AND_T(( AND ))\n  AND_T --> A1[A1]\n  AND_T --> A2[A2]\n  A1 --> AND_A1(( AND ))\n  AND_A1 --> X1\n  AND_A1 --> X2\n  A2 --> OR_A2(( OR ))\n  OR_A2 --> X1\n  OR_A2 --> X3\n```"
+        }
       ]
     },
     {
@@ -1721,9 +1730,6 @@
       "number": 46,
       "subject": "3과목 : 기계위험방지기술",
       "question": "산업안전보건법령에서 정하는 간이리프트의 정의에 대한 설명 중 ( ) 안에 들어갈 말로 옳은 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 3번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m46.gif?1519557521"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1754,15 +1760,18 @@
       "concept_ids": [
         "simple-lift",
         "lifting-equipment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "간이리프트란 동력을 사용하여 가이드 레일을 따라 움직이는 운반구를 매달아 소형화물 운반을 주목적으로 하며 승강기와 유사한 구조로서 운반구의 바닥면적이 ( ⓒ )이거나 천장높이가 ( ⓒ )인 것을 말한다."
+        }
       ]
     },
     {
       "number": 47,
       "subject": "3과목 : 기계위험방지기술",
       "question": "다음 ( ) 안에 들어갈 용어로 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m47.gif?1499374347"
-      ],
       "pass_rate": 74,
       "choices": [
         {
@@ -1793,6 +1802,12 @@
       "concept_ids": [
         "boiler-pressure-limit-switch",
         "boiler-guard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 보일러의 과열을 방지하기 위하여 최고 사용 압력과 상용 압력 사이에서 보일러의 버너 연소를 차단할 수 있도록 ( )를 (을) 부착하여 사용하여야 한다."
+        }
       ]
     },
     {
@@ -2602,10 +2617,6 @@
       "number": 69,
       "subject": "4과목 : 전기위험방지기술",
       "question": "그림에서 인체의 허용 접촉 전압은 약 몇 V 인가? (단, 심실세동 전류는 이며, 인체저항 Rk= 1000Ω, 발의 저항 Rf= 300Ω이고, 접촉 시간은 1초로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m69m1.gif?1499374347",
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m69.gif?1499374347"
-      ],
       "pass_rate": 39,
       "choices": [
         {
@@ -2638,6 +2649,16 @@
         "allowable-contact-voltage",
         "ventricular-fibrillation-current",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\frac{0.165}{\\sqrt{T}}$$"
+        },
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n  GND1[접지] --- Ik[Ik↓] --- Rk[Rk]\n  Rk --- node1[ ]\n  node1 --- Rf1[Rf] --- GND2[접지]\n  node1 --- Rf2[Rf] --- GND3[접지]\n```"
+        }
       ]
     },
     {
@@ -3105,9 +3126,6 @@
       "number": 82,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "각 물질(A~D)의 폭발상한계와 하한계가 다음 [표]와 같을 때 다음 중 위험도가 가장 큰 물질은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m82.gif?1499374347"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -3138,6 +3156,12 @@
       "concept_ids": [
         "risk-assessment-calculation",
         "explosion-limits"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 구분 | A | B | C | D |\n|---|---|---|---|---|\n| 폭발 상한계 | 9.5 | 8.4 | 15.0 | 13 |\n| 폭발 하한계 | 2.1 | 1.8 | 5.0 | 2.6 |"
+        }
       ]
     },
     {
@@ -3305,14 +3329,20 @@
         },
         {
           "text": "E = \\frac{1}{2} C V^2",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m87b3.gif?1499374347"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2}CV^2$$"
+            }
           ]
         },
         {
           "text": "E = \\frac{1}{2} \\sqrt{CV}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m87b4.gif?1499374347"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$E = \\frac{1}{2}\\sqrt{CV}$$"
+            }
           ]
         }
       ],
@@ -4472,9 +4502,6 @@
       "number": 118,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 강관을 사용하여 비계를 구성하는 경우에 대한 내용이다. 다음 ( )안에 들어갈 내용으로 옳은 것은?(관련 규정 개정전 문제로 여기서는 기존 정답인 3번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20170305/ku20170305m118.gif?1499374347"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -4505,6 +4532,12 @@
       "concept_ids": [
         "steel-pipe-scaffold",
         "scaffold-column-installation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "비계기둥의 간격은 띠장 방향에서는 ( ), 장선방향에서는 1.5m 이하로 할 것"
+        }
       ]
     },
     {

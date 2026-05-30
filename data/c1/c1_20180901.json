@@ -895,9 +895,6 @@
       "number": 21,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 괄호 안에 들어갈 기능명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m21.gif?1535931716"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -936,6 +933,12 @@
         "data-table",
         "data-consolidation",
         "what-if-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "( ⑤ )은/는 특정 값의 변화에 따른 결과값의 변화 과정을 한 번의 연산으로 빠르게 계산하여 표의 형태로 표시해 주는 도구이고, ( ⑥ )은/는 비슷한 형식의 여러 데이터의 결과를 하나의 표로 통합하여 요약해 주는 도구이다."
+        }
       ]
     },
     {
@@ -1122,15 +1125,15 @@
       "number": 26,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래의 시트에서 주어진 표 전체만 선택하는 방법으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m26.gif?1535931716"
-      ],
       "pass_rate": 55,
       "choices": [
         {
           "text": "행 머리글과 열 머리글이 만나는 워크시트 왼쪽 맨 위의 [모두 선택] 단추()를 클릭한다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m26b1-1.gif?1535931716"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\ngraph TD\n    A[\"📊 Bar Chart Icon (32×23 px)\"]\n    A --> B[\"외곽 직사각형 프레임\"]\n    A --> C[\"내부: 오른쪽에 계단형 오름차순 막대\"]\n```\n\n외곽 직사각형 테두리 안에, 오른쪽 영역에 아래로 갈수록 넓어지는 계단형 막대(ascending bar chart)가 그려진 32×23 픽셀 아이콘.\n\n```\n┌─────────────────────────────┐\n│                             │\n│                             │\n│                    █        │\n│                   ██        │\n│                  ███        │\n│                 ████        │\n│                █████        │\n│               ██████        │\n│              ███████        │\n│             ████████        │\n│            █████████        │\n│                             │\n│                             │\n└─────────────────────────────┘\n```"
+            }
           ]
         },
         {
@@ -1174,15 +1177,18 @@
         "ui-element",
         "select-all-worksheet",
         "f-key-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 직위 | 근무년수 | 월기본급 | 성과급 |\n|------|------|----------|----------|--------|\n| 이준기 | 과장 | 8 | 2070000 | 800000 |\n| 박지영 | 부장 | 15 | 2200000 | 1000000 |\n| 정희철 | 사원 | 2 | 1840000 | 600000 |\n| 박준원 | 사원 | 4 | 1980000 | 600000 |\n| 황유리 | 과장 | 10 | 2160000 | 800000 |\n| 최보미 | 부장 | 19 | 2300000 | 1000000 |\n| 강만구 | 과장 | 15 | 1980000 | 800000 |"
+        }
       ]
     },
     {
       "number": 27,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래는 워크시트 [A1] 셀에서 [매크로 기록]을 클릭하고 작업을 수행한 과정을 Visual Basic Editor의 코드 창에서 확인한 결과이다. 다음 중 이에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m27.gif?1535931716"
-      ],
       "pass_rate": 62,
       "choices": [
         {
@@ -1221,6 +1227,12 @@
         "macro-relative-reference",
         "activecell-object",
         "cell-reference"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| A | B | C |\n|---|---|---|\n| | 성적현황 | |\n| 학번 | 학과 | 이름 |\n| | | |\n\n**(일반)**\n\n```vba\nSub 매크로2()\n\n' 매크로2 Macro\n\n    ActiveCell.Offset(0, 1).Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"성적현황\"\n    ActiveCell.Offset(1, -1).Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"학번\"\n    ActiveCell.Offset(0, 1).Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"학과\"\n    Range(\"C2\").Select\n    ActiveCell.FormulaR1C1 = \"이름\"\n    Range(\"A3\").Select\n\nEnd Sub\n```"
+        }
       ]
     },
     {
@@ -1244,9 +1256,15 @@
         },
         {
           "text": "기본적으로 상태 표시줄 왼쪽에는 매크로 기록 아이콘 ()이 있으며, 매크로 기록 중에는 기록 중지 아이콘 ()으로 변경된다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m28b4-1.gif?1535931716",
-            "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m28b4-2.gif?1535931716"
+          "extras": [
+            {
+              "kind": "table",
+              "content": "이 이미지는 34×22픽셀 아이콘으로, 표/스프레드시트 애플리케이션 아이콘입니다. 텍스트·수식·다이어그램 등 변환 가능한 내용이 없습니다.\n\n| 열 1 | 열 2 | 열 3 |\n|------|------|------|\n|      |      |      |\n|      |      |      |\n|      |      |      |\n\n위는 아이콘 내 격자 구조를 형식적으로 표현한 것이며, 실제 데이터는 없습니다. 변환할 내용이 담긴 다른 이미지를 제공해주시면 정확히 변환하겠습니다."
+            },
+            {
+              "kind": "text",
+              "content": "단색 파란색 사각형 이미지 (텍스트·수식·표·다이어그램 없음)"
+            }
           ]
         }
       ],
@@ -1416,9 +1434,6 @@
       "number": 32,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 그림과 같이 조건부 서식의 수식을 사용하여 표의 홀수 행마다 배경색을 노랑색으로 채우고자 한다. 다음중 조건부 서식에서 작성해야 할 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m32.gif?1535931716"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -1457,6 +1472,12 @@
         "conditional-formatting-formula",
         "mod-function",
         "row-column-functions"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "부서별 비품관리\n\n| 부서 | 보유량 | 요청량 | 합계 |\n|------|--------|--------|------|\n| 기획팀 | 25 | 5 | 30 |\n| 관리팀 | 15 | 20 | 35 |\n| 총무팀 | 32 | 9 | 41 |\n| 인사팀 | 22 | 25 | 47 |\n| 회계팀 | 18 | 5 | 23 |\n| 경영지원팀 | 15 | 18 | 33 |\n| 감사팀 | 25 | 19 | 44 |\n| 합계 | 152 | 101 | 253 |"
+        }
       ]
     },
     {
@@ -1598,9 +1619,6 @@
       "number": 36,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래 차트에 대한 설명으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m36.gif?1535931716"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -1637,6 +1655,12 @@
       "concept_ids": [
         "bar-chart-series-overlap",
         "chart-element-individual-formatting"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "## 상표에 따른 비타민\n\n| 비타민 | A상표 | B상표 | C상표 |\n|--------|-------|-------|-------|\n| 비타민A | ~95 | ~80 | 40 |\n| 비타민B | ~80 | ~68 | 30 |\n| 비타민C | ~80 | ~70 | 60 |\n\n- 선형 (A상표): 비타민A → 비타민C 방향으로 완만하게 감소"
+        }
       ]
     },
     {
@@ -1686,9 +1710,6 @@
       "number": 38,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "다음 중 아래와 같이 워크시트에 데이터가 입력되어 있는 경우, 보기의 수식과 그 결과 값으로 옳지 않은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m38.gif?1535931716"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1725,15 +1746,18 @@
       "concept_ids": [
         "string-search-functions",
         "replace-function"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "한국 대한민국\n분기 수익\n수익\n아름다운 설악산"
+        }
       ]
     },
     {
       "number": 39,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 시트에서 [D2:D5] 영역을 선택한 후 배열 수식으로 한 번에 금액을 구하려고 한다. 다음 중 이를 위한 수식으로 옳은 것은? (금액 = 수량 * 단가)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m39.gif?1535931716"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -1769,15 +1793,18 @@
       },
       "concept_ids": [
         "array-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 제품명 | 수량 | 단가 | 금액 |\n|--------|------|------|------|\n| 디지털카메라 | 10 | 350,000 | |\n| 전자사전 | 15 | 205,000 | |\n| 모니터 | 20 | 155,000 | |\n| 태블릿 | 5 | 550,000 | |"
+        }
       ]
     },
     {
       "number": 40,
       "subject": "2과목 : 스프레드시트 일반",
       "question": "아래 워크시트의 [C3:C15] 영역을 이용하여 출신지역 별로 인원수를 [G3:G7] 영역에 계산하려고 한다. 다음 중 [G3] 셀에 수식을 작성한 뒤 채우기 핸들을 사용하여 [G7] 셀까지 수식 복사를 할 경우 [G3] 셀에 입력할 수식으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m40.gif?1535931716"
-      ],
       "pass_rate": 54,
       "choices": [
         {
@@ -1816,6 +1843,12 @@
         "sumif-function",
         "array-formula-entry",
         "cell-reference-types"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 성명 | 출신지역 | 나이 |\n|------|----------|------|\n| 김광철 | 서울 | 32 |\n| 김다나 | 경기 | 35 |\n| 고준영 | 서울 | 36 |\n| 성영주 | 호남 | 38 |\n| 김철수 | 경기 | 38 |\n| 정석중 | 호남 | 42 |\n| 이진주 | 영남 | 44 |\n| 박성수 | 제주 | 45 |\n| 최미나 | 영남 | 48 |\n| 강희수 | 제주 | 50 |\n| 조광식 | 서울 | 52 |\n| 원춘배 | 호남 | 52 |\n| 지민주 | 영남 | 54 |\n\n| 지역 | 인원 |\n|------|------|\n| 서울 지역 | 3 |\n| 경기 지역 | 2 |\n| 호남 지역 | 3 |\n| 영남 지역 | 3 |\n| 제주 지역 | 2 |"
+        }
       ]
     },
     {
@@ -2047,9 +2080,6 @@
       "number": 46,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 VBA 코드를 실행했을 때 MsgBox에 표시되는 값은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m46.gif?1535931716"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -2087,6 +2117,12 @@
       "concept_ids": [
         "for-next-loop",
         "cumulative-sum"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```\nDim i As Integer\nDim Num As Integer\nFor i = 0 To 7 Step 2\n    Num = Num + i\nNext i\nMsgBox Str(Num)\n```"
+        }
       ]
     },
     {
@@ -2358,9 +2394,6 @@
       "number": 53,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "아래는 쿼리의 '디자인 보기'이다. 다음 중 아래 쿼리의 실행 결과로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m53.gif?1535931716"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2397,6 +2430,12 @@
       "concept_ids": [
         "query-criteria-and-or-logic",
         "checkbox-control"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nerDiagram\n    지도학생 {\n        string 이름 PK\n        string 전공\n        int 입학연도\n    }\n```\n\n| 필드   | 이름     | 전공          | 입학연도   |\n|--------|----------|---------------|------------|\n| 테이블 | 지도학생 | 지도학생      | 지도학생   |\n| 정렬   |          |               |            |\n| 표시   | ☑        | ☑             | ☐          |\n| 조건   |          | ='컴퓨터공학' | <2018      |\n| 또는   |          |               |            |"
+        }
       ]
     },
     {
@@ -2534,9 +2573,6 @@
       "number": 57,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래 SQL문에 대한 설명으로 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m57.gif?1535931716"
-      ],
       "pass_rate": 47,
       "choices": [
         {
@@ -2575,15 +2611,18 @@
         "sql-select-statement",
         "where-clause-filtering",
         "sql-join"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "```sql\nSELECT T1.품번, T2.제조사\nFROM T1, T2\nWHERE T1.소재지 IN ('서울', '수원') AND T1.품번 = T2.품번;\n```"
+        }
       ]
     },
     {
       "number": 58,
       "subject": "3과목 : 데이터베이스 일반",
       "question": "다음 중 아래와 같은 결과를 표시하는 SQL문은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/c1/c120180901/c120180901m58.gif?1535931716"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -2622,6 +2661,12 @@
         "sql-order-by-clause",
         "order-by-sort",
         "sort-order-asc-desc"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 도서명 | 저자 | 출판사 | 출간연도 |\n|--------|------|--------|----------|\n| 컴퓨터과학 | 이연산 | 두빛 | 2011 |\n| 자바 | 고자바 | IT | 2012 |\n| C# | 윤피디 | 가람 | 2017 |\n| 액세스 | 김디비 | IT | 2018 |\n| 엑셀 | 이연산 | 화요 | 2018 |"
+        }
       ]
     },
     {

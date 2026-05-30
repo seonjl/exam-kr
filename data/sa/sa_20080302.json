@@ -843,26 +843,38 @@
       "choices": [
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m23b1.gif?1465786177"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "직사각형 심벌 — 위아래 단자선 있는 사각형 박스"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m23b2.gif?1465786177"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "원형 심벌 — 위아래 단자선 있는 원 기호"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m23b3.gif?1465786177"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "마름모(다이아몬드) 심벌 — 위아래 단자선 있는 마름모 기호"
+            }
           ]
         },
         {
           "text": "",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m23b4.gif?1465786177"
+          "extras": [
+            {
+              "kind": "text",
+              "content": "오각형(집 모양) 심벌 — 위쪽 삼각형 지붕 + 아래쪽 직사각형 몸체, 위아래 단자선 있음"
+            }
           ]
         }
       ],
@@ -996,9 +1008,6 @@
       "number": 27,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "[그림]과 같이 FTA로 분석된 시스템에서 현재 모든 기본 사상에 대한 부품이 고장난 상태이다. 부품 X1부터 부품X5 까지 순서대로 복구한다면 어느 부품을 수리 완료하는 순간부터 시스템은 정상가동이 되겠는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m27.gif?1465786177"
-      ],
       "pass_rate": 71,
       "choices": [
         {
@@ -1029,6 +1038,12 @@
       "concept_ids": [
         "fta-system-recovery-order",
         "minimal-path-set"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[\"T\"] --> OR1((\"OR\"))\n    OR1 --> OR2((\"OR\"))\n    OR1 --> OR3((\"OR\"))\n    OR1 --> OR4((\"OR\"))\n    OR2 --> X1[\"X₁\"]\n    OR2 --> X2[\"X₂\"]\n    OR3 --> X3a[\"X₃\"]\n    OR3 --> X4[\"X₄\"]\n    OR4 --> X3b[\"X₃\"]\n    OR4 --> X5[\"X₅\"]\n```"
+        }
       ]
     },
     {
@@ -1265,9 +1280,6 @@
       "number": 34,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "[그림]과 같은 시스템에서 부품 A, B, C, D의 신뢰도가 모두 r로 동일할 때 이 시스템의 신뢰도는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m34.gif?1465786177"
-      ],
       "pass_rate": 48,
       "choices": [
         {
@@ -1299,6 +1311,12 @@
       "concept_ids": [
         "series-parallel-system-reliability",
         "reliability-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    IN[ ] --> P1[ ]\n    P1 --> A[\"A\"]\n    P1 --> C[\"C\"]\n    A --> P2[ ]\n    C --> P2\n    P2 --> B[\"B\"]\n    P2 --> D[\"D\"]\n    B --> OUT[ ]\n    D --> OUT\n```\n\n병렬-병렬 구조: (A∥C) → (B∥D)"
+        }
       ]
     },
     {
@@ -1460,14 +1478,20 @@
       "choices": [
         {
           "text": "\\underline{A + \\overline{A} \\cdot B} = \\underline{A + B}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m39b1.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$A + \\overline{A} \\cdot B = A + B$$"
+            }
           ]
         },
         {
           "text": "\\overline{A \\cdot B} = \\overline{A} + \\overline{B}",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m39b2.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$$"
+            }
           ]
         },
         {
@@ -2617,9 +2641,6 @@
       "number": 70,
       "subject": "4과목 : 전기위험방지기술",
       "question": "인체의 전기저항이 5000Ω 이고, 세동전류와 통전시간과의 관계를  라 할 경우, 심실세동을 일으키는 위험에너지는 약 몇 줄[J]인가? (단, 통전시간은 1초로 한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m70m1.gif?1465786177"
-      ],
       "pass_rate": 68,
       "choices": [
         {
@@ -2652,6 +2673,12 @@
         "ventricular-fibrillation-dangerous-energy",
         "dalziel-equation",
         "electric-shock-physiology"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}}$$"
+        }
       ]
     },
     {
@@ -3352,26 +3379,38 @@
       "choices": [
         {
           "text": "X \\cdot Q = 일정",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m89b1.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$X \\cdot Q = \\text{일정}$$"
+            }
           ]
         },
         {
           "text": "\\frac{X}{Q} = 일 점",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m89b2.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{X}{Q} = \\text{일정}$$"
+            }
           ]
         },
         {
           "text": "\\left( \\frac{Q}{X} \\right)^n = 알짜",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m89b3.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\left(\\frac{Q}{X}\\right)^n = \\text{일정}$$"
+            }
           ]
         },
         {
           "text": "\\frac{Q}{X} + 2^n = 알짜",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m89b4.gif?1465786177"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$\\frac{Q}{X} + 2^n = \\text{일정}$$"
+            }
           ]
         }
       ],
@@ -4227,9 +4266,6 @@
       "number": 112,
       "subject": "6과목 : 건설안전기술",
       "question": "통나무비계를 조립할 때 준수하여야 할 사항에 대한 아래 표의 내용에서 ( )에 가장 적합한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20080302/ku20080302m112.gif?1465786177"
-      ],
       "pass_rate": 34,
       "choices": [
         {
@@ -4261,6 +4297,12 @@
       "concept_ids": [
         "timber-scaffolding",
         "scaffolding-safety"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "비계기둥의 이음이 맞댄이음인 때에는 비계기둥을 쌍기둥틀로 하거나 ( ① )미터 이상의 덧댐목을 사용하여 ( ② )개소 이상을 묶을 것"
+        }
       ]
     },
     {

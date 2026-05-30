@@ -885,9 +885,6 @@
       "number": 21,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같은 삼각형 모양의 평판이 수직으로 유체 내에 놓여 있을 때 압력에 의한 힘의 작용점은 자유표면에서 얼마나 떨어져 있는가? (단, 삼각형의 도심에서 단면 2차모멘트는 bh3/36이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m21.gif?1508913186"
-      ],
       "pass_rate": 57,
       "choices": [
         {
@@ -926,6 +923,12 @@
         "hydrostatic-force-plane",
         "vertical-hydrostatic-force",
         "centroid-second-moment-area"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    A[\"▽ (수면)\"] --> B[\"삼각형 단면 저수조\\n(폭: b, 깊이: h)\"]\n```\n\n수면 폭 b, 깊이 h인 역삼각형(V형) 단면의 저수조 그림.\n수면은 상단, 꼭짓점은 하단.\n수평 치수: b, 수직 치수: h"
+        }
       ]
     },
     {
@@ -1156,9 +1159,6 @@
       "number": 27,
       "subject": "2과목 : 소방유체역학",
       "question": "그림에서 두 피스톤의 지름이 각각 30㎝와 5㎝이다. 큰 피스톤이 1㎝ 아래로 움직이면 작은 피스톤은 위로 몇 ㎝ 움직이는가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m27.gif?1508913186"
-      ],
       "pass_rate": 72,
       "choices": [
         {
@@ -1197,6 +1197,12 @@
         "pascal-principle",
         "continuity-equation-flow-rate",
         "diameter-area-relation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "두 수조가 연결관으로 이어진 그림.\n- 왼쪽 수조: 수면(해칭), 폭 30cm\n- 오른쪽 수조: 수면(해칭), 폭 5cm (오른쪽에 화살표 ↑)\n- 두 수조는 하단 수평관으로 연결됨"
+        }
       ]
     },
     {
@@ -1208,26 +1214,38 @@
       "choices": [
         {
           "text": "h = f(L/a) · V²/(2.4g),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m28b1.gif?1519387976"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f \\frac{L}{a} \\frac{V^2}{2.4g}$$"
+            }
           ]
         },
         {
           "text": "h = f(L/a) · V²/(2g),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m28b2.gif?1519387976"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f \\frac{L}{a} \\frac{V^2}{2g}$$"
+            }
           ]
         },
         {
           "text": "h = f(L/a) · V²/(1.4g),",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m28b3.gif?1519387976"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f \\frac{L}{a} \\frac{V^2}{1.4g}$$"
+            }
           ]
         },
         {
           "text": "h = f(L/a) · V²/g. 즉 모든 보기는 f·L/a · V²/(k·g) 꼴이며 k 값이 각각 2.4, 2, 1.4, 1 이다.",
-          "images": [
-            "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m28b4.gif?1519387976"
+          "extras": [
+            {
+              "kind": "formula",
+              "content": "$$f \\frac{L}{a} \\frac{V^2}{g}$$"
+            }
           ]
         }
       ],
@@ -1396,9 +1414,6 @@
       "number": 32,
       "subject": "2과목 : 소방유체역학",
       "question": "그림과 같이 물탱크에서 2m2의 단면적을 가진 파이프를 통해 터빈으로 물이 공급되고 있다. 송출되는 터빈은 수면으로부터 30m 아래에 위치하고, 유량은 10m3/s이고 터빈 효율이 80%일 때 터빈 출력은 약 몇 kW인가? (단, 밴드나 밸브 등에 의한 부차적 손실계수는 2로 가정한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m32.gif?1508913186"
-      ],
       "pass_rate": 35,
       "choices": [
         {
@@ -1437,15 +1452,18 @@
         "turbine",
         "minor-losses",
         "hydraulic-turbine"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart LR\n    A[\"▽ A\\n(수조)\"] -->|관| T[\"터빈\"]\n    T -->|관| B[\"B ▽\"]\n```\n\n왼쪽 수조(A, 수면 ▽)에서 관을 통해 터빈을 거쳐 오른쪽 출구(B, 수면 ▽)로 이어지는 흐름도."
+        }
       ]
     },
     {
       "number": 33,
       "subject": "2과목 : 소방유체역학",
       "question": "노즐에서 분사되는 물의 속도가 12m/s이고, 분류에 수직인 평판은 속도 u=4m/s로 움직일 때, 평판이 받는 힘은 약 몇 N인가? (단, 노즐(분류)의 단면적은 0.01m2이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m33.gif?1508913186"
-      ],
       "pass_rate": 45,
       "choices": [
         {
@@ -1482,6 +1500,12 @@
       "concept_ids": [
         "momentum",
         "relative-velocity-momentum"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "속도 v(→)로 들어오는 유체가 판(해칭된 수직 평판)을 통과하여 속도 u(→)로 나가는 그림.\n\n$$v \\rightarrow \\text{[판]} \\rightarrow u$$"
+        }
       ]
     },
     {
@@ -1844,9 +1868,6 @@
       "number": 42,
       "subject": "3과목 : 소방관계법규",
       "question": "위험물안전관리법상 위험물시설의 변경 기준 중 다음 ( ) 안에 알맞은 것은?(관련 규정 개정전 문제로 기존 정답은 2번이며 여기서는 2번을 누르면 정답 처리됩니다. 자세한 내용은 해설을 참고하세요.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m42.gif?1508913186"
-      ],
       "pass_rate": 75,
       "choices": [
         {
@@ -1885,6 +1906,12 @@
         "hazardous-materials-facility",
         "change-notification",
         "hazardous-materials"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "제조소등의 위치·구조 또는 설비의 변경 없이 당해 제조소등에서 저장하거나 취급하는 위험물의 품명·수량 또는 지정수량의 배수를 변경하고자 하는 자는 변경하고자 하는 날의 ( ⓐ ) 일 전까지 올리령이 정하는 바에 따라 ( ⓑ ) 에게 신고하여야 한다."
+        }
       ]
     },
     {
@@ -2114,9 +2141,6 @@
       "number": 48,
       "subject": "3과목 : 소방관계법규",
       "question": "소방기본법령상 불꽃을 사용하는 용접·용단 기구의 용접 또는 용단 작업장에서 지켜야 하는 사항 중 다음 ( )안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m48.gif?1508913186"
-      ],
       "pass_rate": 73,
       "choices": [
         {
@@ -2155,6 +2179,12 @@
         "welding-cutting-safety",
         "safety-distance-standards",
         "fire-extinguisher-installation-standards"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "- 용접 또는 용단 작업자로부터 반경 ( ⓐ ) m 이내에 소화기를 갖추어 둘 것\n- 용접 또는 용단 작업장 주변 반경 ( ⓑ ) m 이내에는 가연물을 쌓아두거나 놓아두지 말 것. 다만, 가연물의 제거가 곤란하면 방지포 등으로 방호조치를 한 경우는 제외한다."
+        }
       ]
     },
     {
@@ -2290,9 +2320,6 @@
       "number": 52,
       "subject": "3과목 : 소방관계법규",
       "question": "제조소등의 위치·구조 및 설비의 기준 중 위험물을 취급하는 건축물의 환기설비 설치 기준으로 다음 ( )안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m52.gif?1508913186"
-      ],
       "pass_rate": 58,
       "choices": [
         {
@@ -2329,6 +2356,12 @@
       "concept_ids": [
         "hazardous-substance-handling-ventilation",
         "floor-area-and-opening"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "급기구는 당해 급기구가 설치된 실의 바닥면적 ( ⓐ ) m²마다 1개 이상으로 하되, 급기구의 크기는 ( ⓑ ) 이상으로 할 것"
+        }
       ]
     },
     {
@@ -2818,9 +2851,6 @@
       "number": 64,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "옥내소화전설비 배관의 설치기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m64.gif?1508913187"
-      ],
       "pass_rate": 83,
       "choices": [
         {
@@ -2859,15 +2889,18 @@
         "indoor-hydrant-piping",
         "main-piping",
         "branch-pipe"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "연결송수관설비의 배관과 겸용할 경우의 주배관은 구경 ( ⓐ ) 이상, 방수구로 연결되는 배관의 구경은 ( ⓑ ) ㎜ 이상의 것으로 하여야 한다."
+        }
       ]
     },
     {
       "number": 65,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "포소화설비의 자동식 기동장치의 설치기준 중 다음 ( ) 안에 알맞은 것은? (단, 화재감지기를 사용하는 경우이며, 자동화재탐지설비의 수신기가 설치된 장소에 상시 사람이 근무하고 있고, 화재 시 즉시 해당 조작부를 작동시킬 수 있는 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m65.gif?1508913187"
-      ],
       "pass_rate": 70,
       "choices": [
         {
@@ -2906,6 +2939,12 @@
         "foam-extinguishing-system-automatic-starter",
         "horizontal-distance-criteria",
         "walking-distance-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "화재감지기 회로에는 다음의 기준에 따른 발신기를 설치할 것.\n\n특정소방대상물의 홀마다 설치하되, 해당 특정소방대상물의 각 부분으로부터 수평 거리가 ( ⓐ ) m 이하가 되도록 할 것.\n다만, 복도 또는 별도로 구획된 실로서 보행거리가 ( ⓑ ) m 이상일 경우에는 추가로 설치하여야 한다."
+        }
       ]
     },
     {
@@ -3045,9 +3084,6 @@
       "number": 69,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "차고·주차장에 설치하는 포소화전설비의 설치기준 중 다음 ( ) 안에 알맞은 것은? (단, 1개 층의 바닥면적이 200m2 이하인 경우는 제외한다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m69.gif?1508913187"
-      ],
       "pass_rate": 50,
       "choices": [
         {
@@ -3083,6 +3119,12 @@
       },
       "concept_ids": [
         "garage-foam-hydrant"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "특정소방대상물의 어느 층에 있어서도 그 층에 설치된 포소화전방수구(포소화전 방수구가 5개 이상 설치된 경우에는 5개)를 동시에 사용할 경우 각 이동식 포노즐 선단의 포수용액 방사압력이 ( ⓐ ) MPa 이상이고 ( ⓑ ) L/min 이상의 포수용액을 수평거리 15m 이상으로 방사할 수 있도록 할 것"
+        }
       ]
     },
     {
@@ -3400,9 +3442,6 @@
       "number": 77,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "내림식사다리의 구조기준 중 다음 ( ) 안에 공통으로 들어갈 내용은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m77.gif?1508913187"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -3441,6 +3480,12 @@
         "retractable-ladder",
         "fire-target-distance-and-safety",
         "safe-evacuation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사용 시 소방대상물로부터 (　　) cm 이상의 거리를 유지하기 위한 유효한 홀자를 활용의 위치마다 설치하여야 한다. 다만, 그 홀자를 설치하지 아니하여도 사용 시 소방대상물에서 (　　) cm 이상의 거리를 유지할 수 있는 것은 그러하지 아니하다."
+        }
       ]
     },
     {
@@ -3537,9 +3582,6 @@
       "number": 80,
       "subject": "4과목 : 소방기계시설의 구조 및 원리",
       "question": "소화수조 및 저수조의 가압송수장치 설치기준 중 다음 ( ) 안에 알맞은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/nd/nd20170507/nd20170507m80.gif?1508913187"
-      ],
       "pass_rate": 67,
       "choices": [
         {
@@ -3578,6 +3620,12 @@
         "fire-water-tank-capacity-and-storage",
         "water-intake-point",
         "firefighting-operation-effective-pressure"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "소화수조가 옥상 또는 옥탑의 부분에 설치된 경우에는 지상에 설치된 채수구에서의 압력이 (　　) MPa 이상이 되도록 하여야 한다."
+        }
       ]
     }
   ],

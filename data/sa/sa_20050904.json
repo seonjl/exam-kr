@@ -915,9 +915,6 @@
       "number": 25,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음과 같은 결함수에서 기본 사상이 일어날 확률이 모두 0.1이다. 이 때 재해가 일어날 확률은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m25.gif?1465738480"
-      ],
       "pass_rate": 65,
       "choices": [
         {
@@ -950,6 +947,12 @@
         "fta-probability-calculation",
         "fta-gate-calculation",
         "fault-tree-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\nflowchart TD\n    T[T] --> G1{AND 게이트}\n    T --> G2{OR 게이트}\n    G1 --> X1[X₁]\n    G1 --> X2[X₂]\n    G2 --> X3[X₃]\n    G2 --> X4[X₄]\n```"
+        }
       ]
     },
     {
@@ -1253,9 +1256,6 @@
       "number": 34,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "다음 그림과 같은 man-machine system에서의 신뢰도를 구하면 얼마인가? (단, man의 신뢰도는 0.70 이고machine 신뢰도는 0.90 이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m34.gif?1465738480"
-      ],
       "pass_rate": 69,
       "choices": [
         {
@@ -1286,6 +1286,12 @@
       "concept_ids": [
         "parallel-system-reliability",
         "man-machine-reliability"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "man과 machine이 병렬로 연결된 회로 블록 다이어그램\n\n- 입력 → [man] → 출력\n-          [machine] (병렬)\n- man과 machine 두 요소가 같은 입출력 노드에 병렬 연결"
+        }
       ]
     },
     {
@@ -1752,9 +1758,6 @@
       "number": 47,
       "subject": "3과목 : 기계위험방지기술",
       "question": "그림과 같은 D=40mm, r=6mm, t=4mm인 축이3,000kg의 인장하중을 받는다. 축재료의 인장 강도가 55kg/mm2일 때 안전율은 얼마인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m47.gif?1465738481"
-      ],
       "pass_rate": 30,
       "choices": [
         {
@@ -1787,6 +1790,12 @@
         "stress-concentration",
         "shaft-bearing",
         "fillet-shaft"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "응력집중계수 $K_t$ vs $r/D$ 그래프 (단차 축 인장)\n\n- Y축: $K_t$ (응력집중계수), 범위 1.2~2.8\n- X축: $r/D$ (노치 반경/큰 지름 비), 범위 0~0.3\n- 두 곡선:\n  - $t/D = 0.10$: 상단 곡선 (응력집중 더 큼)\n  - $t/D = 0.12$: 하단 곡선\n- 인서트 그림: 단차 원형 축에 P 인장하중, 치수 t, r, D 표시"
+        }
       ]
     },
     {
@@ -1832,9 +1841,6 @@
       "number": 49,
       "subject": "3과목 : 기계위험방지기술",
       "question": "다음 보기와 같은 기계요소에 존재하는 위험점은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m49.gif?1465738481"
-      ],
       "pass_rate": 64,
       "choices": [
         {
@@ -1867,6 +1873,12 @@
         "machinery-hazard-points",
         "shearing-point",
         "hazard-point-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "&lt;보기&gt;  밀링커터,  회전통큰톱날"
+        }
       ]
     },
     {
@@ -2408,9 +2420,6 @@
       "number": 64,
       "subject": "4과목 : 전기위험방지기술",
       "question": "다음 내용에 알맞은 단어(낱말)를 삽입하여 내용을 보기를 참고하여 완성한 것 중 옳은 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m64.gif?1465738481"
-      ],
       "pass_rate": 61,
       "choices": [
         {
@@ -2439,6 +2448,12 @@
       ],
       "concept_ids": [
         "electrical-hazard-prevention-terminology"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "A. 감전시 인체에 흐르는 전류는 인가전압에 ①하고 인체 저항에 ②한다.\nB. 인체는 전류의 열작용이 ③ × ④로 어느 정도 이상이 되면 발생한다.\n\n<보기> ㄱ. 전류의세기  ㄴ. 반비례  ㄷ. 시간\n       ㄹ. 비례  ㅁ. 전압  ㅂ. 도체"
+        }
       ]
     },
     {
@@ -2983,9 +2998,6 @@
       "number": 79,
       "subject": "4과목 : 전기위험방지기술",
       "question": "심실세동 전류를  mA 라면 감전되었을 경우 심실세동시에 인체에 직접 받는 전기 에너지[cal]는? (단, T는 시간(단위:초)이며, 인체의 저항성은 500Ω이다.)",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20050904/ku20050904m79m1.gif?1465738481"
-      ],
       "pass_rate": 37,
       "choices": [
         {
@@ -3018,6 +3030,12 @@
         "ventricular-fibrillation-current",
         "electrical-energy-calculation",
         "human-body-resistance"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$I = \\frac{165}{\\sqrt{T}}$$"
+        }
       ]
     },
     {

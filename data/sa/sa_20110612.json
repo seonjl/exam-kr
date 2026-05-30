@@ -1285,9 +1285,6 @@
       "number": 35,
       "subject": "2과목 : 인간공학 및 시스템안전공학",
       "question": "결함수 작성의 몇 가지 원칙 중 다음 설명에 해당하는 원칙은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m35.gif?1466139930"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -1325,7 +1322,13 @@
         "No Miracle Rule",
         "결함수 작성 원칙"
       ],
-      "fix_D10_at": 1779355200
+      "fix_D10_at": 1779355200,
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "일단 악화되기 시작하여 재해로 발전하여 가는 과정 도중에 자연적으로 또는 다른 사건의 발생으로 인해 재해 연쇄가 중지되는 경우는 없다."
+        }
+      ]
     },
     {
       "number": 36,
@@ -1336,26 +1339,38 @@
       "choices": [
         {
           "text": ": 전이기호",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m36b1.gif?1466139930"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    A[ ] --- B[ ]\n    B --- C[ ]\n    B --- D[ ]\n    C --- E[ ]\n    D --- E\n```"
+            }
           ]
         },
         {
           "text": ": 기본사상",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m36b2.gif?1466139930"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    A[ ] --- B[　　　]\n    B --- C[ ]\n```"
+            }
           ]
         },
         {
           "text": ": 통상사상",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m36b3.gif?1466139930"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    A[ ] --- B[　　　]\n    B --- C[ ]\n    B --- D[ ]\n```"
+            }
           ]
         },
         {
           "text": ": 결함사상",
-          "images": [
-            "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m36b4.gif?1466139930"
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\nflowchart TD\n    A[ ] --- B((　))\n```"
+            }
           ]
         }
       ],
@@ -3390,9 +3405,6 @@
       "number": 90,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "탄화수소 증기의 연소하한값 추정식은 연료의 양론농도(Cst)의 0.55배이다. 프로판의 연소반응식이 다음과 같을 때 연소하한값은 약 몇 [Vol%]인가?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m90.gif?1466139930"
-      ],
       "pass_rate": 46,
       "choices": [
         {
@@ -3425,6 +3437,12 @@
         "lower-combustion-limit",
         "stoichiometric-concentration",
         "jones-formula"
+      ],
+      "question_extras": [
+        {
+          "kind": "formula",
+          "content": "$$\\text{C}_3\\text{H}_8 + 5\\text{O}_2 \\rightarrow 3\\text{CO}_2 + 4\\text{H}_2\\text{O}$$"
+        }
       ]
     },
     {
@@ -3470,9 +3488,6 @@
       "number": 92,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "다음 설명에 해당하는 안전장치는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m92.gif?1466139930"
-      ],
       "pass_rate": 52,
       "choices": [
         {
@@ -3503,6 +3518,12 @@
       "concept_ids": [
         "emergency-shutdown-device",
         "emergency-isolation-valve"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "대형의 반응기, 탑, 탱크 등에 있어서 이상상태가 발생할 때 밸브를 정지시켜 원료공급을 차단하기 위한 안전장치로, 공기압식, 유압식, 전기식 등이 있다."
+        }
       ]
     },
     {
@@ -3700,9 +3721,6 @@
       "number": 98,
       "subject": "5과목 : 화학설비위험방지기술",
       "question": "인화성 물질의 LFL, UFL 값이 다음 [표]와 같이 주어 졌을 때 위험도가 가장 큰 물질은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m98.gif?1466139930"
-      ],
       "pass_rate": 55,
       "choices": [
         {
@@ -3735,6 +3753,12 @@
         "risk-assessment-calculation",
         "explosion-limit-concentration",
         "explosion-range"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| | 프로판 | 부탄 | 벤젠 | 가솔린 |\n|---|---|---|---|---|\n| UFL(Vol%) | 9.5 | 8.4 | 6.7 | 6.2 |\n| LFL(Vol%) | 2.4 | 1.8 | 1.4 | 1.4 |"
+        }
       ]
     },
     {
@@ -3967,9 +3991,6 @@
       "number": 105,
       "subject": "6과목 : 건설안전기술",
       "question": "다음의 철골작업에서의 승강로 설치기준 중 (     )안에 알맞은 숫자는?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m105.gif?1466139930"
-      ],
       "pass_rate": 60,
       "choices": [
         {
@@ -4000,6 +4021,12 @@
       "concept_ids": [
         "steel-hoistway-landing-gap",
         "vertical-access-system"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "사업주는 근로자가 수직방향으로 이동하는 철골부재에는 답단간격이 (　　)센티미터 이내인 고정된 승강로를 설치하여야 한다."
+        }
       ]
     },
     {
@@ -4123,9 +4150,6 @@
       "number": 109,
       "subject": "6과목 : 건설안전기술",
       "question": "다음은 강관틀비계를 조립하여 사용할 때 준수해야 하는 기준이다. (     )안에 알맞은 숫자를 나열한 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m109.gif?1466139930"
-      ],
       "pass_rate": 44,
       "choices": [
         {
@@ -4155,6 +4179,12 @@
       ],
       "concept_ids": [
         "steel-frame-scaffolding"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "길이가 띠장방향으로 ( ① )미터 이하이고 높이가 ( ② )미터를 초과하는 경우에는 ( ③ )미터 이내마다 띠장방향으로 버팀기둥을 설치할 것"
+        }
       ]
     },
     {
@@ -4469,9 +4499,6 @@
       "number": 118,
       "subject": "6과목 : 건설안전기술",
       "question": "다음 설명에서 제시된 산업안전보건법에서 말하는 고용노동부령으로 정하는 공사에 해당하지 않는 것은?",
-      "question_images": [
-        "https://img.comcbt.com/cbt/data/ku/ku20110612/ku20110612m118.gif?1466139930"
-      ],
       "pass_rate": 77,
       "choices": [
         {
@@ -4502,6 +4529,12 @@
       "concept_ids": [
         "hazard-prevention-plan-submission-target",
         "excavation-depth-standard"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "건설업 중 고용노동부령으로 정하는 공사를 착공하려는 사업주는 고용노동부령으로 정하는 자격을 갖춘 자의 의견을 들은 후 유해·위험방지계획서를 작성하여 고용노동부령으로 정하는 바에 따라 고용노동부장관에게 제출하여야 한다."
+        }
       ]
     },
     {
