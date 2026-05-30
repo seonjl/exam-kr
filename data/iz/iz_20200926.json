@@ -1051,8 +1051,8 @@
       ],
       "question_extras": [
         {
-          "kind": "formula",
-          "content": "$$3\\ 4\\ *\\ 5\\ 6\\ *\\ +$$"
+          "kind": "text",
+          "content": "3 4 * 5 6 * +"
         }
       ]
     },
@@ -1410,7 +1410,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    A((A))\n    B((B))\n    C((C))\n    D((D))\n    E((E))\n    F((F))\n\n    A --> B\n    A --> C\n    B --> D\n    C --> E\n    C --> F\n```"
+          "content": "```mermaid\ngraph TD\n    A((A)) --> B((B))\n    A((A)) --> C((C))\n    B((B)) --> D((D))\n    C((C)) --> E((E))\n    C((C)) --> F((F))\n```"
         }
       ]
     },
@@ -2104,7 +2104,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nUPDATE 회원 (      ) 전화번호 = '010-14'\nWHERE 회원번호 = 'N4';\n```"
+          "content": "UPDATE 회원 (      ) 전화번호 = '010-14'\nWHERE 회원번호 = 'N4';"
         }
       ]
     },
@@ -2197,7 +2197,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nSQL> GRANT __ @ __ __ ©\n     STUDENT TO PARK;\n```"
+          "content": "SQL> GRANT __ ㉮ __ __ ㉯ __\n        STUDENT TO PARK;"
         }
       ]
     },
@@ -2257,7 +2257,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 과목이름 |\n|--------|\n| DB |"
+              "content": "| 과목이름 |\n|----------|\n| DB |"
             }
           ]
         },
@@ -2266,7 +2266,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 과목이름 |\n|--------|\n| DB |\n| DB |"
+              "content": "| 과목이름 |\n|----------|\n| DB |\n| DB |"
             }
           ]
         },
@@ -2275,7 +2275,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 과목이름 |\n|--------|\n| DB |\n| DB |\n| 운영체제 |"
+              "content": "| 과목이름 |\n|----------|\n| DB |\n| DB |\n| 운영체제 |"
             }
           ]
         },
@@ -2283,8 +2283,8 @@
           "text": "과목명 DB 운영체제",
           "extras": [
             {
-              "kind": "text",
-              "content": "과목이름\nDB\n운영체제"
+              "kind": "table",
+              "content": "| 과목이름 |\n|----------|\n| DB |\n| 운영체제 |"
             }
           ]
         }
@@ -2309,7 +2309,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "```sql\nSELECT 과목이름\nFROM 성적\nWHERE EXISTS (SELECT 학번\nFROM 학생 WHERE 학생.학번 = 성적.학번 AND\n학생.학과 IN ('전산', '전기') AND\n학생.주소 = '경기');\n```\n\n[학생] 테이블\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 김철수 | 1 | 전산 | 서울 |\n| 2000 | 고영준 | 1 | 전기 | 경기 |\n| 3000 | 유진호 | 2 | 전자 | 경기 |\n| 4000 | 김영진 | 2 | 전산 | 경기 |\n| 5000 | 정현영 | 3 | 전자 | 서울 |\n\n[성적] 테이블\n\n| 학번 | 과목번호 | 과목이름 | 학점 | 점수 |\n|------|----------|----------|------|------|\n| 1000 | A100 | 자료구조 | A | 91 |\n| 2000 | A200 | DB | A+ | 99 |\n| 3000 | A100 | 자료구조 | B+ | 88 |\n| 3000 | A200 | DB | B | 85 |\n| 4000 | A200 | DB | A | 94 |\n| 4000 | A300 | 운영체제 | B+ | 89 |\n| 5000 | A300 | 운영체제 | B | 88 |"
+          "content": "SELECT 과목이름\nFROM 성적\nWHERE EXISTS (SELECT 학번\nFROM 학생 WHERE 학생.학번 = 성적.학번 AND\n학생.학과 IN ('전산', '전기') AND\n학생.주소 = '경기');\n\n[학생] 테이블\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 김철수 | 1 | 전산 | 서울 |\n| 2000 | 고영준 | 1 | 전기 | 경기 |\n| 3000 | 유진호 | 2 | 전자 | 경기 |\n| 4000 | 김영진 | 2 | 전산 | 경기 |\n| 5000 | 정현영 | 3 | 전자 | 서울 |\n\n[성적] 테이블\n\n| 학번 | 과목번호 | 과목이름 | 학점 | 점수 |\n|------|----------|----------|------|------|\n| 1000 | A100 | 자료구조 | A | 91 |\n| 2000 | A200 | DB | A+ | 99 |\n| 3000 | A100 | 자료구조 | B+ | 88 |\n| 3000 | A200 | DB | B | 85 |\n| 4000 | A200 | DB | A | 94 |\n| 4000 | A300 | 운영체제 | B+ | 89 |\n| 5000 | A300 | 운영체제 | B | 88 |"
         }
       ]
     },
@@ -2971,7 +2971,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```\nuntil who | grep wow\ndo\n  sleep 5\ndone\n```"
+          "content": "until who | grep wow\ndo\nsleep 5\ndone"
         }
       ]
     },
@@ -3019,7 +3019,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\nint x = 1, y = 6;\nwhile (y--) {\n    x++;\n}\nSystem.out.println(\"x = \" + x + \"y = \" + y);\n```"
+          "content": "```\nint x = 1,  y = 6;\nwhile (y--) {\n    x++;\n}\nSystem.out.println(\"x = \" + x + \"y = \" + y);\n```"
         }
       ]
     },
@@ -3068,7 +3068,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```\n>>> a = [0,10,20,30,40,50,60,70,80,90]\n>>> a[ : 7 : 2]\n```"
+          "content": "```\n>>> a = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]\n>>> a[ : 7 : 2]\n```"
         }
       ]
     },
@@ -4012,7 +4012,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 정책 | (ㄱ) | DAC | RBAC |\n|------|------|-----|------|\n| 권한 부여 | 시스템 | 데이터 소유자 | 중앙 관리자 |\n| 접근 결정 | 보안등급 (Label) | 신분 (Identity) | 역할 (Role) |\n| 정책 변경 | 고정적 (변경 어려움) | 변경 용이 | 변경 용이 |\n| 장점 | 안정적 중앙 집중적 | 구현 용이 유연함 | 관리 용이 |"
+          "content": "| 정책 | (ㄱ) | DAC | RBAC |\n|---|---|---|---|\n| 권한 부여 | 시스템 | 데이터 소유자 | 중앙 관리자 |\n| 접근 결정 | 보안등급 (Label) | 신분 (Identity) | 역할 (Role) |\n| 정책 변경 | 고정적 (변경 어려움) | 변경 용이 | 변경 용이 |\n| 장점 | 안정적 중앙 집중적 | 구현 용이 유연함 | 관리 용이 |"
         }
       ]
     },
@@ -4058,8 +4058,8 @@
       ],
       "question_extras": [
         {
-          "kind": "formula",
-          "content": "$$\\textcircled{A}$$ 계획 수립　　$$\\textcircled{B}$$ 고객 평가\n\n$$\\textcircled{C}$$ 개발 및 검증　　$$\\textcircled{D}$$ 위험 분석"
+          "kind": "text",
+          "content": "ⓐ 계획 수립　　ⓑ 고객 평가\nⓒ 개발 및 검증　ⓓ 위험 분석"
         }
       ]
     },
@@ -4195,7 +4195,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 광섬유를 이용한 통신기술의 하나를 의미함\n- 파장이 서로 다른 복수의 광신호를 동시에 이용하는 것으로 파장들을 다중화 하는 방식임\n- 빛의 파장 축과 파장이 다른 광선은 서로 간섭을 일으키지 않는 성질을 이용함"
+          "content": "- 광섬유를 이용한 통신기술의 하나를 의미함\n- 파장이 서로 다른 복수의 광신호를 동시에 이용하는 것으로 광섬유를 다중화하는 방식임\n- 빛의 파장 축과 파장이 다른 광선은 서로 간섭을 일으키지 않는 성질을 이용함"
         }
       ]
     },

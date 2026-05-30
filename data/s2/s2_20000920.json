@@ -1499,7 +1499,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$$\n\n- $O_i$: 관측빈도 (observed frequency)\n- $E_i$: 기대빈도 (expected frequency)"
+              "content": "$$X^2 = \\sum \\frac{(f_o - f_e)^2}{f_e}$$"
             }
           ]
         },
@@ -1508,7 +1508,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$\\phi = \\sqrt{\\frac{\\chi^2}{N}}$$\n\n- $\\chi^2$: 카이제곱 통계량\n- $N$: 전체 관측수\n- $\\phi$ (phi): 연합성 계수"
+              "content": "$$\\phi = \\sqrt{\\frac{\\chi^2}{n}}$$"
             }
           ]
         }
@@ -3407,7 +3407,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$r_{xy} = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum_{i=1}^{n}(x_i - \\bar{x})^{2}\\;\\cdot\\;\\sum_{i=1}^{n}(y_i - \\bar{y})^{2}}}$$"
+              "content": "$$r_{xy} = \\frac{\\sum(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2} \\sqrt{\\sum(x_i - \\bar{x})^2}}$$"
             }
           ]
         }
@@ -4180,8 +4180,8 @@
       "explanation_detailed": "핵심 개념\n- 정규분포 N(μ, σ²)의 확률밀도함수 공식을 알고, 주어진 평균과 분산을 대입하는 능력을 묻는 문제입니다.\n\n정답 분석\n- 정규분포의 밀도함수는 f(x) = 1/(√(2π)·σ) · exp(-(x-μ)²/(2σ²)) 입니다. 문제에서 μ=0, σ²=2이므로 σ=√2를 대입합니다. 분모의 √(2π)·√2 = √(4π) = 2√π가 되고, 지수 부분의 분모는 2×2=4가 됩니다. 따라서 정답은 f(x) = (1/(2√π)) · exp(-x²/4) 입니다.\n\n오답 분석\n① 정답입니다. f(x) = (1/(2√π)) · exp(-x²/4)\n② 복원중으로 확인 불가하나, 분산을 σ²=2 대신 σ²=4로 잘못 대입했거나 분모 계산을 틀린 형태일 가능성이 높습니다.\n③ 복원중으로 확인 불가하나, σ 대신 σ²을 그대로 사용하거나 지수 부분의 계수를 잘못 계산한 형태일 가능성이 높습니다.\n④ 복원중으로 확인 불가하나, 정규화 상수(1/(√(2π)·σ))를 누락하거나 부호를 틀린 형태일 가능성이 높습니다.",
       "question_extras": [
         {
-          "kind": "text",
-          "content": "(이미지 분석 불가 — GIF 형식 호환 오류. Q.gif 파일 내용을 직접 확인해주세요.)"
+          "kind": "formula",
+          "content": "$$f(X) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{\\frac{(X-\\mu)^2}{2\\sigma^2}} = \\frac{1}{\\sqrt{4\\pi}} e^{\\frac{X^2}{4}}$$"
         }
       ],
       "concepts": [
@@ -4316,11 +4316,11 @@
       "question_extras": [
         {
           "kind": "formula",
-          "content": "X를 기대치 $$E(X)=\\mu$$와 분산 $$\\text{Var}(X)=\\sigma^2$$을 가지는 확률변수라 하고, $$\\bar{X}$$를 크기 $$n$$인 확률표본의 표본평균이라 하면 $$\\text{Var}(\\bar{X})$$의 값은 어떻게 되는가?"
+          "content": "$$\\text{Var}(\\bar{x})$$"
         },
         {
           "kind": "formula",
-          "content": "X를 기대치 $$E(X)=\\mu$$와 분산 $$\\text{Var}(X)=\\sigma^2$$을 가지는 확률변수라 하고, $$\\bar{X}$$를 크기 $$n$$인 확률표본의 표본평균이라 하면 $$\\text{Var}(\\bar{X})$$의 값은 어떻게 되는가?"
+          "content": "$$\\text{Var}(\\bar{x})$$"
         }
       ],
       "concepts": [

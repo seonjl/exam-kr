@@ -982,7 +982,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "![small red marker icon](img.gif)"
+          "content": "[이미지: 작은 빨간 X 표시 아이콘 — 이미지 로드 실패 또는 깨진 이미지 표시자]"
         }
       ]
     },
@@ -1390,7 +1390,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vba\nSub MacroA()\n    '\n    ' MacroA Macro\n    '\n    Range(\"A1:A8\").Select\n    With Selection.Font\n        .Name = \"굴림\"\n    End With\nEnd Sub\n```"
+          "content": "Sub MacroA()\n  '\n  'MacroA Macro\n  '\n  Range(\"A1:A8\").Select\n  With Selection.Font\n    .Name = \"굴림\"\n  End With\nEnd Sub"
         }
       ]
     },
@@ -1485,7 +1485,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vb\nSub test()\n  Dim i As Integer\n  Dim myX As String\n  For i = 1 To 10 Step 2\n    myX = myX& i\n    Cells(i, 3).Value = myX\n  Next i\nEnd Sub\n```"
+          "content": "Sub test()\n  Dim i As Integer\n  Dim myX As String\n  For i = 1 To 10 Step 2\n    myX = myX& i\n    Cells(i, 3).Value = myX\n  Next i\nEnd Sub"
         }
       ]
     },
@@ -1585,7 +1585,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| A | B | C |\n|---|---|---|\n|   |   |   |\n|   |   |   |\n|   |   |   |\n|   |   |   |"
+          "content": "| | A | B | C |\n|---|---|---|---|\n| 1 | | | |\n| 2 | | | |\n| 3 | | | |\n| 4 | | | |\n\n(A1:B3 범위가 선택된 상태의 스프레드시트)"
         }
       ]
     },
@@ -1679,7 +1679,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "확인\n\n메시지박스가 보입니다.\n\n확인　　취소"
+          "content": "확인\n\n메시지박스가 보입니다.\n\n[확인]  [취소]"
         }
       ]
     },
@@ -1815,8 +1815,8 @@
       ],
       "question_extras": [
         {
-          "kind": "table",
-          "content": "## 대리점별 판매현황\n\n| 분기 | 강남 | 강서 | 강동 | 강북 |\n|------|------|------|------|------|\n| 1분기 | 약 3,000,000 | 약 2,500,000 | 약 2,000,000 | 약 2,500,000 |\n| 2분기 | 약 3,500,000 | 약 3,000,000 | 약 2,500,000 | 약 3,000,000 |\n| 3분기 | 약 4,000,000 | 약 3,500,000 | 약 3,000,000 | 약 3,500,000 |\n| 4분기 | 약 5,500,000 | 약 4,500,000 | 약 4,000,000 | 약 6,000,000 |\n\n(단위: 판매액, 원)"
+          "kind": "text",
+          "content": "대리점별 판매현황\n\n(세로 막대형 차트)\n- X축(분기): 1분기, 2분기, 3분기, 4분기\n- Y축(판매액): 0 ~ 6,000,000\n- 범례: 강남, 강서, 강동, 강북"
         }
       ]
     },
@@ -2091,7 +2091,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "```sql\nselect 상품코드 from 상품\nwhere 상품코드 not in\n    (select 매출상품 from 매출\n     where 거래처번호 between 30 and 40);\n```\n\n| 상품코드 | 상품명   |\n|--------|--------|\n| 1      | 목과단  |\n| 2      | 장승   |\n| 3      | 상제   |\n| 4      | 기념품  |\n| 5      | 프로석단 |\n\n| 매출번호 | 매출상품 | 거래처번호 |\n|--------|--------|---------|\n| 1      | 2      | 10      |\n| 2      | 2      | 20      |\n| 3      | 1      | 30      |\n| 4      | 2      | 30      |\n| 5      | 4      | 40      |\n| 6      | 4      | 50      |\n| 7      | 4      | 0       |"
+          "content": "select 상품코드 from 상품\nwhere 상품코드 not in\n      (select 매출상품 from 매출\n       where 거래처번호 between 30 and 40);\n\n| 상품코드 | 상품명 |\n|--------|------|\n| 1 | 먹구간 |\n| 2 | 장승 |\n| 3 | 상제 |\n| 4 | 기념품 |\n| 5 | 프로석탄 |\n\n| 매출번호 | 매출상품 | 거래처번호 |\n|--------|--------|---------|\n| 1 | 2 | 10 |\n| 2 | 1 | 20 |\n| 3 | 3 | 30 |\n| 4 | 2 | 40 |\n| 5 | 4 | 50 |\n| 6 | 4 | 0 |\n\n현재 레코드: 6 (4)"
         }
       ]
     },
@@ -2184,8 +2184,8 @@
       ],
       "question_extras": [
         {
-          "kind": "table",
-          "content": "# 성 적\n\n## 액세스2000\n\n| 성적 | 학번 | 이름 |\n|------|---------|------|\n| 100 | 9938015 | 송한미 |\n| 99 | 9938013 | 곽혜경 |\n| 99 | 9938019 | 안주심 |\n| 95 | 9938012 | 구달규 |\n| 95 | 9938011 | 민현식 |\n| 69 | 9938020 | 박현규 |\n\n에 대한 과목 \"과목\" = 액세스2000 (6 세부 레코드)\n평균: 92.83333\n\n## 액셀2000\n\n| 성적 | 학번 | 이름 |\n|------|---------|------|\n| 100 | 9938018 | 안선실 |\n| 95 | 9938021 | 강삼화 |\n| 89 | 9938020 | 김선희 |\n\n에 대한 과목 \"과목\" = 액셀2000 (3 세부 레코드)\n평균: 94.66667\n\n2000년 9월 20일 수"
+          "kind": "text",
+          "content": "성 적\n\n과목              성적  학번      이름\n액세스2000\n              100  9938015  송란미\n               99  9938013  관혜경\n               99  9938019  안주실\n               95  9938012  구설규\n               95  9938016  안엔석\n               75  9938022  박민규\n에 대한 요약 '과목' = 액세스2000 (6 세부 레코드)\n평균                               92.85333\n엑셀2000\n              100  9938018  인선실\n               95  9938017  김상원\n               89  9938020  김선희\n에 대한 요약 '과목' = 엑셀2000 (3 세부 레코드)\n평균                               94.66667\n\n2005년 9월 20일 수                        1/1"
         }
       ]
     },
@@ -2729,8 +2729,8 @@
       ],
       "question_extras": [
         {
-          "kind": "diagram",
-          "content": "```mermaid\nerDiagram\n    창고 {\n        string 창고코드\n        string 창고명\n        string 창고위치\n        string 창고전화번호\n    }\n    제품 {\n        string 제품코드\n        string 제품명\n        string 원자재\n        number 단가\n        number 생산량\n        date 생산일자\n        string 창고코드\n    }\n    창고 ||--o{ 제품 : \"관계\"\n```"
+          "kind": "text",
+          "content": "관계\n\n창고                    제품\n창고코드 ──────∞ 제품코드\n창고명               제품명\n창고위치             원자재\n창고전화번호         단가\n                     생산량\n                     생산일자\n                     창고코드"
         }
       ]
     }

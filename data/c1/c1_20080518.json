@@ -849,7 +849,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "T A O T"
+          "content": "문서 아이콘 4개가 가로로 나열됨:\n[T 아이콘(텍스트형)] [A 아이콘] [O 아이콘] [T 아이콘(텍스트형)]"
         }
       ]
     },
@@ -940,8 +940,8 @@
       ],
       "question_extras": [
         {
-          "kind": "table",
-          "content": "| 구분 | 1월 | 2월 | 3월 | 4월 |\n|------|-----|-----|-----|-----|\n| 본사 | ■ | ■ | ■ | ■ |\n| 미국지사 | ■ | ■ | ■ | ■ |\n| 일본지사 | ■ | ■ | ■ | ■ |\n| 합 계 | ■ | ■ | ■ | ■ |\n\n**월별 판매내역** — 가로 누적 막대 차트 (판매량 기준, 0% ~ 100%)\n\n범례: 1월 · 2월 · 3월 · 4월"
+          "kind": "text",
+          "content": "월별 판매내역 (100% 누적 가로 막대형)\n\n항목(세로축): 합계, 일본지사, 미국지사, 본사\n판매량(가로축): 0% ~ 100%\n범례: ■ 1월　■ 2월　□ 3월　□ 4월"
         }
       ]
     },
@@ -1077,7 +1077,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| A | B | C | D |\n|---|---|---|---|\n| 사번 | 부서명 | 직위 | 수량 |\n| A001 | 판매1부 | 부장 | 150 |\n| A002 | 판매2부 | 과장 | 135 |\n| A003 | 판매1부 | 대리 | 125 |\n| A004 | 판매1부 | 과장 | 130 |\n| A005 | 판매2부 | 대리 | 115 |\n| A006 | 판매3부 | 부장 | 138 |\n| A007 | 판매1부 | 대리 | 119 |\n\n판매 1부의 평균 수량 : 133"
+          "content": "| | A | B | C | D |\n|---|---|---|---|---|\n| 1 | 사번 | 부서명 | 직위 | 수량 |\n| 2 | A001 | 판매1부 | 부장 | 150 |\n| 3 | A002 | 판매2부 | 과장 | 135 |\n| 4 | A003 | 판매1부 | 과장 | 140 |\n| 5 | A004 | 판매1부 | 과장 | 130 |\n| 6 | A005 | 판매2부 | 대리 | 115 |\n| 7 | A006 | 판매3부 | 부장 | 138 |\n| 8 | A007 | 판매1부 | 대리 | 119 |\n\n판매 1부의 평균수량 : 133"
         }
       ]
     },
@@ -1125,7 +1125,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| A | B | C | D | E |\n|---|---|---|---|---|\n| 성명 | 주민번호 | | 나이 | 성별 |\n| 장철실 | 790212-\\*\\*\\*\\*\\*\\*\\* | | 29 | 남 |\n| 홍길동 | 910917-\\*\\*\\*\\*\\*\\*\\* | | | |"
+          "content": "| | A | B | C | D |\n|---|---|---|---|---|\n| 1 | 성명 | 주민번호 | 나이 | 성별 |\n| 2 | 장영실 | 790212-******* | 29 | 남 |\n| 3 | 원희 | 910731-******* | 31 | 남 |"
         }
       ]
     },
@@ -1263,7 +1263,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vb\nSub CellFont()\n  For i= 5 to 10\n    if  Cells(i,1).Value<=50  Then\n        Cells(i,1).Font.Italic=True\n  Next\nEnd Sub\n```"
+          "content": "Sub CellFont()\n  For i= 5 to 10\n    if  Cells(i, 1).Value<=50  Then\n        Cells(i, 1).Font.Italic=True\n  Next\nEnd Sub"
         }
       ]
     },
@@ -1535,7 +1535,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 지점명 | 월 구분 | 판매액 |\n|--------|---------|--------|\n| 서울본점 합계 | | 946 |\n| LA지점 합계 | | 563 |\n| 런던지점 합계 | | 676 |\n| **총 합계** | | **2185** |"
+          "content": "| | A | B | C |\n|---|---|---|---|\n| 1 | 지점명 | 월 구분 | 판매액 |\n| 5 | 서울본점 합계 | | 946 |\n| 9 | LA지점 합계 | | 563 |\n| 13 | 런던지점 합계 | | 676 |\n| 14 | 총 합계 | | 2185 |"
         }
       ]
     },
@@ -1716,7 +1716,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| A | B |\n|---|---|\n| 지점 | 실적 |\n| 지점1 | 1,500,000 |\n| 지점2 | 2,000,000 |\n| 지점3 | 1,700,000 |\n| 지점4 | 1,750,000 |\n| 지점5 | 1,650,000 |\n| 지점6 | 3,700,000 |\n| 지점7 | 4,700,000 |\n\n순이익 구분\n\n```vba\nSub profit_view()\nFor i = 1 to 7\n    Set cell = ActiveSheet.( ⓐ ).Offset(i, 0)\n    If cell>=2000000 Then\n        cell.Interior.ColorIndex = 3  빨강색\n    Else\n        cell.Interior.ColorIndex = 5  파랑색\n    End If\nNext i\nEnd Sub\n```"
+          "content": "| | A | B |\n|---|---|---|\n| 1 | 지점 | 실적 |\n| 2 | 지점1 | 1,500,000 |\n| 3 | 지점2 | 2,000,000 |\n| 4 | 지점3 | 1,700,000 |\n| 5 | 지점4 | 1,750,000 |\n| 6 | 지점5 | 1,650,000 |\n| 7 | 지점6 | 3,700,000 |\n| 8 | 지점7 | 4,700,000 |\n| 9 | | 순이익 구분 |\n\nSub profit_view()\n  For i = 1 to 7\n      Set cell = ActiveSheet. ( ⓐ ).Offset(i, 0)\n      If cell>=2000000 Then\n          cell.Interior.ColorIndex = 3  빨강색\n      Else\n          cell.Interior.ColorIndex = 5  파랑색\n      End If\n  Next i\nEnd Sub"
         }
       ]
     },
@@ -1814,7 +1814,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 구분 | 기준 | 표시문자열 | 문자색 | 실값 | 표시형식(예) |\n|------|------|------------|--------|------|--------------|\n| 조건1 | 5000이상 | 목표달성!! | 파랑 | 510 | 목표달성!!510 |\n| 조건2 | 3000~4999 | 목표달성!! | 빨강 | 250 | 목표달성!!250 |\n| 조건3 | 300~499 | 노력요망!! | 검정 | 400 | 노력요망!!400 |"
+          "content": "| 구분 | 기준 | 표시문자열 | 문자색 | 셀값 | 표시형식(예) |\n|---|---|---|---|---|---|\n| 조건1 | 5000이상 | 목표달성!! | 파랑 | 510 | 목표달성!!510 |\n| 조건2 | 3000이만 | 목표미달!! | 빨강 | 250 | 목표미달!!250 |\n| 조건3 | 300~499 | 노력요망!! | 검정 | 400 | 노력요망!!400 |"
         }
       ]
     },
@@ -1999,7 +1999,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 주소 | 회원번호 | 이름 | 나이 |\n|------|----------|------|------|\n| 서울 | 527 | 김혜민 | 29 |\n| 서울 | 327 | 최영수 | 55 |\n| 서울 | 120 | 박민주 | 21 |\n\n회원수 : 서울 주소 회원수는 3명"
+          "content": "| 주소 | 회원번호 | 이름 | 나이 |\n|---|---|---|---|\n| 서울 | 527 | 김세민 | 29 |\n| | 327 | 최형주 | 55 |\n| | 120 | 박인주 | 21 |\n\n회원수 : 서울 주소 회원수를 3명"
         }
       ]
     },
@@ -2049,7 +2049,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "**부서**\n\n| 부서코드 | 부서명 |\n|---------|--------|\n| 1 | 회계부 |\n| 2 | 관리부 |\n| 3 | 홍보부 |\n\n**사원**\n\n| 사번 | 사원명 | 소속부서 |\n|------|--------|---------|\n| 1 | 홍길동 | 1 |\n| 2 | 김을선 | 3 |\n| 3 | 박두자 | 2 |\n| 4 | 이원수 | null |"
+          "content": "부서\n\n| 부서코드 | 부서명 |\n|---|---|\n| 1 | 회계부 |\n| 2 | 관리부 |\n| 3 | 홍보부 |\n\n사원\n\n| 사번 | 사원명 | 소속부서 |\n|---|---|---|\n| 1 | 홍길동 | 1 |\n| 2 | 김을선 | 3 |\n| 3 | 박부자 | 2 |\n| 4 | 이원수 | null |"
         }
       ]
     },
@@ -2287,7 +2287,7 @@
           "extras": [
             {
               "kind": "text",
-              "content": "Microsoft Access\n\nExcel\n\n확인"
+              "content": "Microsoft Access\n\nExcel\n\n[확인]"
             }
           ]
         },
@@ -2296,7 +2296,7 @@
           "extras": [
             {
               "kind": "text",
-              "content": "AcExcel2000\n\n확인"
+              "content": "Microsoft Access\n\nAcExcel2000\n\n[확인]"
             }
           ]
         },
@@ -2305,7 +2305,7 @@
           "extras": [
             {
               "kind": "text",
-              "content": "Microsoft Access\n\nExceless 2000\n\n확인"
+              "content": "Microsoft Access\n\nExceless 2000\n\n[확인]"
             }
           ]
         },
@@ -2314,7 +2314,7 @@
           "extras": [
             {
               "kind": "text",
-              "content": "Microsoft Access\n\nAccess 2000 Excel\n\n확인"
+              "content": "Microsoft Access\n\nAccess 2000 Excel\n\n[확인]"
             }
           ]
         }
@@ -2348,7 +2348,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vb\nPrivate Sub Form_Load()\n    Dim exstring\n    exstring = \"Access 2000\"\n    Mid(exstring, 3, 5) = \"Excel\"\n    Msgbox exstring\nEnd Sub\n```"
+          "content": "Private Sub Form_Load()\n    Dim exstring\n    exstring = \"Access 2000\"\n    Mid(exstring, 3, 5) = \"Excel\"\n    Msgbox exstring\nEnd Sub"
         }
       ]
     },
@@ -2568,7 +2568,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nINSERT INTO 학생(학번, 이름, 학년)  (② )\n(\"200878\", \"정몽주\", \"1\");\n```"
+          "content": "INSERT INTO 학생(학번, 이름, 학년) ( ② )\n(\"200878\",\"정몽주\",\"1\");"
         }
       ]
     },
@@ -2706,7 +2706,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 이름 | 국어 | 체육 | 음악 | 평균 |\n|------|------|------|------|------|\n| 김영국 | 94 | 95 | 90 | 93 |\n| 이영희 | 88 | 87 | 92 | 89 |\n| 박전희 | 81 | 73 | 74 | 76 |"
+          "content": "| 이름 | 국어 | 체육 | 음악 | 평균 |\n|---|---|---|---|---|\n| 김영숙 | 94 | 95 | 90 | 93 |\n| 이영희 | 88 | 87 | 92 | 89 |\n| 박전희 | 81 | 73 | 74 | 76 |"
         }
       ]
     },

@@ -122,7 +122,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "㉠ 도출(Elicitation)　　㉡ 분석(Analysis)\n㉢ 명세(Specification)　㉣ 확인(Validation)"
+          "content": "① 도출(Elicitation)        ② 분석(Analysis)\n③ 명세(Specification)      ④ 확인(Validation)"
         }
       ],
       "concepts": [
@@ -1058,7 +1058,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 파레토 법칙이 좌우한다.\n- 애플리케이션 결함의 대부분은 소수의 특정한 모듈에 집중되어 존재한다.\n- 결함은 발생한 모듈에서 계속 추가로 발생할 가능성이 높다."
+          "content": "○ 파레토 법칙이 좌우한다.\n○ 애플리케이션 결함의 대부분은 소수의 특정한 모듈에 집중되어 존재한다.\n○ 결함이 발생한 모듈에서 계속 추가로 발생할 가능성이 높다."
         }
       ],
       "concepts": [
@@ -1342,7 +1342,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 버전관리 자료가 원격저장소와 로컬저장소에 함께 저장되어 관리된다.\n- 로컬 저장소에서 버전관리가 가능하므로 원격 저장소에 문제가 생겨도 로컬 저장소의 자료를 이용하여 작업할 수 있다.\n- 대표적인 버전 관리 도구로 Git이 있다."
+          "content": "○ 버전관리 자료가 원격저장소와 로컬저장소에 함께 저장되어 관리된다.\n○ 로컬 저장소에서 버전관리가 가능하므로 원격 저장소에 문제가 생겨도 로컬 저장소의 자료를 이용하여 작업할 수 있다.\n○ 대표적인 버전 관리 도구로 Git이있다."
         }
       ],
       "concepts": [
@@ -1564,8 +1564,8 @@
       "explanation_detailed": "핵심 개념\n후위표기법(postfix)은 피연산자를 먼저 쓰고 연산자를 뒤에 두는 방식으로, 스택을 이용해 왼쪽부터 차례로 처리합니다. 피연산자는 스택에 push하고, 연산자를 만나면 스택에서 두 개를 pop하여 계산한 뒤 결과를 다시 push합니다.\n\n정답 분석\n주어진 식 3 4 * 5 6 * + 를 왼쪽부터 처리하면, 먼저 3과 4를 만난 뒤 *를 만나 3*4=12를 구하고, 이어 5와 6을 만난 뒤 *를 만나 5*6=30을 구합니다. 마지막 +에서 스택에 남은 12와 30을 더해 42가 되므로 정답은 ②번입니다. 이는 중위표기법으로 (3*4)+(5*6)에 해당합니다.\n\n오답 분석\n① 35는 어떤 연산 조합으로도 도출되지 않는 무관한 값입니다.\n② 12와 30을 더한 올바른 결과 42입니다.\n③ 81은 잘못 해석해 (3+4)+(5+6) 등으로 계산한 경우와도 일치하지 않는 오답입니다.\n④ 360은 모든 수를 곱해(3*4*5*6) 얻은 값으로 연산자 순서를 무시한 오답입니다.",
       "question_extras": [
         {
-          "kind": "formula",
-          "content": "$$3\\ 4\\ *\\ 5\\ 6\\ *\\ +$$"
+          "kind": "text",
+          "content": "3 4 * 5 6 * +"
         }
       ],
       "concepts": [
@@ -2134,7 +2134,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 학번 | 학점 수 | 과목번호 |\n|------|---------|---------|\n| 20202222 | 20 | CS200 |"
+              "content": "| 학번     | 학점 수 | 과목번호 |\n|----------|--------|---------|\n| 20202222 | 20     | CS200   |"
             }
           ]
         },
@@ -2142,8 +2142,8 @@
           "text": "학번\n20202222",
           "extras": [
             {
-              "kind": "text",
-              "content": "학번\n20202222"
+              "kind": "table",
+              "content": "| 학번     |\n|----------|\n| 20202222 |"
             }
           ]
         },
@@ -2152,7 +2152,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 학번 |\n|------|\n| 20201111 |\n| 20202222 |\n| 20203333 |"
+              "content": "| 학번     |\n|----------|\n| 20201111 |\n| 20202222 |\n| 20203333 |"
             }
           ]
         },
@@ -2161,7 +2161,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 학번 | 학점 수 | 과목번호 |\n|------|---------|---------|\n| 20201111 | 15 | NULL |\n| 20202222 | 20 | CS200 |\n| 20203333 | NULL | CS300 |"
+              "content": "| 학번     | 학점 수 | 과목번호 |\n|----------|--------|---------|\n| 20201111 | 15     | NULL    |\n| 20202222 | 20     | CS200   |\n| 20203333 | NULL   | CS300   |"
             }
           ]
         }
@@ -2188,7 +2188,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "```sql\n(SELECT 학번 FROM R1)\nINTERSECT\n(SELECT 학번 FROM R2)\n```\n\n**[R1] 테이블**\n\n| 학번 | 학점 수 |\n|------|--------|\n| 20201111 | 15 |\n| 20202222 | 20 |\n\n**[R2] 테이블**\n\n| 학번 | 과목번호 |\n|------|---------|\n| 20202222 | CS200 |\n| 20203333 | CS300 |"
+          "content": "(SELECT 학번 FROM R1)\nINTERSECT\n(SELECT 학번 FROM R2)\n\n[R1] 테이블\n\n| 학번     | 학점 수 |\n|----------|--------|\n| 20201111 | 15     |\n| 20202222 | 20     |\n\n[R2] 테이블\n\n| 학번     | 과목번호 |\n|----------|---------|\n| 20202222 | CS200   |\n| 20203333 | CS300   |"
         }
       ]
     },
@@ -2364,7 +2364,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "[R1] 테이블\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 홍길동 | 1 | 컴퓨터공학 | 서울 |\n| 2000 | 김철수 | 1 | 전기공학 | 경기 |\n| 3000 | 강남길 | 2 | 전자공학 | 경기 |\n| 4000 | 오말자 | 2 | 컴퓨터공학 | 경기 |\n| 5000 | 장미화 | 3 | 전자공학 | 서울 |\n\n[R2] 테이블\n\n| 학번 | 과목번호 | 과목이름 | 학점 | 점수 |\n|------|----------|----------|------|------|\n| 1000 | C100 | 컴퓨터구조 | A | 91 |\n| 2000 | C200 | 데이터베이스 | A+ | 99 |\n| 3000 | C100 | 컴퓨터구조 | B+ | 89 |\n| 3000 | C200 | 데이터베이스 | B | 85 |\n| 4000 | C200 | 데이터베이스 | A | 93 |\n| 4000 | C300 | 운영체제 | B+ | 88 |\n| 5000 | C300 | 운영체제 | B | 82 |\n\n[실행결과]\n\n| 과목번호 | 과목이름 |\n|----------|----------|\n| C100 | 컴퓨터구조 |\n| C200 | 데이터베이스 |"
+          "content": "[R1] 테이블\n\n| 학번 | 이름   | 학년 | 학과       | 주소 |\n|-----|-------|-----|-----------|-----|\n| 1000 | 홍길동 | 1   | 컴퓨터공학  | 서울 |\n| 2000 | 김철수 | 1   | 전기공학    | 경기 |\n| 3000 | 강남길 | 2   | 전자공학    | 경기 |\n| 4000 | 오말자 | 2   | 컴퓨터공학  | 경기 |\n| 5000 | 장미화 | 3   | 전자공학    | 서울 |\n\n[R2] 테이블\n\n| 학번 | 과목번호 | 과목이름     | 학점 | 점수 |\n|-----|---------|-----------|-----|-----|\n| 1000 | C100   | 컴퓨터구조  | A   | 91  |\n| 2000 | C200   | 데이터베이스 | A+  | 99  |\n| 3000 | C100   | 컴퓨터구조  | B+  | 89  |\n| 3000 | C200   | 데이터베이스 | B   | 85  |\n| 4000 | C200   | 데이터베이스 | A   | 93  |\n| 4000 | C300   | 운영체제    | B+  | 88  |\n| 5000 | C300   | 운영체제    | B   | 82  |\n\n[실행결과]\n\n| 과목번호 | 과목이름     |\n|---------|-----------|\n| C100    | 컴퓨터구조  |\n| C200    | 데이터베이스 |"
         }
       ]
     },
@@ -2583,7 +2583,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nUPDATE 인사급여 (        ) 호봉=15  WHERE 성명= '홍길동';\n```"
+          "content": "UPDATE 인사급여 (        ) 호봉=15  WHERE 성명= '홍길동';"
         }
       ]
     },
@@ -2856,7 +2856,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 무선 랜에서 데이터 전송 시, 매체가 비어 있음을 확인한 뒤 충돌을 회피하기 위해 임의 시간을 기다린 후 데이터를 전송하는 방법이다.\n- 네트워크에서 데이터의 전송이 없는 경우라도 동시 전송에 의한 충돌에 대비하여 확인 신호를 전송한다."
+          "content": "• 무선 랜에서 데이터 전송 시, 매체가 비어 있음을 확인한 뒤 충돌을 회피하기 위해 임의 시간을 기다린 후 데이터를 전송하는 방법이다.\n• 네트워크에 데이터의 전송이 없는 경우라도 동시 전송에 의한 충돌에 대비하여 확인 신호를 전송한다."
         }
       ]
     },
@@ -2951,7 +2951,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n        int a = 4;\n        int b = 7;\n        int c = a | b;\n\n        printf(\"%d\", c);\n        return 0;\n}\n```"
+          "content": "#include <stdio.h>\nint main(int argc, char *argv[]) {\n        int a = 4;\n        int b = 7;\n        int c = a | b;\n\n        printf(\"%d\", c);\n        return 0;\n}"
         }
       ]
     },
@@ -2998,7 +2998,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```python\nclass FourCal:\n    def setdata(sel, fir, sec):\n        sel.fir = fir\n        sel.sec = sec\n    def add(sel):\n        result = sel.fir + sel.sec\n        return result\n\na = FourCal()\na.setdata(4, 2)\nprint(a.add())\n```"
+          "content": "class FourCal:\n    def setdata(sel, fir, sec):\n        sel.fir = fir\n        sel.sec = sec\n    def add(sel):\n        result = sel.fir + sel.sec\n        return result\na = FourCal()\na.setdata(4, 2)\nprint(a.add())"
         }
       ]
     },
@@ -3133,7 +3133,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\npublic class Operator{\npublic static void main(String[] args) {\n    int x=5, y=0, z=0;\n    y = x++;\n    z = --x;\n    System.out.println(x + \",\" + y + \",\"+ z);\n  }\n}\n```"
+          "content": "public class Operator{\npublic static void main(String[] args) {\n  int x=5, y=0, z=0;\n  y = x++;\n  z = --x;\nSystem.out.println(x +\",\" + y + \",\"+ z);\n  }\n}"
         }
       ]
     },
@@ -3274,7 +3274,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\npublic class array1 {\n  public static void main(String[] args) {\n    int cnt = 0;\n    do {\n      cnt++;\n    } while (cnt < 0);\n    if(cnt==1)\n      cnt++;\n    else\n      cnt = cnt + 3;\n    System.out.printf(\"%d\", cnt);\n  }\n}\n```"
+          "content": "```java\npublic class array1 {\n public static void main(String[] args) {\n        int cnt = 0;\n        do {\n                cnt++;\n        } while (cnt < 0);\n        if(cnt==1)\n                cnt++;\n        else\n                cnt = cnt + 3;\n        System.out.printf(\"%d\", cnt);\n }\n}\n```"
         }
       ]
     },
@@ -3606,7 +3606,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "⊙ ( )　　　⊙ ==　　　⊙ <\n⊜ <<　　　⊜ ||　　　⊜ /"
+          "content": "① ( )　　② ==　　③ <\n④ <<　　⑤ ||　　⑥ /"
         }
       ]
     },
@@ -3927,7 +3927,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 군대의 보안 레벨처럼 정보의 기밀성에 따라 상하 관계가 구분된 정보를 보호하기 위해 사용\n- 자신의 권한 보다 낮은 보안 레벨 권한을 가진 경우에는 높은 보안 레벨의 문서를 읽을 수 없고 자신의 권한보다 낮은 수준의 문서만 읽을 수 있다.\n- 자신의 권한보다 높은 보안 레벨의 문서에는 쓰기가 가능하지만 보안레벨이 낮은 문서의 쓰기 권한은 제한한다."
+          "content": "○ 군대의 보안 레벨처럼 정보의 기밀성에 따라 상하 관계가 구분된 정보를 보호하기 위해 사용\n○ 자신의 권한 보다 낮은 보안 레벨 권한을 가진 경우에는 높은 보안 레벨의 문서를 읽을 수 없고 자신의 권한보다 낮은 수준의 문서만 읽을 수 있다.\n○ 자신의 권한보다 높은 보안 레벨의 문서에는 쓰기가 가능하지만 보안레벨이 낮은 문서의 쓰기 권한은 제한한다."
         }
       ]
     },
@@ -4452,8 +4452,8 @@
       ],
       "question_extras": [
         {
-          "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    INTERNET([\"INTERNET\"])\n    Router_top[\"Router\"]\n    BastionHost[\"Bastion Host\"]\n    Server1[\"Server\"]\n    Server2[\"Server\"]\n    Server3[\"Server\"]\n    Router_right[\"Router\"]\n    PC1[\"PC\"]\n    PC2[\"PC\"]\n    PC3[\"PC\"]\n\n    INTERNET --> Router_top\n    Router_top --- BastionHost\n    Router_top --- Server1\n    Router_top --- Server2\n    Router_top --- Server3\n    Server3 --- Router_right\n    Router_right --- PC1\n    Router_right --- PC2\n    Router_right --- PC3\n```"
+          "kind": "text",
+          "content": "```\nINTERNET(cloud) --- Router --- Bastion Host\n                        |\n              +---------+---------+\n           Server     Server    Router\n                                  |\n                        +---------+\n                      PC  PC  PC\n```"
         }
       ]
     },

@@ -490,7 +490,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "컴포넌트 설계 시 \"(　)에 의한 설계\"를 따를 경우, 해당 명세서에는\n\n(1) 컴포넌트의 오퍼레이션 사용 전에 참이 되어야 할 선행조건\n(2) 사용 후 만족되어야 할 결과조건\n(3) 오퍼레이션이 실행되는 동안 항상 만족되어야 할 불변조건 등이 포함되어야 한다."
+          "content": "컴포넌트 설계 시 \"(    )에 의한 설계\"를 따를 경우, 해당 명세에서는\n(1) 컴포넌트의 오퍼레이션 사용 전에 참이 되어야 할 선행조건\n(2) 사용 후 만족되어야 할 결과조건\n(3) 오퍼레이션이 실행되는 동안 항상 만족되어야 할 불변조건 등이 포함되어야 한다."
         }
       ]
     },
@@ -622,7 +622,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\nclassDiagram\n    자 <|-- 버스\n    자 <|-- 트럭\n    자 <|-- 택시\n```"
+          "content": "```mermaid\nclassDiagram\n  차 <|-- 버스\n  차 <|-- 트럭\n  차 <-- 택시\n```"
         }
       ]
     },
@@ -1153,7 +1153,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    a((a)) --> b((b))\n    a((a)) --> c((c))\n    a((a)) --> d((d))\n    b((b)) --> c((c))\n    d((d)) --> c((c))\n    c((c)) --> d((d))\n```"
+          "content": "```mermaid\ngraph TD\n  a --> b\n  a --> c\n  a --> d\n  b --> c\n  d --> c\n  c --> d\n```"
         }
       ]
     },
@@ -1200,7 +1200,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "37,   14,   17,   40,   35"
+          "content": "37,  14,  17,  40,  35"
         }
       ]
     },
@@ -1293,7 +1293,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    A --> B\n    A --> C\n    B --> D\n    C --> E\n    C --> F\n    E --> G\n    E --> H\n```"
+          "content": "```mermaid\ngraph TD\n  A --> B\n  A --> C\n  B --> D\n  C --> E\n  C --> F\n  E --> G\n  E --> H\n```"
         }
       ]
     },
@@ -1785,7 +1785,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    A --> B\n    A --> C\n    B --> D\n    B --> E\n    B --> F\n    C --> G\n    F --> H\n    F --> I\n```"
+          "content": "```mermaid\ngraph TD\n  A --> B\n  A --> C\n  B --> D\n  B --> E\n  B --> F\n  C --> G\n  F --> H\n  F --> I\n```"
         }
       ]
     },
@@ -1878,7 +1878,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 고객ID | 고객이름 | 거주도시 |\n|--------|----------|----------|\n| S1 | 홍길동 | 서울 |\n| S2 | 이정재 | 인천 |\n| S3 | 신보라 | 인천 |\n| S4 | 김홍국 | 서울 |\n| S5 | 도요새 | 용인 |"
+          "content": "| 고객ID | 고객이름 | 거주도시 |\n|--------|----------|----------|\n| S1     | 홍길동   | 서울     |\n| S2     | 이정재   | 인천     |\n| S3     | 신보라   | 인천     |\n| S4     | 김홍국   | 서울     |\n| S5     | 도요새   | 용인     |"
         }
       ]
     },
@@ -1938,7 +1938,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 학년 |\n|------|\n| 1 |\n| 1 |\n| 2 |\n| 2 |\n| 3 |"
+              "content": "| 학년 |\n|------|\n| 1    |\n| 1    |\n| 2    |\n| 2    |\n| 3    |"
             }
           ]
         },
@@ -1947,7 +1947,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 학년 |\n|------|\n| 1 |\n| 2 |\n| 3 |"
+              "content": "| 학년 |\n|------|\n| 1    |\n| 2    |\n| 3    |"
             }
           ]
         },
@@ -1956,7 +1956,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 이름 | 학년 |\n|------|------|\n| 홍길동 | 1 |\n| 김철수 | 1 |\n| 강남길 | 2 |\n| 오말자 | 2 |\n| 장미화 | 3 |"
+              "content": "| 이름   | 학년 |\n|--------|------|\n| 홍길동 | 1    |\n| 김철수 | 1    |\n| 강남길 | 2    |\n| 오말자 | 2    |\n| 장미화 | 3    |"
             }
           ]
         },
@@ -1965,7 +1965,7 @@
           "extras": [
             {
               "kind": "table",
-              "content": "| 이름 | 학년 |\n|------|------|\n| 홍길동 | 1 |\n| 강남길 | 2 |\n| 장미화 | 3 |"
+              "content": "| 이름   | 학년 |\n|--------|------|\n| 홍길동 | 1    |\n| 강남길 | 2    |\n| 장미화 | 3    |"
             }
           ]
         }
@@ -1991,7 +1991,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "[ R1 ]\n\n| 학번 | 이름 | 학년 | 학과 | 주소 |\n|------|------|------|------|------|\n| 1000 | 홍길동 | 1 | 컴퓨터공학 | 서울 |\n| 2000 | 김철수 | 1 | 전기공학 | 경기 |\n| 3000 | 강남길 | 2 | 전자공학 | 경기 |\n| 4000 | 오말자 | 2 | 컴퓨터공학 | 경기 |\n| 5000 | 장미화 | 3 | 전자공학 | 서울 |\n\n[ SQL 문 ]\n\n```sql\nSELECT DISTINCT 학년 FROM R1;\n```"
+          "content": "[ R1 ]\n\n| 학번 | 이름   | 학년 | 학과       | 주소 |\n|------|--------|------|------------|------|\n| 1000 | 홍길동 | 1    | 컴퓨터공학 | 서울 |\n| 2000 | 김철수 | 1    | 전기공학   | 경기 |\n| 3000 | 강남길 | 2    | 전자공학   | 경기 |\n| 4000 | 오말자 | 2    | 컴퓨터공학 | 경기 |\n| 5000 | 장미화 | 3    | 전자공학   | 서울 |\n\n[ SQL 문 ]\n\nSELECT DISTINCT 학년 FROM R1;"
         }
       ]
     },
@@ -2326,8 +2326,8 @@
           "text": "D2\n2\n2",
           "extras": [
             {
-              "kind": "text",
-              "content": "D2\n\n2\n\n2"
+              "kind": "table",
+              "content": "| D2 |\n|----|\n| 2  |\n| 2  |"
             }
           ]
         },
@@ -2370,7 +2370,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "**R**\n\n| D1 | D2 | D3 |\n|----|----|----|\n| a  | 1  | A  |\n| b  | 1  | A  |\n| c  | 2  | A  |\n| d  | 2  | B  |\n\n**S**\n\n| D2 | D3 |\n|----|-----|\n| 1  | 1  |"
+          "content": "R\n\n| D1 | D2 | D3 |\n|----|----|----|\n| a  | 1  | A  |\n| b  | 1  | A  |\n| c  | 2  | A  |\n| d  | 2  | B  |\n\nS\n\n| D2 | D3 |\n|----|----|\n| 1  | A  |"
         }
       ]
     },
@@ -2417,7 +2417,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\n(1) SELECT player_name, height\n(2) FROM player\n(3) WHERE team_id = 'Korea'\n(4) AND height BETWEEN 170 OR 180;\n```"
+          "content": "(1) SELECT player_name,height\n(2) FROM player\n(3) WHERE team_id = 'Korea'\n(4) AND height BETWEEN 170 or 180;"
         }
       ]
     },
@@ -2553,7 +2553,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 국가 | 도시 |\n|------|------|\n| 대한민국 | 서울, 부산 |\n| 미국 | 워싱턴, 뉴욕 |\n| 중국 | 베이징 |\n\n↓\n\n| 국가 | 도시 |\n|------|------|\n| 대한민국 | 서울 |\n| 대한민국 | 부산 |\n| 미국 | 워싱턴 |\n| 미국 | 뉴욕 |\n| 중국 | 베이징 |"
+          "content": "| 국가     | 도시          |\n|----------|---------------|\n| 대한민국 | 서울, 부산    |\n| 미국     | 워싱턴, 뉴욕  |\n| 중국     | 베이징        |\n\n↓\n\n| 국가     | 도시   |\n|----------|--------|\n| 대한민국 | 서울   |\n| 대한민국 | 부산   |\n| 미국     | 워싱턴 |\n| 미국     | 뉴욕   |\n| 중국     | 베이징 |"
         }
       ]
     },
@@ -2773,7 +2773,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```\nInt i = 7, j = 9;\nint k;\nif (i > j)\n    k = i - j;\nelse\n    k = i + j;\n```"
+          "content": "Int i = 7, j = 9;\nint k;\nif (i > j)\n    k = i - j;\nelse\n    k = i + j;"
         }
       ]
     },
@@ -3002,7 +3002,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 작업 | 대기시간 | 서비스(실행)시간 |\n|------|----------|-----------------|\n| A    | 5        | 20              |\n| B    | 40       | 20              |\n| C    | 15       | 45              |\n| D    | 20       | 2               |"
+          "content": "| 작업 | 대기시간 | 서비스(실행)시간 |\n|------|----------|-----------------|\n| A | 5 | 20 |\n| B | 40 | 20 |\n| C | 15 | 45 |\n| D | 20 | 2 |"
         }
       ]
     },
@@ -3314,7 +3314,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 영역번호 | 메모리크기 | 사용여부 |\n|--------|----------|--------|\n| NO,1 | 8K | FREE |\n| NO,2 | 12K | FREE |\n| NO,3 | 10K | IN USE |\n| NO,4 | 20K | IN USE |\n| NO,5 | 16K | FREE |"
+          "content": "| 영역번호 | 메모리크기 | 사용여부 |\n|----------|------------|----------|\n| NO.1 | 8K | FREE |\n| NO.2 | 12K | FREE |\n| NO.3 | 10K | IN USE |\n| NO.4 | 20K | IN USE |\n| NO.5 | 16K | FREE |"
         }
       ]
     },
@@ -3406,7 +3406,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```python\nString = input(\"7문자 이상 문자열을 입력하시오 :\")\nm = (      ①      )\nprint(m)\n```\n\n입력값 : Hello World\n최종 출력 : Helrld"
+          "content": "String = input(\"7문자 이상 문자열을 입력하시오 :\")\nm = (    ①    )\nprint(m)\n\n입력값 : Hello World\n최종 출력 : Helrld"
         }
       ]
     },
@@ -3542,7 +3542,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\nmain(void) {\nint i;\nint sum = 0;\nfor(i =1; i<=10; i=i+2)\n    sum = sum + i;\nprintf(\"%d\", sum);\n}\n```"
+          "content": "main(void) {\nint i;\nint sum = 0;\nfor(i =1; i<=10; i=i+2)\n    sum = sum + i;\nprintf(\"%d\", sum);\n}"
         }
       ]
     },
@@ -3759,7 +3759,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "(　)은/는 웹에서 제공하는 정보 및 서비스를 이용하여 새로운 소프트웨어나 서비스, 데이터베이스 등을 만드는 기술이다."
+          "content": "(    )은/는 웹에서 제공하는 정보 및 서비스를 이용하여 새로운 소프트웨어나 서비스, 데이터베이스 등을 만드는 기술이다."
         }
       ]
     },
@@ -4153,7 +4153,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\nflowchart LR\n    시작 -->|2일| A[ ]\n    시작 -->|3일| B[ ]\n    A -->|2일| C(( ))\n    A -->|3일| D(( ))\n    B -->|5일| D\n    C -->|3일| E[ ]\n    C -->|5일| F[ ]\n    D -->|5일| F\n    E -->|3일| 완료\n    F -->|4일| 완료\n```"
+          "content": "```mermaid\ngraph LR\n    시작 -->|2일| A[ ]\n    시작 -->|3일| B[ ]\n    A -->|2일| C(( ))\n    A -->|3일| D(( ))\n    B -->|5일| D(( ))\n    C -->|3일| E[ ]\n    D -->|5일| F[ ]\n    D -->|4일| G[ ]\n    E -->|3일| 완료\n    F -->|3일| 완료\n    G -->|4일| 완료\n```\n\n시작에서 완료까지의 네트워크 공정도:\n- 시작 →(2일)→ □ →(2일)→ ○ →(3일)→ □ →(3일)→ 완료\n- 시작 →(2일)→ □ →(3일)→ ○ →(5일)→ □ →(3일)→ 완료\n- 시작 →(3일)→ □ →(5일)→ ○ →(5일)→ □ →(4일)→ 완료"
         }
       ]
     },
@@ -4288,8 +4288,8 @@
       ],
       "question_extras": [
         {
-          "kind": "formula",
-          "content": "$$\\textcircled{A}$$ 계획 수립　　$$\\textcircled{B}$$ 고객 평가\n\n$$\\textcircled{C}$$ 개발 및 검증　　$$\\textcircled{D}$$ 위험 분석"
+          "kind": "text",
+          "content": "㉮ 계획 수립　　㉯ 고객 평가\n㉰ 개발 및 검증　㉱ 위험 분석"
         }
       ]
     },
@@ -4382,7 +4382,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\nimport javax.crypto.KeyGenerator;\nimport javax.crypto.spec.SecretKeySpec;\nimport javax.crypto.Cipher;\n......생략\n\npublic String encripString(String usr) {\n    String key = \"22df3023sf~2;asn!@#/>as\";\n    if (key != null) {\n        byte[] bToEncrypt = usr.getBytes(\"UTF-8\");\n        .....생략\n```"
+          "content": "import javax.crypto.KeyGenerator;\nimport javax.crypto.spec.SecretKeySpec;\nimport javax.crypto.Cipher;\n......생략\npublic String encripString(String usr) {\nString key = \"22df3023sf~2;asn!@#/>as\";\nif (key != null) {\nbyte[] bToEncrypt = usr.getBytes(\"UTF-8\");\n.....생략"
         }
       ]
     },
@@ -4516,8 +4516,8 @@
       ],
       "question_extras": [
         {
-          "kind": "diagram",
-          "content": "```mermaid\ngraph LR\n    S1[스테이션1] --- S2[스테이션2] --- S3[스테이션3] --- S4[스테이션4] --- S5[스테이션5]\n```\n\n데이터 전송 방향 →"
+          "kind": "text",
+          "content": "데이터 전송 방향 →\n\n스테이션1 - 스테이션2 - 스테이션3 - 스테이션4 - 스테이션5"
         }
       ]
     }

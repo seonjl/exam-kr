@@ -986,8 +986,8 @@
       "explanation_detailed": "핵심 개념\n이진 탐색은 정렬된 배열에서 탐색 범위를 절반씩 줄여가며 원하는 값을 찾는 알고리즘이다. 매 단계에서 중간 인덱스 mid = (low + high) / 2를 계산하고, arr[mid]와 목표 값을 비교하여 탐색 구간을 좁힌다.\n\n정답 분석\n배열 [1, 2, ..., 15]에서 14를 찾는 과정은 다음과 같다. 1차에서 low=0, high=14이므로 mid=7이 되고 arr[7]=8과 비교하여 14가 더 커 우측으로 간다. 2차에서 low=8, high=14이므로 mid=11이 되고 arr[11]=12와 비교하여 다시 우측으로 간다. 3차에서 low=12, high=14이므로 mid=13이 되고 arr[13]=14로 목표 값을 찾는다. 총 비교 횟수는 3회이므로 정답은 ②이다.\n\n오답 분석\n① 2회는 14가 우연히 두 번째 비교에서 바로 찾아지는 경우인데, 실제로는 8→12→14의 세 단계가 필요하므로 오답이다.\n② 정답이다. 위 분석과 같이 정확히 3회의 비교로 14를 찾을 수 있다.\n③ 4회는 탐색 구간을 한 번 더 좁혀야 찾는 것으로 착각한 경우로, 실제로는 3차 비교에서 이미 값을 찾는다.\n④ 5회는 이진 탐색의 최대 비교 횟수인 log₂15 ≈ 4와도 맞지 않으며, 이 문제에서는 3회면 충분하다.",
       "question_extras": [
         {
-          "kind": "diagram",
-          "content": "| 인덱스 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |\n|--------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| 값     | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |\n\n```mermaid\nflowchart TD\n    A[\"1차: low=0, high=14<br/>mid=(0+14)/2=7<br/>arr[7]=8 vs 14<br/>14 > 8 → 우측 탐색\"] --> B[\"2차: low=8, high=14<br/>mid=(8+14)/2=11<br/>arr[11]=12 vs 14<br/>14 > 12 → 우측 탐색\"]\n    B --> C[\"3차: low=12, high=14<br/>mid=(12+14)/2=13<br/>arr[13]=14 vs 14<br/>일치 → 검색 성공\"]\n```"
+          "kind": "text",
+          "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
         }
       ],
       "concepts": [
@@ -1451,8 +1451,8 @@
       "explanation_detailed": "핵심 개념\n버블 정렬은 인접한 두 원소를 비교하여 큰 값을 오른쪽으로 이동시키는 정렬 알고리즘이다. 한 번의 PASS가 끝나면 가장 큰 값이 배열의 가장 오른쪽(마지막 위치)에 확정된다.\n\n정답 분석\n초기 배열 9, 6, 7, 3, 5에서 PASS 1을 수행하면 다음과 같다. 먼저 9와 6을 비교하여 교환하면 6, 9, 7, 3, 5가 된다. 다음 9와 7을 비교하여 교환하면 6, 7, 9, 3, 5가 된다. 다음 9와 3을 비교하여 교환하면 6, 7, 3, 9, 5가 된다. 마지막으로 9와 5를 비교하여 교환하면 6, 7, 3, 5, 9가 되어 가장 큰 값 9가 마지막 위치에 확정된다. 따라서 정답은 ④번 6, 7, 3, 5, 9이다.\n\n오답 분석\n① 6, 9, 7, 3, 5는 첫 번째 비교(9와 6)만 수행하고 나머지 비교를 생략한 중간 상태로, PASS 1이 완료되지 않은 결과이다.\n② 3, 9, 6, 7, 5는 선택 정렬의 PASS 1 결과로 보이며, 전체에서 가장 작은 값 3을 맨 앞으로 보내는 방식이어서 버블 정렬과 혼동한 것이다.\n③ 3, 6, 7, 9, 5는 여러 PASS가 수행된 결과에 가까우며, PASS 1 한 번으로는 가장 작은 값 3이 맨 앞으로 올 수 없다.\n④ 6, 7, 3, 5, 9는 PASS 1의 올바른 결과로, 가장 큰 값 9가 오른쪽 끝으로 이동한 상태이다.",
       "question_extras": [
         {
-          "kind": "diagram",
-          "content": "초기 자료: `9, 6, 7, 3, 5`\n\n버블 정렬(오름차순) PASS 1 과정:\n\n| 단계 | 비교 대상 | 비교 결과 | 배열 상태 |\n|------|-----------|-----------|-----------|\n| 1    | 9, 6      | 9 > 6 → 교환 | 6, 9, 7, 3, 5 |\n| 2    | 9, 7      | 9 > 7 → 교환 | 6, 7, 9, 3, 5 |\n| 3    | 9, 3      | 9 > 3 → 교환 | 6, 7, 3, 9, 5 |\n| 4    | 9, 5      | 9 > 5 → 교환 | 6, 7, 3, 5, 9 |\n\nPASS 1 결과: `6, 7, 3, 5, 9`\n\n```mermaid\nflowchart LR\n    A[\"9 6 7 3 5\"] -->|\"9↔6 교환\"| B[\"6 9 7 3 5\"]\n    B -->|\"9↔7 교환\"| C[\"6 7 9 3 5\"]\n    C -->|\"9↔3 교환\"| D[\"6 7 3 9 5\"]\n    D -->|\"9↔5 교환\"| E[\"6 7 3 5 9\"]\n```"
+          "kind": "text",
+          "content": "9, 6, 7, 3, 5"
         }
       ],
       "concepts": [
@@ -1530,7 +1530,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\nflowchart LR\n    A[계획] --> B[\"(가) 사전교육\"]\n    B --> C[\"(나) 준비\"]\n    C --> D[\"(다) 인스펙션 회의\"]\n    D --> E[\"(라) 수정\"]\n    E --> F[\"(마) 후속조치\"]\n```\n\n보기 매핑:\n\n| 기호 | 내용 |\n|------|------|\n| ㉠ | 준비 |\n| ㉡ | 사전교육 |\n| ㉢ | 인스펙션 회의 |\n| ㉣ | 수정 |\n| ㉤ | 후속조치 |\n\n선택지 연결:\n\n| 번호 | 연결 1 | 연결 2 |\n|------|--------|--------|\n| ① | (가) - ㉡ | (나) - ㉢ |\n| ② | (나) - ㉠ | (다) - ㉢ |\n| ③ | (다) - ㉢ | (라) - ㉤ |\n| ④ | (라) - ㉣ | (마) - ㉢ |"
+          "content": "```mermaid\nflowchart LR\n    계획 --> 가 --> 나 --> 다 --> 라 --> 마\n```\n\n① 준비　　　② 사전 교육\n③ 인스펙션 회의　　　④ 수정\n⑤ 후속조치"
         }
       ],
       "concepts": [
@@ -1738,7 +1738,7 @@
       "question_extras": [
         {
           "kind": "diagram",
-          "content": "```mermaid\ngraph TD\n    a --> b\n    a --> c\n    b --> d\n    c --> e\n    c --> f\n    e --> g\n    e --> h\n```"
+          "content": "```mermaid\ngraph TD\n    a --- b\n    a --- c\n    b --- d\n    b --- e\n    c --- e\n    c --- f\n    e --- g\n    e --- h\n```"
         }
       ],
       "concepts": [
@@ -2006,7 +2006,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "트랜잭션은 완전하게 수행 완료되지 않으면 전혀 수행되지 않아야 한다."
+          "content": "트랜잭션의 모든 연산들이 정상적으로 수행 완료되거나 아니면 전혀 어떠한 연산도 수행되지 않은 원래 상태가 되도록 해야 한다."
         }
       ],
       "concepts": [
@@ -2117,7 +2117,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 지점명 | 제품명 | 판매량 |\n|--------|--------|--------|\n| 강남지점 | 식빵 | 50 |\n| 강남지점 | 우유 | 30 |\n| 서초지점 | 식빵 | 20 |\n| 서초지점 | 계란 | 40 |\n\n(원본 GIF 이미지는 푸드 테이블로, 지점명·제품명·판매량 컬럼으로 구성된 것으로 추정됩니다.)"
+          "content": "<푸드> 테이블\n\n| 지점명 | 제품명 | 판매량 |\n|---|---|---|\n| 강남지점 | 비빔밥 | 500 |\n| 강북지점 | 도시락 | 300 |\n| 강남지점 | 도시락 | 200 |\n| 강남지점 | 미역국 | 550 |\n| 수원지점 | 비빔밥 | 600 |\n| 인천지점 | 비빔밥 | 800 |\n| 강남지점 | 잡채밥 | 250 |"
         }
       ],
       "concepts": [
@@ -2695,7 +2695,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```\n[SQL 문 구조 - 하위 질의문(Subquery)]\n\nSELECT [결과 열]\nFROM   [테이블]\nWHERE  팀코드 IN ( _________ )\n                       ↑ 빈칸\n```\n\n[조건]\n- '팀코드' 및 '이름'은 속성(컬럼)\n- '직원'은 테이블\n- 하위 질의문(Subquery)을 작성하여 빈칸에 들어갈 내용을 고르는 문제"
+          "content": "[조건]\n이름이 '정도일'인 팀원이 소속된 팀코드를 이용하여 해당 팀에 소속된 팀원들의 이름을 출력하는 SQL문 작성\n\n[SQL문]\nSELECT    이름\nFROM      직원\nWHERE     팀코드 = (                    );"
         }
       ],
       "concepts": [
@@ -2843,7 +2843,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "GRANT `______` PARK;\n(빈칸에 들어갈 SQL 구문을 고르는 문제)"
+          "content": "[SQL 문]\nGRANT (               ) PARK ;"
         }
       ],
       "concepts": [
@@ -2952,7 +2952,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\n#include <stdio.h>\nint main() {\n    int a = 1, b = 2, c = 3;\n    int result;\n    result = (a && b) + (a || b) + (!c);\n    printf(\"%d\", result);\n}\n```"
+          "content": "```c\n#include  <stdio.h>\nint main(int argc, char *argv[]) {\n    int a = 5, b = 3, c= 12 ;\n    int t1, t2, t3 ;\n    t1 = a && b ;\n    t2 = a || b ;\n    t3 = !c ;\n    printf(\"%d\", t1 + t2 + t3) ;\n    return 0 ;\n}\n```"
         }
       ],
       "concepts": [
@@ -3018,7 +3018,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\n#include <stdio.h>\nstruct ins {\n    int c[10];\n    int a;\n};\nint main() {\n    struct ins ob1 = {0}, ob2 = {0};\n    int i;\n    for (i = 0; i < 10; i += 2) {\n        ob1.c[i] = i;\n        ob2.c[i] = i + i;\n    }\n    for (i = 0; i < 10; i += 2) {\n        ob1.a = ob1.a + ob1.c[i];\n        ob2.a = ob2.a + ob2.c[i];\n    }\n    printf(\"%d\\n\", ob1.a + ob2.a);\n}\n```"
+          "content": "```c\n#include  <stdio.h>\nstruct st{\n    int a ;\n    int c[10] ;\n} ;\n\nint main (int argc, char *argv[]) {\n    int i = 0 ;\n    struct st ob1 ;\n    struct st ob2 ;\n    ob1.a = 0 ;\n    ob2.a = 0 ;\n\n    for(i = 0 ; i < 10 ; i++) {\n        ob1.c[i] = i ;\n        ob2.c[i] = ob1.c[i] + i ;\n    }\n\n    for(i = 0 ; i < 10 ; i = i+2) {\n        ob1.a = ob1.a + ob1.c[i] ;\n        ob2.a = ob2.a + ob2.c[i] ;\n    }\n\n    printf(\"%d\", ob1.a + ob2.a) ;\n    return 0 ;\n}\n```"
         }
       ],
       "concepts": [
@@ -3125,7 +3125,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```python\nx = 20\n\nif x == 10 :\n    print('10')\n(   ) x == 20 :\n    print('20')\nelse :\n    print('other')\n```\n\n[실행결과]\n```\n20\n```"
+          "content": "```python\nx = 20\n\nif x == 10 :\n    print('10')\n(      ) x == 20 :\n    print('20')\nelse :\n    print('other')\n```\n\n[실행결과]\n20"
         }
       ],
       "concepts": [
@@ -3234,7 +3234,7 @@
       "question_extras": [
         {
           "kind": "formula",
-          "content": "최소 작업 우선(SJF) 기법의 약점을 보완한 비선점 스케줄링 기법으로 다음과 같은 식을 이용해 우선순위를 판별한다.\n\n$$\\text{우선순위} = \\frac{\\text{대기한 시간} + \\text{서비스를 받을 시간}}{\\text{서비스를 받을 시간}}$$"
+          "content": "최소 작업 우선(SJF) 기법의 약점을 보완한 비선점 스케줄링 기법으로 다음과 같은 식을 이용해 우선순위를 판별한다.\n\n$$우선순위 = \\frac{대기한\\ 시간 + 서비스를\\ 받을\\ 시간}{서비스를\\ 받을\\ 시간}$$"
         }
       ],
       "concepts": [
@@ -3434,7 +3434,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\npublic class Rarr {\n  static int[] marr() {\n    int temp[] = new int[4];\n    for(int i=0; i<temp.length; i++)\n      temp[i] = i;\n    return temp;\n  }\n  public static void main(String[] args) {\n    int iarr[];\n    iarr = marr();\n    for(int i=0; i<iarr.length; i++)\n      System.out.print(iarr[i] + \" \");\n  }\n}\n```"
+          "content": "```java\npublic class Rarr {\n  static int[] marr() {\n    int temp[] = new int[4] ;\n    for(int i=0 ; i <temp.length ; i++)\n      temp[i] = i ;\n    return temp ;\n  }\n  public static void main(String[] args) {\n    int iarr[] ;\n    iarr = marr() ;\n    for(int i = 0 ; i <iarr.length ; i++)\n      System.out.print(iarr[i] + \" \") ;\n  }\n}\n```"
         }
       ],
       "concepts": [
@@ -3499,7 +3499,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```java\npublic class ovr {\n public static void main(String[] args) {\n  int a = 1, b = 2, c = 3, d = 4 ;\n  int mx, mn ;\n  mx = a < b? b : a ;\n  if(mx==1) {\n        mn = a > mx? b : a ;\n  }\n  else {\n        mn = b  < mx? d : c ;\n  }\n  System.out.println(mn) ;\n }\n}\n```"
+          "content": "```java\npublic class ovr {\n  public static void main(String[] args) {\n    int a = 1, b = 2, c = 3, d = 4 ;\n    int mx, mn ;\n    mx = a < b? b : a ;\n    if(mx==1) {\n        mn = a > mx? b : a ;\n    }\n    else {\n        mn = b  < mx? d : c ;\n    }\n    System.out.println(mn) ;\n  }\n}\n```"
         }
       ],
       "concepts": [
@@ -3608,7 +3608,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n        int n1 = 1, n2 = 2, n3 = 3 ;\n        int r1, r2, r3 ;\n\n        r1 = (n2 <=2) || (n3> 3) ;\n        r2 = !n3 ;\n        r3 = (n1> 1) && (n2 <3) ;\n\n        printf(\"%d\", r3 - r2 + r1) ;\n        return 0 ;\n}\n```"
+          "content": "```c\n#include  <stdio.h>\nint main(int argc, char *argv[]) {\n    int n1 = 1, n2 = 2, n3 = 3 ;\n    int r1, r2, r3 ;\n\n    r1 = (n2 <= 2) || (n3 > 3) ;\n    r2 = !n3 ;\n    r3 = (n1 > 1) && (n2 < 3) ;\n\n    printf(\"%d\", r3 - r2 + r1) ;\n    return 0 ;\n}\n```"
         }
       ],
       "concepts": [
@@ -3861,7 +3861,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```c\n#include <stdio.h>\nint main(int argc, char *argv[]) {\n    int a[] = {14, 22, 30, 38};\n    printf(\"%u, \", &a[2]);\n    printf(\"%u\", a);\n    return 0;\n}\n```"
+          "content": "```c\n#include  <stdio.h>\nint main(int argc, char *argv[]) {\n    int a[] = {14, 22, 30, 38} ;\n    printf(\"%u, \", &a[2]) ;\n    printf(\"%u\", a) ;\n    return 0 ;\n}\n```"
         }
       ],
       "concepts": [
@@ -4229,7 +4229,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 다른 국을 향하는 호출이 중계에 의하지 않고 직접 접속하는 그물 모양의 네트워크이다.\n- 통신량이 많은 비교적 소수의 국 사이에 구성될 경우 경제적이며 간편하지만, 다수의 국 사이에는 회선이 세분화되어 비경제적일 수도 있다.\n- 해당 형태의 무선 네트워크의 경우 대용량을 빠르고 안전하게 전달할 수 있어 행사장이나 군 등에서 많이 활용된다."
+          "content": "- 다른 국을 향하는 호출이 중계에 의하지 않고 직접 접속되는 그물 모양의 네트워크이다.\n- 통신량이 많은 비교적 소수의 국 사이에 구성될 경우 경제적이며 간편하지만, 다수의 국 사이에는 회선이 세분화되어 비경제적일 수도 있다.\n- 해당 형태의 무선 네트워크의 경우 대용량을 빠르고 안전하게 전달할 수 있어 함선장이나 군 등에서 많이 활용된다."
         }
       ],
       "concepts": [
@@ -4380,7 +4380,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "시스템 공격 기법 중 하나로 허용범위 이상의 ICMP 패킷을 전송하며 대상 시스템의 네트워크를 마비시킨다."
+          "content": "시스템 공격 기법 중 하나로 허용범위 이상의 ICMP 패킷을 전송하여 대상 시스템의 네트워크를 마비시킨다."
         }
       ],
       "concepts": [
@@ -4785,7 +4785,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 자신의 신원(Identity)을 시스템에 증명하는 과정이다.\n- 아이디와 패스워드를 입력하는 과정이 가장 일반적인 예시라고 볼 수 있다."
+          "content": "- 자신의 신원(Identity)를 시스템에 증명하는 과정이다.\n- 아이디와 패스워드를 입력하는 과정이 가장 일반적인 예시라고 볼 수 있다."
         }
       ],
       "concepts": [
@@ -4851,7 +4851,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 네트워크를 제어부, 데이터 전달부로 분리하여 네트워크 관리자가 보다 효율적으로 네트워크를 제어, 관리할 수 있는 기술\n- 기존의 라우터, 스위치 등과 같이 하드웨어에 의존하는 네트워크 체계에서 안정성, 속도, 보안 등을 소프트웨어로 제어, 관리하여 새롭게 개발됨\n- 네트워크 장비의 펌웨어 업그레이드를 통해 사용자의 직접적인 데이터 전송 경로 관리가 가능하고, 기존 네트워크에는 영향을 주지 않으면서 특정 서비스의 전송 경로 수정을 통하여 인터넷상에서 발생하는 문제를 처리할 수 있음"
+          "content": "- 네트워크를 제어부, 데이터 전달부로 분리하여 네트워크 관리자가 보다 효율적으로 네트워크를 제어, 관리할 수 있는 기술\n- 기존의 라우터, 스위치 등과 같이 하드웨어에 의존하는 네트워크 체계에서 안정성, 속도, 보안 등을 소프트웨어로 제어, 관리하기 위해 개발\n- 네트워크 장비의 펌웨어 업그레이드를 통해 사용자의 직접적인 데이터 전송 경로 관리가 가능하고, 기존 네트워크에는 영향을 주지 않으면서 특정 서비스의 전송 경로 수정을 통하여 인터넷상에서 발생하는 문제를 처리할 수 있음"
         }
       ],
       "concepts": [

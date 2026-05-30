@@ -2766,7 +2766,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$Y = \\beta_1 X_1 + \\beta_2 X_2 + \\varepsilon$$"
+              "content": "$$Y_{ij} = \\mu + \\alpha_i + \\beta_j + (\\alpha\\beta)_{ij} + \\epsilon_{ij}$$"
             }
           ]
         },
@@ -2783,7 +2783,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$Y = \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\varepsilon$$"
+              "content": "$$Y = \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\epsilon$$"
             }
           ]
         }
@@ -3133,7 +3133,7 @@
           "extras": [
             {
               "kind": "formula",
-              "content": "$$N(0, \\sigma^2)$$"
+              "content": "$$N(\\mu, \\ \\sigma^2)$$"
             }
           ]
         },
@@ -3149,11 +3149,11 @@
       "question_extras": [
         {
           "kind": "formula",
-          "content": "확률변수 X가 정규분포 $$N(\\mu, \\sigma^2)$$ 을 따를 때, $$Z = \\dfrac{X - \\mu}{\\sigma}$$ 는 어떤 분포를 따르는가?"
+          "content": "$$Z = \\frac{X - \\mu}{\\sigma}$$"
         },
         {
           "kind": "formula",
-          "content": "확률변수 X가 정규분포 $$N(\\mu, \\sigma^2)$$ 을 따를 때, $$Z = \\dfrac{X - \\mu}{\\sigma}$$ 는 어떤 분포를 따르는가?"
+          "content": "$$Z = \\frac{X - \\mu}{\\sigma}$$"
         }
       ],
       "concepts": [
@@ -3378,7 +3378,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 요인 | 자승합(SS) | 자유도(df) | 평균자승(MS) | F값 | 유의확률(P) |\n|------|-----------|-----------|-------------|-----|------------|\n| 집단간 | — | — | — | — | 0.0212 |\n| 집단내(오차) | — | — | — | | |\n| 총합 | — | | | | |"
+          "content": "| 변동요인 | 자유도 | 제곱합 | 평균제곱 | F값 | P값 |\n|--------|------|--------|--------|-----|-----|\n| 모형잔차 | 1 | 1519.98 | 1519.98 | ( ) | 0.0212 |\n| | 10 | 759.02 | 75.90 | | |\n| 합계 | 11 | 2279.00 | | | |"
         }
       ],
       "concepts": [
@@ -3650,7 +3650,7 @@
             },
             {
               "kind": "formula",
-              "content": "$$N(0, \\sigma^2)$$"
+              "content": "$$N(\\mu, \\ \\sigma^2)$$"
             }
           ]
         },
@@ -4345,19 +4345,19 @@
       "question_extras": [
         {
           "kind": "formula",
-          "content": "(이미지 분석 실패 — GIF 형식 미지원. 문제 텍스트로 대체: 단순선형회귀모형 $$Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i$$ 에서 오차항 $$\\varepsilon_i \\sim N(0, \\sigma^2)$$, n=22, SSE=4000, $$\\sigma^2$$의 불편추정값 구하기)"
+          "content": "$$\\sigma^2$$"
         },
         {
           "kind": "formula",
-          "content": "(이미지 분석 실패 — GIF 형식 미지원. 문제 텍스트로 대체: 단순선형회귀모형 $$Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i$$ 에서 오차항 $$\\varepsilon_i \\sim N(0, \\sigma^2)$$, n=22, SSE=4000, $$\\sigma^2$$의 불편추정값 구하기)"
+          "content": "$$\\sigma^2$$"
         },
         {
           "kind": "formula",
-          "content": "(이미지 분석 실패 — GIF 형식 미지원. 문제 텍스트로 대체: 단순선형회귀모형 $$Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i$$ 에서 오차항 $$\\varepsilon_i \\sim N(0, \\sigma^2)$$, n=22, SSE=4000, $$\\sigma^2$$의 불편추정값 구하기)"
+          "content": "$$\\sigma^2$$"
         },
         {
           "kind": "formula",
-          "content": "(이미지 분석 실패 — GIF 형식 미지원. 문제 텍스트로 대체: 단순선형회귀모형 $$Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i$$ 에서 오차항 $$\\varepsilon_i \\sim N(0, \\sigma^2)$$, n=22, SSE=4000, $$\\sigma^2$$의 불편추정값 구하기)"
+          "content": "$$\\sigma^2$$"
         }
       ],
       "concepts": [
@@ -4404,8 +4404,8 @@
       "explanation_detailed": "핵심 개념\n- 모평균의 신뢰구간 추정입니다. 표본크기 n=70으로 충분히 크므로 중심극한정리에 의해 정규분포(z분포)를 적용하거나 t분포를 사용하여 모평균 μ의 99% 신뢰구간을 구합니다.\n\n정답 분석\n- ④ 16.7 < μ < 19.9가 정답입니다.\n- 공식: $$\\bar{x} \\pm z_{\\alpha/2} \\times \\frac{s}{\\sqrt{n}}$$\n- 대입: $$18.3 \\pm 2.576 \\times \\frac{5.2}{\\sqrt{70}} = 18.3 \\pm 2.576 \\times 0.6215 = 18.3 \\pm 1.601$$\n- 따라서 $$16.699 < \\mu < 19.901$$, 즉 약 16.7 < μ < 19.9가 됩니다.\n- (t분포를 사용해도 자유도 69에서 t_{0.005,69} ≈ 2.649이며 결과는 16.65 < μ < 19.95로 같은 보기 ④에 해당합니다.)\n\n오답 분석\n① 8.6 < μ < 28.0은 s/√n 대신 s를 그대로 곱했거나 오차한계를 과대 계산한 값으로, 신뢰구간이 지나치게 넓습니다.\n② 17.1 < μ < 19.5는 95% 신뢰수준(z=1.96)을 잘못 적용한 결과로, 오차한계가 약 1.2로 99%가 아닌 95% 구간에 해당합니다.\n③ 18.1 < μ < 18.5는 표준오차를 s/√n이 아닌 s/n으로 나누는 등 오차한계를 과소 계산하여 구간이 비정상적으로 좁습니다.\n④ 정답입니다. 위 계산과 일치합니다.",
       "question_extras": [
         {
-          "kind": "text",
-          "content": "(20×27 픽셀의 극소형 GIF로, 의미 있는 내용이 포함되어 있지 않음. 문제 텍스트는 본문에 제시됨)"
+          "kind": "formula",
+          "content": "$$\\bar{x}$$"
         }
       ],
       "concepts": [
@@ -4582,11 +4582,11 @@
       "question_extras": [
         {
           "kind": "formula",
-          "content": "$$\\bar{X}$$ (표본평균 기호)"
+          "content": "$$\\bar{x}$$"
         },
         {
           "kind": "formula",
-          "content": "$$\\bar{X}$$ (표본평균 기호)"
+          "content": "$$\\bar{x}$$"
         }
       ],
       "concepts": [

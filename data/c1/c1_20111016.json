@@ -856,7 +856,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "- 클래스가 존재하지 않으며 변수선언도 필요 없다.\n- 소스코드가 HTML 문서에 포함되어 있다.\n- 사용자의 웹 브라우저에서 직접 번역되고 실행된다."
+          "content": "- 클래스가 존재하지 않으며 변수선언도 필요없다.\n- 소스코드가 HTML 문서에 포함되어 있다.\n- 사용자의 웹 브라우저에서 직접 번역되고 실행된다."
         }
       ]
     },
@@ -1084,7 +1084,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "| 성명 | 필기 | 자격증 | 면접 |\n|------|------|--------|------|\n| 김윤식 | 85 | 60 | 90 |\n| 고광식 | 75 | 80 | 90 |\n| 김순식 | 90 | 80 | 80 |\n| 마현별 | 80 | 95 | 70 |\n| 박은일 | 85 | 100 | 80 |"
+          "content": "|   | A    | B    | C     | D    |\n|---|------|------|-------|------|\n| 1 | 성명   | 필기   | 자격증   | 면적   |\n| 2 | 김윤식  | 85   | 60    | 90   |\n| 3 | 고광식  | 75   | 80    | 90   |\n| 4 | 김순식  | 90   | 80    | 90   |\n| 5 | 마현병  | 80   | 95    | 70   |\n| 6 | 박문길  | 85   | 100   | 90   |"
         }
       ]
     },
@@ -1134,7 +1134,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "이율 [B4]은 5.60%\n기간 [B5]은 3년\n정기적립금액 [B3]은 100,000\n\n| | A | B |\n|---|---|---|\n| 1 | | 만기금액 구하기 |\n| 2 | | 주택적금 |\n| 3 | 정기적립금액 | 100000 |\n| 4 | 이율 | 5.60% |\n| 5 | 기간(년) | 3 |\n| 6 | 만기금액 | ₩3,910,166 |"
+          "content": "이율 [B4]은 5.60%\n기간 [B5]은 3년\n정기적립금액 [B3]은 100,000\n\n|   | A        | B          |\n|---|----------|------------|\n| 1 | 만기금액 구하기 |            |\n| 2 |          | 주택적금       |\n| 3 | 정기적립금액   | 100000     |\n| 4 | 이율       | 5.60%      |\n| 5 | 기간(년)    | 3          |\n| 6 | 만기금액     | ₩3,910,166 |"
         }
       ]
     },
@@ -1272,8 +1272,8 @@
       ],
       "question_extras": [
         {
-          "kind": "table",
-          "content": "목표값 찾기\n\n| 항목 | 값 |\n|------|----|\n| 수식 셀(E): |  |\n| 찾는 값(V): |  |\n| 값을 바꿀 셀(C): |  |\n\n확인　　취소"
+          "kind": "text",
+          "content": "목표값 찾기\n\n수식 셀(E):\n찾는 값(V):\n값을 바꿀 셀(C):\n\n[확인]  [취소]"
         }
       ]
     },
@@ -1368,7 +1368,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vba\nSub 더하기()\n    Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"1\"\n    Range(\"A2\").Select\n    ActiveCell.FormulaR1C1 = \"4\"\n    Range(\"A3\").Select\n    ActiveCell.FormulaR1C1 = \"=R[-2]C+R[-1]C\"\n    Range(\"A4\").Select\nEnd Sub\n```"
+          "content": "Sub 더하기()\n    Range(\"A1\").Select\n    ActiveCell.FormulaR1C1 = \"1\"\n    Range(\"A2\").Select\n    ActiveCell.FormulaR1C1 = \"4\"\n    Range(\"A3\").Select\n    ActiveCell.FormulaR1C1 = \"=R[-2]C+R[-1]C\"\n    Range(\"A4\").Select\nEnd Sub"
         }
       ]
     },
@@ -1418,7 +1418,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vba\nSub Macro1()\n    Range(\"A1:D3\").Select\n    Selection.ClearFormats\nEnd Sub\n```"
+          "content": "Sub Macro1()\n    Range (\"A1:D3\").Select\n    Selection.ClearFormats\nEnd Sub"
         }
       ]
     },
@@ -1513,7 +1513,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```vb\nSub for_i()\n    Dim i As Integer\n    For i = 1 To 10\n        i = i + i\n    Next\nEnd Sub\n```"
+          "content": "Sub for_i()\n    Dim i As Integer\n    For i = 1 to 10\n        i = i + i\n    Next\nEnd Sub"
         }
       ]
     },
@@ -1921,7 +1921,7 @@
       "question_extras": [
         {
           "kind": "table",
-          "content": "```sql\nSELECT DISTINCT COUNT(성명)\nFROM 회원;\n```\n\n[회원] 테이블\n\n| 회원번호 | 성명 |\n|---------|------|\n| 1 | 이 |\n| 2 | 김 |\n| 3 | \\<null\\> |\n| 4 | 이 |"
+          "content": "SELECT DISTINCT COUNT(성명)\nFROM 회원;\n\n[회원] 테이블\n\n| 회원번호 | 성명 |\n|--------|------|\n| 1 | 이 |\n| 2 | 김 |\n| 3 | \\<null\\> |\n| 4 | 이 |"
         }
       ]
     },
@@ -2060,7 +2060,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nINSERT INTO 학생(학번,이름,학년) ( @ )\n(\"200878\",\"정몽주\",\"1\");\n```"
+          "content": "INSERT INTO 학생(학번,이름,학년) ( ⓐ )\n(\"200878\",\"정몽주\",\"1\");"
         }
       ]
     },
@@ -2151,7 +2151,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "`#,##0[파랑];#,##0[빨강];\"0\";\"NULL\"`"
+          "content": "#,##0[파랑];#,##0[빨강];\"0\";\"NULL\""
         }
       ]
     },
@@ -2456,8 +2456,8 @@
       ],
       "question_extras": [
         {
-          "kind": "table",
-          "content": "**관계 편집**\n\n| 항목 | 값 |\n|---|---|\n| 테이블/커리(T) | 상품번호 |\n| 관련 테이블/커리(B) | 상품번호 |\n\n☑ 항상 참조 무결성 유지(E)\n☐ 관련 필드 모두 업데이트(U)\n☐ 관련 레코드 모두 삭제(D)\n\n관계 종류: 일대다 관계"
+          "kind": "text",
+          "content": "관계 편집 (대화상자)\n\n테이블/커리(T): 관련 테이블/커리(B):\n상품 → 상품\n\n상품번호 ↕ 상품번호\n\n☑ 항상 참조 무결성 유지(E)\n☐ 관련 필드 모두 업데이트(U)\n☐ 관련 레코드 모두 삭제(D)\n\n관계 종류: 일대다 관계\n\n[만들기(C)] [취소] [조인 형식(J)...] [새로 만들기(N)...]"
         }
       ]
     },
@@ -2640,7 +2640,7 @@
       "question_extras": [
         {
           "kind": "text",
-          "content": "```sql\nSELECT A FROM 갑 UNION\nSELECT A FROM 을;\n```"
+          "content": "SELECT A FROM 갑 UNION\nSELECT A FROM 을;"
         }
       ]
     },
