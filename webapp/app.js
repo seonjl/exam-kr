@@ -68,7 +68,13 @@ window.addEventListener('unhandledrejection', (e) => {
 //                 (high-attention placement: user is reading the answer/해설).
 const ADSENSE = {
   client: 'ca-pub-1443771548671737',
-  slots: { homeBanner: '', interstitial: '', postAnswer: '' },
+  // 콘텐츠 화면에만 배치 (Auto Ads OFF, 수동 단위). 콘텐츠 없는 화면엔 광고 없음.
+  slots: {
+    explain:   '2411264273',  // in-article(fluid) — 해설 하단
+    concept:   '8868861415',  // 디스플레이 사각 — 개념 화면
+    result:    '1289754292',  // 디스플레이 수평 — 결과 화면
+    resultRel: '7472019261',  // autorelaxed 멀티플렉스 — 결과 화면 하단 추천
+  },
 };
 // AdSense 스크립트는 전역 로드하지 않는다(정책: 콘텐츠 없는 화면 광고 금지).
 // 콘텐츠 화면(퀴즈/해설)에 진입할 때만 1회 지연 로드한다.
@@ -85,16 +91,19 @@ function ensureAdsLoaded(){
 function adInsHTML(slot, opts={}){
   if (!ADSENSE.client || !slot) return '';
   const fmt = opts.format || 'auto';
-  const fullWidth = opts.fullWidth !== false;
-  return `<ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE.client}" data-ad-slot="${slot}" data-ad-format="${fmt}"${fullWidth?' data-full-width-responsive="true"':''}></ins>`;
+  const layout = opts.layout ? ` data-ad-layout="${opts.layout}"` : '';
+  // full-width-responsive 는 auto 포맷에서만 의미 있음
+  const fullWidth = (fmt === 'auto' && opts.fullWidth !== false) ? ' data-full-width-responsive="true"' : '';
+  const style = opts.style || 'display:block';
+  return `<ins class="adsbygoogle" style="${style}" data-ad-client="${ADSENSE.client}" data-ad-slot="${slot}" data-ad-format="${fmt}"${layout}${fullWidth}></ins>`;
 }
-// 콘텐츠 화면에서만 호출 — 스크립트 지연 로드 후 슬롯 push.
+// 콘텐츠 화면에서만 호출 — 스크립트 지연 로드 후 화면 내 모든 미활성 슬롯 push.
 function pushAd(rootEl){
   if (!ADSENSE.client) return;
-  const ins = rootEl?.querySelector('.adsbygoogle:not([data-adsbygoogle-status])');
-  if (!ins) return;                 // 슬롯 없으면 광고 로드 안 함 (콘텐츠 없는 화면 보호)
+  const inss = rootEl?.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])');
+  if (!inss || !inss.length) return;   // 슬롯 없으면 로드 안 함 (콘텐츠 없는 화면 보호)
   ensureAdsLoaded();
-  try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {}
+  inss.forEach(() => { try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {} });
 }
 
 // 시각적 그룹 — 자격증 코드 → 그룹 라벨. picker 에서 같은 그룹은 헤더로 묶인다.
@@ -1288,6 +1297,9 @@ async function openStats(){
       <div class="section-head"><h2>자격증별</h2></div>
       <div class="group">${examRows}</div>
       ${subjectRows ? `<div class="section-head"><h2>약점 과목 (정답률 낮은 순)</h2></div><div class="group">${subjectRows}</div>` : ''}
+      ${(ADSENSE.client && ADSENSE.slots.result && st.totalAnswered > 0)
+        ? `<div class="ad-slot ad-slot-stats" style="margin:16px">${adInsHTML(ADSENSE.slots.result, { format:'auto' })}</div>`
+        : ''}
     </div>
   `;
   stack.appendChild(screen);
@@ -1295,6 +1307,7 @@ async function openStats(){
   attachScrollShadow('statsScroll', 'statsNav');
   screen.querySelector('#statsBack').onclick = popScreen;
   addEdgeBack(screen);
+  pushAd(screen);  // 통계(풀이 기록 有) = 콘텐츠 화면 → 광고 로드
   history.pushState({ type:'stats', depth: (history.state?.depth || 0)+1 }, '', '/stats');
 }
 
@@ -1906,6 +1919,10 @@ async function fillConceptScreen(screen, examCode, conceptId){
 
     ${renderConceptBody(meta.body)}
 
+    ${ADSENSE.client && ADSENSE.slots.concept
+      ? `<div class="ad-slot ad-slot-concept" style="margin:16px">${adInsHTML(ADSENSE.slots.concept, { format:'auto' })}</div>`
+      : ''}
+
     <div class="section-head">
       <h2>이 개념을 사용한 문제</h2>
       <span class="meta">${refs.length} 문항</span>
@@ -1932,6 +1949,7 @@ async function fillConceptScreen(screen, examCode, conceptId){
       });
     });
   });
+  pushAd($body);  // 개념 = 콘텐츠 화면 → 광고 로드
 }
 
 function addConceptSwipe(screen){
@@ -2306,8 +2324,8 @@ function renderExplain(page, q, force){
     ? ''
     : `<span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>`;
   const chips = renderConceptChips(q);
-  const ad = ADSENSE.client && ADSENSE.slots.postAnswer
-    ? `<div class="ad-slot ad-slot-explain">${adInsHTML(ADSENSE.slots.postAnswer)}</div>`
+  const ad = ADSENSE.client && ADSENSE.slots.explain
+    ? `<div class="ad-slot ad-slot-explain">${adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })}</div>`
     : '';
   const feedback = `<div class="explain-feedback">
     <button class="report-btn" type="button">이 해설에 오류가 있나요?</button>
