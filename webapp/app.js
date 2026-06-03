@@ -2340,8 +2340,8 @@ function renderExplain(page, q, force){
     sessionCode: state.current?.code,
     qnum: q.number,
   });
-  // 해설/정답 = 실질 콘텐츠 화면 → 여기서만 광고 스크립트 로드 (콘텐츠 없는 화면엔 광고 없음).
-  ensureAdsLoaded();
+  // 실질 해설 콘텐츠가 있을 때(ad 비어있지 않음)만 광고 스크립트 로드·노출.
+  // pushAd 내부에서 ensureAdsLoaded 호출 → 광고 ins 가 없으면 스크립트도 로드하지 않음.
   if (ad) pushAd(slot);
 }
 
