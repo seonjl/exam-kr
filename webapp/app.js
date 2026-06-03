@@ -70,17 +70,30 @@ const ADSENSE = {
   client: 'ca-pub-1443771548671737',
   slots: { homeBanner: '', interstitial: '', postAnswer: '' },
 };
-function loadAdSense(){ /* no-op — script is loaded synchronously in the page head */ }
+// AdSense 스크립트는 전역 로드하지 않는다(정책: 콘텐츠 없는 화면 광고 금지).
+// 콘텐츠 화면(퀴즈/해설)에 진입할 때만 1회 지연 로드한다.
+let _adsLoaded = false;
+function ensureAdsLoaded(){
+  if (_adsLoaded || !ADSENSE.client) return;
+  _adsLoaded = true;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE.client}`;
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
 function adInsHTML(slot, opts={}){
   if (!ADSENSE.client || !slot) return '';
   const fmt = opts.format || 'auto';
   const fullWidth = opts.fullWidth !== false;
   return `<ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE.client}" data-ad-slot="${slot}" data-ad-format="${fmt}"${fullWidth?' data-full-width-responsive="true"':''}></ins>`;
 }
+// 콘텐츠 화면에서만 호출 — 스크립트 지연 로드 후 슬롯 push.
 function pushAd(rootEl){
-  if (!ADSENSE.client || !window.adsbygoogle) return;
+  if (!ADSENSE.client) return;
   const ins = rootEl?.querySelector('.adsbygoogle:not([data-adsbygoogle-status])');
-  if (!ins) return;
+  if (!ins) return;                 // 슬롯 없으면 광고 로드 안 함 (콘텐츠 없는 화면 보호)
+  ensureAdsLoaded();
   try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {}
 }
 
@@ -489,9 +502,6 @@ async function renderHome(root){
         <h1>기출<br><em>연습장</em></h1>
       </div>
       <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
-      ${ADSENSE.client && ADSENSE.slots.homeBanner
-        ? `<div class="ad-slot ad-slot-banner" id="homeAd">${adInsHTML(ADSENSE.slots.homeBanner)}</div>`
-        : ''}
     </div>
   `;
   attachScrollShadow('homeScroll','nav');
@@ -504,7 +514,7 @@ async function renderHome(root){
     document.getElementById('examList').innerHTML = emptyCard('목록을 불러오지 못했어요',
       'data/exams.json을 확인해 주세요');
   }
-  pushAd(root);
+  // 홈(자격증 picker)은 네비게이션 화면 — 광고 로드 안 함 (AdSense 정책).
 }
 
 function fillExamPicker(root, exams){
@@ -2319,6 +2329,8 @@ function renderExplain(page, q, force){
     sessionCode: state.current?.code,
     qnum: q.number,
   });
+  // 해설/정답 = 실질 콘텐츠 화면 → 여기서만 광고 스크립트 로드 (콘텐츠 없는 화면엔 광고 없음).
+  ensureAdsLoaded();
   if (ad) pushAd(slot);
 }
 
@@ -3090,7 +3102,6 @@ async function initRoute() {
 }
 
 /* ---- boot (at end so all const bindings are live) ---- */
-loadAdSense();
 await bootUI();
 bindTabs();
 showTab('home');

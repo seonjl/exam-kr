@@ -116,11 +116,19 @@ _RX_META = lambda key, attr="name": re.compile(
     rf'<meta\s+{attr}="{re.escape(key)}"\s+content="[^"]*"\s*/?>'
 )
 
+ADS_SCRIPT = (
+    '<script async '
+    'src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    '?client=ca-pub-1443771548671737" crossorigin="anonymous"></script>'
+)
+
+
 def patch_shell(*, title: str, description: str, canonical: str,
                 prerender_body: str, json_ld: str = "",
                 og_image: str | None = None,
                 og_title: str | None = None,
-                og_description: str | None = None) -> str:
+                og_description: str | None = None,
+                ads: bool = False) -> str:
     h = SHELL
     og_title = og_title or title
     og_description = og_description or description
@@ -167,6 +175,9 @@ def patch_shell(*, title: str, description: str, canonical: str,
         inject += f'<meta name="naver-site-verification" content="{esc(n_ver)}">\n'
     if json_ld:
         inject += f'<script type="application/ld+json">{json_ld}</script>\n'
+    # AdSense: 콘텐츠 풍부 페이지(세션·개념)에만 주입. 홈·exam-overview(네비게이션)엔 미주입.
+    if ads:
+        inject += ADS_SCRIPT + "\n"
     h = h.replace("</head>", inject + "</head>", 1)
 
     if prerender_body:
@@ -280,6 +291,7 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
         prerender_body=body,
         json_ld=json.dumps(ld, ensure_ascii=False, separators=(",", ":")),
         og_image=og_image,
+        ads=True,  # 세션 페이지 = 문항·해설 전문 → 콘텐츠 풍부, 광고 허용
     )
     return h, title, description
 
@@ -412,6 +424,7 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
         prerender_body=body,
         json_ld=json_ld_combined,
         og_image=og_image,
+        ads=True,  # 개념 페이지 = 정의·핵심포인트·기출 → 콘텐츠 풍부, 광고 허용
     )
 
 def render_home() -> str:
@@ -434,6 +447,24 @@ def render_home() -> str:
         f'<p>{esc(exam_names)} 기출문제 {total_q:,}문항을 회차별 정답·AI 보강 해설·핵심 개념과 함께 '
         f'모바일에서 무료로 풀이하세요. 로그인·서버·트래킹 없는 PWA.</p></header>'
         f'<section><h2>자격증 ({len(exams)}종)</h2><ul class="exams">{rows}</ul></section>'
+        f'<section><h2>passcbt 는 어떤 서비스인가요?</h2>'
+        f'<p>passcbt 는 국가기술자격·전문자격 시험의 <strong>실제 기출문제 {total_q:,}문항</strong>을 '
+        f'CBT(Computer Based Test) 방식 그대로 풀어볼 수 있는 무료 학습 도구입니다. '
+        f'{total_sessions}개 회차의 모든 문항에 대해 공식 정답과 함께, 왜 그 보기가 정답인지를 설명하는 '
+        f'AI 보강 해설(핵심 개념·정답 분석·오답 분석)을 제공합니다. 회원가입이나 결제가 필요 없으며, '
+        f'PWA 로 설치하면 오프라인에서도 학습할 수 있습니다.</p></section>'
+        f'<section><h2>이렇게 활용하세요</h2><ul>'
+        f'<li><strong>회차별 실전 풀이</strong> — 실제 시험과 동일한 문항 구성으로 시간을 재며 풀이하고 자동 채점받습니다.</li>'
+        f'<li><strong>오답 다시보기·별표</strong> — 틀린 문항과 표시한 문항만 모아 반복 학습합니다.</li>'
+        f'<li><strong>핵심 개념 정리</strong> — 문항마다 추출된 핵심 개념을 눌러 같은 개념이 출제된 다른 기출과 정의를 함께 봅니다.</li>'
+        f'<li><strong>AI 해설</strong> — 정답뿐 아니라 각 오답이 왜 틀렸는지까지 설명해 이해 중심 학습을 돕습니다.</li>'
+        f'</ul></section>'
+        f'<section><h2>자주 묻는 질문</h2>'
+        f'<p><strong>정말 무료인가요?</strong> 네, 모든 문항·해설이 무료이며 로그인이 필요 없습니다.</p>'
+        f'<p><strong>해설은 어떻게 만들어지나요?</strong> 공개된 기출문제의 정답을 기준으로, 각 문항의 핵심 개념과 '
+        f'정답·오답 근거를 AI 가 정리해 보강합니다.</p>'
+        f'<p><strong>어떤 기기에서 쓰나요?</strong> 모바일·PC 브라우저 모두 지원하며, 홈 화면에 설치해 앱처럼 쓸 수 있습니다.</p>'
+        f'</section>'
         f'</main>'
     )
     # title 은 검색결과에서 60자 내외로 잘려서 핵심 키워드만 노출되도록 짧게.
