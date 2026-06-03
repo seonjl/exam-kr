@@ -3056,8 +3056,41 @@ window.addEventListener('popstate', () => {
   _navInternal = false;
 });
 
+// 정적 정보 페이지(개인정보처리방침)를 SPA 화면으로 표시. prerender 콘텐츠 재사용.
+function renderPrivacyScreen(root){
+  const pre = document.getElementById('prerender');
+  const content = (pre && pre.innerHTML.trim())
+    ? pre.innerHTML
+    : '<header><h1>개인정보처리방침</h1></header>'
+      + '<p>본 서비스는 회원가입·로그인 없이 운영되며 개인 식별정보를 수집하지 않습니다. '
+      + '일부 콘텐츠 페이지에는 Google AdSense 광고가 게재되며, Google 등 제3자가 쿠키를 사용할 수 있습니다. '
+      + '맞춤형 광고는 Google 광고 설정(adssettings.google.com)에서 끌 수 있습니다.</p>';
+  root.innerHTML = `
+    <header class="nav" id="nav">
+      <button class="icon-btn" id="privBack" aria-label="홈">${icons.back}</button>
+      <div class="nav-title">개인정보처리방침</div>
+      <div></div>
+    </header>
+    <div class="scroll prose" id="privScroll" style="padding:8px 16px 48px">${content}</div>`;
+  root.querySelector('#privBack').onclick = () => { location.href = '/'; };
+  attachScrollShadow('privScroll', 'nav');
+}
+
 async function initRoute() {
   const segs = location.pathname.split('/').filter(Boolean);
+  // 정적 정보 페이지: 전용 화면으로 표시하고 URL 유지 (홈으로 튕기지 않도록)
+  if (segs[0] === 'privacy') {
+    const stack = document.getElementById('stack');
+    stack.innerHTML = '';
+    const screen = document.createElement('section');
+    screen.className = 'screen';
+    stack.appendChild(screen);
+    renderPrivacyScreen(screen);
+    document.getElementById('shell')?.classList.add('hide-tabs');
+    history.replaceState({ type: 'info' }, '', '/privacy');
+    _navInternal = false;
+    return;
+  }
   history.replaceState({ type: 'home', depth: 0 }, '', '/');
   if (segs.length === 0) return;
 
