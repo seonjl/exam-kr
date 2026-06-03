@@ -1919,8 +1919,8 @@ async function fillConceptScreen(screen, examCode, conceptId){
 
     ${renderConceptBody(meta.body)}
 
-    ${ADSENSE.client && ADSENSE.slots.concept
-      ? `<div class="ad-slot ad-slot-concept" style="margin:16px">${adInsHTML(ADSENSE.slots.concept, { format:'auto' })}</div>`
+    ${(ADSENSE.client && ADSENSE.slots.concept && meta.body && meta.body.definition)
+      ? `<div class="ad-slot ad-slot-concept" style="margin:24px 16px">${adInsHTML(ADSENSE.slots.concept, { format:'auto' })}</div>`
       : ''}
 
     <div class="section-head">
@@ -2151,22 +2151,8 @@ function doPopScreen(immediate = false){
   setTimeout(safe, 400);
 }
 
-/* Ad management */
-let _adCooldown = 0;
-function showInterstitialAd(){
-  if (!ADSENSE.client || !ADSENSE.slots.interstitial) return;
-  const now = Date.now();
-  if (now - _adCooldown < 120000) return;
-  _adCooldown = now;
-  const el = document.createElement('div');
-  el.className = 'ad-slot-interstitial';
-  el.innerHTML = `<span class="ad-label">ADVERTISEMENT</span>
-    <div class="ad-container">${adInsHTML(ADSENSE.slots.interstitial, { format:'rectangle', fullWidth:false })}</div>
-    <button class="ad-close">닫기</button>`;
-  el.querySelector('.ad-close').onclick = () => el.remove();
-  document.body.appendChild(el);
-  pushAd(el);
-}
+/* 인터스티셜(전면 오버레이) 광고는 제거됨 — 자체 fixed-overlay 안에 ins 슬롯을 넣는
+   방식은 AdSense 정책상 부적합. 전면광고가 필요하면 AdSense vignette(Auto Ads)를 사용. */
 
 function renderExtras(arr){
   if (!arr || !arr.length) return '';
@@ -2324,8 +2310,10 @@ function renderExplain(page, q, force){
     ? ''
     : `<span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>`;
   const chips = renderConceptChips(q);
-  const ad = ADSENSE.client && ADSENSE.slots.explain
-    ? `<div class="ad-slot ad-slot-explain">${adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })}</div>`
+  // 실질 해설 콘텐츠(상세/간단/이미지)가 있을 때만 광고 — '(해설 없음)' 화면엔 광고 금지
+  const hasExplainContent = !!(hasDetailed || basicText || imgs);
+  const ad = ADSENSE.client && ADSENSE.slots.explain && hasExplainContent
+    ? `<div class="ad-slot ad-slot-explain" style="margin:20px 0">${adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })}</div>`
     : '';
   const feedback = `<div class="explain-feedback">
     <button class="report-btn" type="button">이 해설에 오류가 있나요?</button>

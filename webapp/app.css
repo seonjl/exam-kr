@@ -1610,9 +1610,9 @@ pre.code {
 
 /* Ad slots */
 .ad-slot { text-align: center; padding: 8px 0; min-height: 50px; }
-.ad-slot-banner { margin: 8px 16px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 11px; font-family: var(--mono); letter-spacing: .08em; min-height: 90px; }
-.ad-slot-explain { margin: 14px 0 4px; min-height: 100px; background: var(--paper-deep); border-radius: var(--r-sm); border: 1px dashed var(--paper-edge); }
-.explain-feedback { margin-top: 12px; text-align: right; }
+.ad-slot-explain { min-height: 100px; background: var(--paper-deep); border-radius: var(--r-sm); border: 1px dashed var(--paper-edge); }
+.ad-slot-concept, .ad-slot-stats { min-height: 100px; background: var(--paper-deep); border-radius: var(--r-sm); border: 1px dashed var(--paper-edge); padding: 8px; }
+.explain-feedback { margin-top: 24px; text-align: right; }
 .explain-feedback .report-btn { display: inline-block; padding: 6px 10px; font-size: 12px; color: var(--ink-mute); border: 1px solid var(--paper-edge); border-radius: var(--r-sm); background: var(--paper-deep); cursor: pointer; }
 .explain-feedback .report-btn:hover { color: var(--vermilion); border-color: var(--vermilion); }
 
@@ -1625,10 +1625,6 @@ pre.code {
 .feedback-sheet .fb-help { flex: 1; font-size: 11px; color: var(--ink-mute); line-height: 1.4; }
 .feedback-sheet .submit { padding: 10px 18px; min-width: 80px; font-size: 14px; }
 .feedback-sheet .submit:disabled { opacity: .5; cursor: progress; }
-.ad-slot-interstitial { position: fixed; inset: 0; z-index: 100; background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
-.ad-slot-interstitial .ad-label { color: var(--ink-faint); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; }
-.ad-slot-interstitial .ad-container { width: 320px; min-height: 250px; background: var(--paper-deep); border: 1px dashed var(--paper-edge); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 12px; }
-.ad-slot-interstitial .ad-close { margin-top: 12px; font-family: var(--sans); font-size: 14px; color: var(--vermilion); background: none; border: none; cursor: pointer; }
 
 /* Presence chip — 하단 가운데 floating 작은 칩 (tabbar 위) + 클릭 시 펼침 카드 */
 .presence-chip {

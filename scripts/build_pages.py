@@ -128,7 +128,8 @@ def patch_shell(*, title: str, description: str, canonical: str,
                 og_image: str | None = None,
                 og_title: str | None = None,
                 og_description: str | None = None,
-                ads: bool = False) -> str:
+                ads: bool = False,
+                noindex: bool = False) -> str:
     h = SHELL
     og_title = og_title or title
     og_description = og_description or description
@@ -175,6 +176,8 @@ def patch_shell(*, title: str, description: str, canonical: str,
         inject += f'<meta name="naver-site-verification" content="{esc(n_ver)}">\n'
     if json_ld:
         inject += f'<script type="application/ld+json">{json_ld}</script>\n'
+    if noindex:  # 빈약 콘텐츠 페이지는 색인 제외 (thin content 플래그 회피)
+        inject += '<meta name="robots" content="noindex,follow">\n'
     # AdSense: 콘텐츠 풍부 페이지(세션·개념)에만 주입. 홈·exam-overview(네비게이션)엔 미주입.
     if ads:
         inject += ADS_SCRIPT + "\n"
@@ -487,12 +490,15 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
         + '</script><script type="application/ld+json">'
         + json.dumps(ld_crumb, ensure_ascii=False, separators=(",", ":"))
     )
+    # body.definition 이 비면 껍데기(thin) 개념 → 광고 미주입 + 색인 제외
+    is_thin = not (body_data.get("definition") or "").strip()
     return patch_shell(
         title=title, description=description, canonical=canonical,
         prerender_body=body,
         json_ld=json_ld_combined,
         og_image=og_image,
-        ads=True,  # 개념 페이지 = 정의·핵심포인트·기출 → 콘텐츠 풍부, 광고 허용
+        ads=not is_thin,       # 콘텐츠 풍부 개념에만 광고
+        noindex=is_thin,       # 빈약 개념은 색인 제외 (thin content 회피)
     )
 
 def render_privacy() -> str:
@@ -809,7 +815,9 @@ def main() -> None:
             for cid, c in ci.items():
                 page = render_concept_page(exam, c, og_image=og_image)
                 write_file(DIST / "concept" / code / cid / "index.html", page)
-                urls.append((f"/concept/{code}/{cid}", 0.5))
+                # 껍데기(thin) 개념은 noindex 처리되므로 sitemap 에서도 제외
+                if (c.get("body") or {}).get("definition"):
+                    urls.append((f"/concept/{code}/{cid}", 0.5))
 
         exam_to_urls[code] = urls
 
