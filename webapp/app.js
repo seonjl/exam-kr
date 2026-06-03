@@ -985,6 +985,10 @@ function renderSettings(root){
           <span class="row-lead">v1</span>
           <span class="row-body"><span class="row-title">버전</span><span class="row-sub">hanji-ink edition</span></span>
         </div>
+        <a class="row" href="/privacy" style="text-decoration:none;color:inherit">
+          <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <span class="row-body"><span class="row-title">개인정보처리방침</span><span class="row-sub">광고 쿠키·데이터 처리 안내</span></span>
+        </a>
       </div>
     </div>
   `;
@@ -2110,7 +2114,8 @@ function doPopScreen(immediate = false){
         loadSessions(state.currentExam).then(s => fillSessionList(top, state.currentExam, s)).catch(()=>{});
       }
     }
-    if (stack.children.length <= 1) showInterstitialAd();
+    // 인터스티셜 광고는 네비게이션(뒤로가기)으로 노출하지 않는다 — AdSense 정책상
+    // '이동·행동 목적 화면' 위 광고는 금지. 콘텐츠 화면(해설)에서만 광고를 로드한다.
     if (pendingStudyToast) setTimeout(pendingStudyToast, 400);
   };
 

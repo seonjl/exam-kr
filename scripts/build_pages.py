@@ -495,6 +495,58 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
         ads=True,  # 개념 페이지 = 정의·핵심포인트·기출 → 콘텐츠 풍부, 광고 허용
     )
 
+def render_privacy() -> str:
+    """개인정보처리방침 — AdSense 필수(제3자 광고 쿠키 고지). 광고 미주입."""
+    canonical = f"{BASE_URL}/privacy"
+    title = f"개인정보처리방침 · {SITE_NAME}"
+    description = truncate(
+        f"{SITE_NAME} 개인정보처리방침 — 회원가입·로그인 없이 운영하며 개인 식별정보를 수집하지 않습니다. "
+        "Google AdSense 광고 쿠키 사용 및 옵트아웃 안내."
+    )
+    body = (
+        '<main id="prerender" class="prerender prerender-privacy">'
+        '<header><h1>개인정보처리방침</h1>'
+        f'<p>{SITE_NAME}(이하 “서비스”)는 이용자의 개인정보를 소중히 다룹니다. '
+        '본 방침은 서비스가 어떤 정보를 다루고, 광고와 분석을 위해 쿠키가 어떻게 사용되는지 설명합니다.</p></header>'
+        '<section><h2>1. 수집하는 정보</h2>'
+        '<p>서비스는 회원가입과 로그인이 없으며, 이름·이메일·전화번호 등 개인을 식별할 수 있는 정보를 수집하지 않습니다. '
+        '학습 진행 상태(푼 문제, 오답, 즐겨찾기, 테마 설정 등)는 이용자 브라우저의 로컬 저장소(localStorage)에만 저장되며 '
+        '서버로 전송되지 않습니다. 브라우저 데이터를 삭제하면 해당 정보도 함께 삭제됩니다.</p></section>'
+        '<section><h2>2. 쿠키 및 광고</h2>'
+        '<p>서비스의 일부 콘텐츠 페이지에는 제3자 광고 사업자인 Google AdSense의 광고가 게재됩니다. '
+        'Google을 포함한 제3자 광고 사업자는 쿠키를 사용하여 이용자의 이 사이트 및 다른 사이트 방문 기록을 바탕으로 '
+        '광고를 게재할 수 있습니다. 이용자는 <a href="https://adssettings.google.com" rel="nofollow noopener" target="_blank">Google 광고 설정</a>'
+        '에서 맞춤형 광고를 비활성화할 수 있으며, <a href="https://www.aboutads.info" rel="nofollow noopener" target="_blank">www.aboutads.info</a>'
+        '에서 제3자 사업자의 맞춤형 광고 쿠키를 거부할 수 있습니다. '
+        'Google의 광고 쿠키 사용에 대한 자세한 내용은 '
+        '<a href="https://policies.google.com/technologies/ads" rel="nofollow noopener" target="_blank">Google 광고 정책</a>을 참고하세요.</p></section>'
+        '<section><h2>3. 분석 도구</h2>'
+        '<p>서비스 품질 개선을 위해 Vercel Analytics·Speed Insights를 통해 익명 집계(페이지 조회·성능 지표)를 수집할 수 있으며, '
+        '이는 개인을 식별하지 않습니다.</p></section>'
+        '<section><h2>4. EEA·영국 이용자</h2>'
+        '<p>유럽경제지역(EEA)·영국 이용자에게는 관련 법규에 따라 광고 게재 전 동의 절차가 적용될 수 있으며, '
+        '동의 여부에 따라 맞춤형 또는 비맞춤형 광고가 제공됩니다.</p></section>'
+        '<section><h2>5. 아동의 개인정보</h2>'
+        '<p>서비스는 만 13세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p></section>'
+        '<section><h2>6. 방침 변경 및 문의</h2>'
+        '<p>본 방침은 법령·서비스 변경에 따라 수정될 수 있으며, 변경 시 본 페이지에 게시합니다. '
+        '문의 사항은 서비스 내 피드백(설정) 또는 운영 GitHub 저장소를 통해 전달할 수 있습니다.</p></section>'
+        '</main>'
+    )
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": title,
+        "description": description,
+        "url": canonical,
+    }
+    return patch_shell(
+        title=title, description=description, canonical=canonical,
+        prerender_body=body,
+        json_ld=json.dumps(ld, ensure_ascii=False, separators=(",", ":")),
+    )
+
+
 def render_home() -> str:
     """Home page: SPA shell with a small prerender block listing the exams.
 
@@ -724,6 +776,7 @@ def main() -> None:
     # Home page: replace dist/index.html (currently from the webapp copy)
     # with the prerender-augmented version.
     write_file(DIST / "index.html", render_home())
+    write_file(DIST / "privacy" / "index.html", render_privacy())
 
     exams = load_exams()
     og_by_exam = write_og_images(exams)
@@ -759,6 +812,9 @@ def main() -> None:
                 urls.append((f"/concept/{code}/{cid}", 0.5))
 
         exam_to_urls[code] = urls
+
+    # 사이트 공통 페이지(홈·개인정보처리방침) sitemap
+    exam_to_urls["_site"] = [("/", 1.0), ("/privacy", 0.3)]
 
     write_sitemaps(exam_to_urls)
     write_robots()
