@@ -37,6 +37,18 @@ EXAMS = {
             ("f3", "사회복지사-1급(3교시)"),
         ],
     },
+    "jc": {
+        "name": "직업상담사 2급",
+        "periods": [("n3", "직업상담사-2급")],
+    },
+    "j1": {
+        "name": "주택관리사보 1차",
+        "periods": [("cc", "주택관리사보-1차")],
+    },
+    "j2": {  # 2차는 주관식 포함 — 파서가 객관식(circlednumbers)만 수집
+        "name": "주택관리사보 2차",
+        "periods": [("cd", "주택관리사보-2차")],
+    },
 }
 
 
@@ -57,12 +69,15 @@ def fetch(url: str, retries: int = 3) -> str:
 
 
 def list_dates(periods) -> list[str]:
-    """카테고리 페이지에서 회차 날짜(YYYYMMDD) 목록 수집 (1교시 기준)."""
+    """카테고리 페이지에서 회차 날짜(YYYYMMDD) 목록 수집 (첫 period 기준)."""
     import urllib.parse
-    _, cat = periods[0]
+    prefix, cat = periods[0]
     html = fetch("https://cbtbank.kr/category/" + urllib.parse.quote(cat))
     codes = sorted(set(re.findall(r"/exam/([a-z0-9]+)", html)))
-    dates = sorted({c[2:] for c in codes if re.match(r"^f\d\d{8}$", c)})
+    dates = sorted({
+        c[len(prefix):] for c in codes
+        if c.startswith(prefix) and c[len(prefix):].isdigit() and len(c[len(prefix):]) == 8
+    })
     return dates
 
 
