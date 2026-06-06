@@ -88,16 +88,24 @@ MODEL: str | None = None  # --model 로 설정 (sonnet 등). None 이면 기본 
 def call_claude(prompt: str, *, timeout: int = 120, retries: int = 3) -> str:
     import time as _time
     last_err = ""
-    cmd = ["claude", "-p", prompt]
-    if MODEL:
-        cmd[1:1] = ["--model", MODEL]
+    model = MODEL  # 호출 도중 timeout 나면 haiku 로 강등 (특정 프롬프트가 sonnet 행 유발)
     for attempt in range(retries):
         if attempt:
             _time.sleep(2 + 2 * attempt)
-        r = subprocess.run(
-            cmd,
-            capture_output=True, text=True, timeout=timeout,
-        )
+        cmd = ["claude", "-p", prompt]
+        if model:
+            cmd[1:1] = ["--model", model]
+        try:
+            r = subprocess.run(
+                cmd,
+                capture_output=True, text=True, timeout=timeout,
+            )
+        except subprocess.TimeoutExpired:
+            # sonnet 이 특정 프롬프트에서 일관되게 행 → haiku 로 폴백 재시도
+            last_err = f"timeout({model})"
+            if model != "haiku":
+                model = "haiku"
+            continue
         if r.returncode != 0:
             last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
             continue
