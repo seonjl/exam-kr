@@ -554,6 +554,56 @@ def render_privacy() -> str:
     )
 
 
+def render_about() -> str:
+    """소개·문의 — 운영자/연락처 신뢰 신호(AdSense). 광고 미주입."""
+    canonical = f"{BASE_URL}/about"
+    title = f"소개 · 문의 · {SITE_NAME}"
+    description = truncate(
+        f"{SITE_NAME} 소개 — 국가기술·전문자격 기출문제를 무료로 풀이하는 학습 도구. "
+        "서비스 소개, 콘텐츠 제작 방식, 운영 안내와 문의 방법."
+    )
+    body = (
+        '<main id="prerender" class="prerender prerender-about">'
+        '<header><h1>소개 · 문의</h1>'
+        f'<p>{SITE_NAME}는 국가기술자격·전문자격 시험의 실제 기출문제를 누구나 무료로 풀어볼 수 있도록 만든 '
+        '개인 운영 학습 서비스입니다. 회원가입·로그인·결제가 없으며, 학습 기록은 이용자 브라우저에만 저장됩니다.</p></header>'
+        '<section><h2>어떤 서비스인가요</h2>'
+        '<p>여러 자격증의 회차별 기출문제를 CBT(Computer Based Test) 방식 그대로 풀이하고 즉시 채점받을 수 있습니다. '
+        '각 문항에는 공식 정답과 함께, 왜 그 보기가 정답이고 다른 보기는 왜 틀렸는지를 설명하는 '
+        'AI 보강 해설(핵심 개념·정답 분석·오답 분석)과 핵심 개념 정리를 제공합니다. '
+        '오답노트·즐겨찾기로 틀린 문항만 모아 반복 학습할 수 있고, PWA로 설치하면 오프라인에서도 사용할 수 있습니다.</p></section>'
+        '<section><h2>콘텐츠는 어떻게 만들어지나요</h2>'
+        '<p>문제와 정답은 공개된 자격시험 기출자료를 바탕으로 정리하며, 해설은 각 문항의 정답을 기준으로 '
+        '핵심 개념과 정답·오답 근거를 AI가 작성한 뒤 다듬어 보강합니다. 단순 정답 나열이 아니라 '
+        '“왜 그런가”를 이해하도록 돕는 것을 목표로 합니다. 오류가 있거나 보완이 필요한 해설은 '
+        '아래 문의 채널로 알려주시면 검토 후 수정합니다.</p></section>'
+        '<section><h2>운영 안내</h2>'
+        '<p>본 서비스는 개인이 운영하며, 서버·도메인 등 운영 비용을 충당하기 위해 일부 콘텐츠 화면에 '
+        'Google AdSense 광고를 게재합니다. 광고와 쿠키 처리에 대한 자세한 내용은 '
+        '<a href="/privacy">개인정보처리방침</a>을 참고하세요.</p></section>'
+        '<section><h2>문의</h2>'
+        '<p>서비스 이용 문의, 해설 오류 제보, 자격증 추가 요청 등은 아래로 연락해 주세요. 빠르게 확인하고 반영하겠습니다.</p>'
+        '<ul>'
+        '<li>이메일: <a href="mailto:seonjl.dev@gmail.com">seonjl.dev@gmail.com</a></li>'
+        '<li>사이트 내 피드백: 설정 → 피드백 보내기</li>'
+        '<li>운영 GitHub 저장소를 통한 제보</li>'
+        '</ul></section>'
+        '</main>'
+    )
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": title,
+        "description": description,
+        "url": canonical,
+    }
+    return patch_shell(
+        title=title, description=description, canonical=canonical,
+        prerender_body=body,
+        json_ld=json.dumps(ld, ensure_ascii=False, separators=(",", ":")),
+    )
+
+
 def render_home() -> str:
     """Home page: SPA shell with a small prerender block listing the exams.
 
@@ -784,6 +834,7 @@ def main() -> None:
     # with the prerender-augmented version.
     write_file(DIST / "index.html", render_home())
     write_file(DIST / "privacy" / "index.html", render_privacy())
+    write_file(DIST / "about" / "index.html", render_about())
 
     exams = load_exams()
     og_by_exam = write_og_images(exams)
@@ -821,7 +872,7 @@ def main() -> None:
         exam_to_urls[code] = urls
 
     # 사이트 공통 페이지(홈·개인정보처리방침) sitemap
-    exam_to_urls["_site"] = [("/", 1.0), ("/privacy", 0.3)]
+    exam_to_urls["_site"] = [("/", 1.0), ("/about", 0.4), ("/privacy", 0.3)]
 
     write_sitemaps(exam_to_urls)
     write_robots()

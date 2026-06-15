@@ -999,6 +999,10 @@ function renderSettings(root){
           <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <span class="row-body"><span class="row-title">개인정보처리방침</span><span class="row-sub">광고 쿠키·데이터 처리 안내</span></span>
         </a>
+        <a class="row" href="/about" style="text-decoration:none;color:inherit">
+          <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+          <span class="row-body"><span class="row-title">소개 · 문의</span><span class="row-sub">서비스 소개·운영·연락처</span></span>
+        </a>
       </div>
     </div>
   `;
@@ -3059,19 +3063,30 @@ window.addEventListener('popstate', () => {
   _navInternal = false;
 });
 
-// 정적 정보 페이지(개인정보처리방침)를 SPA 화면으로 표시. prerender 콘텐츠 재사용.
-function renderPrivacyScreen(root){
-  const pre = document.getElementById('prerender');
-  const content = (pre && pre.innerHTML.trim())
-    ? pre.innerHTML
-    : '<header><h1>개인정보처리방침</h1></header>'
+// 정적 정보 페이지(개인정보처리방침·소개)를 SPA 화면으로 표시. prerender 콘텐츠 재사용.
+const INFO_PAGES = {
+  privacy: {
+    title: '개인정보처리방침',
+    fallback: '<header><h1>개인정보처리방침</h1></header>'
       + '<p>본 서비스는 회원가입·로그인 없이 운영되며 개인 식별정보를 수집하지 않습니다. '
       + '일부 콘텐츠 페이지에는 Google AdSense 광고가 게재되며, Google 등 제3자가 쿠키를 사용할 수 있습니다. '
-      + '맞춤형 광고는 Google 광고 설정(adssettings.google.com)에서 끌 수 있습니다.</p>';
+      + '맞춤형 광고는 Google 광고 설정(adssettings.google.com)에서 끌 수 있습니다.</p>',
+  },
+  about: {
+    title: '소개 · 문의',
+    fallback: '<header><h1>소개 · 문의</h1></header>'
+      + '<p>passcbt 는 자격증 기출문제를 무료로 풀이하는 개인 운영 학습 서비스입니다. '
+      + '문의: <a href="mailto:seonjl.dev@gmail.com">seonjl.dev@gmail.com</a></p>',
+  },
+};
+function renderInfoScreen(root, slug){
+  const page = INFO_PAGES[slug] || INFO_PAGES.privacy;
+  const pre = document.getElementById('prerender');
+  const content = (pre && pre.innerHTML.trim()) ? pre.innerHTML : page.fallback;
   root.innerHTML = `
     <header class="nav" id="nav">
       <button class="icon-btn" id="privBack" aria-label="홈">${icons.back}</button>
-      <div class="nav-title">개인정보처리방침</div>
+      <div class="nav-title">${page.title}</div>
       <div></div>
     </header>
     <div class="scroll prose" id="privScroll" style="padding:8px 16px 48px">${content}</div>`;
@@ -3082,15 +3097,16 @@ function renderPrivacyScreen(root){
 async function initRoute() {
   const segs = location.pathname.split('/').filter(Boolean);
   // 정적 정보 페이지: 전용 화면으로 표시하고 URL 유지 (홈으로 튕기지 않도록)
-  if (segs[0] === 'privacy') {
+  if (segs[0] === 'privacy' || segs[0] === 'about') {
+    const slug = segs[0];
     const stack = document.getElementById('stack');
     stack.innerHTML = '';
     const screen = document.createElement('section');
     screen.className = 'screen';
     stack.appendChild(screen);
-    renderPrivacyScreen(screen);
+    renderInfoScreen(screen, slug);
     document.getElementById('shell')?.classList.add('hide-tabs');
-    history.replaceState({ type: 'info' }, '', '/privacy');
+    history.replaceState({ type: 'info' }, '', '/' + slug);
     _navInternal = false;
     return;
   }
