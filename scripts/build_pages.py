@@ -490,15 +490,16 @@ def render_concept_page(exam: dict, concept: dict, og_image: str | None = None) 
         + '</script><script type="application/ld+json">'
         + json.dumps(ld_crumb, ensure_ascii=False, separators=(",", ":"))
     )
-    # body.definition 이 비면 껍데기(thin) 개념 → 광고 미주입 + 색인 제외
-    is_thin = not (body_data.get("definition") or "").strip()
+    # 개념 페이지(~3만)는 본문이 정의 1~2문장 수준으로 얇아 사이트 전체를
+    # thin content(가치 낮은 콘텐츠)로 판정시키는 주범 → 전부 색인 제외 + 광고 미주입.
+    # SPA 앱 내 개념 기능(deep-link)은 그대로 동작한다.
     return patch_shell(
         title=title, description=description, canonical=canonical,
         prerender_body=body,
         json_ld=json_ld_combined,
         og_image=og_image,
-        ads=not is_thin,       # 콘텐츠 풍부 개념에만 광고
-        noindex=is_thin,       # 빈약 개념은 색인 제외 (thin content 회피)
+        ads=False,
+        noindex=True,
     )
 
 def render_privacy() -> str:
@@ -815,9 +816,7 @@ def main() -> None:
             for cid, c in ci.items():
                 page = render_concept_page(exam, c, og_image=og_image)
                 write_file(DIST / "concept" / code / cid / "index.html", page)
-                # 껍데기(thin) 개념은 noindex 처리되므로 sitemap 에서도 제외
-                if (c.get("body") or {}).get("definition"):
-                    urls.append((f"/concept/{code}/{cid}", 0.5))
+                # 개념 페이지는 전부 noindex → sitemap 에서도 제외 (thin content 회피)
 
         exam_to_urls[code] = urls
 

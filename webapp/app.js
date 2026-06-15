@@ -71,7 +71,6 @@ const ADSENSE = {
   // 콘텐츠 화면에만 배치 (Auto Ads OFF, 수동 단위). 콘텐츠 없는 화면엔 광고 없음.
   slots: {
     explain:   '2411264273',  // in-article(fluid) — 해설 하단
-    concept:   '8868861415',  // 디스플레이 사각 — 개념 화면
     result:    '1289754292',  // 디스플레이 수평 — 결과 화면
     resultRel: '7472019261',  // autorelaxed 멀티플렉스 — 결과 화면 하단 추천
   },
@@ -1922,10 +1921,6 @@ async function fillConceptScreen(screen, examCode, conceptId){
 
     ${renderConceptBody(meta.body)}
 
-    ${(ADSENSE.client && ADSENSE.slots.concept && meta.body && meta.body.definition)
-      ? `<div class="ad-slot ad-slot-concept" style="margin:24px 16px">${adInsHTML(ADSENSE.slots.concept, { format:'auto' })}</div>`
-      : ''}
-
     <div class="section-head">
       <h2>이 개념을 사용한 문제</h2>
       <span class="meta">${refs.length} 문항</span>
@@ -1952,7 +1947,6 @@ async function fillConceptScreen(screen, examCode, conceptId){
       });
     });
   });
-  pushAd($body);  // 개념 = 콘텐츠 화면 → 광고 로드
 }
 
 function addConceptSwipe(screen){
