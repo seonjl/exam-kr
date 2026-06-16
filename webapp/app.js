@@ -2173,7 +2173,7 @@ function renderQuestionInner(q, i, total){
   const subj = escapeHtml(q.subject || '');
   const qExtras = renderExtras(q.question_extras) || renderImagesFallback(q.question_images, `문제 ${q.number} 이미지`);
   const choicesHtml = (q.choices || []).map((c, ci) => {
-    const num = ['①','②','③','④'][ci] || (ci+1);
+    const num = '①②③④⑤⑥⑦⑧⑨'[ci] || (ci+1);
     const extras = renderExtras(c.extras) ||
                    (c.images || []).map((s, ii) => `<img src="${s}" loading="lazy" alt="보기 ${num} 이미지${(c.images.length>1)?' '+(ii+1):''}">`).join('');
     return `
