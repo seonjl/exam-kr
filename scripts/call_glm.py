@@ -27,16 +27,25 @@ def _load_credentials() -> tuple[str, str]:
     if key:
         return key, base or "https://api.z.ai/api/coding/paas/v4"
 
-    # fallback: ~/.hermes/auth.json
-    auth_path = Path.home() / ".hermes" / "auth.json"
-    if auth_path.exists():
-        d = json.loads(auth_path.read_text(encoding="utf-8"))
-        pool = d.get("credential_pool", {}).get("zai", [])
-        if pool:
-            entry = pool[0]
-            return entry["access_token"], entry.get("base_url", "https://api.z.ai/api/coding/paas/v4")
+    # fallback: ~/.hermes/.env (수동 파싱, dotenv 불필요)
+    env_path = Path.home() / ".hermes" / ".env"
+    if env_path.exists():
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            k, _, v = line.partition("=")
+            k, v = k.strip(), v.strip()
+            if k == "GLM_API_KEY" and v:
+                key = v
+            elif k == "GLM_BASE_URL" and v and not base:
+                base = v
+        if key:
+            return key, base or "https://api.z.ai/api/coding/paas/v4"
 
-    raise RuntimeError("GLM_API_KEY 환경변수 또는 ~/.hermes/auth.json(zai) 이 필요합니다.")
+    raise RuntimeError("GLM_API_KEY 환경변수 또는 ~/.hermes/.env 이 필요합니다.")
 
 
 API_KEY, BASE_URL = _load_credentials()
@@ -54,7 +63,8 @@ def _get_client() -> OpenAI:
     if _client is None:
         with _client_lock:
             if _client is None:
-                _client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+                _client = OpenAI(api_key=API_KEY, base_url=BASE_URL,
+                                 max_retries=0, timeout=90)
     return _client
 
 
@@ -73,6 +83,7 @@ def call_glm(
 
     GLM_MODEL_CHAIN 환경변수가 설정되어 있으면 좋은 모델부터 시도, 실패 시 다음으로 fallback.
     각 모델은 `retries` 회 시도 후 다음 모델로 넘어감. 마지막 모델까지 실패 시 raise.
+    429 (rate limit) / empty output 은 지수 백오프 (5, 10, 20, 40, 60초).
 
     Returns: 생성된 텍스트 (stripped)
     Raises: RuntimeError after all models exhausted
@@ -89,26 +100,59 @@ def call_glm(
 
     for mdl in chain:
         for attempt in range(retries):
-            if attempt:
-                time.sleep(2 + 2 * attempt)
             try:
-                resp = client.chat.completions.create(
-                    model=mdl,
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=max_tokens,
-                    temperature=temperature,
-                    timeout=timeout,
+                resp = _create_with_hard_timeout(
+                    client, mdl, prompt, max_tokens, temperature, timeout,
                 )
                 out = (resp.choices[0].message.content or "").strip()
                 if not out:
                     last_err = f"{mdl}: empty output"
+                    _rate_limit_backoff(attempt, last_err)
                     continue
                 return out
             except Exception as e:
                 last_err = f"{mdl}: {type(e).__name__}: {e}"
+                _rate_limit_backoff(attempt, last_err)
                 continue
 
     raise RuntimeError(f"GLM API failed after all models in chain ({chain}): {last_err}")
+
+
+class _HardTimeoutError(Exception):
+    pass
+
+
+def _create_with_hard_timeout(client, model, prompt, max_tokens, temperature, timeout):
+    """signal.alarm 기반 하드 타임아웃. streaming 대기 없이 강제 종료."""
+    import signal
+
+    def _handler(signum, frame):
+        raise _HardTimeoutError(f"hard timeout {timeout}s")
+
+    old = signal.signal(signal.SIGALRM, _handler)
+    signal.alarm(timeout)
+    try:
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_tokens,
+            temperature=temperature,
+            timeout=timeout,
+        )
+        return resp
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old)
+
+
+def _rate_limit_backoff(attempt: int, reason: str):
+    """429 / empty output 에 대한 지수 백오프. attempt 는 0부터."""
+    delays = [5, 10, 20, 40, 60]
+    delay = delays[min(attempt, len(delays) - 1)]
+    if attempt > 0 or "429" in reason or "empty" in reason:
+        print(f"    [backoff] {delay}s (attempt {attempt+1}): {reason[:80]}",
+              flush=True)
+    time.sleep(delay)
 
 
 # ── CLI 테스트 ─────────────────────────────────────────

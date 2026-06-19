@@ -113,7 +113,7 @@ def prompt_for_subject(exam_name: str, subject: str, items: list[dict]) -> str:
 """
 
 
-_JSON_RE = re.compile(r"\{[\s\S]*\}\s*$")
+_JSON_RE = re.compile(r"\{[\s\S]*\}")
 
 
 def parse_json(text: str) -> dict:
@@ -140,34 +140,12 @@ def parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
+from call_glm import call_glm as _call_glm
+
+
 def call_claude(prompt: str, *, timeout: int = 3600,
                 max_retries: int = 3) -> str:
-    last_err: Exception | None = None
-    for attempt in range(1, max_retries + 1):
-        try:
-            r = subprocess.run(
-                ["claude", "--model", "haiku", "-p", prompt],
-                capture_output=True, text=True, timeout=timeout,
-            )
-            if r.returncode != 0:
-                raise RuntimeError(
-                    f"claude failed (rc={r.returncode}): "
-                    f"{r.stderr.strip()[:200]}"
-                )
-            out = r.stdout.strip()
-            if not out:
-                raise RuntimeError("claude returned empty output")
-            return out
-        except (RuntimeError, subprocess.TimeoutExpired) as e:
-            last_err = e
-            if attempt < max_retries:
-                wait = 30 * attempt
-                print(f"  ⚠ claude attempt {attempt}/{max_retries} 실패 ({e}) "
-                      f"→ {wait}s 대기 후 재시도", flush=True)
-                time.sleep(wait)
-                continue
-            raise
-    raise last_err  # type: ignore[misc]
+    return _call_glm(prompt, timeout=timeout, retries=max_retries, max_tokens=8192)
 
 
 def materialize_members(items: list[dict], result: dict) -> dict:
@@ -241,7 +219,7 @@ def cache_batch_path(exam_code: str, subject: str, bi: int, total: int) -> Path:
 
 
 # 한 호출당 출력 JSON이 ~50KB 가까워지면 claude -p 가 stall 되는 경향. 안전 배치 크기.
-BATCH_SIZE = 150
+BATCH_SIZE = 75
 
 
 def chunk_items(items: list[dict], target_size: int = BATCH_SIZE) -> list[list[dict]]:
@@ -370,9 +348,27 @@ def _call_and_validate(exam_name: str, label: str,
                        items: list[dict]) -> list[dict]:
     prompt = prompt_for_subject(exam_name, label, items)
     t0 = time.time()
-    text = call_claude(prompt)
+    text: str = ""
+    result: dict = {}
+    for _attempt in range(5):
+        try:
+            text = call_claude(prompt)
+            result = parse_json(text)
+            break
+        except Exception as e:
+            if _attempt == 4:
+                print(f"  ✗ [{label}] 5회 재시도 전부 실패, singleton fallback",
+                      flush=True)
+                result = {"concepts": [
+                    {"id": it["phrase"][:60], "name_ko": it["phrase"],
+                     "name_en": "", "members": [idx + 1]}
+                    for idx, it in enumerate(items)
+                ]}
+            else:
+                print(f"  ⚠ [{label}] 실패 (시도 {_attempt+1}/5): {e}, 10초 후 재시도",
+                      flush=True)
+                time.sleep(10)
     dt = time.time() - t0
-    result = parse_json(text)
     materialize_members(items, result)
     n_dup = _dedupe_members(result)
     if n_dup:

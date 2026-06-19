@@ -132,7 +132,7 @@ def prompt_for_batch(exam_code: str, qs: list[dict]) -> str:
 """
 
 
-_JSON_RE = re.compile(r"\{[\s\S]*\}\s*$")
+_JSON_RE = re.compile(r"\{[\s\S]*\}")
 
 
 def parse_response(text: str) -> dict:
@@ -141,10 +141,9 @@ def parse_response(text: str) -> dict:
     코드펜스(```json ... ```) 가 섞여 와도 처리하고, 마지막 { ... } 블록을 우선한다.
     """
     s = text.strip()
-    # strip code fences
-    if s.startswith("```"):
-        s = re.sub(r"^```(?:json)?\s*", "", s)
-        s = re.sub(r"\s*```\s*$", "", s)
+    # strip code fences anywhere in text
+    s = re.sub(r"```(?:json)?\s*", "", s)
+    s = s.strip()
     # try direct parse
     try:
         return json.loads(s)
@@ -187,28 +186,13 @@ def normalize_record(rec: dict) -> dict:
     }
 
 
-BATCH_SIZE = 3   # 한 번의 claude -p 호출에 묶는 question 수 (Sonnet 5분 timeout 회피)
+BATCH_SIZE = 3   # 한 번의 GLM 호출에 묶는 question 수
+
+from call_glm import call_glm as _call_glm
 
 
 def call_claude(prompt: str, *, timeout: int = 900, retries: int = 3) -> str:
-    import time as _time
-    last_err = ""
-    for attempt in range(retries):
-        if attempt:
-            _time.sleep(2 + 2 * attempt)
-        r = subprocess.run(
-            ["claude", "--model", "haiku", "-p", prompt],
-            capture_output=True, text=True, timeout=timeout,
-        )
-        if r.returncode != 0:
-            last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
-            continue
-        out = r.stdout.strip()
-        if not out:
-            last_err = "empty output"
-            continue
-        return out
-    raise RuntimeError(f"claude failed after {retries}: {last_err}")
+    return _call_glm(prompt, timeout=timeout, retries=retries, max_tokens=8192)
 
 
 class CircuitBreaker:
