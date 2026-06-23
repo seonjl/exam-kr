@@ -351,7 +351,102 @@ EXAM_INTRO = {
         "who": "사회복지시설·기관, 공공 복지 행정, 의료·학교 사회복지 등으로 진출하려는 분께 최상위 사회복지 자격입니다.",
         "study": "실천론의 관점·모델과 법제론의 법령 체계가 핵심이며 과목 간 연계가 많습니다. 회차별 사례형 문항을 반복하면 응용력을 키울 수 있습니다.",
     },
+    "jc": {
+        "about": "직업상담사 2급은 구직자·구인자에게 직업 선택과 경력 개발을 돕고 취업 알선·직업 정보를 제공하는 직무를 검정하는 국가기술자격입니다. 한국산업인력공단이 시행하며, 필기는 직업상담학·직업심리학·직업정보론·노동시장론·노동관계법규의 다섯 과목 객관식으로 구성되고 이후 실기(필답형)를 거칩니다.",
+        "who": "고용센터·취업지원기관, 대학 취업지원부서, 직업훈련기관, 기업 인사·채용 직무에서 활용도가 높습니다. 진로·취업 상담 분야로 진출하려는 분께 권장됩니다.",
+        "study": "직업상담학·직업심리학의 상담기법·검사 이론과 노동관계법규의 조문이 반복 출제됩니다. 직업정보론·노동시장론의 제도·통계는 자주 나오는 유형을 회차별로 정리하면 효율적입니다.",
+    },
+    "j1": {
+        "about": "주택관리사보는 공동주택(아파트 등)의 운영·관리·유지보수와 입주자 권익 보호를 담당하는 전문자격입니다. 1차 시험은 회계원리, 공동주택시설개론, 민법 세 과목의 객관식(5지선다)으로 치러지며, 1·2차를 같은 해에 응시할 수 있으나 최종 합격은 1차 합격이 전제됩니다.",
+        "who": "공동주택 관리사무소장, 주택관리업체, 시설관리 분야 종사자나 관련 취업·이직을 준비하는 분께 적합합니다.",
+        "study": "회계원리의 분개·재무제표, 민법의 물권·계약, 시설개론의 설비·구조 파트가 핵심입니다. 계산 문제와 법조문이 함께 출제되므로 기출 유형 반복이 특히 효과적입니다.",
+    },
+    "j2": {
+        "about": "주택관리사보 2차는 실무에 직결되는 주택관리관계법규와 공동주택관리실무 두 과목으로 구성됩니다. 1차 합격자(또는 동시 응시 후 1차 합격자)에 한해 최종 합격이 인정됩니다.",
+        "who": "공동주택 관리 실무와 관계법규를 함께 갖추려는 예비 주택관리사에게 필수 단계입니다.",
+        "study": "관계법규의 주택법·공동주택관리법 등 법령과 관리실무의 회계·시설·운영 실무가 핵심입니다. 법령 개정 사항에 유의하며 기출로 출제 유형을 익히세요.",
+    },
 }
+
+
+def render_top_concepts(code: str, exam_name: str, n: int = 40) -> str:
+    """출제 빈도순 핵심 개념 Top N — 실제 기출 데이터에서 집계(고유·정확)."""
+    idx = load_concept_index(code)
+    if not idx:
+        return ""
+    ranked = sorted(
+        idx.items(), key=lambda kv: len(kv[1].get("refs") or []), reverse=True
+    )[:n]
+    ranked = [(cid, c) for cid, c in ranked if len(c.get("refs") or []) > 0]
+    if not ranked:
+        return ""
+
+    def nm(c, cid):
+        return esc(c.get("name_ko") or c.get("name_en") or cid)
+
+    # 상위 12개는 1줄 정의를 곁들여 교육적 가치를 더한다(정의는 개념 index 에 이미 존재).
+    featured = ranked[:12]
+    feat_rows = "".join(
+        f'<li><a href="/concept/{code}/{cid}"><strong>{nm(c, cid)}</strong></a> '
+        f'<span class="muted">{len(c.get("refs") or [])}회 출제</span>'
+        + (f'<br><span class="concept-def">{esc((c.get("body") or {}).get("definition") or "")}</span>'
+           if (c.get("body") or {}).get("definition") else "")
+        + "</li>"
+        for cid, c in featured
+    )
+    more = ranked[12:]
+    more_html = ""
+    if more:
+        more_rows = "".join(
+            f'<li><a href="/concept/{code}/{cid}">{nm(c, cid)}</a> '
+            f'<span class="muted">{len(c.get("refs") or [])}회</span></li>'
+            for cid, c in more
+        )
+        more_html = f'<ul class="top-concepts-more">{more_rows}</ul>'
+    return (
+        f'<section><h2>자주 출제되는 핵심 개념 Top {len(ranked)}</h2>'
+        f'<p>{esc(exam_name)} 기출문제 전 회차를 분석해 출제 빈도가 높은 핵심 개념을 정리했습니다. '
+        f'개념을 누르면 해당 개념이 출제된 모든 기출문제와 정의·정리를 함께 볼 수 있어, '
+        f'어떤 주제가 반복 출제되는지 한눈에 파악하고 우선순위를 정해 학습할 수 있습니다.</p>'
+        f'<ul class="top-concepts">{feat_rows}</ul>'
+        + more_html
+        + "</section>"
+    )
+
+
+def exam_faq_items(exam: dict) -> list[tuple[str, str]]:
+    """자격증별 FAQ — 실제 수치(문항·회차·과목)를 넣어 페이지마다 고유."""
+    name = exam.get("name", "")
+    q = exam.get("questions", 0)
+    s = exam.get("sessions", 0)
+    subjects = ", ".join(exam.get("subjects") or [])
+    return [
+        (f"{name} 기출문제는 몇 문항이고 어디까지 무료인가요?",
+         f"passcbt 는 {name} 기출문제 {q:,}문항을 {s}개 회차로 제공하며, 모든 문항을 "
+         f"회차별로 무료로 풀이할 수 있습니다. 로그인·회원가입·결제가 필요 없습니다."),
+        ("정답뿐 아니라 해설도 제공되나요?",
+         "네. 모든 문항에 공식 정답과 함께 AI 보강 해설을 제공합니다. 해설은 핵심 개념, "
+         "정답이 맞는 이유(정답 분석), 각 오답이 틀린 이유(오답 분석)로 구성되어 "
+         "단순 암기가 아닌 이해 중심 학습을 돕습니다."),
+        (f"{name} 시험 과목은 어떻게 되나요?",
+         f"{name} 의 시험 과목은 {subjects} 입니다. passcbt 에서는 문항을 과목별로 "
+         f"분류해 약한 과목만 골라 집중적으로 학습할 수 있습니다."),
+        ("어떻게 공부하는 것이 효율적인가요?",
+         "회차별로 시간을 재며 실전처럼 풀어 자동 채점받은 뒤, 틀린 문항은 오답노트로 "
+         "모아 반복 학습하세요. 위의 '자주 출제되는 핵심 개념'에서 빈출 주제를 먼저 "
+         "정리하면 짧은 시간에 합격선을 관리하기 좋습니다."),
+        ("모바일에서도 사용할 수 있나요?",
+         "네. 모바일·PC 브라우저를 모두 지원하며, 홈 화면에 PWA 로 설치하면 앱처럼 "
+         "오프라인에서도 학습할 수 있습니다. 학습 기록은 기기 브라우저에만 저장됩니다."),
+    ]
+
+
+def render_exam_faq(exam: dict) -> str:
+    items = "".join(
+        f'<section class="faq-item"><h3>{esc(qq)}</h3><p>{esc(aa)}</p></section>'
+        for qq, aa in exam_faq_items(exam)
+    )
+    return f'<section class="exam-faq"><h2>자주 묻는 질문</h2>{items}</section>'
 
 
 def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
@@ -387,6 +482,8 @@ def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
             f'회차별로 무료로 풀이하고, 각 문항의 정답과 AI 보강 해설(핵심 개념·정답 분석·오답 분석)을 '
             f'확인할 수 있습니다.</p></section>'
         )
+    top_concepts_html = render_top_concepts(code, exam["name"])
+    faq_html = render_exam_faq(exam)
     body = (
         f'<main id="prerender" class="prerender prerender-exam">'
         f'<header><h1>{esc(title)}</h1>'
@@ -394,21 +491,37 @@ def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
         f'각 회차별 정답과 AI 보강 해설, 핵심 개념을 함께 제공합니다.</p></header>'
         + intro_html
         + f'<section><h2>시험 과목</h2><ul class="subjects">{subj_rows}</ul></section>'
-        f'<section><h2>회차별 기출</h2><ul class="sessions">{session_rows}</ul></section>'
+        + top_concepts_html
+        + faq_html
+        + f'<section><h2>회차별 기출</h2><ul class="sessions">{session_rows}</ul></section>'
         f'<footer><h2>다른 자격증</h2><ul class="cross-links">{cross_rows}</ul></footer>'
         f'</main>'
     )
-    ld = {
+    ld_collection = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": title,
         "description": description,
         "url": canonical,
     }
+    ld_faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": qq,
+             "acceptedAnswer": {"@type": "Answer", "text": aa}}
+            for qq, aa in exam_faq_items(exam)
+        ],
+    }
+    json_ld_combined = (
+        json.dumps(ld_collection, ensure_ascii=False, separators=(",", ":"))
+        + '</script><script type="application/ld+json">'
+        + json.dumps(ld_faq, ensure_ascii=False, separators=(",", ":"))
+    )
     return patch_shell(
         title=title, description=description, canonical=canonical,
         prerender_body=body,
-        json_ld=json.dumps(ld, ensure_ascii=False, separators=(",", ":")),
+        json_ld=json_ld_combined,
         og_image=og_image,
     )
 
