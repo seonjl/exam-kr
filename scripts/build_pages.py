@@ -27,6 +27,7 @@ from __future__ import annotations
 import html
 import json
 import os
+from datetime import date
 import re
 import shutil
 import urllib.request
@@ -168,7 +169,7 @@ def patch_shell(*, title: str, description: str, canonical: str,
     ).strip()
     n_ver = os.environ.get(
         "NAVER_SITE_VERIFICATION",
-        "df8578ec166880ee7c96b531cf77952dc8b59f87",
+        "5043c733d93b071330ba6ee8c77c91b96ecdede7",
     ).strip()
     if g_ver:
         inject += f'<meta name="google-site-verification" content="{esc(g_ver)}">\n'
@@ -908,6 +909,8 @@ def write_og_images(exams: list[dict]) -> dict[str, str]:
 # ---------------------------------------------------------------------------
 
 def write_sitemaps(exam_to_urls: dict[str, list[tuple[str, float]]]) -> None:
+    # lastmod = 빌드(배포) 날짜 — 크롤러에 신선도 신호. 배포 시마다 갱신되어 재크롤 유도.
+    today = date.today().isoformat()
     # Per-exam sitemaps.
     sub_sitemaps: list[str] = []
     for code, urls in exam_to_urls.items():
@@ -917,6 +920,7 @@ def write_sitemaps(exam_to_urls: dict[str, list[tuple[str, float]]]) -> None:
         for path, priority in urls:
             lines.append(
                 f'  <url><loc>{BASE_URL}{path}</loc>'
+                f'<lastmod>{today}</lastmod>'
                 f'<priority>{priority:.1f}</priority></url>'
             )
         lines.append("</urlset>")
@@ -927,7 +931,10 @@ def write_sitemaps(exam_to_urls: dict[str, list[tuple[str, float]]]) -> None:
     idx_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
                  '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for sm in sub_sitemaps:
-        idx_lines.append(f"  <sitemap><loc>{BASE_URL}/{sm}</loc></sitemap>")
+        idx_lines.append(
+            f"  <sitemap><loc>{BASE_URL}/{sm}</loc>"
+            f"<lastmod>{today}</lastmod></sitemap>"
+        )
     idx_lines.append("</sitemapindex>")
     write_file(DIST / "sitemap.xml", "\n".join(idx_lines) + "\n")
 
