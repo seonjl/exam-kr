@@ -274,6 +274,35 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
 }
 
+/* SEO content — prerender 홈 콘텐츠(서비스 소개·활용법·FAQ)가 홈 스크롤 하단에 표시.
+   AdSense '가치 낮은 콘텐츠' 판정 회피용 텍스트 콘텐츠. */
+.seo-content { padding: 16px 20px 48px; }
+.seo-content section { margin-bottom: 20px; }
+.seo-content section:last-child { margin-bottom: 0; }
+.seo-content h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+.seo-content p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+.seo-content p:last-child { margin-bottom: 0; }
+.seo-content ul { padding-left: 18px; margin: 0; }
+.seo-content li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.seo-content strong { color: var(--ink); }
+
 /* Group list (iOS inset grouped) */
 .group {
   margin: 4px 16px 20px;

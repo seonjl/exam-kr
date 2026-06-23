@@ -50,8 +50,9 @@
 </script>
 
 <!-- AdSense: 전역 로드 제거 (정책: 콘텐츠 없는 화면 광고 금지).
-     콘텐츠 풍부 페이지(세션·개념)에는 build_pages 가 스크립트를 주입하고,
-     SPA 에서는 app.js 의 ensureAdsLoaded() 가 퀴즈/해설 화면 진입 시에만 로드한다. -->
+     세션 페이지(문항·해설 전문)에만 build_pages 가 스크립트를 주입하고,
+     SPA 에서는 app.js 의 ensureAdsLoaded() 가 해설 화면 진입 시에만 로드한다.
+     홈·시험 개요·개념·통계·네비게이션 화면엔 광고 없음. -->
 
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -62,7 +63,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 
-<link rel="stylesheet" href="/webapp/app.css?v=16">
+<link rel="stylesheet" href="/webapp/app.css?v=17">
 </head>
 <body>
 <div id="shell">
@@ -84,6 +85,6 @@
   </nav>
 </div>
 
-<script type="module" src="/webapp/app.js?v=19"></script>
+<script type="module" src="/webapp/app.js?v=20"></script>
 </body>
 </html>

@@ -69,10 +69,9 @@ window.addEventListener('unhandledrejection', (e) => {
 const ADSENSE = {
   client: 'ca-pub-1443771548671737',
   // 콘텐츠 화면에만 배치 (Auto Ads OFF, 수동 단위). 콘텐츠 없는 화면엔 광고 없음.
+  // explain: 해설(게시자 콘텐츠) 하단만 광고 허용. 통계·네비게이션 화면엔 미배치.
   slots: {
-    explain:   '2411264273',  // in-article(fluid) — 해설 하단
-    result:    '1289754292',  // 디스플레이 수평 — 결과 화면
-    resultRel: '7472019261',  // autorelaxed 멀티플렉스 — 결과 화면 하단 추천
+    explain: '2411264273',  // in-article(fluid) — 해설 하단
   },
 };
 // AdSense 스크립트는 전역 로드하지 않는다(정책: 콘텐츠 없는 화면 광고 금지).
@@ -522,6 +521,20 @@ async function renderHome(root){
   } catch (e) {
     document.getElementById('examList').innerHTML = emptyCard('목록을 불러오지 못했어요',
       'data/exams.json을 확인해 주세요');
+  }
+  // SEO: prerender 홈 콘텐츠(서비스 소개·활용법·FAQ)를 스크롤 영역 하단으로 이동.
+  // 자격증 피커만으로는 텍스트 콘텐츠가 부족해 AdSense '가치 낮은 콘텐츠' 판정 위험.
+  // exam-list section 은 피커와 중복 → 제외.
+  const pre = document.getElementById('prerender');
+  if (pre && pre.classList.contains('prerender-home')) {
+    const seo = document.createElement('div');
+    seo.className = 'seo-content';
+    pre.querySelectorAll(':scope > section').forEach(s => {
+      if (s.querySelector('.exams')) return;   // exam list = 피커와 중복
+      seo.appendChild(s);
+    });
+    if (seo.children.length) root.querySelector('#homeScroll').appendChild(seo);
+    pre.remove();
   }
   // 홈(자격증 picker)은 네비게이션 화면 — 광고 로드 안 함 (AdSense 정책).
 }
@@ -1302,9 +1315,6 @@ async function openStats(){
       <div class="section-head"><h2>자격증별</h2></div>
       <div class="group">${examRows}</div>
       ${subjectRows ? `<div class="section-head"><h2>약점 과목 (정답률 낮은 순)</h2></div><div class="group">${subjectRows}</div>` : ''}
-      ${(ADSENSE.client && ADSENSE.slots.result && st.totalAnswered > 0)
-        ? `<div class="ad-slot ad-slot-stats" style="margin:16px">${adInsHTML(ADSENSE.slots.result, { format:'auto' })}</div>`
-        : ''}
     </div>
   `;
   stack.appendChild(screen);
@@ -1312,7 +1322,7 @@ async function openStats(){
   attachScrollShadow('statsScroll', 'statsNav');
   screen.querySelector('#statsBack').onclick = popScreen;
   addEdgeBack(screen);
-  pushAd(screen);  // 통계(풀이 기록 有) = 콘텐츠 화면 → 광고 로드
+  // 학습 통계는 개인 분석 화면(게시자 콘텐츠 아님) → 광고 미배치 (AdSense 정책).
   history.pushState({ type:'stats', depth: (history.state?.depth || 0)+1 }, '', '/stats');
 }
 
