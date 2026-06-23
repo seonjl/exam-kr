@@ -369,6 +369,45 @@ EXAM_INTRO = {
 }
 
 
+_AFFILIATE = None
+def _affiliate() -> dict:
+    global _AFFILIATE
+    if _AFFILIATE is None:
+        p = DATA / "affiliate.json"
+        try:
+            _AFFILIATE = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+        except Exception:
+            _AFFILIATE = {}
+    return _AFFILIATE
+
+
+def render_study_links(code: str) -> str:
+    """제휴(쿠팡 교재·자격증 인강) 추천 — affiliate.json 에 링크가 채워진 경우만 노출.
+    제휴 링크는 Google 정책상 rel='sponsored nofollow' 로 렌더."""
+    aff = _affiliate()
+    ex = (aff.get("exams") or {}).get(code) or {}
+    coupang = [x for x in (ex.get("coupang") or []) if x.get("url") and x.get("title")]
+    inkang = [x for x in (ex.get("inkang") or []) if x.get("url") and x.get("title")]
+    if not coupang and not inkang:
+        return ""
+
+    def links(items):
+        return "".join(
+            f'<li><a href="{esc(x["url"])}" rel="sponsored nofollow noopener" '
+            f'target="_blank">{esc(x["title"])}</a></li>'
+            for x in items
+        )
+
+    blocks = ""
+    if coupang:
+        blocks += f'<h3>추천 수험서·교재</h3><ul class="aff-list">{links(coupang)}</ul>'
+    if inkang:
+        blocks += f'<h3>자격증 인강</h3><ul class="aff-list">{links(inkang)}</ul>'
+    disc = esc(aff.get("disclosure") or "")
+    disc_html = f'<p class="aff-disclosure">{disc}</p>' if disc else ""
+    return f'<section class="study-links"><h2>추천 학습 자료</h2>{blocks}{disc_html}</section>'
+
+
 def render_top_concepts(code: str, exam_name: str, n: int = 40) -> str:
     """출제 빈도순 핵심 개념 Top N — 실제 기출 데이터에서 집계(고유·정확)."""
     idx = load_concept_index(code)
@@ -484,6 +523,7 @@ def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
         )
     top_concepts_html = render_top_concepts(code, exam["name"])
     faq_html = render_exam_faq(exam)
+    study_html = render_study_links(code)
     body = (
         f'<main id="prerender" class="prerender prerender-exam">'
         f'<header><h1>{esc(title)}</h1>'
@@ -492,6 +532,7 @@ def render_exam_page(exam: dict, sessions: list[dict], all_exams: list[dict],
         + intro_html
         + f'<section><h2>시험 과목</h2><ul class="subjects">{subj_rows}</ul></section>'
         + top_concepts_html
+        + study_html
         + faq_html
         + f'<section><h2>회차별 기출</h2><ul class="sessions">{session_rows}</ul></section>'
         f'<footer><h2>다른 자격증</h2><ul class="cross-links">{cross_rows}</ul></footer>'

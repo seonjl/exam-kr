@@ -104,6 +104,30 @@ function pushAd(rootEl){
   inss.forEach(() => { try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {} });
 }
 
+// 카카오 애드핏 (AdSense 대체/병행 광고망). unit 비우면 미사용.
+// AdSense 와 동일하게 콘텐츠 화면(해설)에만 배치.
+const ADFIT = { unit: '', width: 320, height: 100 };
+function adfitInsHTML(){
+  if (!ADFIT.unit) return '';
+  return `<ins class="kakao_ad_area" style="display:none;width:100%"`
+    + ` data-ad-unit="${ADFIT.unit}" data-ad-width="${ADFIT.width}"`
+    + ` data-ad-height="${ADFIT.height}"></ins>`;
+}
+// 동적 삽입 ins 마다 ba.min.js 를 ins 바로 뒤에 1회 붙여 렌더 트리거(애드핏 SPA 패턴).
+function loadAdfit(rootEl){
+  if (!ADFIT.unit) return;
+  const ins = rootEl?.querySelector('.kakao_ad_area:not([data-ad-done])');
+  if (!ins) return;
+  ins.setAttribute('data-ad-done', '1');
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://t1.daumcdn.net/kas/static/ba.min.js';
+  ins.insertAdjacentElement('afterend', s);
+}
+
+// 후원 링크 (Toss/Buy Me a Coffee 등). url 비우면 설정 화면에 버튼 미노출.
+const DONATE = { url: '', label: '후원하기' };
+
 // 시각적 그룹 — 자격증 코드 → 그룹 라벨. picker 에서 같은 그룹은 헤더로 묶인다.
 // 라우팅/depth 영향 없음, 시각 그룹화만.
 const EXAM_GROUP = {
@@ -1030,6 +1054,10 @@ function renderSettings(root){
           <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
           <span class="row-body"><span class="row-title">소개 · 문의</span><span class="row-sub">서비스 소개·운영·연락처</span></span>
         </a>
+        ${DONATE.url ? `<a class="row" href="${DONATE.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+          <span class="row-lead icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
+          <span class="row-body"><span class="row-title">${escapeHtml(DONATE.label)}</span><span class="row-sub">서버·운영 비용에 보탬이 됩니다</span></span>
+        </a>` : ''}
       </div>
     </div>
   `;
@@ -2337,8 +2365,13 @@ function renderExplain(page, q, force){
   const chips = renderConceptChips(q);
   // 실질 해설 콘텐츠(상세/간단/이미지)가 있을 때만 광고 — '(해설 없음)' 화면엔 광고 금지
   const hasExplainContent = !!(hasDetailed || basicText || imgs);
-  const ad = ADSENSE.client && ADSENSE.slots.explain && hasExplainContent
-    ? `<div class="ad-slot ad-slot-explain" style="margin:20px 0">${adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })}</div>`
+  const adsenseIns = (ADSENSE.client && ADSENSE.slots.explain)
+    ? adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })
+    : '';
+  // 해설(게시자 콘텐츠)이 있을 때만 — AdSense + 카카오 애드핏(둘 중 설정된 것) 노출.
+  const adInner = hasExplainContent ? (adsenseIns + adfitInsHTML()) : '';
+  const ad = adInner
+    ? `<div class="ad-slot ad-slot-explain" style="margin:20px 0">${adInner}</div>`
     : '';
   const feedback = `<div class="explain-feedback">
     <button class="report-btn" type="button">이 해설에 오류가 있나요?</button>
@@ -2367,7 +2400,7 @@ function renderExplain(page, q, force){
   });
   // 실질 해설 콘텐츠가 있을 때(ad 비어있지 않음)만 광고 스크립트 로드·노출.
   // pushAd 내부에서 ensureAdsLoaded 호출 → 광고 ins 가 없으면 스크립트도 로드하지 않음.
-  if (ad) pushAd(slot);
+  if (ad) { pushAd(slot); loadAdfit(slot); }
 }
 
 function refreshConceptChips(){
