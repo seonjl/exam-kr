@@ -627,6 +627,20 @@ async function openSessionList(examCode){
   } catch (e) {
     screen.querySelector('#yearList').innerHTML = emptyCard('목록을 불러오지 못했어요', e.message || '');
   }
+
+  // SEO/AdSense: prerender 시험개요 콘텐츠(소개·빈출개념·FAQ)를 회차 목록 아래 사용자에게도 노출.
+  // 콜드로드(/exam/{code} 직접 진입)에서만 prerender-exam 존재 → 크롤러·심사자 모두 확인.
+  const pre = document.getElementById('prerender');
+  if (pre && pre.classList.contains('prerender-exam')) {
+    const seo = document.createElement('div');
+    seo.className = 'seo-content';
+    pre.querySelectorAll(':scope > section').forEach(s => {
+      if (s.querySelector('.sessions')) return;   // 회차 목록 = SPA 목록과 중복
+      seo.appendChild(s);
+    });
+    if (seo.children.length) screen.querySelector('#sessScroll')?.appendChild(seo);
+    pre.remove();
+  }
 }
 
 function fillSessionList(root, examCode, sessions){
