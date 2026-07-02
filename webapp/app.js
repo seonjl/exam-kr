@@ -2524,6 +2524,42 @@ function confirmRedo(){
   }, { duration: 7000 });
 }
 
+// 과목 넘기기 — 문항 배열을 과목 그룹으로 (첫 등장 순서, 연속 블록).
+function subjectGroups(questions){
+  const groups = [];
+  const seen = new Set();
+  (questions || []).forEach((q, idx) => {
+    const raw = ((q && q.subject) || '').trim();
+    if (!raw) return;
+    if (!seen.has(raw)) { seen.add(raw); groups.push({ raw, firstIdx: idx }); }
+  });
+  return groups;
+}
+// "1과목 : 사회통계" → "1과목 · 사회통계"
+function subjectLabel(raw){
+  return (raw || '').replace(/\s*:\s*/, ' · ').trim();
+}
+// 현재 문항 index 가 속한 과목 그룹 index.
+function currentSubjectGroupIndex(groups, idx){
+  let gi = 0;
+  for (let i = 0; i < groups.length; i++){
+    if (groups[i].firstIdx <= idx) gi = i; else break;
+  }
+  return gi;
+}
+// 과목바 라벨·버튼상태 갱신. 과목 2개 미만이면 바 숨김.
+function updateSubjectBar(){
+  const c = state.current; if (!c) return;
+  const bar = c.screen.querySelector('#subjectBar'); if (!bar) return;
+  const groups = c._subjGroups || [];
+  if (groups.length < 2) { bar.hidden = true; return; }
+  bar.hidden = false;
+  const gi = currentSubjectGroupIndex(groups, c.idx);
+  c.screen.querySelector('#subjCur').textContent = subjectLabel(groups[gi].raw);
+  c.screen.querySelector('#subjPrev').disabled = gi <= 0;
+  c.screen.querySelector('#subjNext').disabled = gi >= groups.length - 1;
+}
+
 function updatePositionIndicators(){
   const c = state.current; if (!c) return;
   const p = progressFor(c.examCode, c.code);
