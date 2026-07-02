@@ -2586,6 +2586,7 @@ function updatePositionIndicators(){
   const total = c.data.questions.length;
   c.screen.querySelector('#jumpNum').textContent = i+1;
   c.screen.querySelector('#quizSub').textContent = q.subject || '';
+  updateSubjectBar();
   c.screen.querySelector('#pFill').style.width = ((i+1)/total*100).toFixed(1) + '%';
   const starBtn = c.screen.querySelector('#starBtn');
   const starred = (p.stars||[]).includes(q.number);
