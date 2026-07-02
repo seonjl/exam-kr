@@ -1555,6 +1555,11 @@ async function openQuiz(examCode, sessionCode, startIdx){
         <button class="mode-chip" id="quizModeBtn" aria-label="모드 변경"><span id="modeLabel">풀이</span><svg class="mode-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
       </div>
     </header>
+    <div class="subject-bar" id="subjectBar" hidden>
+      <button class="sb-nav" id="subjPrev" type="button" aria-label="이전 과목">${icons.back}<span>이전 과목</span></button>
+      <span class="sb-cur" id="subjCur"></span>
+      <button class="sb-nav next" id="subjNext" type="button" aria-label="다음 과목"><span>다음 과목</span>${icons.back}</button>
+    </div>
     ${renderConceptBanner(examCode)}
     <div class="progress"><div class="progress-fill" id="pFill"></div></div>
     <div class="pages-wrap">
@@ -1582,6 +1587,18 @@ async function openQuiz(examCode, sessionCode, startIdx){
   screen.querySelector('#redoBtn').onclick = confirmRedo;
   screen.querySelector('#starBtn').onclick = toggleStar;
   screen.querySelector('#jumpBtn').onclick = openJumpSheet;
+  const goSubject = (delta) => {
+    const c = state.current; if (!c) return;
+    const groups = c._subjGroups || [];
+    if (groups.length < 2) return;
+    const gi = currentSubjectGroupIndex(groups, c.idx);
+    const t = gi + delta;
+    if (t < 0 || t >= groups.length) return;
+    const $pages = screen.querySelector('#pages');
+    if ($pages) $pages.scrollTo({ left: groups[t].firstIdx * $pages.clientWidth, behavior: 'smooth' });
+  };
+  screen.querySelector('#subjPrev').onclick = () => goSubject(-1);
+  screen.querySelector('#subjNext').onclick = () => goSubject(1);
   const $prev = screen.querySelector('#pagePrev');
   const $next = screen.querySelector('#pageNext');
   const stepPage = (dir) => {
@@ -1630,6 +1647,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       examMin: p.examMin || 90,
       screen,
       studyStartAt: Date.now(),
+      _subjGroups: subjectGroups(data.questions),
     };
     updateModeLabel();
     store.set('quizVisits', (store.get('quizVisits') || 0) + 1);
