@@ -140,12 +140,35 @@ def parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
-from call_glm import call_glm as _call_glm
-
-
 def call_claude(prompt: str, *, timeout: int = 3600,
                 max_retries: int = 3) -> str:
-    return _call_glm(prompt, timeout=timeout, retries=max_retries, max_tokens=8192)
+    """claude -p haiku 호출 (구독 세션, API 키 불필요)."""
+    last_err: Exception | None = None
+    for attempt in range(1, max_retries + 1):
+        try:
+            r = subprocess.run(
+                ["claude", "--model", "haiku", "-p", prompt],
+                capture_output=True, text=True, timeout=timeout,
+            )
+            if r.returncode != 0:
+                raise RuntimeError(
+                    f"claude failed (rc={r.returncode}): "
+                    f"{r.stderr.strip()[:200]}"
+                )
+            out = r.stdout.strip()
+            if not out:
+                raise RuntimeError("claude returned empty output")
+            return out
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            last_err = e
+            if attempt < max_retries:
+                wait = 30 * attempt
+                print(f"  ⚠ claude attempt {attempt}/{max_retries} 실패 ({e}) "
+                      f"→ {wait}s 대기 후 재시도", flush=True)
+                time.sleep(wait)
+                continue
+            raise
+    raise last_err  # type: ignore[misc]
 
 
 def materialize_members(items: list[dict], result: dict) -> dict:
@@ -348,7 +371,6 @@ def _call_and_validate(exam_name: str, label: str,
                        items: list[dict]) -> list[dict]:
     prompt = prompt_for_subject(exam_name, label, items)
     t0 = time.time()
-    text: str = ""
     result: dict = {}
     for _attempt in range(5):
         try:

@@ -137,13 +137,11 @@ _JSON_RE = re.compile(r"\{[\s\S]*\}")
 
 def parse_response(text: str) -> dict:
     """모델 응답에서 JSON 객체를 안전하게 뽑는다.
-
     코드펜스(```json ... ```) 가 섞여 와도 처리하고, 마지막 { ... } 블록을 우선한다.
     """
     s = text.strip()
-    # strip code fences anywhere in text
-    s = re.sub(r"```(?:json)?\s*", "", s)
-    s = s.strip()
+    # strip code fences — 본문 어느 위치든 제거
+    s = re.sub(r"```(?:json)?\s*", "", s).strip()
     # try direct parse
     try:
         return json.loads(s)
@@ -186,13 +184,32 @@ def normalize_record(rec: dict) -> dict:
     }
 
 
-BATCH_SIZE = 3   # 한 번의 GLM 호출에 묶는 question 수
-
-from call_glm import call_glm as _call_glm
+BATCH_SIZE = 3   # 한 번의 claude -p(haiku) 호출에 묶는 question 수
 
 
 def call_claude(prompt: str, *, timeout: int = 900, retries: int = 3) -> str:
-    return _call_glm(prompt, timeout=timeout, retries=retries, max_tokens=8192)
+    """claude -p haiku 호출 (구독 세션, API 키 불필요)."""
+    last_err = ""
+    for attempt in range(retries):
+        if attempt:
+            time.sleep(2 + 2 * attempt)
+        try:
+            r = subprocess.run(
+                ["claude", "--model", "haiku", "-p", prompt],
+                capture_output=True, text=True, timeout=timeout,
+            )
+        except subprocess.TimeoutExpired:
+            last_err = f"timeout {timeout}s"
+            continue
+        if r.returncode != 0:
+            last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
+            continue
+        out = r.stdout.strip()
+        if not out:
+            last_err = "empty output"
+            continue
+        return out
+    raise RuntimeError(f"claude failed after {retries}: {last_err}")
 
 
 class CircuitBreaker:
