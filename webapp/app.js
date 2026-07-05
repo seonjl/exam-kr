@@ -2324,6 +2324,8 @@ function gotoQuestion(i, behavior = 'smooth'){
   const $pages = c.screen.querySelector('#pages'); if (!$pages) return;
   i = Math.max(0, Math.min(c.data.questions.length - 1, i));
   if (c.sheet) {
+    // 1번 문항은 시험지 표제부(sheet-head)까지 보이도록 최상단으로
+    if (i === 0) { $pages.scrollTo({ top: 0, behavior }); return; }
     const pg = $pages.querySelector(`.page[data-qi="${i}"]`);
     if (!pg) return;
     const top = pg.getBoundingClientRect().top - $pages.getBoundingClientRect().top + $pages.scrollTop;
