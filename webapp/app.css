@@ -1844,3 +1844,64 @@ pre.code {
     scroll-behavior: auto !important;
   }
 }
+
+/* ===================================================================
+   시험지 모드 (데스크톱 ≥1024px 진입 시) — 전체 문항 2단 나열
+   =================================================================== */
+#shell.sheet-wide { max-width: 1280px; }
+.screen.sheet-mode .pages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: none;
+  max-width: 1280px;
+  scrollbar-width: thin;
+}
+.screen.sheet-mode .pages::-webkit-scrollbar { display: block; width: 8px; }
+.screen.sheet-mode .pages::-webkit-scrollbar-thumb { background: var(--paper-edge); border-radius: 8px; }
+.screen.sheet-mode .page {
+  flex: none;
+  max-width: none;
+  margin: 0;
+  height: auto;
+  overflow: visible;
+  padding: 26px 30px 30px;
+  border-bottom: 1px solid var(--paper-edge);
+}
+/* 가운데 단 구분선 — sheet-head(div) 제외하고 article 기준 홀수만 */
+.screen.sheet-mode article.page:nth-of-type(odd) { border-right: 1px solid var(--paper-edge); }
+.screen.sheet-mode .page-nav,
+.screen.sheet-mode .swipe-hint { display: none !important; }
+/* 지면 밀도 — 시험지답게 번호·본문 축소 */
+.screen.sheet-mode .qnum { font-size: 30px; margin-bottom: 10px; }
+.screen.sheet-mode .qbody { font-size: calc(17px * var(--read-scale)); }
+/* 시험지 표제부 */
+.sheet-head {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 34px 30px 24px;
+  border-bottom: 2px solid var(--ink);
+}
+.sheet-head .sh-exam {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.sheet-head .sh-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  color: var(--ink-mute);
+  margin-top: 8px;
+}
+.sheet-head .sh-note {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin: 12px auto 0;
+  max-width: 560px;
+  line-height: 1.5;
+}

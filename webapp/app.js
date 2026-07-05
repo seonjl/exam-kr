@@ -515,7 +515,7 @@ function showTab(name){
   screen.dataset.tab = name;
   stack.appendChild(screen);
   tabs[name](screen);
-  document.getElementById('shell').classList.remove('hide-tabs');
+  document.getElementById('shell').classList.remove('hide-tabs', 'sheet-wide');
 }
 
 /* ===================================================================
@@ -1536,9 +1536,12 @@ function openImportSheet(dump){
 async function openQuiz(examCode, sessionCode, startIdx){
   if (!_navInternal) pushRoute({ type:'quiz', exam:examCode, session:sessionCode });
   document.getElementById('shell').classList.add('hide-tabs');
+  // 데스크톱(≥1024px) 은 시험지 모드 — 전체 문항을 2단으로 한 페이지에 나열.
+  const sheetMode = window.matchMedia('(min-width: 1024px)').matches;
   const stack = document.getElementById('stack');
   const screen = document.createElement('section');
   screen.className = 'screen enter-right';
+  if (sheetMode) screen.classList.add('sheet-mode');
   stack.appendChild(screen);
   updateScreenInert();
 
@@ -1594,14 +1597,15 @@ async function openQuiz(examCode, sessionCode, startIdx){
     const gi = currentSubjectGroupIndex(groups, c.idx);
     const t = gi + delta;
     if (t < 0 || t >= groups.length) return;
-    const $pages = screen.querySelector('#pages');
-    if ($pages) $pages.scrollTo({ left: groups[t].firstIdx * $pages.clientWidth, behavior: 'smooth' });
+    gotoQuestion(groups[t].firstIdx);
   };
   screen.querySelector('#subjPrev').onclick = () => goSubject(-1);
   screen.querySelector('#subjNext').onclick = () => goSubject(1);
   const $prev = screen.querySelector('#pagePrev');
   const $next = screen.querySelector('#pageNext');
   const stepPage = (dir) => {
+    const c = state.current;
+    if (c && c.sheet) { gotoQuestion(c.idx + dir); return; }
     const $pages = screen.querySelector('#pages');
     if (!$pages) return;
     $pages.scrollBy({ left: dir * $pages.clientWidth, behavior: 'smooth' });
@@ -1612,7 +1616,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
   // First-launch swipe hint (mobile users may not realize swipe works).
   // One-shot per user: localStorage flag stops repeats. Auto-dismiss on
   // any first scroll/click/key, or after 5s.
-  if (!store.get('swipeHintSeen')) {
+  if (!sheetMode && !store.get('swipeHintSeen')) {
     const $hint = screen.querySelector('#swipeHint');
     const $pages = screen.querySelector('#pages');
     if ($hint && $pages) {
@@ -1646,6 +1650,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       mode: p.mode || 'practice',
       examMin: p.examMin || 90,
       screen,
+      sheet: sheetMode,
       studyStartAt: Date.now(),
       _subjGroups: subjectGroups(data.questions),
     };
@@ -1657,6 +1662,19 @@ async function openQuiz(examCode, sessionCode, startIdx){
     _hydratedQs.clear();
     _explainBodyCache.clear();
     $pages.innerHTML = data.questions.map((_, i) => renderPageSkeleton(i)).join('');
+    if (sheetMode) {
+      // 시험지 머리글 — 자격증명·회차·문항수 (2단 전체 폭)
+      const examName = state.examByCode.get(examCode)?.name || data.exam || examCode;
+      const dateLabel = /^\d{8}$/.test(sessionCode)
+        ? `${sessionCode.slice(0,4)}년 ${sessionCode.slice(4,6)}월 ${sessionCode.slice(6,8)}일 기출`
+        : (data.label || '');
+      $pages.insertAdjacentHTML('afterbegin', `
+        <div class="sheet-head">
+          <div class="sh-exam">${escapeHtml(examName)}</div>
+          <div class="sh-meta">${escapeHtml(dateLabel)} · 전체 ${data.questions.length}문항</div>
+          <p class="sh-note">실제 시험지처럼 전체 문항이 한 페이지에 표시됩니다. 보기를 선택하면 정답 확인과 해설이 바로 열립니다.</p>
+        </div>`);
+    }
     hydrateWindow(state.current.idx);
 
     // concept index 백그라운드 로드 — 도착하면 hydrated 페이지의 chip 라벨 갱신
@@ -1666,7 +1684,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
 
     if (state.current.mode === 'exam') startExamTimer();
     requestAnimationFrame(() => {
-      $pages.scrollTo({ left: state.current.idx * $pages.clientWidth, behavior: 'instant' });
+      gotoQuestion(state.current.idx, 'instant');
       updatePositionIndicators();
       // Kick off lazy loading of renderers — only what this session actually needs
       const needs = detectSessionRendererNeeds(data.questions);
@@ -1685,12 +1703,15 @@ async function openQuiz(examCode, sessionCode, startIdx){
         // Guard against firing after the screen was popped or replaced —
         // state.current may be null or pointing at a different session.
         if (!state.current || state.current.code !== sessionCode) return;
-        const i = Math.round($pages.scrollLeft / $pages.clientWidth);
+        const i = state.current.sheet
+          ? sheetTopIndex($pages)
+          : Math.round($pages.scrollLeft / $pages.clientWidth);
         if (i !== state.current.idx) {
           state.current.idx = i;
           const pr = progressFor(examCode, sessionCode); pr.last = i;
           saveProgress(examCode, sessionCode, pr);
-          hydrateWindow(i);
+          // 시트 모드는 열 때 전 문항 hydrate 완료 — 스크롤마다 재순회할 필요 없음
+          if (!state.current.sheet) hydrateWindow(i);
           updatePositionIndicators();
         }
       }, 90);
@@ -1701,6 +1722,9 @@ async function openQuiz(examCode, sessionCode, startIdx){
     document.addEventListener('keydown', onKey);
     screen.querySelector('#jumpTot').textContent = data.questions.length;
   } catch (e) {
+    // 로드 실패 — 시트 레이아웃 잔재(2단 그리드·광폭 shell) 제거 후 에러 카드
+    screen.classList.remove('sheet-mode');
+    updateScreenInert();
     screen.querySelector('#pages').innerHTML = emptyCard('회차 데이터를 찾을 수 없어요', e.message || '');
   }
 }
@@ -2130,6 +2154,9 @@ async function openConceptPractice(examCode, conceptId, startRef){
 function updateScreenInert(){
   const screens = document.querySelectorAll('#stack > .screen');
   const top = screens[screens.length - 1];
+  // 광폭 shell(1280px)은 top 화면이 시트(시험지) 모드일 때만 — push/pop 공통 동기화
+  document.getElementById('shell').classList.toggle(
+    'sheet-wide', !!(top && top.classList.contains('sheet-mode')));
   // 만약 비활성 처리할 화면 안에 포커스가 남아 있으면 inert 적용 전에 blur.
   // (aria-hidden 동시 적용은 브라우저 콘솔 경고를 유발하므로 inert 만 사용)
   if (top && document.activeElement && top.contains(document.activeElement) === false) {
@@ -2278,11 +2305,47 @@ function hydratePage(idx){
 }
 
 function hydrateWindow(centerIdx){
-  for (let i = centerIdx - HYDRATION_RADIUS; i <= centerIdx + HYDRATION_RADIUS; i++) hydratePage(i);
+  const cur = state.current;
+  if (cur && cur.sheet) {
+    // 시험지 모드 — 전 문항 즉시 hydrate (한 페이지 나열)
+    for (let i = 0; i < cur.data.questions.length; i++) hydratePage(i);
+  } else {
+    for (let i = centerIdx - HYDRATION_RADIUS; i <= centerIdx + HYDRATION_RADIUS; i++) hydratePage(i);
+  }
   const c = state.current; if (!c) return;
   const $pages = c.screen.querySelector('#pages');
   if (c._needsKatex && window.katex) renderPendingFormulas($pages);
   if (c._needsMermaid && window.mermaid) renderPendingMermaid($pages);
+}
+
+// 문항 i 로 이동 — 모바일: 가로 스냅 스크롤, 시험지 모드: 세로 스크롤.
+function gotoQuestion(i, behavior = 'smooth'){
+  const c = state.current; if (!c) return;
+  const $pages = c.screen.querySelector('#pages'); if (!$pages) return;
+  i = Math.max(0, Math.min(c.data.questions.length - 1, i));
+  if (c.sheet) {
+    const pg = $pages.querySelector(`.page[data-qi="${i}"]`);
+    if (!pg) return;
+    const top = pg.getBoundingClientRect().top - $pages.getBoundingClientRect().top + $pages.scrollTop;
+    $pages.scrollTo({ top: Math.max(0, top - 8), behavior });
+  } else {
+    $pages.scrollTo({ left: i * $pages.clientWidth, behavior });
+  }
+}
+
+// 시험지 모드: 스크롤 위치 기준 "현재" 문항 index.
+// 2단 그리드에서 같은 행의 두 문항이 top 을 공유하므로, 아직 지나가지 않은
+// (bottom 이 기준선 아래인) 문항 중 최소 index = 보이는 첫 행의 왼쪽 문항.
+function sheetTopIndex($pages){
+  const line = $pages.getBoundingClientRect().top + 40;
+  let best = null;
+  $pages.querySelectorAll('.page').forEach(pg => {
+    if (pg.getBoundingClientRect().bottom > line) {
+      const qi = +pg.dataset.qi || 0;
+      if (best === null || qi < best) best = qi;
+    }
+  });
+  return best ?? 0;
 }
 
 function applyAnswerForPage(page, q){
@@ -2387,7 +2450,11 @@ function renderExplain(page, q, force){
     ? adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })
     : '';
   // 해설(게시자 콘텐츠)이 있을 때만 — AdSense + 카카오 애드핏(둘 중 설정된 것) 노출.
-  const adInner = hasExplainContent ? (adsenseIns + adfitInsHTML()) : '';
+  // 시험지 모드는 전 문항 해설이 한 페이지에 열리므로 광고 밀도 제한 (10문항당 1개).
+  // q.number 가 아닌 배열 위치 기준 — 가상 세션(개념 모아풀기)은 번호가 비연속.
+  const qi = +(page.dataset?.qi ?? 0);
+  const adAllowed = !state.current?.sheet || qi % 10 === 3;
+  const adInner = (hasExplainContent && adAllowed) ? (adsenseIns + adfitInsHTML()) : '';
   const ad = adInner
     ? `<div class="ad-slot ad-slot-explain" style="margin:20px 0">${adInner}</div>`
     : '';
@@ -2534,7 +2601,7 @@ function confirmRedo(){
   p.answers = {}; p.wrongs = []; p.last = 0;
   saveProgress(c.examCode, c.code, p);
   applyAnswers();
-  c.screen.querySelector('#pages').scrollTo({ left: 0, behavior: 'smooth' });
+  gotoQuestion(0);
   toastAction('초기화됨', '되돌리기', () => {
     saveProgress(c.examCode, c.code, snap);
     applyAnswers();
@@ -2594,13 +2661,20 @@ function updatePositionIndicators(){
   starBtn.querySelector('svg').outerHTML = starred ? icons.starFill : icons.star;
   const $prev = c.screen.querySelector('#pagePrev');
   const $next = c.screen.querySelector('#pageNext');
-  if ($prev) { $prev.hidden = false; $prev.disabled = i <= 0; }
-  if ($next) { $next.hidden = false; $next.disabled = i >= total - 1; }
+  if ($prev) { $prev.hidden = !!c.sheet; $prev.disabled = i <= 0; }
+  if ($next) { $next.hidden = !!c.sheet; $next.disabled = i >= total - 1; }
 }
 
 function onKey(e){
   const c = state.current; if (!c) return;
   const pages = c.screen.querySelector('#pages'); if (!pages) return;
+  if (c.sheet) {
+    // 시험지 모드 — 세로 스크롤은 브라우저 기본 동작, 좌우 화살표만 문항 이동.
+    if (e.key === 'ArrowRight') { e.preventDefault(); gotoQuestion(c.idx + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); gotoQuestion(c.idx - 1); }
+    if (e.key === 'Escape')     { popScreen(); }
+    return;
+  }
   if (e.key === 'ArrowRight') { e.preventDefault(); pages.scrollBy({left: pages.clientWidth, behavior:'smooth'}); }
   if (e.key === 'ArrowLeft')  { e.preventDefault(); pages.scrollBy({left:-pages.clientWidth, behavior:'smooth'}); }
   if (e.key === 'Escape')     { popScreen(); }
@@ -2651,8 +2725,7 @@ function openJumpSheet(){
         c2.textContent = subj;
         c2.onclick = () => {
           closeSheet();
-          const pages = state.current.screen.querySelector('#pages');
-          pages.scrollTo({ left: firstIdx * pages.clientWidth, behavior: 'smooth' });
+          gotoQuestion(firstIdx);
         };
         chips.appendChild(c2);
       }
@@ -2675,8 +2748,7 @@ function openJumpSheet(){
       b.textContent = i;
       b.onclick = () => {
         closeSheet();
-        const pages = c.screen.querySelector('#pages');
-        pages.scrollTo({ left: (i-1) * pages.clientWidth, behavior: 'smooth' });
+        gotoQuestion(i-1);
       };
       body.appendChild(b);
     }
@@ -2807,10 +2879,7 @@ function showCompletion(c, p){
     div.querySelector('#compReview')?.addEventListener('click', () => {
       closeSheet();
       const wrongIdx = c.data.questions.findIndex(q => (p.wrongs||[]).includes(q.number));
-      if (wrongIdx >= 0) {
-        const $pages = c.screen.querySelector('#pages');
-        $pages.scrollTo({ left: wrongIdx * $pages.clientWidth, behavior: 'smooth' });
-      }
+      if (wrongIdx >= 0) gotoQuestion(wrongIdx);
     });
     div.querySelector('#compRedo').onclick = () => { closeSheet(); confirmRedo(); };
     div.querySelector('#compShare').onclick = () => { closeSheet(); shareCurrent(); };
