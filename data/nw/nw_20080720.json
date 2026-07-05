@@ -1,0 +1,2063 @@
+{
+  "exam": "네트워크관리사 2급",
+  "dbname": "nw",
+  "date": "20080720",
+  "label": "2008년07월20일",
+  "count": 50,
+  "questions": [
+    {
+      "number": 1,
+      "subject": "TCP/IP",
+      "question": "TCP/IP에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "TCP는 전송 계층(Transport Layer) 프로토콜이다.",
+          "images": []
+        },
+        {
+          "text": "IP는 링크 계층(Link Layer) 프로토콜이다.",
+          "images": []
+        },
+        {
+          "text": "TCP는 전송 및 에러 검출을 담당한다.",
+          "images": []
+        },
+        {
+          "text": "Telnet과 FTP는 모두 응용 프로토콜이다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 69,
+      "explanation_detailed": "핵심 개념\nTCP/IP 프로토콜 스택에서 각 프로토콜이 어느 계층에 속하는지 구분하는 문제이다. 특히 IP 프로토콜의 계층 위치를 정확히 알고 있는지 묻는다.\n\n정답 분석\n정답은 ②번이다. IP(Internet Protocol)는 링크 계층(Link Layer)이 아니라 네트워크 계층(Network Layer, 인터넷 계층)에 속하는 프로토콜이다. IP는 패킷의 주소 지정과 라우팅을 담당하며, 링크 계층은 이더넷, Wi-Fi처럼 같은 네트워크 내 물리적 전송을 담당하는 MAC 계층이다. IP와 링크 계층은 서로 다른 계층이므로 ②는 틀린 설명이다.\n\n오답 분석\n① 옳은 설명이다. TCP(Transmission Control Protocol)는 OSI 4계층인 전송 계층(Transport Layer)에 위치하며, 신뢰성 있는 연결 기반 통신을 제공한다.\n② 틀린 설명이다. IP는 링크 계층이 아닌 네트워크 계층(인터넷 계층)의 프로토콜이다. 이 보기가 정답이다.\n③ 옳은 설명이다. TCP는 데이터 전송 보장(순서 보장, 재전송)과 체크섬을 이용한 에러 검출 기능을 모두 담당한다.\n④ 옳은 설명이다. Telnet(원격 접속)과 FTP(파일 전송)는 모두 OSI 7계층인 응용 계층(Application Layer)의 프로토콜이다.",
+      "concepts": [
+        "TCP/IP 계층 구조",
+        "IP의 네트워크 계층 위치",
+        "응용 계층 프로토콜 종류"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 638
+      },
+      "concept_ids": [
+        "tcp-ip-4-layer-model-structure",
+        "ip-protocol-overview",
+        "application-layer-protocol"
+      ]
+    },
+    {
+      "number": 2,
+      "subject": "TCP/IP",
+      "question": "C Class에서 유효한 IP Address는?",
+      "choices": [
+        {
+          "text": "33.114.17.24",
+          "images": []
+        },
+        {
+          "text": "128.46.83.25",
+          "images": []
+        },
+        {
+          "text": "202.67.13.87",
+          "images": []
+        },
+        {
+          "text": "222.248.256.34",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 84,
+      "explanation_detailed": "핵심 개념\nIP 주소 클래스 체계에서 C Class는 첫 번째 옥텟이 192~223 범위이며, 각 옥텟은 0~255 사이의 값이어야 유효한 IP 주소로 인정된다.\n\n정답 분석\n③ 202.67.13.87은 첫 번째 옥텟이 202로 C Class 범위(192~223)에 속한다. 나머지 세 옥텟(67, 13, 87)도 모두 0~255 범위 안에 있어 형식상 문제가 없다. 따라서 C Class에서 유효한 IP 주소이다.\n\n오답 분석\n① 33.114.17.24 — 첫 번째 옥텟 33은 A Class 범위(1~126)에 해당하므로 C Class 주소가 아니다.\n② 128.46.83.25 — 첫 번째 옥텟 128은 B Class 범위(128~191)에 해당하므로 C Class 주소가 아니다.\n③ 202.67.13.87 — 정답. C Class(192~223) 범위이며 모든 옥텟이 유효하다.\n④ 222.248.256.34 — 첫 번째 옥텟 222는 C Class 범위이나, 세 번째 옥텟 256이 최댓값 255를 초과하여 IP 주소 자체가 무효이다.",
+      "concepts": [
+        "C 클래스 IP 주소 범위",
+        "옥텟별 유효 숫자 범위",
+        "IP 주소 클래스 분류 기준"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 529
+      },
+      "concept_ids": [
+        "class-c-ip-address",
+        "octet-valid-range",
+        "ip-address-class"
+      ]
+    },
+    {
+      "number": 3,
+      "subject": "TCP/IP",
+      "question": "TCP/IP의 기본 설정 DNS 서버 주소를 확인할 수 있는 명령어로 올바른 것은?",
+      "choices": [
+        {
+          "text": "ipconfig /release",
+          "images": []
+        },
+        {
+          "text": "ipconfig /renew",
+          "images": []
+        },
+        {
+          "text": "ipconfig /setup",
+          "images": []
+        },
+        {
+          "text": "ipconfig /all",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 80,
+      "explanation_detailed": "핵심 개념\nipconfig 명령어의 다양한 옵션 중 네트워크 설정 정보(IP 주소, 서브넷 마스크, 게이트웨이, DNS 서버 등)를 상세히 확인하는 방법을 묻는 문제이다.\n\n정답 분석\nipconfig /all 옵션을 사용하면 현재 시스템에 설정된 모든 네트워크 어댑터의 상세 정보를 출력한다. 여기에는 IP 주소, 서브넷 마스크, 기본 게이트웨이뿐만 아니라 기본 DNS 서버 및 보조 DNS 서버 주소, DHCP 서버 주소, MAC(물리적) 주소까지 포함된다. DNS 서버 주소를 확인하려면 반드시 /all 옵션이 필요하며, 옵션 없이 ipconfig만 입력하면 DNS 서버 주소는 표시되지 않는다.\n\n오답 분석\n① ipconfig /release — 오답. DHCP 서버로부터 할당받은 IP 주소를 반납(해제)하는 명령으로, DNS 서버 주소 확인과 무관하다.\n② ipconfig /renew — 오답. DHCP 서버에 새로운 IP 주소 할당을 요청하는 명령으로, DNS 서버 주소 확인과 무관하다.\n③ ipconfig /setup — 오답. 존재하지 않는 옵션으로, 실제 Windows ipconfig 명령에서 /setup은 지원되지 않는다.\n④ ipconfig /all — 정답. 모든 네트워크 어댑터의 상세 설정 정보를 출력하며, DNS 서버 주소를 포함한다.",
+      "concepts": [
+        "ipconfig /all 명령어",
+        "ipconfig 주요 옵션 역할",
+        "DNS 서버 주소 확인 방법"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 653
+      },
+      "concept_ids": [
+        "ipconfig-command",
+        "ipconfig-ifconfig-command",
+        "dns-server"
+      ]
+    },
+    {
+      "number": 4,
+      "subject": "TCP/IP",
+      "question": "IP 패킷은 네트워크 유형에 따라 전송량에 있어 차이가 나기 때문에 적당한 크기로 분할하게 된다. 이때, 기준이 되는 것은?",
+      "choices": [
+        {
+          "text": "TOS",
+          "images": []
+        },
+        {
+          "text": "MTU",
+          "images": []
+        },
+        {
+          "text": "TTL",
+          "images": []
+        },
+        {
+          "text": "Port Number",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 71,
+      "explanation_detailed": "핵심 개념\nIP 패킷이 네트워크를 통해 전송될 때 해당 네트워크에서 처리할 수 있는 최대 데이터 크기를 초과하면 패킷을 작은 단위로 나누게 되는데 이때 기준이 되는 최대 전송 단위가 MTU입니다.\n\n정답 분석\nMTU(Maximum Transmission Unit)는 네트워크 상에서 한 번에 전송할 수 있는 데이터 패킷의 최대 크기를 의미합니다. 전송하려는 IP 패킷이 MTU보다 큰 경우 라우터는 패킷을 MTU 크기에 맞춰 분할(Fragmentation)한 후 전송합니다. 따라서 패킷 분할의 기준은 MTU가 됩니다.\n\n오답 분석\n① TOS(서비스 형식): 데이터 전송 시 우선순위나 지연 시간 등 서비스의 품질을 지정하는 필드입니다.\n② MTU: 정답입니다. 네트워크에서 전송 가능한 패킷의 최대 크기로 분할의 기준이 됩니다.\n③ TTL(수명): 패킷이 네트워크 내에서 무한히 순환하는 것을 막기 위해 생존 시간을 제한하는 값입니다.\n④ Port Number(포트 번호): 전송 계층에서 목적지 호스트 내의 특정 응용 프로그램을 식별하는 데 사용됩니다.",
+      "concepts": [
+        "IP 패킷 분할(Fragmentation)",
+        "MTU(Maximum Transmission Unit)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 535
+      },
+      "concept_ids": [
+        "ip-packet-fragmentation",
+        "mtu"
+      ]
+    },
+    {
+      "number": 5,
+      "subject": "TCP/IP",
+      "question": "프로토콜의 부하가 적어 분산 처리와 동영상 스트리밍 서비스에 많이 사용되는 인터넷 프로토콜은?",
+      "choices": [
+        {
+          "text": "UDP",
+          "images": []
+        },
+        {
+          "text": "TCP",
+          "images": []
+        },
+        {
+          "text": "IGMP",
+          "images": []
+        },
+        {
+          "text": "ICMP",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 77,
+      "explanation_detailed": "핵심 개념\nUDP는 연결 설정 없이 데이터를 전송하는 비연결형 프로토콜로, 오버헤드가 적어 실시간성이 중요한 서비스에 적합하다.\n\n정답 분석\nUDP(User Datagram Protocol)는 TCP와 달리 연결 수립(3-way handshake), 흐름 제어, 오류 재전송 같은 부가 기능이 없어 프로토콜 부하가 매우 낮다. 이 때문에 약간의 패킷 손실보다 빠른 전송이 더 중요한 동영상 스트리밍, VoIP, 온라인 게임, DNS 조회, 분산 처리 시스템에서 널리 사용된다.\n\n오답 분석\n① UDP — 정답. 비연결형, 저부하, 실시간 전송에 최적화된 프로토콜이다.\n② TCP — 오답. 연결 지향형 프로토콜로 신뢰성은 높지만 3-way handshake, ACK, 재전송 등의 오버헤드가 커서 스트리밍보다 파일 전송·웹 통신에 적합하다.\n③ IGMP — 오답. 멀티캐스트 그룹 관리를 위한 프로토콜로, 데이터 전송 역할을 하지 않는다.\n④ ICMP — 오답. 네트워크 오류 보고 및 진단(ping, traceroute)에 사용되는 제어 메시지 프로토콜로, 데이터 스트리밍과 무관하다.",
+      "concepts": [
+        "UDP 프로토콜 특징",
+        "실시간 서비스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 552
+      },
+      "concept_ids": [
+        "udp-protocol-characteristics",
+        "real-time-protocol-rtp"
+      ]
+    },
+    {
+      "number": 6,
+      "subject": "TCP/IP",
+      "question": "ICMP 메시지 내용으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "호스트의 IP Address가 중복된 경우",
+          "images": []
+        },
+        {
+          "text": "목적지까지 데이터를 보낼 수 없는 경우",
+          "images": []
+        },
+        {
+          "text": "데이터의 TTL 필드 값이 ‘0’이 되어 데이터를 삭제 할 경우",
+          "images": []
+        },
+        {
+          "text": "데이터의 헤더 값에 오류를 발견한 경우",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 60,
+      "explanation_detailed": "핵심 개념\nICMP(Internet Control Message Protocol)는 IP 통신 중 발생하는 오류 보고와 진단 메시지를 전달하는 프로토콜이다. ICMP가 다루는 상황의 종류를 정확히 구분하는 것이 핵심이다.\n\n정답 분석\nIP 주소 중복 감지는 ICMP가 아닌 ARP(Address Resolution Protocol)의 역할이다. 호스트가 네트워크에 참여할 때 ARP를 이용해 자신의 IP와 동일한 주소가 이미 사용 중인지 확인하며, 중복이 발견되면 ARP 수준에서 처리된다. ICMP는 이 과정에 관여하지 않으므로 ①은 ICMP 메시지의 내용으로 옳지 않다.\n\n오답 분석\n① 호스트의 IP Address가 중복된 경우 — 정답. IP 주소 중복은 ARP가 처리하며, ICMP와 무관하다.\n② 목적지까지 데이터를 보낼 수 없는 경우 — 오답(ICMP 맞음). Destination Unreachable 메시지로 라우터나 호스트가 목적지에 도달할 수 없음을 송신자에게 알린다.\n③ 데이터의 TTL 필드 값이 0이 되어 데이터를 삭제할 경우 — 오답(ICMP 맞음). Time Exceeded 메시지로 TTL이 0이 된 패킷을 폐기했음을 송신자에게 통보한다.\n④ 데이터의 헤더 값에 오류를 발견한 경우 — 오답(ICMP 맞음). Parameter Problem 메시지로 IP 헤더 필드에 오류가 있을 때 송신자에게 알린다.",
+      "concepts": [
+        "ICMP 오류 메시지",
+        "ARP 주소 중복 검사"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 690
+      },
+      "concept_ids": [
+        "icmp-error-messages",
+        "arp-protocol"
+      ]
+    },
+    {
+      "number": 7,
+      "subject": "TCP/IP",
+      "question": "원격에 있는 호스트 접속 시 암호화된 패스워드를 이용하여 보다 안전하게 접속할 수 있도록 rlogin과 같은 프로토콜을 보완하여 만든 프로토콜은?",
+      "choices": [
+        {
+          "text": "SSH",
+          "images": []
+        },
+        {
+          "text": "SNMP",
+          "images": []
+        },
+        {
+          "text": "SSL",
+          "images": []
+        },
+        {
+          "text": "Telnet",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 85,
+      "explanation_detailed": "핵심 개념\n- 기존의 암호화되지 않은 원격 접속 방식의 보안 취약점을 해결하기 위해 통신 내용을 암호화하여 안전하게 접속하는 SSH 프로토콜의 정의와 특성을 이해해야 합니다.\n\n정답 분석\n- SSH(Secure Shell)는 rlogin이나 Telnet과 같은 기존 원격 접속 프로토콜이 데이터와 패스워드를 암호화하지 않고 평문으로 전송하여 보안에 취약하다는 단점을 보완하기 위해 만들어진 프로토콜입니다. 모든 통신을 강력한 암호화 기술로 보호하여 도청이나 공격으로부터 정보를 안전하게 유지합니다.\n\n오답 분석\n- ① SSH: 정답입니다. 암호화된 통신을 제공하여 보안성이 높은 원격 접속 프로토콜입니다.\n- ② SNMP: 오답입니다. 네트워크상의 장비들을 모니터링하고 관리하는 데 사용되는 프로토콜입니다.\n- ③ SSL: 오답입니다. 웹 서버와 브라우저 사이의 데이터 전송을 암호화하여 보안을 제공하는 프로토콜로 HTTPS 서비스에 주로 사용됩니다.\n- ④ Telnet: 오답입니다. 원격 접속에 사용되는 프로토콜이지만 데이터를 암호화하지 않아 보안에 매우 취약합니다.",
+      "concepts": [
+        "SSH 프로토콜의 정의와 특징",
+        "원격 접속 프로토콜의 보안 취약점"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 543
+      },
+      "concept_ids": [
+        "ssh-protocol",
+        "remote-access-protocol"
+      ]
+    },
+    {
+      "number": 8,
+      "subject": "TCP/IP",
+      "question": "서버 내 서비스들은 서로가 다른 문을 통하여 데이터를 주고받는데 이를 포트라고 한다. 서비스에 따른 기본 포트 번호로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "FTP - 21",
+          "images": []
+        },
+        {
+          "text": "Telnet - 23",
+          "images": []
+        },
+        {
+          "text": "SMTP - 25",
+          "images": []
+        },
+        {
+          "text": "WWW - 81",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 92,
+      "explanation_detailed": "핵심 개념\nTCP/IP 기반 주요 프로토콜(FTP, Telnet, SMTP, HTTP 등)에 대한 Well-Known 포트 번호를 묻는 문제이다.\n\n정답 분석\nWWW(HTTP) 서비스의 기본 포트 번호는 80번이다. 81번은 공식적으로 지정된 HTTP 기본 포트가 아니며, 실제로는 대체 포트나 특정 소프트웨어의 커스텀 포트로 사용되는 경우가 있을 뿐이다. 따라서 81번이라고 표기한 ④번이 틀린 보기이다.\n\n오답 분석\n① FTP - 21: 올바른 포트 번호이다. FTP는 제어 연결에 21번, 데이터 전송에 20번 포트를 사용한다.\n② Telnet - 23: 올바른 포트 번호이다. Telnet은 원격 터미널 접속에 23번 포트를 사용한다.\n③ SMTP - 25: 올바른 포트 번호이다. SMTP는 이메일 전송 프로토콜로 25번 포트를 사용한다.\n④ WWW - 81: 틀린 포트 번호이다. WWW(HTTP)의 기본 포트는 81이 아니라 80번이다.",
+      "concepts": [
+        "Well-Known 포트 번호",
+        "주요 프로토콜의 기본 포트"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 475
+      },
+      "concept_ids": [
+        "well-known-port",
+        "major-protocol-ports-and-roles"
+      ]
+    },
+    {
+      "number": 9,
+      "subject": "TCP/IP",
+      "question": "FTP 서비스의 명령어에 대해 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "Quit : 서비스 종료",
+          "images": []
+        },
+        {
+          "text": "Hash : 전송 상태 표시",
+          "images": []
+        },
+        {
+          "text": "Help : 명령어 도움말",
+          "images": []
+        },
+        {
+          "text": "Connect : FTP 서버 접속",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 51,
+      "explanation_detailed": "핵심 개념\nFTP 클라이언트 명령어의 종류와 기능을 정확히 구분할 수 있어야 한다. FTP는 파일 전송 프로토콜로, 접속·전송·조회 등 다양한 명령어를 제공한다.\n\n정답 분석\n④ Connect는 FTP 명령어로 존재하지 않는다. FTP 서버에 접속할 때 사용하는 올바른 명령어는 Open이다. Open [호스트명 또는 IP]와 같이 사용하며, Connect라는 명령어는 FTP 클라이언트 명령어 목록에 없다. 따라서 ④가 옳지 않은 설명이다.\n\n오답 분석\n① Quit : 정답(옳은 설명) — FTP 세션을 종료하고 클라이언트를 빠져나가는 명령어로 설명이 맞다. bye도 동일한 기능을 한다.\n② Hash : 정답(옳은 설명) — 파일 전송 중 진행 상태를 # 기호로 화면에 표시해 주는 명령어로 설명이 맞다.\n③ Help : 정답(옳은 설명) — 사용 가능한 FTP 명령어 목록과 도움말을 출력하는 명령어로 설명이 맞다.\n④ Connect : 오답(틀린 설명) — FTP 서버 접속에 쓰는 명령어는 Open이다. Connect는 FTP 명령어가 아니므로 이 보기의 설명이 잘못되었다.",
+      "concepts": [
+        "FTP 클라이언트 명령어",
+        "FTP 서버 접속 방법"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 551
+      },
+      "concept_ids": [
+        "ftp",
+        "ftp-communication-structure"
+      ]
+    },
+    {
+      "number": 10,
+      "subject": "TCP/IP",
+      "question": "Anonymous FTP에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "상대 컴퓨터의 계정 없이도 파일을 업로드하거나 다운로드 할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "자신의 전자 메일 주소를 패스워드로 사용한다.",
+          "images": []
+        },
+        {
+          "text": "Anonymous라는 계정을 이용하여 접속한다.",
+          "images": []
+        },
+        {
+          "text": "Anonymous FTP를 사용하면, 텍스트 문서만을 송수신할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 64,
+      "explanation_detailed": "핵심 개념\n- 익명 FTP는 사용자가 별도의 계정 없이 'anonymous'라는 공용 계정으로 접속하여 파일을 공유하는 서비스입니다.\n\n정답 분석\n- 4번이 정답입니다. FTP는 텍스트 문서(ASCII 모드)뿐만 아니라 이미지, 실행파일, 압축파일 등(바이너리 모드) 모든 형태의 파일 전송을 지원합니다. 따라서 텍스트 문서만 주고받을 수 있다는 설명은 잘못되었습니다.\n\n오답 분석\n- ① (옳음) Anonymous FTP의 가장 큰 특징은 원격 서버에 개별 계정이 없어도 파일 업로드 및 다운로드가 가능하다는 점입니다.\n- ② (옳음) 접속 시 비밀번호를 묻는 단계에서 본인의 전자 메일 주소를 입력하는 것이 관례이자 규칙입니다.\n- ③ (옳음) 로그인 과정에서 사용자 이름(User ID) 입력란에 'anonymous'를 입력하여 접속합니다.",
+      "concepts": [
+        "익명 FTP(Anonymous FTP)",
+        "바이너리 모드와 아스키 모드"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 417
+      },
+      "concept_ids": [
+        "ftp",
+        "ftp-transfer-modes"
+      ]
+    },
+    {
+      "number": 11,
+      "subject": "TCP/IP",
+      "question": "FTP의 약어 풀이로 올바른 것은?",
+      "choices": [
+        {
+          "text": "File Transmission Protocol",
+          "images": []
+        },
+        {
+          "text": "File Transfer Program",
+          "images": []
+        },
+        {
+          "text": "File Transmission Program",
+          "images": []
+        },
+        {
+          "text": "File Transfer Protocol",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 77,
+      "explanation_detailed": "핵심 개념\nFTP는 인터넷에서 파일을 전송하기 위한 표준 프로토콜로, 각 단어의 정확한 풀이를 알아야 한다.\n\n정답 분석\n④ File Transfer Protocol이 정답이다. FTP는 TCP/IP 환경에서 클라이언트와 서버 사이에 파일을 주고받기 위해 설계된 응용 계층 프로토콜이다. 핵심 단어는 Transfer(전송)와 Protocol(프로토콜)이며, 포트 20(데이터)과 21(제어)을 사용한다.\n\n오답 분석\n① File Transmission Protocol — 오답. Transfer가 아닌 Transmission을 사용했다. FTP에서 T는 Transfer이며, Transmission은 TCP(Transmission Control Protocol)에서 쓰이는 단어이다.\n② File Transfer Program — 오답. Protocol이 아닌 Program으로 잘못 표기했다. FTP는 프로그램이 아니라 통신 규약(Protocol)이다.\n③ File Transmission Program — 오답. Transmission과 Program 두 단어 모두 틀렸다. Transfer와 Protocol이 각각 올바른 표현이다.\n④ File Transfer Protocol — 정답. FTP의 정확한 풀이이다.",
+      "concepts": [
+        "FTP 전체 이름",
+        "파일 전송 프로토콜"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 626
+      },
+      "concept_ids": [
+        "ftp-definition",
+        "file-transfer-protocol"
+      ]
+    },
+    {
+      "number": 12,
+      "subject": "TCP/IP",
+      "question": "전자메일에 대한 사항 중 적당하지 않은 것은?",
+      "choices": [
+        {
+          "text": "전자메일은 TCP/IP 프로토콜 슈트의 응용 계층에 해당하는 프로토콜이다.",
+          "images": []
+        },
+        {
+          "text": "TCP/IP 프로토콜 슈트에서 전자메일 전송을 담당하는 프로토콜은 SMTP이다.",
+          "images": []
+        },
+        {
+          "text": "전자메일을 사용하기 위해서는 전자메일 주소를 갖고 있어야 하며, 전자메일 주소는 호스트의 \"사용자_계정@도메인_이름\" 형태로 구성된다.",
+          "images": []
+        },
+        {
+          "text": "전자메일의 주소는 호스트의 도메인 이름으로만 가능하며, 호스트의 IP Address로는 사용 불가능하다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n전자메일 주소 체계와 이메일 관련 프로토콜(SMTP 등)의 기본 특성을 이해하고 있는지 묻는 문제다.\n\n정답 분석\n④번은 틀린 설명이다. 전자메일 주소는 \"사용자_계정@도메인_이름\" 형태가 일반적이지만, 도메인 이름 대신 IP 주소를 직접 사용하는 것도 기술적으로 가능하다. 예를 들어 \"user@[192.168.1.1]\"처럼 IP 주소를 대괄호로 감싸는 형태가 RFC 표준에 정의되어 있다. 따라서 \"IP Address로는 사용 불가능하다\"는 서술은 사실과 다르다.\n\n오답 분석\n① 옳은 설명이다. SMTP, POP3, IMAP 등 전자메일 프로토콜은 모두 TCP/IP의 응용 계층(Application Layer)에 속한다.\n② 옳은 설명이다. SMTP(Simple Mail Transfer Protocol)는 메일을 발신 서버에서 수신 서버로 전송하는 역할을 담당한다.\n③ 옳은 설명이다. 전자메일 주소는 \"사용자_계정@도메인_이름\" 구조로 구성되며, @ 기호로 계정과 도메인을 구분한다.\n④ 틀린 설명이다(정답). IP 주소 형태의 이메일 주소도 RFC 5321 표준에서 허용하고 있으므로, \"IP Address로는 불가능하다\"는 주장은 잘못되었다.",
+      "concepts": [
+        "전자메일 주소 체계",
+        "전자메일 프로토콜(SMTP)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 597
+      },
+      "concept_ids": [
+        "email-protocols-and-services",
+        "email-protocol"
+      ]
+    },
+    {
+      "number": 13,
+      "subject": "TCP/IP",
+      "question": "SNMP에 대한 설명 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "사용자가 네트워크 문제점을 발견하기 전에 시스템 관리 프로그램이 문제점을 발견할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "데이터 전송은 UDP를 사용한다.",
+          "images": []
+        },
+        {
+          "text": "IP에서의 오류 제어를 위하여 사용되며, 시작지 호스트의 라우팅 실패를 보고한다.",
+          "images": []
+        },
+        {
+          "text": "네트워크의 장비로부터 데이터를 수집하여 네트워크의 관리를 지원하고 성능을 향상시킨다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 56,
+      "explanation_detailed": "핵심 개념\nSNMP는 네트워크 상의 장비들을 감시하고 제어하기 위해 UDP를 기반으로 동작하는 표준 네트워크 관리 프로토콜입니다.\n\n정답 분석\n3번 보기는 ICMP(인터넷 제어 메시지 프로토콜)에 대한 설명입니다. SNMP는 네트워크 장비의 정보를 수집하고 관리하는 것이 목적이며, IP 계층의 오류 제어나 라우팅 실패 보고는 ICMP의 기능이므로 틀린 설명입니다.\n\n오답 분석\n① 오답: SNMP는 Trap 기능을 통해 문제 발생 시 관리자에게 미리 알려주는 프로액티브 관리가 가능하므로 올바른 설명입니다.\n② 오답: SNMP는 신속한 통신이 중요하므로 오버헤드가 큰 TCP 대신 비연결형 프로토콜인 UDP를 사용하므로 올바른 설명입니다.\n③ 정답\n④ 오답: SNMP는 네트워크 장비로부터 다양한 데이터를 수집하여 네트워크 관리를 지원하고 성능 분석에 활용하므로 올바른 설명입니다.",
+      "concepts": [
+        "SNMP 프로토콜",
+        "ICMP 기능"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 438
+      },
+      "concept_ids": [
+        "snmp",
+        "icmp"
+      ]
+    },
+    {
+      "number": 14,
+      "subject": "TCP/IP",
+      "question": "가정 내에 구축되어 있는 전화 배선을 이용하여 고속의 홈 네트워크를 구축하고 관리하기 위한 기술은?",
+      "choices": [
+        {
+          "text": "IrDA",
+          "images": []
+        },
+        {
+          "text": "PLC",
+          "images": []
+        },
+        {
+          "text": "Home PNA",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.15",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 73,
+      "explanation_detailed": "핵심 개념\n가정 내에 이미 설치되어 있는 전화 배선(전화선)을 활용하여 별도의 케이블링 작업 없이 고속의 홈 네트워크를 구축하는 유선 기술이다.\n\n정답 분석\nHome PNA는 기존의 전화선을 데이터 통신망으로 활용하여 컴퓨터나 네트워크 기기를 연결하는 방식으로, 추가 배선 없이 저렴하게 네트워크를 구성할 수 있다. 문제에서 제시한 '전화 배선을 이용'한다는 조건에 정확히 부합하므로 정답이다.\n\n오답 분석\n① IrDA 오답: 적외선을 이용한 근거리 무선 통신 기술로, 유선 배선을 사용하지 않는다.\n② PLC 오답: 전화선이 아니라 가정 내의 전력선(전기 케이블)을 이용하여 네트워크를 구축하는 기술이다.\n③ Home PNA 정답: 전화 배선을 매개체로 사용하여 홈 네트워크를 구성하는 올바른 기술이다.\n④ IEEE 802.15 오답: 블루투스나 지그비 같은 무선 개인영역망(WPAN)을 위한 표준으로 유선 배선과 무관하다.",
+      "concepts": [
+        "Home PNA",
+        "홈 네트워크 통신 매체"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 462
+      },
+      "concept_ids": [
+        "homepna",
+        "home-network"
+      ]
+    },
+    {
+      "number": 15,
+      "subject": "TCP/IP",
+      "question": "컴퓨터 주변기기의 연결에 사용되는 다양한 커넥터 규격 호환 문제를 해결하기 위해 만들어진 직렬 전송버스 규격은?",
+      "choices": [
+        {
+          "text": "PLC",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.11",
+          "images": []
+        },
+        {
+          "text": "IEEE 1394",
+          "images": []
+        },
+        {
+          "text": "WAP",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n- 다양한 커넥터 규격의 호환 문제를 해결하기 위해 개발된 고속 직렬 전송 버스 규격에 대한 이해를 묻는 문제입니다.\n\n정답 분석\n- IEEE 1394는 애플의 FireWire로도 불리며 고속 직렬 전송을 지원하는 버스 규격입니다.\n- 주로 디지털 캠코더나 외장 하드 등 다양한 주변기기 연결 시 발생하는 호환성 문제를 효과적으로 해결했습니다.\n\n오답 분석\n- ① 오답: 전력선을 통신 매체로 사용하여 네트워크를 구축하는 통신 기술인 PLC입니다.\n- ② 오답: 무선 LAN(Wi-Fi) 표준으로 유선 케이블이 아닌 무선으로 데이터를 전송하는 규격입니다.\n- ③ 정답: 컴퓨터와 주변기기를 연결하는 직렬 전송 버스 규격으로 호환성 문제를 해결합니다.\n- ④ 오답: 이동통신 단말기에서 인터넷 등의 서비스를 이용하기 위한 프로토콜인 WAP입니다.",
+      "concepts": [
+        "IEEE 1394",
+        "고속 직렬 전송 버스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 422
+      },
+      "concept_ids": [
+        "ieee-1394-firewire",
+        "high-speed-serial-bus"
+      ]
+    },
+    {
+      "number": 16,
+      "subject": "TCP/IP",
+      "question": "IPv6는 IPng(IP next Generation), 차세대 인터넷 프로토콜이라고 불리고 있다. IPv6 주소 필드 bit 수는?",
+      "choices": [
+        {
+          "text": "32bit",
+          "images": []
+        },
+        {
+          "text": "64bit",
+          "images": []
+        },
+        {
+          "text": "128bit",
+          "images": []
+        },
+        {
+          "text": "256bit",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 88,
+      "explanation_detailed": "핵심 개념\nIPv6는 IPv4의 주소 고갈 문제를 해결하기 위해 주소 체계를 128비트로 확장한 차세대 인터넷 프로토콜입니다.\n\n정답 분석\n정답은 ③입니다. 기존 IPv4가 32비트 주소 체계를 사용하여 약 43억 개의 주소만 할당할 수 있었던 데 반해, IPv6는 128비트 주소 체계를 채택하여 거의 무한에 가까운 주소 공간을 제공합니다. 이를 통해 급증하는 네트워크 기기와 인터넷 서비스에 충분한 IP 할당이 가능해졌습니다.\n\n오답 분석\n① 오답. 32비트는 주소 고갈 문제가 발생한 기존 IPv4의 주소 길이입니다.\n② 오답. IPv6의 전체 주소 길이는 128비트이며, 64비트는 일반적으로 MAC 주소나 IPv6의 인터페이스 식별자 길이 등을 의미합니다.\n③ 정답. IPv6는 총 128비트 길이의 주소를 사용합니다.\n④ 오답. 현재 IP 표준에서 256비트 주소 체계는 사용되지 않습니다.",
+      "concepts": [
+        "IPv6 주소 비트 수",
+        "IPv4 주소 고갈 문제"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 448
+      },
+      "concept_ids": [
+        "ipv6-address-system",
+        "ipv4-address-system"
+      ]
+    },
+    {
+      "number": 17,
+      "subject": "TCP/IP",
+      "question": "블루투스 기술에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "주파수 호핑 속도가 빠른 DSSS(Direct Sequence Spread Spectrum)을 사용하여 간섭에 강하다는 점이다.",
+          "images": []
+        },
+        {
+          "text": "1대의 Master가 7대까지의 Slave를 연결하는 피코넷(Piconet)으로 구성되어 있다.",
+          "images": []
+        },
+        {
+          "text": "주요 통신방식은 FDD(Frequency Division Duplex) 방식을 사용한다.",
+          "images": []
+        },
+        {
+          "text": "부품의 전력 소모량이 크고, 그 부피도 큰 편이므로 소형 모바일 기기에 내장시키기에는 적합하지 못하다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n- 블루투스는 저전력 근거리 무선 통신 기술로 FHSS 방식을 사용하며, 1개의 마스터와 최대 7개의 슬레이브로 구성된 피코넷을 기본 구조로 함\n\n정답 분석\n- 블루투스는 기본적으로 1개의 마스터 장비가 통신을 주도하고 최대 7대의 활성 슬레이브 장비를 연결하여 통신하는 피코넷 구조를 가지므로 해당 보기는 정답임\n\n오답 분석\n- ① 오답. 블루투스는 DSSS가 아닌 FHSS(주파수 호핑 확산 스펙트럼) 방식을 사용하여 간섭에 강합니다.\n- ② 정답. 1개의 마스터와 최대 7개의 슬레이브로 구성되는 피코넷 구조에 대한 올바른 설명입니다.\n- ③ 오답. 블루투스는 FDD가 아닌 TDD(시분할 이중화) 방식을 사용하여 송수신을 나눕니다.\n- ④ 오답. 블루투스는 저전력 소모와 소형화가 특징이므로 소형 모바일 기기 내장에 매우 적합합니다.",
+      "concepts": [
+        "블루투스 피코넷(Piconet) 구조",
+        "블루투스 물리계층 통신 방식"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 420
+      },
+      "concept_ids": [
+        "bluetooth-wireless",
+        "bluetooth"
+      ]
+    },
+    {
+      "number": 18,
+      "subject": "네트워크일반",
+      "question": "다음 에러제어 기법 중 자동 재전송 기법으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "Stop and Wait ARQ",
+          "images": []
+        },
+        {
+          "text": "Go-Back N ARQ",
+          "images": []
+        },
+        {
+          "text": "전진에러 수정(FEC)",
+          "images": []
+        },
+        {
+          "text": "Selective ARQ",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n- 에러 제어 기법 중 오류 시 재전송을 요청하는 ARQ 방식과 재전송 없이 복구하는 FEC 방식의 차이를 구분하는 문제입니다.\n\n정답 분석\n- 전진에러 수정(FEC)은 데이터에 오류 정정 코드를 추가하여 수신 측에서 재전송 요청 없이 스스로 오류를 수정하는 기법입니다. 자동 재전송 요구(ARQ) 기법에 해당하지 않으므로 문제의 조건에 맞는 정답입니다.\n\n오답 분석\n- ① 오답입니다. Stop and Wait ARQ는 프레임을 하나 보내고 확인 응답을 받으면 다음 프레임을 보내는 대표적인 자동 재전송 기법입니다.\n- ② 오답입니다. Go-Back N ARQ는 오류가 발생한 프레임부터 모두 재전송하는 자동 재전송 기법입니다.\n- ③ 정답입니다. 재전송 없이 오류를 복구하는 전진에러 수정(FEC)은 ARQ 기법이 아니므로 옳은 답입니다.\n- ④ 오답입니다. Selective ARQ는 오류가 발생한 프레임만 선택적으로 재전송하는 자동 재전송 기법입니다.",
+      "concepts": [
+        "ARQ(자동 재전송 요구) 기법",
+        "FEC(전진 에러 수정) 기법"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 486
+      },
+      "concept_ids": [
+        "arq",
+        "forward-error-correction"
+      ]
+    },
+    {
+      "number": 19,
+      "subject": "네트워크일반",
+      "question": "패킷 교환망의 특징이 아닌 것은?",
+      "choices": [
+        {
+          "text": "연결설정에 따라 가상회선과 데이터 그램으로 분류된다.",
+          "images": []
+        },
+        {
+          "text": "메시지를 보다 짧은 길이의 패킷으로 나누어 전송한다.",
+          "images": []
+        },
+        {
+          "text": "망에 유입되는 데이터의 양이 많아질수록 전송속도가 빠르다.",
+          "images": []
+        },
+        {
+          "text": "블록킹 현상이 없다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 87,
+      "explanation_detailed": "핵심 개념\n패킷 교환망은 데이터를 작은 패킷으로 나누어 전송하는 방식으로, 회선 교환망과 달리 전용 경로를 점유하지 않고 망 자원을 공유한다.\n\n정답 분석\n③번은 패킷 교환망의 특징이 아니다. 패킷 교환망은 망에 유입되는 데이터의 양이 많아질수록 패킷 간 경쟁이 심화되고 혼잡(congestion)이 발생하여 오히려 전송 지연이 늘어나고 속도가 느려진다. 트래픽이 증가할수록 라우터나 스위치의 큐(queue)에 패킷이 쌓이면서 처리 지연이 발생하는 것이 패킷 교환망의 본질적 한계다.\n\n오답 분석\n① 옳은 설명이다. 패킷 교환망은 연결 방식에 따라 논리적 경로를 미리 설정하는 가상회선(Virtual Circuit) 방식과 패킷마다 독립적으로 경로를 결정하는 데이터그램(Datagram) 방식으로 분류된다.\n② 옳은 설명이다. 패킷 교환망의 핵심 특징으로, 긴 메시지를 일정 크기의 작은 패킷으로 분할하여 전송함으로써 망 자원을 효율적으로 공유한다.\n③ 틀린 설명이다. 정답에 해당한다. 트래픽이 증가할수록 혼잡이 발생하여 속도가 빠른 것이 아니라 오히려 느려진다.\n④ 옳은 설명이다. 회선 교환망은 전용 회선이 사용 중이면 연결 자체가 거부되는 블로킹이 발생하지만, 패킷 교환망은 패킷을 큐에 저장하고 대기시키는 방식으로 처리하므로 블로킹 현상이 없다.",
+      "concepts": [
+        "패킷 교환망 특징",
+        "가상회선과 데이터그램",
+        "혼잡 및 블로킹 현상"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 646
+      },
+      "concept_ids": [
+        "packet-switching",
+        "virtual-circuit-datagram",
+        "congestion-control"
+      ]
+    },
+    {
+      "number": 20,
+      "subject": "네트워크일반",
+      "question": "아래의 OSI 참조모델 계층 중에서 가장 하위 계층에 해당하는 계층은?",
+      "choices": [
+        {
+          "text": "응용 계층",
+          "images": []
+        },
+        {
+          "text": "표현 계층",
+          "images": []
+        },
+        {
+          "text": "네트워크 계층",
+          "images": []
+        },
+        {
+          "text": "세션 계층",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 84,
+      "explanation_detailed": "핵심 개념\nOSI 참조모델은 네트워크 통신을 7개 계층으로 구분하며, 계층 번호가 낮을수록 하위 계층이다. 보기에 제시된 4개 계층 중 어떤 계층이 가장 낮은 번호를 가지는지 파악하는 문제이다.\n\n정답 분석\nOSI 7계층을 아래부터 순서대로 나열하면 1 물리, 2 데이터링크, 3 네트워크, 4 전송, 5 세션, 6 표현, 7 응용 계층이다. 보기 4개 중 네트워크 계층은 3계층으로, 세션(5), 표현(6), 응용(7) 계층보다 하위에 위치한다. 따라서 보기 중 가장 하위 계층은 네트워크 계층이다.\n\n오답 분석\n① 응용 계층은 7계층으로 OSI 모델 최상위 계층이다. 가장 상위이므로 오답이다.\n② 표현 계층은 6계층으로 응용 계층 바로 아래에 위치한 상위 계층이다. 오답이다.\n③ 네트워크 계층은 3계층으로 보기 중 가장 낮은 번호를 가지므로 정답이다.\n④ 세션 계층은 5계층으로 네트워크 계층(3)보다 위에 있어 오답이다.",
+      "concepts": [
+        "OSI 7계층 모델",
+        "계층 간 순서"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 464
+      },
+      "concept_ids": [
+        "osi-7-layer",
+        "osi-layering-pdu"
+      ]
+    },
+    {
+      "number": 21,
+      "subject": "네트워크일반",
+      "question": "컴퓨터 추가 설정이 용이하고, 중앙관리가 가능한 네트워크 토폴로지는?",
+      "choices": [
+        {
+          "text": "Bus",
+          "images": []
+        },
+        {
+          "text": "Star",
+          "images": []
+        },
+        {
+          "text": "Ring",
+          "images": []
+        },
+        {
+          "text": "Mesh",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 79,
+      "explanation_detailed": "핵심 개념\n네트워크의 각 노드가 중앙 집중 장치에 별도로 연결되는 구조로, 확장성과 장애 격리가 용이한 스타 토폴로지의 특징을 이해해야 합니다.\n\n정답 분석\n스타 토폴로지는 중앙의 허브나 스위치를 통해 모든 통신을 관리하므로 네트워크 상태를 모니터링하고 제어하기가 매우 쉽습니다. 또한 새로운 컴퓨터를 추가하거나 제거할 때 중앙 장치에만 연결하면 되므로 기존 네트워크에 영향을 주지 않고 확장이 가능합니다.\n\n오답 분석\n① Bus 오답입니다. 하나의 케이블에 순차적으로 연결되는 구조로, 중앙 관리가 어렵고 케이블 단절 시 전체 네트워크가 마비되는 단점이 있습니다.\n② Star 정답입니다. 중앙 장치를 기반으로 통신하여 관리가 쉽고, 장애가 발생한 노드만 분리하면 되므로 유지보수와 확장이 용이합니다.\n③ Ring 오답입니다. 토큰을 순환시키는 방식으로 노드 추가 시 네트워크 중단이 필요하며, 하나의 노드 고장이 전체 망을 중단시키는 위험이 있습니다.\n④ Mesh 오답입니다. 모든 노드가 서로 연결되는 구조로 구축 비용이 많이 들고 복잡하여 일반적인 사무실 환경에서의 관리나 확장은 어렵습니다.",
+      "concepts": [
+        "네트워크 토폴로지",
+        "스타 토폴로지 특징"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 559
+      },
+      "concept_ids": [
+        "network-topology",
+        "star-topology"
+      ]
+    },
+    {
+      "number": 22,
+      "subject": "네트워크일반",
+      "question": "HDLC(High-Level Data Link Control)의 프레임에서 플래그 필드(Flag Field)를 2진수로 표현 한 것은?",
+      "choices": [
+        {
+          "text": "11110000",
+          "images": []
+        },
+        {
+          "text": "10000001",
+          "images": []
+        },
+        {
+          "text": "01111110",
+          "images": []
+        },
+        {
+          "text": "00001111",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n- HDLC 프레임의 시작과 끝을 알리며 동기를 유지하는 플래그 필드는 항상 01111110 패턴을 사용한다.\n\n정답 분석\n- HDLC는 데이터 전송의 경계를 명확히 하고 비트 동기화를 위해 플래그 필드를 프레임의 맨 앞과 뒤에 둔다.\n- 이때 사용되는 고유한 비트 패턴은 국제 표준에 따라 01111110(16진수 7E)으로 정해져 있으므로 3번이 정답이다.\n\n오답 분석\n- ① 오답: 11110000은 HDLC의 플래그 필드 패턴인 01111110과 일치하지 않는다.\n- ② 오답: 10000001은 HDLC에서 정의한 플래그 필드의 비트 패턴이 아니다.\n- ③ 정답: 01111110은 HDLC 프레임의 경계를 나타내는 올바른 플래그 필드 값이다.\n- ④ 오답: 00001111은 HDLC 프로토콜에서 사용하는 플래그 필드 값이 아니다.",
+      "concepts": [
+        "HDLC 프레임 구조",
+        "플래그 필드의 비트 패턴",
+        "프레임 동기화"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 421
+      },
+      "concept_ids": [
+        "hdlc-protocol",
+        "packet-frame-structure",
+        "frame-synchronization"
+      ]
+    },
+    {
+      "number": 23,
+      "subject": "네트워크일반",
+      "question": "지리적으로 근거리 통신망 보다 넓은 지역을 포함하는 통신망으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "WAN",
+          "images": []
+        },
+        {
+          "text": "LAN",
+          "images": []
+        },
+        {
+          "text": "PAN",
+          "images": []
+        },
+        {
+          "text": "VAN",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 84,
+      "explanation_detailed": "핵심 개념\n네트워크는 커버하는 지리적 범위에 따라 PAN, LAN, WAN 등으로 분류된다. 이 문제는 LAN보다 넓은 영역을 포괄하는 통신망의 종류를 묻는다.\n\n정답 분석\nWAN(Wide Area Network)은 도시, 국가, 대륙 간 등 광범위한 지리적 영역을 연결하는 통신망이다. LAN이 건물 또는 캠퍼스 수준의 근거리를 담당하는 것과 달리, WAN은 수십~수만 킬로미터에 걸쳐 여러 LAN을 서로 연결한다. 인터넷이 대표적인 WAN의 예이다.\n\n오답 분석\n① WAN: 정답. 지리적으로 LAN보다 훨씬 넓은 광역 통신망이다.\n② LAN(Local Area Network): 오답. 건물이나 캠퍼스 수준의 근거리 통신망으로, WAN보다 범위가 좁다.\n③ PAN(Personal Area Network): 오답. 블루투스처럼 수 미터 이내 개인 장치 간 통신을 위한 통신망으로, LAN보다도 범위가 좁다.\n④ VAN(Value Added Network): 오답. 부가가치 통신망으로, 단순 통신 기능에 정보 처리 등 부가 서비스를 더한 통신망을 의미하며 지리적 범위 기준의 분류가 아니다.",
+      "concepts": [
+        "통신망의 지리적 분류 기준",
+        "WAN(Wide Area Network)",
+        "LAN과 VAN의 차이"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 557
+      },
+      "concept_ids": [
+        "network-geographic-classification",
+        "wan",
+        "lan-van-comparison"
+      ]
+    },
+    {
+      "number": 24,
+      "subject": "네트워크일반",
+      "question": "인터넷의 기본적인 통신 프로토콜로서, 인트라넷이나 엑스트라넷과 같은 사설망에서도 사용되는 프로토콜은?",
+      "choices": [
+        {
+          "text": "IPX",
+          "images": []
+        },
+        {
+          "text": "SMTP",
+          "images": []
+        },
+        {
+          "text": "SPX",
+          "images": []
+        },
+        {
+          "text": "TCP/IP",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 76,
+      "explanation_detailed": "핵심 개념\n- 인터넷과 인트라넷/엑스트라넷 등 다양한 네트워크 환경에서 통신을 위해 사용하는 표준 프로토콜 슈트의 이해\n\n정답 분석\n- TCP/IP는 인터넷의 표준 프로토콜로서, 서로 다른 기종의 컴퓨터들이 네트워크상에서 정보를 주고받을 수 있게 합니다. 인트라넷과 엑스트라넷은 인터넷 기술을 기반으로 구축되므로 동일한 프로토콜인 TCP/IP를 사용합니다.\n\n오답 분석\n- ① 오답: 노벨 사의 넷웨어(NetWare)에서 사용하던 구형 프로토콜로, 현재는 인터넷 표준으로 사용되지 않습니다.\n- ② 오답: 전자메일을 전송하고 송수신하기 위해 사용하는 응용 계층 프로토콜로, TCP/IP 위에서 동작하는 서비스입니다.\n- ③ 오답: IPX와 함께 사용되던 전송 계층 프로토콜로, 패킷의 전송을 담당하지만 현재는 거의 사용되지 않습니다.\n- ④ 정답: 인터넷의 기본 프로토콜이며, 사설망에서도 가장 보편적으로 사용되는 표준 통신 규약입니다.",
+      "concepts": [
+        "인터넷 표준 프로토콜",
+        "TCP/IP 프로토콜 슈트",
+        "인트라넷 및 엑스트라넷 네트워크"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 468
+      },
+      "concept_ids": [
+        "protocol-management-structure",
+        "tcp-ip-model-structure",
+        "cloud-distributed-infrastructure"
+      ]
+    },
+    {
+      "number": 25,
+      "subject": "네트워크일반",
+      "question": "비대칭형 전송모드에 해당되지 않는 DSL 종류는?",
+      "choices": [
+        {
+          "text": "ADSL",
+          "images": []
+        },
+        {
+          "text": "SDSL",
+          "images": []
+        },
+        {
+          "text": "RADSL",
+          "images": []
+        },
+        {
+          "text": "UADSL",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 51,
+      "explanation_detailed": "핵심 개념\nDSL(Digital Subscriber Line)은 대칭형과 비대칭형으로 나뉘며, 비대칭형은 다운로드와 업로드 속도가 다르고 대칭형은 동일하다.\n\n정답 분석\nSDSL(Symmetric DSL)은 이름 그대로 대칭형 전송방식으로, 업로드와 다운로드 속도가 동일하다. 문제는 비대칭형에 해당되지 않는 것을 묻고 있으므로 SDSL이 정답이다. SDSL은 주로 기업 환경에서 양방향 동일 속도가 필요할 때 사용된다.\n\n오답 분석\n① ADSL(Asymmetric DSL)은 비대칭형으로, 다운로드 속도가 업로드보다 빠르다. 비대칭형에 해당하므로 오답이다.\n② SDSL(Symmetric DSL)은 대칭형으로, 비대칭형에 해당되지 않는다. 정답이다.\n③ RADSL(Rate-Adaptive DSL)은 회선 상태에 따라 전송 속도를 자동 조절하는 비대칭형 DSL이다. 비대칭형에 해당하므로 오답이다.\n④ UADSL(Universal ADSL)은 ADSL의 보급형으로 별도 스플리터 없이 사용 가능한 비대칭형이다. 비대칭형에 해당하므로 오답이다.",
+      "concepts": [
+        "DSL 전송 방식 분류",
+        "비대칭형 DSL 종류",
+        "SDSL의 대칭형 특성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 528
+      },
+      "concept_ids": [
+        "dsl-transmission",
+        "asymmetric-dsl",
+        "sdsl"
+      ]
+    },
+    {
+      "number": 26,
+      "subject": "네트워크일반",
+      "question": "VoIP에서 H.323 게이트 키퍼의 기능은?",
+      "choices": [
+        {
+          "text": "NIC으로 LAN에 직접 연결하는 기능",
+          "images": []
+        },
+        {
+          "text": "터미널의 등록과 인증 대역폭 관리 기능",
+          "images": []
+        },
+        {
+          "text": "터미널간의 실시간 양방향 음성통신지원 기능",
+          "images": []
+        },
+        {
+          "text": "실시간 양방향 통신을 제공하는 기능",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 45,
+      "explanation_detailed": "핵심 개념\n- H.323 프로토콜에서 게이트키퍼는 영역(Zone) 내의 터미널을 관리하는 중앙 제어 장치로, 주로 주소 변환, 대역폭 제어, 인증 및 등록 기능을 수행합니다.\n\n정답 분석\n- 게이트키퍼는 H.323 네트워크의 영역(Zone) 내에 있는 터미널의 등록(Registration) 및 인증(Authentication)을 담당하며, 통화 품질 유지를 위해 통화 당 할당되는 대역폭(Bandwidth Management)을 관리하고 제어하는 핵심적인 기능을 수행하므로 정답입니다.\n\n오답 분석\n- ① 오답. NIC를 통해 LAN에 직접 연결하는 것은 네트워크 카드의 기능이며, 게이트키퍼의 고유 기능이 아닙니다.\n- ② 정답.\n- ③ 오답. 터미널 간의 실시간 양방향 음성 통신 지원은 단말(Terminal)의 주된 역할입니다.\n- ④ 오답. 실시간 양방향 통신 제공 역시 단말기나 게이트웨이의 기능이며, 게이트키퍼는 이를 제어하는 역할을 합니다.",
+      "concepts": [
+        "H.323 프로토콜 구성 요소",
+        "게이트키퍼(Gatekeeper) 주요 기능",
+        "터미널 등록 및 대역폭 관리"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 478
+      },
+      "concept_ids": [
+        "h323-protocol",
+        "gatekeeper",
+        "bandwidth-management"
+      ]
+    },
+    {
+      "number": 27,
+      "subject": "네트워크일반",
+      "question": "광통신은 빛의 전반사 원리를 이용한 것으로 관련이 없는 것은?",
+      "choices": [
+        {
+          "text": "코어의 굴절률이 클래드 보다 클 때 발생",
+          "images": []
+        },
+        {
+          "text": "입사각이 임계각 보다 클 때 완전 반사",
+          "images": []
+        },
+        {
+          "text": "굴절률이 낮은 매질에서 높은 매질로 진행시 발생",
+          "images": []
+        },
+        {
+          "text": "수광각이 임계각보다 클 때 발생",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n- 광섬유 통신은 빛이 코어 내부에서 전반사하며 진행하는 원리를 이용합니다.\n- 전반사가 일어나기 위한 조건은 빛이 굴절률이 높은 물질에서 낮은 물질로 진행할 때이며, 입사각이 임계각보다 커야 합니다.\n정답 분석\n- 수광각(Acceptance Angle)은 광섬유 외부에서 빛이 입사할 때, 내부에서 전반사가 유지될 수 있도록 허용되는 최대 입사 각도를 의미합니다.\n- 임계각(Critical Angle)은 광섬유 내부(코어와 클래드 경계면)에서 빛이 굴절과 반사가 일어나는 경계 각도입니다. 외부의 수광각과 내부의 임계각을 직접 비교하여 전반사 여부를 판단한다는 것은 개념을 혼동한 것이므로 관련이 없는 설명입니다.\n오답 분석\n- ① 코어의 굴절률이 클래드보다 커야 빛이 갇히며 전반사가 가능하므로 광통신 원리에 해당합니다.\n- ② 입사각이 임계각보다 커야 빛이 굴절되지 않고 모두 반사되는 전반사가 발생하므로 광통신 원리에 해당합니다.\n- ③ 원칙적으로 전반사는 빛이 굴절률이 높은 매질에서 낮은 매질로 진행할 때 발생하므로 이 보기는 물리적 오류이나, 4번이 더 명백하게 다른 개념을 혼동한 설명이므로 정답은 4번입니다.\n- ④ 수광각과 임계각은 서로 다른 물리적 영역의 각도 개념이므로 직접적인 비교 대상이 될 수 없어 관련 없는 것에 해당합니다.",
+      "concepts": [
+        "광섬유 통신의 전반사 원리",
+        "코어와 클래드의 굴절률 차이",
+        "수광각과 임계각의 구분"
+      ],
+      "explanation_audit": {
+        "score": 1,
+        "missing": "기존 해설은 보기 ③번의 '굴절률이 낮은 매질에서 높은 매질로 진행'이라는 물리적으로 명백히 틀린 조건을 간과하고, 마치 올바른 조건인 것처럼 해설하고 있음.",
+        "improved": true,
+        "prev_chars": 524
+      },
+      "concept_ids": [
+        "optical-fiber-communication",
+        "core-cladding",
+        "optical-angles"
+      ]
+    },
+    {
+      "number": 28,
+      "subject": "NOS",
+      "question": "Windows 2000 Server의 인터넷 정보 서비스(IIS) 메뉴에서 관리 웹 사이트 등록정보에 없는 탭은?",
+      "choices": [
+        {
+          "text": "웹 사이트",
+          "images": []
+        },
+        {
+          "text": "디렉터리 보안",
+          "images": []
+        },
+        {
+          "text": "홈 디렉터리",
+          "images": []
+        },
+        {
+          "text": "LDAP 라우팅",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 65,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server IIS의 웹 사이트 등록정보 대화상자에 실제로 존재하는 탭과 존재하지 않는 탭을 구분하는 문제입니다.\n\n정답 분석\nLDAP 라우팅 탭은 IIS 웹 사이트 등록정보가 아닌 SMTP 가상 서버 등록정보에 존재하는 탭입니다. LDAP(Lightweight Directory Access Protocol)은 디렉터리 서비스 조회 프로토콜로, 메일 라우팅과 관련된 기능이며 웹 사이트 설정과는 무관합니다. 따라서 웹 사이트 등록정보 탭 목록에 LDAP 라우팅은 없습니다.\n\n오답 분석\n① 웹 사이트 — 오답(탭 실제 존재). 웹 사이트 식별 정보(IP, 포트, 호스트 헤더), 연결 제한 등을 설정하는 탭으로 등록정보에 포함됩니다.\n② 디렉터리 보안 — 오답(탭 실제 존재). 익명 액세스 및 인증 제어, IP 주소 제한, 보안 통신(SSL) 등을 설정하는 탭으로 등록정보에 포함됩니다.\n③ 홈 디렉터리 — 오답(탭 실제 존재). 웹 사이트의 루트 경로, 읽기/쓰기/스크립트 실행 권한 등을 설정하는 탭으로 등록정보에 포함됩니다.\n④ LDAP 라우팅 — 정답(탭 존재하지 않음). 이 탭은 IIS의 SMTP 가상 서버 등록정보에 속하며, 웹 사이트 등록정보에는 없습니다.",
+      "concepts": [
+        "IIS 웹 사이트 등록정보 탭 구성",
+        "SMTP 가상 서버 LDAP 라우팅"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 620
+      },
+      "concept_ids": [
+        "iis-website-properties",
+        "smtp-mail-service"
+      ]
+    },
+    {
+      "number": 29,
+      "subject": "NOS",
+      "question": "Windows 2000 Server에서 DHCP에 대한 설명 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "클라이언트가 DHCP 서버에 접속하면 자동으로 게이트웨이 주소를 할당한다.",
+          "images": []
+        },
+        {
+          "text": "클라이언트가 DHCP 서버에 접속하면 자동으로 DNS 주소를 할당한다.",
+          "images": []
+        },
+        {
+          "text": "DHCP 서버에 접속하면 자동으로 IP Address를 할당한다.",
+          "images": []
+        },
+        {
+          "text": "DHCP 서버에 접속하면 자동으로 컴퓨터 이름을 할당한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\nDHCP는 클라이언트에 IP 주소, 서브넷 마스크, 게이트웨이, DNS 등 네트워크 설정 정보를 자동으로 할당하는 서비스입니다. 하지만 컴퓨터 이름이나 호스트명은 자동으로 부여하지 않습니다.\n\n정답 분석\n정답은 4번입니다. DHCP 서버의 기본 역할은 통신에 필요한 TCP/IP 구성 정보만을 자동으로 배포하는 것이며, 네트워크 상의 컴퓨터 이름(Computer Name)은 사용자가 직접 지정하거나 별도의 절차를 통해 결정되므로 DHCP가 할당하지 않습니다.\n\n오답 분석\n1. 오답. 기본 게이트웨이 주소는 DHCP 옵션 설정을 통해 클라이언트에 자동으로 할당됩니다.\n2. 오답. DNS 서버 주소 역시 DHCP 옵션을 통해 클라이언트가 자동으로 받아올 수 있는 정보입니다.\n3. 오답. 고정 또는 동적 IP 주소를 자동으로 할당하는 것은 DHCP 서비스의 핵심 기능입니다.\n4. 정답. 컴퓨터 이름은 네트워크 식별용 이름으로 DHCP의 할당 범주가 아니므로 틀린 설명입니다.",
+      "concepts": [
+        "DHCP 자동 할당 항목",
+        "컴퓨터 이름 할당 여부"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 497
+      },
+      "concept_ids": [
+        "dhcp-automatic-allocation",
+        "hostname-configuration"
+      ]
+    },
+    {
+      "number": 30,
+      "subject": "NOS",
+      "question": "Windows 2000 Server의 Active Directory 서비스를 효과적으로 설치하기 위해서 고려해야 할 조건으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "Active Directory 서비스는 대규모 네트워크에 적합하지 않으므로 소규모 네트워크 환경에 적용해야 한다.",
+          "images": []
+        },
+        {
+          "text": "Active Directory 설치 시 동적 업데이트를 지원하는 DHCP 서버가 필요하다.",
+          "images": []
+        },
+        {
+          "text": "Active Directory 서비스가 설치될 파티션은 NTFS 파일시스템으로 포맷되어 있어야 한다.",
+          "images": []
+        },
+        {
+          "text": "Active Directory는 관리자 계정의 암호 없이도 설치가 가능하다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 62,
+      "explanation_detailed": "핵심 개념\nActive Directory를 설치하기 위한 시스템 요구 조건, 특히 파일시스템과 관련 서비스 요구사항을 묻는 문제입니다.\n\n정답 분석\nActive Directory의 데이터베이스(NTDS.DIT)와 로그 파일은 NTFS 파티션에만 저장할 수 있습니다. NTFS는 파일 및 폴더 수준의 접근 제어(ACL), 보안 감사, 암호화 등을 지원하기 때문에 디렉터리 서비스의 보안 요구를 충족시킬 수 있습니다. FAT나 FAT32 파티션에는 Active Directory를 설치할 수 없으므로, 설치 전 반드시 NTFS로 포맷되어 있어야 합니다.\n\n오답 분석\n① 오답. Active Directory는 소규모보다 대규모 네트워크에 더 적합하도록 설계된 확장성 높은 디렉터리 서비스입니다. 수천~수만 개의 객체를 관리할 수 있습니다.\n② 오답. Active Directory 설치 시 필요한 것은 동적 업데이트(Dynamic Update)를 지원하는 DNS 서버입니다. DHCP 서버는 필수 요건이 아닙니다.\n③ 정답. Active Directory가 설치될 파티션은 반드시 NTFS 파일시스템이어야 합니다.\n④ 오답. Active Directory 설치 과정에서 도메인 관리자(Administrator) 계정의 암호 설정은 필수입니다. 암호 없이는 설치를 완료할 수 없습니다.",
+      "concepts": [
+        "Active Directory 설치 요구 조건",
+        "NTFS 파일 시스템 필수"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 660
+      },
+      "concept_ids": [
+        "active-directory-installation",
+        "ntfs-requirements-and-dependencies"
+      ]
+    },
+    {
+      "number": 31,
+      "subject": "NOS",
+      "question": "Windows 2000 Server에서 Active Directory에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "네트워크상의 파일과 디렉터리 등의 자료를 좀 더 효율적으로 관리하기 위해 사용한다.",
+          "images": []
+        },
+        {
+          "text": "Active Directory 설치와 삭제는 [시작] - [실행] - \"dcpromo\" 이다.",
+          "images": []
+        },
+        {
+          "text": "조직 단위를 생성시킬 수 있다.",
+          "images": []
+        },
+        {
+          "text": "DNS의 기능과 전혀 관계가 없다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 74,
+      "explanation_detailed": "핵심 개념\nActive Directory는 네트워크 자원을 중앙 집중식으로 관리하는 디렉터리 서비스이며, 도메인 컨트롤러의 위치 파악을 위해 DNS에 필수적으로 의존한다.\n정답 분석\nActive Directory는 도메인 컨트롤러간 통신 및 클라이언트가 컨트롤러를 찾을 때 DNS의 SRV 레코드를 사용한다. 설치 시 DNS 서버를 요구할 만큼 DNS와 밀접하게 연동되므로, DNS와 전혀 관계가 없다는 보기 ④는 명백히 틀린 설명이다.\n오답 분석\n① Active Directory는 파일·디렉터리·프린터 등 네트워크 자원을 효율적이고 체계적으로 관리하기 위해 사용하는 것이 맞다.\n② dcpromo 명령어를 통해 도메인 컨트롤러를 승격(promotion) 및 강등(demotion)하여 Active Directory를 설치·삭제할 수 있다.\n③ Active Directory는 관리 위임과 그룹 정책 적용을 위해 도메인 내에 조직 단위(Organizational Unit)를 생성할 수 있다.\n④ Active Directory는 DNS SRV 레코드를 통해 서비스 위치를 등록하므로 DNS와 밀접한 관계가 있다.",
+      "concepts": [
+        "Active Directory와 DNS의 연관성",
+        "dcpromo 명령어",
+        "조직 단위(Organization Unit)"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "dcpromo 설명에서 '강하게'는 '강등(demote)'의 오타로, 도메인 컨트롤러 강등 기능이 정확히 전달되지 않음",
+        "improved": true,
+        "prev_chars": 529
+      },
+      "concept_ids": [
+        "active-directory-trust-integration",
+        "dcpromo-command",
+        "active-directory-organizational-unit"
+      ]
+    },
+    {
+      "number": 32,
+      "subject": "NOS",
+      "question": "Windows 2000 Server의 인증 프로토콜로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "PPTP",
+          "images": []
+        },
+        {
+          "text": "EAP",
+          "images": []
+        },
+        {
+          "text": "MS-CHAP",
+          "images": []
+        },
+        {
+          "text": "CHAP",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server가 원격 접속 및 VPN 환경에서 지원하는 인증 프로토콜의 종류를 구분하는 문제다. 인증 프로토콜과 터널링(VPN) 프로토콜을 혼동하지 않는 것이 핵심이다.\n\n정답 분석\nPPTP(Point-to-Point Tunneling Protocol)는 VPN 터널을 생성하는 터널링 프로토콜이지, 사용자 신원을 검증하는 인증 프로토콜이 아니다. PPTP는 데이터를 캡슐화하여 공중망을 통해 사설망처럼 통신하게 해주는 역할을 하며, 인증 자체는 내부에서 별도의 인증 프로토콜(MS-CHAP 등)이 담당한다. 따라서 인증 프로토콜 목록에 PPTP를 포함시키는 것은 옳지 않다.\n\n오답 분석\n① PPTP: 정답(옳지 않은 것). 터널링 프로토콜이며 인증 프로토콜이 아니다.\n② EAP: 오답(틀린 보기 아님). Extensible Authentication Protocol로, Windows 2000 Server가 지원하는 확장형 인증 프로토콜이다. 스마트카드 등 다양한 인증 방식을 플러그인 형태로 수용한다.\n③ MS-CHAP: 오답(틀린 보기 아님). Microsoft가 CHAP을 확장한 인증 프로토콜로, Windows 환경의 원격 접속 인증에 사용되며 Windows 2000 Server가 공식 지원한다.\n④ CHAP: 오답(틀린 보기 아님). Challenge Handshake Authentication Protocol로, 챌린지-응답 방식으로 패스워드를 평문 전송하지 않고 인증한다. Windows 2000 Server의 표준 인증 프로토콜 중 하나다.",
+      "concepts": [
+        "Windows 2000 Server 인증 프로토콜",
+        "터널링 프로토콜과 인증 프로토콜의 구분",
+        "PPP 기반 인증 방식"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 781
+      },
+      "concept_ids": [
+        "windows-2000-server-authentication-protocol",
+        "tunneling-protocol",
+        "point-to-point-protocol"
+      ]
+    },
+    {
+      "number": 33,
+      "subject": "NOS",
+      "question": "Windows 2000 Server를 설치하거나 업그레이드 할 때 사용하는 응용프로그램의 호환성을 확인해야 한다. 인터넷을 지원하는 관련 프로그램을 사용하고자 할 때 유용한 방법으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "호환 가능한 소프트웨어 응용 프로그램을 검색한다.",
+          "images": []
+        },
+        {
+          "text": "Windows 2000 분석기 온라인 도구를 이용한다.",
+          "images": []
+        },
+        {
+          "text": "Windows 응용 호환 툴킷(Toolkit)을 이용한다.",
+          "images": []
+        },
+        {
+          "text": "멀티 부팅을 이용한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 74,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server 설치·업그레이드 시 응용 프로그램 호환성을 인터넷을 활용하여 확인하는 방법들을 묻는 문제입니다.\n\n정답 분석\n멀티 부팅은 하나의 PC에 여러 운영체제를 설치하여 선택적으로 부팅하는 방식입니다. 이는 호환성 문제를 우회하거나 병행 사용하는 수단이지, 응용 프로그램의 호환성을 사전에 확인하거나 검색하는 방법이 아닙니다. 또한 인터넷을 활용한 호환성 확인 방법과도 무관합니다. 따라서 문제에서 요구하는 조건인 인터넷 지원 기반 호환성 확인 방법에 해당하지 않아 정답입니다.\n\n오답 분석\n① 호환 가능한 소프트웨어 응용 프로그램을 검색한다 — 오답(정상 방법). Microsoft 공식 사이트 등 인터넷을 통해 Windows 2000과 호환되는 소프트웨어 목록을 검색하는 것은 유효한 호환성 확인 방법입니다.\n② Windows 2000 분석기 온라인 도구를 이용한다 — 오답(정상 방법). 인터넷 기반 온라인 분석 도구를 통해 현재 시스템의 하드웨어·소프트웨어 호환성을 사전에 점검할 수 있는 방법입니다.\n③ Windows 응용 호환 툴킷(Toolkit)을 이용한다 — 오답(정상 방법). Microsoft가 제공하는 호환 툴킷을 이용하면 기존 응용 프로그램이 Windows 2000에서 동작 가능한지 테스트하고 호환 레이어를 적용할 수 있습니다.\n④ 멀티 부팅을 이용한다 — 정답. 멀티 부팅은 여러 OS를 번갈아 실행하는 환경 구성 방법이며, 인터넷을 통한 호환성 확인과 무관합니다.",
+      "concepts": [
+        "Windows 2000 응용 프로그램 호환성 확인 도구",
+        "멀티 부팅의 목적과 한계"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 743
+      },
+      "concept_ids": [
+        "windows-2000-app-compatibility",
+        "multiboot"
+      ]
+    },
+    {
+      "number": 34,
+      "subject": "NOS",
+      "question": "Windows 2000 Server의 경우 재부팅이 필요한 경우가 아닌 것은?",
+      "choices": [
+        {
+          "text": "ISA 어뎁터 구성을 바꾸었을 때",
+          "images": []
+        },
+        {
+          "text": "사용자 계정을 추가 했을 때",
+          "images": []
+        },
+        {
+          "text": "DNS의 서픽스(Suffixes) 이름을 바꾸었을 때",
+          "images": []
+        },
+        {
+          "text": "Netware를 위한 게이트웨이 서비스를 제거했을 때",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server에서 설정 변경 후 재부팅이 필요한 경우와 필요하지 않은 경우를 구분하는 문제입니다.\n\n정답 분석\n사용자 계정 추가는 Active Directory 또는 로컬 계정 데이터베이스에 즉시 반영되는 작업으로, 재부팅 없이 곧바로 적용됩니다. Windows 2000은 계정 관련 변경사항을 런타임에 처리하도록 설계되어 있어, 계정을 추가하거나 삭제해도 시스템 재시작이 필요하지 않습니다.\n\n오답 분석\n① ISA 어댑터 구성 변경은 하드웨어 리소스(IRQ, I/O 포트, DMA 등) 재할당이 필요하며, 커널 수준에서 드라이버가 이를 반영하려면 재부팅이 필요합니다. 오답입니다.\n② 사용자 계정 추가는 재부팅 없이 즉시 적용되므로 정답입니다.\n③ DNS 접미사(Suffix) 이름 변경은 네트워크 식별자 설정에 해당하며, 변경 사항이 TCP/IP 스택에 반영되려면 재부팅이 필요합니다. 오답입니다.\n④ NetWare를 위한 게이트웨이 서비스(GSNW) 제거는 네트워크 서비스 구성요소를 시스템에서 언로드하는 작업으로 재부팅이 필요합니다. 오답입니다.",
+      "concepts": [
+        "재부팅 필요 조건",
+        "시스템 구성 변경",
+        "사용자 계정 관리"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 551
+      },
+      "concept_ids": [
+        "reboot-requirement",
+        "system-configuration",
+        "user-account-management"
+      ]
+    },
+    {
+      "number": 35,
+      "subject": "NOS",
+      "question": "Windows 2000 Server의 로컬그룹에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "Domain에 속한 모든 컴퓨터에, 로그온이 가능한 계정들의 그룹이다.",
+          "images": []
+        },
+        {
+          "text": "설치 시 자동으로 생성되어 진다.",
+          "images": []
+        },
+        {
+          "text": "로컬 그룹이 생성되어진 컴퓨터에 있는 자원에 대한 허가를 위하여 사용한다.",
+          "images": []
+        },
+        {
+          "text": "Windows 2000 Domain Controller에서도 로컬 그룹의 생성이 가능하다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 47,
+      "explanation_detailed": "핵심 개념\n- 로컬 그룹은 자신이 생성된 특정 컴퓨터의 자원에 대한 접근 권한을 부여하고 관리하기 위해 사용됩니다.\n\n정답 분석\n- 정답인 3번은 로컬 그룹의 가장 기본적인 목적이자 정의에 부합합니다. 로컬 그룹은 생성된 컴퓨터 내의 사용자 계정에 권한을 효율적으로 부여하여 파일, 폴더, 프린터 등의 로컬 자원을 관리하는 데 사용됩니다.\n\n오답 분석\n① (오답) 로컬 그룹은 생성된 해당 컴퓨터에서만 유효하며 도메인 전체의 모든 컴퓨터에 영향을 미치는 것은 아닙니다.\n② (오답) 일부 기본 제공 그룹(예: Administrators)은 자동 생성되지만, 로컬 그룹의 개념 자체가 설치 시 무조건 자동 생성되는 것은 아니며 관리자가 필요에 따라 생성합니다.\n③ (정답)\n④ (오답) 윈도우 2000 도메인 컨트롤러에서는 보안 데이터베이스의 구조상 로컬 그룹을 생성할 수 없고 도메인 로컬 그룹을 사용해야 합니다.",
+      "concepts": [
+        "로컬 그룹의 정의 및 목적",
+        "도메인 컨트롤러의 보안 데이터베이스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 455
+      },
+      "concept_ids": [
+        "local-group",
+        "domain-controller"
+      ]
+    },
+    {
+      "number": 36,
+      "subject": "NOS",
+      "question": "Windows 2000 Server 터미널 서비스에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "메인 프레임 컴퓨터처럼 한 대의 서버로 여러 명의 사용자에 PC 유형의 데스크 탑을 제공해 주는 서비스",
+          "images": []
+        },
+        {
+          "text": "사용자에게 파일을 전송해 주는 서비스",
+          "images": []
+        },
+        {
+          "text": "한 대의 컴퓨터에서 네트워크 내에 있는 다른 컴퓨터들에게 자동으로 Windows를 설치해 주는 서비스",
+          "images": []
+        },
+        {
+          "text": "네트워크 내에 있는 컴퓨터에 IP Address를 할당해 주는 서비스",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 63,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server의 터미널 서비스는 서버 한 대가 다수의 클라이언트에게 원격 데스크탑 환경을 제공하는 서비스로, 메인프레임의 중앙 집중식 처리 방식과 유사한 개념이다.\n\n정답 분석\n터미널 서비스는 클라이언트가 자체 연산 능력 없이도 서버에서 실행되는 Windows 데스크탑 환경을 원격으로 사용할 수 있게 해준다. 서버가 모든 처리를 담당하고, 클라이언트에는 화면·키보드·마우스 입출력만 전달된다. 이는 과거 메인프레임에 다수의 단말기(터미널)가 접속하던 방식과 구조적으로 동일하다.\n\n오답 분석\n① 정답. 서버 한 대로 여러 사용자에게 PC 형태의 데스크탑 환경을 제공하는 터미널 서비스의 정확한 설명이다.\n② 오답. 파일을 전송해 주는 서비스는 FTP 서비스에 해당한다.\n③ 오답. 네트워크를 통해 원격으로 Windows를 자동 설치해 주는 서비스는 RIS(Remote Installation Service)이다.\n④ 오답. 네트워크 내 컴퓨터에 IP 주소를 자동으로 할당해 주는 서비스는 DHCP 서비스이다.",
+      "concepts": [
+        "터미널 서비스의 개념",
+        "중앙 집중식 처리 구조"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 527
+      },
+      "concept_ids": [
+        "terminal-services",
+        "centralized-management"
+      ]
+    },
+    {
+      "number": 37,
+      "subject": "NOS",
+      "question": "보조 DNS(Domain Name System)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "도메인 데이터베이스 수정은 보조 DNS 서버와 주 DNS서버 동시에 이루어진다.",
+          "images": []
+        },
+        {
+          "text": "결함 허용을 위해 보조 DNS 서버를 이용한다.",
+          "images": []
+        },
+        {
+          "text": "여러 대의 보조 DNS 서버를 둘 수 있다.",
+          "images": []
+        },
+        {
+          "text": "주 DNS 서버가 다운되면 보조 DNS 서버 중 하나를 주 DNS 서버로 승격시킬 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n보조 DNS 서버는 주 DNS 서버의 데이터를 복제(영역 전송)하여 부하 분산과 결함 허용을 담당하며, 도메인 데이터베이스 수정 권한은 주 DNS 서버에만 있다.\n\n정답 분석\n도메인 데이터베이스(영역 파일)의 수정은 반드시 주 DNS 서버에서만 이루어진다. 보조 DNS 서버는 주 DNS 서버로부터 영역 전송(Zone Transfer)을 통해 데이터를 받아오는 읽기 전용 복사본이다. 따라서 \"주 DNS 서버와 보조 DNS 서버 동시에 수정된다\"는 설명은 틀렸다.\n\n오답 분석\n① 정답. 도메인 데이터베이스 수정은 주 DNS 서버에서만 가능하고, 보조 DNS 서버는 영역 전송으로 동기화할 뿐이므로 \"동시에 수정\"된다는 설명이 옳지 않다.\n② 옳은 설명. 주 DNS 서버 장애 시 보조 DNS 서버가 질의에 응답하여 서비스 연속성을 보장하므로 결함 허용(Fault Tolerance) 목적에 맞다.\n③ 옳은 설명. 보조 DNS 서버는 하나의 주 DNS 서버에 대해 여러 대를 구성할 수 있으며, 이를 통해 부하 분산과 가용성을 높인다.\n④ 옳은 설명. 주 DNS 서버가 장기간 다운된 경우 관리자가 보조 DNS 서버 중 하나를 주 DNS 서버로 승격(Promote)시켜 운영할 수 있다.",
+      "concepts": [
+        "주 및 보조 DNS 서버 권한 차이",
+        "DNS 영역 전송(Zone Transfer)",
+        "결함 허용(Fault Tolerance)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 614
+      },
+      "concept_ids": [
+        "dns-primary-secondary",
+        "dns-zone-transfer",
+        "fault-tolerance"
+      ]
+    },
+    {
+      "number": 38,
+      "subject": "NOS",
+      "question": "아래 화면의 [메시지] 탭에서 입력할 수 있는 내용으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "FTP 사이트를 처음 접속했을 때에 나타나는 메시지를 입력할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "FTP 사이트의 접속을 종료했을 때에 나타나는 메시지를 입력할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "거부된 IP Address나 도메인 이름에 보내는 메시지를 입력할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "접속자가 제한된 사용자 보다 많을 경우 나타나는 메시지를 입력할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n- FTP 서버의 속성 창 중 메시지 탭은 사용자의 접속 단계별 시스템 알림 메시지를 설정하는 기능이다.\n\n정답 분석\n- 3번 보기는 메시지 탭에서 설정할 수 없는 내용이므로 정답이다. 메시지 탭은 환영 인사, 종료, 최대 접속자 초과와 같은 일반적인 상태 메시지를 입력하는 곳이며, 특정 IP나 도메인에 대한 접속 거부 메시지는 보안 설정이나 IP 제한 영역에서 관리한다.\n\n오답 분석\n① 정답. FTP 사이트 접속 시 사용자에게 보여지는 배너나 환영 메시지를 입력할 수 있다.\n② 정답. 사용자가 FTP 연결을 끊거나 로그아웃할 때 보여지는 종료 메시지를 설정할 수 있다.\n③ 오답. 거부된 IP나 도메인에 대한 메시지는 메시지 탭이 아닌 IP 주소 및 도메인 제한 설정에서 처리한다.\n④ 정답. 동시 접속자 수가 제한을 초과했을 때 새로운 접속 시도자에게 알리는 메시지를 입력할 수 있다.",
+      "concepts": [
+        "IIS FTP 메시지 탭 설정",
+        "접속 단계별 알림 메시지",
+        "IP 및 도메인 제한 설정"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 450
+      },
+      "concept_ids": [
+        "iis-ftp-server",
+        "connection-stage-alert",
+        "ip-domain-restrictions"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "ICQA 등록 정보\n[FTP 사이트] [보안 계정] [메시지] [홈 디렉터리] [디렉터리 보안]\n\nFTP 사이트 메시지\n환영(W):\n\n끝내기(X):\n\n최대 연결 수(M):\n\n[확인]  [취소]  [적용(A)]  [도움말]"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "subject": "NOS",
+      "question": "Windows 2000 Server 멀티 부팅시 OS의 선택 시간을 “30초” 로 수정하려고 한다. 선택 시간을 수정하는 곳은?",
+      "choices": [
+        {
+          "text": "[시스템 등록 정보] - [고급 탭] - [성능 옵션]",
+          "images": []
+        },
+        {
+          "text": "[시스템 등록 정보] - [하드웨어 탭] - [환경 변수]",
+          "images": []
+        },
+        {
+          "text": "[시스템 등록 정보] - [고급 탭] - [시작 및 복구]",
+          "images": []
+        },
+        {
+          "text": "[시스템 등록 정보] - [하드웨어 탭] - [장치 관리자]",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server의 멀티 부팅 대기 시간은 [시스템 등록 정보]의 [고급] 탭 안에 있는 [시작 및 복구] 항목에서 설정한다.\n\n정답 분석\n[시작 및 복구] 대화상자에는 \"운영 체제 목록을 표시할 시간\"을 초 단위로 지정하는 입력란이 있다. 이 값을 30으로 바꾸면 멀티 부팅 메뉴가 30초 동안 표시된 뒤 기본 OS로 자동 진입한다. 내부적으로는 boot.ini 파일의 [boot loader] 섹션 timeout 값이 함께 수정된다.\n\n오답 분석\n① [고급 탭] - [성능 옵션]: 오답. 성능 옵션은 가상 메모리 크기, 프로세서 스케줄링 등 시스템 성능 관련 설정을 담당하며 부팅 대기 시간과 무관하다.\n② [하드웨어 탭] - [환경 변수]: 오답. 환경 변수는 [고급] 탭에 위치하며, PATH·TEMP 같은 시스템/사용자 환경 변수를 관리하는 곳으로 부팅 설정과 관계없다.\n③ [고급 탭] - [시작 및 복구]: 정답. 멀티 부팅 OS 선택 대기 시간을 직접 설정하는 항목이다.\n④ [하드웨어 탭] - [장치 관리자]: 오답. 장치 관리자는 하드웨어 드라이버 설치 및 상태 확인에 사용되며 부팅 시간 설정과 무관하다.",
+      "concepts": [
+        "멀티 부팅 OS 선택 시간 설정",
+        "시작 및 복구(Startup and Recovery)",
+        "boot.ini 파일 timeout 설정"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 590
+      },
+      "concept_ids": [
+        "multiboot",
+        "startup-and-recovery",
+        "boot-ini-timeout"
+      ]
+    },
+    {
+      "number": 40,
+      "subject": "NOS",
+      "question": "다른 운영체제와 Linux가 공존하는 하나의 시스템에서 멀티 부팅을 지원할 때 사용되며 Linux 로더를 의미하는 것은?",
+      "choices": [
+        {
+          "text": "MBR",
+          "images": []
+        },
+        {
+          "text": "RAS",
+          "images": []
+        },
+        {
+          "text": "NetBEUI",
+          "images": []
+        },
+        {
+          "text": "LILO",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\nLinux 부트로더(Boot Loader)는 운영체제를 메모리에 적재하는 프로그램으로, LILO(Linux Loader)는 리눅스에서 전통적으로 사용된 부트로더이며 멀티 부팅 환경을 지원한다.\n\n정답 분석\nLILO(Linux LOader)는 리눅스 전용 부트로더로, 시스템 시작 시 MBR 또는 부트 섹터에 설치되어 어느 운영체제로 부팅할지 선택하게 해준다. Windows와 Linux가 공존하는 멀티 부팅 환경에서 사용자가 부팅 시 운영체제를 선택할 수 있도록 관리하는 것이 LILO의 핵심 역할이다. 현재는 GRUB(Grand Unified Bootloader)에 자리를 내주었으나 시험에서 LILO는 리눅스 로더의 대표 키워드로 자주 출제된다.\n\n오답 분석\n① MBR(Master Boot Record)은 하드디스크의 첫 번째 섹터(512바이트)로, 부트로더가 저장되는 공간이다. 부트로더 자체가 아니라 부트로더가 설치되는 위치를 가리키므로 오답이다.\n② RAS(Remote Access Service)는 원격 접속 서비스로, 부팅과 관련이 없다. 오답이다.\n③ NetBEUI(NetBIOS Extended User Interface)는 LAN 환경에서 사용하던 네트워크 프로토콜로, 부트로더와 전혀 관련이 없다. 오답이다.\n④ LILO(Linux Loader)는 리눅스 로더를 의미하며 멀티 부팅을 지원하므로 정답이다.",
+      "concepts": [
+        "리눅스 부트로더",
+        "LILO(Linux Loader)",
+        "멀티 부팅"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 692
+      },
+      "concept_ids": [
+        "linux-boot-loader",
+        "lilo-boot-loader",
+        "multi-boot"
+      ]
+    },
+    {
+      "number": 41,
+      "subject": "NOS",
+      "question": "Linux 시스템 부팅과 함께 자동으로 마운트 되어야 할 항목과 옵션이 정의되어 있는 파일은?",
+      "choices": [
+        {
+          "text": "/etc/fstab",
+          "images": []
+        },
+        {
+          "text": "/usr/local",
+          "images": []
+        },
+        {
+          "text": "/mount/cdrom",
+          "images": []
+        },
+        {
+          "text": "/home/public_html",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\nLinux에서 부팅 시 자동 마운트할 파일시스템 목록과 마운트 옵션을 정의하는 설정 파일에 관한 문제이다.\n\n정답 분석\n/etc/fstab(filesystem table)은 시스템이 부팅될 때 커널이 읽어 자동으로 마운트할 장치, 마운트 포인트, 파일시스템 유형, 마운트 옵션, dump 여부, fsck 검사 순서를 한 줄씩 정의한 텍스트 파일이다. 예를 들어 루트 파티션, 스왑, 외부 저장장치 등 부팅마다 필요한 모든 마운트 정보가 이 파일 하나에 집약된다. mount 명령 실행 시 옵션을 생략하면 /etc/fstab의 설정을 그대로 사용한다.\n\n오답 분석\n① /etc/fstab — 정답. 부팅 시 자동 마운트 항목과 옵션이 정의된 파일이다.\n② /usr/local — 오답. 사용자가 직접 설치한 소프트웨어가 위치하는 디렉터리로, 마운트 설정과 무관하다.\n③ /mount/cdrom — 오답. CD-ROM의 마운트 포인트로 사용될 수 있는 경로이지만, 마운트 정책을 정의하는 설정 파일이 아니다.\n④ /home/public_html — 오답. 일반적으로 웹 서버 사용자의 홈 디렉터리 하위에 두는 웹 문서 경로이며, 마운트 설정과 전혀 관련이 없다.",
+      "concepts": [
+        "/etc/fstab(파일시스템 테이블)",
+        "부팅 시 자동 마운트 설정"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 598
+      },
+      "concept_ids": [
+        "etc-fstab",
+        "auto-mount-boot"
+      ]
+    },
+    {
+      "number": 42,
+      "subject": "NOS",
+      "question": "웹 브라우저에서 인터넷과 인트라넷을 경유한 프린팅을 가능하게 해주는 프로토콜은?",
+      "choices": [
+        {
+          "text": "IPP",
+          "images": []
+        },
+        {
+          "text": "SMTP",
+          "images": []
+        },
+        {
+          "text": "NNTP",
+          "images": []
+        },
+        {
+          "text": "TFTP",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n- IPP(Internet Printing Protocol)는 인터넷이나 인트라넷을 경유하여 원격지의 프린터로 인쇄 작업을 보낼 수 있게 해주는 네트워크 프로토콜입니다.\n정답 분석\n- IPP는 HTTP 프로토콜을 기반으로 동작하므로 웹 브라우저 환경에서 원격 프린팅을 수행할 수 있습니다. 이를 통해 사용자는 네트워크상의 프린터 상태를 확인하거나 관리하고 웹을 통해 인쇄 명령을 전달할 수 있습니다.\n오답 분석\n- ① IPP: 인터넷 프린팅 프로토콜로 웹 브라우저를 통한 원격 프린팅을 지원하므로 정답입니다.\n- ② SMTP: 전자 메일을 전송하고 송수신하기 위해 사용하는 프로토콜입니다.\n- ③ NNTP: 인터넷 뉴스 그룹에 기사를 전달하고 읽기 위한 프로토콜입니다.\n- ④ TFTP: 복잡한 인증 절차 없이 소규모 파일을 전송할 때 사용하는 UDP 기반의 프로토콜입니다.",
+      "concepts": [
+        "IPP(인터넷 프린팅 프로토콜)",
+        "웹 기반 원격 프린팅"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "IPP의 정확한 명칭(Internet Printing Protocol) 명시가 빠져 있고, 드라이버 없이 가능하다는 오해의 소지가 있는 설명임.",
+        "improved": true,
+        "prev_chars": 425
+      },
+      "concept_ids": [
+        "ipp-protocol",
+        "web-based-remote-printing"
+      ]
+    },
+    {
+      "number": 43,
+      "subject": "NOS",
+      "question": "Windows 2000 Server에서 계정 잠금에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "사용자가 여러 번 로그인에 실패하였을 때 해당 사용자의 계정을 파기한다.",
+          "images": []
+        },
+        {
+          "text": "잠금이 발생한 이후에는 반드시 관리자에 의해 해당 잠금이 풀려야 한다.",
+          "images": []
+        },
+        {
+          "text": "잠금이 발생하기 위한 로그인 실패 횟수는 관리자에 의해 설정될 수 있다.",
+          "images": []
+        },
+        {
+          "text": "Windows 2000 Server는 계정 잠금을 지원하지 않는다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 71,
+      "explanation_detailed": "핵심 개념\nWindows 2000 Server의 계정 잠금(Account Lockout) 정책은 로그인 실패 횟수, 잠금 지속 시간, 초기화 시간 등을 관리자가 직접 설정할 수 있는 보안 기능이다.\n\n정답 분석\n③ 계정 잠금이 발생하기 위한 로그인 실패 횟수(Account Lockout Threshold)는 관리자가 그룹 정책(Group Policy) 또는 로컬 보안 정책에서 자유롭게 설정할 수 있다. 기본값은 0(잠금 없음)이며, 관리자가 원하는 횟수(예: 3회, 5회 등)로 지정하면 해당 횟수 초과 시 계정이 잠긴다. 이 설정 가능성이 계정 잠금 정책의 핵심이다.\n\n오답 분석\n① 오답. 계정 잠금은 계정을 파기(삭제)하지 않는다. 일시적으로 로그인을 차단하는 것이며, 잠금 해제 후 계정은 그대로 유지된다.\n② 오답. 잠금 지속 시간(Account Lockout Duration)을 0 이상의 분(分)으로 설정하면 지정 시간이 지난 후 자동으로 잠금이 해제된다. 반드시 관리자가 수동으로 풀어야 하는 것은 아니다(Duration을 0으로 설정한 경우에만 관리자 해제 필수).\n③ 정답. 위 정답 분석 참조.\n④ 오답. Windows 2000 Server는 계정 잠금 정책을 정식으로 지원한다. 로컬 보안 정책 및 도메인 그룹 정책을 통해 설정 가능하다.",
+      "concepts": [
+        "계정 잠금 정책",
+        "계정 잠금 임계값",
+        "그룹 정책"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 651
+      },
+      "concept_ids": [
+        "account-lockout-policy",
+        "account-lockout-threshold",
+        "group-policy"
+      ]
+    },
+    {
+      "number": 44,
+      "subject": "NOS",
+      "question": "관리자가 계정을 만들지 않더라도 자동으로 Windows 2000 Server 설치와 함께 만들어지는 계정은?",
+      "choices": [
+        {
+          "text": "글로벌 사용자 계정",
+          "images": []
+        },
+        {
+          "text": "내장된(BUILT-IN) 계정",
+          "images": []
+        },
+        {
+          "text": "외부 사용자 계정",
+          "images": []
+        },
+        {
+          "text": "도메인 사용자 계정",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\n- 윈도우즈 2000 서버 설치 시 관리자가 생성하지 않아도 기본적으로 시스템에 의해 자동으로 만들어지는 계정의 유형을 의미합니다.\n\n정답 분석\n- 내장된 계정은 운영체제 설치 과정에서 자동으로 생성되는 계정으로, 시스템 전체를 관리하는 Administrator 계정과 일반 사용자가 임시로 사용하는 Guest 계정이 여기에 해당합니다.\n\n오답 분석\n- ① 글로벌 사용자 계정: 오답입니다. 도메인 전체에서 로그온 권한을 가지는 사용자 계정 유형을 지칭하며 설치 시 자동 생성되는 개념이 아닙니다.\n- ② 내장된(BUILT-IN) 계정: 정답입니다.\n- ③ 외부 사용자 계정: 오답입니다. 외부 도메인 사용자를 의미하는 것으로 설치 과정에서 기본적으로 생성되지 않습니다.\n- ④ 도메인 사용자 계정: 오답입니다. 도메인에 가입한 네트워크 사용자를 위한 계정으로, 관리자가 필요에 따라 직접 생성해야 하는 계정입니다.",
+      "concepts": [
+        "내장된 계정 (Built-in Account)",
+        "Administrator 및 Guest 계정",
+        "글로벌 및 도메인 사용자 계정"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 462
+      },
+      "concept_ids": [
+        "builtin-default-accounts",
+        "windows-builtin-accounts",
+        "global-domain-accounts"
+      ]
+    },
+    {
+      "number": 45,
+      "subject": "NOS",
+      "question": "Linux 시스템에서 실행된 명령의 출력을 다른 명령의 입력으로 보내기 위해 사용되는 기능은?",
+      "choices": [
+        {
+          "text": "파이프(Pipe)",
+          "images": []
+        },
+        {
+          "text": "리다이렉션(Redirection)",
+          "images": []
+        },
+        {
+          "text": "포워딩(Forwarding)",
+          "images": []
+        },
+        {
+          "text": "시그널(Signal)",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 47,
+      "explanation_detailed": "핵심 개념\n리눅스(Linux) 셸(Shell)에서 파이프(|)는 한 명령의 표준 출력 결과를 다른 명령의 표준 입력으로 직접 전달하여 연속적인 명령 처리를 가능하게 하는 기능입니다.\n정답 분석\n① 파이프(Pipe)는 '|' 기호를 사용하여 두 개의 명령어를 연결합니다. 예를 들어 'ls -l | grep txt' 명령은 'ls -l'의 출력 결과를 'grep'의 입력 값으로 전달하여 txt가 포함된 결과만 필터링해 보여줍니다. 이처럼 실행된 명령의 출력을 다른 명령의 입력으로 보내기 위해 사용되는 핵심 기능입니다.\n오답 분석\n① 파이프(Pipe) — 정답입니다. 앞 명령의 출력을 뒤 명령의 입력으로 연결합니다.\n② 리다이렉션(Redirection) — 오답입니다. 명령의 결과를 파일로 보내거나(>) 파일에서 입력을 받는(<) 기능입니다.\n③ 포워딩(Forwarding) — 오답입니다. 네트워크 패킷을 다른 경로로 전달하거나 중계하는 네트워크 개념입니다.\n④ 시그널(Signal) — 오답입니다. 프로세스에게 특정 이벤트(Ctrl+C 등)를 알리는 소프트웨어 인터럽트입니다.",
+      "concepts": [
+        "파이프 (Pipe)",
+        "리다이렉션 (Redirection)",
+        "표준 입출력 연결"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "오답 분석 섹션에 정답인 1번 보기가 중복으로 잘못 기재됨",
+        "improved": true,
+        "prev_chars": 622
+      },
+      "concept_ids": [
+        "pipe-process-filtering",
+        "redirection",
+        "standard-io"
+      ]
+    },
+    {
+      "number": 46,
+      "subject": "네트워크운용기기",
+      "question": "Router에 대한 설명 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "TCP/IP 트래픽을 Routing 하도록 구성할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "네트워크를 분리하는데 사용할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "목적지 주소를 보고 그 목적지까지의 최적의 경로를 설정해 준다.",
+          "images": []
+        },
+        {
+          "text": "서로 다른 프로토콜이나 운영체제를 사용하는 노드가 있을 경우 상호 연결시켜 준다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 49,
+      "explanation_detailed": "핵심 개념\n라우터(Router)의 주요 기능과 한계를 이해하고, 게이트웨이(Gateway)와의 역할 차이를 구별하는 문제이다.\n\n정답 분석\n④번은 게이트웨이(Gateway)에 대한 설명이다. 서로 다른 프로토콜이나 운영체제를 사용하는 이기종 네트워크 간에 데이터를 변환하고 상호 연결하는 장비는 게이트웨이이다. 라우터는 동일한 프로토콜 계층(3계층, 네트워크 계층)에서 동작하며, 프로토콜 변환 기능은 수행하지 않는다.\n\n오답 분석\n① TCP/IP 트래픽을 Routing 하도록 구성할 수 있다 — 옳은 설명이다. 라우터의 핵심 기능 중 하나로, IP 주소 기반으로 패킷을 라우팅한다.\n② 네트워크를 분리하는데 사용할 수 있다 — 옳은 설명이다. 라우터는 브로드캐스트 도메인을 분리하여 네트워크를 논리적으로 구분한다.\n③ 목적지 주소를 보고 그 목적지까지의 최적의 경로를 설정해 준다 — 옳은 설명이다. 라우팅 테이블을 참조하여 최적 경로로 패킷을 전달하는 것이 라우터의 핵심 역할이다.\n④ 서로 다른 프로토콜이나 운영체제를 사용하는 노드가 있을 경우 상호 연결시켜 준다 — 틀린 설명이다. 이는 게이트웨이의 기능이며, 라우터는 프로토콜 변환 없이 동일 프로토콜 환경에서 경로 결정만 수행한다.",
+      "concepts": [
+        "라우터의 주요 기능",
+        "게이트웨이와 라우터의 역할 차이",
+        "IP 주소 기반 패킷 라우팅"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 612
+      },
+      "concept_ids": [
+        "router-operation-basics",
+        "gateway-router-difference",
+        "ip-routing"
+      ]
+    },
+    {
+      "number": 47,
+      "subject": "네트워크운용기기",
+      "question": "Dummy Hub에 관한 장점 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "신호를 재생 및 증폭한다.",
+          "images": []
+        },
+        {
+          "text": "네트워크 확장이 용이하다.",
+          "images": []
+        },
+        {
+          "text": "PC의 수가 증가하여도 특정 전송 속도를 보장한다.",
+          "images": []
+        },
+        {
+          "text": "네트워크에 연결된 각 PC를 트리 구조로 연결하는데 사용된다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 60,
+      "explanation_detailed": "핵심 개념\nDummy Hub는 OSI 1계층(물리 계층) 장비로, 연결된 모든 포트에 신호를 단순 복제·전달하며 대역폭을 모든 연결 장치가 공유한다.\n\n정답 분석\n③은 옳지 않은 내용이므로 정답이다. Dummy Hub는 연결된 모든 PC가 하나의 충돌 도메인(Collision Domain)을 형성하여 대역폭을 공유한다. 따라서 PC 수가 늘어날수록 충돌이 잦아지고 실제 전송 속도는 낮아지며, 특정 전송 속도를 보장하는 것은 불가능하다. 보장된 대역폭이 필요하다면 스위치(Switch)를 사용해야 한다.\n\n오답 분석\n① 옳은 내용이다. Hub는 리피터(Repeater) 기능을 포함하여 수신한 신호를 재생·증폭한 뒤 다른 모든 포트로 전달한다.\n② 옳은 내용이다. Hub에 케이블만 연결하면 추가 PC를 간편하게 붙일 수 있어 네트워크 확장이 쉽다.\n③ 옳지 않은 내용이다(정답). PC 수가 증가하면 대역폭이 분산되어 전송 속도가 저하되므로 특정 속도를 보장할 수 없다.\n④ 옳은 내용이다. Hub를 중심 노드로 삼아 각 PC를 방사형(Star) 또는 계층적 트리 구조로 연결하는 데 사용된다.",
+      "concepts": [
+        "더미 허브의 대역폭 공유 원리",
+        "충돌 도메인(Collision Domain)",
+        "허브와 스위치의 전송 속도 보장 차이"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 558
+      },
+      "concept_ids": [
+        "hub",
+        "collision-domain",
+        "hub-vs-switch"
+      ]
+    },
+    {
+      "number": 48,
+      "subject": "네트워크운용기기",
+      "question": "이기종간의 신호나 커넥터의 연결 형태를 다른 형태로 바꾸어 주는 장비로서, LAN과 WAN에서 함께 쓰이는 인터네트워킹 장비는?",
+      "choices": [
+        {
+          "text": "Bridge",
+          "images": []
+        },
+        {
+          "text": "Repeater",
+          "images": []
+        },
+        {
+          "text": "Gateway",
+          "images": []
+        },
+        {
+          "text": "Router",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n- 서로 다른 프로토콜이나 전송 방식을 사용하는 이기종 네트워크를 연결하고 신호 및 데이터 형식을 변환해 주는 고계층 인터네트워킹 장비의 정의입니다.\n\n정답 분석\n- 게이트웨이는 OSI 7계층 중 상위 계층(주로 응용 계층)에서 작동하며 서로 전혀 다른 프로토콜 구조를 가진 네트워크 간의 연결을 담당합니다. LAN과 WAN을 연결하거나 이기종 간의 신호 형태를 변환하여 주는 기능을 수행하므로 문제의 조건에 가장 부합합니다.\n\n오답 분석\n- ① 오답, 데이터링크 계층에서 동작하며 동일한 프로토콜을 사용하는 LAN 세그먼트들을 연결하고 트래픽을 제어하는 장비입니다.\n- ② 오답, 물리 계층에서 동작하여 감쇠된 신호를 증폭 및 재생하여 전송 거리를 연장하는 장비로 프로토콜 변환 기능이 없습니다.\n- ③ 정답, 이기종 네트워크 간의 프로토콜 변환 및 연결을 수행하는 장비입니다.\n- ④ 오답, 네트워크 계층에서 동작하여 최적의 경로를 결정하고 패킷을 전달하는 장비로, 서로 다른 프로토콜 간의 변환은 수행하지 못합니다.",
+      "concepts": [
+        "게이트웨이의 정의 및 특징",
+        "이기종 네트워크 프로토콜 변환",
+        "인터네트워킹 장비의 계층별 역할"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 521
+      },
+      "concept_ids": [
+        "gateway",
+        "heterogeneous-network-bridge",
+        "internetworking-equipment"
+      ]
+    },
+    {
+      "number": 49,
+      "subject": "네트워크운용기기",
+      "question": "유선통신 전송 매체로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "Coaxial",
+          "images": []
+        },
+        {
+          "text": "Twisted Pair",
+          "images": []
+        },
+        {
+          "text": "Micro Wave",
+          "images": []
+        },
+        {
+          "text": "Optical Fiber",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 71,
+      "explanation_detailed": "핵심 개념\n유선통신 전송 매체는 물리적 케이블을 통해 신호를 전달하는 매체를 말한다. 무선통신 매체와 구분할 수 있어야 하며, 대표적인 유선 매체로는 동축케이블, 연선(꼬임쌍선), 광섬유 케이블이 있다.\n\n정답 분석\n③ Micro Wave(마이크로파)는 전자기파를 공기 중으로 방사하여 신호를 전달하는 무선통신 매체다. 물리적 케이블이 전혀 없으며, 주로 위성통신이나 장거리 중계 통신에 사용된다. 유선 매체가 아니므로 이 문제의 정답이다.\n\n오답 분석\n① Coaxial(동축케이블) — 유선 매체가 맞으므로 오답이 아니다. 중심 도체 주위를 절연체와 외부 도체로 감싼 구조로, TV 케이블이나 구형 LAN에 사용된다.\n② Twisted Pair(연선, 꼬임쌍선) — 유선 매체가 맞으므로 오답이 아니다. 두 가닥의 구리선을 꼬아 잡음을 줄인 케이블로, 현재 가장 널리 쓰이는 LAN 케이블(UTP/STP)이 이에 해당한다.\n③ Micro Wave(마이크로파) — 무선 매체이므로 정답이다. 공기 중으로 신호를 송출하며, 물리적 선로가 존재하지 않는다.\n④ Optical Fiber(광섬유) — 유선 매체가 맞으므로 오답이 아니다. 빛 신호를 유리나 플라스틱 섬유 내부로 전달하며, 고속·장거리 전송에 유리하다.",
+      "concepts": [
+        "유선통신 전송 매체 종류",
+        "무선통신 매체와의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 622
+      },
+      "concept_ids": [
+        "wired-transmission-media",
+        "wireless-communication-media"
+      ]
+    },
+    {
+      "number": 50,
+      "subject": "네트워크운용기기",
+      "question": "주로 단독주택의 초고속 인터넷에 사용되는 기술로 기존에 설치된 Cable TV 회선을 이용하여 인터넷을 이용할 수 있는 기술은?",
+      "choices": [
+        {
+          "text": "Ethernet",
+          "images": []
+        },
+        {
+          "text": "VDSL",
+          "images": []
+        },
+        {
+          "text": "ADSL",
+          "images": []
+        },
+        {
+          "text": "HFC",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 35,
+      "explanation_detailed": "핵심 개념\nCable TV 동축케이블 인프라를 재활용해 초고속 인터넷을 제공하는 HFC(Hybrid Fiber Coaxial) 기술의 특징과 용도를 묻는 문제다.\n\n정답 분석\nHFC(Hybrid Fiber Coaxial)는 광섬유(Fiber)와 동축케이블(Coaxial)을 혼합한 방식으로, 기존에 가정에 설치된 Cable TV 회선을 그대로 활용해 인터넷 서비스를 제공한다. 케이블 모뎀을 통해 연결하며, 단독주택처럼 Cable TV 인프라가 깔려 있는 환경에서 별도 공사 없이 초고속 인터넷을 사용할 수 있다는 것이 핵심 장점이다.\n\n오답 분석\n① Ethernet — 오답. LAN 환경에서 사용하는 유선 네트워크 기술로, 가정 내부 네트워크 연결에 쓰이며 Cable TV 회선과는 무관하다.\n② VDSL — 오답. 기존 전화선(구리선)을 이용하는 초고속 DSL 기술로, Cable TV 회선이 아닌 전화망 인프라를 활용한다.\n③ ADSL — 오답. 마찬가지로 전화선을 이용하는 비대칭 DSL 기술이다. 다운로드 속도가 업로드보다 빠르며, Cable TV 회선과는 관련 없다.\n④ HFC — 정답. Hybrid Fiber Coaxial의 약자로, Cable TV 동축케이블망을 그대로 활용해 초고속 인터넷을 제공하는 기술이다.",
+      "concepts": [
+        "HFC (Hybrid Fiber Coaxial)",
+        "Cable TV망 기반 초고속 인터넷 기술"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 632
+      },
+      "concept_ids": [
+        "hfc",
+        "cable-internet"
+      ]
+    }
+  ],
+  "source_site": "cbtbank.kr",
+  "source_url": "https://cbtbank.kr/exam/"
+}

@@ -133,7 +133,7 @@ const DONATE = { url: '', label: '후원하기' };
 const EXAM_GROUP = {
   s2: '사회·통계',
   g1: '부동산', g2: '부동산',
-  iz: 'IT', c1: 'IT',
+  iz: 'IT', c1: 'IT', c2: 'IT', nw: 'IT', pi: 'IT',
   sa: '안전·전기', kt: '안전·전기', nd: '안전·전기',
   k1: '인문',
   sw: '복지·노무', jc: '복지·노무',
@@ -566,7 +566,8 @@ async function renderHome(root){
 function fillExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
-                     jc:'직상2', j1:'주택1', j2:'주택2' };
+                     jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
+                     pi:'정처산' };
   // per-exam correct count from localStorage (맞춘 갯수)
   const correctFor = (code) => {
     let n = 0;
@@ -1761,7 +1762,8 @@ async function renderConcepts(root){
 function fillConceptsExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
-                     jc:'직상2', j1:'주택1', j2:'주택2' };
+                     jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
+                     pi:'정처산' };
   root.querySelector('#conceptsExamList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">

@@ -1,0 +1,2125 @@
+{
+  "exam": "네트워크관리사 2급",
+  "dbname": "nw",
+  "date": "20251102",
+  "label": "2025년11월02일",
+  "count": 50,
+  "questions": [
+    {
+      "number": 1,
+      "subject": "TCP/IP",
+      "question": "TLS를 통해 애플리케이션 계층 데이터를 암호화하여 보호하며, 기본 포트가 443으로 지정된 프로토콜은?",
+      "choices": [
+        {
+          "text": "HTTPS",
+          "images": []
+        },
+        {
+          "text": "HTTP",
+          "images": []
+        },
+        {
+          "text": "FTP",
+          "images": []
+        },
+        {
+          "text": "SSH",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 90,
+      "explanation_detailed": "핵심 개념\nHTTPS는 HTTP에 TLS(Transport Layer Security) 암호화를 적용한 프로토콜로, 웹 통신의 기밀성·무결성·인증을 보장하며 기본 포트는 443이다.\n\n정답 분석\nHTTPS(HyperText Transfer Protocol Secure)는 TLS(또는 이전 명칭인 SSL)를 사용해 애플리케이션 계층의 HTTP 데이터를 암호화한다. 클라이언트와 서버 사이에 TLS 핸드셰이크로 세션 키를 협상한 뒤, 그 위에서 HTTP 메시지를 암호화된 상태로 주고받는다. IANA에서 공식적으로 443/TCP를 HTTPS의 기본 포트로 지정하고 있어 세 조건(TLS 암호화, 애플리케이션 계층 보호, 포트 443)을 모두 만족한다.\n\n오답 분석\n① HTTPS — 정답. TLS로 HTTP를 암호화하며 기본 포트 443을 사용한다.\n② HTTP — 오답. 암호화 없이 평문으로 데이터를 전송하며 기본 포트는 80이다.\n③ FTP — 오답. 파일 전송 프로토콜로 기본 포트는 21(제어)·20(데이터)이며, TLS와 결합한 변형은 FTPS라 부른다.\n④ SSH — 오답. 원격 셸 접속과 터널링에 쓰이는 프로토콜로 기본 포트는 22이며, 애플리케이션 계층 데이터를 TLS로 보호하는 구조가 아니다.",
+      "concepts": [
+        "HTTPS 프로토콜",
+        "TLS 암호화",
+        "웹 서비스 기본 포트(443)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 622
+      },
+      "concept_ids": [
+        "https-ssl-tls",
+        "tls",
+        "web-service-port"
+      ]
+    },
+    {
+      "number": 2,
+      "subject": "TCP/IP",
+      "question": "IPv6 주소 ′a184:0a01:0000:0000:cd8c:1000:317b:00ff′를 생략하여 표기한 것으로 알맞은 것은?",
+      "choices": [
+        {
+          "text": "a184:a1::cd8c:1:317b:ff",
+          "images": []
+        },
+        {
+          "text": "a184:a01::cd8c:1000:317b:ff",
+          "images": []
+        },
+        {
+          "text": "a184:a01:0:0:cd8c:10:317b:0ff",
+          "images": []
+        },
+        {
+          "text": "a184:a01:cd8c:1000:317b:ff",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 81,
+      "explanation_detailed": "핵심 개념\nIPv6 주소 약식 표기 규칙: 각 그룹 내 앞쪽(leading) 0은 제거할 수 있고, 연속된 전부-0 그룹은 한 번에 한해 ::으로 대체할 수 있다.\n\n정답 분석\n원래 주소 a184:0a01:0000:0000:cd8c:1000:317b:00ff를 그룹별로 처리하면, 0a01은 앞쪽 0을 제거해 a01이 되고, 0000:0000 두 그룹은 연속이므로 ::으로 대체하며, 1000은 앞쪽 0이 없으므로 그대로 유지하고, 00ff는 앞쪽 0 두 개를 제거해 ff가 된다. 이 결과가 정확히 a184:a01::cd8c:1000:317b:ff이므로 ②번이 정답이다.\n\n오답 분석\n① 오답. 0a01을 a01이 아닌 a1로 표기했고, 1000을 1로 줄였는데 뒤쪽(trailing) 0은 제거할 수 없으므로 두 군데 모두 규칙 위반이다.\n② 정답. 모든 약식 표기 규칙이 올바르게 적용되었다.\n③ 오답. 1000을 10으로 줄인 것이 결정적 오류다(뒤쪽 0 제거 불가). 추가로 00ff는 0ff가 아닌 ff로 써야 하며, 0:0 표기는 :: 미사용으로 완전한 생략이 아니다.\n④ 오답. IPv6 주소는 반드시 8개 그룹이어야 하는데 이 보기는 6개 그룹만 있고 :: 표기도 없다. 두 그룹이 흔적 없이 사라진 구조적으로 잘못된 표기다.",
+      "concepts": [
+        "IPv6 주소 약식 표기 규칙",
+        "앞쪽 0(Leading Zero) 제거",
+        "연속된 0 그룹의 이중 콜론(::) 생략"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 639
+      },
+      "concept_ids": [
+        "ipv6-address-notation-abbreviation",
+        "ipv6-address-notation",
+        "ipv6-double-colon-notation"
+      ]
+    },
+    {
+      "number": 3,
+      "subject": "TCP/IP",
+      "question": "UDP 계열 프로토콜로, 원격 관리에 필요한 정보와 서버상태를 관리하는 것은?",
+      "choices": [
+        {
+          "text": "FTP",
+          "images": []
+        },
+        {
+          "text": "DHCP",
+          "images": []
+        },
+        {
+          "text": "BOOTP",
+          "images": []
+        },
+        {
+          "text": "SNMP",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 69,
+      "explanation_detailed": "핵심 개념\nSNMP(Simple Network Management Protocol)는 UDP 기반의 프로토콜로, 네트워크 장비의 상태 모니터링과 원격 관리를 위해 설계되었다.\n\n정답 분석\nSNMP는 UDP 포트 161/162를 사용하며, 네트워크 관리자가 라우터·스위치·서버 등 장비의 상태 정보를 수집하고 설정을 변경할 수 있게 한다. 장비별 관리 정보는 MIB(Management Information Base)라는 데이터베이스 구조로 정의되며, 관리 시스템(NMS)과 에이전트 간의 Get/Set/Trap 메시지로 통신한다. UDP를 사용하는 이유는 관리 트래픽의 오버헤드를 최소화하고 장애 상황에서도 메시지를 빠르게 전송하기 위해서다.\n\n오답 분석\n① FTP: 오답. 파일 전송 프로토콜로 TCP 기반이며, 네트워크 장비 관리 기능이 없다.\n② DHCP: 오답. 클라이언트에게 IP 주소를 자동 할당하는 프로토콜로 UDP 기반이지만, 장비 상태 관리 기능은 없다.\n③ BOOTP: 오답. DHCP의 전신으로 IP 주소 부트스트랩에 사용되는 UDP 프로토콜이며, 원격 관리·상태 모니터링과는 무관하다.\n④ SNMP: 정답. UDP 기반으로 네트워크 장비의 원격 관리 정보 수집과 서버 상태 관리를 담당한다.",
+      "concepts": [
+        "SNMP(간이 망 관리 프로토콜)",
+        "UDP 기반 관리 포트(161/162)",
+        "네트워크 장비 상태 모니터링"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 622
+      },
+      "concept_ids": [
+        "snmp",
+        "udp-based-protocols",
+        "network-device-management-and-monitoring"
+      ]
+    },
+    {
+      "number": 4,
+      "subject": "TCP/IP",
+      "question": "ICMP(Internet Control Message Protocol)에 대한 설명 중 올바른 것은?",
+      "choices": [
+        {
+          "text": "예외적으로 발생되는 이벤트에 대해 이를 알릴 수 있도록 지원하는 프로토콜이 없다.",
+          "images": []
+        },
+        {
+          "text": "비대칭 프로토콜이고 TTL(Time To Live)를 제공한다.",
+          "images": []
+        },
+        {
+          "text": "네트워크 간 장비들의 오류 상황에 대해 공유할 수 있는 기능이 있다.",
+          "images": []
+        },
+        {
+          "text": "호스트의 물리적 주소를 제공한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 62,
+      "explanation_detailed": "핵심 개념\nICMP는 IP 프로토콜의 오류 보고 및 진단을 담당하는 프로토콜로, 네트워크 장비 간 오류 상황을 알리는 역할을 한다.\n\n정답 분석\n③ ICMP는 라우터, 호스트 등 네트워크 장비들이 전송 오류(목적지 도달 불가, 시간 초과 등)를 발신자에게 알릴 수 있도록 설계된 프로토콜이다. 즉, 네트워크 간 장비들이 오류 상황을 서로 공유하고 보고하는 기능을 핵심으로 한다.\n\n오답 분석\n① 오답. ICMP 자체가 바로 예외적 이벤트(오류, 혼잡, 도달 불가 등)를 알리기 위해 존재하는 프로토콜이다. \"지원하는 프로토콜이 없다\"는 설명은 완전히 반대다.\n② 오답. ICMP는 대칭 프로토콜(요청-응답 쌍)이며, TTL은 IP 헤더의 필드이지 ICMP가 제공하는 기능이 아니다.\n③ 정답. ICMP의 핵심 기능인 오류 보고를 올바르게 설명하고 있다.\n④ 오답. 물리적 주소(MAC 주소)를 제공하는 것은 ARP(Address Resolution Protocol)의 역할이다. ICMP는 물리 주소와 무관하다.",
+      "concepts": [
+        "ICMP의 역할 및 특징",
+        "ARP와 ICMP의 비교",
+        "대칭 프로토콜"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 510
+      },
+      "concept_ids": [
+        "icmp-protocol",
+        "arp-vs-icmp",
+        "encryption"
+      ]
+    },
+    {
+      "number": 5,
+      "subject": "TCP/IP",
+      "question": "TCP Header의 flag 값 중 3-way handshake의 첫 번째 단계인 세션 성립 요청 패킷에 설정되는 flag 값은?",
+      "choices": [
+        {
+          "text": "RST",
+          "images": []
+        },
+        {
+          "text": "ACK",
+          "images": []
+        },
+        {
+          "text": "URG",
+          "images": []
+        },
+        {
+          "text": "SYN",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 65,
+      "explanation_detailed": "핵심 개념\nTCP 3-way handshake에서 첫 번째 단계는 클라이언트가 서버에 연결을 요청하는 SYN 패킷을 보내는 것이다. TCP 헤더의 플래그 필드는 연결의 상태와 제어 정보를 나타낸다.\n\n정답 분석\nSYN(Synchronize) 플래그는 TCP 연결 설립을 요청할 때 사용된다. 3-way handshake의 첫 번째 단계에서 클라이언트는 SYN=1로 설정된 패킷을 서버에 전송하여 연결을 시작한다. 이 패킷에는 초기 순서 번호(ISN, Initial Sequence Number)가 포함되어 있어 이후 데이터 전송의 기준이 된다.\n\n오답 분석\n① RST — 오답. Reset의 약자로, 비정상적인 연결을 강제로 종료할 때 사용하는 플래그다. 연결 요청과 무관하다.\n② ACK — 오답. Acknowledgment의 약자로, 데이터나 패킷을 정상 수신했음을 확인할 때 사용한다. 3-way handshake에서는 두 번째(SYN+ACK) 및 세 번째 단계에서 사용되며, 첫 번째 단계에서는 사용되지 않는다.\n③ URG — 오답. Urgent의 약자로, 긴급 데이터가 포함되어 있음을 나타내는 플래그다. 연결 설립과는 관계없다.\n④ SYN — 정답. 세션 성립 요청 패킷에 설정되는 플래그로, 3-way handshake의 첫 번째 단계에서 클라이언트가 서버에 보내는 연결 요청 신호다.",
+      "concepts": [
+        "TCP 3-Way Handshake 과정",
+        "TCP 플래그 종류 및 역할"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 670
+      },
+      "concept_ids": [
+        "tcp-3way-handshake",
+        "tcp-flags"
+      ]
+    },
+    {
+      "number": 6,
+      "subject": "TCP/IP",
+      "question": "A기업은 네트워크 주소 ‘210.212.100.0’과 서브넷 마스크 ‘255.255.255.224’인 네트워크를 사용한다. 방화벽 규칙에서 브로드캐스트 트래픽을 차단하려고 한다. 차단 대상 IP로 가장 적절한 것은?",
+      "choices": [
+        {
+          "text": "210.212.100.30",
+          "images": []
+        },
+        {
+          "text": "210.212.100.31",
+          "images": []
+        },
+        {
+          "text": "210.212.100.32",
+          "images": []
+        },
+        {
+          "text": "210.212.100.0",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\n서브넷 마스크를 이용해 특정 서브넷의 브로드캐스트 주소를 계산하는 방법. 브로드캐스트 주소는 해당 서브넷의 마지막 IP 주소로, 방화벽에서 차단 대상이 된다.\n\n정답 분석\n서브넷 마스크 255.255.255.224에서 호스트 비트는 하위 5비트(32 - 27 = 5)이다. 네트워크 주소 210.212.100.0의 첫 번째 서브넷은 210.212.100.0 ~ 210.212.100.31 범위를 가지며, 브로드캐스트 주소는 호스트 비트를 모두 1로 채운 210.212.100.31이다. 방화벽에서 브로드캐스트 트래픽을 차단하려면 이 주소를 차단 대상으로 지정해야 한다.\n\n오답 분석\n① 210.212.100.30 — 오답. 첫 번째 서브넷의 마지막 할당 가능한 호스트 주소이며 브로드캐스트 주소가 아니다.\n② 210.212.100.31 — 정답. 첫 번째 서브넷(210.212.100.0/27)의 브로드캐스트 주소이다.\n③ 210.212.100.32 — 오답. 다음 서브넷(210.212.100.32/27)의 네트워크 주소이며 브로드캐스트 주소가 아니다.\n④ 210.212.100.0 — 오답. 네트워크(서브넷) 주소이며 브로드캐스트 주소가 아니다.",
+      "concepts": [
+        "서브넷 마스크 기반 IP 계산",
+        "서브넷 브로드캐스트 주소 산출"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 593
+      },
+      "concept_ids": [
+        "subnet-mask-calculation",
+        "broadcast-address-calculation"
+      ]
+    },
+    {
+      "number": 7,
+      "subject": "TCP/IP",
+      "question": "회사 내 네트워크를 구축하면서 IPv6를 적용하려고 한다. IPv4에 비해 IPv6에서 새롭게 도입된 기능은?",
+      "choices": [
+        {
+          "text": "체크섬(Checksums)",
+          "images": []
+        },
+        {
+          "text": "복잡한 헤더(Complicated header)",
+          "images": []
+        },
+        {
+          "text": "선택적 IPsec(Optional IPsec)",
+          "images": []
+        },
+        {
+          "text": "자동 설정(Autoconfiguration, SLAAC)",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 60,
+      "explanation_detailed": "핵심 개념\nIPv6는 IPv4의 한계를 극복하기 위해 새로운 기능들을 도입하였으며, 그 중 SLAAC(Stateless Address Autoconfiguration)는 IPv6에서 처음 등장한 대표적인 신기능이다.\n\n정답 분석\n④ 자동 설정(Autoconfiguration, SLAAC)은 IPv6에서 새롭게 도입된 기능이다. SLAAC(Stateless Address Autoconfiguration)란 호스트가 DHCPv6 서버 없이도 라우터로부터 네트워크 prefix 정보를 받아 스스로 IPv6 주소를 생성하는 방식이다. IPv4에서는 자동 IP 할당을 위해 반드시 DHCP 서버가 필요했으나, IPv6에서는 이 과정을 서버 없이 자율적으로 처리할 수 있게 되었다.\n\n오답 분석\n① 체크섬(Checksums): 오답. 체크섬은 IPv4 헤더에 이미 존재하던 기능이다. 오히려 IPv6에서는 헤더 처리 효율을 높이기 위해 IP 헤더의 체크섬 필드를 제거하였다.\n② 복잡한 헤더(Complicated header): 오답. IPv6의 헤더는 더 복잡해진 것이 아니라 오히려 단순화되었다. 기본 헤더는 40바이트로 고정되고, 옵션은 확장 헤더로 분리하여 라우터의 처리 부담을 줄였다.\n③ 선택적 IPsec(Optional IPsec): 오답. IPsec은 IPv4에서도 선택적으로 적용 가능하였다. IPv6에서는 IPsec 지원이 의무 사항으로 설계되었으므로, 선택적 IPsec은 IPv6의 새로운 기능이 아니며 오히려 강화된 방향으로 변경된 것이다.\n④ 자동 설정(Autoconfiguration, SLAAC): 정답. IPv6에서 새롭게 도입된 기능이다.",
+      "concepts": [
+        "IPv6 주소 자동 설정(SLAAC)",
+        "IPv6 헤더 구조 단순화",
+        "IPv6 체크섬 필드 폐지"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 818
+      },
+      "concept_ids": [
+        "ipv6-address-autoconfiguration-slaac",
+        "ipv6-header",
+        "ipv6-header-structure"
+      ]
+    },
+    {
+      "number": 8,
+      "subject": "TCP/IP",
+      "question": "IP Address ′127.0.0.1′ 이 의미하는 것은?",
+      "choices": [
+        {
+          "text": "모든 네트워크를 의미한다.",
+          "images": []
+        },
+        {
+          "text": "사설 IP Address를 의미한다.",
+          "images": []
+        },
+        {
+          "text": "특정 네트워크의 모든 노드를 의미한다.",
+          "images": []
+        },
+        {
+          "text": "루프백(Loopback) 테스트용이다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 79,
+      "explanation_detailed": "핵심 개념\n127.0.0.1은 자기 자신을 가리키는 루프백(Loopback) 주소로, 네트워크 장치나 소프트웨어의 통신 기능을 자체적으로 테스트할 때 사용한다.\n\n정답 분석\n④ 127.0.0.1은 RFC 5735에서 루프백 주소로 예약된 IP이다. 이 주소로 패킷을 보내면 실제 네트워크 인터페이스를 통하지 않고 자기 자신에게 되돌아온다. 네트워크 카드나 TCP/IP 스택이 정상적으로 동작하는지 확인할 때 ping 127.0.0.1 명령으로 테스트한다. 127.0.0.0/8 전체 대역이 루프백용으로 예약되어 있으며, 그중 127.0.0.1이 관례적으로 사용된다.\n\n오답 분석\n① 오답. 모든 네트워크(0.0.0.0)를 의미하는 주소는 0.0.0.0이다. 127.0.0.1은 자기 자신만을 가리킨다.\n② 오답. 사설 IP 주소는 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 대역이며, 127.0.0.1은 여기에 해당하지 않는다.\n③ 오답. 특정 네트워크의 모든 노드(브로드캐스트)를 의미하려면 호스트 부분이 모두 1인 주소(예: 192.168.1.255)를 사용한다. 127.0.0.1은 브로드캐스트 주소가 아니다.\n④ 정답. 루프백 테스트용 주소로, 자기 자신에게 패킷을 돌려보내 TCP/IP 동작을 검증한다.",
+      "concepts": [
+        "루프백 주소(Loopback Address)",
+        "자체 네트워크 통신 테스트",
+        "예약된 특수 IP 주소"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 640
+      },
+      "concept_ids": [
+        "loopback-address",
+        "network-loopback-test",
+        "reserved-ip"
+      ]
+    },
+    {
+      "number": 9,
+      "subject": "TCP/IP",
+      "question": "TCP에서 사용하는 흐름 제어 방식은?",
+      "choices": [
+        {
+          "text": "GO-Back-N",
+          "images": []
+        },
+        {
+          "text": "선택적 재전송(Selective Repeat)",
+          "images": []
+        },
+        {
+          "text": "슬라이딩 윈도우(Sliding Window)",
+          "images": []
+        },
+        {
+          "text": "Stop-and-Wait(Idle RQ)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\nTCP는 수신 측의 처리 속도에 맞춰 데이터 전송량을 조절하는 흐름 제어(Flow Control)를 수행하며, 대표적으로 슬라이딩 윈도우(Sliding Window) 방식을 사용한다.\n정답 분석\n③ 슬라이딩 윈도우는 수신 측이 ACK를 보내기 전에 송신 측이 연속으로 보낼 수 있는 데이터 양(윈도우 크기)을 동적으로 조절하는 TCP의 핵심 흐름 제어 기법이다. TCP 헤더의 Window Size 필드를 통해 수신 측의 버퍼 상태를 송신 측에 알려주어 버퍼 오버플로를 방지한다.\n오답 분석\n① GO-Back-N: 오답. 오류 발생 시 해당 프레임부터 이후 모든 프레임을 재전송하는 방식으로, 시험에서는 주로 '오류 제어' 기법으로 분류한다.\n② 선택적 재전송(Selective Repeat): 오답. 오류가 발생한 특정 프레임만 골라서 재전송하는 '오류 제어' 기법으로 분류된다.\n③ 슬라이딩 윈도우(Sliding Window): 정답. TCP의 전송 효율을 높이면서 수신 측 속도를 맞추는 '흐름 제어' 방식이다.\n④ Stop-and-Wait(Idle RQ): 오답. 프레임 하나를 보내고 ACK가 올 때까지 기다리는 방식으로, 효율이 매우 낮아 TCP에서 사용하지 않는다.",
+      "concepts": [
+        "TCP 흐름 제어(Flow Control)",
+        "슬라이딩 윈도우(Sliding Window)",
+        "오류 제어와 흐름 제어의 구분"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "Stop-and-Wait, Go-Back-N 등 ARQ 기법들도 사실은 슬라이딩 윈도우를 기반으로 한 흐름 제어의 일종이지만, 시험에서는 주로 오류 제어로 분류한다는 명확한 맥락 설명이 부족함.",
+        "improved": true,
+        "prev_chars": 687
+      },
+      "concept_ids": [
+        "tcp-flow-control",
+        "sliding-window",
+        "error-control"
+      ]
+    },
+    {
+      "number": 10,
+      "subject": "TCP/IP",
+      "question": "IPv4 헤더에 포함되지 않는 필드는?",
+      "choices": [
+        {
+          "text": "ACK(확인 응답)",
+          "images": []
+        },
+        {
+          "text": "Version(버전)",
+          "images": []
+        },
+        {
+          "text": "Header Checksum(헤더 체크섬)",
+          "images": []
+        },
+        {
+          "text": "Header Length(IHL, 헤더 길이)",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 61,
+      "explanation_detailed": "핵심 개념\nIPv4 헤더에 포함된 필드와 TCP 헤더에 포함된 필드를 구분하는 문제입니다. 프로토콜 계층별로 어떤 정보가 어느 헤더에 속하는지 이해해야 합니다.\n\n정답 분석\nACK(확인 응답)는 TCP 헤더의 제어 비트(플래그) 필드에 속하는 항목입니다. TCP는 전송 계층(4계층) 프로토콜이고, IPv4는 네트워크 계층(3계층) 프로토콜입니다. ACK 플래그는 데이터 수신 확인을 위한 흐름 제어 기능으로, IP 헤더가 아닌 TCP 헤더에서 처리합니다. IPv4 헤더는 패킷의 경로 지정과 전달에 집중하므로 확인 응답 기능이 필요하지 않습니다.\n\n오답 분석\n① ACK(확인 응답) — 정답. TCP 헤더의 플래그 필드에 속하며 IPv4 헤더에는 없는 필드입니다.\n② Version(버전) — 오답. IPv4 헤더의 첫 번째 필드(4비트)로, IP 프로토콜의 버전(4 또는 6)을 나타냅니다.\n③ Header Checksum(헤더 체크섬) — 오답. IPv4 헤더에 포함된 16비트 필드로, 헤더 오류 검출에 사용됩니다. (참고로 IPv6에서는 제거되었습니다.)\n④ Header Length(IHL, 헤더 길이) — 오답. IPv4 헤더의 두 번째 필드(4비트)로, 헤더의 길이를 32비트 단위로 나타냅니다. 옵션 필드 유무에 따라 값이 달라집니다.",
+      "concepts": [
+        "IPv4 헤더 필드",
+        "TCP 제어 플래그",
+        "프로토콜 헤더 구조"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 644
+      },
+      "concept_ids": [
+        "ipv4-header",
+        "tcp-control-flag",
+        "protocol-structure"
+      ]
+    },
+    {
+      "number": 11,
+      "subject": "TCP/IP",
+      "question": "DNS에서 TTL(Time to Live)에 대한 설명으로 올바른 것은??",
+      "choices": [
+        {
+          "text": "데이터가 DNS 서버 존(zone) 으로부터 나오기 전에 현재 남은 시간이다.",
+          "images": []
+        },
+        {
+          "text": "데이터가 DNS 서버 캐시에서 만료되기까지 남은 시간이다.",
+          "images": []
+        },
+        {
+          "text": "패킷이 DNS 서버 존으로부터 나오기 전에 현재 남은 시간이다.",
+          "images": []
+        },
+        {
+          "text": "패킷이 DNS 서버 네임 서버 레코드로부터 나오기 전에 현재 남은 시간이다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\nDNS에서 TTL(Time to Live)은 DNS 응답 데이터가 캐시에 얼마나 오래 저장될 수 있는지를 나타내는 시간 값이다.\n\n정답 분석\nDNS TTL은 리졸버(resolver)나 클라이언트가 DNS 응답을 캐시에 보관할 수 있는 최대 시간을 초 단위로 지정한다. TTL이 만료되면 캐시된 레코드는 삭제되고, 다음 질의 시 DNS 서버에 다시 요청해야 한다. 즉, TTL은 \"캐시에서 이 데이터가 얼마나 살 수 있는가\"를 나타내며, 만료까지 남은 시간이 정확한 표현이다.\n\n오답 분석\n① 오답. \"존(zone)으로부터 나오기 전에 남은 시간\"이라는 표현은 TTL의 의미가 아니다. TTL은 존에서 데이터가 떠나는 시간이 아니라 캐시에서의 유효 시간이다. 또한 주어가 \"데이터\"인 점은 맞지만 zone 기준 설명은 틀렸다.\n② 정답. TTL은 DNS 캐시에 저장된 레코드가 만료되기까지 남은 시간을 의미한다.\n③ 오답. \"패킷이 DNS 서버 존으로부터 나오기 전에 남은 시간\"은 TTL이 아니라 IP 패킷 헤더의 TTL(라우터 홉 제한)에 가까운 혼동된 표현이며, DNS TTL과는 전혀 다른 개념이다.\n④ 오답. \"패킷이 네임 서버 레코드로부터 나오기 전에 남은 시간\"이라는 설명은 DNS TTL의 정의와 맞지 않는다. 네임 서버 레코드에서 패킷이 나오는 시간이라는 개념 자체가 성립하지 않는다.",
+      "concepts": [
+        "DNS TTL",
+        "DNS 캐시 유효 시간",
+        "리소스 레코드"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 677
+      },
+      "concept_ids": [
+        "dns-ttl",
+        "dns-cache-ttl",
+        "dns-resource-record"
+      ]
+    },
+    {
+      "number": 12,
+      "subject": "TCP/IP",
+      "question": "UDP에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "TCP에 비해 신뢰성이 떨어진다.",
+          "images": []
+        },
+        {
+          "text": "사용자 데이터그램(Datagram)이라고 하는 데이터 단위(Unit)를 송신지의 응용 프로세스에서 수신지의 응용 프로세스로 전송한다.",
+          "images": []
+        },
+        {
+          "text": "UDP가 제공하는 오류검사는 홀수 패리티와 짝수 패리티가 있다.",
+          "images": []
+        },
+        {
+          "text": "UDP가 제공하는 서비스는 비연결형 데이터 전달서비스(Connectionless Data Delivery Service)이다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 66,
+      "explanation_detailed": "핵심 개념\nUDP는 비연결형, 비신뢰성 전송 프로토콜로, 오류 검사는 체크섬(Checksum) 방식을 사용한다.\n\n정답 분석\n③번이 오답이다. UDP 헤더에는 오류 검사를 위한 체크섬(Checksum) 필드가 포함되어 있으며, 이는 1의 보수 합산 방식으로 계산된다. 홀수 패리티·짝수 패리티는 하드웨어 수준의 단순 오류 검출 방식으로, UDP와는 무관하다.\n\n오답 분석\n① 옳은 설명이다. UDP는 연결 설정, 흐름 제어, 재전송 등이 없어 TCP보다 신뢰성이 낮다.\n② 옳은 설명이다. UDP의 데이터 전송 단위는 데이터그램이며, 송신 측 응용 프로세스에서 수신 측 응용 프로세스로 직접 전달된다.\n③ 틀린 설명이다. UDP의 오류 검사 방식은 체크섬이며, 패리티 비트 방식과는 다르다.\n④ 옳은 설명이다. UDP는 사전 연결 수립 없이 데이터를 전송하는 비연결형 서비스를 제공한다.",
+      "concepts": [
+        "UDP 체크섬",
+        "패리티 비트",
+        "비연결형 서비스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 440
+      },
+      "concept_ids": [
+        "udp",
+        "parity-error-checking",
+        "connectionless-service"
+      ]
+    },
+    {
+      "number": 13,
+      "subject": "TCP/IP",
+      "question": "신규 단말이 부팅 시 IP가 없는 상태에서 스위치 포트에 연결됐다. 네트워크는 IPv4를 사용하며 중앙에서 주소를 자동 분배한다. MAC 주소를 기반으로 IP를 자동 부여하는 데 주로 쓰이는 기술은?",
+      "choices": [
+        {
+          "text": "RARP",
+          "images": []
+        },
+        {
+          "text": "ARP",
+          "images": []
+        },
+        {
+          "text": "ICMP",
+          "images": []
+        },
+        {
+          "text": "DHCP",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n부팅 시 IP 주소가 없는 단말이 네트워크에서 자동으로 IP를 할당받는 프로토콜에 관한 문제다. 중앙 서버가 MAC 주소를 기반으로 IP를 동적으로 분배하는 방식을 묻는다.\n\n정답 분석\n④ DHCP(Dynamic Host Configuration Protocol)는 단말이 부팅 시 브로드캐스트로 IP 할당 요청을 보내면, DHCP 서버가 해당 단말의 MAC 주소를 확인하고 IP 주소, 서브넷 마스크, 게이트웨이, DNS 등을 자동으로 응답해주는 프로토콜이다. IP가 없는 상태에서 시작하며 중앙 서버에서 주소를 관리한다는 조건이 DHCP의 동작 방식과 정확히 일치한다.\n\n오답 분석\n① RARP(Reverse ARP) — 오답. MAC 주소로 IP를 얻는다는 점에서 DHCP와 유사하지만, 서버가 단순 IP만 응답하는 구식 프로토콜로 서브넷 마스크나 게이트웨이 정보는 제공하지 못한다. 현재는 DHCP로 대체되어 거의 사용되지 않는다.\n② ARP(Address Resolution Protocol) — 오답. IP 주소를 알고 있을 때 해당 단말의 MAC 주소를 알아내는 프로토콜이다. 이 문제의 상황(IP 없음 → IP 획득)과는 반대 방향이다.\n③ ICMP(Internet Control Message Protocol) — 오답. 네트워크 오류 보고 및 진단(ping, traceroute 등)에 사용하는 프로토콜이다. IP 주소 자동 할당과는 무관하다.\n④ DHCP — 정답. 위 정답 분석 참고.",
+      "concepts": [
+        "DHCP(Dynamic Host Configuration Protocol)",
+        "자동 IP 할당",
+        "MAC 주소 기반 IP 매핑"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 737
+      },
+      "concept_ids": [
+        "dhcp-protocol",
+        "dhcp-lease-allocation",
+        "mac-address-based-ip-assignment"
+      ]
+    },
+    {
+      "number": 14,
+      "subject": "TCP/IP",
+      "question": "TCP/IP 에서 Broadcast의 의미는?",
+      "choices": [
+        {
+          "text": "메시지를 한 호스트에서 다른 한 호스트로 전송하는 것",
+          "images": []
+        },
+        {
+          "text": "메시지를 한 호스트에서 망상의 특정 그룹 호스트들로 전송하는 것",
+          "images": []
+        },
+        {
+          "text": "메시지를 한 호스트에서 망상의 모든 호스트들로 전송하는 것",
+          "images": []
+        },
+        {
+          "text": "메시지를 한 호스트에서 가장 가까이 있는 특정 그룹 호스트들로 전송하는 것",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\nTCP/IP 네트워크에서 전송 대상 범위에 따라 Unicast(1:1), Multicast(1:그룹), Broadcast(1:전체), Anycast(1:최근접)로 통신 방식이 구분된다.\n\n정답 분석\nBroadcast는 송신 호스트가 같은 네트워크 상의 모든 호스트에게 동시에 메시지를 전송하는 방식이다. 수신자를 특정하지 않고 네트워크 전체를 대상으로 하며, ARP 요청이나 DHCP Discover처럼 수신자 주소를 모르는 상황에서 주로 사용된다. ③번이 이를 정확히 설명한다.\n\n오답 분석\n① 오답. 한 호스트에서 다른 한 호스트로 전송하는 것은 Unicast(유니캐스트)이다.\n② 오답. 한 호스트에서 망상의 특정 그룹 호스트들로 전송하는 것은 Multicast(멀티캐스트)이다.\n③ 정답. 망상의 모든 호스트들에게 전송하는 것이 Broadcast(브로드캐스트)의 정의이다.\n④ 오답. 가장 가까이 있는 특정 그룹 호스트로 전송하는 것은 Anycast(애니캐스트)이다.",
+      "concepts": [
+        "브로드캐스트(Broadcast)",
+        "통신 방식(캐스트 유형)",
+        "전체 호스트 전송"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 495
+      },
+      "concept_ids": [
+        "broadcast-communication",
+        "communication-methods",
+        "broadcast-transmission"
+      ]
+    },
+    {
+      "number": 15,
+      "subject": "TCP/IP",
+      "question": "OSPF(Open Shortest Path First)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "AS 내부 경로 정보 교환에 사용되는 링크 스테이트 라우팅 프로토콜이다.",
+          "images": []
+        },
+        {
+          "text": "Hello 패킷으로 이웃 라우터의 정상 동작을 확인한다.",
+          "images": []
+        },
+        {
+          "text": "비용이 가장 낮은 단일 경로만 사용하며 다른 경로는 배제한다.",
+          "images": []
+        },
+        {
+          "text": "일반적으로 IP 버전에 따라 사용하는 OSPF 버전이 다르다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 62,
+      "explanation_detailed": "핵심 개념\nOSPF는 링크 스테이트 방식의 IGP(내부 라우팅 프로토콜)로, 다익스트라 알고리즘을 통해 최적 경로를 계산하며 ECMP(Equal Cost Multi-Path)를 통해 동일 비용의 여러 경로를 동시에 사용할 수 있다.\n\n정답 분석\n③번이 옳지 않다. OSPF는 비용(Cost)이 동일한 경로가 여러 개 존재할 경우 단일 경로만 선택하지 않고 모두 라우팅 테이블에 올려 부하 분산(Load Balancing)에 활용한다. \"비용이 가장 낮은 단일 경로만 사용\"한다는 설명은 OSPF의 ECMP 지원 특성을 무시한 잘못된 설명이다.\n\n오답 분석\n① 옳은 설명이다. OSPF는 AS(자율 시스템) 내부에서 동작하는 IGP이며, 각 라우터가 링크 상태 정보를 플러딩하여 전체 토폴로지를 파악하는 링크 스테이트 프로토콜이다.\n② 옳은 설명이다. OSPF는 Hello 패킷을 주기적으로 교환하여 이웃(Neighbor) 관계를 형성하고 유지하며, Hello가 수신되지 않으면 해당 이웃을 장애로 간주한다.\n③ 틀린 설명이다(정답). OSPF는 동일 비용의 경로가 여러 개일 때 ECMP로 모두 사용하며, 단일 경로만 고집하지 않는다.\n④ 옳은 설명이다. IPv4 환경에서는 OSPFv2, IPv6 환경에서는 OSPFv3을 사용하며 두 버전은 별개의 프로토콜로 운용된다.",
+      "concepts": [
+        "OSPF(Open Shortest Path First)",
+        "링크 스테이트 라우팅",
+        "ECMP(동일 비용 다중 경로)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 655
+      },
+      "concept_ids": [
+        "ospf-routing",
+        "link-state-routing-algorithm",
+        "routing-metric"
+      ]
+    },
+    {
+      "number": 16,
+      "subject": "TCP/IP",
+      "question": "사내 스트리밍 서비스가 IPv4 멀티캐스트로 배포된다. 클라이언트 PC가 채널을 바꿀 때마다 스위치/라우터에 그룹 가입·탈퇴 신호가 전달되어 트래픽이 즉시 조정된다. 이때 사용되는 프로토콜은?",
+      "choices": [
+        {
+          "text": "ICMP",
+          "images": []
+        },
+        {
+          "text": "IGMP",
+          "images": []
+        },
+        {
+          "text": "ARP",
+          "images": []
+        },
+        {
+          "text": "RARP",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 64,
+      "explanation_detailed": "핵심 개념\nIPv4 멀티캐스트 환경에서 호스트가 라우터 및 스위치에 특정 멀티캐스트 그룹의 가입 및 탈퇴를 알리는 제어 프로토콜의 이해를 묻는 문제입니다.\n정답 분석\nIGMP(Internet Group Management Protocol)는 IPv4 멀티캐스트 환경에서 호스트가 라우터에게 특정 그룹의 트래픽 수신 의사를 알리는 프로토콜입니다. 채널을 선택하면 IGMP Join 메시지로 가입을 알리고, 채널을 바꾸거나 종료하면 Leave 메시지로 탈퇴를 알립니다. 특히 L2 스위치는 IGMP 스누핑(Snooping) 기능을 통해 이 신호를 감지하여 해당 호스트가 연결된 포트로만 멀티캐스트 트래픽을 전달하도록 경로를 즉각 조정합니다.\n오답 분석\n① ICMP는 Ping이나 Traceroute처럼 네트워크 상태 진단 및 오류 통지에 사용되는 프로토콜이므로 오답입니다.\n② IGMP는 IPv4 멀티캐스트 그룹 관리를 전담하여 호스트와 라우터 간 가입 및 탈퇴 신호를 처리하므로 정답입니다.\n③ ARP는 IP 주소를 MAC 주소로 변환하여 로컬 네트워크 통신을 가능하게 하는 프로토콜이므로 오답입니다.\n④ RARP는 MAC 주소를 기반으로 IP 주소를 역으로 조회하는 프로토콜이므로 오답입니다.",
+      "concepts": [
+        "IPv4 멀티캐스트 그룹 관리",
+        "IGMP",
+        "IGMP 스누핑"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "문제 상황에 언급된 '스위치'가 IGMP 신호를 인식하여 트래픽을 조정하는 메커니즘인 IGMP 스누핑(Snooping)에 대한 설명이 누락되어 있습니다.",
+        "improved": true,
+        "prev_chars": 622
+      },
+      "concept_ids": [
+        "ipv4-multicast",
+        "igmp",
+        "igmp-snooping"
+      ]
+    },
+    {
+      "number": 17,
+      "subject": "TCP/IP",
+      "question": "Ping에 대한 설명 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "ICMP(인터넷 프로토콜군) 기반의 진단용 응용 프로그램이다.",
+          "images": []
+        },
+        {
+          "text": "원격 호스트까지 왕복 지연 시간(RTT)을 측정할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "원격 호스트의 네트워크 오류를 확인하고 오류를 정정해 준다.",
+          "images": []
+        },
+        {
+          "text": "원격 호스트와의 연결 상태를 진단할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\nPing은 ICMP Echo Request/Reply를 이용해 원격 호스트의 생존 여부와 응답 지연(RTT)을 확인하는 진단 도구이며, 오류를 수정하는 기능은 없다.\n\n정답 분석\n③번은 \"오류를 정정해 준다\"고 했는데, Ping은 오류를 발견하고 보고할 수 있을 뿐 오류를 수정하거나 정정하는 기능을 전혀 갖고 있지 않다. Ping은 읽기 전용 진단 도구로, 패킷을 보내고 응답을 받는 것이 전부이며 네트워크 구성을 변경하거나 결함을 치유하는 능력이 없다. \"확인\"까지는 맞지만 \"정정\"이 틀린 설명이다.\n\n오답 분석\n① 옳은 설명이다. Ping은 ICMP(Internet Control Message Protocol) 프로토콜의 Echo Request(Type 8)와 Echo Reply(Type 0)를 사용하는 진단용 응용 프로그램이다.\n② 옳은 설명이다. Ping은 Echo Request를 보낸 시각과 Echo Reply를 받은 시각의 차이로 왕복 지연 시간(RTT, Round Trip Time)을 측정하여 표시한다.\n③ 틀린 설명이다. Ping은 원격 호스트의 응답 여부와 패킷 손실 등 네트워크 상태를 확인할 수 있지만, 오류를 정정(수정)하는 기능은 없다. 정답이다.\n④ 옳은 설명이다. Ping 응답 여부, 응답 시간, 패킷 손실률을 통해 원격 호스트와의 연결 상태를 진단할 수 있다.",
+      "concepts": [
+        "Ping의 기능과 한계",
+        "ICMP",
+        "오류 정정 기능 부재"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 678
+      },
+      "concept_ids": [
+        "ping-concept",
+        "icmp",
+        "error-control"
+      ]
+    },
+    {
+      "number": 18,
+      "subject": "네트워크일반",
+      "question": "OSI 7계층 중 데이터 링크 계층의 기능으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "통신 프로토콜을 정의한 OSI 7계층 중 세 번째 계층에 해당한다.",
+          "images": []
+        },
+        {
+          "text": "비트열을 프레임화한다.",
+          "images": []
+        },
+        {
+          "text": "전송 과정의 오류를 검출한다.",
+          "images": []
+        },
+        {
+          "text": "흐름 제어를 통해 데이터 링크 개체 간 트래픽을 제어한다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\n데이터 링크 계층은 OSI 7계층에서 두 번째 계층이며, 프레임화, 오류 검출, 흐름 제어를 담당한다.\n\n정답 분석\n①번은 데이터 링크 계층을 세 번째 계층이라고 설명하고 있으나 이는 틀렸다. OSI 7계층에서 데이터 링크 계층은 두 번째 계층이다. 세 번째 계층은 네트워크 계층(Network Layer)으로, IP 주소 기반 라우팅을 담당한다. 계층 번호를 하나 높여 서술한 것이 오류의 핵심이다.\n\n오답 분석\n① 정답. 데이터 링크 계층은 2계층이며, 3계층은 네트워크 계층이다. 설명이 잘못되었으므로 정답.\n② 오답. 비트열을 프레임(Frame) 단위로 묶는 것은 데이터 링크 계층의 핵심 기능이므로 옳은 설명이다.\n③ 오답. CRC(순환 중복 검사) 등을 이용한 오류 검출은 데이터 링크 계층의 기능이므로 옳은 설명이다.\n④ 오답. 송수신 측 속도 차이를 조절하는 흐름 제어(Flow Control)는 데이터 링크 계층의 기능이므로 옳은 설명이다.",
+      "concepts": [
+        "데이터 링크 계층의 위치",
+        "OSI 7계층 구조",
+        "프레임화 및 오류 제어"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 485
+      },
+      "concept_ids": [
+        "data-link-layer",
+        "osi-reference-model",
+        "frame-error-flow-control"
+      ]
+    },
+    {
+      "number": 19,
+      "subject": "네트워크일반",
+      "question": "패킷 교환망의 특징으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "연결 설정 방식에 따라 가상 회선과 데이터그램으로 분류된다.",
+          "images": []
+        },
+        {
+          "text": "메시지를 더 짧은 길이의 패킷으로 분할하여 전송한다.",
+          "images": []
+        },
+        {
+          "text": "망에 유입되는 데이터의 양이 많아질수록 전송 속도가 빨라진다.",
+          "images": []
+        },
+        {
+          "text": "회선 차단(호 차단)과 같은 블로킹 현상이 없다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 79,
+      "explanation_detailed": "핵심 개념\n패킷 교환망은 데이터를 작은 패킷으로 나누어 전송하는 방식으로, 회선 교환망과 달리 경로를 동적으로 공유한다. 망 혼잡도가 높아질수록 전송 지연이 증가하는 특성이 있다.\n\n정답 분석\n③번이 옳지 않다. 패킷 교환망은 여러 사용자가 동일한 전송 경로를 공유하기 때문에, 망에 유입되는 데이터 양이 많아질수록 대기 큐가 길어지고 혼잡(congestion)이 발생하여 전송 지연이 늘어난다. 즉, 트래픽이 증가할수록 전송 속도는 느려지는 것이 올바른 특성이다.\n\n오답 분석\n① 옳은 설명이다. 패킷 교환망은 경로 설정 방식에 따라 목적지까지 고정 경로를 미리 설정하는 가상 회선(Virtual Circuit) 방식과 패킷마다 독립적으로 경로를 결정하는 데이터그램(Datagram) 방식으로 분류된다.\n② 옳은 설명이다. 패킷 교환망은 원본 데이터(메시지)를 일정 크기의 작은 단위인 패킷으로 분할하여 전송하며, 수신 측에서 재조합한다.\n③ 틀린 설명이다(정답). 데이터 양이 많아질수록 망 혼잡으로 전송 지연이 증가하고 속도는 느려진다.\n④ 옳은 설명이다. 회선 교환망은 통화 중이면 새로운 연결 요청이 차단(블로킹)되지만, 패킷 교환망은 전용 회선을 점유하지 않고 패킷을 큐에 넣어 순차 처리하므로 호 차단(블로킹) 현상이 발생하지 않는다.",
+      "concepts": [
+        "패킷 교환망 특징",
+        "네트워크 혼잡도",
+        "블로킹 현상"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 642
+      },
+      "concept_ids": [
+        "packet-switching",
+        "congestion-control",
+        "blocking-phenomenon"
+      ]
+    },
+    {
+      "number": 20,
+      "subject": "네트워크일반",
+      "question": "다음은 화상 회의를 하기 위한 기술에 관한 내용이다. ( A ) 안에 들어가는 용어 중 옳은 것은?",
+      "choices": [
+        {
+          "text": "IRC (Internet Relay Chat)",
+          "images": []
+        },
+        {
+          "text": "HEVC/H.265 (High Efficiency Video Coding)",
+          "images": []
+        },
+        {
+          "text": "MIME (Multipurpose Internet Mail Extensions)",
+          "images": []
+        },
+        {
+          "text": "SIP (Session Initiation Protocol)",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 50,
+      "explanation_detailed": "핵심 개념\n화상 회의를 비롯한 멀티미디어 통신 세션을 시작·변경·종료하는 데 사용하는 시그널링 프로토콜이 무엇인지 묻는 문제다. 세션 제어(시그널링)와 데이터 압축·전송 기술을 구분할 수 있어야 한다.\n\n정답 분석\nSIP(Session Initiation Protocol)는 IETF RFC 3261로 표준화된 애플리케이션 계층 시그널링 프로토콜로, 화상 회의·VoIP·인스턴트 메시징 등 멀티미디어 세션의 개설(INVITE), 수정(RE-INVITE), 종료(BYE)를 담당한다. 실제 음성·영상 데이터는 RTP로 전송하고, SDP로 코덱·포트 등 세션 파라미터를 협상하는 구조에서 SIP가 중심 제어 프로토콜 역할을 한다. 화상 회의 인프라에서 전화 교환기(PBX) 대체, WebRTC 시그널링 등 광범위하게 쓰이기 때문에 \"화상 회의 기술\"을 묻는 문제의 정답으로 가장 적합하다.\n\n오답 분석\n① IRC(Internet Relay Chat) — 오답. 텍스트 기반 실시간 채팅 프로토콜로, 세션 제어나 영상 스트림과 무관하다.\n② HEVC/H.265(High Efficiency Video Coding) — 오답. 동영상 압축 코덱(인코딩 방식)이며 세션을 제어하는 프로토콜이 아니다. 화상 회의에서 영상 압축에 활용될 수는 있지만 세션 개설 역할은 하지 않는다.\n③ MIME(Multipurpose Internet Mail Extensions) — 오답. 이메일에서 텍스트 외 파일(이미지·오디오 등)을 첨부·인코딩하기 위한 표준으로, 화상 회의 세션 제어와 관련이 없다.\n④ SIP(Session Initiation Protocol) — 정답. 멀티미디어 세션 시그널링 프로토콜로 화상 회의 구성 요소의 핵심이다.",
+      "concepts": [
+        "SIP(세션 개설 프로토콜)",
+        "화상 회의 시그널링",
+        "멀티미디어 통신 프로토콜"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 852
+      },
+      "concept_ids": [
+        "sip",
+        "video-conferencing",
+        "multimedia-communication-protocol"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "네트워크 관리팀장은 재택근무에 활용할 화상회의 시스템과 전자결재 시스템을 구축하려 한다. 화상회의 시스템의 응용 프로그램으로 (A)를 기반으로 하는 제품을 선택하였다. (A)는 IETF에서 정의한 시그널링 프로토콜로, 음성 및 화상과 같은 멀티미디어 세션을 생성·수정·종료하는 기능을 수행한다. 요구/응답 구조를 가지며 TCP와 UDP 모두 사용할 수 있고, 각 사용자를 구분하기 위해 이메일 주소와 비슷한 (A) URI를 사용하므로 IP 주소에 종속되지 않고 서비스를 제공한다."
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "subject": "네트워크일반",
+      "question": "네트워크 계층의 데이터 단위를 나타내는 용어는?",
+      "choices": [
+        {
+          "text": "세그먼트",
+          "images": []
+        },
+        {
+          "text": "패킷",
+          "images": []
+        },
+        {
+          "text": "프레임",
+          "images": []
+        },
+        {
+          "text": "비트",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\nOSI 7계층 각 계층에서 데이터를 주고받는 단위(PDU, Protocol Data Unit)는 계층마다 다르며, 계층별 PDU 명칭을 구분하는 것이 이 문제의 핵심이다.\n\n정답 분석\n네트워크 계층(3계층)의 PDU는 패킷(Packet)이다. 네트워크 계층은 IP 주소를 기반으로 출발지에서 목적지까지 경로를 결정(라우팅)하는 역할을 하며, 이때 전달되는 데이터 단위를 패킷이라 부른다. IP 헤더(출발지/목적지 IP 주소 포함)가 붙은 데이터 덩어리가 바로 패킷이다.\n\n오답 분석\n① 세그먼트: 오답. 전송 계층(4계층, Transport Layer)의 PDU이다. TCP가 데이터를 분할할 때 사용하는 단위로, 포트 번호와 순서 번호 등이 포함된다.\n② 패킷: 정답. 네트워크 계층(3계층)의 PDU이다.\n③ 프레임: 오답. 데이터 링크 계층(2계층, Data Link Layer)의 PDU이다. MAC 주소를 기반으로 같은 네트워크 구간 내에서 데이터를 전달할 때 사용하는 단위이다.\n④ 비트: 오답. 물리 계층(1계층, Physical Layer)의 PDU이다. 전기 신호나 광 신호로 변환되어 실제 전송되는 0과 1의 단위이다.",
+      "concepts": [
+        "OSI 7계층 PDU",
+        "네트워크 계층 데이터 단위",
+        "패킷"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 586
+      },
+      "concept_ids": [
+        "osi-7-layer-pdu",
+        "network-layer-pdu",
+        "packet"
+      ]
+    },
+    {
+      "number": 22,
+      "subject": "네트워크일반",
+      "question": "VPN에 대한 설명으로 (A)에 알맞은 용어는?",
+      "choices": [
+        {
+          "text": "PPTP",
+          "images": []
+        },
+        {
+          "text": "L2TP",
+          "images": []
+        },
+        {
+          "text": "IPsec",
+          "images": []
+        },
+        {
+          "text": "SSL/TLS",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 66,
+      "explanation_detailed": "핵심 개념\nVPN 터널링 프로토콜은 동작 계층에 따라 구분된다. PPTP·L2TP는 2계층(데이터링크), IPsec은 3계층(네트워크), SSL/TLS는 4계층 이상에서 동작하며, 각각 보안 방식과 용도가 다르다.\n\n정답 분석\nIPsec(IP Security)은 IP 패킷 자체에 암호화와 무결성 검증을 적용하는 네트워크 계층(3계층) 보안 프로토콜이다. AH(Authentication Header)로 무결성과 인증을, ESP(Encapsulating Security Payload)로 암호화까지 제공한다. 터널 모드에서는 원본 IP 헤더까지 감싸기 때문에 출발지·목적지를 외부에서 알 수 없으며, 기업 VPN 게이트웨이 간 사이트-투-사이트 구성에 가장 널리 쓰인다. 운영체제 커널 수준에서 동작해 별도 클라이언트 설치 없이도 구성 가능하다.\n\n오답 분석\n① PPTP — 오답. Microsoft가 개발한 2계층 터널링 프로토콜로, 구현이 단순하지만 암호화 강도가 약하고 현재는 보안 취약점이 많아 권장되지 않는다.\n② L2TP — 오답. 2계층 터널링 프로토콜로, 자체 암호화 기능이 없어 보안을 위해 반드시 IPsec과 결합(L2TP/IPsec)하여 사용해야 한다.\n③ IPsec — 정답. 네트워크 계층에서 IP 패킷 단위로 암호화·인증을 제공하며 문제의 조건에 정확히 부합한다.\n④ SSL/TLS — 오답. 전송 계층 이상에서 동작하는 프로토콜로, 브라우저 기반 원격 접속(SSL VPN)에 주로 사용되며 애플리케이션 계층과 밀접하다.",
+      "concepts": [
+        "IPsec",
+        "VPN 터널링 프로토콜",
+        "OSI 계층별 보안"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 753
+      },
+      "concept_ids": [
+        "ipsec",
+        "vpn-tunneling",
+        "osi-model-classification"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "VPN의 터널링 프로토콜로 (A)은/는 OSI 7계층 중 3계층 프로토콜이며, 전송(Transport) 모드와 터널(Tunnel) 모드를 사용한다. 전송 모드는 IP 페이로드만 암호화/캡슐화하고, 터널 모드는 원본 IP 패킷 전체를 새 IP 헤더로 캡슐화해 인터넷으로 전송한다."
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "subject": "네트워크일반",
+      "question": "에러제어 기법 중 자동 재전송 기법으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "Stop and Wait ARQ",
+          "images": []
+        },
+        {
+          "text": "Go-Back N ARQ",
+          "images": []
+        },
+        {
+          "text": "Forward Error Correction(FEC)",
+          "images": []
+        },
+        {
+          "text": "Selective Repeat ARQ",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n에러제어 기법은 크게 ARQ(자동 재전송 요청)와 FEC(전진 오류 수정)로 나뉜다. ARQ는 수신 측이 오류를 발견하면 재전송을 요청하고, FEC는 재전송 없이 수신 측이 스스로 오류를 검출·정정한다.\n\n정답 분석\nFEC(Forward Error Correction)는 송신 측이 데이터에 충분한 잉여 비트(오류 정정 코드)를 추가해 전송하고, 수신 측이 재전송 요청 없이 자체적으로 오류를 정정하는 방식이다. 재전송을 요청하지 않으므로 ARQ(자동 재전송 기법)에 해당하지 않는다. 대표적인 예로 해밍 코드, 리드-솔로몬 코드가 있으며, 위성 통신처럼 재전송 지연이 큰 환경에서 주로 사용된다.\n\n오답 분석\n① Stop and Wait ARQ — 오답(ARQ 기법 맞음). 프레임 하나를 보낸 뒤 ACK/NAK을 받을 때까지 기다렸다가 오류 시 재전송하는 가장 단순한 ARQ 방식이다.\n② Go-Back N ARQ — 오답(ARQ 기법 맞음). 오류가 발생한 프레임부터 이후 프레임 전부를 재전송하는 방식으로, 슬라이딩 윈도우 기반 ARQ다.\n③ Forward Error Correction(FEC) — 정답(ARQ 기법 아님). 재전송 없이 수신 측이 오류를 직접 정정하므로 자동 재전송 기법에 포함되지 않는다.\n④ Selective Repeat ARQ — 오답(ARQ 기법 맞음). 오류가 발생한 프레임만 선택적으로 재전송하는 방식으로, Go-Back N보다 효율이 높은 ARQ다.",
+      "concepts": [
+        "ARQ(자동 재전송 요청)",
+        "FEC(전진 오류 정정)",
+        "에러 제어 기법"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 727
+      },
+      "concept_ids": [
+        "arq",
+        "forward-error-correction",
+        "error-control-techniques"
+      ]
+    },
+    {
+      "number": 24,
+      "subject": "네트워크일반",
+      "question": "다음 중 하나의 물리적인 스위치를 논리적인 방법을 사용하여 여러 개의 스위치로 분리하는 기술은?",
+      "choices": [
+        {
+          "text": "STM",
+          "images": []
+        },
+        {
+          "text": "ATM",
+          "images": []
+        },
+        {
+          "text": "ALOHA",
+          "images": []
+        },
+        {
+          "text": "VLAN",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 73,
+      "explanation_detailed": "핵심 개념\nVLAN(Virtual LAN)은 하나의 물리적 스위치를 소프트웨어 설정으로 여러 개의 독립된 논리적 네트워크로 분리하는 기술이다.\n\n정답 분석\n④ VLAN은 물리적 연결과 관계없이 스위치 포트를 논리적으로 그룹화하여 브로드캐스트 도메인을 분리한다. 서로 다른 VLAN에 속한 장치들은 라우터 없이는 통신할 수 없어 보안과 트래픽 격리 효과를 얻을 수 있다. 하나의 스위치로 마치 여러 개의 독립된 스위치가 있는 것처럼 운영할 수 있어 네트워크 관리 유연성이 높아진다.\n\n오답 분석\n① STM(Synchronous Transfer Mode)은 동기식 전송 방식으로, 고정된 타임슬롯을 사용해 데이터를 전송하는 회선 교환 기술이다. 스위치 분리와 무관하다.\n② ATM(Asynchronous Transfer Mode)은 53바이트 고정 셀 단위로 데이터를 전송하는 광대역 비동기 전송 기술이다. 스위치를 논리적으로 분리하는 기술이 아니다.\n③ ALOHA는 하와이 대학에서 개발된 무선 네트워크 매체 접근 제어(MAC) 방식이다. 스위치 분리와 전혀 관련이 없다.\n④ VLAN — 정답.",
+      "concepts": [
+        "VLAN(Virtual LAN)",
+        "브로드캐스트 도메인 분리",
+        "논리적 네트워크 구성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 556
+      },
+      "concept_ids": [
+        "virtual-lan",
+        "broadcast-domain",
+        "logical-network"
+      ]
+    },
+    {
+      "number": 25,
+      "subject": "네트워크일반",
+      "question": "IEEE 802.11 표준은 꾸준히 발전하며 무선 네트워크 속도와 효율성을 높여 왔다. 다음 중 다중 안테나 기반 MIMO를 사용하면서, 혼잡 환경에서도 OFDMA·DL/UL MU-MIMO 등으로 고해상도(4K/8K) 스트리밍·AR/VR·온라인 게임 같은 고대역폭 서비스를 안정적으로 처리할 수 있는 표준은?",
+      "choices": [
+        {
+          "text": "IEEE 802.11n",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.11ac",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.11ad",
+          "images": []
+        },
+        {
+          "text": "IEEE 802.11ax",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 66,
+      "explanation_detailed": "핵심 개념\nIEEE 802.11 무선 LAN 표준의 세대별 특징을 구분하는 문제다. 특히 OFDMA와 UL MU-MIMO를 동시에 지원하며 고밀도·고대역폭 환경에 최적화된 표준이 무엇인지 묻고 있다.\n\n정답 분석\n④ IEEE 802.11ax (Wi-Fi 6)가 정답이다. 802.11ax는 OFDMA(직교 주파수 분할 다중 접속)를 도입해 채널을 작은 부반송파(RU)로 나눠 여러 단말에 동시 할당함으로써 혼잡 환경에서의 효율을 크게 높였다. 또한 MU-MIMO를 다운링크뿐 아니라 업링크(UL)까지 확장해 최대 8개 스트림을 동시 처리할 수 있다. 이로 인해 4K/8K 스트리밍, AR/VR, 온라인 게임처럼 지연에 민감하고 대역폭이 많이 필요한 서비스를 밀집된 환경에서도 안정적으로 지원한다.\n\n오답 분석\n① IEEE 802.11n은 MIMO를 처음 도입한 표준(Wi-Fi 4)으로, 최대 4개 스트림까지 지원하지만 OFDMA가 없고 MU-MIMO도 지원하지 않아 혼잡 환경 대응 능력이 부족하다.\n② IEEE 802.11ac는 MU-MIMO를 지원하지만 다운링크(DL)에만 한정되며 OFDMA를 지원하지 않아, 다수 단말이 동시에 접속하는 환경에서는 비효율이 발생한다.\n③ IEEE 802.11ad는 60GHz 대역을 사용하는 WiGig 표준으로, 수 Gbps의 순간 전송 속도를 제공하지만 전파 도달 거리가 수 미터에 불과하고 장애물에 매우 취약해 광범위한 고대역폭 서비스 제공에는 적합하지 않다.\n④ 정답이다. OFDMA, DL/UL MU-MIMO, BSS Coloring 등을 종합적으로 지원하는 현재 고밀도 무선 환경의 핵심 표준이다.",
+      "concepts": [
+        "무선 LAN 표준(802.11) 세대별 특징",
+        "OFDMA 및 UL MU-MIMO"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 810
+      },
+      "concept_ids": [
+        "wireless-lan-standard",
+        "ofdma-mu-mimo-wireless"
+      ]
+    },
+    {
+      "number": 26,
+      "subject": "네트워크일반",
+      "question": "1000BASE-T 규격에 대한 설명으로 틀린 것은?",
+      "choices": [
+        {
+          "text": "최대 전송 속도는 1000 Kb/s이다.",
+          "images": []
+        },
+        {
+          "text": "스위치 중심의 스타형 토폴로지가 일반적이다.",
+          "images": []
+        },
+        {
+          "text": "전송 매체는 UTP(비차폐 꼬임쌍선)이다.",
+          "images": []
+        },
+        {
+          "text": "주로 이더넷(IEEE 802.3ab)에서 사용된다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 55,
+      "explanation_detailed": "핵심 개념\n1000BASE-T는 기가비트 이더넷 규격으로, 전송 속도 단위와 물리적 특성을 정확히 이해해야 한다.\n\n정답 분석\n①번이 틀린 설명이다. 1000BASE-T에서 \"1000\"은 1000 Mbps(= 1 Gbps)를 의미한다. 1000 Kb/s는 약 1 Mbps에 불과하므로, 실제 속도의 1/1000 수준으로 완전히 잘못된 수치다. 규격명의 숫자는 항상 Mbps 단위로 읽는 것이 이더넷 명명 규칙이다.\n\n오답 분석\n① 정답(틀린 보기). 최대 전송 속도는 1000 Mbps(1 Gbps)이며, 1000 Kb/s가 아니다.\n② 옳은 설명. 1000BASE-T는 스위치를 중심으로 각 장치를 연결하는 스타형 토폴로지를 사용하며, 이는 현대 이더넷의 표준 구성이다.\n③ 옳은 설명. 전송 매체로 Cat 5e 이상의 UTP(비차폐 꼬임쌍선) 케이블 4쌍을 모두 사용한다.\n④ 옳은 설명. 1000BASE-T는 IEEE 802.3ab 표준으로 정의된 기가비트 이더넷 규격이다.",
+      "concepts": [
+        "기가비트 이더넷(1000BASE-T) 명명 규칙",
+        "이더넷 전송 매체 및 토폴로지"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 492
+      },
+      "concept_ids": [
+        "gigabit-ethernet",
+        "ethernet-physical-standards"
+      ]
+    },
+    {
+      "number": 27,
+      "subject": "네트워크일반",
+      "question": "클라우드 담당자 Kim 사원은 서버리스 컴퓨팅 구성에 대해 검토하고 있다. 서버리스 컴퓨팅에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "클라우드 서비스 제공자가 인프라를 관리하므로, 직접적인 서버 관리를 하지 않아도 된다.",
+          "images": []
+        },
+        {
+          "text": "실제 배포된 서비스의 코드가 실행되는 시점에 사용한 자원량에 따라 요금이 계산된다.",
+          "images": []
+        },
+        {
+          "text": "필요에 따라 컴퓨팅 자원이 자동으로 확장·축소(오토스케일링)된다.",
+          "images": []
+        },
+        {
+          "text": "서버리스 컴퓨팅에서는 사용자가 서버 인스턴스 프로비저닝과 OS 패치를 직접 관리해야 한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n서버리스 컴퓨팅은 클라우드 제공자가 서버 인프라 전체를 관리하며, 사용자는 코드 실행에만 집중하는 모델이다.\n\n정답 분석\n④번이 옳지 않은 설명이다. 서버리스 컴퓨팅의 핵심은 사용자가 서버 프로비저닝(인스턴스 생성·설정)이나 OS 패치 같은 인프라 관리 작업을 전혀 하지 않아도 된다는 점이다. 이 모든 작업은 클라우드 서비스 제공자(AWS Lambda, Google Cloud Functions 등)가 자동으로 처리한다. ④번은 기존 IaaS(서버를 직접 빌리는 방식)에 대한 설명이며, 서버리스와 정반대 개념이다.\n\n오답 분석\n① 옳은 설명이다. 서버리스에서는 AWS, Azure, GCP 등 클라우드 제공자가 서버 운영을 전담하므로 사용자가 직접 관리할 필요가 없다.\n② 옳은 설명이다. 서버리스는 코드가 실제로 실행된 시간과 사용한 자원량(메모리, CPU 시간 등)만큼만 과금되는 종량제 방식이다.\n③ 옳은 설명이다. 트래픽 증가 시 자동으로 자원을 늘리고, 요청이 없으면 자원을 0까지 줄이는 오토스케일링이 서버리스의 주요 특징이다.\n④ 틀린 설명이다. 서버 인스턴스 프로비저닝과 OS 패치는 클라우드 제공자가 담당하며, 사용자가 직접 관리하는 것은 서버리스의 개념에 위배된다.",
+      "concepts": [
+        "서버리스 컴퓨팅(FaaS) 특징",
+        "클라우드 인프라 관리 주체"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 614
+      },
+      "concept_ids": [
+        "serverless-computing-faas",
+        "cloud-distributed-computing"
+      ]
+    },
+    {
+      "number": 28,
+      "subject": "NOS",
+      "question": "서버 관리자 Park 사원은 Linux 서버를 관리하면서 특정 조건에 맞는 파일 및 디렉터리를 검색하기 위해 ′find′ 명령어를 사용하려고 한다. ′find′ 명령어의 주요 옵션에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "′-name′은 지정한 사용자 이름에 해당하는 파일이나 디렉터리를 찾는다.",
+          "images": []
+        },
+        {
+          "text": "′-type′은 지정한 디렉터리 종류에 해당하는 디렉터리 유형을 찾는다.",
+          "images": []
+        },
+        {
+          "text": "′-perm′은 지정한 소유자의 권한만을 고려하여 파일이나 디렉터리를 찾는다.",
+          "images": []
+        },
+        {
+          "text": "′-exec′은 찾은 파일에 대한 삭제 등의 추가적인 명령을 실행할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 61,
+      "explanation_detailed": "핵심 개념\n이 문제는 리눅스에서 특정 조건에 맞는 파일이나 디렉터리를 검색하는 find 명령어의 다양한 옵션 기능을 정확히 알고 있는지를 평가합니다.\n\n정답 분석\n4번 보기가 정답입니다. exec 옵션은 find 명령어로 검색된 파일이나 디렉터리에 대해 추가적인 명령(예: 삭제, 권한 변경 등)을 실행할 수 있게 해줍니다. 예를 들어, 특정 확장자를 가진 파일을 찾자마자 바로 삭제하는 등의 작업을 수행할 때 유용하게 사용되는 올바른 설명입니다.\n\n오답 분석\n① 오답: name 옵션은 사용자 이름이 아닌 지정한 '파일 및 디렉터리의 이름'을 기준으로 검색할 때 사용합니다. 사용자 이름으로 찾을 때는 user 옵션을 써야 합니다.\n② 오답: type 옵션은 지정한 디렉터리 종류가 아니라 '파일의 종류(예: 일반 파일 f, 디렉터리 d 등)'를 지정하여 검색할 때 사용합니다.\n③ 오답: perm 옵션은 소유자의 권한만 고려하는 것이 아니라 '파일의 전체 허가권(퍼미션, 예: 755)' 숫자를 지정하여 검색할 때 사용합니다.\n④ 정답: exec 옵션은 찾은 파일에 대한 삭제 등의 추가적인 명령을 실행할 수 있습니다.",
+      "concepts": [
+        "리눅스 find 명령어",
+        "find 명령어 옵션",
+        "-exec 옵션"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 572
+      },
+      "concept_ids": [
+        "linux-find-command",
+        "find-command",
+        "find-exec-option"
+      ]
+    },
+    {
+      "number": 29,
+      "subject": "NOS",
+      "question": "Windows Server 2022의 Hyper-V에 대한 특징으로 옳은 것은?",
+      "choices": [
+        {
+          "text": "가상 컴퓨터를 다른 서버로 복제할 수 없다.",
+          "images": []
+        },
+        {
+          "text": "가상 하드 디스크를 실행 중에도 다른 저장소로 이동할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "하나의 물리 서버에는 하나의 가상 컴퓨터만 사용할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "가상 컴퓨터를 사용할수록 물리 서버의 하드웨어 자원 사용률은 낮아진다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 57,
+      "explanation_detailed": "핵심 개념\n이 문제는 Windows Server의 가상화 플랫폼인 Hyper-V의 핵심 기능인 실시간 마이그레이션과 가상화의 기본 목적에 대한 이해를 평가합니다.\n\n정답 분석\n정답은 ②번입니다. Hyper-V는 가상 컴퓨터가 실행 중인 상태에서도 가상 하드 디스크 파일(VHDX 등)을 다른 저장소로 안전하게 이동시킬 수 있는 저장소 실시간 마이그레이션(Storage Live Migration) 기능을 지원합니다. 이를 통해 관리자는 시스템 가동 중지 시간(무중단) 없이 스토리지 용량 문제를 해결하거나 저장소 성능을 최적화할 수 있습니다.\n\n오답 분석\n① 오답. Hyper-V 복제(Replica) 기능을 통해 네트워크를 통해 가상 컴퓨터를 다른 서버로 복제하여 재해 복구 센터를 구축할 수 있습니다.\n③ 오답. 가상화 기술의 주요 목적은 하나의 물리 서버에 여러 개의 가상 컴퓨터를 동시에 구동하여 하드웨어 리소스를 통합하고 효율적으로 사용하는 것입니다.\n④ 오답. 가상 컴퓨터를 여러 대 운영하면 물리 서버의 유휴 자원을 적극적으로 활용하게 되므로, 결과적으로 물리 서버의 하드웨어 자원 사용률은 높아집니다.",
+      "concepts": [
+        "Hyper-V 특징",
+        "스토리지 실시간 마이그레이션",
+        "서버 가상화 자원 활용"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 568
+      },
+      "concept_ids": [
+        "hyper-v-overview",
+        "live-storage-migration",
+        "server-virtualization"
+      ]
+    },
+    {
+      "number": 30,
+      "subject": "NOS",
+      "question": "서버 관리자 Kim 사원이 Linux 서버의 ′/root′ 디렉터리를 점검하던 중 ′/etc/passwd′ 파일이 ′/root′ 디렉터리에 복사된 것을 발견했다. ′/root/passwd′ 파일을 삭제하려 했으나 삭제되지 않았다. (A) 명령어로 파일 속성을 확인한 결과, 해당 파일에 ′i′ 속성이 설정되어 쓰기 및 삭제가 불가한 것을 확인했다. 해당 명령어 (A)는?",
+      "choices": [
+        {
+          "text": "file",
+          "images": []
+        },
+        {
+          "text": "stat",
+          "images": []
+        },
+        {
+          "text": "lsattr",
+          "images": []
+        },
+        {
+          "text": "lsblk",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 56,
+      "explanation_detailed": "핵심 개념\n리눅스 파일 시스템에서 파일에 설정된 특수 속성(예: i 속성)을 확인하는 명령어를 묻는 문제입니다. 파일의 숨겨진 속성을 확인할 때는 lsattr 명령어를 사용하고 변경할 때는 chattr 명령어를 사용합니다.\n\n정답 분석\n정답은 ③ lsattr입니다. lsattr(List Attribute)는 리눅스 시스템 내의 파일이나 디렉터리에 부여된 특수 속성 상태를 확인하는 명령어입니다. 문제에 언급된 'i' 속성(Immutable)은 파일을 변경하거나 삭제할 수 없도록 잠그는 속성이며, 이러한 속성이 적용되었는지 확인하려면 lsattr 명령어를 사용해야 합니다.\n\n오답 분석\n① file: 오답입니다. 파일의 내부 헤더를 읽어 파일의 종류(문서, 이미지, 실행 파일 등)를 판별하는 명령어입니다.\n② stat: 오답입니다. 파일의 크기, 소유자, 권한, 시간 정보 등 파일의 메타데이터를 상세하게 출력하는 명령어입니다.\n③ lsattr: 정답입니다.\n④ lsblk: 오답입니다. 시스템에 연결된 블록 장치(하드디스크, 파티션 등)의 목록과 구조를 트리 형태로 출력하는 명령어입니다.",
+      "concepts": [
+        "리눅스 파일 속성 확인",
+        "lsattr 명령어",
+        "Immutable(i) 속성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 556
+      },
+      "concept_ids": [
+        "linux-file-attributes",
+        "lsattr-chattr-command",
+        "immutable-attribute"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "[root@icqa ~]# ls -l ./passwd\n-rw-r--r--. 1 root root 2195 10월 16 16:26 ./passwd\n[root@icqa ~]# rm -f ./passwd\nrm: cannot remove './passwd': 명령을 허용하지 않음\n[root@icqa ~]#( A ) ./passwd\n----i----------- ./passwd"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "subject": "NOS",
+      "question": "Linux 시스템에서 기존에 설정된 ′crontab′을 삭제하려고 할 때 올바른 명령어는?",
+      "choices": [
+        {
+          "text": "crontab –u",
+          "images": []
+        },
+        {
+          "text": "crontab -e",
+          "images": []
+        },
+        {
+          "text": "crontab –l",
+          "images": []
+        },
+        {
+          "text": "crontab -r",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 73,
+      "explanation_detailed": "핵심 개념\n이 문제는 리눅스에서 주기적인 작업을 예약하는 crontab(크론탭) 명령어의 다양한 옵션 중, 기존에 설정된 크론탭 작업 내역을 완전히 삭제하는 명령어를 묻고 있습니다.\n\n정답 분석\n④번 보기인 crontab -r이 정답입니다. 여기서 -r은 remove(삭제)의 약자로, 현재 리눅스 사용자의 크론탭 파일에 등록된 모든 예약 작업을 삭제하는 기능을 수행합니다. 단어 그대로 파일 자체를 지워버리기 때문에 특정 항목만 지우는 것이 아니라 스케줄링 설정이 전부 날아가게 됩니다.\n\n오답 분석\n① crontab -u : 오답입니다. 특정 사용자의 크론탭을 지정할 때 사용하는 옵션으로 주로 관리자가 다른 계정의 작업을 수정할 때 쓰이며 단독으로 사용하여 삭제하지 않습니다.\n② crontab -e : 오답입니다. edit(편집)의 약자로, 크론탭 작업을 새로 추가하거나 기존 내용을 수정할 때 사용하는 명령어입니다.\n③ crontab -l : 오답입니다. list(목록)의 약자로, 현재 설정되어 있는 크론탭의 예약 작업 내용을 화면에 출력하여 확인할 때 사용합니다.\n④ crontab -r : 정답입니다.",
+      "concepts": [
+        "crontab 명령어 옵션",
+        "예약 작업 삭제(-r 옵션)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 568
+      },
+      "concept_ids": [
+        "crontab-options",
+        "scheduled-task-deletion"
+      ]
+    },
+    {
+      "number": 32,
+      "subject": "NOS",
+      "question": "Linux의 가상 파일시스템으로 동작 중인 프로세스의 상태 정보, 하드웨어 정보, 시스템 정보 등을 확인할 수 있는 디렉터리로 올바른 것은?",
+      "choices": [
+        {
+          "text": "/boot",
+          "images": []
+        },
+        {
+          "text": "/etc",
+          "images": []
+        },
+        {
+          "text": "/proc",
+          "images": []
+        },
+        {
+          "text": "/lib",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 60,
+      "explanation_detailed": "핵심 개념\n리눅스에서 메모리에 상주하는 가상 파일시스템으로, 시스템의 현재 동작 상태와 프로세스 정보를 파일 형태로 제공하여 확인할 수 있는 디렉터리를 묻는 문제입니다.\n\n정답 분석\n정답은 ③ /proc입니다. /proc 디렉터리는 하드 디스크가 아닌 메모리(RAM)에 존재하는 가상 파일 시스템(Proc File System)으로, 디스크 용량을 차지하지 않습니다. 이곳에는 실행 중인 프로세스의 정보뿐만 아니라 CPU, 메모리 등 하드웨어 정보와 네트워크 상태 등 시스템의 실시간 정보가 텍스트 파일 형태로 존재하여 관리자가 쉽게 확인할 수 있습니다.\n\n오답 분석\n① /boot: 오답입니다. 리눅스 커널 이미지와 시스템 부팅 시 필요한 핵심 파일들이 저장되는 디렉터리입니다.\n② /etc: 오답입니다. 시스템의 전반적인 환경 설정 파일과 관리자용 프로그램 등이 위치하는 디렉터리입니다.\n③ /proc: 정답입니다. 동작 중인 프로세스와 하드웨어 등 시스템의 실시간 정보를 확인할 수 있는 가상 파일시스템 디렉터리입니다.\n④ /lib: 오답입니다. 시스템 부팅과 기본적인 명령어 실행에 필요한 공유 라이브러리들이 저장되는 디렉터리입니다.",
+      "concepts": [
+        "리눅스 디렉터리 구조",
+        "가상 파일 시스템(/proc)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 582
+      },
+      "concept_ids": [
+        "linux-fhs-directory-structure",
+        "virtual-filesystem-proc"
+      ]
+    },
+    {
+      "number": 33,
+      "subject": "NOS",
+      "question": "DNS에서 지원하는 레코드 형식 중 역방향조회에 사용되는 레코드는?",
+      "choices": [
+        {
+          "text": "A",
+          "images": []
+        },
+        {
+          "text": "AAAA",
+          "images": []
+        },
+        {
+          "text": "PTR",
+          "images": []
+        },
+        {
+          "text": "SOA",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\nDNS 레코드는 도메인 이름과 IP 주소를 매핑하여 네트워크 통신을 돕는 역할을 합니다. 이 문제는 IP 주소를 통해 도메인 이름을 찾아내는 역방향 조회에 해당하는 DNS 레코드의 종류를 묻고 있습니다.\n\n정답 분석\n정답은 ③번 PTR(Pointer) 레코드입니다. PTR 레코드는 IP 주소를 다시 도메인 이름으로 변환하는 역방향 조회를 수행할 때 사용됩니다. 주로 스팸 메일 서버 차단을 위한 인증이나 특정 IP의 출처 확인 등 네트워크 보안 및 관리 목적으로 활발하게 활용됩니다.\n\n오답 분석\n① A - 오답: 도메인 이름을 IPv4 주소로 변환하는 정방향 조회에 사용되는 레코드입니다.\n② AAAA - 오답: 도메인 이름을 IPv6 주소로 변환하는 정방향 조회에 사용되는 레코드입니다.\n③ PTR - 정답: IP 주소를 도메인 이름으로 변환하는 역방향 조회에 사용되는 레코드입니다.\n④ SOA - 오답: 해당 DNS 영역의 시작점을 나타내며 도메인 관리자 정보 및 서버 설정 등을 담고 있는 레코드입니다.",
+      "concepts": [
+        "DNS 레코드 형식",
+        "역방향 조회(PTR 레코드)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 516
+      },
+      "concept_ids": [
+        "dns-records",
+        "reverse-lookup-zone"
+      ]
+    },
+    {
+      "number": 34,
+      "subject": "NOS",
+      "question": "Linux Apache 웹서버에 사용자가 접속한 뒤 80초 동안 추가 요청이 없으면 연결을 종료하도록 ′httpd.conf′에서 설정하는 옵션은?",
+      "choices": [
+        {
+          "text": "Timeout 80",
+          "images": []
+        },
+        {
+          "text": "KeepAlive On",
+          "images": []
+        },
+        {
+          "text": "KeepAliveTimeout 80",
+          "images": []
+        },
+        {
+          "text": "MaxKeepAliveRequests 80",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 73,
+      "explanation_detailed": "핵심 개념\n이 문제는 아파치 웹 서버에서 한 번 맺어진 접속을 유지하며 추가 요청을 기다리는 대기 시간을 설정하는 지시어를 묻고 있습니다. 접속 유지와 관련된 다양한 httpd.conf 옵션들의 정확한 역할을 구분하는 것이 핵심입니다.\n\n정답 분석\n정답은 ③ KeepAliveTimeout 80 입니다. KeepAliveTimeout은 클라이언트가 웹 서버에 접속한 후 추가적인 HTTP 요청을 보내지 않을 때, 서버가 해당 연결을 열어둔 채로 대기하는 시간을 초 단위로 지정합니다. 따라서 80초 동안 추가 요청이 없을 때 연결을 종료하려면 이 값을 80으로 설정해야 하므로 정답입니다.\n\n오답 분석\n① Timeout 80 (오답): 클라이언트의 요청을 받거나 서버가 응답을 보낼 때까지 기다리는 전체적인 패킷 수신 및 전송 대기 시간을 설정하는 옵션입니다.\n② KeepAlive On (오답): 하나의 TCP 연결을 통해 여러 개의 요청을 처리할 수 있도록 접속 유지 기능 자체를 활성화하는 옵션입니다.\n③ KeepAliveTimeout 80 (정답): 접속이 유지되는 동안 추가 요청이 없을 때 연결을 끊기까지 대기하는 시간을 80초로 설정하는 올바른 지시어입니다.\n④ MaxKeepAliveRequests 80 (오답): 접속을 유지하고 있는 동안 처리할 수 있는 최대 요청 횟수를 지정하는 옵션으로 시간과는 무관합니다.",
+      "concepts": [
+        "KeepAliveTimeout 지시어",
+        "아파치 httpd.conf 접속 유지 옵션",
+        "패킷 수신 및 전송 대기 시간"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 687
+      },
+      "concept_ids": [
+        "keepalive-setting",
+        "apache-keep-alive",
+        "network-diagnosis-performance"
+      ]
+    },
+    {
+      "number": 35,
+      "subject": "NOS",
+      "question": "Linux 시스템에서 Apache 웹서버를 구동 시 Well-known port를 사용할 때의 주의사항으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "Well-known port를 통해 Apache 웹서버를 실행할 시 관리자 권한이 필요하다.",
+          "images": []
+        },
+        {
+          "text": "일반 사용자 계정에서 Apache 웹서버를 실행할 때, 실행 명령어 앞에 ′su′를 추가한다.",
+          "images": []
+        },
+        {
+          "text": "Well-known port를 변경할 때, 다른 서비스와 충돌되지 않는 번호를 사용하여야 한다.",
+          "images": []
+        },
+        {
+          "text": "Well-known port는 1부터 1023 까지의 숫자를 사용한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 61,
+      "explanation_detailed": "핵심 개념\n리눅스 시스템에서 1번부터 1023번까지 할당된 Well-known 포트를 바인딩하여 서비스를 구동할 때는 반드시 최고 관리자(root) 권한이 필요하다는 시스템 보안 개념을 묻는 문제입니다.\n\n정답 분석\n일반 사용자 계정에서 관리자 권한으로 특정 명령어를 실행할 때는 명령어 앞에 'sudo'를 추가해야 합니다. 'su'는 관리자 계정으로 전환하는 명령어일 뿐, 실행 명령어 앞에 직접 붙여서 권한을 일시적으로 빌려오는 용도로 사용하는 것이 아니기 때문에 옳지 않은 설명입니다.\n\n오답 분석\n① 정답(맞는 설명)입니다. 1023번 이하의 Well-known 포트는 시스템의 중요한 서비스가 사용하므로 반드시 root 권한으로 실행해야 합니다.\n② 오답(틀린 설명)입니다. 관리자 권한으로 단일 명령어를 실행하려면 'sudo'를 사용해야 하며, 'su'는 관리자 계정으로 아예 전환할 때 사용하는 명령어입니다.\n③ 정답(맞는 설명)입니다. 포트 변경 시 이미 점유하고 있는 다른 서비스와 포트 번호가 겹치면 오류가 발생하므로 반드시 충돌을 피해야 합니다.\n④ 정답(맞는 설명)입니다. IANA에서 규정한 Well-known 포트의 공식적인 번호 범위는 1번부터 1023번까지입니다.",
+      "concepts": [
+        "Well-known 포트 관리자 권한",
+        "sudo 명령어",
+        "su 명령어"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 611
+      },
+      "concept_ids": [
+        "well-known-port",
+        "su-sudo-commands"
+      ]
+    },
+    {
+      "number": 36,
+      "subject": "NOS",
+      "question": "Linux에서 ′sample′파일의 소유자 및 소유그룹이 아닌 사람에 대해 파일을 볼 수는 있지만 수정 및 실행을 못하도록 하는 명령어는?",
+      "choices": [
+        {
+          "text": "chmod 776 sample",
+          "images": []
+        },
+        {
+          "text": "chmod 774 sample",
+          "images": []
+        },
+        {
+          "text": "chmod 746 sample",
+          "images": []
+        },
+        {
+          "text": "chmod 766 sample",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 65,
+      "explanation_detailed": "핵심 개념\n리눅스의 파일 권한 설정 명령어인 chmod의 8진수 숫자 활용법을 이해하고, 특정 사용자(기타 사용자)의 권한을 읽기 전용으로 설정할 수 있는지를 묻는 문제입니다.\n\n정답 분석\n정답은 ②번입니다. 파일 권한은 소유자, 소유그룹, 기타 사용자 순으로 3자리 숫자로 표현됩니다. 문제에서 요구하는 '소유자 및 소유그룹이 아닌 사람'은 세 번째 자리인 '기타 사용자(Others)'를 의미합니다. 파일을 볼 수만 있고 수정 및 실행은 하지 못하게 하려면 읽기(read, 4) 권한만 부여해야 하므로 세 번째 자리 숫자는 4가 되어야 합니다. 따라서 기타 사용자의 권한이 4로 설정된 chmod 774 sample이 정답입니다.\n\n오답 분석\n① chmod 776 sample: 오답입니다. 기타 사용자의 권한이 6(rw-)으로 설정되어 파일 수정이 가능하기 때문입니다.\n③ chmod 746 sample: 오답입니다. 기타 사용자의 권한이 6(rw-)으로 설정되어 파일 수정이 가능하기 때문입니다.\n④ chmod 766 sample: 오답입니다. 기타 사용자의 권한이 6(rw-)으로 설정되어 파일 수정이 가능하기 때문입니다.",
+      "concepts": [
+        "chmod 명령어 8진수 권한 설정",
+        "기타 사용자(Others) 권한",
+        "리눅스 파일 읽기 전용(read) 설정"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 577
+      },
+      "concept_ids": [
+        "chmod-octal-mode",
+        "others-permission",
+        "linux-file-permission"
+      ]
+    },
+    {
+      "number": 37,
+      "subject": "NOS",
+      "question": "다음 중 (ㄱ), (ㄴ)에 들어갈 말로 알맞은 것은?",
+      "choices": [
+        {
+          "text": "ㄱ: 21, ㄴ : 1024",
+          "images": []
+        },
+        {
+          "text": "ㄱ: 21, ㄴ : 20",
+          "images": []
+        },
+        {
+          "text": "ㄱ: 20, ㄴ : 21",
+          "images": []
+        },
+        {
+          "text": "ㄱ: 20, ㄴ : 1024",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n- 이 문제는 FTP(파일 전송 프로토콜) 통신 시 사용하는 제어용 포트와 데이터 전송용 포트의 기본 번호를 묻는 개념입니다.\n\n정답 분석\n- 정답은 ③번입니다. FTP는 통신 과정을 '명령(제어)'과 '데이터 전송' 두 가지로 나누어 각각 다른 포트를 사용합니다. 21번 포트는 클라이언트가 서버에 접속하고 명령을 내릴 때 사용하는 제어 포트 역할을 하며, 실제 파일이 업로드 및 다운로드되는 데이터 전송은 20번 포트를 통해 이루어집니다. 따라서 실제 데이터가 지나가는 통로인 (ㄱ)에 20, 명령이 오가는 통로인 (ㄴ)에 21이 들어가야 합니다.\n\n오답 분석\n- ① 오답입니다. 1024번은 시스템이 동적 할당을 위해 사용하는 예약 포트 번호의 시작점이지 FTP 고유 포트가 아닙니다.\n- ② 오답입니다. 21번은 데이터 전송용이 아니라 제어용 포트이므로 (ㄱ)에 들어가기에 알맞지 않습니다.\n- ③ 정답입니다. (ㄱ)에 데이터 전송용 20번, (ㄴ)에 제어용 21번이 들어가는 올바른 조합입니다.\n- ④ 오답입니다. 20번은 데이터 전송용으로 맞지만, (ㄴ)의 1024번은 FTP 제어용 포트가 아니므로 틀린 조합입니다.",
+      "concepts": [
+        "FTP 포트 번호",
+        "제어용 포트와 데이터 전송용 포트"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 581
+      },
+      "concept_ids": [
+        "ftp-port",
+        "control-data-channel-separation"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "FTP(File Transfer Protocol)란 서로 연결된 네트워크에서 사용자간 파일을 전송할 수 있도록 해주는 기능을 제공하며, 파일 전송시 2개의 포트를 연결하여 데이터를 전송한다. 이 때 (ㄱ)포트는 데이터 전송을 담당하고 (ㄴ)포트는 제어를 담당한다."
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "subject": "NOS",
+      "question": "Windows Server 2022가 설치된 컴퓨터는 항상 가동하는 것이 일반적인 용도이기 때문에 서버 담당자 Park 사원은 시스템을 종료할 때마다 그 이유를 명확히 하여 시스템을 좀 더 안정적으로 운영하고자 한다. 다음 중 이전에 종료 또는 재부팅된 기록을 확인할 수 있는 항목은?",
+      "choices": [
+        {
+          "text": "성능모니터",
+          "images": []
+        },
+        {
+          "text": "이벤트뷰어",
+          "images": []
+        },
+        {
+          "text": "로컬보안정책",
+          "images": []
+        },
+        {
+          "text": "그룹정책편집기",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 76,
+      "explanation_detailed": "핵심 개념\n이 문제는 윈도우 서버에서 시스템의 종료 및 재부팅 등의 시스템 로그 기록을 확인할 수 있는 관리 도구를 묻고 있습니다. 서버 내의 각종 기록과 로그를 남기고 확인하는 도구의 핵심 역할을 알아야 풀 수 있습니다.\n\n정답 분석\n정답은 이벤트뷰어입니다. 이벤트뷰어는 윈도우 운영체제에서 시스템 오류, 경고, 정보 등의 다양한 이벤트 로그를 기록하고 확인하는 도구입니다. 시스템의 종료나 재부팅이 발생하면 이벤트뷰어 내의 'Windows 로그'에 해당 시간과 원인 등이 이벤트 ID와 함께 명확하게 기록되므로, 담당자는 이를 통해 과거의 종료 및 재부팅 기록을 손쉽게 추적할 수 있습니다.\n\n오답 분석\n① 성능모니터: 오답입니다. CPU, 메모리, 디스크 등 시스템의 성능 및 리소스 사용량을 실시간으로 모니터링하고 분석하는 도구입니다.\n② 이벤트뷰어: 정답입니다. 시스템의 종료, 재부팅 및 각종 오류 등의 이벤트 로그 기록을 확인하는 도구입니다.\n③ 로컬보안정책: 오답입니다. 시스템의 암호 정책, 계정 잠금 정책 등 로컬 컴퓨터의 보안 설정을 관리하는 도구입니다.\n④ 그룹정책편집기: 오답입니다. 사용자 및 컴퓨터의 운영 체제, 응용 프로그램 등의 세부적인 정책을 중앙에서 통합 관리하기 위한 도구입니다.",
+      "concepts": [
+        "윈도우 서버 관리 도구",
+        "시스템 종료 및 재부팅 로그 기록"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 624
+      },
+      "concept_ids": [
+        "windows-server-management-tools",
+        "system-shutdown-reboot-log"
+      ]
+    },
+    {
+      "number": 39,
+      "subject": "NOS",
+      "question": "Linux에서 현재 사용 디렉터리 위치에 상관없이 자신의 HOME Directory로 이동하는 명령은?",
+      "choices": [
+        {
+          "text": "cd HOME",
+          "images": []
+        },
+        {
+          "text": "cd /",
+          "images": []
+        },
+        {
+          "text": "cd ../HOME",
+          "images": []
+        },
+        {
+          "text": "cd ~",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 65,
+      "explanation_detailed": "핵심 개념\n이 문제는 리눅스의 기본 디렉터리 이동 명령어인 cd의 활용법과 홈 디렉터리를 지칭하는 특수 기호를 묻고 있습니다. 현재 작업 중인 경로에 상관없이 사용자 자신의 홈 디렉터리로 한 번에 이동할 수 있는 단축 기호를 아는 것이 핵심입니다.\n\n정답 분석\n정답은 4번 cd ~ 입니다. 리눅스와 같은 유닉스 기반 시스템에서 물결표 모양의 틸드(Tilde, ~) 기호는 '현재 접속 중인 사용자의 홈 디렉터리'를 의미하는 절대 경로 대체 기호입니다. 따라서 시스템의 어느 깊숙한 위치에 있든 상관없이 cd ~ 명령어를 입력하면 자신의 홈 디렉터리로 즉시 이동하게 됩니다. 참고로 cd 명령어 뒤에 아무런 인자 없이 cd만 입력해도 동일하게 홈 디렉터리로 이동합니다.\n\n오답 분석\n① cd HOME: 오답입니다. 'HOME'은 시스템 변수를 뜻하는 것이 아니라 단순한 폴더 이름으로 인식되어, 현재 디렉터리 내에 HOME이라는 폴더가 없다면 오류가 발생합니다.\n② cd /: 오답입니다. 슬래시(/) 기호는 리눅스 파일 시스템의 가장 최상위 디렉터리인 루트(Root) 디렉터리로 이동하라는 의미입니다.\n③ cd ../HOME: 오답입니다. 현재 디렉터리의 바로 상위 폴더로 이동한 뒤 그곳에 있는 HOME이라는 폴더로 가라는 상대 경로 명령어이므로 항상 홈 디렉터리로 이동하는 것은 아닙니다.\n④ cd ~: 정답입니다.",
+      "concepts": [
+        "리눅스 디렉터리 이동 명령어(cd)",
+        "홈 디렉터리 단축 기호(~)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 683
+      },
+      "concept_ids": [
+        "cd-command",
+        "home-directory"
+      ]
+    },
+    {
+      "number": 40,
+      "subject": "NOS",
+      "question": "네트워크를 관리하는 Kim 사원은 네트워크 연결을 구축하거나 문제를 해결할 때 패킷이 출발지에서 목적지까지 가는 경로를 살펴볼 수 있도록 네트워크 명령어를 사용하고자 한다. 이 명령은 ′tracert′에서 수행하는 동일한 정보를 보여주면서 홉과 다른 세부 정보 사이의 시간에 관한 정보를 출력이 끝날 때까지 저장한다. Kim 사원이 사용할 명령어는?",
+      "choices": [
+        {
+          "text": "ping",
+          "images": []
+        },
+        {
+          "text": "nslookup",
+          "images": []
+        },
+        {
+          "text": "pathping",
+          "images": []
+        },
+        {
+          "text": "nbtstat",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 63,
+      "explanation_detailed": "핵심 개념\n이 문제는 네트워크 경로를 추적하면서 각 구간별 패킷 손실과 지연 시간 등의 세부 정보를 분석하여 최종 출력하는 명령어를 묻고 있습니다. tracert와 ping의 기능을 결합하여 더 깊이 있는 진단 결과를 제공하는 도구를 아는 것이 핵심입니다.\n\n정답 분석\n정답은 3번 pathping입니다. pathping은 패킷이 목적지까지 가는 경로를 추적하는 동시에, 각 라우터(홉)들에 패킷을 전송하여 네트워크 상태를 분석합니다. 이 과정에서 수집된 홉 사이의 지연 시간 및 패킷 손실률 등의 세부 정보를 계산한 뒤 최종 결과를 한 번에 출력하므로 문제의 설명과 정확히 일치합니다.\n\n오답 분석\n① ping (오답): 목적지 컴퓨터와의 연결 상태 및 통신 소요 시간만 확인할 뿐, 중간 경로를 추적하는 기능은 없습니다.\n② nslookup (오답): 도메인 이름을 통해 IP 주소를 찾거나 반대로 IP 주소를 통해 도메인 이름을 찾는 DNS 관련 명령어입니다.\n③ pathping (정답): tracert의 경로 추적 기능과 ping의 상태 점검 기능을 결합하여 세부 정보를 최종 출력하는 명령어입니다.\n④ nbtstat (오답): NetBIOS over TCP/IP의 통계 정보와 이름 캐시 테이블을 확인하는 명령어로 경로 추적과는 무관합니다.",
+      "concepts": [
+        "pathping 명령어",
+        "패킷 손실 및 지연 시간 분석",
+        "네트워크 경로 추적"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 644
+      },
+      "concept_ids": [
+        "pathping-command",
+        "network-diagnosis-performance",
+        "pathping"
+      ]
+    },
+    {
+      "number": 41,
+      "subject": "NOS",
+      "question": "네트워크관리사 Kim 사원은 Windows Server 2022에서 IIS 웹 서버를 설치하고 다양한 기능을 활용하려고 한다. 다음 중 IIS에서 제공하는 기능으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "요청 필터링(Request Filtering)을 통해 특정 요청을 차단할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "IIS는 HTTPS 프로토콜을 지원하지 않는다.",
+          "images": []
+        },
+        {
+          "text": "IIS는 PHP 스크립트를 실행할 수 없다.",
+          "images": []
+        },
+        {
+          "text": "응용 프로그램 풀(App Pool)은 하나의 웹 사이트만 호스팅할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 55,
+      "explanation_detailed": "핵심 개념\n이 문제는 Windows Server의 IIS(인터넷 정보 서비스)가 제공하는 핵심 기능과 특징을 정확히 이해하고 있는지를 묻습니다. 특히 보안 기능, 지원 프로토콜, 서버 사이드 스크립트, 애플리케이션 풀의 역할에 대한 지식을 평가합니다.\n\n정답 분석\n정답은 1번입니다. IIS의 요청 필터링 기능은 웹 서버로 들어오는 특정 URL, HTTP 동사, 파일 확장명 등을 기반으로 악의적이거나 원치 않는 특정 요청을 사전에 차단할 수 있는 강력한 보안 기능입니다. 이를 통해 관리자는 웹 서버의 보안을 강화하고 위협으로부터 시스템을 효과적으로 보호할 수 있으므로 제시된 보기는 올바른 설명입니다.\n\n오답 분석\n① 정답 - 요청 필터링을 통해 위험한 특정 요청이나 접근을 차단하여 웹 서버의 보안성을 높일 수 있습니다.\n② 오답 - IIS는 SSL/TLS 인증서를 적용하여 안전한 통신을 수행하는 HTTPS 프로토콜을 완벽하게 지원합니다.\n③ 오답 - IIS는 모듈이나 핸들러 매핑을 설정하여 PHP뿐만 아니라 다양한 서버 사이드 스크립트 언어를 실행할 수 있습니다.\n④ 오답 - 하나의 응용 프로그램 풀(App Pool)은 여러 개의 웹 사이트를 동시에 호스팅할 수 있으며, 이를 통해 프로세스를 격리하여 안정성을 높일 수 있습니다.",
+      "concepts": [
+        "IIS 요청 필터링",
+        "응용 프로그램 풀(AppPool)",
+        "IIS 프로토콜 및 스크립트 지원"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 639
+      },
+      "concept_ids": [
+        "iis-request-filtering",
+        "application-pool",
+        "iis-protocol-script-support"
+      ]
+    },
+    {
+      "number": 42,
+      "subject": "NOS",
+      "question": "네트워크관리사 Park 사원은 Windows Server 2022에서 DNS 서버를 운영하며 고급 기능을 활용하려고 한다. 다음 중 DNSSEC(DNS 보안 확장)에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "DNSSEC는 DNS 서버의 성능을 향상시키는 캐싱 메커니즘이다.",
+          "images": []
+        },
+        {
+          "text": "DNSSEC를 사용하면 DNS 쿼리 응답의 무결성과 출처 인증을 제공할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "DNSSEC는 Windows Server 2022에서 지원되지 않는다.",
+          "images": []
+        },
+        {
+          "text": "DNSSEC를 활성화하면 모든 DNS 쿼리가 자동으로 암호화된다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 46,
+      "explanation_detailed": "핵심 개념\n이 문제는 DNS 보안 확장 기술인 DNSSEC의 핵심 목적과 작동 원리를 묻고 있습니다. DNSSEC는 네트워크 통신 중 발생할 수 있는 DNS 데이터 변조 및 스푸핑 공격을 방어하기 위해 데이터의 무결성과 출처 인증을 보장하는 보안 기술입니다.\n\n정답 분석\nDNSSEC는 공개키 기반 구조(PKI)를 활용하여 DNS 응답 데이터에 디지털 서명을 추가합니다. 이 디지털 서명을 통해 클라이언트는 수신한 DNS 응답 데이터가 신뢰할 수 있는 인증된 DNS 서버로부터 왔는지(출처 인증), 그리고 중간에 해커에 의해 데이터가 변조되지 않았는지(무결성) 수학적으로 검증할 수 있습니다. 따라서 보기에서 설명하는 대로 무결성과 출처 인증을 제공하는 것은 DNSSEC의 가장 핵심적인 역할이자 목적이므로 완벽히 올바른 설명입니다.\n\n오답 분석\n① 오답. DNSSEC는 데이터 변조를 막는 보안 기능이며, DNS 서버의 처리 속도를 높이는 캐싱 메커니즘과는 무관합니다.\n② 정답. DNSSEC의 핵심 기능인 데이터 무결성 확인과 출처 인증을 통해 신뢰할 수 있는 DNS 응답을 제공합니다.\n③ 오답. Windows Server 2022는 물론 이전 버전들부터 DNSSEC 기능을 기본적으로 지원하고 있습니다.\n④ 오답. DNSSEC는 데이터 자체를 암호화하지 않으며, 데이터 위변조 방지를 위한 디지털 서명만을 제공합니다.",
+      "concepts": [
+        "DNSSEC(DNS 보안 확장)",
+        "디지털 서명 기반 무결성 검증",
+        "DNS 데이터 위변조 방지"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 685
+      },
+      "concept_ids": [
+        "dnssec",
+        "digital-signature-integrity",
+        "dns-security"
+      ]
+    },
+    {
+      "number": 43,
+      "subject": "NOS",
+      "question": "네트워크관리사 Park 사원은 Windows Server 2022에서 DHCP 서버를 운영하고 있다. 다음 중 DHCP 서버 운영에 대한 설명으로 올바른 것은?",
+      "choices": [
+        {
+          "text": "DHCP 서버는 반드시 Active Directory 환경에서만 구성할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "DHCP 서버는 IP 주소를 자동으로 할당하기 위해 반드시 정적 IP 풀을 사용해야 한다.",
+          "images": []
+        },
+        {
+          "text": "DHCP 클라이언트는 부팅 시 IP 할당을 위해 DHCP 서버를 찾는 브로드캐스트를 전송한다.",
+          "images": []
+        },
+        {
+          "text": "DHCP 서버의 기본 포트는 53번이며, DNS와 동일하다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n이 문제는 DHCP(Dynamic Host Configuration Protocol)의 기본 동작 원리와 클라이언트의 IP 할당 과정, 그리고 서버 구성 조건 및 포트 번호에 대한 이해도를 평가하고 있습니다.\n\n정답 분석\nDHCP 클라이언트는 네트워크에 처음 접속하여 아직 IP 주소를 할당받지 못한 상태이기 때문에, 네트워크상에 있는 DHCP 서버를 찾기 위해 'DHCP Discover' 브로드캐스트 메시지를 전송합니다. 이 브로드캐스트를 수신한 DHCP 서버가 클라이언트에게 IP 주소 등의 네트워크 정보를 제안하고 할당하는 일련의 과정(DORA)을 거치게 되므로 3번 보기의 설명이 정확합니다.\n\n오답 분석\n① 오답입니다. DHCP 서버는 Active Directory(AD) 도메인 환경뿐만 아니라, 작업 그룹(Workgroup) 환경에서도 독립적으로 구성하고 운영할 수 있습니다.\n② 오답입니다. DHCP 서버가 클라이언트에게 나누어주는 IP 주소 영역은 동적 할당을 위한 'IP 주소 풀(Scope)'이며, '정적(고정) IP'를 사용해야 하는 대상은 DHCP 서버 컴퓨터 자신입니다.\n③ 정답입니다.\n④ 오답입니다. DHCP 서버가 통신에 사용하는 기본 포트 번호는 UDP 67번(클라이언트는 68번)이며, 53번은 DNS 서버가 사용하는 포트입니다.",
+      "concepts": [
+        "DHCP DORA 프로세스",
+        "DHCP 서버 구성 조건",
+        "Well-known 포트 번호"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 658
+      },
+      "concept_ids": [
+        "dhcp-dora-process",
+        "dhcp-server-parameters",
+        "well-known-port"
+      ]
+    },
+    {
+      "number": 44,
+      "subject": "NOS",
+      "question": "다음 지문에서 설명하는 명령어로 옳은 것은?",
+      "choices": [
+        {
+          "text": "pgrep python",
+          "images": []
+        },
+        {
+          "text": "ps -ef | grep python",
+          "images": []
+        },
+        {
+          "text": "ss -tulpn | grep python",
+          "images": []
+        },
+        {
+          "text": "top -b –n 1",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n리눅스에서 현재 실행 중인 전체 프로세스 목록을 확인하는 명령어와 특정 문자열을 검색하는 명령어를 파이프라인(|)으로 조합하여 원하는 프로세스를 찾는 방법을 묻는 문제입니다.\n\n정답 분석\n'ps -ef' 명령어는 현재 시스템에서 실행 중인 모든 프로세스를 상세하게 출력하는 명령어입니다. 여기에 파이프라인(|)을 사용하여 출력된 결과를 'grep python' 명령어로 전달하면, 수많은 프로세스 중 'python'이라는 문자열이 포함된 프로세스의 정보만 선별하여 화면에 보여줍니다. 따라서 특정 프로세스의 실행 여부와 상세 정보를 정확히 파악할 수 있는 올바른 명령어 조합입니다.\n\n오답 분석\n① 오답. 'pgrep python'은 파이썬 프로세스를 검색하긴 하지만, 실행 중인 프로세스의 상세한 정보가 아닌 단순히 프로세스 ID(PID) 값만 숫자로 출력합니다.\n② 정답. 전체 프로세스의 상세 목록을 출력한 뒤 python이라는 이름이 포함된 결과만 필터링하여 보여주므로 지문에서 설명하는 명령어에 부합합니다.\n③ 오답. 'ss' 명령어는 시스템의 네트워크 소켓 및 열린 포트 정보를 확인하는 명령어이므로 일반적인 프로세스 실행 상태를 확인하는 목적에 맞지 않습니다.\n④ 오답. 'top' 명령어는 시스템의 전체적인 CPU와 메모리 사용량 등을 실시간으로 모니터링하는 명령어이며 특정 프로세스를 검색하는 기능은 없습니다.",
+      "concepts": [
+        "프로세스 목록 확인(ps)",
+        "특정 프로세스 필터링(grep)",
+        "파이프라인 활용"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 692
+      },
+      "concept_ids": [
+        "process-list-ps",
+        "pipe-process-filtering",
+        "pipeline-operator"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "현재 실행되고 있는 파이썬(Python)과 관련된 프로세스 ID, 부모 프로세스 ID, 실행 시간, 실행 명령어 내역을 확인하고 싶다."
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "subject": "NOS",
+      "question": "Windows Server 2022에서 관리자 권한으로 명령 프롬프트를 실행한 뒤 ′netstat′로 열린 포트와 연관된 실행 파일(프로세스)을 확인하려고 한다. 어떤 옵션을 사용해야 하는가?",
+      "choices": [
+        {
+          "text": "netstat –b",
+          "images": []
+        },
+        {
+          "text": "netstat -p",
+          "images": []
+        },
+        {
+          "text": "netstat –a",
+          "images": []
+        },
+        {
+          "text": "netstat -n",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 37,
+      "explanation_detailed": "핵심 개념\n이 문제는 Windows netstat 명령어 중 열린 포트와 연결된 실행 파일 프로세스의 이름을 확인하는 옵션을 묻고 있습니다. 네트워크 보안 및 점검 시 특정 포트를 점유한 프로그램을 찾아낼 때 사용하는 핵심 명령어입니다.\n\n정답 분석\n정답은 1번입니다. netstat 명령어에 -b 옵션을 주면 각 네트워크 연결(포트)을 생성한 실행 파일의 이름을 화면에 출력해 줍니다. 이 옵션은 시스템의 깊은 프로세스 정보를 호출하므로 문제에서 언급된 대로 반드시 관리자 권한으로 명령 프롬프트를 실행해야만 정상적인 결과를 확인할 수 있습니다.\n\n오답 분석\n① netstat -b : 정답입니다. 열린 포트와 연관된 실행 파일 프로세스를 확인하는 옵션입니다.\n② netstat -p : 오답입니다. TCP나 UDP 등 특정 프로토콜의 연결 상태만 필터링하여 보여주는 옵션입니다.\n③ netstat -a : 오답입니다. 컴퓨터의 모든 연결 및 수신 대기 포트를 보여주는 옵션입니다.\n④ netstat -n : 오답입니다. 주소와 포트 번호를 도메인 이름 대신 숫자 형태로 표시해 주는 옵션입니다.",
+      "concepts": [
+        "netstat 명령어 옵션",
+        "포트 점유 프로세스 확인"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 558
+      },
+      "concept_ids": [
+        "netstat-command",
+        "check-port-occupying-process"
+      ]
+    },
+    {
+      "number": 46,
+      "subject": "네트워크운용기기",
+      "question": "아래 지문에 해당하는 RAID 방식은?",
+      "choices": [
+        {
+          "text": "Linear RAID",
+          "images": []
+        },
+        {
+          "text": "RAID 0",
+          "images": []
+        },
+        {
+          "text": "RAID 1",
+          "images": []
+        },
+        {
+          "text": "RAID 5",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 63,
+      "explanation_detailed": "핵심 개념\n이 문제는 여러 개의 하드디스크에 데이터를 블록 단위로 분산하여 저장하는 스트라이핑 방식을 묻고 있습니다. 패리티(오류 정정 코드)가 없고 모든 디스크 용량을 온전히 사용하면서 디스크 입출력 속도를 극대화하는 RAID 레벨의 특징을 묻는 문제입니다.\n\n정답 분석\n정답인 ② RAID 0은 스트라이핑 방식을 사용하여 데이터를 여러 디스크에 동시에 분산하여 읽고 씁니다. 이로 인해 디스크의 읽기 및 쓰기 속도가 매우 빠르며, 패리티 정보를 저장하지 않기 때문에 디스크의 전체 용량을 100% 활용할 수 있다는 장점이 있습니다. 하지만 하나의 디스크라도 고장 나면 전체 데이터가 파손되는 치명적인 단점이 있습니다.\n\n오답 분석\n① Linear RAID: 오답입니다. 데이터를 순차적으로 한 디스크씩 채워가는 방식으로, 여러 디스크를 하나의 큰 볼륨으로 묶을 뿐 속도 향상은 없습니다.\n② RAID 0: 정답입니다.\n③ RAID 1: 오답입니다. 미러링 방식을 사용하여 두 개의 디스크에 동일한 데이터를 똑같이 저장하므로 안전성은 높지만 용량 효율이 50%로 떨어집니다.\n④ RAID 5: 오답입니다. 블록 단위 스트라이핑과 함께 패리티 정보를 각 디스크에 분산하여 저장하므로 디스크 1개 장애 시에도 데이터 복구가 가능합니다.",
+      "concepts": [
+        "데이터 스트라이핑",
+        "패리티 부재",
+        "RAID 0"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 634
+      },
+      "concept_ids": [
+        "data-striping",
+        "raid-parity-bottleneck",
+        "raid-0-striping"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "서버 담당자 Park 사원은 서버의 데이터를 고성능으로 처리하기 위해 RAID 방식을 도입하려고 한다. 2개 이상 하드디스크가 필요하고, 데이터를 동시에 나누어 저장(Striping)하며, 속도가 가장 빠른 방식을 선택하려 한다."
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "subject": "네트워크운용기기",
+      "question": "게이트웨이(Gateway)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "게이트웨이는 L2 스위치와 같이 프레임만 중계한다.",
+          "images": []
+        },
+        {
+          "text": "두 개의 완전히 다른 네트워크 사이의 데이터 형식을 변환하는 장치이다.",
+          "images": []
+        },
+        {
+          "text": "데이터 변환의 기능을 가지고 있어 네트워크 내의 병목 현상을 일으키는 지점이 될 수 있다.",
+          "images": []
+        },
+        {
+          "text": "프로토콜이 다른 네트워크 환경들을 연결할 수 있는 기능을 제공한다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 51,
+      "explanation_detailed": "핵심 개념\n- 서로 다른 통신 규약(프로토콜)이나 데이터 형식을 사용하는 네트워크를 상호 연결하고 변환해 주는 게이트웨이의 역할과 특징을 묻는 문제입니다.\n\n정답 분석\n- 정답은 ①번입니다. 게이트웨이는 OSI 전 계층(주로 응용 계층)에서 동작하며, 서로 다른 두 네트워크 간의 프로토콜과 데이터 형식을 변환하는 복잡한 역할을 수행합니다. 반면, 프레임만을 중계하는 장비는 데이터 링크 계층(L2)에서 동작하는 스위치나 브리지입니다. 따라서 게이트웨이의 기능을 L2 스위치와 동일하게 프레임만 중계한다고 설명한 1번이 옳지 않은 설명입니다.\n\n오답 분석\n- ① 정답(틀린 설명): 프레임만 중계하는 것은 L2 스위치나 브리지의 역할이며, 게이트웨이는 훨씬 상위 계층의 데이터 변환을 수행합니다.\n- ② 오답(옳은 설명): 완전히 다른 네트워크 아키텍처를 사용할 때 중간에서 데이터 형식을 맞춰 변환해 주는 것이 게이트웨이의 핵심 기능입니다.\n- ③ 오답(옳은 설명): 게이트웨이는 패킷의 헤더를 벗기고 프로토콜을 변환하는 등 복잡한 연산을 수행하므로 처리 속도가 느려 병목 현상의 원인이 될 수 있습니다.\n- ④ 오답(옳은 설명): TCP/IP 기반 네트워크와 SNA 기반 네트워크처럼 서로 다른 프로토콜 환경을 연결하여 통신이 가능하게 해주는 장치가 바로 게이트웨이입니다.",
+      "concepts": [
+        "게이트웨이의 프로토콜 변환",
+        "L2 스위치와의 차이",
+        "OSI 전 계층 동작"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 658
+      },
+      "concept_ids": [
+        "gateway-protocol-conversion",
+        "l2-switch-operation",
+        "osi-all-layers-operation"
+      ]
+    },
+    {
+      "number": 48,
+      "subject": "네트워크운용기기",
+      "question": "다음 지문은 L4 스위치(로드 밸런서)의 기능에 대한 설명이다. L4 스위치의 기본 기능이 아닌 것은?",
+      "choices": [
+        {
+          "text": "서버의 상태를 확인하는 헬스 체크(Health Check) 기능",
+          "images": []
+        },
+        {
+          "text": "알고리즘에 따른 분산 처리",
+          "images": []
+        },
+        {
+          "text": "NAT(Network Address Translation)",
+          "images": []
+        },
+        {
+          "text": "애플리케이션(Application) 계층의 보안 기능 제공",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 52,
+      "explanation_detailed": "핵심 개념\n이 문제는 L4 스위치(로드 밸런서)가 동작하는 OSI 7계층 중 4계층인 전송 계층에서 수행하는 핵심 기능들을 정확히 이해하고 구별하는지를 평가합니다.\n\n정답 분석\nL4 스우치는 TCP/UDP의 포트 번호와 IP 주소를 기반으로 트래픽을 처리 및 분산하는 장비입니다. 애플리케이션 계층(L7)의 데이터 내용이나 페이로드까지 깊이 검사하여 필터링하고 보안 기능을 제공하는 것은 L7 스위치나 웹 방화벽(WAF)의 역할입니다. 따라서 애플리케이션 계층의 보안 기능 제공은 L4 스위치의 기본 기능이 아닙니다.\n\n오답 분석\n① 서버의 상태를 확인하는 헬스 체크(Health Check) 기능: 로드 밸런서의 필수 핵심 기능으로, 주기적으로 서버의 정상 동작 여부를 확인하여 장애가 발생한 서버로는 트래픽을 보내지 않습니다.\n② 알고리즘에 따른 분산 처리: 라운드 로빈, 최소 연결 수 등 다양한 스케줄링 알고리즘을 사용해 클라이언트의 요청을 여러 서버로 효율적으로 나누어 주는 본질적인 기능입니다.\n③ NAT(Network Address Translation): 로드 밸런싱을 수행할 때 외부에서 들어온 트래픽의 목적지 IP를 내부 실제 서버의 IP로 변환하는 D-NAT 기능을 수행하며 L4 스위치의 주요 역할입니다.",
+      "concepts": [
+        "L4 스위치의 로드 밸런싱",
+        "전송 계층 기반 트래픽 처리",
+        "L7 스위치와의 차이"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 630
+      },
+      "concept_ids": [
+        "layer-4-switching",
+        "transport-layer-traffic-handling",
+        "layer-7-switch"
+      ]
+    },
+    {
+      "number": 49,
+      "subject": "네트워크운용기기",
+      "question": "NAT(Network Address Translation)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "정적 NAT는 내부 사설 IP를 공인 IP와 1:1로 매핑하는 방식이다.",
+          "images": []
+        },
+        {
+          "text": "NAT는 프레임 단위로 처리되는 데이터 링크 계층(L2)의 주소 변환 기술이다.",
+          "images": []
+        },
+        {
+          "text": "PAT(포트 주소 변환)은 다수의 사설 IP가 하나의 공인 IP의 서로 다른 포트로 매핑되어 인터넷 접속을 공유할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "NAT는 내부 주소 구조를 외부에 직접 노출하지 않아 보안상 이점을 제공한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 46,
+      "explanation_detailed": "핵심 개념\nNAT는 네트워크 계층(L3)에서 동작하며 패킷의 IP 주소를 변환하는 기술입니다. 주요 방식으로 1:1 매핑인 정적 NAT와 다수의 사설 IP가 하나의 공인 IP와 포트 번호를 공유하는 PAT가 있습니다.\n정답 분석\n정답은 ②번입니다. NAT는 IP 주소를 변환하는 기술이므로 네트워크 계층(L3)에서 동작하며, 처리 단위도 프레임이 아닌 패킷입니다. 따라서 데이터 링크 계층(L2)의 프레임 단위로 처리된다는 설명은 옳지 않습니다.\n오답 분석\n① 올바른 설명입니다. 정적 NAT는 사설 IP와 공인 IP를 1:1로 고정 매핑하는 방식입니다.\n③ 올바른 설명입니다. PAT는 여러 사설 IP가 하나의 공인 IP와 다른 포트 번호를 매핑하여 인터넷 접속을 공유하는 방식입니다.\n④ 올바른 설명입니다. NAT는 외부 네트워크에 내부 사설 IP 주소 체계를 숨겨주어 기본적인 보안성을 제공합니다.",
+      "concepts": [
+        "NAT 동작 계층 및 처리 단위",
+        "정적 NAT와 PAT",
+        "NAT 보안성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "기존 해설의 오답 분석에서 보기의 옳고 그름을 표현하기 위해 '정답'과 '오답'이라는 단어를 사용해 실제 문제의 정답(2번)과 혼동될 여지가 있음.",
+        "improved": true,
+        "prev_chars": 539
+      },
+      "concept_ids": [
+        "nat",
+        "nat-pat-address-translation"
+      ]
+    },
+    {
+      "number": 50,
+      "subject": "네트워크운용기기",
+      "question": "다음 (A) 안에 들어가는 용어 중 옳은 것은?",
+      "choices": [
+        {
+          "text": "L2 Switch",
+          "images": []
+        },
+        {
+          "text": "IP 공유기",
+          "images": []
+        },
+        {
+          "text": "UPS",
+          "images": []
+        },
+        {
+          "text": "PoE Switch",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 63,
+      "explanation_detailed": "핵심 개념\nPoE(Power over Ethernet)는 이더넷 케이블(LAN 선)을 통해 데이터와 전력을 동시에 전송하는 기술입니다. 별도의 전원 공급 장치 없이 네트워크 기기를 구동할 수 있게 해줍니다.\n정답 분석\n정답은 ④번입니다. PoE Switch는 일반적인 LAN 케이블을 통해 데이터 통신과 전력 공급을 동시에 수행하는 스위치입니다. 무선 AP, IP 카메라, IP 폰 등 별도의 콘센트 연결이 어려운 곳에 설치할 때 매우 유용하게 사용됩니다.\n오답 분석\n① L2 Switch는 데이터 링크 계층에서 MAC 주소를 기반으로 프레임을 전송하는 장비로 랜선을 통한 전력 공급 기능은 없습니다.\n② IP 공유기는 하나의 공인 IP를 여러 대의 기기가 나누어 쓸 수 있도록 NAT 등의 기능을 제공하는 장비입니다.\n③ UPS는 무정전 전원 공급 장치로, 정전 발생 시 배터리를 통해 시스템이 안전하게 종료될 수 있도록 임시 전력을 공급합니다.",
+      "concepts": [
+        "PoE(Power over Ethernet)",
+        "PoE 스위치"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "PoE의 개념 설명이 단순히 전력을 공급한다는 데 그쳐, 구체적으로 어떤 장비(AP, IP폰 등)에 주로 활용되는지 예시가 부족하여 설명이 얕음.",
+        "improved": true,
+        "prev_chars": 557
+      },
+      "concept_ids": [
+        "power-over-ethernet",
+        "poe-power-over-ethernet"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "(A)는 전원부(어댑터 등)를 따로 설치 또는 연결하지 않고 UTP 케이블을 통해서 데이터와 전원을 동시에 보낼 수 있는 것을 말한다. 표준 전압은 직류 48V이며 주로 쓰이는 용도로는 AP과 CCTV용 카메라 설치를 위해서 많이 사용되고 있다."
+        }
+      ]
+    }
+  ],
+  "source_site": "cbtbank.kr",
+  "source_url": "https://cbtbank.kr/exam/"
+}
