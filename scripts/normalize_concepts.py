@@ -35,7 +35,8 @@ DATA = ROOT / "data"
 
 
 def session_files(exam_code: str) -> list[Path]:
-    return sorted((DATA / exam_code).glob(f"{exam_code}_2*.json"))
+    # 19xx 회차(예: pi_1999xxxx)도 포함해야 한다 — sessions.json 만 제외
+    return sorted((DATA / exam_code).glob(f"{exam_code}_[12]*.json"))
 
 
 def normalize_subject(s: str) -> str:

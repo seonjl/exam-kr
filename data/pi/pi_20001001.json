@@ -1,0 +1,4181 @@
+{
+  "exam": "정보처리산업기사",
+  "dbname": "pi",
+  "date": "20001001",
+  "label": "2000년10월01일",
+  "count": 100,
+  "questions": [
+    {
+      "number": 1,
+      "subject": "데이터베이스",
+      "question": "which of the following is not equal concept in this phase of database design?",
+      "choices": [
+        {
+          "text": "high-level data model",
+          "images": []
+        },
+        {
+          "text": "requirement data model",
+          "images": []
+        },
+        {
+          "text": "semantic data model",
+          "images": []
+        },
+        {
+          "text": "conceptual data model",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 34,
+      "explanation_detailed": "핵심 개념\n데이터베이스 설계 단계 중 개념적 설계 단계에서 사용되는 모델의 명칭과 특성을 구분하는 문제입니다.\n\n정답 분석\n정답은 2번입니다. 요구사항 데이터 모델은 설계 과정의 입력이 되는 사용자 요구사항을 정의한 단계로, 개념적 설계의 결과물인 모델을 지칭하는 용어가 아닙니다. 나머지 보기들은 모두 개념적 설계 단계에서 사용되는 모델의 동의어나 특성을 나타냅니다.\n\n오답 분석\n1번 오답. 사용자 관점에서 전체적인 데이터 구조를 추상화한 상위 수준의 모델로 개념적 데이터 모델과 동일한 의미입니다.\n2번 정답. 사용자의 요구 사항을 수집하고 분석하는 단계에 해당하며, 개념적 설계 단계의 모델 명칭과는 다릅니다.\n3번 오답. 데이터의 의미와 의미론적 관계를 중점적으로 표현하는 모델로 개념적 설계의 속성에 해당합니다.\n4번 오답. 현실 세계의 정보를 독립적인 개념으로 추상화하여 표현한 것으로 개념적 설계 단계를 대표하는 명칭입니다.",
+      "concepts": [
+        "개념적 데이터 모델의 동의어 구분",
+        "설계 단계와 요구사항 분석 단계의 차이"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 469
+      },
+      "concept_ids": [
+        "conceptual-data-model",
+        "database-design-phase"
+      ]
+    },
+    {
+      "number": 2,
+      "subject": "데이터베이스",
+      "question": "다른 관계에 존재하는 튜플을 참조하기 위해 사용되는 속성의 값은 참조되는 테이블의 튜플 중에 해당 속성에 대해 같은 값을 갖는 튜플이 존재해야 한다는 제약은?",
+      "choices": [
+        {
+          "text": "개체무결성 제약",
+          "images": []
+        },
+        {
+          "text": "주소무결성 제약",
+          "images": []
+        },
+        {
+          "text": "참조무결성 제약",
+          "images": []
+        },
+        {
+          "text": "도메인 제약",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 85,
+      "explanation_detailed": "핵심 개념\n이 문제는 외래키를 통해 다른 테이블을 참조할 때, 참조 대상이 되는 값이 반드시 존재해야 한다는 데이터베이스의 참조무결성 제약 조건을 묻고 있습니다.\n\n정답 분석\n참조무결성 제약은 외래키의 값이 NULL이거나 참조되는 테이블(부모 테이블)의 기본키 값과 동일해야 한다는 규칙입니다. 부모 테이블에 존재하지 않는 값을 자식 테이블의 외래키로 사용하는 것을 방지하여 테이블 간의 관계를 항상 유효하게 유지합니다. 따라서 문제에서 설명하는 제약 조건과 정확히 일치합니다.\n\n오답 분석\n① 오답입니다. 개체무결성 제약은 기본키를 구성하는 속성은 NULL 값을 가질 수 없고, 중복될 수 없다는 규칙입니다.\n② 오답입니다. 관계형 데이터베이스의 무결성 제약 조건 중에는 '주소무결성 제약'이라는 명칭은 존재하지 않는 가상의 용어입니다.\n③ 정답입니다.\n④ 오답입니다. 도메인 제약은 각 속성의 값이 해당 속성에 정의된 도메인(데이터 타입, 길이, 허용되는 값의 범위 등) 내에 속해야 한다는 규칙입니다.",
+      "concepts": [
+        "참조무결성 제약",
+        "외래키의 유효성 검증"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 507
+      },
+      "concept_ids": [
+        "referential-integrity",
+        "foreign-key"
+      ]
+    },
+    {
+      "number": 3,
+      "subject": "데이터베이스",
+      "question": "데이터베이스 설계단계의 순서로 가장 적합한 것은?",
+      "choices": [
+        {
+          "text": "개념적 설계 - 논리적 설계 - 물리적 설계",
+          "images": []
+        },
+        {
+          "text": "논리적 설계 - 개념적 설계 - 물리적 설계",
+          "images": []
+        },
+        {
+          "text": "물리적 설계 - 논리적 설계 - 개념적 설계",
+          "images": []
+        },
+        {
+          "text": "물리적 설계 - 개념적 설계 - 논리적 설계",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 92,
+      "explanation_detailed": "핵심 개념\n이 문제는 데이터베이스 구축의 기반이 되는 데이터베이스 설계의 표준적인 3단계 진행 순서를 묻고 있습니다. 설계는 추상적인 수준에서 시작해 실제 컴퓨터 저장장치에 구현할 수 있는 물리적인 구조로 나아가는 개념적, 논리적, 물리적 설계의 순서로 진행됩니다.\n\n정답 분석\n정답은 ①번입니다. 현실 세계의 사용자 요구사항을 추상적인 개념으로 표현하는 개념적 설계를 가장 먼저 수행합니다. 이후 개념적 구조를 특정 DBMS가 지원하는 논리적 스키마로 변환하는 논리적 설계를 진행합니다. 마지막으로 논리적 구조를 바탕으로 데이터를 실제 저장장치에 저장하기 위한 물리적 구조를 정하는 물리적 설계 순서로 진행됩니다.\n\n오답 분석\n① 정답입니다. 개념적 설계부터 논리적, 물리적 설계 순으로 이어지는 올바른 단계입니다.\n② 오답입니다. 구체적인 논리적 설계를 진행하기 전에 추상적인 개념적 설계가 반드시 선행되어야 합니다.\n③ 오답입니다. 물리적 설계는 데이터베이스 구축의 가장 마지막 단계이므로 진행 순서가 완전히 반대입니다.\n④ 오답입니다. 개념적 설계 이후에는 바로 물리적 설계로 넘어가는 것이 아니라, 자료 구조를 매핑하는 논리적 설계 단계를 거쳐야 합니다.",
+      "concepts": [
+        "데이터베이스 설계 단계의 순서",
+        "설계 추상화 수준의 진행"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 595
+      },
+      "concept_ids": [
+        "db-design-phases",
+        "database-design-phase"
+      ]
+    },
+    {
+      "number": 4,
+      "subject": "데이터베이스",
+      "question": "SQL 언어의 데이터 제어어(DCL)에 해당하는 것은?",
+      "choices": [
+        {
+          "text": "SELECT문",
+          "images": []
+        },
+        {
+          "text": "INSERT 문",
+          "images": []
+        },
+        {
+          "text": "UPDATE문",
+          "images": []
+        },
+        {
+          "text": "GRANT 문",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 94,
+      "explanation_detailed": "핵심 개념\n이 문제는 SQL 언어의 분류 중 데이터의 보안 및 접근 권한을 관리하는 데이터 제어어(DCL, Data Control Language)의 종류를 묻는 문제입니다.\n\n정답 분석\nGRANT 문은 데이터베이스 관리자가 특정 사용자에게 테이블이나 뷰 등의 객체를 조작할 수 있는 권한을 부여할 때 사용하는 명령어입니다. 권한을 회수하는 REVOKE 문과 함께 데이터베이스의 접근을 통제하는 대표적인 데이터 제어어(DCL)에 해당하므로 정답입니다.\n\n오답 분석\n① SELECT문: 오답. 테이블 내의 데이터를 검색하고 조회하는 데이터 조작어(DML)입니다.\n② INSERT 문: 오답. 테이블에 새로운 데이터를 삽입하는 데이터 조작어(DML)입니다.\n③ UPDATE문: 오답. 테이블에 존재하는 기존 데이터의 값을 수정하는 데이터 조작어(DML)입니다.",
+      "concepts": [
+        "데이터 제어어(DCL)",
+        "권한 부여(GRANT 문)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 423
+      },
+      "concept_ids": [
+        "dcl-data-control-language",
+        "authority-grant-revoke"
+      ]
+    },
+    {
+      "number": 5,
+      "subject": "데이터베이스",
+      "question": "SQL 뷰(view)의 생성을 위한 정의 예약어는?",
+      "choices": [
+        {
+          "text": "CREATE",
+          "images": []
+        },
+        {
+          "text": "ALTER",
+          "images": []
+        },
+        {
+          "text": "UPDATE",
+          "images": []
+        },
+        {
+          "text": "DROP",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 89,
+      "explanation_detailed": "핵심 개념\nSQL의 DDL(데이터 정의어) 중 뷰(View)라는 가상 테이블을 새로 만들 때 사용하는 명령어를 확인하는 문제입니다.\n\n정답 분석\n정답인 ① CREATE는 데이터베이스 객체를 새로 생성할 때 사용하는 예약어입니다. 뷰를 생성할 때는 'CREATE VIEW 뷰명 AS SELECT문'과 같은 형식을 사용하며, 이를 통해 기존 테이블을 기반으로 한 가상 테이블을 정의합니다.\n\n오답 분석\n① 정답입니다. 뷰를 새로 정의하여 생성할 때 사용합니다.\n② 오답입니다. 이미 생성된 뷰의 구조나 내용을 수정할 때 사용합니다.\n③ 오답입니다. 뷰를 통해 조회한 데이터의 값을 변경하는 DML 명령어입니다.\n④ 오답입니다. 생성되어 있는 뷰를 데이터베이스에서 삭제할 때 사용합니다.",
+      "concepts": [
+        "CREATE 문",
+        "뷰(VIEW) 생성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 381
+      },
+      "concept_ids": [
+        "ddl-commands",
+        "database-view"
+      ]
+    },
+    {
+      "number": 6,
+      "subject": "데이터베이스",
+      "question": "SQL의 뷰(view)에 대한 장점으로 부적합한 것은?",
+      "choices": [
+        {
+          "text": "뷰 정의의 변경이 용이하다.",
+          "images": []
+        },
+        {
+          "text": "논리적 데이터 독립성을 제공한다.",
+          "images": []
+        },
+        {
+          "text": "접근 제어를 통한 보안을 제공한다.",
+          "images": []
+        },
+        {
+          "text": "사용자의 데이터 관리를 간단하게 한다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n이 문제는 가상 테이블인 뷰(View)의 주요 장점과 특징을 이해하고 있는지를 묻는 문제입니다. 특히 뷰의 생성 및 변경과 관련된 제약사항을 정확히 아는 것이 핵심입니다.\n\n정답 분석\n정답은 1번입니다. 뷰는 한 번 생성되면 구조나 정의를 직접 수정하는 ALTER VIEW 구문이 표준적으로 제공되지 않거나 제약이 매우 많습니다. 따라서 정의를 변경하려면 기존 뷰를 삭제(DROP VIEW)한 후 다시 생성(CREATE VIEW)해야 하므로 변경이 용이하다는 것은 뷰의 장점이 될 수 없습니다.\n\n오답 분석\n① 오답(부적합한 정답). 뷰의 정의 변경은 제약이 많아 일반적으로 삭제 후 재생성해야 하므로 용이하지 않습니다.\n② 장점에 해당합니다. 기본 테이블의 구조가 변경되어도 뷰를 통해 접근하면 응용 프로그램의 수정을 최소화할 수 있어 논리적 데이터 독립성을 제공합니다.\n③ 장점에 해당합니다. 특정 사용자에게 기본 테이블 전체가 아닌 뷰에만 접근 권한을 주어 민감한 데이터를 숨길 수 있어 보안성을 높입니다.\n④ 장점에 해당합니다. 여러 테이블을 조인하는 복잡한 쿼리를 미리 뷰로 만들어두면 사용자는 단순한 쿼리만으로 데이터를 조회할 수 있어 관리가 편리해집니다.",
+      "concepts": [
+        "뷰 정의 변경의 제약성",
+        "논리적 데이터 독립성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 603
+      },
+      "concept_ids": [
+        "view-concepts",
+        "logical-data-independence"
+      ]
+    },
+    {
+      "number": 7,
+      "subject": "데이터베이스",
+      "question": "물리적 데이터베이스 설계시 고려해야 할 사항으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "응답시간",
+          "images": []
+        },
+        {
+          "text": "응용프로그램의 양",
+          "images": []
+        },
+        {
+          "text": "저장공간의 효율성",
+          "images": []
+        },
+        {
+          "text": "트랜잭션의 처리도",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n물리적 데이터베이스 설계는 논리적 데이터 모델을 실제 저장 장치에 구현하는 단계로, 시스템 성능과 저장 공간 효율성을 최적화하는 데 중점을 둡니다.\n\n정답 분석\n물리적 설계는 데이터의 물리적 저장 구조와 접근 경로를 결정하여 응답 시간을 단축하고 처리 능력을 극대화하는 과정입니다. 반면 응용프로그램의 양은 개발 범위나 시스템 운영 측면에서 고려될 수 있으나, 데이터 자체의 저장 구조나 성능과 직접적인 연관이 있는 물리적 설계의 주요 고려 대상은 아닙니다.\n\n오답 분석\n① 오답: 응답시간은 물리적 설계를 통해 인덱스 구조나 파일 배치를 최적화하여 개선해야 할 핵심 성능 지표입니다.\n② 정답: 응용프로그램의 양은 물리적 데이터 저장 방식이나 접근 경로를 결정하는 데 직접적인 영향을 미치지 않으므로 거리가 멉니다.\n③ 오답: 저장공간의 효율성을 높이기 위해 데이터 압축이나 블록 크기 결정 등을 수행하는 것은 물리적 설계의 중요한 목적입니다.\n④ 오답: 트랜잭션의 처리량과 성능을 보장하기 위해 물리적 저장 장치의 구조와 접근 방법을 설계하는 것이 필수적입니다.",
+      "concepts": [
+        "질의 응답시간",
+        "저장공간 효율성",
+        "트랜잭션 처리 성능"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 546
+      },
+      "concept_ids": [
+        "query-performance-design",
+        "storage-efficiency",
+        "transaction-design-control"
+      ]
+    },
+    {
+      "number": 8,
+      "subject": "데이터베이스",
+      "question": "데이터베이스의 스키마(schema)를 3단계로 표현할 때, 해당되지 않는 것은?",
+      "choices": [
+        {
+          "text": "외부 스키마",
+          "images": []
+        },
+        {
+          "text": "저장 스키마",
+          "images": []
+        },
+        {
+          "text": "개념 스키마",
+          "images": []
+        },
+        {
+          "text": "내부 스키마",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 98,
+      "explanation_detailed": "핵심 개념\n이 문제는 데이터베이스의 3단계 스키마 구조를 구성하는 요소들을 묻고 있습니다. 스키마 3단계는 외부, 개념, 내부 스키마로 나뉘며 각각 사용자, 전체 논리, 물리적 저장 관점을 나타냅니다.\n\n정답 분석\n정답은 2번 저장 스키마입니다. 데이터베이스의 3단계 스키마 구조는 미국 표준 협회인 ANSI/SPARC에서 데이터 독립성을 확보하기 위해 제안한 모델입니다. 이 구조는 외부 스키마, 개념 스키마, 내부 스키마로 구성되며, 저장 스키마는 해당 모델에 존재하지 않는 용어이기 때문에 정답이 됩니다.\n\n오답 분석\n① 외부 스키마: 3단계 스키마에 포함되는 올바른 보기이므로 오답입니다. 사용자의 관점에서 바라본 뷰 단계를 뜻합니다.\n② 저장 스키마: 3단계 스키마 구조에 속하지 않는 가상의 용어이므로 정답입니다.\n③ 개념 스키마: 3단계 스키마에 포함되는 올바른 보기이므로 오답입니다. 전체적인 논리적 구조를 뜻합니다.\n④ 내부 스키마: 3단계 스키마에 포함되는 올바른 보기이므로 오답입니다. 물리적인 저장 장치의 구조를 뜻합니다.",
+      "concepts": [
+        "ANSI/SPARC 3단계 스키마 모델",
+        "외부·개념·내부 스키마"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 528
+      },
+      "concept_ids": [
+        "ansi-sparc-schema",
+        "three-schema-architecture"
+      ]
+    },
+    {
+      "number": 9,
+      "subject": "데이터베이스",
+      "question": "개체-관계 모델(E-R Model)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "개체와 개체간의 관계를 도식화한다.",
+          "images": []
+        },
+        {
+          "text": "개체 집합을 사각형으로 표시한다.",
+          "images": []
+        },
+        {
+          "text": "관계를 다이아몬드로 표시한다.",
+          "images": []
+        },
+        {
+          "text": "일대일(1:1), 일대다(1:N) 관계 유형만 표현할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 95,
+      "explanation_detailed": "핵심 개념\nE-R 모델은 현실 세계의 데이터를 개체, 속성, 관계로 추상화하여 개념적 데이터 모델링을 수행하는 도구입니다.\n\n정답 분석\n4번이 정답입니다. E-R 모델은 일대일(1:1), 일대다(1:N) 관계뿐만 아니라 다대다(M:N) 관계 유형도 표현할 수 있습니다. 따라서 특정 관계 유형만 표현할 수 있다는 설명은 명백히 틀린 내용입니다.\n\n오답 분석\n① (오답) 개체와 개체 간의 관계를 도식화하는 것이 E-R 모델의 정의이므로 맞는 설명임.\n② (오답) E-R 다이어그램에서 개체 집합은 사각형으로 표시하는 것이 규칙임.\n③ (오답) E-R 다이어그램에서 관계는 마름모(다이아몬드)로 표시하는 것이 규칙임.\n④ (정답)",
+      "concepts": [
+        "E-R 모델의 M:N 관계 표현",
+        "E-R 다이어그램 기호"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 351
+      },
+      "concept_ids": [
+        "er-model-mn-relationship",
+        "entity-relationship-diagram"
+      ]
+    },
+    {
+      "number": 10,
+      "subject": "데이터베이스",
+      "question": "스택(STACK)의 응용 분야가 아닌 것은?",
+      "choices": [
+        {
+          "text": "함수호출",
+          "images": []
+        },
+        {
+          "text": "순환호출",
+          "images": []
+        },
+        {
+          "text": "작업 스케줄링",
+          "images": []
+        },
+        {
+          "text": "수식계산",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 75,
+      "explanation_detailed": "핵심 개념\n- 스택은 후입선출(LIFO) 구조를 가지며, 가장 나중에 들어온 데이터가 먼저 나가는 자료구조입니다.\n\n정답 분석\n- 작업 스케줄링은 먼저 온 일을 먼저 처리하는 선입선출(FIFO) 구조인 큐(Queue)가 대표적으로 사용됩니다. 반면 스택은 함수 실행 복귀 주소 관리 등 최근 수행 내역을 다루는 데 특화되어 있어 스케줄링에 적합하지 않습니다.\n\n오답 분석\n- ① 오답: 함수가 호출되면 복귀 주소를 저장하기 위해 시스템 스택 영역이 활용됩니다.\n- ② 오답: 재귀적인 순환 호출 시에도 함수의 호출 순서와 복귀 지점을 관리하기 위해 스택을 사용합니다.\n- ③ 정답\n- ④ 오답: 연산자 우선순위를 적용하거나 중위 표기법을 후위 표기법으로 변환할 때 스택을 이용합니다.",
+      "concepts": [
+        "스택의 후입선출 특성",
+        "함수 호출 스택",
+        "작업 스케줄링"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 382
+      },
+      "concept_ids": [
+        "stack-lifo-structure",
+        "call-stack",
+        "job-scheduling"
+      ]
+    },
+    {
+      "number": 11,
+      "subject": "데이터베이스",
+      "question": "다음 설명이 의미하는 것은?",
+      "choices": [
+        {
+          "text": "스택",
+          "images": []
+        },
+        {
+          "text": "큐",
+          "images": []
+        },
+        {
+          "text": "다중스택",
+          "images": []
+        },
+        {
+          "text": "데크",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 76,
+      "explanation_detailed": "핵심 개념\n양쪽 끝(front, rear)에서 데이터의 삽입과 삭제가 모두 가능한 자료구조인 데크(Deque)의 특성을 묻는 문제입니다.\n\n정답 분석\n데크(Double Ended Queue)는 큐의 양쪽 끝 모두에서 데이터의 삽입과 삭제가 가능한 선형 자료구조입니다. 스택의 후입선출(LIFO) 방식과 큐의 선입선출(FIFO) 방식을 모두 지원하여 데이터의 흐름을 양방향으로 유연하게 제어할 수 있기 때문에 정답입니다.\n\n오답 분석\n① 스택 (오답): 한쪽 끝(Top)에서만 데이터의 삽입과 삭제가 이루어지는 후입선출(LIFO) 구조이므로 틀렸습니다.\n② 큐 (오답): 한쪽 끝(Rear)에서는 삽입만, 다른 쪽 끝(Front)에서는 삭제만 이루어지는 선입선출(FIFO) 구조이므로 틀렸습니다.\n③ 다중스택 (오답): 여러 개의 스택을 메모리 내에 효율적으로 배치하여 운영하는 기법일 뿐, 여전히 각 스택은 한쪽 끝에서만 입출력이 발생하므로 틀렸습니다.",
+      "concepts": [
+        "양쪽 끝 입출력 자료구조(데크)",
+        "LIFO와 FIFO의 유연한 지원"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 477
+      },
+      "concept_ids": [
+        "deque"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "•삽입과 삭제가 리스트의 양쪽 끝에서 발생할 수 있는 형태이다.\n•입력이 한쪽에서만 발생하고 출력은 양쪽에서 일어날 수 있는 입력제한과, 입력은 양쪽에서 일어나고 출력은 한곳에서만 이루어지는 출력제한이 없다."
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "subject": "데이터베이스",
+      "question": "DBMS를 사용했을 때의 장점으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "표준화의 범기관적 시행",
+          "images": []
+        },
+        {
+          "text": "단순한 예비와 회복 기법",
+          "images": []
+        },
+        {
+          "text": "데이터의 보안 보장이 용이",
+          "images": []
+        },
+        {
+          "text": "데이터 무결성 및 일관성 유지",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n- DBMS 도입을 통해 얻을 수 있는 주요 장점인 데이터 중복 최소화, 보안 유지, 무결성 보장 등의 특성을 이해하고 있는지 묻는 문제\n\n정답 분석\n- 정답은 2번입니다. DBMS의 백업과 회복 기능은 장애 발생 시 데이터를 복구하는 중요한 기능이지만, 트랜잭션 로그 관리나 미디어 복구 등 매우 복잡하고 정교한 기술을 필요로 하므로 '단순한 예비와 회복 기법'이라고 표현하기는 어렵습니다.\n\n오답 분석\n- ① 정답: DBMS는 데이터를 통합 관리함으로써 조직 전체적으로 데이터의 명칭과 형식을 표준화하는 데 유리합니다.\n- ② 오답: DBMS의 백업과 회복은 데이터베이스의 신뢰성을 보장하지만, 그 구현 및 운영 기법은 복잡하고 전문적입니다.\n- ③ 정답: DBMS는 사용자별로 접근 권한을 부여하는 등의 기능을 통해 데이터 보안을 체계적이고 용이하게 관리할 수 있습니다.\n- ④ 정답: DBMS는 무결성 제약조건과 트랜잭션 관리를 통해 데이터의 정확성과 일관성을 효과적으로 유지할 수 있습니다.",
+      "concepts": [
+        "DBMS 도입 장점",
+        "백업과 복구 기법의 복잡성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 509
+      },
+      "concept_ids": [
+        "dbms-adoption-benefits",
+        "transaction-recovery"
+      ]
+    },
+    {
+      "number": 13,
+      "subject": "데이터베이스",
+      "question": "내장(Embedded) SQL에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "내장 SQL 문은 EXEC SQL이 앞 부분에 위치한다.",
+          "images": []
+        },
+        {
+          "text": "SQL에 사용되는 호스트 변수는 콜론(:)을 앞에 붙인다.",
+          "images": []
+        },
+        {
+          "text": "SQL code의 값이 음수인 경우 경고를 의미한다.",
+          "images": []
+        },
+        {
+          "text": "SQL code의 값이 영(제로)이면 성공적으로 수행되었음을 의미한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n이 문제는 호스트 프로그램 내에 SQL을 삽입하여 사용하는 내장 SQL의 기본 문법 규칙과 실행 결과를 판단하는 SQLCODE의 상태 값에 대한 이해를 묻고 있습니다.\n\n정답 분석\n정답은 ③번입니다. SQLCODE의 값이 음수인 경우는 경고가 아니라 시스템 장애나 실행 실패 등의 치명적인 에러(Error)가 발생했음을 의미합니다. 일반적으로 SQLCODE는 0이면 성공, 양수이면 예외나 경고(Warning), 음수이면 에러로 구분하여 처리합니다.\n\n오답 분석\n① 정답 설명입니다. 호스트 프로그램의 일반 코드와 SQL문을 명확히 구분하기 위해 내장 SQL 문 앞에는 EXEC SQL을 명시하는 것이 맞습니다.\n② 정답 설명입니다. 데이터베이스의 속성명과 프로그래밍 언어의 변수명을 구분하기 위해 SQL문 내에서 호스트 변수 앞에는 콜론(:)을 붙이는 것이 맞습니다.\n③ 오답입니다. SQLCODE 값이 음수이면 경고가 아니라 실행 에러가 발생했음을 의미하므로 옳지 않은 설명입니다.\n④ 정답 설명입니다. SQLCODE의 반환 값이 영(0)이면 오류나 경고 없이 SQL 문이 성공적으로 수행되었음을 의미하는 것이 맞습니다.",
+      "concepts": [
+        "SQLCODE 상태값 체계",
+        "내장 SQL 문법 규칙"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 579
+      },
+      "concept_ids": [
+        "sqlcode-status",
+        "embedded-sql"
+      ]
+    },
+    {
+      "number": 14,
+      "subject": "데이터베이스",
+      "question": "주기억장치를 이용하여 정렬하는 방법은?",
+      "choices": [
+        {
+          "text": "쉘 정렬(Shell sort)",
+          "images": []
+        },
+        {
+          "text": "균형 병합 정렬(Balanced merge sort)",
+          "images": []
+        },
+        {
+          "text": "케스케이드 병합 정렬(Cascade merge sort)",
+          "images": []
+        },
+        {
+          "text": "다상 병합 정렬(Polyphase merge sort)",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 55,
+      "explanation_detailed": "핵심 개념\n정렬 알고리즘은 데이터가 저장된 위치에 따라 주기억장치에서만 수행하는 내부 정렬과 보조기억장치를 이용하는 외부 정렬로 구분됩니다. 이 문제는 내부 정렬에 해당하는 알고리즘을 식별하는 것이 핵심입니다.\n\n정답 분석\n쉘 정렬은 삽입 정렬을 보완하여 전체 리스트를 일정한 간격의 부분 리스트로 나누어 정하는 방식입니다. 모든 데이터를 주기억장치에 적재하여 처리하는 대표적인 내부 정렬 알고리즘에 해당합니다.\n\n오답 분석\n① 정답: 주기억장치 내에서 데이터를 비교하고 이동시키며 정렬하는 내부 정렬 방식입니다.\n② 오답: 대량의 데이터를 처리하기 위해 테이프나 디스크 같은 보조기억장치를 사용하는 외부 정렬 방식입니다.\n③ 오답: 단계별로 병합을 수행하며 보조기억장치를 주로 활용하는 외부 정렬 방식입니다.\n④ 오답: 보조기억장치의 매체 수를 최소화하여 병합을 수행하는 효율적인 외부 정렬 방식입니다.",
+      "concepts": [
+        "내부 정렬과 외부 정렬의 구분",
+        "쉘 정렬의 특징"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 450
+      },
+      "concept_ids": [
+        "internal-external-sorting",
+        "sorting-stability"
+      ]
+    },
+    {
+      "number": 15,
+      "subject": "데이터베이스",
+      "question": "What is called in that attributes are not divisible?",
+      "choices": [
+        {
+          "text": "stored attribute",
+          "images": []
+        },
+        {
+          "text": "composite attribute",
+          "images": []
+        },
+        {
+          "text": "atomic attribute",
+          "images": []
+        },
+        {
+          "text": "derived attribute",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 66,
+      "explanation_detailed": "핵심 개념\n속성은 분해 가능성에 따라 원자적(atomic)과 복합(composite)으로 분류되며, 원자적 속성은 더 이상 논리적으로 나눌 수 없는 최소 단위 속성입니다.\n\n정답 분석\n원자적 속성(atomic attribute)은 의미상 더 이상 분해될 수 없는 속성입니다. 예를 들어 '직급' 또는 '성별' 같은 속성이 이에 해당하며, 복합 속성인 '주소'(도시-구-동으로 분해 가능)와 대비됩니다.\n\n오답 분석\n① stored attribute: 저장 속성으로, 데이터베이스에 직접 저장 여부를 판단하는 기준이며 분할 가능성과는 무관합니다.\n② composite attribute: 복합 속성으로 여러 세부 속성으로 분해 가능하므로 원자적이 아닙니다.\n③ atomic attribute: 정답입니다.\n④ derived attribute: 유도 속성으로 다른 속성으로부터 계산되는 속성입니다.",
+      "concepts": [
+        "원자적 속성",
+        "속성의 분해 가능성에 따른 분류"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "stored attribute가 원자성과 무관한 개념임을 명확히 구분 필요",
+        "improved": true,
+        "prev_chars": 463
+      },
+      "concept_ids": [
+        "atomic-value-1nf",
+        "attribute-atomicity-decomposition"
+      ]
+    },
+    {
+      "number": 16,
+      "subject": "데이터베이스",
+      "question": "“blocking factor\"에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "하나의 물리 레코드 내에 포함된 논리 레코드의 수",
+          "images": []
+        },
+        {
+          "text": "IBG와 IBG 사이의 논리 레코드 수",
+          "images": []
+        },
+        {
+          "text": "레코드의 크기가 1000이고 블록 크기가 100이면 blocking factor는 10 이다.",
+          "images": []
+        },
+        {
+          "text": "blocking factor가 클수록 물리적 액세스 수가 적어진다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 43,
+      "explanation_detailed": "핵심 개념\n블로킹 팩터는 한 물리 블록에 포함될 수 있는 논리 레코드의 개수로, 공식은 BF = 블록 크기 ÷ 레코드 크기입니다. 블로킹 팩터가 크면 한 번의 입출력으로 더 많은 레코드를 읽을 수 있어 물리적 액세스 횟수가 감소합니다.\n\n정답 분석\n③번 보기는 \"블록 크기 100, 레코드 크기 1000\"이므로 BF = 100 ÷ 1000 = 0.1입니다. 따라서 블로킹 팩터는 10이 아니라 0.1이며, 한 블록에도 완전한 레코드 1개가 담기지 않으므로 거짓입니다.\n\n오답 분석\n①: 정답. 블로킹 팩터는 물리 블록 내의 논리 레코드 개수입니다.\n②: 정답. IBG 사이의 논리 레코드 수는 블로킹 팩터와 동일한 개념입니다.\n③: 오답. BF = 100 ÷ 1000 = 0.1이므로 10이 될 수 없습니다.\n④: 정답. 블로킹 팩터가 크면 입출력 횟수가 줄어듭니다.",
+      "concepts": [
+        "블로킹 팩터 계산 공식",
+        "물리 입출력 성능"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "블로킹 팩터의 정확한 공식(BF = 블록 크기 ÷ 레코드 크기)을 명시하지 않아 3번이 틀린 이유가 불명확함",
+        "improved": true,
+        "prev_chars": 456
+      },
+      "concept_ids": [
+        "blocking-factor",
+        "physical-db-design"
+      ]
+    },
+    {
+      "number": 17,
+      "subject": "데이터베이스",
+      "question": "다음과 같은 트리(tree) 구조에서 기본 용어의 설명이 옳은 것은?",
+      "choices": [
+        {
+          "text": "node는 10이다.",
+          "images": []
+        },
+        {
+          "text": "node의 차수(degree of node)는 4이다.",
+          "images": []
+        },
+        {
+          "text": "레벨(level)은 5 이다.",
+          "images": []
+        },
+        {
+          "text": "근(root) node는 N이다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 56,
+      "explanation_detailed": "핵심 개념\n트리에서 레벨은 루트 노드를 1부터 시작하여 깊이에 따라 1씩 증가하는 층의 번호를 의미합니다. 차수는 한 노드가 가진 자식 노드의 개수입니다.\n\n정답 분석\n③번 보기 \"레벨은 5\"가 정답입니다. 주어진 트리 구조에서 루트부터 가장 깊은 노드까지 5 단계의 깊이를 가지므로 최대 레벨이 5입니다.\n\n오답 분석\n①: 오답. 주어진 트리의 전체 노드 개수가 10개가 아닙니다.\n②: 오답. 제시된 노드의 차수(자식 개수)가 4가 아닙니다.\n③: 정답. 트리의 최대 레벨이 5입니다.\n④: 오답. 루트 노드의 이름이 N이 아니며, 루트는 부모를 가지지 않는 유일한 최상위 노드입니다.",
+      "concepts": [
+        "트리의 레벨 정의",
+        "노드의 차수"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "오답 분석에서 각 보기가 틀린 이유의 근거(정확한 노드 개수, 차수값, 루트 노드명)가 구체적으로 제시되지 않음",
+        "improved": true,
+        "prev_chars": 344
+      },
+      "concept_ids": [
+        "tree-level",
+        "node-degree"
+      ],
+      "question_extras": [
+        {
+          "kind": "diagram",
+          "content": "```mermaid\ngraph TD\nA --- B\nA --- C\nA --- D\nB --- E\nB --- F\nF --- I\nF --- J\nF --- K\nC --- G\nG --- L\nG --- M\nM --- N\nD --- H\n```"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "subject": "데이터베이스",
+      "question": "데이터베이스의 구성 요소 중 개체(entity)에 대한 설명으로 적합하지 않은 것은?",
+      "choices": [
+        {
+          "text": "속성들이 가질 수 있는 모든 값들의 집합이다.",
+          "images": []
+        },
+        {
+          "text": "데이터베이스에 표현하려고 하는 현실 세계의 대상체이다.",
+          "images": []
+        },
+        {
+          "text": "유형, 무형의 정보로서 서로 연관된 몇 개의 속성으로 구성된다.",
+          "images": []
+        },
+        {
+          "text": "파일의 레코드에 대응하는 것으로 어떤 정보를 제공하는 역할을 수행한다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 44,
+      "explanation_detailed": "핵심 개념\n이 문제는 데이터베이스의 핵심 구성 요소인 개체(Entity)의 개념과 특징을 묻고 있으며, 개체와 속성, 도메인의 차이를 정확히 구분할 수 있는지를 평가합니다.\n\n정답 분석\n정답은 1번입니다. '속성들이 가질 수 있는 모든 값들의 집합'은 데이터베이스 용어로 도메인(Domain)을 의미합니다. 따라서 이 설명은 개체가 아니라 도메인에 대한 설명이므로 개체에 대한 설명으로는 적합하지 않습니다.\n\n오답 분석\n① 정답입니다. 이 설명은 개체가 아닌 도메인의 정의에 해당합니다.\n② 오답입니다. 현실 세계의 대상체를 데이터베이스로 표현한 것이라는 말은 개체의 가장 기본적인 정의에 부합합니다.\n③ 오답입니다. 개체는 유형이든 무형이든 서로 연관된 여러 속성들이 모여 구성된다는 올바른 설명입니다.\n④ 오답입니다. 데이터베이스의 개체는 파일 시스템의 레코드와 개념적으로 대응되며 정보를 제공한다는 올바른 설명입니다.",
+      "concepts": [
+        "개체와 도메인의 개념 구별",
+        "속성값 집합의 정의"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 460
+      },
+      "concept_ids": [
+        "entity-domain-distinction",
+        "attribute-value-domain"
+      ]
+    },
+    {
+      "number": 19,
+      "subject": "데이터베이스",
+      "question": "아래의 설명 (ㄱ)과 (ㄴ)이 의미하고 있는 개념을 정확히 설명한 것으로 짝지어진 것은?",
+      "choices": [
+        {
+          "text": "(ㄱ) 차수(degree) (ㄴ) 레벨(level)",
+          "images": []
+        },
+        {
+          "text": "(ㄱ) 차수(degree) (ㄴ) 카디널리티(cardinality)",
+          "images": []
+        },
+        {
+          "text": "(ㄱ) 레벨(level)(ㄴ) 카디널리티(cardinality)",
+          "images": []
+        },
+        {
+          "text": "(ㄱ) 레벨(level)(ㄴ) 차수(degree)",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 91,
+      "explanation_detailed": "핵심 개념\n- 이 문제는 관계형 데이터베이스의 구조를 나타내는 용어인 차수(속성의 개수)와 카디널리티(튜플의 개수)의 정확한 의미를 구분하여 매칭하는 능력을 묻고 있습니다.\n\n정답 분석\n- 정답은 2번입니다. 일반적으로 이 문제 유형에서 (ㄱ)은 릴레이션을 구성하는 속성(열)의 전체 개수를 의미하는 차수(Degree)를, (ㄴ)은 릴레이션에 포함된 튜플(행)의 전체 개수를 의미하는 카디널리티(Cardinality)를 지칭합니다. 따라서 두 개념이 올바르게 짝지어진 보기는 정답과 같습니다.\n\n오답 분석\n- ① 오답입니다. 레벨(Level)은 트리 구조에서 노드의 깊이를 나타내는 용어로, (ㄱ)의 설명과 일치하지 않습니다.\n- ② 정답입니다.\n- ③ 오답입니다. (ㄱ)에 해당하는 설명은 차수여야 하며, 레벨은 계층 구조의 깊이를 의미하므로 틀린 짝입니다.\n- ④ 오답입니다. 두 용어의 설명이 서로 바뀌었거나, 개념의 정의가 일치하지 않아 올바른 짝이 아닙니다.",
+      "concepts": [
+        "릴레이션의 차수(속성 개수)와 카디널리티(튜플 개수)의 구분",
+        "관계형 데이터베이스의 구조적 메타데이터"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 485
+      },
+      "concept_ids": [
+        "relation-degree",
+        "relational-database-fundamentals"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "㉠ 릴레이션의 어트리뷰트의 개수\n㉡ 릴레이션에 포함된 튜플의 개수"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "subject": "데이터베이스",
+      "question": "해싱 함수의 값을 구한 결과 키 k1, k2가 같은 값을 가질 때, 이들 키 k1, k2의 집합을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "Mapping",
+          "images": []
+        },
+        {
+          "text": "Folding",
+          "images": []
+        },
+        {
+          "text": "Synonym",
+          "images": []
+        },
+        {
+          "text": "Chaining",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n- 서로 다른 키들이 해싱 함수를 통해 동일한 홈 주소를 가질 때, 이러한 키들의 집합을 의미한다.\n\n정답 분석\n- 서로 다른 두 키 k1과 k2가 해싱 함수 결과로 같은 주소를 가질 때 이 키들을 동의어라고 한다. 해싱에서 충돌이 발생했다는 것은 서로 다른 키가 동의어 관계에 있음을 의미하며 이를 관리하는 것이 중요하다.\n\n오답 분석\n- ① 오답: 매핑은 키 값과 그에 대응하는 레코드 주소 사이의 관계를 설정하거나 변환하는 일반적인 과정을 의미한다.\n- ② 오답: 폴딩은 키를 여러 부분으로 나누어 더하거나 비트 단위로 연산하여 해시 주소를 생성하는 해싱 함수 구성 기법이다.\n- ③ 정답\n- ④ 오답: 체이닝은 오버플로우가 발생했을 때 연결 리스트를 사용하여 데이터를 연결하는 대표적인 충돌 해결 기법이다.",
+      "concepts": [
+        "해싱 충돌 시 동일 주소를 갖는 키의 집합(동의어)",
+        "해싱 함수의 충돌 처리 개념"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 405
+      },
+      "concept_ids": [
+        "hash-collision-synonym",
+        "hashing"
+      ]
+    },
+    {
+      "number": 21,
+      "subject": "전자계산기구조",
+      "question": "이항(Binary) 연산의 하나로 자료의 특정 비트를 반전시키고자 하는 경우에 사용하는 연산은?",
+      "choices": [
+        {
+          "text": "AND 연산",
+          "images": []
+        },
+        {
+          "text": "OR 연산",
+          "images": []
+        },
+        {
+          "text": "XOR 연산",
+          "images": []
+        },
+        {
+          "text": "NOT(Complement)연산",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 60,
+      "explanation_detailed": "핵심 개념\n비트 연산자의 종류와 각 연산이 비트의 상태를 변경하는 방식, 특히 특정 비트를 반전시키는 연산의 특성을 이해해야 합니다.\n\n정답 분석\nXOR(배타적 논리합) 연산은 두 비트가 서로 다를 때 1, 같을 때 0을 결과로 내는 이항 연산입니다. 특정 비트와 1을 XOR 연산하면 해당 비트의 값이 반전(0→1, 1→0)되는 성질을 이용합니다. 따라서 자료의 특정 비트만을 반전시키고자 할 때 사용하는 연산은 XOR 연산입니다.\n\n오답 분석\n① 오답: AND 연산은 두 비트가 모두 1일 때만 1이 되므로 특정 비트를 0으로 만드는(지우는) 데 사용합니다.\n② 오답: OR 연산은 두 비트 중 하나라도 1이면 1이 되므로 특정 비트를 1로 만드는(설정하는) 데 사용합니다.\n③ 정답\n④ 오답: NOT 연산은 모든 비트를 반전시키지만 피연산자가 하나만 필요한 단항 연산으로, 문제의 조건인 이항 연산에 해당하지 않습니다.",
+      "concepts": [
+        "특정 비트 반전을 위한 XOR 이항 연산",
+        "비트 연산자의 종류별 역할 구분(AND/OR/XOR/NOT)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 461
+      },
+      "concept_ids": [
+        "bitwise-operations",
+        "bitwise-logical-operations"
+      ]
+    },
+    {
+      "number": 22,
+      "subject": "전자계산기구조",
+      "question": "마이크로 동작의 시퀀스를 결정하여 주는 신호는?",
+      "choices": [
+        {
+          "text": "사이클 신호",
+          "images": []
+        },
+        {
+          "text": "누산기",
+          "images": []
+        },
+        {
+          "text": "레지스터",
+          "images": []
+        },
+        {
+          "text": "제어 신호",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 84,
+      "explanation_detailed": "핵심 개념\n- 제어 장치가 생성하는 제어 신호가 시스템 내부의 마이크로 동작 순서를 결정하고 지시합니다.\n\n정답 분석\n- 제어 장치는 명령 레지스터의 내용을 해석하여 제어 신호를 발생시킵니다.\n- 이 제어 신호는 각 부품으로 전달되어 연산, 데이터 전송 등의 마이크로 동작 순서를 결정합니다.\n- 즉, 컴퓨터의 모든 동작은 제어 신호에 의해 순서대로 수행되므로 정답입니다.\n\n오답 분석\n- ① 사이클 신호 (오답): 기본적인 타이밍을 제공하는 클럭 펄스 등을 의미하며, 구체적인 동작 순서를 결정하는 것은 제어 신호입니다.\n- ② 누산기 (오답): 연산 결과를 일시적으로 저장하는 레지스터로, 동작 순서를 제어하는 기능이 없습니다.\n- ③ 레지스터 (오답): 데이터나 명령어를 저장하는 기억 요소로, 제어 신호를 생성하거나 순서를 결정하지 않습니다.",
+      "concepts": [
+        "제어 신호",
+        "마이크로 동작 시퀀스",
+        "제어 장치"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 419
+      },
+      "concept_ids": [
+        "control-signal",
+        "micro-operation",
+        "control-unit"
+      ]
+    },
+    {
+      "number": 23,
+      "subject": "전자계산기구조",
+      "question": "시프트 레지스터(shift register)의 내용을 오른쪽으로 두 번 시프트하면 원래의 data는 어떻게 변화하는가?",
+      "choices": [
+        {
+          "text": "원래 data의 1/2배",
+          "images": []
+        },
+        {
+          "text": "원래 data의 1/4배",
+          "images": []
+        },
+        {
+          "text": "원래 data의 2배",
+          "images": []
+        },
+        {
+          "text": "원래 data의 4배",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 69,
+      "explanation_detailed": "핵심 개념\n산술 시프트는 레지스터의 비트를 좌우로 이동시켜 2의 거듭제곱으로 곱하거나 나누는 연산입니다. 오른쪽 시프트 n회는 데이터를 2^n으로 나누고, 왼쪽 시프트 n회는 2^n으로 곱합니다.\n정답 분석\n시프트 레지스터를 오른쪽으로 시프트하면 각 비트가 한 자리씩 오른쪽으로 이동하며, 데이터값은 2로 나누어집니다. 오른쪽으로 한 번 시프트하면 원래값 ÷ 2이고, 두 번 시프트하면 (원래값 ÷ 2) ÷ 2 = 원래값 ÷ 4 = 원래값 × (1/4)이므로 정답은 2번입니다.\n오답 분석\n① 원래 data의 1/2배: 오른쪽으로 한 번 시프트했을 때의 결과입니다.\n② 원래 data의 1/4배: 정답입니다.\n③ 원래 data의 2배: 왼쪽으로 한 번 시프트했을 때의 결과입니다.\n④ 원래 data의 4배: 왼쪽으로 두 번 시프트했을 때의 결과입니다.",
+      "concepts": [
+        "산술 시프트",
+        "비트 이동의 수학적 효과"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "오답 분석 순서 오류 및 시프트의 구체적 비트 이동 메커니즘 설명 부족",
+        "improved": true,
+        "prev_chars": 323
+      },
+      "concept_ids": [
+        "arithmetic-shift",
+        "bit-shift-operations"
+      ]
+    },
+    {
+      "number": 24,
+      "subject": "전자계산기구조",
+      "question": "캐시 메모리(cache memory)와 관련이 가장 적은 것은?",
+      "choices": [
+        {
+          "text": "적중률(hit ratio)",
+          "images": []
+        },
+        {
+          "text": "페이지(page)",
+          "images": []
+        },
+        {
+          "text": "참조의 국한성(locality of reference)",
+          "images": []
+        },
+        {
+          "text": "매칭(matching)",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 23,
+      "explanation_detailed": "핵심 개념\n캐시 메모리는 CPU와 주기억장치 간의 속도 차이를 줄이기 위한 고속 버퍼이며, 페이지는 가상 메모리 시스템에서 주기억장치와 보조기억장치 간의 데이터 전송 단위로서 두 개념의 목적과 대상이 전혀 다릅니다.\n정답 분석\n페이지(Page)는 가상 메모리에서 사용하는 개념으로, 보조기억장치(디스크)와 주기억장치 간의 데이터 전송 단위입니다. 반면 캐시 메모리는 물리적 고속 메모리 내에 존재하며 가상 메모리 관리와는 독립적이므로, 페이지는 캐시 메모리와 관련이 가장 적습니다.\n오답 분석\n① 적중률(Hit Ratio): CPU가 필요한 데이터가 캐시에 존재할 확률로, 캐시 성능을 측정하는 핵심 지표입니다.\n② 페이지: 가상 메모리 시스템의 개념으로 캐시와 무관합니다(정답).\n③ 참조의 국한성(Locality of Reference): 프로그램이 특정 시간에 특정 메모리 영역을 집중적으로 참조하는 성질로, 캐시 효율성의 기반이 됩니다.\n④ 매핑(Mapping): 주기억장치의 데이터가 캐시에서 어느 위치에 저장될지 결정하는 방식(직접·연관·집합-연관 매핑)으로, 캐시 구조의 핵심입니다.",
+      "concepts": [
+        "캐시 메모리의 특성",
+        "가상 메모리와의 구분"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "매핑(매칭 아님) 용어 혼동 및 캐시와 가상메모리의 근본적 목적 차이 명확화 필요",
+        "improved": true,
+        "prev_chars": 481
+      },
+      "concept_ids": [
+        "cache-memory-concept",
+        "virtual-memory"
+      ]
+    },
+    {
+      "number": 25,
+      "subject": "전자계산기구조",
+      "question": "마이크로프로그램(micro program)에 대한 설명 중 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "마이크로프로그램은 보통 RAM에 저장한다.",
+          "images": []
+        },
+        {
+          "text": "마이크로프로그램은 CPU내의 제어장치를 설계하는 프로그램이다.",
+          "images": []
+        },
+        {
+          "text": "마이크로프로그램은 각종 제어신호를 발생시킨다.",
+          "images": []
+        },
+        {
+          "text": "마이크로프로그램은 마이크로 명령으로 형성되어 있다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n- 마이크로프로그램은 CPU의 제어장치가 명령어를 수행하기 위해 제어 신호를 만들어내는 순서를 정의한 프로그램으로, 주로 제어기억장치인 ROM에 저장된다.\n\n정답 분석\n- 마이크로프로그램은 컴퓨터의 기본 동작을 정의하는 고정된 데이터로서 전원이 꺼져도 내용이 유지되어야 하므로 휘발성 저장장치인 RAM이 아닌 비휘발성인 ROM(제어기억장치)에 저장한다. 따라서 RAM에 저장한다는 설명은 틀린 내용이므로 정답이다.\n\n오답 분석\n- ① 정답. 마이크로프로그램은 전원이 꺼져도 사라지지 않아야 하므로 RAM이 아닌 ROM에 저장한다.\n- ② 오답. 마이크로프로그램은 하드웨어어적인 회로 대신 소프트웨어적으로 제어장치를 구현 및 설계하는 방법이다.\n- ③ 오답. 마이크로프로그램은 해석되어 레지스터, ALU 등의 하드웨어 구성 요소에 제어 신호를 발생시킨다.\n- ④ 오답. 마이크로프로그램은 하나의 기계어 명령을 실행하기 위해 여러 개의 마이크로 명령어로 구성된다.",
+      "concepts": [
+        "마이크로프로그램의 ROM 저장",
+        "휘발성과 비휘발성 메모리",
+        "제어신호 생성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 487
+      },
+      "concept_ids": [
+        "microprogramming-storage-media",
+        "memory-volatility",
+        "control-instruction-signal"
+      ]
+    },
+    {
+      "number": 26,
+      "subject": "전자계산기구조",
+      "question": "256 ×4비트의 구성을 갖는 메모리 IC를 사용하여 4,096 ×16비트 메모리를 만들고자 한다. 몇 개의 IC가 필요한가?",
+      "choices": [
+        {
+          "text": "16",
+          "images": []
+        },
+        {
+          "text": "32",
+          "images": []
+        },
+        {
+          "text": "64",
+          "images": []
+        },
+        {
+          "text": "128",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 54,
+      "explanation_detailed": "핵심 개념\n- 메모리 확장 문제는 주소 공간을 늘리는 주소 확장과 워드 길이를 늘리는 배선 확장(Word Length Expansion)으로 나누어 풀며, 전체 필요 IC 수는 각 확장에 필요한 칩 수를 곱하여 구합니다.\n\n정답 분석\n- 주소 확장을 위해 4,096/256=16개의 칩이 가로로 연결되어야 하고, 배선 확장을 위해 16비트/4비트=4개의 칩이 세로로 연결되어야 하므로, 총 16*4=64개의 IC가 필요합니다.\n\n오답 분석\n- ① 오답, 주소 확장에 필요한 16개만 계산하고 배선 확장을 고려하지 않았습니다.\n- ② 오답, 두 가지 확장 과정에서 필요한 칩 수를 잘못 계산한 값입니다.\n- ③ 정답, 주소 확장 칩 수와 배선 확장 칩 수를 곱한 올바른 결과입니다.\n- ④ 오답, 확장 과정에서 칩 수를 과도하게 많이 계산한 잘못된 값입니다.",
+      "concepts": [
+        "메모리의 주소 확장",
+        "메모리의 배선 확장",
+        "IC 개수 산출"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 423
+      },
+      "concept_ids": [
+        "memory-capacity-expansion",
+        "ic-count-calculation"
+      ]
+    },
+    {
+      "number": 27,
+      "subject": "전자계산기구조",
+      "question": "대용량 메모리를 내장한 제품 중 프로그램 되어 있는 ROM은?",
+      "choices": [
+        {
+          "text": "PROM",
+          "images": []
+        },
+        {
+          "text": "Mask ROM",
+          "images": []
+        },
+        {
+          "text": "EPROM",
+          "images": []
+        },
+        {
+          "text": "EAROM",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 49,
+      "explanation_detailed": "핵심 개념\n- 마스크 롬(Mask ROM)은 제조 단계에서 데이터를 기록하여 대량 생산 시 비용 효율이 좋은 읽기 전용 메모리입니다.\n\n정답 분석\n- 마스크 롬은 반도체 제조 공정에서 마스크를 사용하여 데이터를 미리 심어주기 때문에 제품 출시 시 이미 프로그램 되어 있습니다. 대량으로 생산할수록 가격이 저렴해져 대용량 메모리를 내장한 제품에 가장 적합합니다.\n\n오답 분석\n- ① PROM (오답): 사용자가 전기적인 방식으로 한 번만 기록할 수 있는 롬으로 제조 시 프로그램 되어 있지 않습니다.\n- ② Mask ROM (정답): 정답입니다.\n- ③ EPROM (오답): 자외선을 쏘여 내용을 지우고 다시 프로그램할 수 있는 롬으로 데이터가 고정되어 있지 않습니다.\n- ④ EAROM (오답): 전기적으로 데이터를 수정할 수 있는 롬으로 자주 변경되는 데이터를 저장하는 데 사용됩니다.",
+      "concepts": [
+        "ROM 종류별 특징",
+        "Mask ROM의 제조 공정",
+        "대량 생산의 경제성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 440
+      },
+      "concept_ids": [
+        "rom-types",
+        "mask-rom",
+        "memory-structure-and-economics"
+      ]
+    },
+    {
+      "number": 28,
+      "subject": "전자계산기구조",
+      "question": "parity bit의 기능으로 옳은 것은?",
+      "choices": [
+        {
+          "text": "error 검출용 비트이다.",
+          "images": []
+        },
+        {
+          "text": "bit 위치에 따라 weight 값을 갖는다.",
+          "images": []
+        },
+        {
+          "text": "BCD code에서만 사용한다.",
+          "images": []
+        },
+        {
+          "text": "error bit이다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 83,
+      "explanation_detailed": "핵심 개념\n- 데이터 전송 과정에서 오류 발생 여부를 판단하기 위해 정보 비트에 추가하는 검출용 비트입니다.\n\n정답 분석\n- 패리티 비트는 데이터 내의 1의 개수가 짝수 개인지 홀수 개인지를 사전에 정하여 수신 측에서 이를 확인함으로써 오류 유무를 검출합니다. 따라서 데이터의 신뢰성을 확보하기 위한 대표적인 오류 검출(Error Detection) 기능을 수행합니다.\n\n오답 분석\n- ① (정답) 패리티 비트는 데이터 전송 시 발생할 수 있는 오류를 검출하는 역할을 하므로 옳은 설명입니다.\n- ② (오답) 비트 위치에 따라 가중치를 갖는 것은 2진화 10진 코드와 같은 가중치 코드의 특성이며 패리티 비트와는 무관합니다.\n- ③ (오답) BCD 코드뿐만 아니라 ASCII 코드나 메모리 검사 등 다양한 디지털 데이터 통신 및 저장 시스템에서 사용됩니다.\n- ④ (오답) 오류가 발생한 상태를 의미하는 비트가 아니라, 오류가 있는지 확인하기 위해 원본 데이터에 추가해주는 비트입니다.",
+      "concepts": [
+        "패리티 비트",
+        "오류 검출"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 495
+      },
+      "concept_ids": [
+        "parity-bit",
+        "error-detection"
+      ]
+    },
+    {
+      "number": 29,
+      "subject": "전자계산기구조",
+      "question": "계산 도중 연산장치에서 계산된 중간 결과를 보존하는 곳은?",
+      "choices": [
+        {
+          "text": "address register",
+          "images": []
+        },
+        {
+          "text": "accumulator",
+          "images": []
+        },
+        {
+          "text": "parallel adder",
+          "images": []
+        },
+        {
+          "text": "instruction register",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n- 연산 장치 내부에서 연산 수행 시 피연산자를 제공하고, 연산 결과를 일시적으로 저장하는 레지스터의 역할을 이해하는 것이 핵심입니다.\n\n정답 분석\n- 누산기(Accumulator)는 연산 전 피연산자를 저장하고, 연산이 완료된 후에는 그 결과를 다시 저장하여 보존하는 특수 레지스터이므로 정답입니다.\n\n오답 분석\n- ① 오답, 주소 레지스터는 기억장치에서 데이터를 읽거나 쓸 때 해당 데이터의 주소를 저장하는 역할을 합니다.\n- ② 정답\n- ③ 오답, 병렬 가산기는 두 개의 이진수를 더하는 조합 회로 자체를 의미하며 결과를 저장하는 기능은 없습니다.\n- ④ 오답, 명령 레지스터는 현재 실행 중인 명령어를 저장하여 해독하는 역할을 수행합니다.",
+      "concepts": [
+        "누산기",
+        "중간 계산 결과 저장"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 367
+      },
+      "concept_ids": [
+        "accumulator",
+        "accumulator-temporary-storage"
+      ]
+    },
+    {
+      "number": 30,
+      "subject": "전자계산기구조",
+      "question": "다음에서 주소 지정 방식이 아닌 것은?",
+      "choices": [
+        {
+          "text": "direct addressing",
+          "images": []
+        },
+        {
+          "text": "temporary addressing",
+          "images": []
+        },
+        {
+          "text": "immediate addressing",
+          "images": []
+        },
+        {
+          "text": "relative addressing",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n이 문제는 명령어가 실행될 때 데이터(오퍼랜드)의 실제 위치인 유효 주소를 찾아내는 방법인 주소 지정 방식의 종류를 묻고 있습니다.\n\n정답 분석\ntemporary addressing은 전자계산기구조에서 사용되는 주소 지정 방식이 아닌 가상의 용어입니다. 계산 과정에서 값을 임시로 저장하는 '임시 레지스터(Temporary Register)'와 같은 다른 개념과 혼동하도록 만들어낸 오답용 함정입니다.\n\n오답 분석\n① direct addressing: 실제 주소 지정 방식에 해당합니다. 명령어의 주소 부분이 데이터가 저장된 기억장치의 실제 주소(유효 주소)를 직접 가리키는 방식입니다.\n② temporary addressing: 정답입니다. 존재하지 않는 주소 지정 방식입니다.\n③ immediate addressing: 실제 주소 지정 방식에 해당합니다. 명령어의 주소 부분에 기억장소의 주소가 아닌 연산에 사용할 실제 데이터(값) 자체를 직접 포함시키는 방식입니다.\n④ relative addressing: 실제 주소 지정 방식에 해당합니다. 현재 실행 중인 명령어의 주소(프로그램 카운터 값)에 명령어 내의 변위를 더하여 유효 주소를 구하는 방식입니다.",
+      "concepts": [
+        "주소 지정 방식",
+        "표준 addressing modes"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 599
+      },
+      "concept_ids": [
+        "addressing-mode",
+        "cpu-instruction-format"
+      ]
+    },
+    {
+      "number": 31,
+      "subject": "전자계산기구조",
+      "question": "워드 머신(Word machine)에서 Full Word의 바이트 수는?",
+      "choices": [
+        {
+          "text": "2",
+          "images": []
+        },
+        {
+          "text": "4",
+          "images": []
+        },
+        {
+          "text": "8",
+          "images": []
+        },
+        {
+          "text": "16",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 39,
+      "explanation_detailed": "핵심 개념\n워드(Word)는 중앙처리장치가 한 번에 처리할 수 있는 데이터의 기본 단위로, 일반적으로 32비트 시스템에서 4바이트를 의미합니다.\n\n정답 분석\n컴퓨터에서 데이터를 처리하는 기본 단위인 워드는 보통 32비트로 구성됩니다. 1바이트가 8비트이므로 32비트는 4바이트에 해당하며, 이를 풀 워드(Full Word)라고 부릅니다. 따라서 워드 머신에서의 풀 워드 바이트 수는 4입니다.\n\n오답 분석\n① 오답: 2바이트는 16비트에 해당하며, 이는 워드의 절반 크기인 하프 워드(Half Word)입니다.\n② 정답\n③ 오답: 8바이트는 64비트에 해당하며, 이는 워드의 두 배 크기인 더블 워드(Double Word)입니다.\n④ 오답: 16바이트는 128비트로, 표준적인 워드 머신의 기본 워드 길이 정의에 맞지 않습니다.",
+      "concepts": [
+        "워드와 바이트 단위의 관계",
+        "전체 워드의 크기 정의",
+        "반워드·더블워드 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 407
+      },
+      "concept_ids": [
+        "word-and-byte",
+        "word-size",
+        "data-word-formats"
+      ]
+    },
+    {
+      "number": 32,
+      "subject": "전자계산기구조",
+      "question": "출력장치로만 사용할 수 있는 것은?",
+      "choices": [
+        {
+          "text": "인쇄 장치",
+          "images": []
+        },
+        {
+          "text": "카드 판독 장치",
+          "images": []
+        },
+        {
+          "text": "자기 테이프 장치",
+          "images": []
+        },
+        {
+          "text": "자기 디스크 장치",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 85,
+      "explanation_detailed": "핵심 개념\n- 컴퓨터 시스템의 구성 요소 중 외부로 정보만을 내보내는 출력 전용 장치를 식별하는 문제입니다.\n\n정답 분석\n- 인쇄 장치(프린터)는 컴퓨터가 처리한 결과나 데이터를 종이와 같은 매체에 문자 또는 그래픽 형태로 기록하는 장치입니다. 시스템 내부의 정보를 외부로 표현하는 출력 기능만 수행하며 입력 기능은 없으므로 정답입니다.\n\n오답 분석\n- ① 정답: 정보를 종이에 인쇄하여 결과물을 내보내는 출력 전용 장치입니다.\n- ② 오답: 천공 카드에 기록된 데이터를 읽어 컴퓨터로 전달하는 입력 장치입니다.\n- ③ 오답: 데이터의 저장과 검색이 모두 가능한 입출력 겸용의 보조 기억장치입니다.\n- ④ 오답: 데이터를 기록하고 읽어올 수 있는 입출력 겸용의 보조 기억장치입니다.",
+      "concepts": [
+        "출력 전용 장치의 정의",
+        "입출력 겸용 보조기억장치의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 381
+      },
+      "concept_ids": [
+        "output-device",
+        "dual-purpose-io-devices"
+      ]
+    },
+    {
+      "number": 33,
+      "subject": "전자계산기구조",
+      "question": "연산의 중심이 되는 레지스터는?",
+      "choices": [
+        {
+          "text": "인덱스 레지스터",
+          "images": []
+        },
+        {
+          "text": "데이터 레지스터",
+          "images": []
+        },
+        {
+          "text": "명령 레지스터",
+          "images": []
+        },
+        {
+          "text": "누산기 레지스터",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 71,
+      "explanation_detailed": "핵심 개념\n- 연산 장치(ALU)에서 산술 및 논리 연산을 수행할 때 피연산자와 결과를 임시로 저장하여 연산의 중심 역할을 하는 레지스터를 묻는 문제입니다.\n\n정답 분석\n- 누산기는 연산 전에 피연산자를 저장하거나 연산 결과를 일시적으로 저장하여 다음 연산에 사용하는 레지스터로, 가장 빈번하게 사용되며 연산의 핵심적인 역할을 수행합니다.\n\n오답 분석\n- ① (오답) 기억 장치의 유효 주소를 계산하기 위해 인덱스 값이나 변위 값을 저장하는 레지스터입니다.\n- ② (오답) 기억 장치에서 읽어온 데이터나 기억 장치에 저장할 데이터를 일시적으로 보관하는 버퍼 역할을 합니다.\n- ③ (오답) 현재 수행 중인 명령어를 일시적으로 저장하여 제어 장치로 전달하는 역할을 담당합니다.",
+      "concepts": [
+        "누산기의 연산 중심 역할",
+        "중앙처리장치 레지스터의 분류",
+        "피연산자와 결과 저장 기능"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 377
+      },
+      "concept_ids": [
+        "accumulator",
+        "cpu-register-classification",
+        "operand-result-storage"
+      ]
+    },
+    {
+      "number": 34,
+      "subject": "전자계산기구조",
+      "question": "명령어의 연산자(operation code)의 기능과 관계없는 것은?",
+      "choices": [
+        {
+          "text": "입·출력 기능",
+          "images": []
+        },
+        {
+          "text": "제어 기능",
+          "images": []
+        },
+        {
+          "text": "논리연산 기능",
+          "images": []
+        },
+        {
+          "text": "주소지정 기능",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 45,
+      "explanation_detailed": "핵심 개념\n- 연산자는 CPU가 수행할 연산의 종류를 지시하며, 연산, 제어, 입출력 기능을 포함합니다. 주소지정 방식은 유효 주소를 결정하는 방법으로 연산자의 기능과는 구별됩니다.\n\n정답 분석\n- 연산자는 명령어의 기능을 나타내는 부분으로, CPU가 수행해야 할 작업의 내용(무엇을 할 것인가)을 정의합니다.\n- 주소지정 기능은 연산의 대상이 되는 데이터나 유효 주소를 찾아내는 방법(어디서 찾을 것인가)을 의미하므로 연산자의 기능에 해당하지 않습니다.\n- 따라서 연산의 종류를 정의하지 않고 데이터의 위치를 결정하는 주소지정 기능이 정답입니다.\n\n오답 분석\n- ① 오답. 입출력 기능은 데이터를 입출력 장치로 전송하는 READ, WRITE 등의 명령으로 연산자가 수행하는 기능입니다.\n- ② 오답. 제어 기능은 프로그램의 실행 순서를 변경하는 분기, 반복, 인터럽트 등의 명령을 연산자가 수행합니다.\n- ③ 오답. 논리연산 기능은 AND, OR, NOT 등의 논리적 데이터 처리를 수행하는 명령으로 연산자의 주요 기능입니다.\n- ④ 정답. 주소지정 기능은 연산 대상 데이터의 메모리 주소를 찾는 방식을 의미하므로 연산자의 기능이 아닙니다.",
+      "concepts": [
+        "연산자의 기능과 주소지정 방식의 구분",
+        "연산자의 역할(작업 내용 지시)",
+        "주소지정 방식의 역할(데이터 위치 결정)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 583
+      },
+      "concept_ids": [
+        "addressing-mode"
+      ]
+    },
+    {
+      "number": 35,
+      "subject": "전자계산기구조",
+      "question": "언웨이티드 코드(unweighted code)는?",
+      "choices": [
+        {
+          "text": "86421 코드",
+          "images": []
+        },
+        {
+          "text": "2421 코드",
+          "images": []
+        },
+        {
+          "text": "8421 코드",
+          "images": []
+        },
+        {
+          "text": "3초과 코드",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 38,
+      "explanation_detailed": "핵심 개념\n- 가중치 코드는 각 비트 자리에 고정된 위치값(가중치)이 부여되어 있으며, 비가중치 코드는 그렇지 않습니다. 3초과 코드는 10진수 각 자리에 3을 더한 후 8421(BCD) 형식으로 인코딩하되, 각 비트가 고정된 수식 가중치를 갖지 않는 대표적인 비가중치 코드입니다.\n\n정답 분석\n- 3초과 코드는 10진수 x에 대해 (x+3)을 8421 BCD로 인코딩합니다. 예: 0→3(0011), 1→4(0100), 9→12(1100).\n- 변환 결과가 단순히 가중치 합(8×d3 + 4×d2 + 2×d1 + 1×d0)으로 원래 숫자를 복원할 수 없으므로 비가중치 코드입니다.\n\n오답 분석\n- ① 오답. 86421 코드는 각 자리에 8, 6, 4, 2, 1의 가중치를 부여한 가중치 코드입니다.\n- ② 오답. 2421 코드는 각 자리에 2, 4, 2, 1의 가중치를 부여한 가중치 코드이며, 자기 보완 성질도 갖습니다.\n- ③ 오답. 8421 코드는 각 자리에 8, 4, 2, 1의 고정 가중치를 부여한 표준 BCD로 가장 대표적인 가중치 코드입니다.\n- ④ 정답. 3초과 코드는 비가중치 코드입니다.",
+      "concepts": [
+        "가중치 코드와 비가중치 코드의 구분",
+        "3초과 코드의 정의와 변환 원리",
+        "비가중치 코드의 판별 기준"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "3초과 코드가 비가중치인 구체적 이유: 각 비트 위치가 고정된 수식 가중치를 갖지 않음(예: 0→3→0011, 1→4→0100 변환 시 d3d2d1d0 위치의 의미가 불변하지 않음)",
+        "improved": true,
+        "prev_chars": 352
+      },
+      "concept_ids": [
+        "weighted-code",
+        "excess-three-code",
+        "non-weighted-code"
+      ]
+    },
+    {
+      "number": 36,
+      "subject": "전자계산기구조",
+      "question": "비 수치적 자료의 사용 분야에 해당되지 않는 것은?",
+      "choices": [
+        {
+          "text": "문장의 해석 및 분류",
+          "images": []
+        },
+        {
+          "text": "문헌정보 검색",
+          "images": []
+        },
+        {
+          "text": "과학적인 응용 및 상업적인 응용",
+          "images": []
+        },
+        {
+          "text": "고급 프로그래밍 언어를 기계어로 번역하는 처리",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 44,
+      "explanation_detailed": "핵심 개념\n비수치적 자료는 산술 연산이 아닌 논리 연산, 문자 처리, 분류 및 검색 등을 위해 사용되는 데이터를 의미합니다.\n\n정답 분석\n3번 보기 중 과학적인 응용은 미분방정식 풀이, 행렬 연산, 유체 역학 시뮬레이션 등 복잡하고 정밀한 산술 계산이 중심인 수치적 자료 처리의 대표적인 분야입니다. 따라서 비 수치적 자료의 사용 분야에 해당하지 않아 정답이 됩니다.\n\n오답 분석\n① 오답. 문장의 해석 및 분류는 문자 코드를 대상으로 하는 비수치적 자료 처리에 포함됩니다.\n② 오답. 문헌정보 검색은 텍스트 데이터를 대상으로 하는 대표적인 비수치적 자료 응용 분야입니다.\n③ 정답. 과학적인 응용은 수치 계산을 위주로 하므로 비수치적 자료 처리 범주에 들어가지 않습니다.\n④ 오답. 프로그래밍 언어를 기계어로 번역하는 컴파일 과정은 문법 검사와 코드 변환 등 비수치적 처리에 속합니다.",
+      "concepts": [
+        "수치적 자료와 비수치적 자료의 구분",
+        "비수치적 자료 처리의 응용 분야",
+        "과학 응용 분야가 수치 계산 중심임"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 440
+      },
+      "concept_ids": [
+        "data-types",
+        "non-numeric-data-applications",
+        "scientific-computing"
+      ]
+    },
+    {
+      "number": 37,
+      "subject": "전자계산기구조",
+      "question": "명령어의 형식 가운데 연산에 사용된 모든 피 연산자 값을 상실하는 명령어 형식은?",
+      "choices": [
+        {
+          "text": "3-주소 형식 명령어",
+          "images": []
+        },
+        {
+          "text": "2-주소 형식 명령어",
+          "images": []
+        },
+        {
+          "text": "1-주소 형식 명령어",
+          "images": []
+        },
+        {
+          "text": "0-주소 형식 명령어",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n- 0-주소 명령어는 스택 구조를 사용하여 연산하며, 피연산자를 스택에서 꺼내 씀으로써 연산에 사용된 모든 원본 값이 소멸되는 특징이 있습니다.\n\n정답 분석\n- 0-주소 형식은 스택의 상단에서 피연산자 두 개를 꺼내어 연산을 수행하고 결과를 다시 스택에 저장합니다. 이때 연산에 참여했던 두 개의 피연산자는 스택에서 제거되므로 사용된 모든 피연산자의 값이 상실됩니다.\n\n오답 분석\n- ① 3-주소 형식 명령어: 오답입니다. 연산 결과를 저장할 별도의 주소가 있어 피연산자의 원본 값이 보존됩니다.\n- ② 2-주소 형식 명령어: 오답입니다. 두 피연산자 중 한 곳에 결과가 저장되어도 다른 한 곳의 값은 보존됩니다.\n- ③ 1-주소 형식 명령어: 오답입니다. 누산기의 값은 바뀌지만 명령어로 지정된 피연산자의 값은 그대로 남아 있습니다.\n- ④ 0-주소 형식 명령어: 정답입니다.",
+      "concepts": [
+        "0-주소 명령어",
+        "스택 기반 피연산자 소멸"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 441
+      },
+      "concept_ids": [
+        "zero-address-instruction",
+        "stack-based-addressing-and-operands"
+      ]
+    },
+    {
+      "number": 38,
+      "subject": "전자계산기구조",
+      "question": "정보의 최소 단위는?",
+      "choices": [
+        {
+          "text": "Word",
+          "images": []
+        },
+        {
+          "text": "Byte",
+          "images": []
+        },
+        {
+          "text": "Bit",
+          "images": []
+        },
+        {
+          "text": "Nibble",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 83,
+      "explanation_detailed": "핵심 개념\n컴퓨터 내부에서 정보를 표현하는 가장 기초이자 최소 단위인 비트의 정의와 특성을 이해해야 합니다.\n\n정답 분석\n비트는 디지털 정보를 나타내는 최소 단위로 Binary Digit의 줄임말입니다. 0이나 1과 같은 두 가지 상태만 표현할 수 있으며, 모든 데이터는 이 비트의 집합으로 구성됩니다.\n\n오답 분석\n① Word: 오답. CPU가 한 번에 처리할 수 있는 데이터의 길이를 의미하는 단위로 비트나 바이트보다 큽니다.\n② Byte: 오답. 문자를 표현하는 기본 단위로 8개의 비트가 모여서 하나의 바이트를 구성합니다.\n③ Bit: 정답. 정보를 표현할 수 있는 가장 작은 단위로 0 또는 1의 값을 가집니다.\n④ Nibble: 오답. 4비트를 하나로 묶어서 부르는 단위로 16진수 한 자리를 표현할 때 사용됩니다.",
+      "concepts": [
+        "비트(Bit)",
+        "정보의 최소 단위"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 406
+      },
+      "concept_ids": [
+        "bit"
+      ]
+    },
+    {
+      "number": 39,
+      "subject": "전자계산기구조",
+      "question": "제어 데이터의 종류를 열거한 것으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "메이저 스테이트 사이의 변천을 제어하는 제어 데이터",
+          "images": []
+        },
+        {
+          "text": "입·출력 장치의 제어점을 제어하는데 필요한 제어 데이터",
+          "images": []
+        },
+        {
+          "text": "중앙처리장치의 제어점을 제어하는데 필요한 제어 데이터",
+          "images": []
+        },
+        {
+          "text": "인스트럭션 수행 순서를 결정하는데 필요한 제어 데이터",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n제어 데이터는 CPU 내부의 명령어 실행 과정(상태 변화, 실행 순서 결정 등)을 제어하는 신호와 정보입니다. 입출력 제어는 별도의 I/O 제어기가 담당하므로 CPU 제어 데이터의 범위에 포함되지 않습니다.\n정답 분석\n제어 데이터는 CPU 내부의 동작을 제어하는 데 사용되는 정보입니다. 입출력 장치는 CPU 외부에 위치하고 별도의 I/O 제어기 또는 제어 버스 신호를 통해 관리되므로, CPU 제어 데이터의 종류에 포함되지 않습니다.\n오답 분석\n① 메이저 스테이트 사이의 변천을 제어하는 제어 데이터 - CPU의 상태 변화를 제어하므로 올바른 제어 데이터입니다.\n② 입출력 장치의 제어점을 제어하는 제어 데이터 - 입출력 제어는 I/O 제어기가 담당하므로 CPU 제어 데이터에 포함되지 않습니다.\n③ 중앙처리장치의 제어점을 제어하는 제어 데이터 - CPU 내부의 제어점을 직접 제어하므로 올바른 제어 데이터입니다.\n④ 인스트럭션 수행 순서를 결정하는 제어 데이터 - CPU 내부에서 명령어 실행 순서를 결정하므로 올바른 제어 데이터입니다.",
+      "concepts": [
+        "제어 데이터의 범위",
+        "CPU 내부 제어"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "제어 데이터는 CPU 내부 제어를 지칭하며, 입출력 제어는 I/O 제어기 담당",
+        "improved": true,
+        "prev_chars": 460
+      },
+      "concept_ids": [
+        "control-data-range",
+        "cpu-internal-control"
+      ]
+    },
+    {
+      "number": 40,
+      "subject": "전자계산기구조",
+      "question": "다음 Interrupt 중 가장 우선 순위가 높은 것은?",
+      "choices": [
+        {
+          "text": "Program Interrupt",
+          "images": []
+        },
+        {
+          "text": "I/O Interrupt",
+          "images": []
+        },
+        {
+          "text": "Paging Interrupt",
+          "images": []
+        },
+        {
+          "text": "Power Failure Interrupt",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 52,
+      "explanation_detailed": "핵심 개념\n- 인터럽트 우선순위는 시스템 보호의 긴급 수준에 따른 계층 구조입니다. 시스템 전체를 즉시 정지시킬 수 있는 하드웨어 비상이 소프트웨어 오류나 입출력보다 절대 우선입니다.\n\n정답 분석\n- Power Failure Interrupt(전원 고장)는 전원 차단으로 시스템 전체가 즉시 정지될 수 있으므로 모든 인터럽트 중 최우선입니다. 현재 상태를 메모리와 디스크에 안전하게 저장하고 데이터 손상을 방지하기 위해 다른 모든 작업을 중단하고 즉시 처리해야 합니다.\n\n오답 분석\n① Program Interrupt: 오버플로우나 불법 명령어 등 소프트웨어 오류로, 시스템 전체를 위협하지 않으므로 낮은 우선순위.\n② I/O Interrupt: 입출력 장치의 데이터 전송 신호로, 시스템 전체 안정성에 직접 위협이 아니므로 Power Failure보다 낮음.\n③ Paging Interrupt: 필요한 페이지가 메모리에 없을 때 발생하는 소프트웨어 인터럽트로, 하드웨어 비상이 아니므로 가장 낮은 우선순위.\n④ Power Failure Interrupt: 정답, 전원 손실로 인한 시스템 전체 정지의 위험이 있으므로 모든 인터럽트 중 절대 최우선으로 처리됩니다.",
+      "concepts": [
+        "인터럽트 우선순위 계층",
+        "전원 고장 인터럽트",
+        "하드웨어 비상 신호"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "인터럽트 우선순위 계층에서 Power Failure가 최우선인 원칙적 근거(시스템 전체 안정성 위협 > 부분 기능)",
+        "improved": true,
+        "prev_chars": 588
+      },
+      "concept_ids": [
+        "interrupt-priority",
+        "power-failure-interrupt",
+        "hardware-signals"
+      ]
+    },
+    {
+      "number": 41,
+      "subject": "시스템분석설계",
+      "question": "원시전표 기입의 측면에서 고려할 사항으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "가능한 기입량을 적게 해야 한다.",
+          "images": []
+        },
+        {
+          "text": "일정 순서대로 기입될 수 있어야 한다.",
+          "images": []
+        },
+        {
+          "text": "기입항목은 가능한 길고 자세하게 적어야 한다.",
+          "images": []
+        },
+        {
+          "text": "기입상 혼란을 일으킬 수 있는 경우에는 전표 상에 기입요령을 명시하는 것이 좋다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 73,
+      "explanation_detailed": "핵심 개념\n- 원시전표는 데이터를 정확하고 빠르게 입력하기 위한 표준 문서로, 기입량 최소화로 오류를 줄이는 것이 설계 원칙입니다.\n\n정답 분석\n- 보기 ③의 '길고 자세하게 기입'은 원시전표 설계 원칙과 정반대입니다. 기입량이 많을수록 작성 시간이 증가하고 오타, 누락, 오독 오류가 발생할 확률이 높아져 전체 시스템 입력 효율성이 저하됩니다.\n\n오답 분석\n① 기입량을 적게 해야 한다: 입력 항목을 최소화하면 작성 시간 단축 및 오류 감소로 데이터 품질 향상.\n② 일정 순서대로 기입될 수 있어야 한다: 작성 순서를 체계화하면 논리적 흐름이 생겨 누락 방지 및 사용자 혼란 감소.\n③ 기입항목은 가능한 길고 자세하게 적어야 한다: 거리가 먼 것. 상세함은 기입 오류와 소요 시간 증가의 원인이 됨.\n④ 기입요령을 명시하는 것이 좋다: 혼동 가능 항목에 작성 지침을 표시하면 정확한 입력을 유도하므로 데이터 오류 감소.",
+      "concepts": [
+        "원시전표 설계 원칙",
+        "입력 오류율 최소화",
+        "사용자 편의성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "원시전표 설계의 핵심은 '최소 기입으로 최대 정확도'이며, 길고 자세한 기입은 이 기본 원칙의 정반대",
+        "improved": true,
+        "prev_chars": 441
+      },
+      "concept_ids": [
+        "source-document-design",
+        "input-error",
+        "user-convenience"
+      ]
+    },
+    {
+      "number": 42,
+      "subject": "시스템분석설계",
+      "question": "코드 설계시 주의 사항으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "컴퓨터 처리에 적합하도록 한다.",
+          "images": []
+        },
+        {
+          "text": "공통성이 있도록 한다.",
+          "images": []
+        },
+        {
+          "text": "비체계성이 있어야 한다.",
+          "images": []
+        },
+        {
+          "text": "확장성이 있어야 한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n이 문제는 시스템 분석 및 설계 단계에서 데이터를 효율적으로 관리하고 활용하기 위한 코드의 올바른 설계 원칙을 묻고 있습니다. 코드는 컴퓨터의 처리 효율을 높이고 일관성 있게 적용할 수 있도록 체계적이고 확장 가능하도록 설계되어야 합니다.\n\n정답 분석\n정답은 ③번입니다. 코드는 데이터의 분류, 식별, 배열 등의 목적을 명확히 달성하기 위해 일관된 규칙과 논리적인 구조를 가져야 합니다. 비체계적인 코드는 사용자나 컴퓨터가 데이터를 이해하고 처리하는 데 큰 혼란을 주며, 유지보수 과정에서 심각한 오류를 초래할 수 있습니다. 따라서 코드는 반드시 체계성을 가져야 하며, 비체계성은 코드 설계 시 절대 피해야 할 사항입니다.\n\n오답 분석\n① 오답: 코드는 컴퓨터가 데이터를 빠르고 정확하게 분류, 변환, 처리할 수 있는 구조로 설계되어야 하므로 올바른 주의 사항입니다.\n② 오답: 여러 부서나 시스템에서 동일한 코드를 공통으로 사용할 수 있도록 표준화하고 공통성을 부여하는 것은 필수적인 설계 원칙입니다.\n③ 정답: 코드는 데이터의 속성과 구조를 논리적으로 반영하여 일정한 체계를 갖추어야 하며, 비체계성은 코드의 본래 목적에 완전히 위배됩니다.\n④ 오답: 장기적으로 신규 데이터의 발생이나 시스템 확장에도 코드의 구조가 무너지지 않도록 여유를 두고 설계하는 확장성은 매우 중요한 고려 사항입니다.",
+      "concepts": [
+        "코드 설계 원칙",
+        "코드 체계성",
+        "코드 확장성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 675
+      },
+      "concept_ids": [
+        "code-design-principles",
+        "code-extensibility"
+      ]
+    },
+    {
+      "number": 43,
+      "subject": "시스템분석설계",
+      "question": "해싱함수 선택시 고려해야 할 사항으로 가장 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "overflow의 최소화",
+          "images": []
+        },
+        {
+          "text": "충돌의 최소화",
+          "images": []
+        },
+        {
+          "text": "해싱함수의 단순성",
+          "images": []
+        },
+        {
+          "text": "메모리 낭비의 최소화",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 88,
+      "explanation_detailed": "핵심 개념\n- 해싱함수의 설계 목표는 균일한 분포를 통한 충돌 최소화, overflow 방지, 메모리 효율성.\n- 함수의 단순성은 구현·유지보수 편의성일 뿐, 검색 성능이나 자원 효율과는 독립적.\n\n정답 분석\n- ③ 단순성이 정답. 해싱의 궁극적 목표는 ① overflow 최소화, ② 충돌 최소화, ④ 메모리 효율이며, 이들은 모두 성능 또는 자원과 직결됨. 반면 함수의 단순성은 검색 시간, 충돌률, 메모리 사용률에 영향을 미치지 않는 구현 특성일 뿐. 따라서 성능이 보장된다면 복잡하더라도 효율적인 함수가 선호됨.\n\n오답 분석\n- ① overflow 최소화는 필수. 충돌 시 chaining이나 open addressing으로 처리되므로 overflow를 피하거나 최소화해야 함.\n- ② 충돌 최소화는 가장 중요. 충돌이 많으면 검색이 O(1)에서 O(n)으로 악화됨.\n- ③ 정답. 함수의 단순성은 해싱 성능과 무관.\n- ④ 메모리 낭비 최소화는 중요. 효율적인 버킷 배치와 충돌 처리 방식이 메모리 사용을 크게 좌우함.",
+      "concepts": [
+        "해싱함수의 성능 목표",
+        "충돌·오버플로우 최소화",
+        "메모리 효율성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "단순성은 구현 편의성일 뿐 해싱의 성능 목표(충돌률, 메모리 효율)와 무관함을 명확화 필요",
+        "improved": true,
+        "prev_chars": 461
+      },
+      "concept_ids": [
+        "hashing-function",
+        "collision-overflow-minimization",
+        "memory-reclamation-efficiency"
+      ]
+    },
+    {
+      "number": 44,
+      "subject": "시스템분석설계",
+      "question": "코드 “34278”를 “34578”과 같이 기록하는 것으로 디지트를 잘못 읽어 한 글자를 잘못 기록하는 오류는?",
+      "choices": [
+        {
+          "text": "필사오류(transcription error)",
+          "images": []
+        },
+        {
+          "text": "전위오류(transposition error)",
+          "images": []
+        },
+        {
+          "text": "생략오류(missing error)",
+          "images": []
+        },
+        {
+          "text": "임의오류(random error)",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 80,
+      "explanation_detailed": "핵심 개념\n- 데이터 입력 과정에서 발생하는 오류 유형 중, 자릿수의 위치가 바뀌는 전위오류와 잘못 읽어 기록하는 필사오류를 정확히 구별하는 것이 핵심임\n\n정답 분석\n- 정답은 1번입니다. 코드 34278의 2를 5로 잘못 읽어 34578으로 기록한 것은 올바른 내용을 보고 잘못 베껴 쓰거나 잘못 읽어서 발생하는 필사오류입니다. 필사오류는 디지트 하나를 다른 문자로 잘못 기록하는 대표적인 기록 실수입니다.\n\n오답 분석\n- ① 정답 / 디지트를 잘못 읽어 한 글자를 잘못 기록하는 필사오류입니다.\n- ② 오답 / 두 숫자의 위치가 서로 바뀌는 오류는 전위오류입니다.\n- ③ 오답 / 특정 문자나 숫자가 빠뜨려지는 오류는 생략오류입니다.\n- ④ 오답 / 일정한 규칙 없이 우연히 발생하는 오류는 임의오류입니다.",
+      "concepts": [
+        "필사오류",
+        "데이터 입력 오류",
+        "전위오류와의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 397
+      },
+      "concept_ids": [
+        "transcription-error",
+        "data-input-error-validation",
+        "data-entry-error-types"
+      ]
+    },
+    {
+      "number": 45,
+      "subject": "시스템분석설계",
+      "question": "Merge를 올바르게 설명한 것은?",
+      "choices": [
+        {
+          "text": "파일내의 레코드를 descending sort한다.",
+          "images": []
+        },
+        {
+          "text": "여러 개의 파일을 2개의 파일로 편성하는 작업이다.",
+          "images": []
+        },
+        {
+          "text": "2개 이상의 파일을 합하여 일정한 규칙에 따라 하나의 파일로 작성한다.",
+          "images": []
+        },
+        {
+          "text": "같은 시간에 2개의 입력장치로 자료를 읽어 파일을 만드는 작업이다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 84,
+      "explanation_detailed": "핵심 개념\n- 파일 병합(Merge): 두 개 이상의 파일을 일정한 규칙에 따라 순서를 유지하면서 하나의 파일로 통합하는 작업.\n- 일반적으로 정렬된 파일들을 키값 비교를 통해 마스터 파일로 합치는데, 외부 정렬에서 특히 활용됨.\n\n정답 분석\n- ③이 정답. 보기 ③은 merge의 정의를 정확히 표현함. Merge는 여러 파일을 일정한 규칙(보통 키값 기준)에 따라 하나의 통합 파일로 만드는 작업. 이를 통해 정렬 상태를 유지하면서 마스터 파일을 구성할 수 있음.\n\n오답 분석\n- ① Descending sort는 정렬(Sort) 작업으로, merge와는 다른 개념.\n- ② 파일을 2개로 분할하는 것이 아니라 여러 파일을 1개로 통합하는 작업이므로 오답.\n- ③ 정답. 일정한 규칙에 따라 여러 파일을 하나로 합치는 것이 merge의 정의.\n- ④ 두 입력장치에서 동시에 자료를 읽는 것은 I/O 작업일 뿐, '규칙에 따라 통합'한다는 merge의 핵심이 없음.",
+      "concepts": [
+        "파일 병합(Merge)",
+        "규칙에 따른 파일 통합",
+        "정렬된 파일의 순서 유지"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "merge의 핵심은 '일정한 규칙에 따른 통합' 자체이며, 키값 비교나 외부 정렬은 구체적 구현 방식일 뿐",
+        "improved": true,
+        "prev_chars": 511
+      },
+      "concept_ids": [
+        "file-merge",
+        "rule-based-file-consolidation",
+        "sorted-file-merge"
+      ]
+    },
+    {
+      "number": 46,
+      "subject": "시스템분석설계",
+      "question": "구조적 분석의 주요 도구인 DFD(data flow diagram)의 구성요소가 아닌 것은?",
+      "choices": [
+        {
+          "text": "처리",
+          "images": []
+        },
+        {
+          "text": "제어",
+          "images": []
+        },
+        {
+          "text": "자료 저장소",
+          "images": []
+        },
+        {
+          "text": "자료의 시작과 끝",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 29,
+      "explanation_detailed": "핵심 개념\n- 구조적 분석 도구인 DFD의 4대 구성요소인 프로세스, 자료흐름, 자료저장소, 단말(외부 엔티티)을 구별하고, 제어 요소는 포함되지 않음을 이해해야 합니다.\n\n정답 분석\n- DFD는 시스템 내의 데이터가 어떻게 입력되어 처리되고 출력되는지에 대한 흐름을 중심으로 표현하는 도구입니다. 데이터의 흐름을 나타내는 것과 달리 제어(Control)는 시스템의 수행 순서나 조건을 관리하는 것으로서 DFD의 기본 구성요소에 포함되지 않습니다.\n\n오답 분석\n- ① 처리(정답): 데이터를 입력받아 가공하거나 변환하는 과정을 나타내는 DFD의 핵심 구성요소입니다.\n- ② 제어(오답): 시스템의 논리적인 수행 순서나 조건을 의미하며, DFD에는 데이터 흐름만을 표현하므로 포함되지 않는 요소입니다.\n- ③ 자료 저장소(정답): 데이터가 파일이나 데이터베이스 등에 저장되는 상태를 나타내는 DFD의 구성요소입니다.\n- ④ 자료의 시작과 끝(정답): 시스템과 데이터를 주고받는 외부 대상인 단말(Terminator) 또는 외부 엔티티를 의미하는 구성요소입니다.",
+      "concepts": [
+        "DFD의 4대 구성요소",
+        "제어와 데이터 흐름의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 536
+      },
+      "concept_ids": [
+        "dfd-components",
+        "control-data-flow-distinction"
+      ]
+    },
+    {
+      "number": 47,
+      "subject": "시스템분석설계",
+      "question": "시스템 설계를 위한 분석과정에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "환경의 변화에 유연성 있는 시스템을 개발하기 위해 기업환경 조사를 한다.",
+          "images": []
+        },
+        {
+          "text": "개발과정과 현장은 별개이므로 현장조사를 상세히 할 필요는 없다.",
+          "images": []
+        },
+        {
+          "text": "기업이 필요로 하는 기능과 활동을 조사한다.",
+          "images": []
+        },
+        {
+          "text": "기능분석을 위한 도구를 사용하여 모델을 설계한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 88,
+      "explanation_detailed": "핵심 개념\n이 문제는 시스템 설계를 위한 분석 과정의 주요 활동과 목적을 묻고 있으며, 특히 실무 현장 조사가 가지는 필수적인 중요성을 평가하고 있습니다. 시스템 분석은 현장의 실제 업무와 요구사항을 정확히 반영하여 성공적인 시스템을 구축하기 위한 필수적인 과정입니다.\n\n정답 분석\n정답은 ②번입니다. 시스템 개발은 현장의 실제 업무 프로세스와 데이터의 흐름을 정확히 이해하고 반영해야만 사용자가 필요로 하는 시스템을 성공적으로 구축할 수 있습니다. 따라서 개발 과정과 현장을 별개로 분리하여 생각하고 현장 조사를 소홀히 해야 한다는 것은 시스템 분석의 가장 기본 원칙을 완전히 벗어난 명백히 잘못된 설명입니다.\n\n오답 분석\n① 오답(맞는 설명)입니다. 기업의 내외부 환경 변화에 유연하게 대처할 수 있는 시스템을 개발하기 위해 사전에 기업 환경을 조사하는 것은 올바른 분석 과정입니다.\n② 정답(틀린 설명)입니다. 개발될 시스템의 요구사항을 정확히 도출하기 위해서는 현장의 업무 흐름과 실제 데이터를 파악해야 하므로 현장 조사를 매우 상세하게 수행해야 합니다.\n③ 오답(맞는 설명)입니다. 조직이 실제로 필요로 하는 기능과 업무 활동을 조사하여 시스템의 핵심적인 요구사항을 도출하는 것은 필수적인 분석 과정입니다.\n④ 오답(맞는 설명)입니다. 자료 흐름도(DFD)나 UML 등 다양한 기능 분석을 위한 도구를 활용하여 시스템의 논리적 모델을 설계하는 것은 바람직한 분석 절차입니다.",
+      "concepts": [
+        "시스템 분석에서의 현장 조사",
+        "요구사항 도출"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 718
+      },
+      "concept_ids": [
+        "system-analysis-design-process",
+        "requirements-elicitation"
+      ]
+    },
+    {
+      "number": 48,
+      "subject": "시스템분석설계",
+      "question": "HIPO 패키지 중 다음 사항에 해당하는 것은?",
+      "choices": [
+        {
+          "text": "상세도표(detail diagram)",
+          "images": []
+        },
+        {
+          "text": "총괄도표(overview diagram)",
+          "images": []
+        },
+        {
+          "text": "도식목차(visual table of contents)",
+          "images": []
+        },
+        {
+          "text": "보충설명",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n이 문제는 HIPO(Hierarchy Input Process Output) 문서화 기법의 구성 요소 중 시스템의 전체적인 기능을 계층적인 모듈 구조로 표현하는 도표를 묻고 있습니다. 각 구성 요소가 시스템 설계에서 어떤 역할을 하는지 파악하는 것이 핵심입니다.\n\n정답 분석\n총괄도표(overview diagram)는 프로그램의 전체 구조를 보여주기 위해 시스템 기능을 여러 모듈로 분할하고 상하 계층 구조로 나타낸 도표입니다. 도식목차에 표시된 각 모듈에 대한 입력, 처리, 출력의 관계를 블록 다이어그램 형태로 종합하여 보여주므로 문제에서 묻는 조건에 정확히 부합합니다.\n\n오답 분석\n① 상세도표(detail diagram): 오답. 총괄도표를 구성하는 각 모듈의 내부 처리 과정과 데이터의 세부 흐름을 가장 낮은 수준에서 상세하게 표현한 도표입니다.\n② 총괄도표(overview diagram): 정답. 시스템의 주요 기능을 여러 모듈로 구성하여 전체적인 계층 구조를 표현한 도표입니다.\n③ 도식목차(visual table of contents): 오답. HIPO 문서의 전체 구조와 목차를 트리 형태로 보여주는 가장 최상위 수준의 도표입니다.\n④ 보충설명: 오답. 도표로 표현하기 어려운 부분이나 추가적인 내용을 글로 부연하여 기술하는 텍스트 형태의 설명입니다.",
+      "concepts": [
+        "HIPO 문서화 기법의 구성요소",
+        "계층적 모듈 구조 표현"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 660
+      },
+      "concept_ids": [
+        "hipo-documentation",
+        "hierarchical-modules"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"시스템 또는 프로그램의 기능을 입력, 처리, 출력관계로 도표화 한 것으로 사용자의 관점에서 본 시스템 또는 프로그램이 기능과 처리내용을 설명하는 것\""
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "subject": "시스템분석설계",
+      "question": "프로그래밍 지시서에 포함되지 않아도 무방한 것은?",
+      "choices": [
+        {
+          "text": "관리 책임자명",
+          "images": []
+        },
+        {
+          "text": "설계서 작성자명",
+          "images": []
+        },
+        {
+          "text": "처리 개요",
+          "images": []
+        },
+        {
+          "text": "프로그램 작성기간",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 50,
+      "explanation_detailed": "핵심 개념\n- 프로그래밍 지시서는 프로그래머가 실제 코딩을 수행할 때 필요한 기술적 정보와 규칙을 담은 문서입니다.\n- 프로젝트 관리와 관련된 조직 구조는 프로그래밍 기술 수행 범위와 별개입니다.\n\n정답 분석\n관리 책임자는 프로젝트 전체의 조직 및 책임 구조를 정의하는 정보로, 프로젝트 관리 차원입니다. 반면 프로그래밍 지시서는 개별 프로그래머의 코딩 작업 수행에 필요한 설계 내용과 작성 규칙만 포함하므로, 관리 책임자명은 반드시 포함될 필요가 없습니다.\n\n오답 분석\n① 정답. 프로그래밍 지시서에는 포함되지 않습니다.\n② 설계 관련 문의나 설계 변경 시 담당자를 명확히 하기 위해 설계서 작성자명이 필수입니다.\n③ 프로그래머가 프로그램 기능, 처리 로직, 흐름을 이해할 수 있도록 처리 개요가 필수입니다.\n④ 프로젝트 일정 및 협력 관리를 위해 프로그램 작성 기간이 포함되어야 합니다.",
+      "concepts": [
+        "프로그래밍 지시서의 범위와 구성요소",
+        "프로젝트 관리 차원과 기술 수행 차원의 구분"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "프로그래밍 지시서는 '실무 개발자의 코딩 수행'을 위한 기술 지시이고, 관리 책임자는 프로젝트 관리 조직 구조이므로 기술 수행 범위와 무관",
+        "improved": true,
+        "prev_chars": 467
+      },
+      "concept_ids": [
+        "programming-instruction-document",
+        "project-management"
+      ]
+    },
+    {
+      "number": 50,
+      "subject": "시스템분석설계",
+      "question": "색인순차 편성법에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {
+          "text": "기본 데이터구역, 오버플로 구역, 인덱스구역으로 구성된다.",
+          "images": []
+        },
+        {
+          "text": "순차적 처리와 임의 처리가 가능하므로 목적에 따라 융통성 있게 처리할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "특정 레코드를 처리할 때 여러 단계의 인덱스 처리를 해야 하므로 접근시간이 느리다.",
+          "images": []
+        },
+        {
+          "text": "자기테이프, 자기디스크, 자기드럼 등을 기록 매체로 사용할 수 있다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 56,
+      "explanation_detailed": "핵심 개념\n색인순차 편성법(ISAM)은 인덱스를 이용해 순차 접근과 임의 접근을 모두 지원하는 파일 조직 방식으로, 기본 구역, 인덱스 구역, 오버플로 구역으로 구성되며 직접 접근 매체(DASD)를 사용해야 합니다.\n\n정답 분석\n색인순차 편성법은 데이터를 검색하기 위해 인덱스를 사용하므로, 임의 접근이 가능한 직접 접근 기억 장치(DASD)인 자기디스크나 자기드럼을 사용해야 합니다. 자기테이프는 순차적으로만 데이터를 읽을 수 있는 순차 접근 매체이므로 색인순차 편성법의 기록 매체로 사용할 수 없습니다.\n\n오답 분석\n① 정답: 색인순차 파일은 실제 데이터가 저장되는 기본 데이터 구역, 추가 삽입된 데이터를 저장하는 오버플로 구역, 검색을 위한 인덱스 구역으로 나뉘어 구성됩니다.\n② 정답: 인덱스를 통해 원하는 레코드에 바로 접근할 수도 있고 순서대로 처리할 수도 있어 처리 방식에 따라 융통성 있게 사용할 수 있습니다.\n③ 정답: 특정 레코드를 찾기 위해 여러 단계의 인덱스(마스터, 실린더, 트랙 인덱스 등)를 거쳐야 하므로 순차 접근에 비해 접근 시간이 느린 편입니다.\n④ 오답: 자기테이프는 입출력 속도가 느리고 순차 접근만 가능하므로, 인덱스를 이용하여 임의 접근을 해야 하는 이 파일 편성법에는 적합하지 않습니다.",
+      "concepts": [
+        "색인순차 편성법의 기록 매체 요구사항",
+        "순차 접근 매체와 직접 접근 매체의 특성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 632
+      },
+      "concept_ids": [
+        "isam-file",
+        "sequential-direct-access-media"
+      ]
+    },
+    {
+      "number": 51,
+      "subject": "시스템분석설계",
+      "question": "프로그램 설계서에 포함되어야 할 사항이 아닌 것은?",
+      "choices": [
+        {
+          "text": "입·출력 설계표",
+          "images": []
+        },
+        {
+          "text": "프로그래밍 지시서",
+          "images": []
+        },
+        {
+          "text": "시스템명",
+          "images": []
+        },
+        {
+          "text": "요구 명세서",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 49,
+      "explanation_detailed": "핵심 개념\n이 문제는 프로그램 설계서에 포함되는 구성 요소와 그렇지 않은 상위 단계의 산출물을 구분하는 개념을 묻고 있습니다. 프로그램 설계서는 개발자가 실제 코딩을 진행할 수 있도록 프로그램 단위로 구체적인 설계 내용을 명시한 문서입니다.\n\n정답 분석\n정답인 요구 명세서는 시스템 분석 단계에서 사용자의 요구사항을 정의하고 분석하여 작성하는 문서입니다. 프로그램 설계서는 이미 완성된 요구 명세서를 바탕으로 작성되는 하위 단계 산출물이므로, 요구 명세서 자체가 프로그램 설계서의 구성 항목으로 포함되지 않습니다.\n\n오답 분석\n① 오답. 입출력 설계표는 프로그램 구현 시 데이터의 입력 및 출력 형태를 구체적으로 정의하므로 프로그램 설계서에 포함됩니다.\n② 오답. 프로그래밍 지시서는 개발자에게 코딩 작업을 위한 구체적인 규칙과 지침을 제공하므로 프로그램 설계서에 포함됩니다.\n③ 오답. 시스템명은 해당 프로그램이 소속된 대분류 시스템을 식별하기 위한 필수 기본 정보이므로 프로그램 설계서에 포함됩니다.\n④ 정답. 요구 명세서는 프로그램 설계 단계 이전인 시스템 분석 단계에서 작성되는 별개의 산출물이므로 프로그램 설계서에 포함되지 않습니다.",
+      "concepts": [
+        "프로그램 설계서의 구성요소",
+        "시스템 분석 단계와 프로그램 설계 단계의 산출물 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 583
+      },
+      "concept_ids": [
+        "program-design-document",
+        "system-analysis-design-process"
+      ]
+    },
+    {
+      "number": 52,
+      "subject": "시스템분석설계",
+      "question": "다음 그림과 같이 길이가 같은 논리레코드들이 같은 수로 모여 블록을 형성한 형식으로 모든 물리레코드의 길이도 동일하며, 경제성이 높고 속도가 빠르며 프로그램 작성이 용이한 레코드(Record)의 형식은?",
+      "choices": [
+        {
+          "text": "블록화 가변길이 레코드(blocking variable length record))",
+          "images": []
+        },
+        {
+          "text": "비블록화 가변길이 레코드(unblocking variable length record)",
+          "images": []
+        },
+        {
+          "text": "블록화 고정길이 레코드(blocking fixed length record)",
+          "images": []
+        },
+        {
+          "text": "비블록화 고정길이 레코드(unblocking fixed length record)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n- 길이가 고정된 논리레코드들을 여러 개 묶어(블록화) 하나의 물리레코드를 형성하는 방식으로, 이때 모든 물리레코드의 크기가 동일합니다.\n\n정답 분석\n- 고정길이 레코드는 각 논리레코드의 시작 위치를 산술계산으로 즉시 구할 수 있어 접근 속도가 가장 빠릅니다. 블록화를 통해 여러 논리레코드를 한 번에 입출력하므로 입출력 횟수가 줄어들어 경제성이 높고, 레코드 위치 계산이 간단해 프로그래밍이 용이합니다.\n\n오답 분석\n- ① 블록화 가변길이 레코드: 레코드 경계를 구분하는 제어정보가 필요하여 처리가 복잡하고 길이가 다르므로 위치 계산이 어렵습니다.\n- ② 비블록화 가변길이 레코드: 길이가 가변이고 블록화도 없어 저장공간 낭비가 심하고 입출력이 빈번하여 속도와 경제성이 떨어집니다.\n- ④ 비블록화 고정길이 레코드: 고정길이 레코드이지만 블록화를 하지 않아 입출력 횟수가 많아져 경제성과 속도가 떨어집니다.",
+      "concepts": [
+        "블록화 고정길이 레코드",
+        "논리레코드와 물리레코드의 관계",
+        "저장공간 효율성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "논리레코드 길이가 고정되어야 하고, 여러 논리레코드가 하나의 물리레코드로 묶여야 함을 더 명확히 할 필요",
+        "improved": true,
+        "prev_chars": 559
+      },
+      "concept_ids": [
+        "blocking-fixed-length-record",
+        "logical-physical-record-relationship",
+        "storage-efficiency"
+      ],
+      "question_extras": [
+        {
+          "kind": "table",
+          "content": "| 블록 | | | 블록 | | |\n|---|---|---|---|---|---|\n| 레코드1 | 레코드2 | 레코드3 | 레코드4 | 레코드5 | 레코드6 |"
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "subject": "시스템분석설계",
+      "question": "모듈의 결합도는 설계에 대한 품질 평가 방법의 하나로서 두 모듈간의 상호의존도를 측정하는 것이다. 설계 품질이 가장 좋은 결합도는?",
+      "choices": [
+        {
+          "text": "공통 결합",
+          "images": []
+        },
+        {
+          "text": "자료 결합",
+          "images": []
+        },
+        {
+          "text": "제어 결합",
+          "images": []
+        },
+        {
+          "text": "외부 결합",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 49,
+      "explanation_detailed": "핵심 개념\n이 문제는 모듈 간의 상호의존성 정도를 나타내는 결합도의 개념과, 소프트웨어 설계 품질이 가장 우수한 결합도를 묻고 있습니다. 결합도는 낮을수록 모듈의 독립성이 높아져 유지보수와 재사용이 용이해집니다.\n\n정답 분석\n자료 결합은 모듈 간에 인터페이스로 전달되는 매개변수를 통해 단순한 데이터 요소만 주고받는 결합 형태입니다. 모듈 간의 상호 의존도가 가장 낮아 한 모듈의 변경이 다른 모듈에 미치는 영향이 거의 없습니다. 이로 인해 모듈의 독립성이 가장 높아져 시스템의 유지보수성과 확장성이 크게 향상되므로 설계 품질이 가장 우수합니다.\n\n오답 분석\n① 공통 결합: 오답입니다. 전역 변수 등 공통 데이터 영역을 여러 모듈이 공유하여 사용하는 방식으로 결합도가 매우 높고 좋지 않습니다.\n② 자료 결합: 정답입니다.\n③ 제어 결합: 오답입니다. 한 모듈이 다른 모듈의 내부 논리 흐름을 직접 제어하는 플래그나 신호를 전달하는 방식으로 결합도가 높습니다.\n④ 외부 결합: 오답입니다. 외부에서 선언된 데이터 포맷이나 통신 프로토콜 등을 공유하여 참조하는 방식으로 결합도가 높습니다.",
+      "concepts": [
+        "모듈 결합도",
+        "자료 결합",
+        "모듈 독립성"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 553
+      },
+      "concept_ids": [
+        "module-coupling",
+        "data-coupling",
+        "module-independence"
+      ]
+    },
+    {
+      "number": 54,
+      "subject": "시스템분석설계",
+      "question": "출력정보의 설계 순서가 올바른 것은?",
+      "choices": [
+        {
+          "text": "①-②-③-④",
+          "images": []
+        },
+        {
+          "text": "①-③-②-④",
+          "images": []
+        },
+        {
+          "text": "③-②-④-①",
+          "images": []
+        },
+        {
+          "text": "②-④-①-③",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 69,
+      "explanation_detailed": "핵심 개념\n이 문제는 출력 정보를 설계할 때 거쳐야 할 논리적인 작업 절차의 순서를 묻고 있습니다. 출력 설계는 무엇을, 어떤 방식으로 출력할지 결정하는 체계적인 과정을 거쳐야 합니다.\n\n정답 분석\n정답은 3번입니다. 출력 정보 설계의 올바른 순서는 일반적으로 요구사항 수집(또는 목적 명확화), 출력 내용 결정, 출력 매체 선정, 출력 양식 설계의 흐름으로 진행됩니다. 먼저 사용자가 어떤 정보를 필요로 하는지 파악한 후, 어떤 항목을 출력할지 내용을 결정해야 합니다. 그다음에 화면, 종이 등 적절한 출력 매체를 선정하고, 최종적으로 정보가 가독성 있게 배치되도록 양식과 형식을 설계하는 것이 효율적입니다. 보기 3번은 이러한 출력 설계의 표준적인 절차를 올바르게 나타내고 있습니다.\n\n오답 분석\n① 오답입니다. 보기에 제시된 번호의 기본 순차 나열일 뿐, 실제 출력 설계의 논리적인 진행 순서와는 일치하지 않습니다.\n② 오답입니다. 출력 내용을 구체적으로 결정하기도 전에 매체를 먼저 선정하는 등 설계의 논리적 흐름에 어긋납니다.\n③ 정답입니다. 요구사항 수집부터 내용 결정, 매체 선정, 양식 설계 순으로 이어지는 가장 올바른 절차입니다.\n④ 오답입니다. 요구사항 파악이나 내용 결정보다 매체 선정이나 양식 설계가 먼저 나오는 등 전체적인 작업 순서가 뒤바뀌어 있습니다.",
+      "concepts": [
+        "출력 정보 설계 순서",
+        "요구사항 분석에서 양식 설계까지의 체계적 절차"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 659
+      },
+      "concept_ids": [
+        "output-information-design",
+        "requirements-analysis"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 출력의 이용　　② 출력의 매체화\n③ 출력의 내용　　④ 출력의 분배"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "subject": "시스템분석설계",
+      "question": "시스템의 신뢰성 평가를 위한 검토 항목으로 관계가 먼 것은?",
+      "choices": [
+        {
+          "text": "시스템 전체의 가동률",
+          "images": []
+        },
+        {
+          "text": "시스템을 구성하는 각 요소의 신뢰도",
+          "images": []
+        },
+        {
+          "text": "신뢰성 향상을 위해 시행한 처리의 경제 효과",
+          "images": []
+        },
+        {
+          "text": "업무 프로그램이 사용 언어",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\n시스템 신뢰성 평가는 시스템이 정해진 조건 하에서 요구되는 기능을 안정적으로 수행할 수 있는 능력을 측정하는 것입니다. 평가 지표는 가동률, 고장 빈도, 각 구성 요소의 신뢰도 등을 포함합니다.\n정답 분석\n업무 프로그램이 사용하는 프로그래밍 언어는 시스템의 신뢰성(안정성, 가용성, 정확성)을 측정하는 것과 무관합니다. 언어는 개발 단계의 기술적 선택사항일 뿐, 완성된 시스템의 신뢰도나 가동률 같은 운영 지표에 영향을 주지 않습니다.\n오답 분석\n① 가동률(Availability)은 시스템이 정상 가동된 시간의 비율로, 신뢰성을 나타내는 핵심 정량 지표입니다.\n② 시스템 전체의 신뢰도는 구성하는 각 하드웨어·소프트웨어 요소의 신뢰도를 바탕으로 하므로 필수적인 평가 항목입니다.\n③ 중복 설비나 예비 시스템 등 신뢰성 향상 투자에 대한 경제성 분석은 신뢰성 개선 의사결정 시 참고할 수 있습니다.\n④ 프로그래밍 언어는 신뢰성 평가와 무관한 개발 선택사항입니다.",
+      "concepts": [
+        "시스템 신뢰성 평가 지표",
+        "가동률·고장빈도·구성요소 안정성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "신뢰성 평가 지표(①②)와 신뢰성 향상의 경제성 검토(③)의 성격 구분 필요",
+        "improved": true,
+        "prev_chars": 505
+      },
+      "concept_ids": [
+        "system-reliability-evaluation",
+        "availability-metrics"
+      ]
+    },
+    {
+      "number": 56,
+      "subject": "시스템분석설계",
+      "question": "시스템의 기본요소 중 처리된 결과를 측정 및 평가하여 목표 도달 여부를 체크하고, 불충분할 경우 재입력과정에 포함되는 요소는?",
+      "choices": [
+        {
+          "text": "프로세싱(processing)",
+          "images": []
+        },
+        {
+          "text": "제어(control)",
+          "images": []
+        },
+        {
+          "text": "피드백(feed back)",
+          "images": []
+        },
+        {
+          "text": "입력(input)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 91,
+      "explanation_detailed": "핵심 개념\n시스템의 기본 요소 중 처리된 결과를 평가하여 목표 달성 여부를 확인하고, 부족할 경우 시스템의 입력 측으로 다시 정보를 보내어 수정 과정을 거치게 하는 순환적 메커니즘을 묻는 문제입니다.\n\n정답 분석\n정답은 ③ 피드백(feed back)입니다. 피드백은 시스템의 출력 결과를 측정하고 평가하여 원래의 목표에 도달했는지 확인하는 역할을 수행합니다. 만약 결과가 목표에 미치지 못한다고 판단되면, 이를 다시 입력 단계로 보내어 올바른 결과가 나올 때까지 시정 조치를 취하도록 합니다. 즉, 시스템의 자기 조절과 안정성을 유지하기 위한 필수적인 순환 과정입니다.\n\n오답 분석\n① 프로세싱(processing): 오답입니다. 입력된 데이터를 목표에 맞게 가공하여 의미 있는 정보로 변환하는 과정이므로 결과 평가나 재입력과는 거리가 멉니다.\n② 제어(control): 오답입니다. 시스템이 정해진 목표를 달성하도록 각 구성 요소들의 작동을 관리하고 규제하는 기능을 하지만, 결과를 토대로 직접적인 재입력 과정을 수행하지는 않습니다.\n③ 피드백(feed back): 정답입니다. 처리된 결과를 측정 및 평가하고 불충분할 때 재입력 과정을 유도하는 요소입니다.\n④ 입력(input): 오답입니다. 시스템 외부로부터 데이터나 자료를 시스템 내부로 받아들이는 첫 번째 과정으로, 결과를 평가하는 기능이 없습니다.",
+      "concepts": [
+        "피드백(피드백 루프)",
+        "출력 평가 및 입력 재조정",
+        "시스템 자기조절"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 676
+      },
+      "concept_ids": [
+        "feedback",
+        "output-evaluation-input-readjustment",
+        "system-self-regulation"
+      ]
+    },
+    {
+      "number": 57,
+      "subject": "시스템분석설계",
+      "question": "코드화 대상 항목을 소정의 기준에 따라 대분류, 중분류, 소분류로 구분하고, 각 그룹 안에서 순차 번호를 배정하여 코드화하는 방식은?",
+      "choices": [
+        {
+          "text": "구분코드",
+          "images": []
+        },
+        {
+          "text": "그룹분류코드",
+          "images": []
+        },
+        {
+          "text": "10진코드",
+          "images": []
+        },
+        {
+          "text": "부서코드",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 85,
+      "explanation_detailed": "핵심 개념\n코드의 대상 항목을 일정한 기준에 따라 대분류, 중분류, 소분류 등 여러 계층으로 나누고, 각 그룹 내에서 일련번호를 부여하는 코드 체계를 묻는 문제입니다.\n\n정답 분석\n그룹분류코드는 대상 항목을 대분류, 중분류, 소분류 등 일정한 기준에 따라 여러 계층으로 구분한 뒤, 각각의 그룹 안에서 순차적으로 일련번호를 부여하는 방식입니다. 계층 구조가 명확하여 대규모 데이터나 다양한 품목을 관리할 때 분류와 파악이 매우 용이한 장점이 있습니다.\n\n오답 분석\n① 오답입니다. 구분코드는 항목을 특정 기준에 따라 구분하여 식별하기 쉽게 만든 코드로, 계층적 분류보다는 명확한 구분 목적에 초점을 맞춥니다.\n② 정답입니다. 대분류, 중분류, 소분류로 구분하고 각 그룹 내에서 순차 번호를 배정하는 방식은 그룹분류코드의 정의와 정확히 일치합니다.\n③ 오답입니다. 10진코드는 항목을 0부터 9까지의 숫자를 이용해 10진수 형태로 분류하고 코드를 부여하는 방식입니다.\n④ 오답입니다. 부서코드는 조직 내의 부서를 식별하기 위해 부여되는 코드로, 전체 항목의 계층적 분류 체계와는 무관합니다.",
+      "concepts": [
+        "그룹분류코드(계층적 분류코드)",
+        "대분류·중분류·소분류 계층 구조"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 553
+      },
+      "concept_ids": [
+        "hierarchical-group-code",
+        "hierarchical-code-structure"
+      ]
+    },
+    {
+      "number": 58,
+      "subject": "시스템분석설계",
+      "question": "객체지향 방법론에서 시스템의 형성구조를 모형화하는 데이터 흐름 다이어그램(DFD)을 사용해서 객체를 분해하고, 객체들간의 인터페이스를 찾아 이것들을 Ada 프로그램으로 변환시키는 기법은?",
+      "choices": [
+        {
+          "text": "코드(cord)와 요돈(Yourdon) 기법",
+          "images": []
+        },
+        {
+          "text": "Shaler & Mellor 기법",
+          "images": []
+        },
+        {
+          "text": "룸바우(Rumbaugh) 기법",
+          "images": []
+        },
+        {
+          "text": "Booch 기법",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 46,
+      "explanation_detailed": "핵심 개념\n- Booch 기법은 Ada 프로그래밍 언어와 함께 개발된 객체지향 설계 방법론으로, 객체 분해와 인터페이스 설계를 체계적으로 지원하여 Ada 프로그램으로의 변환을 직접 목표로 합니다.\n정답 분석\n- Booch 기법은 Grady Booch가 1980년대 후반 Ada 언어를 기반으로 개발한 방법론입니다. 객체를 분해하고 인터페이스를 명시하여 Ada 프로그램으로 직접 변환하는 것이 핵심 특징이며, 다양한 다이어그램을 통해 객체지향 분석설계를 체계적으로 지원합니다.\n오답 분석\n① 코드(Coad)와 요돈(Yourdon) 기법: 객체지향 분석(OOA)에 특화되어 5가지 계층으로 분석하지만, 특정 프로그래밍 언어로의 변환까지 체계화하지 않습니다.\n② Shaler & Mellor 기법: 분석 모델을 설계 모델로 변환하는 재귀적 접근을 하지만 Ada 언어 기반 구현이 주요 목표가 아닙니다.\n③ 룸바우(Rumbaugh) 기법: 객체 모델링 기법(OMT)으로 객체·동적·기능 모델을 다루지만, 특정 언어로의 변환 기법이 아니며 UML의 이론적 기초 역할에 가깝습니다.\n④ Booch 기법: 정답",
+      "concepts": [
+        "Booch 기법",
+        "객체지향 설계 방법론",
+        "Ada 언어 기반 구현"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "Booch 기법의 핵심은 Ada 언어 기반이라는 점이며, DFD는 구조적 분석 도구로서 Booch의 주요 특징이 아니라는 점 명확화 필요",
+        "improved": true,
+        "prev_chars": 625
+      },
+      "concept_ids": [
+        "booch-technique",
+        "object-oriented-design",
+        "ada-language-implementation"
+      ]
+    },
+    {
+      "number": 59,
+      "subject": "시스템분석설계",
+      "question": "발생한 데이터를 전표상에 기록하고, 일정한 시간단위로 일괄 수집하여 전산부서에서 입력매체에 수록하는 입력방식은?",
+      "choices": [
+        {
+          "text": "분산매체화 시스템",
+          "images": []
+        },
+        {
+          "text": "턴어라운드 시스템",
+          "images": []
+        },
+        {
+          "text": "집중매체화 시스템",
+          "images": []
+        },
+        {
+          "text": "직접입력 시스템",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 78,
+      "explanation_detailed": "핵심 개념\n- 데이터의 발생장소와 전산부서의 입력 매체화 작업이 분리된 시스템의 유형\n\n정답 분석\n- 제시된 설명은 데이터를 전표에 기록한 후 전산부서로 일괄 전달하여 입력 매체에 수록하는 과정으로, 현장에서는 자료만 작성하고 매체 변환 과정은 전산 부서에서 집중적으로 수행하는 집중매체화 시스템의 정의에 정확히 부합합니다.\n\n오답 분석\n- ① 분산매체화 시스템: 오답, 데이터가 발생한 현장에서 바로 입력 매체로 변환하는 방식입니다.\n- ② 턴어라운드 시스템: 오답, 컴퓨터의 출력 결과를 다시 입력 자료로 활용하여 순환시키는 방식입니다.\n- ③ 집중매체화 시스템: 정답\n- ④ 직접입력 시스템: 오답, 입력 매체 없이 단말기 등을 통해 데이터를 직접 컴퓨터에 입력하는 방식입니다.",
+      "concepts": [
+        "집중매체화 시스템",
+        "입력 매체화의 분산과 집중"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 382
+      },
+      "concept_ids": [
+        "centralized-media-system",
+        "input-media-design"
+      ]
+    },
+    {
+      "number": 60,
+      "subject": "시스템분석설계",
+      "question": "시스템 평가 항목의 요소와 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "신뢰성 평가",
+          "images": []
+        },
+        {
+          "text": "가격 평가",
+          "images": []
+        },
+        {
+          "text": "성능 평가",
+          "images": []
+        },
+        {
+          "text": "기능 평가",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 81,
+      "explanation_detailed": "핵심 개념\n- 시스템 평가는 개발된 시스템이 요구사항을 얼마나 만족시키는지 판단하는 과정으로, 주로 성능, 신뢰성, 기능성 등 기술적인 품질 요소를 중심으로 이루어집니다.\n\n정답 분석\n- 가격 평가는 시스템의 품질이나 운영 능력을 나타내는 기술적 평가 항목이 아니며, 주로 사업의 타당성을 분석할 때 다루는 경제적 요소에 해당합니다. 따라서 시스템 자체의 기술적 수준을 측정하는 나머지 항목들과는 성격이 다릅니다.\n\n오답 분석\n- ① 정답: 시스템이 정의된 환경과 조건에서 오류 없이 기능을 수행하는 정도인 신뢰성은 필수적인 시스템 평가 항목입니다.\n- ② 오답: 시스템의 구입이나 유지 비용을 의미하는 가격은 경제성 분석에 속하며 기술적 시스템 평가 항목과는 거리가 멉니다.\n- ③ 정답: 처리 시간, 응답 속도, 처리량 등을 의미하는 성능 평가는 시스템의 효율성을 판단하는 핵심 요소입니다.\n- ④ 정답: 사용자의 요구 기능을 얼마나 충실히 구현했는지를 확인하는 기능 평가는 시스템 평가의 기본이 됩니다.",
+      "concepts": [
+        "시스템 평가 항목",
+        "기술적 평가와 경제성 평가의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 508
+      },
+      "concept_ids": [
+        "system-evaluation",
+        "evaluation-methodologies"
+      ]
+    },
+    {
+      "number": 61,
+      "subject": "운영체제",
+      "question": "운영체제의 목적으로 거리가 먼 것은?",
+      "choices": [
+        {
+          "text": "사용자 인터페이스 제공",
+          "images": []
+        },
+        {
+          "text": "자원 스케줄링",
+          "images": []
+        },
+        {
+          "text": "데이터의 공유",
+          "images": []
+        },
+        {
+          "text": "원시프로그램을 목적 프로그램으로 변환",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n운영체제의 기본 목적은 컴퓨터 시스템의 자원을 효율적으로 관리하고, 사용자가 컴퓨터를 편리하게 사용할 수 있는 환경을 제공하는 것입니다. 이 문제는 운영체제의 핵심 역할이 아닌 다른 소프트웨어의 고유 기능을 찾아내는 것을 묻고 있습니다.\n\n정답 분석\n정답은 ④번입니다. 원시프로그램(소스 코드)을 목적 프로그램(기계어)으로 번역하는 기능은 컴파일러나 어셈블러 등의 언어 번역 프로그램이 수행하는 역할입니다. 따라서 이는 운영체제 자체의 목적이나 주요 기능으로 보기 어렵기 때문에 거리가 먼 것입니다.\n\n오답 분석\n① 사용자 인터페이스 제공: 오답입니다. 사용자가 컴퓨터를 쉽게 사용할 수 있도록 편리한 환경(GUI 등)을 제공하는 것은 운영체제의 주요 목적 중 하나입니다.\n② 자원 스케줄링: 오답입니다. CPU, 메모리 등 한정된 컴퓨터 자원을 여러 프로세스에 효율적으로 할당하는 자원 관리 및 스케줄링은 운영체제의 가장 핵심적인 목적입니다.\n③ 데이터의 공유: 오답입니다. 여러 사용자와 프로그램이 데이터를 안전하게 공유하고 보호하는 기능을 제공하는 것 역시 운영체제의 중요한 목적에 포함됩니다.",
+      "concepts": [
+        "자원 관리 및 스케줄링",
+        "컴파일러와 운영체제의 역할 차이"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 565
+      },
+      "concept_ids": [
+        "resource-management",
+        "compiler-os-role-distinction"
+      ]
+    },
+    {
+      "number": 62,
+      "subject": "운영체제",
+      "question": "분산시스템을 구축하는 이유가 아닌 것은?",
+      "choices": [
+        {
+          "text": "자원의 공유",
+          "images": []
+        },
+        {
+          "text": "연산속도의 향상",
+          "images": []
+        },
+        {
+          "text": "자원의 독립성",
+          "images": []
+        },
+        {
+          "text": "신뢰성 및 통신",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 59,
+      "explanation_detailed": "핵심 개념\n분산시스템은 여러 컴퓨터를 네트워크로 연결하여 자원을 공유하고 협력하는 것을 목적으로 합니다. 자원의 독립성과 고립은 분산시스템의 핵심 철학과 정반대됩니다.\n정답 분석\n정답은 ③번입니다. 분산시스템은 각 자원이 서로 연결되고 협력하는 것을 전제로 설계되므로, 자원이 독립적이고 고립되어 있다면 분산시스템을 구축할 이유 자체가 없습니다. 따라서 자원의 독립성은 분산시스템의 구축 목적과 정반대입니다.\n오답 분석\n① 자원의 공유: 분산시스템의 가장 기본적인 구축 목적으로, 하드웨어·소프트웨어·데이터 등을 여러 사용자가 효율적으로 공유합니다.\n② 연산속도의 향상: 작업을 여러 프로세서가 병렬로 처리하여 전체 연산 속도를 획기적으로 향상시킵니다.\n③ 자원의 독립성: 자원이 상호 연결되지 않고 고립되는 것은 분산시스템의 본질(협력)과 배치되므로 구축 이유가 아닙니다.\n④ 신뢰성 및 통신: 특정 노드 장애 시 다른 노드로 대체하여 시스템 가용성을 높이고, 원격지 간 통신을 가능하게 합니다.",
+      "concepts": [
+        "분산시스템의 구축 목적",
+        "자원 공유와 독립성의 대비"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "분산시스템의 본질은 자원 간 상호연결·협력이므로, 자원의 독립성(고립)은 구축 이유가 아님을 더 명확히",
+        "improved": true,
+        "prev_chars": 441
+      },
+      "concept_ids": [
+        "distributed-system",
+        "resource-sharing-benefits"
+      ]
+    },
+    {
+      "number": 63,
+      "subject": "운영체제",
+      "question": "프로세스(process)의 3가지 상태가 아닌 것은?",
+      "choices": [
+        {
+          "text": "ready state",
+          "images": []
+        },
+        {
+          "text": "dispatch state",
+          "images": []
+        },
+        {
+          "text": "block state",
+          "images": []
+        },
+        {
+          "text": "running state",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 29,
+      "explanation_detailed": "핵심 개념\n운영체제에서 프로세스가 실행되는 동안 가지는 기본적인 3가지 상태인 준비, 실행, 대기 상태를 구분하는 문제입니다.\n\n정답 분석\n프로세스의 3가지 기본 상태는 준비 상태(Ready), 실행 상태(Running), 봉쇄 상태(Blocked)입니다. 디스패치(Dispatch)는 준비 상태에 있는 프로세스를 선정하여 실행 상태로 바꾸는 '동작'을 의미하며, 프로세스의 상태(state) 자체는 아닙니다.\n\n오답 분석\n① ready state: 정답, 프로세스가 CPU를 할당받기 위해 대기하고 있는 기본 상태입니다.\n② dispatch state: 오답, 준비 상태에서 실행 상태로 전환되는 과정인 디스패치를 의미하며 프로세스의 상태는 아닙니다.\n③ block state: 정답, 입출력 요청 등으로 인해 CPU를 할당받지 못하고 기다리는 상태입니다.\n④ running state: 정답, 프로세스가 CPU를 할당받아 명령어를 실제로 수행 중인 상태입니다.",
+      "concepts": [
+        "프로세스 상태 모델 (3-state)",
+        "Dispatch의 개념 (상태 vs 동작)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 483
+      },
+      "concept_ids": [
+        "process-state-transition",
+        "cpu-dispatch"
+      ]
+    },
+    {
+      "number": 64,
+      "subject": "운영체제",
+      "question": "가상 기억 장치 시스템에서 가상 페이지 주소를 사용하여 데이터를 접근하는 프로그램이 실행될 때, 프로그램에서 접근하려고 하는 페이지가 주기억장치에 있지 않은 경우 발생하는 현상은?",
+      "choices": [
+        {
+          "text": "page fault",
+          "images": []
+        },
+        {
+          "text": "context switching",
+          "images": []
+        },
+        {
+          "text": "mutual exclusion",
+          "images": []
+        },
+        {
+          "text": "overlay",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 75,
+      "explanation_detailed": "핵심 개념\n가상 기억 장치 시스템에서 프로그램이 필요로 하는 페이지가 주기억장치에 없을 때 발생하는 인터럽트 현상입니다.\n\n정답 분석\n가상 기억 장치를 이용할 때 CPU가 접근하려는 페이지가 주기억장치에 적재되어 있지 않으면 페이지 부재 상태가 됩니다. 이때 하드웨어는 트랩을 발생시켜 운영체제에게 해당 페이지를 보조기억장치에서 주기억장치로 가져오도록 요청하는데, 이 과정을 페이지 폴트라고 합니다.\n\n오답 분석\n① 정답: 가상 메모리 시스템에서 필요한 페이지가 주기억장치에 없을 때 발생하는 현상입니다.\n② 오답: 하나의 프로세스가 CPU를 사용 중인 상태에서 다른 프로세스가 CPU 사용권을 가져가는 과정입니다.\n③ 오답: 공유 자원을 한 번에 하나의 프로세스만 사용할 수 있도록 제어하는 기법입니다.\n④ 오답: 메모리 용량보다 큰 프로그램을 실행하기 위해 필요한 모듈만 메모리에 적재하여 실행하는 기법입니다.",
+      "concepts": [
+        "페이지 부재",
+        "가상 메모리 시스템",
+        "트랩/인터럽트"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 455
+      },
+      "concept_ids": [
+        "paging-virtual-memory",
+        "virtual-memory-management",
+        "trap-interrupt"
+      ]
+    },
+    {
+      "number": 65,
+      "subject": "운영체제",
+      "question": "실행되어야 할 작업의 크기가 커서 사용자 기억 공간에 수용될 수 없을 때 작업의 모든 부분들이 동시에 주기억 장소에 상주해 있을 필요가 없다. 이때 작업을 분할하여 필요한 부분만 교체하는 방법을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "스와핑(swapping)",
+          "images": []
+        },
+        {
+          "text": "압축(compaction)",
+          "images": []
+        },
+        {
+          "text": "재배치(relocation)",
+          "images": []
+        },
+        {
+          "text": "오버레이(overlay)",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 25,
+      "explanation_detailed": "핵심 개념\n프로그램의 크기가 주기억장치보다 클 때, 프로그램을 여러 모듈로 분할하여 현재 실행에 필요한 부분만 주기억장치에 적재하고 교체하며 실행하는 메모리 관리 기법을 묻는 문제입니다.\n\n정답 분석\n오버레이(Overlay)는 실행하려는 프로그램의 전체 크기가 주기억장치의 사용자 영역보다 커서 한 번에 올릴 수 없을 때 사용하는 기법입니다. 프로그램을 여러 개의 독립적인 조각으로 나눈 뒤, 반드시 필요한 부분만 순차적으로 주기억장치에 올려서 실행합니다. 필요 없어진 부분은 보조기억장치로 쫓아내고 새로운 부분을 같은 기억공간에 덮어쓰는(교체하는) 방식으로 작동하므로 정답입니다.\n\n오답 분석\n① 오답: 스와핑은 하나의 프로그램이나 프로세스 전체를 주기억장치와 보조기억장치 사이에서 통째로 교환하는 기법입니다.\n② 오답: 압축은 기억장치 내에 흩어져 있는 사용 가능한 빈 공간들을 하나의 커다란 빈 공간으로 합치는 작업입니다.\n③ 오답: 재배치는 이미 주기억장치에 적재된 프로그램의 위치를 다른 곳으로 옮기는 기법입니다.\n④ 정답: 작업을 분할하여 필요한 부분만 주기억장치에 적재하고 덮어쓰며 실행하는 오버레이 기법입니다.",
+      "concepts": [
+        "오버레이",
+        "메모리 분할 및 교체",
+        "프로그램 모듈화"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 573
+      },
+      "concept_ids": [
+        "memory-management-technique",
+        "memory-partitioning",
+        "program-modularity"
+      ]
+    },
+    {
+      "number": 66,
+      "subject": "운영체제",
+      "question": "다중 스레드 프로그램을 사용하는 주요 이점이 아닌 것은?",
+      "choices": [
+        {
+          "text": "다중 프로세싱 하드웨어의 성능 향상",
+          "images": []
+        },
+        {
+          "text": "응용 프로그램의 처리율 향상",
+          "images": []
+        },
+        {
+          "text": "응용 프로그램의 응답 시간 증가",
+          "images": []
+        },
+        {
+          "text": "프로세스들 간의 통신 향상",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 85,
+      "explanation_detailed": "핵심 개념\n- 다중 스레드는 하나의 프로세스 내에서 여러 스레드가 동시에 실행되어 병렬 처리를 가능하게 하는 기법입니다.\n- 주요 이점으로는 멀티코어 활용, 처리율 증가, 응답 시간 감소, 프로세스 간 통신 간소화 등이 있습니다.\n정답 분석\n- 다중 스레드의 목적은 여러 작업을 동시에 처리하여 사용자가 느끼는 대기 시간을 줄이는 것입니다.\n- 따라서 \"응답 시간이 증가\"한다는 것은 시스템 성능이 오히려 저하됨을 의미하므로, 이는 다중 스레드 사용의 이점이 될 수 없습니다.\n오답 분석\n① 이점: 멀티코어 프로세서에서 여러 스레드를 각 코어에 할당하면 진정한 병렬 처리가 가능하여 처리 성능이 향상됩니다.\n② 이점: 프로세스 생성보다 가벼운 스레드 생성과 컨텍스트 스위칭이 가능하여, 단위 시간당 처리량이 증가합니다.\n③ 이점 아님: 다중 스레드의 핵심 목표는 응답 시간을 감소시키는 것이므로, 응답 시간이 증가하는 것은 이점이 아닙니다.\n④ 이점: 스레드는 동일 프로세스 내의 메모리를 공유하므로, 복잡한 프로세스 간 통신 없이 빠르게 데이터를 주고받을 수 있습니다.",
+      "concepts": [
+        "다중 스레드",
+        "응답 시간 감소",
+        "병렬 처리 성능"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "오답 분석에서 각 보기의 이점 여부를 명확하게 대비 구분 필요",
+        "improved": true,
+        "prev_chars": 599
+      },
+      "concept_ids": [
+        "multi-threading",
+        "response-ratio-scheduling",
+        "parallel-processing-performance"
+      ]
+    },
+    {
+      "number": 67,
+      "subject": "운영체제",
+      "question": "운영체제가 프로세스에 대한 중요한 정보를 저장해 놓을 수 있는 저장장소를 PCB(Process Control Block)라고 한다. PCB가 갖는 정보가 아닌 것은?",
+      "choices": [
+        {
+          "text": "프로세스의 현 상태",
+          "images": []
+        },
+        {
+          "text": "프로세스의 우선 순위",
+          "images": []
+        },
+        {
+          "text": "프로세스의 고유한 식별자",
+          "images": []
+        },
+        {
+          "text": "프로세스의 크기",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 49,
+      "explanation_detailed": "핵심 개념\n- PCB(Process Control Block)는 실행 중인 프로세스의 상태, 자원 할당, 스케줄링 정보 등 동적 관리 정보를 저장하는 자료구조입니다.\n\n정답 분석\n- 정답은 ④번입니다. 프로세스의 크기는 프로그램 로드 시점에 결정되는 정적 속성이며, PCB가 저장하는 프로세스 상태, 우선순위, PC 값, 레지스터 내용 등의 동적 정보와 성격이 다릅니다. 프로세스 크기는 메모리 관리 구조나 프로그램 헤더에서 관리되므로 PCB에 포함되지 않습니다.\n\n오답 분석\n- ① (오답): 프로세스의 현 상태(ready, running, waiting)는 CPU 스케줄링을 위해 PCB에 필수적으로 저장됩니다.\n- ② (오답): 우선순위는 CPU 할당 순서를 결정하는 핵심 스케줄링 정보로 PCB에 포함됩니다.\n- ③ (오답): 프로세스 ID(PID)는 프로세스를 유일하게 식별하는 정보로 PCB의 기본 항목입니다.\n- ④ (정답): 프로세스의 크기는 정적 속성이므로 PCB가 아닌 메모리 할당 테이블에서 별도로 관리됩니다.",
+      "concepts": [
+        "프로세스 제어 블록의 정보 항목",
+        "동적 상태 정보와 정적 속성 구분",
+        "메모리 관리 정보"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "프로세스 크기는 정적 속성이며 PCB는 실행 시점의 동적 상태를 저장하므로 범주가 다름",
+        "improved": true,
+        "prev_chars": 469
+      },
+      "concept_ids": [
+        "process-control-block",
+        "dynamic-static-distinction",
+        "memory-management"
+      ]
+    },
+    {
+      "number": 68,
+      "subject": "운영체제",
+      "question": "분산처리 시스템의 특징이 아닌 것은?",
+      "choices": [
+        {
+          "text": "한 업무를 여러 컴퓨터로 작업을 분담시킴으로서 처리량을 높일 수 있다.",
+          "images": []
+        },
+        {
+          "text": "지리적인 업무는 자체에서 처리한다.",
+          "images": []
+        },
+        {
+          "text": "분산 시스템내의 각 컴퓨터간에 자원을 공유할 수 있다.",
+          "images": []
+        },
+        {
+          "text": "사용자는 각 컴퓨터들이 어느 곳에 위치하는지 알아야 한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n분산 처리 시스템은 네트워크로 연결된 여러 컴퓨터가 작업을 분담하여 처리 능력을 높이고 자원을 공유하는 시스템입니다. 사용자는 각 컴퓨터의 물리적 위치를 알 필요 없이 마치 하나의 시스템을 쓰는 것처럼 편리하게 이용할 수 있는 위치 투명성을 제공합니다.\n\n정답 분석\n정답은 ④번입니다. 분산 처리 시스템은 투명성을 제공하여 사용자가 시스템의 내부 구조나 자원의 물리적 위치를 알지 못해도 자원에 접근할 수 있게 해줍니다. 만약 사용자가 매번 자원이 있는 컴퓨터의 위치를 파악해야 한다면 이는 시스템의 편의성을 크게 떨어뜨리는 결과를 낳게 됩니다.\n\n오답 분석\n① 오답: 업무를 여러 컴퓨터로 분담하여 동시에 처리함으로써 전체 처리량과 성능을 높이는 것은 분산 시스템의 대표적인 목적이자 올바른 특징입니다.\n② 오답: 각 컴퓨터가 자체적인 운영체제와 자원을 가지고 지리적으로 분산된 업무를 독립적으로 처리하는 자율성 역시 올바른 특징입니다.\n③ 오답: 네트워크로 연결된 여러 컴퓨터가 파일, 데이터, 하드웨어 등의 자원을 서로 교환하고 공유할 수 있는 것도 핵심 특징 중 하나입니다.\n④ 정답: 분산 시스템은 위치 투명성을 제공하므로 사용자가 각 컴퓨터의 위치를 알아야 한다는 설명은 명백히 틀린 내용입니다.",
+      "concepts": [
+        "분산 처리 시스템의 위치 투명성",
+        "자원 공유와 분담 처리",
+        "시스템 투명성 원칙"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 625
+      },
+      "concept_ids": [
+        "distributed-processing-system",
+        "resource-sharing-benefits",
+        "system-transparency"
+      ]
+    },
+    {
+      "number": 69,
+      "subject": "운영체제",
+      "question": "시분할 시스템(time sharing system)에 관한 다음 기술 중 적절하지 못한 것은?",
+      "choices": [
+        {
+          "text": "다중프로그래밍 기법이 최초로 사용된 시스템이다.",
+          "images": []
+        },
+        {
+          "text": "많은 사용자들이 동시에 컴퓨터를 공유하도록 한다.",
+          "images": []
+        },
+        {
+          "text": "각 사용자는 기억장치에 독립된 프로그램을 갖는다.",
+          "images": []
+        },
+        {
+          "text": "컴퓨터를 대화식(interactive)으로 사용한다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 41,
+      "explanation_detailed": "핵심 개념\n시분할 시스템은 CPU 시간을 잘게 나누어 여러 사용자가 마치 동시에 컴퓨터를 사용하는 것처럼 만드는 시스템으로, 대화형 처리와 다중프로그래밍을 기반으로 한다.\n\n정답 분석\n다중프로그래밍 기법은 시분할 시스템 이전에 일괄 처리 시스템의 효율성을 높이기 위해 최초로 도입되고 사용되었습니다. 시분할 시스템은 이 기법을 바탕으로 하여 응답 시간을 단축하고 대화형 처리를 가능하게 했으므로, 최초의 사용 시스템이라고 볼 수 없습니다.\n\n오답 분석\n① 정답. 다중프로그래밍은 일괄 처리 시스템에서 CPU의 공백 시간을 줄이기 위해 최초로 사용되었다.\n② 오답. 시분할 시스템은 시간을 분할하여 여러 사용자가 컴퓨터 자원을 동시에 공유할 수 있게 한다.\n③ 오답. 각 사용자의 프로그램은 독립적인 수행을 보장받기 위해 기억장치에 별도의 영역을 할당받는다.\n④ 오답. 사용자가 시스템과 즉각적으로 통신하며 명령을 수행하는 대화식 방식은 시분할 시스템의 주요 특징이다.",
+      "concepts": [
+        "시분할 시스템의 특징",
+        "다중프로그래밍의 역사적 배경",
+        "대화식 처리 방식"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 485
+      },
+      "concept_ids": [
+        "time-sharing-system-tss",
+        "unmapped-1",
+        "interactive-processing-mode"
+      ]
+    },
+    {
+      "number": 70,
+      "subject": "운영체제",
+      "question": "UNIX 운영체제의 가장 핵심적인 부분으로 하드웨어를 보호하고 응용프로그램들에게 서비스를 제공해 주는 것을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "커널",
+          "images": []
+        },
+        {
+          "text": "쉘",
+          "images": []
+        },
+        {
+          "text": "중앙처리장치",
+          "images": []
+        },
+        {
+          "text": "프로세스",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 80,
+      "explanation_detailed": "핵심 개념\nUNIX 운영체제의 핵심 구성 요소 중 하드웨어를 직접 제어하고 보호하며 응용 프로그램에 시스템 서비스를 제공하는 역할을 묻는 문제입니다.\n\n정답 분석\n정답은 1번, 커널(Kernel)입니다. 커널은 운영체제의 가장 핵심적인 부분으로 부팅 시 주기억장치에 상주하면서 실행됩니다. 하드웨어 자원을 보호하고 관리하며, 응용 프로그램들이 컴퓨터 시스템의 자원을 안전하고 효율적으로 사용할 수 있도록 각종 서비스와 인터페이스를 제공합니다.\n\n오답 분석\n① 커널: 정답입니다.\n② 쉘: 오답입니다. 사용자로부터 명령어를 입력받아 해석한 뒤 커널에게 전달하는 명령어 해석기입니다.\n③ 중앙처리장치: 오답입니다. 프로그램의 명령어를 실제로 해석하고 실행하는 물리적인 컴퓨터 하드웨어 장치입니다.\n④ 프로세스: 오답입니다. 하드 디스크에 저장된 프로그램이 메모리에 적재되어 실행 중인 동적인 상태를 의미합니다.",
+      "concepts": [
+        "운영체제 커널",
+        "하드웨어 보호 및 자원 관리",
+        "응용프로그램 서비스 제공"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 451
+      },
+      "concept_ids": [
+        "os-kernel",
+        "hardware-support-overhead",
+        "application-vs-system-software"
+      ]
+    },
+    {
+      "number": 71,
+      "subject": "운영체제",
+      "question": "프로세스들을 우선 순위에 따라 시스템 프로세스, 대화형 프로세스, 일괄처리 프로세스 등으로 상위, 중위, 하위 단계의 단계별 준비 큐를 배치하는 CPU 스케줄링 기법은?",
+      "choices": [
+        {
+          "text": "다단계 큐 스케줄링",
+          "images": []
+        },
+        {
+          "text": "다단계 피드백 큐 스케줄링",
+          "images": []
+        },
+        {
+          "text": "SRT 스케줄링",
+          "images": []
+        },
+        {
+          "text": "HRN 스케줄링",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n- 프로세스의 특성이나 우선순위에 따라 별도의 준비 큐를 구성하여 관리하는 다단계 큐 스케줄링 기법입니다.\n\n정답 분석\n- ① 다단계 큐 스케줄링은 프로세스를 시스템, 대화형, 일괄처리 등의 그룹으로 나누어 각각의 준비 큐에 할당하고 독립적인 스케줄링 알고리즘을 적용하는 방식입니다.\n- 문제에서 제시한 우선순위에 따라 단계별 준비 큐를 배치한다는 설명이 이 기법의 정의에 정확히 부합합니다.\n\n오답 분석\n- ① 정답\n- ② 오답, CPU 사용 시간에 따라 프로세스가 큐 사이를 이동할 수 있으며 할당 시간을 다르게 설정하는 기법입니다.\n- ③ 오답, 남은 실행 시간이 가장 짧은 프로세스에게 먼저 CPU를 할당하는 선점형 방식입니다.\n- ④ 오답, 대기 시간과 서비스 시간을 이용해 우선순위를 계산하여 아사 현상을 방지하는 비선점형 방식입니다.",
+      "concepts": [
+        "다단계 큐 스케줄링",
+        "우선순위 기반 프로세스 분류",
+        "큐별 독립적 스케줄링"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 423
+      },
+      "concept_ids": [
+        "cpu-scheduling-algorithm",
+        "priority",
+        "queue-based-scheduling"
+      ]
+    },
+    {
+      "number": 72,
+      "subject": "운영체제",
+      "question": "페이지 교체 기법 중 시간 오버헤드를 줄이는 기법으로서 참조비트(referenced bit)와 변형 비트(modified bit)를 필요로 하는 방법은?",
+      "choices": [
+        {
+          "text": "FIFO",
+          "images": []
+        },
+        {
+          "text": "LRU",
+          "images": []
+        },
+        {
+          "text": "LFU",
+          "images": []
+        },
+        {
+          "text": "NUR",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n이 문제는 LRU 알고리즘의 시간 오버헤드를 줄이기 위해 하드웨어 지원인 참조 비트와 변형 비트를 활용하는 NUR 페이지 교체 기법의 원리를 묻는 문제입니다. 복잡한 시간 기록 없이 두 개의 비트만으로 최근 사용 여부를 파악하는 방식을 이해하는 것이 핵심입니다.\n\n정답 분석\n④ NUR(Not Used Recently)은 최근에 사용하지 않은 페이지를 교체하는 기법으로, 각 페이지마다 참조 비트(접근 여부)와 변형 비트(수정 여부)를 둡니다. 이 두 비트의 조합(0,0 / 0,1 / 1,0 / 1,1)을 확인하여 우선순위가 가장 낮은 페이지를 교체하므로 정답입니다. 별도의 시간 기록이나 복잡한 연산 없이 하드웨어 비트만으로 LRU를 흉내 낼 수 있어 시간 오버헤드가 매우 적습니다.\n\n오답 분석\n① FIFO: 오답. 메모리에 가장 먼저 들어온 페이지를 교체하는 기법으로, 시간 오버헤드는 적지만 참조 비트나 변형 비트를 사용하지 않습니다.\n② LRU: 오답. 가장 오랫동안 사용하지 않은 페이지를 교체하는 기법으로, 페이지마다 접근 시간(또는 카운터)을 기록하고 비교해야 하므로 시간 오버헤드가 큽니다.\n③ LFU: 오답. 페이지의 참조 횟수가 가장 적은 페이지를 교체하는 기법으로, 시간 오버헤드가 크며 참조 비트와 변형 비트를 사용하지 않습니다.",
+      "concepts": [
+        "NUR 페이지 교체 기법",
+        "참조 비트와 변형 비트 활용",
+        "LRU의 효율적 근사 구현"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 652
+      },
+      "concept_ids": [
+        "nur-page-replacement",
+        "reference-modified-bit",
+        "lru-cache-replacement-policy"
+      ]
+    },
+    {
+      "number": 73,
+      "subject": "운영체제",
+      "question": "한 프로세스가 다른 프로세스보다 우선순위 등이 낮아 기다리게 되는 경우, 한번 양보하거나 일정 시간이 지나면 우선 순위를 한 단계씩 높여 줌으로서 오래 기다린 프로세스를 고려하여 무기한 지연을 해결하는 방법은?",
+      "choices": [
+        {
+          "text": "aging",
+          "images": []
+        },
+        {
+          "text": "recovery",
+          "images": []
+        },
+        {
+          "text": "avoidance",
+          "images": []
+        },
+        {
+          "text": "prevention",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n오래 기다린 프로세스의 우선순위를 시간이 지남에 따라 높여 주어 기아 현상을 방지하는 기법인 에이징입니다.\n\n정답 분석\n에이징(Aging)은 우선순위가 낮아 실행되지 못하는 프로세스가 무기한 대기하는 것을 막기 위해 대기 시간이 길어질수록 우선순위를 높여주는 스케줄링 기법입니다. 문제에서 설명한 '일정 시간이 지나면 우선 순위를 한 단계씩 높여 줌'으로 오래 기다린 프로세스를 고려한다는 내용과 정확히 일치합니다.\n\n오답 분석\n① aging: 정답입니다.\n② recovery: 오류나 교착 상태가 발생했을 때 시스템을 안전한 상태로 복구하는 기법입니다.\n③ avoidance: 자원 할당을 허용하기 전에 교착 상태 가능성이 있는지 검사하여 미리 방지하는 기법입니다.\n④ prevention: 상호 배제, 점유 및 대기, 환형 대기, 선점 불가 등 4가지 조건 중 하나를 제거하여 교착 상태를 예방하는 기법입니다.",
+      "concepts": [
+        "우선순위 에이징",
+        "기아 현상 방지",
+        "시간 기반 우선순위 상향"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 461
+      },
+      "concept_ids": [
+        "priority-scheduling",
+        "starvation-prevention",
+        "priority-aging"
+      ]
+    },
+    {
+      "number": 74,
+      "subject": "운영체제",
+      "question": "가변 분할 다중 프로그램에서 인접한 공백들을 더 큰 하나의 공백으로 만드는 과정을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "기억장소의 페이징(paging)",
+          "images": []
+        },
+        {
+          "text": "기억장소의 통합(colaescing)",
+          "images": []
+        },
+        {
+          "text": "기억장소의 집약(compaction)",
+          "images": []
+        },
+        {
+          "text": "기억장소의 단편화(fragmentation)",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 52,
+      "explanation_detailed": "핵심 개념\n가변 분할 할당 방식에서 프로세스 종료 후 인접해 있는 여러 개의 빈 기억공간(공백)을 하나의 커다란 빈 공간으로 합치는 기법을 묻는 문제입니다.\n\n정답 분석\n정답은 2번 기억장소의 통합(coalescing)입니다. 메모리에서 프로세스가 종료되어 공간이 반환될 때, 새로 생긴 공백이 기존의 다른 공백과 서로 맞닿아(인접해) 있다면 이 둘을 자동으로 하나로 합쳐줍니다. 이 과정을 통해 메모리의 사용 효율을 높이고 연속적인 큰 공간을 확보할 수 있습니다.\n\n오답 분석\n① 기억장소의 페이징(paging) : 오답. 보조기억장치의 내용을 주기억장치에 적재할 때 동일한 크기의 작은 블록으로 나누어 할당하는 고정 분할 방식입니다.\n② 기억장소의 통합(colaescing) : 정답.\n③ 기억장소의 집약(compaction) : 오답. 흩어져 있는 여러 개의 공백들을 물리적으로 한 곳으로 모으는 작업으로, 통합과 달리 서로 인접하지 않은 공간들을 뭉칠 때 사용되며 오버헤드가 큽니다.\n④ 기억장소의 단편화(fragmentation) : 오답. 메모리의 남는 공간들이 작게 쪼개져서 새로운 작업을 적재하지 못하는 비효율적인 현상 자체를 의미합니다.",
+      "concepts": [
+        "메모리 통합 (Coalescing)",
+        "인접 공백 자동 병합",
+        "외부 단편화 해결"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 589
+      },
+      "concept_ids": [
+        "memory-coalescing",
+        "adjacent-free-space-coalescing",
+        "external-fragmentation"
+      ]
+    },
+    {
+      "number": 75,
+      "subject": "운영체제",
+      "question": "UNIX에서 명령어 해석기로 명령어를 읽어서 실행하는 것은?",
+      "choices": [
+        {
+          "text": "kernel",
+          "images": []
+        },
+        {
+          "text": "i-node",
+          "images": []
+        },
+        {
+          "text": "shell",
+          "images": []
+        },
+        {
+          "text": "PCB",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 75,
+      "explanation_detailed": "핵심 개념\nUNIX 운영체제에서 사용자와 커널 사이의 인터페이스 역할을 하며, 사용자가 입력한 명령어를 해석하여 실행하는 프로그램은 쉘(Shell)입니다.\n\n정답 분석\n쉘(Shell)은 사용자가 터미널을 통해 입력한 명령어를 읽고 이를 커널이 이해할 수 있도록 해석하여 전달하고, 그 처리 결과를 다시 사용자에게 보여주는 명령어 해석기 역할을 수행합니다.\n\n오답 분석\n① kernel: 오답. 시스템의 모든 자원을 관리하고 제어하는 운영체제의 핵심 부분으로 하드웨어와 소프트웨어를 연결합니다.\n② i-node: 오답. UNIX 파일 시스템에서 파일의 위치, 소유자, 크기 등 파일에 대한 정보를 저장하는 자료구조입니다.\n③ shell: 정답. 사용자 명령을 해석하고 실행하는 명령어 해석기입니다.\n④ PCB: 오답. 운영체제가 프로세스를 제어하기 위해 프로세스의 상태 정보를 저장하는 자료구조인 프로세스 제어 블록입니다.",
+      "concepts": [
+        "쉘 (Shell)",
+        "명령어 해석기",
+        "사용자-커널 인터페이스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 459
+      },
+      "concept_ids": [
+        "shell",
+        "command-interpreter",
+        "user-kernel-interface"
+      ]
+    },
+    {
+      "number": 76,
+      "subject": "운영체제",
+      "question": "UNIX에서 명령의 백그라운드 처리를 위해 명령의 끝에 입력하는 것은?",
+      "choices": [
+        {
+          "text": "*",
+          "images": []
+        },
+        {
+          "text": "%",
+          "images": []
+        },
+        {
+          "text": "&",
+          "images": []
+        },
+        {
+          "text": "$",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 64,
+      "explanation_detailed": "핵심 개념\n- UNIX 운영체제에서 명령어를 백그라운드 모드로 실행시키기 위해 명령어 뒤에 추가하는 특수 기호에 대한 이해가 필요합니다.\n\n정답 분석\n- 정답인 ③번 '&'는 UNIX 쉘 환경에서 명령어를 백그라운드에서 실행하도록 지시하는 기호입니다. 사용자는 명령어 끝에 '&'를 입력하여 해당 작업이 시스템 뒤에서 실행되는 동안에도 즉시 다른 명령어를 입력할 수 있는 상태가 됩니다.\n\n오답 분석\n- ① 오답, 파일 이름에서 임의의 문자열을 대체하는 와일드카드 문자로 사용됩니다.\n- ② 오답, 주로 작업 제어(Job Control) 시 백그라운드 작업 번호를 지칭하는 데 사용됩니다.\n- ③ 정답, 명령어 뒤에 입력하여 해당 프로세스를 백그라운드에서 실행시키는 기호입니다.\n- ④ 오답, 쉘 변수나 환경 변수의 값을 참조하거나 치환할 때 사용하는 기호입니다.",
+      "concepts": [
+        "백그라운드 실행",
+        "쉘 메타문자",
+        "프로세스 제어"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 427
+      },
+      "concept_ids": [
+        "background-process-execution",
+        "shell-metacharacter",
+        "process-control-block"
+      ]
+    },
+    {
+      "number": 77,
+      "subject": "운영체제",
+      "question": "하나의 프로세스가 자주 참조하는 페이지들의 집합을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "locality",
+          "images": []
+        },
+        {
+          "text": "working set",
+          "images": []
+        },
+        {
+          "text": "segment",
+          "images": []
+        },
+        {
+          "text": "fragmentation",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n- 워킹셋(Working Set)은 프로세스가 특정 시간 윈도우 내에서 집중적으로 참조하는 페이지들의 구체적 집합입니다. 시간적 지역성 현상을 기반으로 정의되며, 이 집합을 물리 메모리에 유지하면 페이지 부재를 현저히 줄입니다.\n정답 분석\n- ②번 워킹셋이 정답입니다. 워킹셋은 프로세스가 일정 시간 동안 자주 참조하는 페이지들의 실제 집합을 의미하며, 운영체제가 이를 메모리에 상주시켜 페이지 부재율을 낮추고 시스템 성능을 향상시킵니다.\n오답 분석\n- ① locality(지역성): 메모리 참조가 시간·공간적으로 집중된다는 현상 자체를 설명하는 개념이지, 실제 페이지 집합이 아니므로 오답입니다.\n- ② working set(워킹셋): 지역성 현상 위에서 시간 윈도우 내의 실제 참조 페이지들을 모은 구체적 집합이므로 정답입니다.\n- ③ segment(세그먼트): 가상기억 관리에서 논리적 단위로 나뉜 작업 블록이지 시간적 참조 집합이 아니므로 오답입니다.\n- ④ fragmentation(단편화): 메모리 공간의 낭비 현상이지 참조 페이지 집합과 무관하므로 오답입니다.",
+      "concepts": [
+        "워킹셋",
+        "페이지 참조 지역성",
+        "메모리 효율성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "locality는 참조의 경향성, working set은 그 경향에서 도출된 실제 페이지 집합의 구분 명확화 필요",
+        "improved": true,
+        "prev_chars": 509
+      },
+      "concept_ids": [
+        "working-set",
+        "page-reference",
+        "memory-reclamation-efficiency"
+      ]
+    },
+    {
+      "number": 78,
+      "subject": "운영체제",
+      "question": "다중프로그래밍 환경 하에서 용량이 크고 신속한 액세스가 가능한 디스크를 이용하여 각 사용자 프로그램이 출력할 데이터를 직접 프린터로 보내지 않고 디스크에 모았다가 나중에 한꺼번에 출력함으로써 프린터 장치의 공유 및 프린터 처리 속도를 보관하는 기법을 무엇이라 하는가?",
+      "choices": [
+        {
+          "text": "버퍼링(buffering)",
+          "images": []
+        },
+        {
+          "text": "스풀링(spooling)",
+          "images": []
+        },
+        {
+          "text": "다중프로그래밍(multiprogramming)",
+          "images": []
+        },
+        {
+          "text": "시분할 시스템(time-sharing system)",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 79,
+      "explanation_detailed": "핵심 개념\n다중프로그래밍 환경에서 느린 입출력 장치의 데이터를 고속 디스크에 임시 저장했다가 나중에 일괄 처리하여 장치 공유 및 시스템 효율성을 높이는 기법입니다.\n\n정답 분석\n스풀링(Spooling)은 Simultaneous Peripheral Operation On-Line의 약자로, 프린터와 같은 느린 입출력 장치에 데이터를 직접 보내는 대신 디스크에 모았다가 한꺼번에 출력하는 기능을 합니다. 이를 통해 CPU는 입출력 작업이 완료될 때까지 기다리지 않고 다른 작업을 계속 처리할 수 있어 처리 속도가 향상됩니다.\n\n오답 분석\n① 버퍼링(buffering): 오답입니다. CPU와 입출력 장치 간의 속도 차이를 보완하기 위해 주기억장치 내의 버퍼 영역을 사용하는 기법입니다.\n② 스풀링(spooling): 정답입니다.\n③ 다중프로그래밍(multiprogramming): 오답입니다. 메모리에 여러 프로그램을 적재하여 CPU가 하나의 작업이 대기할 때 다른 작업을 처리하게 하는 환경 자체를 의미합니다.\n④ 시분할 시스템(time-sharing system): 오답입니다. 하나의 컴퓨터 시스템을 다수의 사용자가 시간을 분할하여 독자적으로 사용하는 것처럼 느끼게 하는 시스템을 의미합니다.",
+      "concepts": [
+        "스풀링",
+        "입출력 장치 공유",
+        "디스크 기반 임시 저장"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 613
+      },
+      "concept_ids": [
+        "io-management",
+        "io-device-sharing",
+        "swap-paging"
+      ]
+    },
+    {
+      "number": 79,
+      "subject": "운영체제",
+      "question": "가상 기억 장치의 페이지 교체 알고리즘 중에서, 한 프로세스에서 사용되는 각 페이지마다 계수기를 두어 현 시점에서 볼 때 가장 오래 전에 사용된 페이지를 대치하는 것은?",
+      "choices": [
+        {
+          "text": "LIFO(Last In First Out)",
+          "images": []
+        },
+        {
+          "text": "FIFO(First In First Out)",
+          "images": []
+        },
+        {
+          "text": "LRU(Least Recently Used)",
+          "images": []
+        },
+        {
+          "text": "LFU(Least Frequently Used)",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 74,
+      "explanation_detailed": "핵심 개념\n페이지 교체 알고리즘 LRU(Least Recently Used)는 각 페이지에 마지막 참조 시간을 기록하고, 페이지 부재 발생 시 가장 오래 전에 사용된 페이지를 메모리에서 제거하는 방식입니다. 시간 지역성 원리에 기반하여 최근 사용된 페이지가 곧 다시 사용될 가능성이 높다고 가정합니다.\n정답 분석\n정답은 ③번 LRU입니다. 문제에서 \"각 페이지마다 계수기를 두어 가장 오래 전에 사용된 페이지를 대치\"한다고 명시했는데, 이는 LRU의 정의와 정확히 일치합니다. LRU는 각 페이지의 마지막 참조 시간을 추적하다가 페이지 부재 시 타임스탬프가 가장 작은(가장 오래된) 페이지를 선택하여 교체합니다.\n오답 분석\n① LIFO: 스택처럼 가장 최근에 들어온 페이지를 먼저 제거하는 방식으로, 메모리 할당 구조에는 부적합합니다.\n② FIFO: 적재 순서만 고려하므로 페이지의 사용 빈도나 최근 사용 시점을 반영하지 않아 효율이 떨어집니다.\n③ LRU: 최근 사용도(참조 시간)를 기록하여 가장 오래된 페이지를 제거하므로 문제 조건에 정확히 부합합니다.\n④ LFU: 참조 횟수가 적은 페이지를 교체하므로, 오래된 사용 시점이 아닌 사용 빈도를 기준으로 합니다.",
+      "concepts": [
+        "페이지 교체 알고리즘 LRU",
+        "마지막 참조 시간 추적",
+        "시간 지역성"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "LRU의 구현 방식(타임스탐프/카운터 기록)에 대한 구체적 설명 및 각 보기와의 차이점 명확화 부족",
+        "improved": true,
+        "prev_chars": 607
+      },
+      "concept_ids": [
+        "page-replacement-algorithm",
+        "least-recently-used-tracking",
+        "locality"
+      ]
+    },
+    {
+      "number": 80,
+      "subject": "운영체제",
+      "question": "저장장치의 배치 전략 중에서 작업의 배치 결정을 가장 빨리 내릴 수 있는 방식은?",
+      "choices": [
+        {
+          "text": "best fit",
+          "images": []
+        },
+        {
+          "text": "first fit",
+          "images": []
+        },
+        {
+          "text": "worst fit",
+          "images": []
+        },
+        {
+          "text": "fast fit",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n저장장치의 동적 분할 다중 프로그래밍 환경에서 프로세스를 빈 공간에 할당할 때, 가장 빠르게 배치 결정을 내리는 전략을 묻는 문제입니다.\n\n정답 분석\nFirst fit은 빈 공간 리스트를 순차적으로 검색하여 처음으로 발견되는 충분한 크기의 영역에 프로세스를 즉시 할당합니다. 전체 리스트를 검색하지 않고 바로 결정을 내리기 때문에 배치 결정 속도가 가장 빠릅니다.\n\n오답 분석\n① best fit: 오답입니다. 모든 빈 영역을 검색하여 할당 후 남는 공간이 가장 적은 곳을 찾으므로 검색 시간이 오래 걸립니다.\n② first fit: 정답입니다. 최초로 조건이 만족하는 곳에 배치하므로 결정 속도가 가장 빠릅니다.\n③ worst fit: 오답입니다. 가장 큰 빈 공간을 찾아 할당하기 위해 전체 영역을 검색해야 하므로 속도가 느립니다.\n④ fast fit: 오답입니다. 표준적인 메모리 할당 알고리즘의 명칭이 아니며, 해당 문맥에서는 First fit이 가장 빠른 방식입니다.",
+      "concepts": [
+        "First Fit 알고리즘",
+        "메모리 할당 속도",
+        "순차 탐색"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 496
+      },
+      "concept_ids": [
+        "first-fit-memory-allocation",
+        "memory-allocation-algorithm",
+        "sequential-search"
+      ]
+    },
+    {
+      "number": 81,
+      "subject": "정보통신개론",
+      "question": "4비트의 정보(1011)을 홀수 패리티비트를 사용하는 해밍코드로 변환하여 전송할 때 올바른 해밍코드는?",
+      "choices": [
+        {
+          "text": "1011000",
+          "images": []
+        },
+        {
+          "text": "1011011",
+          "images": []
+        },
+        {
+          "text": "1001100",
+          "images": []
+        },
+        {
+          "text": "0101101",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 40,
+      "explanation_detailed": "핵심 개념\n해밍 코드는 데이터 비트 사이에 패리티 비트를 전략적으로 삽입하여 단일 비트 오류를 검출하고 정정하는 오류 정정 코드입니다. 홀수 패리티는 각 패리티 검사 영역의 1의 개수가 홀수가 되도록 패리티 비트를 설정하는 규칙입니다.\n정답 분석\n4비트 데이터 1011을 해밍(7,4) 코드로 변환합니다. 위치별 배치는 1(P1), 2(P2), 3(1), 4(P3), 5(0), 6(1), 7(1)입니다. P1은 홀수 위치(1,3,5,7)를 검사하고 1+0+1=2이므로 P1=1 설정. P2는 2번 비트가 1인 위치(2,3,6,7)를 검사하고 1+1+1=3이므로 P2=0 설정. P3는 4번 비트가 1인 위치(4,5,6,7)를 검사하고 0+1+1=2이므로 P3=1 설정. 결과 코드는 1011011입니다.\n오답 분석\n① 1011000: 패리티 비트가 모두 0인데, P1과 P3 영역에서 홀수 패리티 조건이 깨집니다.\n② 1011011: 모든 패리티 검사 영역에서 1의 개수가 홀수이므로 정답입니다.\n③ 1001100: 데이터 위치의 값이 1001이 되어 원본 1011과 일치하지 않으며, 패리티도 부정확합니다.\n④ 0101101: P1 위치가 0이므로 홀수 패리티(1의 개수 홀수) 규칙을 위반합니다.",
+      "concepts": [
+        "해밍 코드",
+        "패리티 비트 계산",
+        "홀수 패리티 규칙"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "패리티 비트 계산 과정(각 검사 영역별 1의 개수 확인)의 구체적 단계와 각 보기별 오류 원인 분석 부족",
+        "improved": true,
+        "prev_chars": 473
+      },
+      "concept_ids": [
+        "hamming-code",
+        "parity-error-detection",
+        "odd-parity"
+      ]
+    },
+    {
+      "number": 82,
+      "subject": "정보통신개론",
+      "question": "데이터 전송을 하고자 하는 모든 단말장치가 서로 대등한 입장에 있으며, 주 통신국과 종속 통신국이 따로 없고 데이터 링크 설정이 데이터 링크를 설정하고자 하는 단말장치가 주국이 되어 시행하는 데이터 링크의 설정방법은?",
+      "choices": [
+        {
+          "text": "폴링/셀렉팅 방식",
+          "images": []
+        },
+        {
+          "text": "회선경쟁 방식",
+          "images": []
+        },
+        {
+          "text": "슬라이딩 윈도우 방식",
+          "images": []
+        },
+        {
+          "text": "회선연결 방식",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 19,
+      "explanation_detailed": "핵심 개념\n데이터 링크 제어 방식 중 중앙 제어국 없이 모든 단말기가 대등한 권한을 가지며, 데이터를 전송하고자 하는 단말이 주국이 되어 통신 주도권을 얻는 분산 제어 방식을 묻는 문제입니다.\n\n정답 분석\n2번 회선경쟁 방식이 정답입니다. 이 방식은 주 통신국과 종속 통신국이 구분되어 있지 않으며, 모든 단말장치가 서로 대등한 입장에서 통신을 수행합니다. 데이터를 전송하고자 하는 단말장치가 임의로 주국이 되어 데이터 링크를 설정하며, 주로 버스형이나 링형 네트워크에서 사용되는 특징이 있습니다.\n\n오답 분석\n① 폴링/셀렉팅 방식: 오답. 주국과 종속국이 명확히 구분되어 있어 주국이 종속국을 지시하고 제어하는 중앙 집중식 방식이므로 문제의 조건과 다릅니다.\n③ 슬라이딩 윈도우 방식: 오답. 전송 효율을 높이기 위해 수신 측의 응답을 기다리지 않고 여러 프레임을 연속으로 보내는 흐름 제어 기법입니다.\n④ 회선연결 방식: 오답. 물리적인 통신 회선을 설정하고 연결하는 과정을 의미하는 일반적인 용어로, 대등한 단말 간의 주도권 경쟁을 의미하는 개념이 아닙니다.",
+      "concepts": [
+        "회선경쟁 방식",
+        "분산 제어"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 539
+      },
+      "concept_ids": [
+        "line-contention-method",
+        "distributed-control"
+      ]
+    },
+    {
+      "number": 83,
+      "subject": "정보통신개론",
+      "question": "OSI(Open System Interconnection) 7 계층에서 다음 설명에 맞는 계층은?",
+      "choices": [
+        {
+          "text": "물리 계층",
+          "images": []
+        },
+        {
+          "text": "데이터링크 계층",
+          "images": []
+        },
+        {
+          "text": "네트워크 계층",
+          "images": []
+        },
+        {
+          "text": "트랜스포트 계층",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 71,
+      "explanation_detailed": "핵심 개념\n- OSI 7계층 중 데이터링크 계층은 인접한 노드 간의 신뢰성 있는 데이터 전송을 담당하며, 프레이밍, 오류 제어, 흐름 제어 기능을 수행한다.\n\n정답 분석\n- 데이터링크 계층은 물리 계층의 비트 수신 오류를 검출하고 수정하여 데이터의 신뢰성을 확보하는 역할을 한다.\n- 또한 송수신 측 간의 속도 차이를 조절하는 흐름 제어와 데이터를 프레임 단위로 구성하는 기능을 맡으므로 설명에 부합한다.\n\n오답 분석\n- ① 물리 계층: 실제 데이터를 전기적 신호로 변환하여 전송 매체를 통해 비트 단위로 송수신하는 계층으로 오답이다.\n- ② 데이터링크 계층: 정답\n- ③ 네트워크 계층: 경로 설정(Routing)과 패킷 forwarding을 담당하며 다른 네트워크 간의 통신을 중계하는 계층으로 오답이다.\n- ④ 트랜스포트 계층: 종단 간(End-to-End) 통신을 보장하고 데이터의 분할, 재조립 및 오류 복구를 담당하는 계층으로 오답이다.",
+      "concepts": [
+        "프레이밍, 오류 제어, 흐름 제어",
+        "인접 노드 간 신뢰성 있는 전송"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 474
+      },
+      "concept_ids": [
+        "framing",
+        "adjacent-node-reliable-transmission"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "\"인접한 두 개의 통신 시스템 간에 신뢰성 있는 효율적인 프레임 데이터를 전송할 수 있도록 한다. 전송 과정에서는 데이터 오류의 검출 및 회복과 흐름제어를 조절하며 링크의 효율성을 향상시킨다.\""
+        }
+      ]
+    },
+    {
+      "number": 84,
+      "subject": "정보통신개론",
+      "question": "모든 통신서비스를 단일 통신망으로 결합시키려는 통신망은?",
+      "choices": [
+        {
+          "text": "LAN",
+          "images": []
+        },
+        {
+          "text": "ISDN",
+          "images": []
+        },
+        {
+          "text": "VAN",
+          "images": []
+        },
+        {
+          "text": "PSTN",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 67,
+      "explanation_detailed": "핵심 개념\n이 문제는 전화, 데이터 통신, 팩스 등 다양한 형태의 통신 서비스를 하나의 디지털 회선으로 통합하여 제공하는 차세대 통신망의 개념을 묻고 있습니다.\n\n정답 분석\n정답은 2번 ISDN입니다. 종합정보통신망(ISDN)은 음성, 데이터, 영상 등 모든 형태의 통신 서비스를 디지털 방식의 단일 통신망으로 결합하여 제공하는 것을 목표로 합니다. 기존의 아날로그 전화망을 디지털화하여, 사용자가 하나의 회선을 통해 다양한 통신 서비스를 동시에 이용할 수 있도록 설계된 통신망입니다.\n\n오답 분석\n① LAN: 오답입니다. 사무실이나 학교 등 제한된 지리적 범위 내에서 컴퓨터와 통신 장비를 연결하는 근거리 통신망입니다.\n③ VAN: 오답입니다. 통신 회선을 임대하여 단순한 데이터 전송 외에 정보의 가공, 처리 등 부가가치를 더하여 제공하는 부가가치 통신망입니다.\n④ PSTN: 오답입니다. 우리가 흔히 사용하는 일반 유선 전화망으로, 주로 아날로그 방식의 음성 통신을 제공하는 공중 교환 전화망입니다.",
+      "concepts": [
+        "종합정보통신망(ISDN)",
+        "음성·데이터·영상 통합"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 506
+      },
+      "concept_ids": [
+        "isdn",
+        "multimedia-convergence"
+      ]
+    },
+    {
+      "number": 85,
+      "subject": "정보통신개론",
+      "question": "정보처리가 가능한 기계와 기계간에 전기적인 통신회선을 통해 정보를 송·수신하는 통신으로 가장 적절하게 표현한 것은?",
+      "choices": [
+        {
+          "text": "신호통신",
+          "images": []
+        },
+        {
+          "text": "정보통신",
+          "images": []
+        },
+        {
+          "text": "전령통신",
+          "images": []
+        },
+        {
+          "text": "무선통신",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 75,
+      "explanation_detailed": "핵심 개념\n정보통신은 정보처리가 가능한 컴퓨터 등 기계 간에 전기적 통신회선을 매개로 데이터를 송수신하는 통신 방식입니다. 핵심은 '정보처리 기계'와 '전기적 통신회선' 두 가지 조건을 모두 만족해야 한다는 점입니다.\n\n정답 분석\n정답은 2번 정보통신입니다. 정보 처리 기능을 갖춘 기계(컴퓨터)끼리 전기적 통신회선을 통해 데이터를 송수신하는 것이 정보통신의 정의입니다. 이는 현대 네트워크 시스템의 핵심을 정확하게 설명하고 있습니다.\n\n오답 분석\n① 신호통신: 봉수나 깃발 같은 물리적 신호를 이용하는 수단일 뿐, 정보처리가 가능한 기계를 사용하지 않으므로 조건을 만족하지 않습니다.\n③ 전령통신: 사람이 직접 메시지를 전달하는 원시적 방식으로 정보처리 기계를 포함하지 않습니다.\n④ 무선통신: 전파를 이용한 전송 매체의 형태일 뿐, 정보처리 기계라는 조건을 포함하지 않으므로 문제의 정의에 맞지 않습니다.",
+      "concepts": [
+        "정보통신의 정의",
+        "정보처리 기계 간 데이터 송수신",
+        "전기적 통신회선"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "신호통신과의 본질적 차이: 정보처리 기계 여부를 더 명확히 대비",
+        "improved": true,
+        "prev_chars": 492
+      },
+      "concept_ids": [
+        "information-telecommunications-definition",
+        "data-communication-between-systems",
+        "electrical-communication-circuit"
+      ]
+    },
+    {
+      "number": 86,
+      "subject": "정보통신개론",
+      "question": "브리지(Bridge)에 대한 설명 중 틀린 것은?",
+      "choices": [
+        {
+          "text": "LAN과 LAN을 연결한다.",
+          "images": []
+        },
+        {
+          "text": "프로토콜이 다른 LAN을 확장할 때 사용한다.",
+          "images": []
+        },
+        {
+          "text": "Data의 움직임을 제어함으로서 내부와 외부간 LAN의 정보량과 트래픽 양을 조절하는 기능이 있다.",
+          "images": []
+        },
+        {
+          "text": "데이터링크 계층에서 작동한다.",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 39,
+      "explanation_detailed": "핵심 개념\n브리지는 데이터링크 계층(2계층)에서 동작하며 MAC 주소를 기반으로 동일한 프로토콜의 LAN 구간을 연결하고 트래픽을 제어하는 장치입니다.\n\n정답 분석\n브리지는 동일한 프로토콜을 사용하는 LAN 간의 연결만 가능합니다. 서로 다른 프로토콜을 가진 LAN을 연결하는 것은 네트워크 계층의 라우터(Router)의 역할이므로 2번이 정답입니다.\n\n오답 분석\n① 정답: 브리지는 두 개의 근거리 통신망(LAN)을 연결하여 네트워크 범위를 확장하는 역할을 합니다.\n② 오답: 브리지는 동일한 프로토콜 구조를 가진 LAN 간의 연결만 지원하므로 다른 프로토콜 연결은 불가능합니다.\n③ 정답: 주소 테이블을 사용하여 불필요한 데이터의 전송을 막음으로써 트래픽 양을 조절하는 기능을 수행합니다.\n④ 정답: OSI 7계층 모델 중에서 MAC 주소를 처리하는 데이터링크 계층, 즉 2계층에서 작동합니다.",
+      "concepts": [
+        "브리지의 동작 계층",
+        "동일 프로토콜 LAN 연결",
+        "MAC 주소 기반 통신"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 446
+      },
+      "concept_ids": [
+        "bridge",
+        "same-protocol-lan-connection",
+        "mac-address"
+      ]
+    },
+    {
+      "number": 87,
+      "subject": "정보통신개론",
+      "question": "아래의 네트워크 구성형태 중 양쪽 방향으로 접근이 가능하여 통신회선장애에 대한 융통성이 있으며 근거리 네트워크(LAN)에서 가장 많이 채택되고 있는 방식은?",
+      "choices": [
+        {
+          "text": "",
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\ngraph TD\nC((·)) --- L1((·))\nC --- L2((·))\nC --- L3((·))\nC --- L4((·))\nC --- L5((·))\nC --- L6((·))\nC --- L7((·))\nC --- L8((·))\nC --- L9((·))\n```"
+            }
+          ]
+        },
+        {
+          "text": "",
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\ngraph TD\nCenter((·)) --- B((·))\nB --- A((·))\nB --- Cc((·))\nCenter --- D((·))\nD --- E((·))\nD --- F((·))\nCenter --- G((·))\nG --- H((·))\nG --- I((·))\n```"
+            }
+          ]
+        },
+        {
+          "text": "",
+          "extras": [
+            {
+              "kind": "text",
+              "content": "(여러 정점과 교차 간선으로 이루어진 무방향 그래프 — 원본 이미지가 70×48px 초저해상도라 정확한 연결 관계 판독 불가)"
+            }
+          ]
+        },
+        {
+          "text": "",
+          "extras": [
+            {
+              "kind": "diagram",
+              "content": "```mermaid\ngraph LR\nN1((·)) --- N2((·))\nN2 --- N3((·))\nN3 --- N4((·))\nN4 --- N5((·))\nN5 --- N6((·))\nN6 --- N7((·))\nN7 --- N8((·))\nN8 --- N1\n```"
+            }
+          ]
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 33,
+      "explanation_detailed": "핵심 개념\n- 네트워크의 물리적 연결 형태인 토폴로지(Topology) 중 링크(Ring)형의 특징과 장단점을 이해하는 문제입니다.\n\n정답 분석\n- 정답은 4번입니다. 링크형은 각 노드가 원형으로 연결된 구조로, 이중 링(Double Ring) 구성 시 양방향 접근이 가능합니다. 통신회선 장애 발생 시 반대 방향으로 우회하여 통신이 가능하므로 융통성이 높으며, 토큰링(Token Ring) 등 근거리 통신망(LAN)에서 채택되었던 방식입니다.\n\n오답 분석\n- ① (Star형): 중앙 노드(허브)에 장애가 발생하면 전체 네트워크가 마비되므로 통신회선 장애에 대한 융통성이 떨어집니다.\n- ② (Bus형): 하나의 케이블에 모든 노드를 연결하므로, 케이블 끊어짐이나 결함 발생 시 전체망에 영향을 미칩니다.\n- ③ (Mesh형): 모든 노드를 상호 연결하므로 회선 장애에 강하지만 구축 비용이 비싸고 설치가 복잡하여 일반적인 LAN에서 가장 많이 채택되는 방식은 아닙니다.",
+      "known_defect": {
+        "type": "empty_choices",
+        "reason": "모든 보기가 이미지 기반 (스크린샷/다이어그램) 으로 텍스트 추출 불가."
+      },
+      "concepts": [
+        "링형(Ring) 토폴로지",
+        "이중 링 구성",
+        "토큰링(Token Ring)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 488
+      },
+      "concept_ids": [
+        "network-topology",
+        "redundancy-dual-system",
+        "token-ring"
+      ]
+    },
+    {
+      "number": 88,
+      "subject": "정보통신개론",
+      "question": "인터넷에서 사용하고 있는 통신용 프로토콜은?",
+      "choices": [
+        {
+          "text": "IEEE 802",
+          "images": []
+        },
+        {
+          "text": "TCP/IP",
+          "images": []
+        },
+        {
+          "text": "CAT 5",
+          "images": []
+        },
+        {
+          "text": "10 Base T",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 80,
+      "explanation_detailed": "핵심 개념\n이 문제는 인터넷 환경에서 데이터를 주고받기 위해 사용되는 표준 통신 규약인 프로토콜을 묻고 있습니다. 각 보기가 실제 프로토콜인지, 아니면 통신 매체 규격이나 LAN 표준인지 정확히 구분하는 능력이 필요합니다.\n\n정답 분석\n정답은 ②번 TCP/IP입니다. TCP/IP는 전 세계적인 인터넷 망에서 서로 다른 기기들이 원활하게 통신할 수 있도록 만들어진 표준 통신용 프로토콜입니다. 데이터의 흐름을 제어하는 TCP와 데이터의 전송 경로를 담당하는 IP가 결합된 형태로, 현재 인터넷 통신의 가장 핵심적인 규칙 역할을 수행하고 있습니다.\n\n오답 분석\n① IEEE 802 : 오답입니다. 주로 LAN(근거리 통신망) 환경을 위한 물리적, 데이터 링크 계층의 표준 규격을 지정한 규칙입니다.\n② TCP/IP : 정답입니다. 인터넷에서 범용적으로 사용하는 대표적인 통신용 프로토콜입니다.\n③ CAT 5 : 오답입니다. 네트워크를 연결할 때 쓰이는 통신 케이블(랜선)의 물리적 등급 및 규격을 의미합니다.\n④ 10 Base T : 오답입니다. 10Mbps의 속도를 지원하는 트위스티드 페어 케이블 기반의 이더넷 네트워크 표준 방식입니다.",
+      "concepts": [
+        "인터넷 통신 프로토콜",
+        "TCP/IP의 계층 구조",
+        "프로토콜과 물리 계층 표준의 구분"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 581
+      },
+      "concept_ids": [
+        "internet-protocol",
+        "tcp-ip-model-protocol",
+        "protocol-vs-physical-layer"
+      ]
+    },
+    {
+      "number": 89,
+      "subject": "정보통신개론",
+      "question": "다음 데이터 통신 용어의 설명 중 잘못 된 것은?",
+      "choices": [
+        {
+          "text": "리피터 - 신호의 감쇠 현상을 복원해 주는 장치이다.",
+          "images": []
+        },
+        {
+          "text": "Modem - 신호의 변복조장치를 말한다.",
+          "images": []
+        },
+        {
+          "text": "bps - 초당 전송 비트수를 뜻한다.",
+          "images": []
+        },
+        {
+          "text": "baud - 초당 전송 바이트수를 뜻한다.",
+          "images": []
+        }
+      ],
+      "answer": 4,
+      "pass_rate": 80,
+      "explanation_detailed": "핵심 개념\n데이터 통신의 전송 속도를 측정하는 단위인 bps, baud, Bps의 정확한 차이를 이해하는 것이 중요합니다. 특히 baud(신호 변조 속도)와 bps(비트 전송 속도)는 다른 개념이며, 1 baud에 여러 비트가 포함될 수 있습니다.\n\n정답 분석\n정답은 ④번입니다. baud(보)는 초당 신호가 변하는 횟수, 즉 변조 속도를 의미하며 절대로 바이트 수를 뜻하지 않습니다. 초당 비트 수는 bps(bit per second)로, 초당 바이트 수는 Bps(대문자 B)로 표현하며, bps = baud × (비트/신호) 관계가 성립합니다.\n\n오답 분석\n① 리피터는 감쇠된 신호를 증폭하고 재생하여 원래 형태로 복원하는 물리 계층 장치로 설명이 정확합니다.\n② 모뎀은 디지털 신호와 아날로그 신호를 상호 변환하는 변복조 장치로 설명이 정확합니다.\n③ bps(bit per second)는 1초당 전송되는 비트 수를 나타내는 전송 속도 단위로 설명이 정확합니다.\n④ baud(보)는 초당 신호 변화 횟수(변조 속도)를 나타내며 절대로 초당 바이트 수가 아닙니다.",
+      "concepts": [
+        "전송 속도 단위(bps, Baud, Bps)",
+        "Baud와 bps의 차이",
+        "신호 변조 속도의 개념"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "Baud는 신호 상태 변화 횟수이며 bps는 비트 수이므로 1 baud에 여러 비트가 포함될 수 있다는 관계식을 명시하면 더 명확",
+        "improved": true,
+        "prev_chars": 469
+      },
+      "concept_ids": [
+        "transmission-speed-units",
+        "baud-bps-relationship",
+        "signal-modulation-demodulation"
+      ]
+    },
+    {
+      "number": 90,
+      "subject": "정보통신개론",
+      "question": "DTE/DCE 접속규격에서 DCD(Data carrier detect)의 기능 설명으로 옳은 것은?",
+      "choices": [
+        {
+          "text": "DCE가 선로쪽으로부터 감지할수 있는 크기의 신호를 수신하고 있음을 DTE에게 통보",
+          "images": []
+        },
+        {
+          "text": "Data를 전송할 목적으로 DTE에서 DCE로 이송",
+          "images": []
+        },
+        {
+          "text": "DCE가 송신할 준비의 완료여부를 DTE에게 통보",
+          "images": []
+        },
+        {
+          "text": "DTE가 정상적인 동작상태에 있음을 DCE에게 통보",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 35,
+      "explanation_detailed": "핵심 개념\nRS-232C 인터페이스의 제어 신호 중 DCD(Data Carrier Detect)는 DCE가 회선으로부터 정상적인 반송파 신호를 감지했음을 DTE에게 알려주는 신호입니다.\n\n정답 분석\nDCD는 반송파 감지 신호로, DCE(모뎀 등)가 통신 선로를 통해 감지 가능한 크기의 신호를 수신 중일 때 DTE(컴퓨터 등)에 이를 통보하여 데이터 수신이 가능함을 의미합니다. 따라서 1번이 정답입니다.\n\n오답 분석\n① 정답\n② 오답: DTE에서 DCE로 데이터를 실어 보내는 송신 데이터(TD: Transmitted Data) 기능에 대한 설명입니다.\n③ 오답: DCE가 송신할 준비가 되었음을 DTE에게 알리는 데이터 세트 준비(DSR: Data Set Ready) 기능에 대한 설명입니다.\n④ 오답: DTE가 전원이 켜져 정상적으로 동작 중임을 DCE에게 알리는 데이터 단말기 준비(DTR: Data Terminal Ready) 기능에 대한 설명입니다.",
+      "concepts": [
+        "DCD(Data Carrier Detect) 제어 신호",
+        "DTE/DCE 인터페이스",
+        "RS-232C 신호 제어"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 481
+      },
+      "concept_ids": [
+        "dcd-data-carrier-detect",
+        "dte-dce-interface",
+        "rs-232c-standard"
+      ]
+    },
+    {
+      "number": 91,
+      "subject": "정보통신개론",
+      "question": "주파수분할 다중화(FDM)방식에서 보호대역(guard band)이 필요한 이유는?",
+      "choices": [
+        {
+          "text": "주파수 대역폭을 넓히기 위함이다.",
+          "images": []
+        },
+        {
+          "text": "신호의 세기를 크게 하기 위함이다.",
+          "images": []
+        },
+        {
+          "text": "채널간이 간섭을 막기 위함이다.",
+          "images": []
+        },
+        {
+          "text": "많은 채널을 좁은 주파수 대역이 싣기 위함이다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 79,
+      "explanation_detailed": "핵심 개념\n- 주파수분할 다중화(FDM)에서 인접한 채널 간의 신호 간섭을 방지하기 위해 채널 사이에 두는 비어있는 주파수 대역이다.\n\n정답 분석\n- FDM은 사용 가능한 주파수 대역을 나누어 여러 신호를 동시에 전송하는 방식이다. 인접한 채널의 신호가 서로 겹치거나 영향을 주어 데이터가 깨지는 현상을 방지하기 위해, 채널과 채널 사이에 아무런 신호도 전송하지 않는 일정한 간격을 두어야 한다. 이 간격인 보호대역은 채널 간의 간섭을 막는 필수적인 공간이다.\n\n오답 분석\n- ① 오답: 보호대역은 신호를 전송하지 않는 빈 공간이므로 대역폭 자체를 넓히는 목적이 아니다.\n- ② 오답: 보호대역은 신호가 존재하지 않는 구간으로, 신호의 세기를 증폭하거나 조절하는 기능과는 무관하다.\n- ③ 정답: 인접한 채널끼리 서로 간섭하여 정보가 왜곡되는 것을 막기 위해 반드시 필요하다.\n- ④ 오답: 보호대역은 주파수 자원을 사용하지 않고 낭비하는 공간이므로, 많은 채널을 좁은 대역에 싣는 데는 방해가 된다.",
+      "concepts": [
+        "보호대역(guard band)",
+        "채널간 간섭 방지",
+        "주파수분할 다중화(FDM)"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 504
+      },
+      "concept_ids": [
+        "guard-band",
+        "crosstalk-prevention",
+        "frequency-division-multiplexing"
+      ]
+    },
+    {
+      "number": 92,
+      "subject": "정보통신개론",
+      "question": "데이터 링크의 전송 제어 절차로서 통신을 시작해서 종료까지의 순서로 올바른 것은?",
+      "choices": [
+        {
+          "text": "⑤-③-②-①-④",
+          "images": []
+        },
+        {
+          "text": "⑤-③-②-④-①",
+          "images": []
+        },
+        {
+          "text": "③-②-①-⑤-④",
+          "images": []
+        },
+        {
+          "text": "③-⑤-②-④-①",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 70,
+      "explanation_detailed": "핵심 개념\n데이터 링크 전송 제어 절차는 물리적인 회선 연결부터 논리적인 데이터 링크 설정, 데이터 전송, 그리고 연결 해제와 종료 순으로 진행됩니다.\n\n정답 분석\n정답은 ①번입니다. 데이터 통신의 전체 과정은 가장 먼저 '회선 접속(⑤)'을 통해 물리적 경로를 확보하고, '데이터 링크 확립(③)'으로 논리적 통신로를 설정합니다. 그 후 '정보의 전송(②)'을 진행하며, 모든 전송이 완료되면 '데이터 링크 해제(①)'를 통해 논리적 연결을 종료하고 마지막으로 '회선 단절(④)'을 수행하여 물리적 연결을 끊는 것이 올바른 순서입니다.\n\n오답 분석\n① 정답입니다.\n② 오답입니다. 회선 단절(④)은 데이터 링크 해제(①)보다 반드시 나중에 수행되어야 하므로 순서가 틀렸습니다.\n③ 오답입니다. 물리적 연결인 회선 접속(⑤)이 논리적 연결인 데이터 링크 확립(③)보다 앞서야 올바른 순서입니다.\n④ 오답입니다. 회선 접속과 데이터 링크 확립의 순서가 뒤바뀌었으며, 종료 과정의 순서도 올바르지 않습니다.",
+      "concepts": [
+        "데이터 링크 전송 제어 절차",
+        "물리-논리 계층 연결 순서",
+        "회선 접속과 데이터 링크 확립"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 505
+      },
+      "concept_ids": [
+        "data-link-transmission-control-procedure",
+        "physical-logical-layer-connection",
+        "line-access-data-link-establishment"
+      ],
+      "question_extras": [
+        {
+          "kind": "text",
+          "content": "① 링크 종료　　　　② 데이터 전송\n③ 데이터 링크 설정　④ 회선 절단\n⑤ 회선연결"
+        }
+      ]
+    },
+    {
+      "number": 93,
+      "subject": "정보통신개론",
+      "question": "두 시스템이 완전히 동일한 처리를 동시에 수행하고, 그 결과가 일치하는 경우에만 출력을 하는 시스템으로 어느 한 시스템이 고장이 나더라도 남은 시스템으로 처리를 수행하는 처리 시스템은?",
+      "choices": [
+        {
+          "text": "Simplex system",
+          "images": []
+        },
+        {
+          "text": "Duplex system",
+          "images": []
+        },
+        {
+          "text": "Dual system",
+          "images": []
+        },
+        {
+          "text": "Multi processor system",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 53,
+      "explanation_detailed": "핵심 개념\n두 대의 시스템이 동일한 작업을 동시에 수행하고 결과를 비교하여 일치할 때만 출력하므로, 신뢰성이 가장 높은 시스템 구조입니다.\n\n정답 분석\n듀얼 시스템은 두 개의 시스템이 항상 동시에 동일한 작업을 수행하며 그 결과를 상호 비교하는 방식이므로, 문제에서 제시한 결과 일치 시 출력 조건과 한 시스템 고장 시 나머지 시스템으로의 대체 처리가 모두 가능합니다.\n\n오답 분석\n① Simplex system: 오답. 하나의 처리 장치만으로 구성된 단순한 시스템으로 고장이 발생하면 즉시 운영이 중단됩니다.\n② Duplex system: 오답. 하나는 주 시스템, 하나는 예비 시스템으로 운영되며 주 시스템 고장 시 예비 시스템으로 즉시 전환되는 구조로, 두 결과의 일치 여부를 비교하는 방식이 아닙니다.\n③ Dual system: 정답.\n④ Multi processor system: 오답. 하나의 컴퓨터 시스템 내에 여러 개의 프로세서를 설치하여 처리 속도를 향상시키는 방식으로, 문제의 설명과는 다릅니다.",
+      "concepts": [
+        "이중 시스템(Dual system)",
+        "동시 동일 처리",
+        "결과 비교 검증"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 511
+      },
+      "concept_ids": [
+        "redundancy-dual-system",
+        "simultaneity",
+        "result-comparison-verification"
+      ]
+    },
+    {
+      "number": 94,
+      "subject": "정보통신개론",
+      "question": "다음 중 정보화 사회에서 정보화란 의미를 가장 잘 표현한 것은?",
+      "choices": [
+        {
+          "text": "정보처리를 효율화하여 생산활동을 높인다.",
+          "images": []
+        },
+        {
+          "text": "정보의 이용가치를 높이고, 서비스 활동을 촉진한다.",
+          "images": []
+        },
+        {
+          "text": "정보의 생성, 가공, 축적 및 활용 등의 정보 행위를 의도적으로 행하여 그 유용가치를 높이는 활동이다.",
+          "images": []
+        },
+        {
+          "text": "컴퓨터를 이용한 정보의 처리 활동을 말한다.",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\n- 정보화란 정보의 생성, 가공, 축적 및 활용 등 일련의 정보 행위를 의도적으로 수행하여 그 유용 가치를 높이는 사회적 활동을 의미합니다.\n\n정답 분석\n- 정답인 3번은 정보화의 본질인 정보 생명 주기 전반과 유용 가치 제고라는 목적을 가장 포괄적이고 정확하게 서술했습니다. 단순한 기술적 처리나 특정 분야의 효과가 아니라, 정보를 주체적으로 다루는 과정 자체를 정의하였기 때문입니다.\n\n오답 분석\n- ① 오답 - 정보화의 목적 중 하나인 생산성 향상에만 초점을 맞추어 정의의 범위가 너무 좁습니다.\n- ② 오답 - 서비스 활동 촉진이라는 부분적인 결과에만 집중되어 있어 정보화의 본질적인 정의라고 보기 어렵습니다.\n- ③ 정답 - 정보 행위를 의도적으로 수행하여 가치를 높인다는 핵심 내용을 정확히 설명하였습니다.\n- ④ 오답 - 컴퓨터라는 특정 도구와 처리 활동에만 국한되어 있어 정보화의 광범위한 사회적 의미를 담지 못했습니다.",
+      "concepts": [
+        "정보 생명 주기의 의도적 관리",
+        "정보 유용가치의 제고"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 473
+      },
+      "concept_ids": [
+        "information-lifecycle-management",
+        "information-value"
+      ]
+    },
+    {
+      "number": 95,
+      "subject": "정보통신개론",
+      "question": "변복조장치를 단말기에 접속할 때 적용하는 표준안(ITU-T, V.24)은 어떤 내용인가?",
+      "choices": [
+        {
+          "text": "RS-232C 인터페이스방식이다",
+          "images": []
+        },
+        {
+          "text": "조보식 국제 표준 전송속도를 나타낸다.",
+          "images": []
+        },
+        {
+          "text": "주파수 분할 다중화 방식을 말한다.",
+          "images": []
+        },
+        {
+          "text": "루우프식 네트워크 구성방법이다.",
+          "images": []
+        }
+      ],
+      "answer": 1,
+      "pass_rate": 68,
+      "explanation_detailed": "핵심 개념\n- ITU-T V.24는 데이터 단말기(DTE)와 데이터 회선 종단 장치(DCE) 간의 접속 회선 및 기능을 정의하는 인터페이스 표준입니다.\n\n정답 분석\n- ITU-T V.24는 DTE와 DCE 간의 인터페이스 규격으로, 기능적으로는 미국의 RS-232C 표준과 동일합니다. 따라서 변복조장치와 같은 DCE를 단말기인 DTE에 접속할 때 RS-232C 인터페이스 방식이 적용됩니다.\n\n오답 분석\n① 정답입니다. ITU-T V.24는 RS-232C와 기능적으로 동일한 인터페이스 규격입니다.\n② 오답입니다. 전송 속도 표준은 V.21, V.22 등이며, V.24는 회선 기능 정의에 관한 표준입니다.\n③ 오답입니다. 주파수 분할 다중화는 하나의 회선을 여러 주파수로 나누어 쓰는 통신 방식입니다.\n④ 오답입니다. 루프식 네트워크는 토폴로지 구조의 일종으로, 인터페이스 표준과는 무관합니다.",
+      "concepts": [
+        "ITU-T V.24 표준",
+        "RS-232C",
+        "DTE-DCE 인터페이스"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 446
+      },
+      "concept_ids": [
+        "itu-t-v-series",
+        "rs-232c-standard",
+        "dte-dce-interface"
+      ]
+    },
+    {
+      "number": 96,
+      "subject": "정보통신개론",
+      "question": "다음 중 한 노드(node)가 절단되어도 우회로를 구성하여 통신이 가능한 형태의 통신망은?",
+      "choices": [
+        {
+          "text": "버스(BUS)형",
+          "images": []
+        },
+        {
+          "text": "스타(STAR)형",
+          "images": []
+        },
+        {
+          "text": "링(RING)형",
+          "images": []
+        },
+        {
+          "text": "트리(TREE)형",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 58,
+      "explanation_detailed": "핵심 개념\n네트워크 토폴로지의 구조적 특성과 장애 허용 기능 중, 특정 노드나 회선 장애 시 대체 경로를 통해 통신이 가능한지 여부를 판단하는 문제입니다.\n\n정답 분석\n링(RING)형은 노드들이 원형으로 연결된 구조로, 데이터가 양방향으로 전송되거나 이중 링(Double Ring) 구성을 통해 한쪽 경로가 차단되어도 반대쪽 경로로 우회하여 통신을 유지할 수 있는 특징이 있습니다.\n\n오답 분석\n① 버스형: 하나의 통신선에 모든 노드가 연결되므로, 중간에 단절되면 전체 네트워크가 사용 불가능하여 우회가 불가능합니다.\n② 스타형: 중앙 허브를 경유하는 구조로, 허브 장애 발생 시 전체 통신이 중단되며 노드 간 직접적인 우회 경로가 없습니다.\n④ 트리형: 뿌리 노드부터 가지처럼 뻗어나가는 계층적 구조로, 상위 노드나 회선에 문제가 생기면 하위 노드 전체와의 통신이 두절됩니다.",
+      "concepts": [
+        "네트워크 토폴로지",
+        "노드 장애 허용성",
+        "링형 토폴로지의 이중경로"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 435
+      },
+      "concept_ids": [
+        "network-topology",
+        "node-fault-tolerance",
+        "ring-topology"
+      ]
+    },
+    {
+      "number": 97,
+      "subject": "정보통신개론",
+      "question": "정보통신시스템의 3대 구성요소에 포함되지 않는 것은?",
+      "choices": [
+        {
+          "text": "단말장치",
+          "images": []
+        },
+        {
+          "text": "교환장치",
+          "images": []
+        },
+        {
+          "text": "컴퓨터",
+          "images": []
+        },
+        {
+          "text": "전송장치",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 43,
+      "explanation_detailed": "핵심 개념\n- 정보통신시스템의 기본 구성은 데이터를 입출력하는 단말장치, 데이터를 처리하는 컴퓨터, 데이터를 전달하는 전송장치로 이루어진다.\n\n정답 분석\n- 정보통신시스템의 3대 구성요소는 단말장치, 컴퓨터, 전송장치이다.\n- 교환장치는 통신망에서 효율적인 경로 설정을 위해 사용되는 장치이나, 기본적인 3대 구성요소 분류에는 포함되지 않으므로 정답은 2번이다.\n\n오답 분석\n① 단말장치 (정답): 정보를 입력하거나 수신한 정보를 출력하여 사용자와 시스템을 연결하는 필수 장치이다.\n② 교환장치 (오답): 다수의 단말기 간에 통신 경로를 연결하고 데이터를 중계하는 역할을 하나, 3대 기본 구성요소는 아니다.\n③ 컴퓨터 (정답): 데이터를 처리, 저장, 제어하는 중앙 처리 장치로 시스템의 두뇌 역할을 수행한다.\n④ 전송장치 (정답): 데이터를 전기 신호로 변환하여 전송 매체를 통해 주고받을 수 있게 하는 통신 경로 장치이다.",
+      "concepts": [
+        "정보통신시스템의 3대 구성요소",
+        "교환장치의 역할과 위상"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 463
+      },
+      "concept_ids": [
+        "ics-basic-components",
+        "exchange-equipment-role"
+      ]
+    },
+    {
+      "number": 98,
+      "subject": "정보통신개론",
+      "question": "데이터 전송에 가장 많이 사용되는 부호는?",
+      "choices": [
+        {
+          "text": "BCD와 EBCDIC",
+          "images": []
+        },
+        {
+          "text": "BCD와 ASCII",
+          "images": []
+        },
+        {
+          "text": "EBCDIC와 ASCII",
+          "images": []
+        },
+        {
+          "text": "BCD와 DOT",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 39,
+      "explanation_detailed": "핵심 개념\n- ASCII는 7비트 부호로 개인용 컴퓨터와 통신망의 표준이며, EBCDIC은 8비트 부호로 대형 컴퓨터 시스템에서 사용됨. 이 두 부호는 문자, 숫자, 특수기호를 포함한 정보 교환의 기본 표준.\n- BCD(Binary Coded Decimal)는 십진수 자리당 4비트를 사용하는 숫자 전용 부호로, 문자를 포함한 일반 데이터 전송에는 부적합.\n정답 분석\n- ASCII와 EBCDIC은 모든 문자와 기호를 표현 가능한 국제 표준 부호 체계. 현대 통신은 주로 ASCII 및 그 확장(UTF-8, Unicode)을 기반으로 하며, 메인프레임 등 레거시 시스템은 EBCDIC을 유지. 따라서 데이터 전송에 실제로 가장 광범위하게 사용되는 부호 쌍은 EBCDIC과 ASCII.\n오답 분석\n- ① 오답: BCD는 순수 숫자 표현만 가능하고 EBCDIC과 함께 데이터 전송의 표준이 아님.\n- ② 오답: BCD는 문자 코드가 아니므로 ASCII와 조합하여 일반적인 데이터 전송의 표준이 될 수 없음.\n- ③ 정답: 위 설명 참조.\n- ④ 오답: DOT는 점자나 도트 매트릭스 프린터 등의 출력 방식을 지칭하는 용어이며, 데이터 부호 체계가 아님.",
+      "concepts": [
+        "ASCII와 EBCDIC 부호",
+        "부호의 비트 수와 용도",
+        "BCD와의 구분"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "BCD의 표준 정의 명확화 (4비트 vs 6비트 혼용 표현)",
+        "improved": true,
+        "prev_chars": 464
+      },
+      "concept_ids": [
+        "ascii-code",
+        "digital-encoding",
+        "bcd-vs-isdn-distinction"
+      ]
+    },
+    {
+      "number": 99,
+      "subject": "정보통신개론",
+      "question": "비동기 전송방식에서 스타트(START)와 스톱(STOP)신호의 가장 적합한 필요성은?",
+      "choices": [
+        {
+          "text": "Bit와 Bit사이를 구분하기 위하여",
+          "images": []
+        },
+        {
+          "text": "정보 단위가 하나이므로",
+          "images": []
+        },
+        {
+          "text": "Byte와 Byte를 구분하기 위하여",
+          "images": []
+        },
+        {
+          "text": "Bit 정보를 샘플링(Sampling)하기 위하여",
+          "images": []
+        }
+      ],
+      "answer": 3,
+      "pass_rate": 50,
+      "explanation_detailed": "핵심 개념\n- 비동기 전송은 별도의 클록 신호 대신 각 바이트 앞에 START 비트(1비트, 신호 시작 알림)와 뒤에 STOP 비트(1~2비트, 신호 종료 알림)를 추가하여 송수신 타이밍을 조정하는 방식.\n- START/STOP 비트는 연속되는 데이터 흐름에서 하나의 바이트 단위가 어디서 시작하고 어디서 끝나는지를 명확히 표시하는 경계 역할 수행.\n정답 분석\n- 비동기 전송 프레임: [IDLE] [START(1비트)] [DATA(7~8비트)] [PARITY 비트(선택)] [STOP(1~2비트)] [IDLE]. 수신측은 START 비트를 감지하면 준비 상태가 되고, 일정한 전송 속도에 따라 데이터를 샘플링하며, STOP 비트로 한 바이트의 종료를 인식. 이를 통해 동기식 전송처럼 별도 클록 없이도 바이트 단위 동기화를 달성.\n오답 분석\n- ① 오답: 비트 간 구분은 전송 속도(보드레이트)에 의한 균등한 시간 간격으로 정해지며, START/STOP 비트와는 무관.\n- ② 오답: 정보 단위가 바이트(1개 단위)라는 것은 사실이지만, 이것이 START/STOP 신호의 필요성을 설명하는 직접적인 이유는 아님.\n- ③ 정답: 위 설명 참조.\n- ④ 오답: 비트 정보의 샘플링은 START 비트 도착 후 수신측이 수행하는 기술적 동작이며, START/STOP 신호의 본질적 목적(바이트 경계 구분)과는 구분되는 개념.",
+      "concepts": [
+        "비동기 전송의 START/STOP 비트",
+        "데이터 프레임 경계 구분",
+        "클록 신호 없는 동기화"
+      ],
+      "explanation_audit": {
+        "score": 2,
+        "missing": "비동기 전송 프레임 구조와 START/STOP 비트의 정확한 타이밍 역할 미명시",
+        "improved": true,
+        "prev_chars": 520
+      },
+      "concept_ids": [
+        "asynchronous-transmission",
+        "data-frame-boundary",
+        "clock-synchronization"
+      ]
+    },
+    {
+      "number": 100,
+      "subject": "정보통신개론",
+      "question": "데이터를 양쪽방향으로 모두 전송할 수 있으나 동시에 양쪽방향에서 전송할 수 없는 통신 방식은?",
+      "choices": [
+        {
+          "text": "단방향통신(simplex)",
+          "images": []
+        },
+        {
+          "text": "반이중통신(half-duplex)",
+          "images": []
+        },
+        {
+          "text": "이중통신(duplex)",
+          "images": []
+        },
+        {
+          "text": "역방향통신(reverse)",
+          "images": []
+        }
+      ],
+      "answer": 2,
+      "pass_rate": 72,
+      "explanation_detailed": "핵심 개념\n데이터 전송 방향에 따른 통신 방식의 분류를 이해하고, 반이중 통신의 정의를 파악해야 합니다. 반이중 통신은 양방향 전송이 가능하나 동시에는 불가능한 방식입니다.\n\n정답 분석\n정답은 2번입니다. 반이중 통신(Half-duplex)은 데이터를 양쪽 방향으로 모두 전송할 수 있지만, 한 번에 한 방향으로만 전송할 수 있는 방식입니다. 무전기가 대표적인 예로, 상대방이 말할 때는 대기해야 하며 내가 말할 때만 전송이 가능합니다.\n\n오답 분석\n① 단방향통신(simplex): 오답. 한쪽 방향으로만 데이터를 전송할 수 있는 통신 방식입니다(예: TV 방송).\n② 반이중통신(half-duplex): 정답.\n③ 이중통신(duplex): 오답. 양방향으로 데이터를 동시에 전송하고 수신할 수 있는 통신 방식입니다(예: 전화).\n④ 역방향통신(reverse): 오답. 데이터 전송 방향을 설명하는 표준 통신 용어가 아닙니다.",
+      "concepts": [
+        "전송 방향과 동시성에 따른 통신 방식 분류",
+        "반이중 통신"
+      ],
+      "explanation_audit": {
+        "score": 3,
+        "missing": "",
+        "improved": false,
+        "prev_chars": 462
+      },
+      "concept_ids": [
+        "transmission-direction-duplex",
+        "half-duplex-communication"
+      ]
+    }
+  ],
+  "source_site": "cbtbank.kr",
+  "source_url": "https://cbtbank.kr/exam/"
+}
