@@ -1,4 +1,4 @@
-const VERSION = 'v29';
+const VERSION = 'v30';
 const SHELL = `shell-${VERSION}`;
 const DATA  = `data-${VERSION}`;
 const RT    = `runtime-${VERSION}`;
@@ -6,11 +6,9 @@ const RT    = `runtime-${VERSION}`;
 const PRECACHE = ['/', '/manifest.webmanifest', '/icon.svg'];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(SHELL)
-      .then(c => c.addAll(PRECACHE))
-      .then(() => self.skipWaiting())
-  );
+  // skipWaiting 은 사용자가 '새로고침' 토스트를 눌렀을 때만 (message 핸들러 경유).
+  // install 단계에서 무조건 호출하면 풀이 도중 예고 없는 자동 새로고침이 발생한다.
+  e.waitUntil(caches.open(SHELL).then(c => c.addAll(PRECACHE)));
 });
 
 self.addEventListener('activate', (e) => {

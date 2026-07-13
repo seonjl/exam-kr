@@ -162,7 +162,31 @@ function progressKey(examCode, sessionCode) { return `progress:${examCode}:${ses
 function progressFor(examCode, sessionCode) {
   return store.get(progressKey(examCode, sessionCode)) || { answers:{}, stars:[], wrongs:[], mode:'practice', last:0 };
 }
-function saveProgress(examCode, sessionCode, p) { store.set(progressKey(examCode, sessionCode), p); maybeAutoBackup(); }
+function saveProgress(examCode, sessionCode, p) {
+  p.touchedAt = Date.now();   // 홈 '이어서 풀기' 최근 세션 판정용
+  store.set(progressKey(examCode, sessionCode), p);
+  maybeAutoBackup();
+}
+
+// 가장 최근에 풀던 실제 회차 — 홈 '이어서 풀기' 카드용.
+function latestProgress(){
+  let best = null;
+  const prefix = STORE + 'progress:';
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (!k || !k.startsWith(prefix)) continue;
+    const [examCode, sessionCode] = k.slice(prefix.length).split(':');
+    if (!examCode || !sessionCode || sessionCode.startsWith('c-')) continue;  // 가상 세션 제외
+    const p = safeParse(localStorage.getItem(k));
+    if (!p || !p.touchedAt) continue;
+    const answered = Object.keys(p.answers || {}).length;
+    if (!answered) continue;
+    if (!best || p.touchedAt > best.touchedAt) {
+      best = { examCode, sessionCode, touchedAt: p.touchedAt, answered, last: p.last || 0 };
+    }
+  }
+  return best;
+}
 
 /* ---- theme ---- */
 (function(){
@@ -588,7 +612,22 @@ function fillExamPicker(root, exams){
     }
     return n;
   };
+  // 최근 세션 이어서 풀기 카드 — 진행 중 세션이 있을 때만
+  const resume = latestProgress();
+  const resumeExam = resume && exams.find(e => e.code === resume.examCode);
+  const resumeHtml = resumeExam ? `
+    <div class="group resume-group">
+      <button class="row resume-row" id="resumeRow">
+        <span class="row-lead exam-mark">▶</span>
+        <span class="row-body">
+          <span class="row-title">이어서 풀기</span>
+          <span class="row-sub">${escapeHtml(resumeExam.name)} · ${resume.sessionCode.slice(0,4)}.${resume.sessionCode.slice(4,6)}.${resume.sessionCode.slice(6,8)} · ${resume.answered}문항 진행</span>
+        </span>
+        <span class="row-trail">${icons.chev}</span>
+      </button>
+    </div>` : '';
   root.querySelector('#examList').innerHTML = `
+    ${resumeHtml}
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
       ${exams.map((e, i) => {
@@ -614,6 +653,10 @@ function fillExamPicker(root, exams){
   root.querySelectorAll('.exam-row').forEach(el => {
     el.addEventListener('click', () => openSessionList(el.dataset.exam));
   });
+  const $resume = root.querySelector('#resumeRow');
+  if ($resume && resume) {
+    $resume.addEventListener('click', () => openQuiz(resume.examCode, resume.sessionCode, resume.last));
+  }
 }
 
 /* ===================================================================
@@ -701,7 +744,12 @@ function fillSessionList(root, examCode, sessions){
       const a = Object.keys(p.answers||{}).length;
       const w = (p.wrongs||[]).length;
       const correct = Math.max(0, a - w);
-      const st = s.count && a===s.count ? 'done' : a>0 ? 'active' : '';
+      // 모의시험 제출 완료는 미응답이 있어도 '끝난 회차' — 점수와 함께 표시
+      const submitted = !!p.examSubmitted;
+      const st = submitted || (s.count && a===s.count) ? 'done' : a>0 ? 'active' : '';
+      const pillText = submitted && s.count
+        ? `모의 ${Math.round(correct*100/s.count)}%`
+        : `${correct}/${s.count}`;
       const mn = monthNames[parseInt(s.date.slice(5,7), 10)];
       const day = parseInt(s.date.slice(8,10), 10);
       return `<button class="row" data-code="${s.code}" ${s.count?'':'disabled'}>
@@ -711,7 +759,7 @@ function fillSessionList(root, examCode, sessions){
           <span class="row-sub">${ord.get(s.code)} · ${s.count? s.count+'문항':'수집 전'}</span>
         </span>
         <span class="row-trail">
-          ${s.count ? `<span class="pill ${st}">${correct}/${s.count}</span>` : '<span class="pill">—</span>'}
+          ${s.count ? `<span class="pill ${st}">${pillText}</span>` : '<span class="pill">—</span>'}
           ${icons.chev}
         </span>
       </button>`;
@@ -821,7 +869,7 @@ async function renderWrongs(root){
     const re = () => {
       const filtered = filterGroupsByQuery(groups, query);
       const sorted = sort === 'due' ? sortByForgettingCurve(filtered) : filtered;
-      renderCollected($body, sorted, '오답', { showDue: sort === 'due' });
+      renderCollected($body, sorted, '오답', { showDue: sort === 'due', retry: true });
     };
     re();
     bindSearch(root.querySelector('#wrongsSearch'), q => { query = q; re(); });
@@ -871,13 +919,22 @@ function renderCollected($root, groups, kindLabel, opts = {}){
             <span class="row-title">${g.date.slice(2).replace(/-/g,'.')} · ${n}번</span>
             <span class="row-sub">${escapeHtml(due)}</span>
           </span>
-          <span class="row-trail">${icons.chev}</span>
+          <span class="row-trail">${opts.retry ? '<span class="retry-mini" data-retry>다시 풀기</span>' : ''}${icons.chev}</span>
         </button>`;
       }).join('')}
     </div>
   `).join('');
   $root.querySelectorAll('.row[data-exam]').forEach(el => {
-    el.addEventListener('click', () => openQuiz(el.dataset.exam, el.dataset.code, +el.dataset.num - 1));
+    el.addEventListener('click', (ev) => {
+      const examCode = el.dataset.exam, code = el.dataset.code, num = +el.dataset.num;
+      if (ev.target.closest('[data-retry]')) {
+        // 답을 지우고 다시 풀기 — 다시 맞추면 오답노트에서 자동 해제
+        const p = progressFor(examCode, code);
+        delete p.answers[num];
+        saveProgress(examCode, code, p);
+      }
+      openQuiz(examCode, code, num - 1);
+    });
   });
 }
 
@@ -1027,7 +1084,7 @@ function renderSettings(root){
         </button>
         <button class="row" id="resetBtn">
           <span class="row-lead icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></span>
-          <span class="row-body"><span class="row-title" style="color:var(--vermilion)">모든 진도 초기화</span><span class="row-sub">되돌릴 수 없음</span></span>
+          <span class="row-body"><span class="row-title" style="color:var(--vermilion)">모든 진도 초기화</span><span class="row-sub">자동 백업 후 초기화 · '직전 상태로 복구'로 되돌릴 수 있어요</span></span>
           <span class="row-trail">${icons.chev}</span>
         </button>
       </div>
@@ -1107,7 +1164,7 @@ function renderSettings(root){
   root.querySelector('#resetBtn').onclick = () => {
     if (!confirm('모든 진도·북마크·오답을 초기화할까요?')) return;
     backupCurrent();
-    Object.keys(localStorage).filter(k => k.startsWith(STORE) && !k.endsWith('_backup')).forEach(k => localStorage.removeItem(k));
+    Object.keys(localStorage).filter(k => k.startsWith(STORE) && !k.startsWith(STORE + '_backup')).forEach(k => localStorage.removeItem(k));
     toast('초기화 · 복구 가능');
     showTab('settings');
   };
@@ -1395,6 +1452,17 @@ function sanitizeImportEntry(k, v){
   if (Array.isArray(v.wrongs)) out.wrongs = v.wrongs.filter(n => Number.isInteger(n));
   if (typeof v.mode === 'string' && /^(practice|review|exam)$/.test(v.mode)) out.mode = v.mode;
   if (typeof v.last === 'number' && Number.isFinite(v.last)) out.last = v.last;
+  // 복습 스케줄(망각곡선)·모의시험 상태 — 백업/동기화에서 유실되면 안 됨
+  if (v.seenAt && typeof v.seenAt === 'object' && !Array.isArray(v.seenAt)){
+    const sa = {};
+    for (const [qk, qv] of Object.entries(v.seenAt)){
+      if (/^\d+$/.test(qk) && typeof qv === 'number' && Number.isFinite(qv)) sa[qk] = qv;
+    }
+    out.seenAt = sa;
+  }
+  if (v.examSubmitted === true) out.examSubmitted = true;
+  if (typeof v.examMin === 'number' && Number.isFinite(v.examMin)) out.examMin = v.examMin;
+  if (typeof v.touchedAt === 'number' && Number.isFinite(v.touchedAt)) out.touchedAt = v.touchedAt;
   return out;
 }
 
@@ -1402,7 +1470,7 @@ function applyDump(dump, { mode }){
   // Returns stats of what changed.
   if (mode === 'replace'){
     backupCurrent();
-    Object.keys(localStorage).filter(k => k.startsWith(STORE) && k !== STORE + '_backup').forEach(k => localStorage.removeItem(k));
+    Object.keys(localStorage).filter(k => k.startsWith(STORE) && !k.startsWith(STORE + '_backup')).forEach(k => localStorage.removeItem(k));
     for (const [k, v] of Object.entries(dump)){
       if (k.startsWith('_')) continue;
       const safe = sanitizeImportEntry(k, v);
@@ -1627,6 +1695,10 @@ async function openQuiz(examCode, sessionCode, startIdx){
     const $hint = screen.querySelector('#swipeHint');
     const $pages = screen.querySelector('#pages');
     if ($hint && $pages) {
+      // 마우스 환경에는 스와이프 대신 키보드/버튼 안내
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        $hint.querySelector('.sh-text').textContent = '← → 방향키나 좌우 버튼으로 이동';
+      }
       $hint.hidden = false;
       requestAnimationFrame(() => $hint.classList.add('visible'));
       const dismiss = () => {
@@ -1736,10 +1808,20 @@ async function openQuiz(examCode, sessionCode, startIdx){
     document.addEventListener('keydown', onKey);
     screen.querySelector('#jumpTot').textContent = data.questions.length;
   } catch (e) {
-    // 로드 실패 — 시트 레이아웃 잔재(2단 그리드·광폭 shell) 제거 후 에러 카드
+    // 로드 실패 — 시트 레이아웃 잔재(2단 그리드·광폭 shell) 제거 후 에러 카드 + 재시도
     screen.classList.remove('sheet-mode');
     updateScreenInert();
-    screen.querySelector('#pages').innerHTML = emptyCard('회차 데이터를 찾을 수 없어요', e.message || '');
+    const $p = screen.querySelector('#pages');
+    $p.innerHTML = emptyCard('회차 데이터를 불러오지 못했어요', e.message || '네트워크 상태를 확인해 주세요')
+      + '<div style="text-align:center;padding-bottom:24px"><button class="r-soft" id="quizRetry">다시 시도</button></div>';
+    $p.querySelector('#quizRetry').onclick = () => {
+      const wasInternal = _navInternal;
+      _navInternal = true;
+      screen.remove();
+      updateScreenInert();
+      Promise.resolve(openQuiz(examCode, sessionCode, startIdx))
+        .finally(() => { _navInternal = wasInternal; });
+    };
   }
 }
 
@@ -2126,15 +2208,17 @@ async function openConceptPractice(examCode, conceptId, startRef){
     if (!data) continue;
     const q = (data.questions || []).find(qq => qq.number === r.qnum);
     if (q) {
-      // 원본 질문 그대로 — 별도 _origin 표시
-      questions.push({ ...q, _originSession: r.session });
+      // 회차가 달라도 원본 번호가 겹치면 진행상태(p.answers[number])가 충돌하므로
+      // 가상 세션 안에서는 1..N 으로 재번호하고 원본 번호는 _originNumber 에 보존.
+      questions.push({ ...q, number: questions.length + 1,
+                       _originNumber: q.number, _originSession: r.session });
     }
   }
   if (!questions.length) { toast('문제 데이터를 불러오지 못했어요'); return; }
 
   let startIdx;
   if (startRef && startRef.session && startRef.qnum != null) {
-    const i = questions.findIndex(q => q._originSession === startRef.session && q.number === startRef.qnum);
+    const i = questions.findIndex(q => q._originSession === startRef.session && q._originNumber === startRef.qnum);
     if (i >= 0) startIdx = i;
   }
 
@@ -2593,7 +2677,7 @@ function onChoiceClick(e){
   // wrongs 는 조용히 최신 상태 유지 (모의시험은 답 변경 시 정정)
   const wi = p.wrongs.indexOf(q.number);
   if (ci !== q.answer) { if (wi < 0) p.wrongs.push(q.number); }
-  else if (wi >= 0 && examHold) p.wrongs.splice(wi, 1);
+  else if (wi >= 0) p.wrongs.splice(wi, 1);   // 다시 맞추면 오답노트에서 해제
   saveProgress(c.examCode, c.code, p);
   const page = b.closest('.page');
   if (examHold) {
@@ -2619,16 +2703,16 @@ function toggleStar(){
   p.stars = p.stars || [];
   const i = p.stars.indexOf(q.number);
   const btn = c.screen.querySelector('#starBtn');
-  if (i>=0) { p.stars.splice(i,1); btn.classList.remove('on'); btn.querySelector('svg').outerHTML = icons.star; toast('북마크 해제'); }
+  if (i>=0) { p.stars.splice(i,1); btn.classList.remove('on'); btn.querySelector('svg').outerHTML = icons.star; toast(`${q.number}번 북마크 해제`); }
   else {
     p.stars.push(q.number);
     btn.classList.add('on');
     btn.querySelector('svg').outerHTML = icons.starFill;
     if (!store.get('seen:firstStar')) {
       store.set('seen:firstStar', 1);
-      toastAction('즐겨찾기에 저장됨', '모아보기', () => showTab('stars'));
+      toastAction(`${q.number}번 즐겨찾기에 저장됨`, '모아보기', () => showTab('stars'));
     } else {
-      toast('북마크');
+      toast(`${q.number}번 북마크`);
     }
   }
   saveProgress(c.examCode, c.code, p);
@@ -2715,7 +2799,20 @@ function updatePositionIndicators(){
 
 function onKey(e){
   const c = state.current; if (!c) return;
+  // 바텀시트가 열려 있으면 Escape 는 시트 닫기 우선 — 퀴즈 화면 pop 방지
+  if (document.querySelector('.sheet:not(.closing)')) {
+    if (e.key === 'Escape') { e.preventDefault(); closeSheet(); }
+    return;
+  }
+  const t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
   const pages = c.screen.querySelector('#pages'); if (!pages) return;
+  // 숫자키 1~9 — 현재 문항의 보기 선택 (데스크톱 키보드 풀이)
+  if (/^[1-9]$/.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    const btn = c.screen.querySelector(`.page[data-qi="${c.idx}"] .choice[data-ci="${e.key}"]`);
+    if (btn) { e.preventDefault(); btn.click(); }
+    return;
+  }
   if (c.sheet) {
     // 시험지 모드 — 세로 스크롤은 브라우저 기본 동작, 좌우 화살표만 문항 이동.
     if (e.key === 'ArrowRight') { e.preventDefault(); gotoQuestion(c.idx + 1); }
@@ -2857,6 +2954,13 @@ function openModeSheet(){
     mark(); markMins();
     div.querySelector('#m').addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
+      // 모의시험 제출 전에 다른 모드로 바꾸면 정답·해설이 노출됨 — 확인
+      if (state.current.mode === 'exam' && b.dataset.m !== 'exam') {
+        const pv = progressFor(state.current.examCode, state.current.code);
+        const answeredN = Object.keys(pv.answers || {}).length;
+        if (!pv.examSubmitted && (b.dataset.m === 'review' || answeredN > 0)
+            && !confirm('모의시험 제출 전입니다. 모드를 바꾸면 정답과 해설이 노출됩니다. 계속할까요?')) return;
+      }
       state.current.mode = b.dataset.m;
       const p = progressFor(state.current.examCode, state.current.code); p.mode = b.dataset.m;
       saveProgress(state.current.examCode, state.current.code, p);
