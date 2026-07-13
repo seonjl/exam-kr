@@ -416,6 +416,10 @@ function updateModeLabel() {
   const c = state.current; if (!c) return;
   const $label = c.screen?.querySelector('#modeLabel');
   if ($label) $label.textContent = MODE_LABEL[c.mode] || '풀이';
+  // 모의시험 제출 전에는 정답률 등 힌트 숨김 (CSS: .exam-hold)
+  const hold = c.mode === 'exam'
+    && !progressFor(c.examCode, c.code).examSubmitted;
+  c.screen?.classList.toggle('exam-hold', hold);
 }
 
 // PWA install affordance — captured here so it survives module-level reloads.
@@ -1538,7 +1542,9 @@ async function openQuiz(examCode, sessionCode, startIdx){
   if (!_navInternal) pushRoute({ type:'quiz', exam:examCode, session:sessionCode });
   document.getElementById('shell').classList.add('hide-tabs');
   // 데스크톱(≥1024px) 은 시험지 모드 — 전체 문항을 2단으로 한 페이지에 나열.
-  const sheetMode = window.matchMedia('(min-width: 1024px)').matches;
+  // 풀이 설정에서 '한 문항씩'(sheetView=off) 으로 끌 수 있다.
+  const sheetMode = window.matchMedia('(min-width: 1024px)').matches
+    && store.get('sheetView') !== 'off';
   const stack = document.getElementById('stack');
   const screen = document.createElement('section');
   screen.className = 'screen enter-right';
@@ -1673,7 +1679,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
         <div class="sheet-head">
           <div class="sh-exam">${escapeHtml(examName)}</div>
           <div class="sh-meta">${escapeHtml(dateLabel)} · 전체 ${data.questions.length}문항</div>
-          <p class="sh-note">실제 시험지처럼 전체 문항이 한 페이지에 표시됩니다. 보기를 선택하면 정답 확인과 해설이 바로 열립니다.</p>
+          <p class="sh-note">실제 시험지처럼 전체 문항이 한 페이지에 표시됩니다. 풀이 모드는 선택 즉시, 모의시험 모드는 제출 후에 정답과 해설이 열립니다.</p>
         </div>`);
     }
     hydrateWindow(state.current.idx);
@@ -1683,7 +1689,14 @@ async function openQuiz(examCode, sessionCode, startIdx){
       if (state.current && state.current.code === sessionCode) refreshConceptChips();
     });
 
-    if (state.current.mode === 'exam') startExamTimer();
+    if (state.current.mode === 'exam') {
+      const pNow = progressFor(examCode, sessionCode);
+      if (!pNow.examSubmitted) {
+        // 저장된 마감시각이 이미 지났으면 열자마자 제출·채점
+        if (pNow.examEndAt && pNow.examEndAt <= Date.now()) finishExam();
+        else startExamTimer(true);
+      }
+    }
     requestAnimationFrame(() => {
       gotoQuestion(state.current.idx, 'instant');
       updatePositionIndicators();
@@ -2357,12 +2370,18 @@ function applyAnswerForPage(page, q){
   const p = progressFor(c.examCode, c.code);
   const review = c.mode === 'review';
   const picked = p.answers[q.number];
+  // 모의시험(제출 전)은 정답/오답/해설 노출 보류 — 선택 표시만
+  const examHold = c.mode === 'exam' && !p.examSubmitted;
+  const clearExplain = () => {
+    const slot = page.querySelector('.explain-slot');
+    if (slot) slot.innerHTML = '';
+  };
   if (review) { markChoices(page, q, q.answer); renderExplain(page, q, true); }
+  else if (picked && examHold) { markPicked(page, picked); clearExplain(); }
   else if (picked) { markChoices(page, q, picked); renderExplain(page, q, false); }
   else {
     page.querySelectorAll('.choice').forEach(b => b.classList.remove('picked','correct','wrong'));
-    const slot = page.querySelector('.explain-slot');
-    if (slot) slot.innerHTML = '';
+    clearExplain();
   }
 }
 
@@ -2381,6 +2400,14 @@ function markChoices(page, q, picked){
     b.classList.remove('picked','correct','wrong');
     if (ci === q.answer) b.classList.add('correct');
     else if (ci === picked && picked !== q.answer) b.classList.add('wrong');
+  });
+}
+
+// 모의시험 채점 보류 상태 — 선택한 보기에 picked 표시만
+function markPicked(page, picked){
+  page.querySelectorAll('.choice').forEach(b => {
+    b.classList.remove('correct','wrong');
+    b.classList.toggle('picked', +b.dataset.ci === picked);
   });
 }
 
@@ -2555,15 +2582,27 @@ function onChoiceClick(e){
   const ci = +b.dataset.ci;
   const q = c.data.questions[qi];
   const p = progressFor(c.examCode, c.code);
-  if (p.answers[q.number]) return;
+  // 모의시험(제출 전)은 실제 시험처럼 답 변경 허용, 다른 모드는 첫 답 확정
+  const examHold = c.mode === 'exam' && !p.examSubmitted;
+  if (p.answers[q.number] && !examHold) return;
   p.answers[q.number] = ci;
   p.last = qi;
   p.wrongs = p.wrongs || [];
   p.seenAt = p.seenAt || {};
-  p.seenAt[q.number] = Date.now();
-  if (ci !== q.answer && !p.wrongs.includes(q.number)) p.wrongs.push(q.number);
+  if (!p.seenAt[q.number]) p.seenAt[q.number] = Date.now();
+  // wrongs 는 조용히 최신 상태 유지 (모의시험은 답 변경 시 정정)
+  const wi = p.wrongs.indexOf(q.number);
+  if (ci !== q.answer) { if (wi < 0) p.wrongs.push(q.number); }
+  else if (wi >= 0 && examHold) p.wrongs.splice(wi, 1);
   saveProgress(c.examCode, c.code, p);
   const page = b.closest('.page');
+  if (examHold) {
+    // 채점·해설 노출 보류 — 선택 표시만
+    markPicked(page, ci);
+    updatePositionIndicators();
+    maybeShowCompletion(c, p);
+    return;
+  }
   markChoices(page, q, ci);
   renderExplain(page, q, false);
   updatePositionIndicators();
@@ -2603,7 +2642,12 @@ function confirmRedo(){
   }
   const snap = JSON.parse(JSON.stringify(p));
   p.answers = {}; p.wrongs = []; p.last = 0;
+  delete p.examSubmitted;
+  delete p.examEndAt;
   saveProgress(c.examCode, c.code, p);
+  c._completionShown = false;
+  if (c.mode === 'exam') startExamTimer();   // 새 제한시간으로 재시작
+  updateModeLabel();
   applyAnswers();
   gotoQuestion(0);
   toastAction('초기화됨', '되돌리기', () => {
@@ -2737,11 +2781,13 @@ function openJumpSheet(){
     }
     const body = document.createElement('div');
     body.className = 'numpad';
+    // 모의시험 제출 전에는 정오 표시 누출 방지 — 응답 여부만 표시
+    const grading = c.mode !== 'exam' || p.examSubmitted;
     for (let i=1; i<=total; i++){
       const q = c.data.questions[i-1];
       const picked = p.answers[q.number];
       const done = picked != null;
-      const wrong = done && picked !== q.answer;
+      const wrong = grading && done && picked !== q.answer;
       const cls = [
         done && !wrong ? 'done' : '',
         wrong ? 'wrong' : '',
@@ -2782,15 +2828,30 @@ function openModeSheet(){
           <button data-min="150">150분</button>
         </span>
       </div>
+      <div class="sheet-row exam-submit" hidden>
+        <span class="l">채점</span>
+        <button class="r" id="sheetSubmit">제출하고 채점</button>
+      </div>
+      <div class="sheet-row sheet-view-row" hidden>
+        <span class="l">데스크톱 보기</span>
+        <span class="seg" id="sv">
+          <button data-sv="on">시험지 전체</button>
+          <button data-sv="off">한 문항씩</button>
+        </span>
+      </div>
       <div class="sheet-row">
         <span class="l">재도전</span>
         <button class="r" id="sheetRedo">답안 초기화</button>
       </div>
     `;
     const minsRow = div.querySelector('.exam-mins');
+    const submitRow = div.querySelector('.exam-submit');
     const mark = () => {
       div.querySelectorAll('#m button').forEach(b => b.classList.toggle('on', b.dataset.m === state.current.mode));
       minsRow.hidden = state.current.mode !== 'exam';
+      const pNow = progressFor(state.current.examCode, state.current.code);
+      submitRow.hidden = !(state.current.mode === 'exam' && !pNow.examSubmitted
+        && Object.keys(pNow.answers || {}).length > 0);
     };
     const markMins = () => div.querySelectorAll('#mins button').forEach(b => b.classList.toggle('on', +b.dataset.min === (state.current.examMin || 90)));
     mark(); markMins();
@@ -2801,7 +2862,7 @@ function openModeSheet(){
       saveProgress(state.current.examCode, state.current.code, p);
       if (b.dataset.m === 'exam') {
         state.current.examMin = state.current.examMin || 90;
-        startExamTimer();
+        if (!p.examSubmitted) startExamTimer(true);   // 이미 제출한 모의시험은 타이머 없음
       } else {
         stopExamTimer();
       }
@@ -2816,9 +2877,44 @@ function openModeSheet(){
       markMins();
       startExamTimer();
     });
+    div.querySelector('#sheetSubmit').onclick = () => { closeSheet(); finishExam(); };
+    // 데스크톱(≥1024px)에서만 시험지/한문항 보기 선택 노출
+    const svRow = div.querySelector('.sheet-view-row');
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      svRow.hidden = false;
+      const markSv = () => {
+        const cur = store.get('sheetView') !== 'off' ? 'on' : 'off';
+        div.querySelectorAll('#sv button').forEach(b => b.classList.toggle('on', b.dataset.sv === cur));
+      };
+      markSv();
+      div.querySelector('#sv').addEventListener('click', e => {
+        const b = e.target.closest('button'); if (!b) return;
+        const cur = store.get('sheetView') !== 'off' ? 'on' : 'off';
+        if (b.dataset.sv === cur) return;
+        store.set('sheetView', b.dataset.sv);
+        markSv();
+        closeSheet();
+        reloadQuiz();   // 현재 회차·문항 유지한 채 레이아웃 재구성
+      });
+    }
     div.querySelector('#sheetRedo').onclick = () => { closeSheet(); confirmRedo(); };
     return div;
   });
+}
+
+// 현재 퀴즈 화면을 같은 회차·문항으로 다시 연다 (시험지/한문항 보기 전환용).
+function reloadQuiz(){
+  const c = state.current; if (!c) return;
+  const examCode = c.examCode, code = c.code, idx = c.idx;
+  stopExamTimer();
+  document.removeEventListener('keydown', onKey);
+  const old = c.screen;
+  state.current = null;
+  old.remove();
+  const wasInternal = _navInternal;
+  _navInternal = true;   // 히스토리 중복 push 방지
+  Promise.resolve(openQuiz(examCode, code, idx))
+    .finally(() => { _navInternal = wasInternal; });
 }
 
 /* ---- share / completion / exam timer ---- */
@@ -2855,15 +2951,36 @@ function maybeShowCompletion(c, p){
   const total = c.data.questions.length;
   const answered = Object.keys(p.answers || {}).length;
   if (answered < total) return;
+  if (c.mode === 'exam' && !p.examSubmitted) { finishExam(); return; }
   if (c._completionShown) return;
   c._completionShown = true;
   showCompletion(c, p);
 }
 
+// 모의시험 제출·채점 — 전부 응답 / 제한시간 만료 / 수동 제출 시 호출.
+function finishExam(){
+  const c = state.current; if (!c) return;
+  stopExamTimer();
+  const p = progressFor(c.examCode, c.code);
+  if (!p.examSubmitted) {
+    p.examSubmitted = true;
+    delete p.examEndAt;
+    saveProgress(c.examCode, c.code, p);
+  }
+  applyAnswers();          // 보류했던 정답/오답/해설 일괄 노출
+  updateModeLabel();       // exam-hold 해제 (정답률 다시 표시)
+  if (!c._completionShown) {
+    c._completionShown = true;
+    showCompletion(c, p);
+  }
+}
+
 function showCompletion(c, p){
   const total = c.data.questions.length;
   const wrongs = (p.wrongs || []).length;
-  const correct = total - wrongs;
+  const answered = Object.keys(p.answers || {}).length;
+  const unanswered = total - answered;
+  const correct = answered - wrongs;
   const pct = Math.round(correct * 100 / total);
   stopExamTimer();
   showSheet(c.mode === 'exam' ? '모의시험 결과' : '풀이 완료', () => {
@@ -2871,7 +2988,7 @@ function showCompletion(c, p){
     div.innerHTML = `
       <div class="completion">
         <div class="comp-pct">${pct}<small>%</small></div>
-        <div class="comp-line">${correct} / ${total} 정답${wrongs ? ` · 오답 ${wrongs}` : ''}</div>
+        <div class="comp-line">${correct} / ${total} 정답${wrongs ? ` · 오답 ${wrongs}` : ''}${unanswered ? ` · 미응답 ${unanswered}` : ''}</div>
         ${wrongs ? `<button class="r-primary" id="compReview">틀린 문제 다시 보기</button>` : ''}
         <div class="comp-actions">
           <button class="r-soft" id="compRedo">다시 풀기</button>
@@ -2893,11 +3010,19 @@ function showCompletion(c, p){
 }
 
 let _examTimerId = null;
-function startExamTimer(){
+function startExamTimer(resume = false){
   stopExamTimer();
   const c = state.current; if (!c) return;
   const min = c.examMin || 90;
-  c.examEndAt = Date.now() + min * 60 * 1000;
+  // 진행 중이던 모의시험은 저장된 마감시각으로 이어서 (새로고침/재진입 대응)
+  const p0 = progressFor(c.examCode, c.code);
+  if (resume && p0.examEndAt && p0.examEndAt > Date.now()) {
+    c.examEndAt = p0.examEndAt;
+  } else {
+    c.examEndAt = Date.now() + min * 60 * 1000;
+    p0.examEndAt = c.examEndAt;
+    saveProgress(c.examCode, c.code, p0);
+  }
   const el = c.screen.querySelector('#quizTimer');
   if (!el) return;
   el.hidden = false;
@@ -2908,9 +3033,8 @@ function startExamTimer(){
     el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
     el.classList.toggle('warn', left > 0 && left < 5 * 60000);
     if (left <= 0) {
-      stopExamTimer();
-      const p = progressFor(c.examCode, c.code);
-      maybeShowCompletion(c, p);
+      // 제한시간 만료 — 미응답이 있어도 즉시 제출·채점
+      finishExam();
     }
   };
   tick();
