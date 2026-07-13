@@ -560,6 +560,12 @@ async function renderHome(root){
       <div class="large-title">
         <div class="kicker">STUDY · CERTIFICATION</div>
         <h1>기출<br><em>연습장</em></h1>
+        ${(() => {
+          const s = streakFrom(loadActivity().days);
+          if (!s.current) return '';
+          return `<div class="streak-chip">🔥 ${s.current}일 연속 학습${
+            s.todayN ? ` · 오늘 ${s.todayN}문항` : ' · 오늘 풀면 이어져요'}</div>`;
+        })()}
       </div>
       <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
     </div>
@@ -1416,6 +1422,29 @@ async function openStats(){
         <h1>${st.accuracy}<small style="font-size:36px;opacity:.7">%</small></h1>
         <div class="row-sub" style="text-align:center;margin-top:-12px">총 ${st.totalAnswered}문항 · 정답 ${st.totalCorrect}</div>
       </div>
+      ${(() => {
+        const act = loadActivity();
+        if (!Object.keys(act.days).length) return '';
+        const s = streakFrom(act.days);
+        const bars = [6,5,4,3,2,1,0].map(off => {
+          const n = act.days[localDayKey(off)] || 0;
+          const day = '일월화수목금토'[new Date(Date.now() - off*86400000).getDay()];
+          return { n, day, today: off === 0 };
+        });
+        const max = Math.max(1, ...bars.map(b => b.n));
+        const barHtml = bars.map(b => `
+          <div class="streak-bar${b.today ? ' today' : ''}">
+            <span class="streak-bar-n">${b.n || ''}</span>
+            <span class="streak-bar-fill" style="height:${Math.round(b.n / max * 100)}%"></span>
+            <span class="streak-bar-day">${b.day}</span>
+          </div>`).join('');
+        return `
+          <div class="section-head"><h2>연속 학습</h2></div>
+          <div class="group streak-group">
+            <div class="streak-summary">🔥 <strong>${s.current}</strong>일 연속 · 최고 <strong>${Math.max(act.best || 0, s.current)}</strong>일${s.todayN ? ` · 오늘 ${s.todayN}문항` : ''}</div>
+            <div class="streak-bars">${barHtml}</div>
+          </div>`;
+      })()}
       <div class="section-head"><h2>자격증별</h2></div>
       <div class="group">${examRows}</div>
       ${subjectRows ? `<div class="section-head"><h2>약점 과목 (정답률 낮은 순)</h2></div><div class="group">${subjectRows}</div>` : ''}
@@ -1433,8 +1462,18 @@ async function openStats(){
 // 알 수 없는 key / 비정상 shape 가 localStorage 에 침투해 향후 stored XSS / quota 공격으로 이어지지 않도록
 // import 경로에서 한 번 거른다. null 을 돌려주면 그 entry 는 skip.
 function sanitizeImportEntry(k, v){
-  if (!/^(theme|fontSize|swipeHintSeen|expPref|progress:[A-Za-z0-9_:-]+)$/.test(k)) return null;
+  if (!/^(theme|fontSize|swipeHintSeen|expPref|activity|progress:[A-Za-z0-9_:-]+)$/.test(k)) return null;
   if (k === 'theme')    return typeof v === 'string' && /^(light|dark|system)$/.test(v) ? v : null;
+  if (k === 'activity'){
+    if (!v || typeof v !== 'object' || Array.isArray(v)) return null;
+    const days = {};
+    if (v.days && typeof v.days === 'object' && !Array.isArray(v.days)){
+      for (const [dk, dv] of Object.entries(v.days)){
+        if (/^\d{4}-\d{2}-\d{2}$/.test(dk) && typeof dv === 'number' && Number.isFinite(dv) && dv > 0) days[dk] = dv;
+      }
+    }
+    return { days, best: (typeof v.best === 'number' && Number.isFinite(v.best) && v.best > 0) ? v.best : 0 };
+  }
   if (k === 'fontSize') return typeof v === 'string' && /^(sm|md|lg)$/.test(v) ? v : null;
   if (k === 'swipeHintSeen') return (typeof v === 'number' || typeof v === 'string') ? v : null;
   if (k === 'expPref')  return (typeof v === 'string' || (v && typeof v === 'object' && !Array.isArray(v))) ? v : null;
@@ -1661,7 +1700,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
 
   screen.querySelector('#quizBack').onclick = popScreen;
   screen.querySelector('#quizModeBtn').onclick = openModeSheet;
-  screen.querySelector('#quizShareBtn').onclick = shareCurrent;
+  screen.querySelector('#quizShareBtn').onclick = () => shareCurrent();
   screen.querySelector('#redoBtn').onclick = confirmRedo;
   screen.querySelector('#starBtn').onclick = toggleStar;
   screen.querySelector('#jumpBtn').onclick = openJumpSheet;
@@ -2669,6 +2708,7 @@ function onChoiceClick(e){
   // 모의시험(제출 전)은 실제 시험처럼 답 변경 허용, 다른 모드는 첫 답 확정
   const examHold = c.mode === 'exam' && !p.examSubmitted;
   if (p.answers[q.number] && !examHold) return;
+  const firstAnswer = !p.answers[q.number];   // 모의시험 답 변경은 스트릭 중복 집계 제외
   p.answers[q.number] = ci;
   p.last = qi;
   p.wrongs = p.wrongs || [];
@@ -2679,6 +2719,7 @@ function onChoiceClick(e){
   if (ci !== q.answer) { if (wi < 0) p.wrongs.push(q.number); }
   else if (wi >= 0) p.wrongs.splice(wi, 1);   // 다시 맞추면 오답노트에서 해제
   saveProgress(c.examCode, c.code, p);
+  if (firstAnswer) recordActivity();
   const page = b.closest('.page');
   if (examHold) {
     // 채점·해설 노출 보류 — 선택 표시만
@@ -3032,21 +3073,30 @@ function legacyCopy(text){
     return ok;
   } catch { return false; }
 }
-async function shareCurrent(){
+// result = { pct, correct, total, isExam } — 완료 시트에서 점수 포함 공유 (커뮤니티 인증용).
+// 공유 유입은 utm_source=share 로 Vercel Analytics 에서 측정.
+async function shareCurrent(result){
   const c = state.current; if (!c) { toast('퀴즈에서 공유하세요'); return; }
   const exam = state.examByCode.get(c.examCode);
-  const url = `${location.origin}/exam/${c.examCode}/${c.code}`;
-  const text = `${exam?.name || ''} ${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)} 기출`;
+  const dateStr = `${c.code.slice(0,4)}.${c.code.slice(4,6)}.${c.code.slice(6,8)}`;
+  let url = `${location.origin}/exam/${c.examCode}/${c.code}`;
+  let text = `${exam?.name || ''} ${dateStr} 기출`;
+  if (result) {
+    url += '?utm_source=share&utm_medium=social&utm_campaign=result_share';
+    const score = result.isExam ? `모의시험 ${result.pct}점` : `정답률 ${result.pct}%`;
+    text = `${exam?.name || ''} ${dateStr} ${score} (${result.correct}/${result.total}) — passcbt.kr 무료 기출 풀이`;
+  }
   if (navigator.share) {
     try { await navigator.share({ title: 'passcbt.kr', text, url }); }
     catch { /* user cancel — silent */ }
     return;
   }
+  const copyText = result ? `${text}\n${url}` : url;
   try {
-    await navigator.clipboard.writeText(url);
-    toast('링크 복사됨');
+    await navigator.clipboard.writeText(copyText);
+    toast(result ? '결과 복사됨' : '링크 복사됨');
   } catch {
-    if (legacyCopy(url)) toast('링크 복사됨');
+    if (legacyCopy(copyText)) toast(result ? '결과 복사됨' : '링크 복사됨');
     else toast('복사 실패 — 주소창에서 직접 복사해주세요');
   }
 }
@@ -3107,7 +3157,10 @@ function showCompletion(c, p){
       if (wrongIdx >= 0) gotoQuestion(wrongIdx);
     });
     div.querySelector('#compRedo').onclick = () => { closeSheet(); confirmRedo(); };
-    div.querySelector('#compShare').onclick = () => { closeSheet(); shareCurrent(); };
+    div.querySelector('#compShare').onclick = () => {
+      closeSheet();
+      shareCurrent({ pct, correct, total, isExam: c.mode === 'exam' });
+    };
     div.querySelector('#compExit').onclick = () => { closeSheet(); popScreen(); };
     return div;
   });
@@ -3236,6 +3289,36 @@ function isoWeek(date) {
   const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
   const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
   return `${d.getUTCFullYear()}-W${String(weekNo).padStart(2, '0')}`;
+}
+
+/* ---- 학습 스트릭 — 날짜별 풀이 문항 수 (localStorage `activity`) ---- */
+function localDayKey(offsetDays = 0){
+  const d = new Date(Date.now() - offsetDays * 86400000);
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function loadActivity(){
+  const a = store.get('activity');
+  return (a && typeof a === 'object' && a.days && typeof a.days === 'object' && !Array.isArray(a.days))
+    ? a : { days: {}, best: 0 };
+}
+// 연속 학습일. 오늘 활동 없으면 어제로 끝나는 체인을 유지 (오늘 풀면 이어짐).
+function streakFrom(days){
+  const todayN = days[localDayKey()] || 0;
+  let n = 0;
+  const base = todayN ? 0 : 1;
+  while (days[localDayKey(base + n)]) n++;
+  return { current: n, todayN };
+}
+function recordActivity(){
+  try {
+    const a = loadActivity();
+    const k = localDayKey();
+    a.days[k] = (a.days[k] || 0) + 1;
+    const cutoff = localDayKey(70);   // 70일 초과 이력은 정리 (quota 보호)
+    for (const d of Object.keys(a.days)) if (d < cutoff) delete a.days[d];
+    a.best = Math.max(a.best || 0, streakFrom(a.days).current);
+    store.set('activity', a);
+  } catch {}
 }
 
 // 퀴즈 이탈 시 동기부여 토스트 — 자기 비교 (이번 세션 / 이번 주 누적).

@@ -1939,3 +1939,58 @@ pre.code {
   margin-right: 8px;
   white-space: nowrap;
 }
+
+/* ===================================================================
+   학습 스트릭 — 홈 칩 · 통계 화면 7일 미니바
+   =================================================================== */
+.streak-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--vermilion);
+  border: 1px solid color-mix(in srgb, var(--vermilion) 40%, transparent);
+  border-radius: 999px;
+  padding: 5px 12px;
+  background: color-mix(in srgb, var(--vermilion) 7%, transparent);
+}
+.streak-group { padding: 16px; }
+.streak-summary { font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; }
+.streak-summary strong { color: var(--vermilion); font-family: var(--mono); }
+.streak-bars {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  height: 72px;
+}
+.streak-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+}
+.streak-bar-n {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+  min-height: 12px;
+  line-height: 12px;
+}
+.streak-bar-fill {
+  width: 100%;
+  max-width: 26px;
+  min-height: 2px;
+  border-radius: 5px 5px 2px 2px;
+  background: color-mix(in srgb, var(--vermilion) 55%, var(--paper-chip));
+}
+.streak-bar.today .streak-bar-fill { background: var(--vermilion); }
+.streak-bar-day {
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+.streak-bar.today .streak-bar-day { color: var(--vermilion); font-weight: 700; }
