@@ -236,8 +236,72 @@ def render_question_block(q: dict) -> str:
         + "</article>"
     )
 
-def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str | None = None) -> tuple[str, str, str]:
-    """returns (html, title, description)"""
+_CONCEPT_NAME_CACHE: dict[str, dict[str, str]] = {}
+
+def _concept_names(code: str) -> dict[str, str]:
+    """concept_id → name_ko (자격증당 1회 로드)."""
+    if code not in _CONCEPT_NAME_CACHE:
+        _CONCEPT_NAME_CACHE[code] = {
+            cid: c.get("name_ko") or cid
+            for cid, c in load_concept_index(code).items()
+        }
+    return _CONCEPT_NAME_CACHE[code]
+
+def render_session_analysis(exam: dict, sess_meta: dict, questions: list[dict]) -> str:
+    """회차별 실데이터 기반 고유 분석 블록 — 과목 구성 + 빈출 개념.
+    회차마다 수치·개념이 실제로 달라 템플릿 중복(scaled content) 판정을 회피한다."""
+    subj_counts: dict[str, int] = {}
+    for q in questions:
+        subj = (q.get("subject") or "기타").strip() or "기타"
+        subj_counts[subj] = subj_counts.get(subj, 0) + 1
+
+    # 정규화 개념(concept_ids → name_ko)이 raw 명사구보다 회차 내 중복 집계가 정확.
+    # concept_ids 미보유 자격증은 raw concepts 로 폴백.
+    names = _concept_names(exam["code"])
+    concept_counts: dict[str, int] = {}
+    for q in questions:
+        keys = [names[c] for c in (q.get("concept_ids") or []) if c in names] \
+            or [str(c).strip() for c in (q.get("concepts") or [])]
+        for c in keys:
+            if c:
+                concept_counts[c] = concept_counts.get(c, 0) + 1
+    top = [(c, n) for c, n in
+           sorted(concept_counts.items(), key=lambda kv: (-kv[1], kv[0]))[:10]
+           if n >= 2]
+
+    label = fmt_date_kr(sess_meta["code"])
+    lead = (
+        f'{esc(exam["name"])} {esc(label)} 시행 회차는 '
+        f'{len(subj_counts)}개 과목, 총 {len(questions)}문항으로 출제되었습니다.'
+    )
+    if top:
+        heads = " · ".join(f'{esc(c)}({n}문항)' for c, n in top[:3])
+        lead += f' 이 회차에서 반복 출제된 개념은 {heads}입니다.'
+
+    subj_html = "".join(
+        f'<li>{esc(s)} — {n}문항</li>' for s, n in subj_counts.items()
+    )
+    top_html = ""
+    if top:
+        chips = "".join(f'<li>{esc(c)} <small>({n}문항)</small></li>' for c, n in top)
+        top_html = (
+            f'<h3>이 회차 빈출 개념</h3>'
+            f'<ul class="session-top-concepts">{chips}</ul>'
+        )
+    return (
+        f'<section class="session-analysis">'
+        f'<h2>회차 구성 분석</h2>'
+        f'<p>{lead}</p>'
+        f'<h3>과목별 문항 구성</h3>'
+        f'<ul class="session-subjects">{subj_html}</ul>'
+        + top_html
+        + '</section>'
+    )
+
+def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str | None = None,
+                        prev_meta: dict | None = None, next_meta: dict | None = None) -> tuple[str, str, str]:
+    """returns (html, title, description).
+    prev_meta = 직전(과거) 시행 회차, next_meta = 다음(최신 쪽) 회차 — 내부링크용."""
     code = exam["code"]
     sess_code = sess_meta["code"]
     label = fmt_date_kr(sess_code)
@@ -251,13 +315,25 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
     canonical = f'{BASE_URL}/exam/{code}/{sess_code}'
 
     items = "".join(render_question_block(q) for q in questions)
+    adj_links = []
+    if prev_meta:
+        adj_links.append(
+            f'<a href="/exam/{code}/{prev_meta["code"]}">← 이전 회차 ({esc(fmt_date_kr(prev_meta["code"]))})</a>'
+        )
+    if next_meta:
+        adj_links.append(
+            f'<a href="/exam/{code}/{next_meta["code"]}">다음 회차 ({esc(fmt_date_kr(next_meta["code"]))}) →</a>'
+        )
+    adj_html = f'<nav class="session-adj">{" · ".join(adj_links)}</nav>' if adj_links else ""
     body = (
         f'<main id="prerender" class="prerender prerender-session">'
         f'<header><h1>{esc(title)}</h1>'
         f'<p>{esc(exam["name"])} · {esc(label)} · 총 {len(questions)}문항. '
         f'각 문제의 정답과 AI 보강 해설, 핵심 개념을 함께 확인하세요.</p></header>'
-        f'<section class="questions">{items}</section>'
-        f'<footer><p><a href="/exam/{code}">← {esc(exam["name"])} 회차 목록</a></p></footer>'
+        + render_session_analysis(exam, sess_meta, questions)
+        + f'<section class="questions">{items}</section>'
+        f'<footer>{adj_html}'
+        f'<p><a href="/exam/{code}">← {esc(exam["name"])} 회차 목록</a></p></footer>'
         f'</main>'
     )
 
@@ -1012,12 +1088,16 @@ def main() -> None:
         write_file(DIST / "exam" / code / "index.html",
                    render_exam_page(exam, sessions, exams, og_image=og_image))
 
-        # session pages
-        for s in sessions:
+        # session pages — sessions 는 최신순: i+1 = 과거(이전 회차), i-1 = 최신(다음 회차)
+        for i, s in enumerate(sessions):
             sd = load_session(code, s["code"])
             if not sd:
                 continue
-            page, _, _ = render_session_page(exam, s, sd, og_image=og_image)
+            page, _, _ = render_session_page(
+                exam, s, sd, og_image=og_image,
+                prev_meta=sessions[i + 1] if i + 1 < len(sessions) else None,
+                next_meta=sessions[i - 1] if i > 0 else None,
+            )
             write_file(DIST / "exam" / code / s["code"] / "index.html", page)
             urls.append((f'/exam/{code}/{s["code"]}', 0.6))
             sessions_total += 1
