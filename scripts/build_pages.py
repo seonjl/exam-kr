@@ -1063,6 +1063,7 @@ def main() -> None:
     for fname in (
         "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png",
         "apple-touch-icon.png", "og-image.png", "sw.js", "ads.txt",
+        "04c518358ecedfb007bb5f4a320816b9.txt",   # IndexNow 키 검증 파일 (빙·네이버 재크롤 핑용)
     ):
         src = WEBAPP / fname
         if src.exists():
