@@ -24,6 +24,7 @@ Run:
 """
 from __future__ import annotations
 
+import functools
 import html
 import json
 import os
@@ -102,6 +103,7 @@ def load_session(code: str, sess_code: str) -> dict | None:
     p = DATA / code / f"{code}_{sess_code}.json"
     return json.loads(p.read_text("utf-8")) if p.exists() else None
 
+@functools.lru_cache(maxsize=None)   # 자격증당 수 MB — 호출부 4곳이 한 파싱 공유 (읽기 전용)
 def load_concept_index(code: str) -> dict:
     p = DATA / "concepts" / code / "index.json"
     return json.loads(p.read_text("utf-8")) if p.exists() else {}
@@ -236,16 +238,13 @@ def render_question_block(q: dict) -> str:
         + "</article>"
     )
 
-_CONCEPT_NAME_CACHE: dict[str, dict[str, str]] = {}
-
+@functools.lru_cache(maxsize=None)
 def _concept_names(code: str) -> dict[str, str]:
-    """concept_id → name_ko (자격증당 1회 로드)."""
-    if code not in _CONCEPT_NAME_CACHE:
-        _CONCEPT_NAME_CACHE[code] = {
-            cid: c.get("name_ko") or cid
-            for cid, c in load_concept_index(code).items()
-        }
-    return _CONCEPT_NAME_CACHE[code]
+    """concept_id → 표시명 (name_ko → name_en → id 폴백, render_top_concepts 의 nm() 과 동일 규칙)."""
+    return {
+        cid: c.get("name_ko") or c.get("name_en") or cid
+        for cid, c in load_concept_index(code).items()
+    }
 
 def render_session_analysis(exam: dict, sess_meta: dict, questions: list[dict]) -> str:
     """회차별 실데이터 기반 고유 분석 블록 — 과목 구성 + 빈출 개념.
@@ -255,14 +254,16 @@ def render_session_analysis(exam: dict, sess_meta: dict, questions: list[dict]) 
         subj = (q.get("subject") or "기타").strip() or "기타"
         subj_counts[subj] = subj_counts.get(subj, 0) + 1
 
-    # 정규화 개념(concept_ids → name_ko)이 raw 명사구보다 회차 내 중복 집계가 정확.
-    # concept_ids 미보유 자격증은 raw concepts 로 폴백.
+    # 정규화 개념(concept_ids → 표시명)이 raw 명사구보다 회차 내 중복 집계가 정확.
+    # 폴백은 자격증 단위 — 문항 단위로 섞으면 같은 개념이 canonical/raw 로 분산 집계된다.
     names = _concept_names(exam["code"])
     concept_counts: dict[str, int] = {}
     for q in questions:
-        keys = [names[c] for c in (q.get("concept_ids") or []) if c in names] \
-            or [str(c).strip() for c in (q.get("concepts") or [])]
-        for c in keys:
+        if names:
+            keys = {names[c] for c in (q.get("concept_ids") or []) if c in names}
+        else:
+            keys = {str(c).strip() for c in (q.get("concepts") or [])}
+        for c in keys:   # set — 한 문항에서 같은 개념 중복 집계 방지 ('N문항' 수치 정확성)
             if c:
                 concept_counts[c] = concept_counts.get(c, 0) + 1
     top = [(c, n) for c, n in
@@ -1088,15 +1089,21 @@ def main() -> None:
         write_file(DIST / "exam" / code / "index.html",
                    render_exam_page(exam, sessions, exams, og_image=og_image))
 
-        # session pages — sessions 는 최신순: i+1 = 과거(이전 회차), i-1 = 최신(다음 회차)
-        for i, s in enumerate(sessions):
+        # session pages — 이전/다음 링크용 이웃 계산:
+        # manifest 순서는 자격증마다 최신순/오래된순이 섞여 있어 코드(YYYYMMDD) 기준 최신순으로 정렬하고,
+        # 데이터 파일이 없어 페이지가 생성되지 않는 회차는 제외해 404 내부링크를 막는다.
+        emittable = sorted(
+            (s for s in sessions if (DATA / code / f'{code}_{s["code"]}.json').exists()),
+            key=lambda s: s["code"], reverse=True,
+        )
+        for i, s in enumerate(emittable):
             sd = load_session(code, s["code"])
             if not sd:
                 continue
             page, _, _ = render_session_page(
                 exam, s, sd, og_image=og_image,
-                prev_meta=sessions[i + 1] if i + 1 < len(sessions) else None,
-                next_meta=sessions[i - 1] if i > 0 else None,
+                prev_meta=emittable[i + 1] if i + 1 < len(emittable) else None,
+                next_meta=emittable[i - 1] if i > 0 else None,
             )
             write_file(DIST / "exam" / code / s["code"] / "index.html", page)
             urls.append((f'/exam/{code}/{s["code"]}', 0.6))

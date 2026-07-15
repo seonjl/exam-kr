@@ -563,18 +563,14 @@ async function renderHome(root){
       <div class="large-title">
         <div class="kicker">STUDY · CERTIFICATION</div>
         <h1>기출<br><em>연습장</em></h1>
-        ${(() => {
-          const s = streakFrom(loadActivity().days);
-          if (!s.current) return '';
-          return `<div class="streak-chip">🔥 ${s.current}일 연속 학습${
-            s.todayN ? ` · 오늘 ${s.todayN}문항` : ' · 오늘 풀면 이어져요'}</div>`;
-        })()}
+        <div id="streakChip"></div>
       </div>
       <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
     </div>
   `;
   attachScrollShadow('homeScroll','nav');
   document.getElementById('themeQuick').onclick = openThemeSheet;
+  refreshStreakChip();
 
   try {
     const exams = await loadExams();
@@ -1315,6 +1311,11 @@ function backupCurrent(){
 }
 
 /* ---- learning stats (per-exam, per-subject) ---- */
+// 과목명 정규화 — "1과목 : X" 접두 제거 (학습 통계·모의시험 채점 공용)
+function subjName(q){
+  return (q.subject || '기타').replace(/^\d+과목\s*:\s*/, '').trim() || '기타';
+}
+
 function computeLearnStats(){
   const perExam = {};   // code → { answered, correct, wrong, sessions:Set }
   const perSubject = {}; // examCode → subject → { answered, correct }
@@ -1345,7 +1346,7 @@ function computeLearnStats(){
       for (const q of data.questions) {
         const a = ans[q.number];
         if (a == null) continue;
-        const subj = (q.subject || '기타').replace(/^\d+과목\s*:\s*/, '').trim() || '기타';
+        const subj = subjName(q);
         const s = perSubject[examCode][subj] = perSubject[examCode][subj] || { answered: 0, correct: 0 };
         s.answered++;
         if (a === q.answer) s.correct++;
@@ -1413,6 +1414,31 @@ async function openStats(){
     return m(a) - m(b);
   }).join('');
 
+  // 연속 학습 섹션 — 활동 이력이 있을 때만
+  let streakSection = '';
+  const act = loadActivity();
+  if (Object.keys(act.days).length) {
+    const s = streakFrom(act.days);
+    const bars = [6,5,4,3,2,1,0].map(off => {
+      const n = Math.max(0, +act.days[localDayKey(off)] || 0);
+      const d = new Date(); d.setDate(d.getDate() - off);
+      return { n, day: '일월화수목금토'[d.getDay()], today: off === 0 };
+    });
+    const max = Math.max(1, ...bars.map(b => b.n));
+    const barHtml = bars.map(b => `
+      <div class="streak-bar${b.today ? ' today' : ''}">
+        <span class="streak-bar-n">${b.n || ''}</span>
+        <span class="streak-bar-fill" style="height:${Math.round(b.n / max * 100)}%"></span>
+        <span class="streak-bar-day">${b.day}</span>
+      </div>`).join('');
+    streakSection = `
+      <div class="section-head"><h2>연속 학습</h2></div>
+      <div class="group streak-group">
+        <div class="streak-summary">🔥 <strong>${s.current}</strong>일 연속 · 최고 <strong>${Math.max(+act.best || 0, s.current)}</strong>일${s.todayN ? ` · 오늘 ${s.todayN}문항` : ''}</div>
+        <div class="streak-bars">${barHtml}</div>
+      </div>`;
+  }
+
   screen.innerHTML = `
     <header class="nav has-title" id="statsNav">
       <button class="icon-btn" id="statsBack" aria-label="뒤로">${icons.back}</button>
@@ -1425,29 +1451,7 @@ async function openStats(){
         <h1>${st.accuracy}<small style="font-size:36px;opacity:.7">%</small></h1>
         <div class="row-sub" style="text-align:center;margin-top:-12px">총 ${st.totalAnswered}문항 · 정답 ${st.totalCorrect}</div>
       </div>
-      ${(() => {
-        const act = loadActivity();
-        if (!Object.keys(act.days).length) return '';
-        const s = streakFrom(act.days);
-        const bars = [6,5,4,3,2,1,0].map(off => {
-          const n = act.days[localDayKey(off)] || 0;
-          const day = '일월화수목금토'[new Date(Date.now() - off*86400000).getDay()];
-          return { n, day, today: off === 0 };
-        });
-        const max = Math.max(1, ...bars.map(b => b.n));
-        const barHtml = bars.map(b => `
-          <div class="streak-bar${b.today ? ' today' : ''}">
-            <span class="streak-bar-n">${b.n || ''}</span>
-            <span class="streak-bar-fill" style="height:${Math.round(b.n / max * 100)}%"></span>
-            <span class="streak-bar-day">${b.day}</span>
-          </div>`).join('');
-        return `
-          <div class="section-head"><h2>연속 학습</h2></div>
-          <div class="group streak-group">
-            <div class="streak-summary">🔥 <strong>${s.current}</strong>일 연속 · 최고 <strong>${Math.max(act.best || 0, s.current)}</strong>일${s.todayN ? ` · 오늘 ${s.todayN}문항` : ''}</div>
-            <div class="streak-bars">${barHtml}</div>
-          </div>`;
-      })()}
+      ${streakSection}
       <div class="section-head"><h2>자격증별</h2></div>
       <div class="group">${examRows}</div>
       ${subjectRows ? `<div class="section-head"><h2>약점 과목 (정답률 낮은 순)</h2></div><div class="group">${subjectRows}</div>` : ''}
@@ -1471,11 +1475,16 @@ function sanitizeImportEntry(k, v){
     if (!v || typeof v !== 'object' || Array.isArray(v)) return null;
     const days = {};
     if (v.days && typeof v.days === 'object' && !Array.isArray(v.days)){
-      for (const [dk, dv] of Object.entries(v.days)){
-        if (/^\d{4}-\d{2}-\d{2}$/.test(dk) && typeof dv === 'number' && Number.isFinite(dv) && dv > 0) days[dk] = dv;
-      }
+      // 조작된 share code 의 quota 공격 방어 — 키 수·값 크기 캡, 최신 날짜 우선 보존
+      const entries = Object.entries(v.days)
+        .filter(([dk, dv]) => /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(dk)
+          && Number.isInteger(dv) && dv > 0)
+        .sort((a, b) => b[0] < a[0] ? -1 : 1)
+        .slice(0, 400);
+      for (const [dk, dv] of entries) days[dk] = Math.min(dv, 10000);
     }
-    return { days, best: (typeof v.best === 'number' && Number.isFinite(v.best) && v.best > 0) ? v.best : 0 };
+    const best = Number.isInteger(v.best) && v.best > 0 ? Math.min(v.best, 40000) : 0;
+    return { days, best };
   }
   if (k === 'fontSize') return typeof v === 'string' && /^(sm|md|lg)$/.test(v) ? v : null;
   if (k === 'swipeHintSeen') return (typeof v === 'number' || typeof v === 'string') ? v : null;
@@ -1550,6 +1559,16 @@ function applyDump(dump, { mode }){
         mode: incomingN > localN ? (incoming.mode || local.mode || 'practice') : (local.mode || 'practice'),
         last: Math.max(local.last || 0, incoming.last || 0),
       };
+      localStorage.setItem(storeKey, JSON.stringify(merged));
+    } else if (k === 'activity'){
+      // 스트릭 이력 — 날짜별 최대값으로 합침 (같은 dump 재가져오기에도 idempotent)
+      const local = safeParse(raw) || {};
+      const incoming = safe || {};
+      const days = { ...(local.days || {}) };
+      for (const [dk, dv] of Object.entries(incoming.days || {})){
+        days[dk] = Math.max(+days[dk] || 0, dv);
+      }
+      const merged = { days, best: Math.max(+local.best || 0, incoming.best || 0) };
       localStorage.setItem(storeKey, JSON.stringify(merged));
     } else {
       // theme / expPref — keep local (user's current device preference)
@@ -2785,6 +2804,9 @@ function confirmRedo(){
   gotoQuestion(0);
   toastAction('초기화됨', '되돌리기', () => {
     saveProgress(c.examCode, c.code, snap);
+    // 제출됐던 모의시험 복원 시 redo 가 재시작한 타이머 중지 + exam-hold/결과 버튼 상태 재계산
+    if (snap.examSubmitted) stopExamTimer();
+    updateModeLabel();
     applyAnswers();
     toast('복원됨');
   }, { duration: 7000 });
@@ -3152,7 +3174,7 @@ function showCompletion(c, p){
   if (isExam) {
     const subs = new Map();   // subject → { total, correct, answered }
     for (const q of c.data.questions) {
-      const subj = (q.subject || '기타').replace(/^\d+과목\s*:\s*/, '').trim() || '기타';
+      const subj = subjName(q);
       const s = subs.get(subj) || { total: 0, correct: 0, answered: 0 };
       s.total++;
       const a = p.answers[q.number];
@@ -3341,7 +3363,8 @@ function isoWeek(date) {
 
 /* ---- 학습 스트릭 — 날짜별 풀이 문항 수 (localStorage `activity`) ---- */
 function localDayKey(offsetDays = 0){
-  const d = new Date(Date.now() - offsetDays * 86400000);
+  const d = new Date();
+  d.setDate(d.getDate() - offsetDays);   // ms 산술 대신 setDate — DST 시간대에서도 달력일 정확
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 function loadActivity(){
@@ -3350,23 +3373,40 @@ function loadActivity(){
     ? a : { days: {}, best: 0 };
 }
 // 연속 학습일. 오늘 활동 없으면 어제로 끝나는 체인을 유지 (오늘 풀면 이어짐).
+// 값은 +코어션 — import 를 거치지 않고 localStorage 에 들어온 비숫자 값 방어 (표시 경로가 innerHTML).
 function streakFrom(days){
-  const todayN = days[localDayKey()] || 0;
+  const todayN = Math.max(0, +days[localDayKey()] || 0);
   let n = 0;
   const base = todayN ? 0 : 1;
-  while (days[localDayKey(base + n)]) n++;
+  while ((+days[localDayKey(base + n)] || 0) > 0) n++;
   return { current: n, todayN };
 }
 function recordActivity(){
   try {
     const a = loadActivity();
     const k = localDayKey();
-    a.days[k] = (a.days[k] || 0) + 1;
-    const cutoff = localDayKey(70);   // 70일 초과 이력은 정리 (quota 보호)
-    for (const d of Object.keys(a.days)) if (d < cutoff) delete a.days[d];
-    a.best = Math.max(a.best || 0, streakFrom(a.days).current);
+    a.days[k] = (+a.days[k] || 0) + 1;
+    const cur = streakFrom(a.days).current;
+    a.best = Math.max(+a.best || 0, cur);
+    // 이력 정리 (quota 보호) — 단, 진행 중인 연속 체인은 길이와 무관하게 보존.
+    // 체인 안쪽을 지우면 스트릭이 보존 기간에서 영구히 캡되기 때문.
+    const cutoff = localDayKey(70);
+    const chainStart = localDayKey(cur - 1);
+    const keepFrom = chainStart < cutoff ? chainStart : cutoff;
+    for (const d of Object.keys(a.days)) if (d < keepFrom) delete a.days[d];
     store.set('activity', a);
+    refreshStreakChip();   // 홈 탭이 스택 아래 살아있을 때도 칩 즉시 갱신
   } catch {}
+}
+// 홈 스트릭 칩 — renderHome 1회 렌더 후에도 recordActivity 가 직접 갱신한다.
+function refreshStreakChip(){
+  const el = document.getElementById('streakChip');
+  if (!el) return;
+  const s = streakFrom(loadActivity().days);
+  el.innerHTML = s.current
+    ? `<div class="streak-chip">🔥 ${s.current}일 연속 학습${
+        s.todayN ? ` · 오늘 ${s.todayN}문항` : ' · 오늘 풀면 이어져요'}</div>`
+    : '';
 }
 
 // 퀴즈 이탈 시 동기부여 토스트 — 자기 비교 (이번 세션 / 이번 주 누적).
