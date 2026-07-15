@@ -441,9 +441,12 @@ function updateModeLabel() {
   const $label = c.screen?.querySelector('#modeLabel');
   if ($label) $label.textContent = MODE_LABEL[c.mode] || '풀이';
   // 모의시험 제출 전에는 정답률 등 힌트 숨김 (CSS: .exam-hold)
-  const hold = c.mode === 'exam'
-    && !progressFor(c.examCode, c.code).examSubmitted;
+  const submitted = !!progressFor(c.examCode, c.code).examSubmitted;
+  const hold = c.mode === 'exam' && !submitted;
   c.screen?.classList.toggle('exam-hold', hold);
+  // 제출한 모의시험은 헤더 '결과' 버튼으로 채점 결과 시트를 다시 열 수 있게
+  const $result = c.screen?.querySelector('#quizResultBtn');
+  if ($result) $result.hidden = !(c.mode === 'exam' && submitted);
 }
 
 // PWA install affordance — captured here so it survives module-level reloads.
@@ -1668,6 +1671,7 @@ async function openQuiz(examCode, sessionCode, startIdx){
       </div>
       <div class="nav-actions">
         <span class="quiz-timer" id="quizTimer" hidden></span>
+        <button class="result-chip" id="quizResultBtn" hidden aria-label="채점 결과">결과</button>
         <button class="icon-btn" id="quizShareBtn" aria-label="공유">${icons.share}</button>
         <button class="mode-chip" id="quizModeBtn" aria-label="모드 변경"><span id="modeLabel">풀이</span><svg class="mode-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
       </div>
@@ -1700,6 +1704,10 @@ async function openQuiz(examCode, sessionCode, startIdx){
 
   screen.querySelector('#quizBack').onclick = popScreen;
   screen.querySelector('#quizModeBtn').onclick = openModeSheet;
+  screen.querySelector('#quizResultBtn').onclick = () => {
+    const c = state.current; if (!c) return;
+    showCompletion(c, progressFor(c.examCode, c.code));
+  };
   screen.querySelector('#quizShareBtn').onclick = () => shareCurrent();
   screen.querySelector('#redoBtn').onclick = confirmRedo;
   screen.querySelector('#starBtn').onclick = toggleStar;
@@ -3137,20 +3145,60 @@ function showCompletion(c, p){
   const correct = answered - wrongs;
   const pct = Math.round(correct * 100 / total);
   stopExamTimer();
-  showSheet(c.mode === 'exam' ? '모의시험 결과' : '풀이 완료', () => {
+
+  // 모의시험 채점 결과 — 과목별 정답률 + 문항 O/X 그리드 (탭 → 해당 문항 해설로 이동)
+  const isExam = c.mode === 'exam';
+  let subjHtml = '', gridHtml = '';
+  if (isExam) {
+    const subs = new Map();   // subject → { total, correct, answered }
+    for (const q of c.data.questions) {
+      const subj = (q.subject || '기타').replace(/^\d+과목\s*:\s*/, '').trim() || '기타';
+      const s = subs.get(subj) || { total: 0, correct: 0, answered: 0 };
+      s.total++;
+      const a = p.answers[q.number];
+      if (a != null) { s.answered++; if (a === q.answer) s.correct++; }
+      subs.set(subj, s);
+    }
+    if (subs.size > 1) {
+      subjHtml = `<div class="comp-subjects">${[...subs].map(([subj, s]) => {
+        const acc = s.total ? Math.round(s.correct * 100 / s.total) : 0;
+        return `<div class="comp-subj-row">
+          <span class="comp-subj-name">${escapeHtml(subj)}</span>
+          <span class="comp-subj-n">${s.correct}/${s.total}</span>
+          <span class="pill ${acc >= 70 ? 'active' : acc < 50 ? 'warn' : ''}">${acc}%</span>
+        </div>`;
+      }).join('')}</div>`;
+    }
+    gridHtml = `
+      <div class="comp-grid-head">문항별 채점 — 번호를 누르면 해설로 이동</div>
+      <div class="numpad comp-grid">${c.data.questions.map((q, i) => {
+        const a = p.answers[q.number];
+        const cls = a == null ? '' : (a === q.answer ? 'done' : 'wrong');
+        return `<button class="${cls}" data-goto="${i}">${i + 1}</button>`;
+      }).join('')}</div>`;
+  }
+
+  showSheet(isExam ? '모의시험 채점 결과' : '풀이 완료', () => {
     const div = document.createElement('div');
     div.innerHTML = `
       <div class="completion">
         <div class="comp-pct">${pct}<small>%</small></div>
         <div class="comp-line">${correct} / ${total} 정답${wrongs ? ` · 오답 ${wrongs}` : ''}${unanswered ? ` · 미응답 ${unanswered}` : ''}</div>
+        ${subjHtml}
         ${wrongs ? `<button class="r-primary" id="compReview">틀린 문제 다시 보기</button>` : ''}
         <div class="comp-actions">
           <button class="r-soft" id="compRedo">다시 풀기</button>
           <button class="r-soft" id="compShare">공유</button>
           <button class="r-soft" id="compExit">목록으로</button>
         </div>
+        ${gridHtml}
       </div>
     `;
+    div.querySelector('.comp-grid')?.addEventListener('click', e => {
+      const b = e.target.closest('button[data-goto]'); if (!b) return;
+      closeSheet();
+      gotoQuestion(+b.dataset.goto);
+    });
     div.querySelector('#compReview')?.addEventListener('click', () => {
       closeSheet();
       const wrongIdx = c.data.questions.findIndex(q => (p.wrongs||[]).includes(q.number));

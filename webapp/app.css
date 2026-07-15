@@ -1994,3 +1994,54 @@ pre.code {
   color: var(--ink-faint);
 }
 .streak-bar.today .streak-bar-day { color: var(--vermilion); font-weight: 700; }
+
+/* ===================================================================
+   모의시험 채점 결과 — 과목별 정답률 · 문항 O/X 그리드 · 헤더 결과 버튼
+   =================================================================== */
+.result-chip {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .05em;
+  color: var(--vermilion);
+  border: 1px solid color-mix(in srgb, var(--vermilion) 45%, transparent);
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: color-mix(in srgb, var(--vermilion) 7%, transparent);
+  white-space: nowrap;
+}
+.result-chip:active { transform: scale(.96); }
+.comp-subjects {
+  margin: 0 0 18px;
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.comp-subj-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--paper-edge);
+  text-align: left;
+}
+.comp-subj-row:last-child { border-bottom: 0; }
+.comp-subj-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.comp-subj-n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.comp-grid-head {
+  margin: 22px 0 8px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  text-align: left;
+}
+.completion .comp-grid { max-height: none; overflow-y: visible; }
