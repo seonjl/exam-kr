@@ -2567,7 +2567,42 @@ function cleanExplanation(s){
   s = s.replace(/\n{3,}/g, '\n\n');
   return s.trim();
 }
-function formatDetailed(raw){
+// 해설 템플릿 다변화 — scripts/build_pages.py 의 expl_variants() 와 동일 로직 유지.
+// 프리렌더(크롤러)와 SPA 하이드레이션이 같은 변형 헤더를 보여야 한다(클로킹 방지).
+const V_CONCEPT = ['핵심 개념', '개념 정리', '출제 포인트', '바탕 개념', '이론 요점', '먼저 알아둘 개념'];
+const V_ANSWER  = ['정답 분석', '정답인 이유', '정답 풀이', '왜 이것이 정답인가', '정답 검토'];
+const V_WRONG   = ['오답 분석', '오답인 이유', '나머지 선택지 검토', '선택지별 오답 정리', '오답 짚기'];
+const V_NOTE    = ['참고', '보충', '더 알아두기'];
+const V_EXPL    = ['해설', '풀이', '상세 해설', '해설 정리'];
+const V_CHIPS   = ['관련 개념', '핵심 키워드', '연관 개념', '개념 태그'];
+
+function fnv1a(key){
+  // 키는 `${examCode}|${sessionCode}|${number}` — ASCII 전제 (Python .encode('utf-8') 와 동치)
+  let h = 0x811c9dc5;
+  for (let i = 0; i < key.length; i++) {
+    h ^= key.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h >>> 0;
+}
+
+function explVariants(key){
+  const h = fnv1a(key);
+  return {
+    '핵심 개념': V_CONCEPT[h % V_CONCEPT.length],
+    '정답 분석': V_ANSWER[(h >>> 3) % V_ANSWER.length],
+    '오답 분석': V_WRONG[(h >>> 6) % V_WRONG.length],
+    '참고': V_NOTE[(h >>> 9) % V_NOTE.length],
+    explLabel: V_EXPL[(h >>> 12) % V_EXPL.length],
+    chipsLabel: V_CHIPS[(h >>> 15) % V_CHIPS.length],
+  };
+}
+
+function qVariants(q){
+  return explVariants(`${state.current?.examCode || ''}|${state.current?.code || ''}|${q.number}`);
+}
+
+function formatDetailed(raw, variants){
   if (!raw) return '';
   // Turn section headings into bold separators
   const lines = raw.split(/\r?\n/);
@@ -2575,7 +2610,7 @@ function formatDetailed(raw){
   for (const ln of lines) {
     const t = ln.trim();
     if (/^(핵심 개념|정답 분석|오답 분석|참고)$/.test(t)) {
-      out.push(`<h5>${t}</h5>`);
+      out.push(`<h5>${(variants && variants[t]) || t}</h5>`);
     } else if (t) {
       // bullets starting with ①②③④- •
       out.push(`<p>${escapeWithMath(t)}</p>`);
@@ -2605,7 +2640,7 @@ function renderExplain(page, q, force){
     const imgs = hasExtras ? renderExtras(q.explanation_extras)
                  : (q.explanation_images || []).map((s, i) => `<img src="${s}" loading="lazy" alt="해설 이미지 ${i+1}">`).join('');
     const basicText = escapeHtml(cleanExplanation(q.explanation) || '').trim();
-    const detailedHtml = formatDetailed(q.explanation_detailed || '');
+    const detailedHtml = formatDetailed(q.explanation_detailed || '', qVariants(q));
     cached = { basicText, detailedHtml, imgs };
     _explainBodyCache.set(cacheKey, cached);
   }
@@ -2718,7 +2753,7 @@ function renderConceptChips(q){
     return `<a class="concept-chip" data-cid="${escapeHtml(id)}" href="/concept/${examCode}/${encodeURIComponent(id)}">${escapeHtml(label)}</a>`;
   }).join('');
   return `<div class="concept-chips">
-    <span class="concept-chips-label">관련 개념</span>
+    <span class="concept-chips-label">${qVariants(q).chipsLabel}</span>
     ${items}
   </div>`;
 }

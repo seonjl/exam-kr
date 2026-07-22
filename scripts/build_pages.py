@@ -199,7 +199,45 @@ CIRCLED = "①②③④⑤⑥⑦⑧⑨"
 def br(s: str) -> str:
     return esc(s).replace("\n", "<br>")
 
-def render_question_block(q: dict) -> str:
+# ---- 해설 템플릿 다변화 (AdSense scaled-content 대응) ----------------------
+# enrich.py 산출 explanation_detailed 는 "핵심 개념/정답 분석/오답 분석" 고정
+# 헤더라 색인 페이지 전체에서 같은 문구가 수만 회 반복된다. 저장 원문은 그대로
+# 두고(비파괴), 렌더 시점에 문항별 시드(FNV-1a)로 헤더·라벨을 결정적으로 치환해
+# 기계 템플릿 반복 신호를 깬다. webapp/app.js 의 explVariants() 와 동일 로직 —
+# 프리렌더와 SPA 하이드레이션이 같은 변형을 보여야 한다(클로킹 방지).
+_V_CONCEPT = ["핵심 개념", "개념 정리", "출제 포인트", "바탕 개념", "이론 요점", "먼저 알아둘 개념"]
+_V_ANSWER  = ["정답 분석", "정답인 이유", "정답 풀이", "왜 이것이 정답인가", "정답 검토"]
+_V_WRONG   = ["오답 분석", "오답인 이유", "나머지 선택지 검토", "선택지별 오답 정리", "오답 짚기"]
+_V_NOTE    = ["참고", "보충", "더 알아두기"]
+_V_EXPL    = ["해설", "풀이", "상세 해설", "해설 정리"]
+_V_CHIPS   = ["관련 개념", "핵심 키워드", "연관 개념", "개념 태그"]
+_HEADER_LINES = ("핵심 개념", "정답 분석", "오답 분석", "참고")
+
+def _fnv1a(key: str) -> int:
+    h = 0x811C9DC5
+    for b in key.encode("utf-8"):
+        h = ((h ^ b) * 0x01000193) & 0xFFFFFFFF
+    return h
+
+def expl_variants(key: str) -> dict[str, str]:
+    h = _fnv1a(key)
+    return {
+        "핵심 개념": _V_CONCEPT[h % len(_V_CONCEPT)],
+        "정답 분석": _V_ANSWER[(h >> 3) % len(_V_ANSWER)],
+        "오답 분석": _V_WRONG[(h >> 6) % len(_V_WRONG)],
+        "참고": _V_NOTE[(h >> 9) % len(_V_NOTE)],
+        "expl_label": _V_EXPL[(h >> 12) % len(_V_EXPL)],
+        "chips_label": _V_CHIPS[(h >> 15) % len(_V_CHIPS)],
+    }
+
+def diversify_headers(text: str, v: dict[str, str]) -> str:
+    """해설 원문에서 고정 헤더 줄만 문항별 변형으로 치환 (본문은 손대지 않음)."""
+    return "\n".join(
+        v[ln.strip()] if ln.strip() in _HEADER_LINES else ln
+        for ln in text.split("\n")
+    )
+
+def render_question_block(q: dict, code: str, sess_code: str) -> str:
     n = q.get("number") or 0
     stem = esc(q.get("question") or "")
     subject = esc(q.get("subject") or "")
@@ -217,14 +255,17 @@ def render_question_block(q: dict) -> str:
             f'<li class="{cls}"><span class="m">{marker}</span> {esc(c.get("text") or "")}</li>'
         )
 
+    v = expl_variants(f"{code}|{sess_code}|{n}")
     explanation = q.get("explanation_detailed") or q.get("explanation") or ""
-    expl_html = f'<div class="explanation"><strong>해설</strong><br>{br(explanation)}</div>' if explanation else ""
+    if explanation:
+        explanation = diversify_headers(explanation, v)
+    expl_html = f'<div class="explanation"><strong>{v["expl_label"]}</strong><br>{br(explanation)}</div>' if explanation else ""
 
     concepts = q.get("concepts") or []
     concept_html = ""
     if concepts:
         chips = "".join(f'<span class="chip">{esc(c)}</span>' for c in concepts)
-        concept_html = f'<div class="concepts"><strong>핵심 개념</strong> {chips}</div>'
+        concept_html = f'<div class="concepts"><strong>{v["chips_label"]}</strong> {chips}</div>'
 
     return (
         f'<article class="q" id="q{n}">'
@@ -315,7 +356,7 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
     )
     canonical = f'{BASE_URL}/exam/{code}/{sess_code}'
 
-    items = "".join(render_question_block(q) for q in questions)
+    items = "".join(render_question_block(q, code, sess_code) for q in questions)
     adj_links = []
     if prev_meta:
         adj_links.append(
@@ -347,7 +388,11 @@ def render_session_page(exam: dict, sess_meta: dict, data: dict, og_image: str |
         if 1 <= ans_no <= len(choices):
             ans_text = choices[ans_no - 1].get("text") or ""
         # Schema.org/Answer should be the actual answer, with the explanation as supporting text.
-        explanation = (q.get("explanation_detailed") or q.get("explanation") or "")[:600]
+        explanation = q.get("explanation_detailed") or q.get("explanation") or ""
+        if explanation:
+            explanation = diversify_headers(
+                explanation, expl_variants(f'{code}|{sess_code}|{q.get("number") or 0}')
+            )[:600]
         answer_text = ans_text + ("\n\n" + explanation if explanation else "") if ans_text else explanation
         qa.append({
             "@type": "Question",
