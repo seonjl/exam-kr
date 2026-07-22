@@ -106,7 +106,7 @@ function pushAd(rootEl){
 
 // 카카오 애드핏 (AdSense 대체/병행 광고망). unit 비우면 미사용.
 // AdSense 와 동일하게 콘텐츠 화면(해설)에만 배치.
-const ADFIT = { unit: '', width: 320, height: 100 };
+const ADFIT = { unit: 'DAN-BMVSpzJFJmnLyDVy', width: 300, height: 250 };
 function adfitInsHTML(){
   if (!ADFIT.unit) return '';
   return `<ins class="kakao_ad_area" style="display:none;width:100%"`
@@ -121,7 +121,7 @@ function loadAdfit(rootEl){
   ins.setAttribute('data-ad-done', '1');
   const s = document.createElement('script');
   s.async = true;
-  s.src = 'https://t1.daumcdn.net/kas/static/ba.min.js';
+  s.src = 'https://t1.kakaocdn.net/kas/static/ba.min.js';
   ins.insertAdjacentElement('afterend', s);
 }
 
