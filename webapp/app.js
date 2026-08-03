@@ -566,6 +566,18 @@ async function renderHome(root){
         <div id="streakChip"></div>
       </div>
       <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
+      <div id="guestbook" hidden>
+        <div class="section-head"><h2>방명록</h2><span class="meta">GUESTBOOK</span></div>
+        <div class="gb-form">
+          <input class="gb-nick" maxlength="20" placeholder="닉네임 (선택)">
+          <div class="gb-msg-row">
+            <textarea class="gb-msg" rows="2" maxlength="500" placeholder="익명으로 한마디 남겨보세요"></textarea>
+            <button class="gb-submit" type="button">등록</button>
+          </div>
+        </div>
+        <div class="gb-list"></div>
+      </div>
+      <div class="news-link-wrap"><button class="news-link" id="newsLink" type="button">업데이트 소식</button></div>
     </div>
   `;
   attachScrollShadow('homeScroll','nav');
@@ -594,6 +606,110 @@ async function renderHome(root){
     pre.remove();
   }
   // 홈(자격증 picker)은 네비게이션 화면 — 광고 로드 안 함 (AdSense 정책).
+  initGuestbook(root);
+  maybeShowNews();
+  const $news = root.querySelector('#newsLink');
+  if ($news) $news.onclick = async () => {
+    try { openNewsSheet(await loadNews()); } catch { toast('소식을 불러오지 못했어요'); }
+  };
+}
+
+/* ---- 홈 업데이트 소식 (data/news.json) ---- */
+let _newsItems = null;
+async function loadNews(){
+  if (_newsItems) return _newsItems;
+  const r = await fetch('data/news.json');
+  if (!r.ok) throw new Error('news fetch failed');
+  _newsItems = (await r.json()).items || [];
+  return _newsItems;
+}
+async function maybeShowNews(){
+  let items;
+  try { items = await loadNews(); } catch { return; }
+  if (!items.length) return;
+  const latest = Math.max(...items.map(i => +i.id || 0));
+  if (latest <= (+store.get('newsSeen') || 0)) return;
+  // 딥링크 등으로 다른 화면이 위에 있으면 생략 — 다음 홈 방문 때 다시 시도
+  if (document.querySelector('#stack > .screen')) return;
+  openNewsSheet(items);
+  store.set('newsSeen', latest);
+}
+function openNewsSheet(items){
+  showSheet('업데이트 소식', () => {
+    const d = document.createElement('div');
+    d.className = 'news-sheet';
+    (items || []).slice(0, 8).forEach(i => {
+      const el = document.createElement('div');
+      el.className = 'news-item';
+      el.innerHTML = `<div class="news-date">${escapeHtml(i.date || '')}</div>
+        <div class="news-title">${escapeHtml(i.title || '')}</div>
+        <div class="news-body">${escapeHtml(i.body || '')}</div>`;
+      d.appendChild(el);
+    });
+    return d;
+  });
+}
+
+/* ---- 홈 방명록 (/api/comments) ---- */
+function gbTimeLabel(ts){
+  const diff = Date.now() - ts;
+  if (diff < 3600_000) return `${Math.max(1, Math.floor(diff / 60_000))}분 전`;
+  if (diff < 86_400_000) return `${Math.floor(diff / 3600_000)}시간 전`;
+  const d = new Date(ts + 9 * 3600_000);   // KST 표기
+  return d.toISOString().slice(5, 10).replace('-', '.');
+}
+function gbItemEl(it){
+  const el = document.createElement('div');
+  el.className = 'gb-item';
+  const head = document.createElement('div');
+  head.className = 'gb-head';
+  const nick = document.createElement('span');
+  nick.className = 'gb-nick-label';
+  nick.textContent = it.nick || '익명';
+  const time = document.createElement('span');
+  time.className = 'gb-time';
+  time.textContent = gbTimeLabel(+it.ts || Date.now());
+  head.append(nick, time);
+  const body = document.createElement('div');
+  body.className = 'gb-body';
+  body.textContent = it.msg || '';   // textContent — 사용자 입력 XSS 차단
+  el.append(head, body);
+  return el;
+}
+async function initGuestbook(root){
+  const wrap = root.querySelector('#guestbook');
+  if (!wrap) return;
+  let data;
+  try { data = await (await fetch('/api/comments')).json(); }
+  catch { return; }
+  if (!data || !data.ok) return;   // KV 미설정/오류 — 섹션 숨김 유지 (presence 패턴)
+  wrap.hidden = false;
+  const list = wrap.querySelector('.gb-list');
+  list.replaceChildren(...(data.items || []).map(gbItemEl));
+  const $nick = wrap.querySelector('.gb-nick');
+  const $msg = wrap.querySelector('.gb-msg');
+  const $btn = wrap.querySelector('.gb-submit');
+  $btn.onclick = async () => {
+    const message = $msg.value.trim();
+    if (message.length < 2) { toast('2자 이상 적어주세요'); return; }
+    $btn.disabled = true;
+    try {
+      const r = await fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nick: $nick.value.trim(), message }),
+      });
+      const out = await r.json().catch(() => ({}));
+      if (!r.ok || !out.ok) { toast(out.error || '등록 실패 — 잠시 후 다시 시도해주세요'); return; }
+      list.prepend(gbItemEl(out.item));
+      $msg.value = '';
+      toast('남겨주신 글이 등록됐어요!');
+    } catch {
+      toast('네트워크 오류 — 다시 시도해주세요');
+    } finally {
+      $btn.disabled = false;
+    }
+  };
 }
 
 function fillExamPicker(root, exams){

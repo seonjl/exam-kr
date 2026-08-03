@@ -1,4 +1,4 @@
-const VERSION = 'v36';
+const VERSION = 'v37';
 const SHELL = `shell-${VERSION}`;
 const DATA  = `data-${VERSION}`;
 const RT    = `runtime-${VERSION}`;
@@ -29,6 +29,7 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
 
   if (url.pathname.startsWith('/_vercel/')) return;
+  if (url.pathname.startsWith('/api/')) return;   // API 는 SW 캐시 금지 (방명록 등 동적 응답)
 
   if (req.mode === 'navigate') {
     e.respondWith(networkFirstNav(req));
