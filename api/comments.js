@@ -78,6 +78,40 @@ async function kvPipe(commands) {
   }
 }
 
+// 방명록 글을 GitHub Issue 로도 미러 — 피드백(/api/feedback)과 같은 저장소·토큰.
+// env 미설정/실패 시 조용히 생략 (방명록 등록 자체는 성공 처리).
+async function mirrorToGithub(item) {
+  const repo = process.env.FEEDBACK_GITHUB_REPO;
+  const token = process.env.FEEDBACK_GITHUB_TOKEN;
+  if (!repo || !token) return;
+  const title = `[방명록] ${item.nick || "익명"}: ${item.msg.split("\n")[0].slice(0, 50)}`.slice(0, 200);
+  const body = [
+    `**닉네임**: ${item.nick || "익명"}`,
+    `**시간**: ${new Date(item.ts).toISOString()}`,
+    `**id**: ${item.id}`,
+    "",
+    "---",
+    "",
+    item.msg,
+  ].join("\n");
+  try {
+    const r = await fetch(`https://api.github.com/repos/${repo}/issues`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "passcbt-kr-guestbook",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, body, labels: ["guestbook"] }),
+    });
+    if (!r.ok) console.warn("[comments] github mirror fail", r.status);
+  } catch (e) {
+    console.warn("[comments] github mirror error", e.message);
+  }
+}
+
 function parseItems(raw) {
   return (raw || []).map((s) => {
     try { return JSON.parse(s); } catch { return null; }
@@ -125,6 +159,7 @@ async function handlePost(req, res) {
   ]);
   if (!results) return res.status(502).json({ error: "저장 실패. 잠시 후 다시 시도해주세요." });
   _cache = null;   // 다음 GET 이 fresh 목록을 읽도록
+  await mirrorToGithub(item);   // 응답 전 await — 서버리스는 응답 후 실행이 동결됨
   return res.status(201).json({ ok: true, item });
 }
 

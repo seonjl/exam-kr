@@ -565,19 +565,25 @@ async function renderHome(root){
         <h1>기출<br><em>연습장</em></h1>
         <div id="streakChip"></div>
       </div>
-      <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
-      <div id="guestbook" hidden>
-        <div class="section-head"><h2>방명록</h2><span class="meta">GUESTBOOK</span></div>
-        <div class="gb-form">
-          <input class="gb-nick" maxlength="20" placeholder="닉네임 (선택)">
-          <div class="gb-msg-row">
-            <textarea class="gb-msg" rows="2" maxlength="500" placeholder="익명으로 한마디 남겨보세요"></textarea>
-            <button class="gb-submit" type="button">등록</button>
-          </div>
-        </div>
-        <div class="gb-list"></div>
+      <div class="group" id="communityRows">
+        <button class="row" id="gbRow" type="button">
+          <span class="row-lead exam-mark">✎</span>
+          <span class="row-body">
+            <span class="row-title">방명록</span>
+            <span class="row-sub">익명으로 한마디 남겨보세요</span>
+          </span>
+          <span class="row-trail">${icons.chev}</span>
+        </button>
+        <button class="row" id="newsRow" type="button">
+          <span class="row-lead exam-mark">✦</span>
+          <span class="row-body">
+            <span class="row-title">업데이트 소식</span>
+            <span class="row-sub">새 기능·해설 정정 알림</span>
+          </span>
+          <span class="row-trail"><span class="pill" id="newsBadge" hidden>N</span>${icons.chev}</span>
+        </button>
       </div>
-      <div class="news-link-wrap"><button class="news-link" id="newsLink" type="button">업데이트 소식</button></div>
+      <div id="examList">${[0,1,2,3].map(()=>'<div class="skeleton" style="height:96px;margin:8px 16px"></div>').join('')}</div>
     </div>
   `;
   attachScrollShadow('homeScroll','nav');
@@ -606,12 +612,9 @@ async function renderHome(root){
     pre.remove();
   }
   // 홈(자격증 picker)은 네비게이션 화면 — 광고 로드 안 함 (AdSense 정책).
-  initGuestbook(root);
-  maybeShowNews();
-  const $news = root.querySelector('#newsLink');
-  if ($news) $news.onclick = async () => {
-    try { openNewsSheet(await loadNews()); } catch { toast('소식을 불러오지 못했어요'); }
-  };
+  root.querySelector('#gbRow').onclick = () => openGuestbook();
+  root.querySelector('#newsRow').onclick = () => openNewsPage();
+  refreshNewsBadge();
 }
 
 /* ---- 홈 업데이트 소식 (data/news.json) ---- */
@@ -623,31 +626,57 @@ async function loadNews(){
   _newsItems = (await r.json()).items || [];
   return _newsItems;
 }
-async function maybeShowNews(){
+// 홈 '업데이트 소식' 행의 안읽음 배지 갱신
+async function refreshNewsBadge(){
   let items;
   try { items = await loadNews(); } catch { return; }
-  if (!items.length) return;
-  const latest = Math.max(...items.map(i => +i.id || 0));
-  if (latest <= (+store.get('newsSeen') || 0)) return;
-  // 딥링크 등으로 다른 화면이 위에 있으면 생략 — 다음 홈 방문 때 다시 시도
-  if (document.querySelector('#stack > .screen')) return;
-  openNewsSheet(items);
-  store.set('newsSeen', latest);
+  const badge = document.getElementById('newsBadge');
+  if (!badge) return;
+  const seen = +store.get('newsSeen') || 0;
+  const unread = items.filter(i => (+i.id || 0) > seen).length;
+  if (unread > 0) { badge.textContent = unread; badge.hidden = false; badge.classList.add('active'); }
+  else badge.hidden = true;
 }
-function openNewsSheet(items){
-  showSheet('업데이트 소식', () => {
-    const d = document.createElement('div');
-    d.className = 'news-sheet';
-    (items || []).slice(0, 8).forEach(i => {
-      const el = document.createElement('div');
-      el.className = 'news-item';
-      el.innerHTML = `<div class="news-date">${escapeHtml(i.date || '')}</div>
-        <div class="news-title">${escapeHtml(i.title || '')}</div>
-        <div class="news-body">${escapeHtml(i.body || '')}</div>`;
-      d.appendChild(el);
-    });
-    return d;
+async function openNewsPage(){
+  if (!_navInternal) pushRoute({ type:'news' });
+  const stack = document.getElementById('stack');
+  const screen = document.createElement('section');
+  screen.className = 'screen';
+  screen.innerHTML = `
+    <header class="nav" id="newsNav">
+      <button class="icon-btn" id="newsBack" aria-label="뒤로">${icons.back}</button>
+      <div class="nav-title">업데이트 소식</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="newsScroll">
+      <div class="large-title"><div class="kicker">WHAT'S NEW</div><h1>업데이트<br><em>소식</em></h1></div>
+      <div class="news-page"><div class="skeleton" style="height:72px;margin:8px 0"></div></div>
+    </div>`;
+  stack.appendChild(screen);
+  updateScreenInert();
+  attachScrollShadow('newsScroll', 'newsNav');
+  screen.querySelector('#newsBack').onclick = popScreen;
+  addEdgeBack(screen);
+  const box = screen.querySelector('.news-page');
+  let items = [];
+  try { items = await loadNews(); } catch {
+    box.innerHTML = emptyCard('소식을 불러오지 못했어요', '잠시 후 다시 시도해주세요');
+    return;
+  }
+  box.innerHTML = '';
+  items.forEach(i => {
+    const el = document.createElement('div');
+    el.className = 'news-item';
+    el.innerHTML = `<div class="news-date">${escapeHtml(i.date || '')}</div>
+      <div class="news-title">${escapeHtml(i.title || '')}</div>
+      <div class="news-body">${escapeHtml(i.body || '')}</div>`;
+    box.appendChild(el);
   });
+  // 읽음 처리 + 홈 배지 숨김
+  const latest = Math.max(0, ...items.map(i => +i.id || 0));
+  if (latest > (+store.get('newsSeen') || 0)) store.set('newsSeen', latest);
+  const badge = document.getElementById('newsBadge');
+  if (badge) badge.hidden = true;
 }
 
 /* ---- 홈 방명록 (/api/comments) ---- */
@@ -676,16 +705,41 @@ function gbItemEl(it){
   el.append(head, body);
   return el;
 }
-async function initGuestbook(root){
-  const wrap = root.querySelector('#guestbook');
+async function openGuestbook(){
+  if (!_navInternal) pushRoute({ type:'guestbook' });
+  const stack = document.getElementById('stack');
+  const screen = document.createElement('section');
+  screen.className = 'screen';
+  screen.innerHTML = `
+    <header class="nav" id="gbNav">
+      <button class="icon-btn" id="gbBack" aria-label="뒤로">${icons.back}</button>
+      <div class="nav-title">방명록</div>
+      <div></div>
+    </header>
+    <div class="scroll" id="gbScroll">
+      <div class="large-title"><div class="kicker">GUESTBOOK</div><h1>방명록</h1></div>
+      <div id="guestbook">
+        <div class="gb-form">
+          <input class="gb-nick" maxlength="20" placeholder="닉네임 (선택)">
+          <div class="gb-msg-row">
+            <textarea class="gb-msg" rows="2" maxlength="500" placeholder="익명으로 한마디 남겨보세요"></textarea>
+            <button class="gb-submit" type="button">등록</button>
+          </div>
+        </div>
+        <div class="gb-list"><div class="skeleton" style="height:72px;margin:8px 0"></div></div>
+      </div>
+    </div>`;
+  stack.appendChild(screen);
+  updateScreenInert();
+  attachScrollShadow('gbScroll', 'gbNav');
+  screen.querySelector('#gbBack').onclick = popScreen;
+  addEdgeBack(screen);
+  await initGuestbook(screen);
+}
+async function initGuestbook(screen){
+  const wrap = screen.querySelector('#guestbook');
   if (!wrap) return;
-  let data;
-  try { data = await (await fetch('/api/comments')).json(); }
-  catch { return; }
-  if (!data || !data.ok) return;   // KV 미설정/오류 — 섹션 숨김 유지 (presence 패턴)
-  wrap.hidden = false;
   const list = wrap.querySelector('.gb-list');
-  list.replaceChildren(...(data.items || []).map(gbItemEl));
   const $nick = wrap.querySelector('.gb-nick');
   const $msg = wrap.querySelector('.gb-msg');
   const $btn = wrap.querySelector('.gb-submit');
@@ -701,6 +755,7 @@ async function initGuestbook(root){
       });
       const out = await r.json().catch(() => ({}));
       if (!r.ok || !out.ok) { toast(out.error || '등록 실패 — 잠시 후 다시 시도해주세요'); return; }
+      if (list.querySelector('.gb-empty')) list.innerHTML = '';
       list.prepend(gbItemEl(out.item));
       $msg.value = '';
       toast('남겨주신 글이 등록됐어요!');
@@ -710,6 +765,18 @@ async function initGuestbook(root){
       $btn.disabled = false;
     }
   };
+  let data = null;
+  try { data = await (await fetch('/api/comments')).json(); } catch {}
+  if (!data || !data.ok) {
+    list.innerHTML = emptyCard('방명록을 불러오지 못했어요', '잠시 후 다시 시도해주세요');
+    return;
+  }
+  const items = data.items || [];
+  if (!items.length) {
+    list.innerHTML = '<div class="gb-empty">아직 글이 없어요 — 첫 글을 남겨보세요!</div>';
+  } else {
+    list.replaceChildren(...items.map(gbItemEl));
+  }
 }
 
 function fillExamPicker(root, exams){
@@ -3701,6 +3768,8 @@ function pathForState(s) {
   if (s.type === 'concept-list')     return `/concepts/${s.exam}`;
   if (s.type === 'concept')          return `/concept/${s.exam}/${encodeURIComponent(s.id)}`;
   if (s.type === 'concept-practice') return `/concept/${s.exam}/${encodeURIComponent(s.id)}/practice`;
+  if (s.type === 'guestbook')        return '/guestbook';
+  if (s.type === 'news')             return '/news';
   return '/';
 }
 
@@ -3886,6 +3955,12 @@ async function initRoute() {
       showTab('concepts');
       await openConceptList(segs[1]);
       final = { type:'concept-list', exam: segs[1] };
+    } else if (segs[0] === 'guestbook') {
+      await openGuestbook();
+      final = { type:'guestbook' };
+    } else if (segs[0] === 'news') {
+      await openNewsPage();
+      final = { type:'news' };
     }
   } finally {
     _navInternal = false;

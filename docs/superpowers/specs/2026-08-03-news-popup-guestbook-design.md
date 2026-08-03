@@ -36,3 +36,13 @@
 ## 제외 (YAGNI)
 
 문항별 댓글, 대댓글, 좋아요, 금칙어 필터, 뉴스 자동 생성. 스팸이 실제로 발생하면 금칙어/차단을 추가한다.
+
+## 2026-08-03 개정 (사용자 요청)
+
+- 방명록·업데이트 소식을 **모달이 아닌 별도 페이지**(/guestbook, /news — pushed screen + vercel rewrite)로 전환.
+- 홈 상단(자격증 선택 위)에 두 행 섹션: "방명록" / "업데이트 소식"(안읽음 배지, 페이지 열람 시 newsSeen 갱신).
+  홈 진입 자동 팝업은 제거 — 배지가 새 소식 인지를 대체.
+- 방명록 POST 시 **GitHub Issue 미러**(label: guestbook) — /api/feedback 과 같은 FEEDBACK_GITHUB_REPO/TOKEN 재사용,
+  실패해도 방명록 등록은 성공 처리.
+- 운영자 첫 글에 서비스 한줄소개(광고 없는 CBT를 직접 만든 이유 + 오류 제보 안내) 추가.
+- asset v36/css v28/sw v38.
