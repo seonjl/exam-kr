@@ -159,6 +159,8 @@ def patch_shell(*, title: str, description: str, canonical: str,
     replace("twitter:title", og_title)
     replace("twitter:description", og_description)
     replace("twitter:card", "summary_large_image")
+    # 셸의 twitter:image 는 상대경로(/og-image.png) — X 는 절대 URL 을 요구한다.
+    replace("twitter:image", og_image)
 
     inject = (
         f'<link rel="canonical" href="{esc(canonical)}">\n'

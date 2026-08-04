@@ -527,7 +527,7 @@ const tabs = {
   settings: renderSettings,
 };
 
-function showTab(name){
+function showTab(name, skipHistoryAnchor){
   state.tab = name;
   // Clean any lingering toasts before tearing down the screen — otherwise they
   // hover over the new tab and the user can't dismiss them.
@@ -535,7 +535,10 @@ function showTab(name){
   // Tab 전환은 stack 을 통째로 재구성한다. 깊은 stack 에서 탭바를 누른 경우
   // history depth > 0 이 남아있으면 이후 back 시 stack/history 가 어긋나 wedge 된다.
   // depth 를 0 으로 anchor 한다.
-  if ((history.state?.depth || 0) !== 0) {
+  // 부팅 경로(skipHistoryAnchor)는 예외 — 새로고침 시 브라우저가 복원한
+  // history.state.depth(>0) 를 보고 여기서 URL 을 '/' 로 덮으면, 뒤이어 실행되는
+  // initRoute 가 딥링크 경로 대신 '/' 를 읽어 회차 페이지가 홈으로 튕긴다.
+  if (!skipHistoryAnchor && (history.state?.depth || 0) !== 0) {
     history.replaceState({ type:'home', depth:0 }, '', '/');
   }
   document.querySelectorAll('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.tab===name));
@@ -3971,7 +3974,7 @@ async function initRoute() {
 /* ---- boot (at end so all const bindings are live) ---- */
 await bootUI();
 bindTabs();
-showTab('home');
+showTab('home', true);   // 부팅 시엔 history anchor 생략 (딥링크 URL 보존)
 await initRoute();
 
 // Prerender takeover: static HTML files served at /exam/... and /concept/... include
@@ -4104,6 +4107,7 @@ window.__examkr = {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
+      const hadController = !!navigator.serviceWorker.controller;
       const reg = await navigator.serviceWorker.register('/sw.js');
       const promptUpdate = (sw) => {
         toastAction('새 버전이 있어요', '새로고침', () => {
@@ -4120,8 +4124,13 @@ if ('serviceWorker' in navigator) {
           }
         });
       });
+      // 최초 방문에도 activate 의 clients.claim() 이 controllerchange 를 발생시킨다.
+      // 이때 reload 하면 initRoute 가 딥링크 해석 전에 URL 을 '/' 로 replaceState 해 둔
+      // 순간과 겹쳐 /exam/... 진입이 홈으로 튕긴다. 컨트롤러가 이미 있던 경우
+      // (= SKIP_WAITING 으로 새 SW 가 교체된 경우) 에만 새로고침한다.
       let reloaded = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!hadController) return;
         if (reloaded) return; reloaded = true;
         location.reload();
       });
