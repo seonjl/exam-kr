@@ -1,4 +1,4 @@
-const VERSION = 'v38';
+const VERSION = 'v39';
 const SHELL = `shell-${VERSION}`;
 const DATA  = `data-${VERSION}`;
 const RT    = `runtime-${VERSION}`;
@@ -57,12 +57,15 @@ async function networkFirstNav(req) {
     const res = await fetch(req);
     if (res.ok) {
       const cache = await caches.open(SHELL);
-      cache.put('/', res.clone());
+      // 요청 URL 을 키로 저장. '/' 로 고정하면 마지막에 본 회차 HTML 이
+      // 홈 셸을 덮어써 이후 모든 경로에 그 회차가 서빙된다.
+      cache.put(req, res.clone());
     }
     return res;
   } catch {
     const cache = await caches.open(SHELL);
-    return (await cache.match('/')) || new Response('offline', { status: 503 });
+    return (await cache.match(req)) || (await cache.match('/'))
+      || new Response('offline', { status: 503 });
   }
 }
 
