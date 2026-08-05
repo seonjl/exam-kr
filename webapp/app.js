@@ -69,7 +69,8 @@ window.addEventListener('unhandledrejection', (e) => {
 const ADSENSE = {
   client: 'ca-pub-1443771548671737',
   // 콘텐츠 화면에만 배치 (Auto Ads OFF, 수동 단위). 콘텐츠 없는 화면엔 광고 없음.
-  // explain: 해설(게시자 콘텐츠) 하단만 광고 허용. 통계·네비게이션 화면엔 미배치.
+  // explain: AI 상세 해설이 있는 화면 하단만 광고 허용 (간단 해설·이미지만 있는
+  // 얇은 화면 포함 미배치). 통계·네비게이션 화면엔 미배치.
   slots: {
     explain: '2411264273',  // in-article(fluid) — 해설 하단
   },
@@ -2846,8 +2847,9 @@ function renderExplain(page, q, force){
     ? ''
     : `<span class="explain-label">${cur==='detailed' ? '상세 해설' : '문제 해설'}</span>`;
   const chips = renderConceptChips(q);
-  // 실질 해설 콘텐츠(상세/간단/이미지)가 있을 때만 광고 — '(해설 없음)' 화면엔 광고 금지
-  const hasExplainContent = !!(hasDetailed || basicText || imgs);
+  // AI 상세 해설이 있는 화면에만 광고 — 간단 해설 한두 줄·이미지만 있는 얇은 화면은
+  // AdSense 저품질(thin content) 신호가 되므로 과감히 미노출 (승인 재심사 대비).
+  const hasExplainContent = hasDetailed;
   const adsenseIns = (ADSENSE.client && ADSENSE.slots.explain)
     ? adInsHTML(ADSENSE.slots.explain, { format:'fluid', layout:'in-article', style:'display:block; text-align:center;' })
     : '';
