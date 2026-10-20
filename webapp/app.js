@@ -788,7 +788,7 @@ function fillExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
                      jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
-                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방' };
+                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방', pc:'순경' };
   // per-exam correct count from localStorage (맞춘 갯수)
   const correctFor = (code) => {
     let n = 0;
@@ -927,7 +927,26 @@ function fillSessionList(root, examCode, sessions){
   const yrs = Object.keys(years).sort((a,b)=>b-a);
   // compute ordinal within same year (1회, 2회, ...) based on chronological order
   const monthNames = ['', '1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
-  root.querySelector('#yearList').innerHTML = yrs.map(y => {
+  const mixP = progressFor(examCode, 'c-mix');
+  const mixA = Object.keys(mixP.answers||{}).length;
+  const mixCard = `
+    <div class="section-head"><h2>랜덤 모의고사</h2><span class="meta">MIX</span></div>
+    <div class="group">
+      <button class="row" id="mixStart">
+        <span class="row-lead">섞기</span>
+        <span class="row-body">
+          <span class="row-title">전 회차 섞어 한 세트</span>
+          <span class="row-sub">여러 해 문항을 과목 비율대로 무작위 추출${mixA ? ` · 풀던 세트 ${mixA}문항 진행` : ''}</span>
+        </span>
+        <span class="row-trail">${icons.chev}</span>
+      </button>
+      ${mixA ? `<button class="row" id="mixReset">
+        <span class="row-lead">새로</span>
+        <span class="row-body"><span class="row-title">새 세트로 다시 섞기</span><span class="row-sub">진행 중인 세트의 답안은 지워져요</span></span>
+        <span class="row-trail">${icons.chev}</span>
+      </button>` : ''}
+    </div>`;
+  root.querySelector('#yearList').innerHTML = mixCard + yrs.map(y => {
     const ys = years[y].slice().sort((a,b) => a.date.localeCompare(b.date));
     const ord = new Map(ys.map((s,i) => [s.code, ys.length > 1 ? `${i+1}회차` : '정기']));
     return `
@@ -961,6 +980,8 @@ function fillSessionList(root, examCode, sessions){
   root.querySelectorAll('.row[data-code]').forEach(el => {
     el.addEventListener('click', () => openQuiz(examCode, el.dataset.code));
   });
+  root.querySelector('#mixStart')?.addEventListener('click', () => openMixedMock(examCode).catch(e => toast(e.message || '불러오지 못했어요')));
+  root.querySelector('#mixReset')?.addEventListener('click', () => openMixedMock(examCode, { reshuffle: true }).catch(e => toast(e.message || '불러오지 못했어요')));
 }
 
 /* ===================================================================
@@ -2112,7 +2133,7 @@ function fillConceptsExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
                      jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
-                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방' };
+                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방', pc:'순경' };
   root.querySelector('#conceptsExamList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
@@ -2501,6 +2522,70 @@ async function openConceptPractice(examCode, conceptId, startRef){
   if ($title) {
     $title.querySelector('.d').textContent = meta.name_ko;
     $title.querySelector('.s').textContent = `개념 모아 풀기 · ${meta.refs.length}문제`;
+  }
+}
+
+/* ===================================================================
+   MIXED MOCK — 랜덤 모의고사 (GH #19). 여러 회차에서 과목 비율대로 무작위 추출한
+   가상 세션 'c-mix'. 추출 결과(picks)는 store 'mix:{exam}' 에 저장해 새로고침 후에도
+   같은 세트·진행상태가 유지되고, 다시 섞기 하면 picks 와 진행상태를 함께 버린다.
+   =================================================================== */
+function shuffleArr(a){
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+async function openMixedMock(examCode, opts = {}){
+  if (!_navInternal) pushRoute({ type:'mix', exam:examCode });
+  const sessions = (await loadSessions(examCode)).filter(s => s.count);
+  if (!sessions.length) { toast('회차 데이터가 없어요'); return; }
+  const key = `mix:${examCode}`;
+  const smap = state.sessionMap.get(examCode);
+  let plan = opts.reshuffle ? null : store.get(key);
+  if (!(plan && Array.isArray(plan.picks) && plan.picks.length && plan.picks.every(p => smap?.has(p[0])))) {
+    // 회차 8개까지 무작위 표본 → 기준 회차의 과목 분포대로 문항 추출
+    const pool = shuffleArr(sessions.slice()).slice(0, 8);
+    const loaded = [];
+    for (const s of pool) { try { loaded.push({ code: s.code, d: await loadSession(examCode, s.code) }); } catch {} }
+    if (!loaded.length) { toast('문제 데이터를 불러오지 못했어요'); return; }
+    const all = [];
+    for (const { code, d } of loaded) for (const q of (d.questions || [])) all.push({ s: code, n: q.number, subj: q.subject || '' });
+    const counts = {}; for (const s of sessions) counts[s.count] = (counts[s.count] || 0) + 1;
+    const N = +Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const quota = {}; for (const q of (loaded[0].d.questions || [])) quota[q.subject || ''] = (quota[q.subject || ''] || 0) + 1;
+    const picks = [];
+    for (const [subj, k] of Object.entries(quota)) {
+      picks.push(...shuffleArr(all.filter(x => x.subj === subj)).slice(0, k).map(x => [x.s, x.n]));
+    }
+    if (picks.length < N) {
+      const have = new Set(picks.map(p => p.join(':')));
+      picks.push(...shuffleArr(all.filter(x => !have.has(`${x.s}:${x.n}`))).slice(0, N - picks.length).map(x => [x.s, x.n]));
+    }
+    plan = { picks: picks.slice(0, N), created: Date.now() };
+    store.set(key, plan);
+    store.del(progressKey(examCode, 'c-mix'));
+    state.dataCache.delete(`${examCode}:c-mix`);
+  }
+  const sessSet = Array.from(new Set(plan.picks.map(p => p[0])));
+  const datas = await Promise.all(sessSet.map(sc => loadSession(examCode, sc).catch(() => null)));
+  const byS = new Map(sessSet.map((sc, i) => [sc, datas[i]]));
+  const questions = [];
+  for (const [sc, n] of plan.picks) {
+    const d = byS.get(sc);
+    const q = d && (d.questions || []).find(x => x.number === n);
+    if (q) questions.push({ ...q, number: questions.length + 1, _originNumber: q.number, _originSession: sc });
+  }
+  if (!questions.length) { toast('문제 데이터를 불러오지 못했어요'); return; }
+  state.dataCache.set(`${examCode}:c-mix`, {
+    exam: state.examByCode.get(examCode)?.name || examCode, dbname: examCode,
+    date: 'mix', label: '랜덤 모의고사', count: questions.length, questions,
+  });
+  const wasInternal = _navInternal;
+  _navInternal = true;
+  try { await openQuiz(examCode, 'c-mix'); } finally { _navInternal = wasInternal; }
+  const $title = state.current?.screen.querySelector('.quiz-nav-title');
+  if ($title) {
+    $title.querySelector('.d').textContent = '랜덤 모의고사';
+    $title.querySelector('.s').textContent = `${sessSet.length}개 회차 섞음 · ${questions.length}문항`;
   }
 }
 
@@ -3774,6 +3859,7 @@ function pathForState(s) {
   if (s.type === 'concept-list')     return `/concepts/${s.exam}`;
   if (s.type === 'concept')          return `/concept/${s.exam}/${encodeURIComponent(s.id)}`;
   if (s.type === 'concept-practice') return `/concept/${s.exam}/${encodeURIComponent(s.id)}/practice`;
+  if (s.type === 'mix')              return `/exam/${s.exam}/mix`;
   if (s.type === 'guestbook')        return '/guestbook';
   if (s.type === 'news')             return '/news';
   return '/';
@@ -3933,7 +4019,10 @@ async function initRoute() {
       if (!state.examByCode.has(segs[1])) return;
       await openSessionList(segs[1]);
       final = { type:'session', exam: segs[1] };
-      if (segs[2]) {
+      if (segs[2] === 'mix') {
+        await openMixedMock(segs[1]);
+        final = { type:'mix', exam: segs[1] };
+      } else if (segs[2]) {
         try {
           await loadSessions(segs[1]);
           if (state.sessionMap.get(segs[1])?.has(segs[2])) {
