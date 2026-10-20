@@ -49,6 +49,50 @@ EXAMS = {
         "name": "주택관리사보 2차",
         "periods": [("cd", "주택관리사보-2차")],
     },
+    "c2": {
+        "name": "컴퓨터활용능력 2급",
+        "periods": [("c2", "컴퓨터활용능력-2급")],
+    },
+    "pi": {
+        "name": "정보처리산업기사",
+        "periods": [("j3", "정보처리산업기사")],
+    },
+    "nw": {
+        "name": "네트워크관리사 2급",
+        "periods": [("jf", "네트워크관리사-2급")],
+    },
+    "p5": {  # 5급 공채 PSAT — 과목 헤더가 없어("과목구분없음") period 별 과목명 주입
+        "name": "5급 PSAT",
+        "periods": [
+            ("qd", "PSAT-언어논리"),
+            ("qe", "PSAT-자료해석"),
+            ("qc", "PSAT-상황판단"),
+            ("qf", "PSAT-헌법"),
+        ],
+        "subject_by_prefix": {"qd": "언어논리", "qe": "자료해석", "qc": "상황판단", "qf": "헌법"},
+    },
+    "g9": {  # 9급 국가직 일반행정 — 과목별 카테고리를 같은 시험일로 묶음
+        "name": "9급 국가직 일반행정",
+        "periods": [
+            ("g3", "9급-국가직-공무원-국어"),
+            ("w9", "9급-국가직-공무원-영어"),
+            ("w7", "9급-국가직-공무원-한국사"),
+            ("cy", "9급-국가직-공무원-행정법총론"),
+            ("cz", "9급-국가직-공무원-행정학개론"),
+        ],
+        "subject_by_prefix": {"g3": "국어", "w9": "영어", "w7": "한국사", "cy": "행정법총론", "cz": "행정학개론"},
+    },
+    "j9": {  # 9급 지방직 일반행정
+        "name": "9급 지방직 일반행정",
+        "periods": [
+            ("qn", "9급-지방직-공무원-국어"),
+            ("qv", "9급-지방직-공무원-영어"),
+            ("rg", "9급-지방직-공무원-한국사"),
+            ("rh", "9급-지방직-공무원-행정법총론"),
+            ("ri", "9급-지방직-공무원-행정학개론"),
+        ],
+        "subject_by_prefix": {"qn": "국어", "qv": "영어", "rg": "한국사", "rh": "행정법총론", "ri": "행정학개론"},
+    },
 }
 
 
@@ -185,9 +229,12 @@ def build_exam(code: str, only_date: str | None = None) -> None:
             except Exception as e:
                 print(f"  ! {url} 실패: {e}", flush=True)
                 continue
+            subj = spec.get("subject_by_prefix", {}).get(prefix)
             for q in qs:
                 n += 1
                 q["number"] = n  # 회차 내 연속 번호
+                if subj:
+                    q["subject"] = subj
                 questions.append(q)
             time.sleep(0.5)
         if not questions:

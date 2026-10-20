@@ -57,9 +57,15 @@ def _q_block(q: dict) -> str:
     def ct(i: int) -> str:
         c = choices[i] if i < len(choices) else {"text": ""}
         t = (c.get("text") or "").strip()
+        ex = "\n".join(e.get("content", "") for e in (c.get("extras") or []))
+        if ex:
+            t = f"{t}\n{ex}".strip()
         if not t and (c.get("images") or []):
             t = "[이미지]"
         return t or "(비어있음)"
+
+    passage = "\n\n".join(e.get("content", "") for e in (q.get("question_extras") or []))
+    passage_block = f"[지문]\n{passage}\n" if passage.strip() else ""
 
     existing = (q.get("explanation_detailed") or q.get("explanation") or "").strip() \
         or "(해설 없음)"
@@ -73,6 +79,7 @@ def _q_block(q: dict) -> str:
         f"[Q{q.get('number')}]\n"
         f"[과목] {q.get('subject') or ''}\n"
         f"[문제] {q.get('question') or ''}\n"
+        f"{passage_block}"
         f"[보기]\n"
         f"{choice_lines}"
         f"[정답] {q.get('answer', '?')}번\n"

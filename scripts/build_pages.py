@@ -245,7 +245,9 @@ def render_question_block(q: dict, code: str, sess_code: str) -> str:
     subject = esc(q.get("subject") or "")
     extras_html = ""
     for ex in q.get("question_extras") or []:
-        if ex.get("content"):
+        if ex.get("kind") == "image" and ex.get("content"):
+            extras_html += f'<img class="q-img" src="{esc(ex["content"])}" alt="문항 그림" loading="lazy">'
+        elif ex.get("content"):
             extras_html += f'<pre class="pre-extra">{esc(ex["content"])}</pre>'
 
     answer_no = q.get("answer") or 0  # 1-based in source data

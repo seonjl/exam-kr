@@ -35,6 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from exams import EXAMS  # noqa: E402
+from call_glm import call_glm  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
@@ -51,19 +52,25 @@ def prompt_for(exam_code: str, q: dict) -> str:
     def ct(i: int) -> str:
         c = choices[i] if i < len(choices) else {"text": ""}
         t = (c.get("text") or "").strip()
+        ex = "\n".join(e.get("content", "") for e in (c.get("extras") or []))
+        if ex:
+            t = f"{t}\n{ex}".strip()
         if not t and (c.get("images") or []):
             t = "[이미지]"
         return t or "(비어있음)"
 
     n = min(len(choices), len(_CIRCLED)) or 4
     choice_lines = "".join(f"{_CIRCLED[i]} {ct(i)}\n" for i in range(n))
+    # 이미지에서 전사한 지문/표 (question_extras) — PSAT 처럼 지문이 이미지인 경우 필수
+    passage = "\n\n".join(e.get("content", "") for e in (q.get("question_extras") or []))
+    passage_block = f"[지문]\n{passage}\n" if passage.strip() else ""
 
     return f"""당신은 {name} 전문 강사입니다.
 아래 기출문제의 해설을 공부하기 좋은 형태로 다시 작성해주세요.
 
 [과목] {q.get('subject') or ''}
 [문제] {q.get('question') or ''}
-[보기]
+{passage_block}[보기]
 {choice_lines}[정답] {q.get('answer', '?')}번
 [기존 해설] {(q.get('explanation') or '(기본 해설 없음)').strip() or '(기본 해설 없음)'}
 
@@ -82,13 +89,35 @@ def prompt_for(exam_code: str, q: dict) -> str:
 """
 
 
-from call_glm import call_glm
-
-MODEL: str | None = None  # 호환성 유지 (실제로는 call_glm 사용)
+MODEL: str | None = None  # --model 로 설정 (sonnet 등). None 이면 기본 세션 모델.
 
 
 def call_claude(prompt: str, *, timeout: int = 120, retries: int = 3) -> str:
-    return call_glm(prompt, timeout=timeout, retries=retries)
+    """--model 지정 시 claude -p (구독 세션), 미지정 시 GLM API (call_glm, GLM_MODEL 환경변수)."""
+    if MODEL is None:
+        return call_glm(prompt, max_tokens=8192, timeout=timeout, retries=retries)
+    last_err = ""
+    model = MODEL  # 호출 도중 timeout 나면 haiku 로 강등 (특정 프롬프트가 sonnet 행 유발)
+    for attempt in range(retries):
+        if attempt:
+            time.sleep(2 + 2 * attempt)
+        cmd = ["claude", "-p", "--model", model, prompt]
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        except subprocess.TimeoutExpired:
+            last_err = f"timeout({model})"
+            if model != "haiku":
+                model = "haiku"
+            continue
+        if r.returncode != 0:
+            last_err = f"rc={r.returncode} stderr={r.stderr.strip()[:200]}"
+            continue
+        out = r.stdout.strip()
+        if not out:
+            last_err = "empty output"
+            continue
+        return out
+    raise RuntimeError(f"claude failed after {retries}: {last_err}")
 
 
 class CircuitBreaker:
@@ -250,7 +279,7 @@ def main() -> None:
     ap.add_argument("--dry", action="store_true", help="첫 프롬프트만 출력하고 종료")
     ap.add_argument("--breaker", type=int, default=20,
                     help="연속 실패 임계치 (기본 20)")
-    ap.add_argument("--model", default=None, help="claude -p 모델 (sonnet/haiku 등)")
+    ap.add_argument("--model", default=None, help="claude -p 모델 (sonnet/haiku 등). 미지정 시 GLM")
     args = ap.parse_args()
 
     global MODEL

@@ -315,6 +315,7 @@ function renderExtra(extra){
   if (kind === 'formula') return renderFormula(raw);
   if (kind === 'diagram') return renderDiagram(raw);
   if (kind === 'table')   return renderMarkdown(raw);
+  if (kind === 'image')   return `<div class="qimg"><img src="${escapeHtml(raw)}" loading="lazy" alt="문항 그림"></div>`;
   return renderMarkdown(raw); // text / mixed
 }
 
@@ -787,7 +788,7 @@ function fillExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
                      jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
-                     pi:'정처산' };
+                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방' };
   // per-exam correct count from localStorage (맞춘 갯수)
   const correctFor = (code) => {
     let n = 0;
@@ -2111,7 +2112,7 @@ function fillConceptsExamPicker(root, exams){
   const examMark = { s2:'사조분', g1:'공인1', g2:'공인2', iz:'정처기', sa:'산안기',
                      c1:'컴활1', k1:'한국사', kt:'전기', nd:'소방기', sw:'사복1',
                      jc:'직상2', j1:'주택1', j2:'주택2', c2:'컴활2', nw:'네트2',
-                     pi:'정처산' };
+                     pi:'정처산', p5:'PSAT5', g9:'9급국가', j9:'9급지방' };
   root.querySelector('#conceptsExamList').innerHTML = `
     <div class="section-head"><h2>자격증 선택</h2><span class="meta">${exams.length} EXAMS</span></div>
     <div class="group">
